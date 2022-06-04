@@ -8,6 +8,7 @@ const withProtect = (handler) => {
 
     // add some custom data and forward the rquest
     //   // Grant access to protected route
+    console.log("testing");
     req.user = "Ramkrishna";
 
     return handler(req, res);
