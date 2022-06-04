@@ -1,7 +1,7 @@
-import '../public/style.css'
-import '../database/connection'
+import "../public/globals.css";
+import "../database/connection";
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;
