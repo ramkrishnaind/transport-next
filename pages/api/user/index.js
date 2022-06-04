@@ -5,7 +5,7 @@ import withProtect from '../../../middlewares/withProtect'
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-async function handler(req, res) {
+async function createUserHandler(req, res) {
   try {
     console.log('CONNECTING TO MONGO');
     await connectMongo();
@@ -21,5 +21,5 @@ async function handler(req, res) {
     res.json({ error });
   }
 }
-export default withProtect(handler);
+export default withProtect(createUserHandler);
 // export default handler
