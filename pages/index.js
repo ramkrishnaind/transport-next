@@ -6,21 +6,52 @@ const HomePage = () => {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPhoneNumber, setEnteredPhoneNumber] = useState('');
 
-  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
-  const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(false);
-  const [enteredPhoneNumberIsValid, setEnteredPhoneNumberIsValid] = useState(false);
+  const [nameBlur, setNameBlur] = useState(false);
+  const [emailBlur, setEmailBlur] = useState(false);
+  const [phoneNumberBlur, setPhoneNumberBlur] = useState(false);
 
+  const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(true);
+
+  useEffect(()=>{
+    if(enteredName){
+      console.log("Name is valid");
+    }
+  },[enteredName]);
+
+  useEffect(()=>{
+    if(enteredEmail){
+      console.log("Email is valid");
+    }
+  },[enteredEmail]);
+  
+  useEffect(()=>{
+    if(enteredPhoneNumber){
+      console.log("PhoneNumber is valid");
+    }
+  },[enteredPhoneNumber]);
   
   const nameInputChangeHandler = (event) =>{
     setEnteredName(event.target.value);
   }
 
   const emailInputChangeHandler = (event) =>{
+   // validateEmail(event.target.value);
+   // if(enteredEmailIsValid){
     setEnteredEmail(event.target.value);
+   // }
   }
 
   const phoneNumberInputChangeHandler = (event) =>{
     setEnteredPhoneNumber(event.target.value);
+  }
+
+  function validateEmail(email){
+    setEnteredEmailIsValid(false);
+    const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+    const result = pattern.test(email);
+    if(result){
+      setEnteredEmailIsValid(true);
+    }
   }
 
     
@@ -49,26 +80,12 @@ const HomePage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
+    setNameBlur(true);
+    setEmailBlur(true);
+    setPhoneNumberBlur(true);
 
-    if( enteredName.trim() === ''){
-      setEnteredNameIsValid(false);
-      return;
-    }
-      setEnteredNameIsValid(true);
-
-    if( enteredEmail.trim() === ''){
-      setEnteredEmailIsValid(false);
-      return;
-    }
-    setEnteredEmailIsValid(true);
-
-    if( enteredPhoneNumber.trim() === ''){
-      setEnteredPhoneNumberIsValid(false);
-      return;
-    }
-    setEnteredPhoneNumberIsValid(true);
-
-    try {
+    if(!enteredName || !enteredEmail || !enteredPhoneNumber) return;
+     try {
       //await saveFormData();
       console.log(enteredName + enteredEmail + enteredPhoneNumber );
       alert('Success!' );
@@ -90,33 +107,37 @@ const HomePage = () => {
         <label className="text-gray-600 font-medium text-lg">Full Name</label>
         <input
           className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 mb-10"
-          name="name"
           type="text"
           placeholder=""
           autoFocus
           required
           onChange={nameInputChangeHandler}
           value={enteredName}
+          onBlur={()=> setNameBlur(true)}
         />
+        {nameBlur && !enteredName && (<div className="text-red-400">Name must not be empty.</div>)}
         <label className="text-gray-600 font-medium text-lg">Email Address</label>
         <input
           className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 mb-10"
-          name="email"
           type="email"
           placeholder=""
           required
           onChange={emailInputChangeHandler}
           value={enteredEmail}
+          onBlur={()=>setEmailBlur(true)}
         />
+        {emailBlur && !enteredEmail && (<p className="text-red-400">Email address must be valid.</p>)}
         <label className="text-gray-600 font-medium text-lg">Phone Number</label>
         <input
           className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 mb-10"
-          name="phoneNumber"
-          type="text" required 
+          type="text" 
+          required 
           placeholder=""
           onChange={phoneNumberInputChangeHandler}
           value={enteredPhoneNumber}
+          onBlur={()=> setPhoneNumberBlur(true)}
         />
+        {phoneNumberBlur && !enteredPhoneNumber && (<p className="text-red-400">Phone Number must not be empty.</p>)}
         <button
           className="mt-4 w-full bg-blue-500 hover:bg-blue-400 text-green-100 border py-3 px-6 font-semibold text-lg rounded"
           type="submit"
