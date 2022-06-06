@@ -22,9 +22,6 @@ const cityOptions = [
 
 const Step1 = () => {
   const [houseType, setHouseType] = useState(null);
-
-  const [floor, setFloor] = useState("");
-
   const [fromState, setFromState] = useState(null);
   const [toState, setToState] = useState(null);
   const [startDate, setStartDate] = useState(new Date());
