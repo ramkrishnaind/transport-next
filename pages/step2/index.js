@@ -38,9 +38,9 @@ const Step2 = () => {
     );
   };
   return (
-    <form class="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
-      <div class="flex items-center mb-5 justify-center items-center">
-        <label for="name" class="inline-block mr-2 text-gray-600">
+    <form className="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
+      <div className="flex items-center mb-5 justify-center items-center">
+        <label htmlFor="name" className="inline-block mr-2 text-gray-600">
           I currently live on
         </label>
         <Select
@@ -50,7 +50,7 @@ const Step2 = () => {
           options={floorOptions}
         />
 
-        <label for="name" class="inline-block w-50 mr-1 text-gray-600">
+        <label htmlFor="name" className="inline-block w-50 mr-1 text-gray-600">
           floor with service lift
         </label>
         <Select
@@ -59,13 +59,13 @@ const Step2 = () => {
           onChange={setFromLift}
           options={liftOptions}
         />
-        <label for="name" class="inline-block w-30 mr-1 text-gray-600">
+        <label htmlFor="name" className="inline-block w-30 mr-1 text-gray-600">
           for shifting.
         </label>
       </div>
-      <div class="flex items-center mb-5  justify-center items-center">
-        <label for="name" class="inline-block w-30 mr-2 text-gray-600">
-          I'm moving to
+      <div className="flex items-center mb-5  justify-center items-center">
+        <label htmlFor="name" className="inline-block w-30 mr-2 text-gray-600">
+          I&apos;m moving to
         </label>
         <Select
           className="block appearance w-40 bg-white  border-gray-400 hover:border-gray-500 px-4 py-2 focus:outline-none focus:shadow-outline"
@@ -73,7 +73,7 @@ const Step2 = () => {
           onChange={setToFloorType}
           options={floorOptions}
         />
-        <label class="inline-block w-50 mr-1 text-gray-600 text-right">
+        <label className="inline-block w-50 mr-1 text-gray-600 text-right">
           floor with service lift
         </label>
         <Select
@@ -82,13 +82,13 @@ const Step2 = () => {
           onChange={setToLift}
           options={liftOptions}
         />
-        <label for="name" class="inline-block w-30 mr-1 text-gray-600">
+        <label htmlFor="name" className="inline-block w-30 mr-1 text-gray-600">
           for shifting.
         </label>
       </div>
-      <div class="flex justify-center items-center">
+      <div className="flex justify-center items-center">
         <button
-          class="mt-4 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-lg rounded"
+          className="mt-4 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-lg rounded"
           type="submit"
           onClick={handleSubmit}
         >

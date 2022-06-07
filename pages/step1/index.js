@@ -41,9 +41,9 @@ const Step1 = () => {
     );
   };
   return (
-    <form class="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
-      <div class="flex items-center mb-5 justify-center items-center">
-        <label for="name" class="inline-block ml-20 mr-2 text-gray-600">
+    <form className="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
+      <div className="flex items-center mb-5 justify-center items-center">
+        <label htmlFor="name" className="inline-block ml-20 mr-2 text-gray-600">
           I am shifting my
         </label>
         <Select
@@ -53,7 +53,7 @@ const Step1 = () => {
           options={houseTypeOptions}
         />
 
-        <label for="name" class="inline-block w-10 mr-1 text-gray-600">
+        <label htmlFor="name" className="inline-block w-10 mr-1 text-gray-600">
           from
         </label>
         <Select
@@ -63,8 +63,11 @@ const Step1 = () => {
           options={cityOptions}
         />
       </div>
-      <div class="flex items-center mb-5  justify-center items-center">
-        <label for="name" class="inline-block w-10 ml-20 mr-2 text-gray-600">
+      <div className="flex items-center mb-5  justify-center items-center">
+        <label
+          htmlFor="name"
+          className="inline-block w-10 ml-20 mr-2 text-gray-600"
+        >
           to
         </label>
 
@@ -74,7 +77,7 @@ const Step1 = () => {
           onChange={setToState}
           options={cityOptions}
         />
-        <label class="inline-block w-5 ml-5 mr-6 text-gray-600 text-right">
+        <label className="inline-block w-5 ml-5 mr-6 text-gray-600 text-right">
           on
         </label>
         <div>
@@ -84,9 +87,9 @@ const Step1 = () => {
           />
         </div>
       </div>
-      <div class="flex justify-center items-center">
+      <div className="flex justify-center items-center">
         <button
-          class="mt-4 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-lg rounded"
+          className="mt-4 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-lg rounded"
           type="submit"
           onClick={handleSubmit}
         >
