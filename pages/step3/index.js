@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Select from "react-select";
+import Card from "../Card";
 
 const Step3 = () => {
   const handleSubmit = async (event) => {
@@ -21,95 +21,43 @@ const Step3 = () => {
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <img src="/assets/sofa-64.png" />
-          <p className="text-gray-500">Sofasets</p>
-          <button className="text-gray-800">0</button>
-        </div>
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">TVs</p>
-          <button className="text-gray-800">0</button>
-        </div>
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Bikes</p>
-          <button className="text-gray-800">0</button>
-        </div>
+        <Card image={"images/table.png"} item={"Sofasets"} itemCount={0} />
+        <Card image={"images/table.png"} item={"TVs"} itemCount={0} />
+        <Card image={"images/table.png"} item={"Bikes"} itemCount={0} />
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Tables</p>
-          <button className="text-gray-800">0</button>
-        </div>
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Refrigerators</p>
-          <button className="text-gray-800">0</button>
-        </div>
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Cars</p>
-          <button className="text-gray-800">0</button>
-        </div>
+        <Card image={"images/table.png"} item={"Tables"} itemCount={0} />
+        <Card image={"images/table.png"} item={"Refrigerators"} itemCount={0} />
+        <Card image={"images/table.png"} item={"Cars"} itemCount={0} />
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Chairs</p>
-          <button className="text-gray-800">0</button>
-        </div>
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Washing Machines</p>
-          <button className="text-gray-800">0</button>
-        </div>
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Cycles</p>
-          <button className="text-gray-800">0</button>
-        </div>
+        <Card image={"images/table.png"} item={"Chairs"} itemCount={0} />
+        <Card
+          image={"images/table.png"}
+          item={"Washing Machines"}
+          itemCount={0}
+        />
+        <Card image={"images/table.png"} item={"Cycles"} itemCount={0} />
       </div>
       <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Cots</p>
-          <button className="text-gray-800">0</button>
-        </div>
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Ovens</p>
-          <button className="text-gray-800">0</button>
-        </div>
+        <Card image={"images/table.png"} item={"Cots"} itemCount={0} />
+        <Card image={"images/table.png"} item={"Ovens"} itemCount={0} />
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Mattress</p>
-          <button className="text-gray-800">0</button>
-        </div>
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Air Conditioners</p>
-          <button className="text-gray-800">0</button>
-        </div>
+        <Card image={"images/table.png"} item={"Mattress"} itemCount={0} />
+        <Card
+          image={"images/table.png"}
+          item={"Air Conditioners"}
+          itemCount={0}
+        />
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Cupboards</p>
-          <button className="text-gray-800">0</button>
-        </div>
-        <div className="flex flex-row space-x-3 px-2 py-4 bg-white border-1 border-gray-400 rounded justify-between shadow-lg">
-          <p className="text-gray-500">Image</p>
-          <p className="text-gray-500">Fans/Coolers</p>
-          <button className="text-gray-800">0</button>
-        </div>
+        <Card image={"images/table.png"} item={"Cupboards"} itemCount={0} />
+        <Card image={"images/table.png"} item={"Fans/Coolers"} itemCount={0} />
       </div>
     </form>
   );
