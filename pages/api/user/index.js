@@ -1,4 +1,5 @@
-import connectMongo from "../../../database/connection";
+// import connectMongo from "../../../database/connection";
+import dbConnect from "../../../database/lib/dbConnect";
 import UserDB from "../../../database/Schemas/user";
 import withProtect from "../../../middlewares/withProtect";
 /**
@@ -6,6 +7,7 @@ import withProtect from "../../../middlewares/withProtect";
  * @param {import('next').NextApiResponse} res
  */
 async function createUserHandler(req, res) {
+  await dbConnect();
   try {
     // console.log('CONNECTING TO MONGO');
     // await connectMongo();
