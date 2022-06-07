@@ -14,12 +14,12 @@ async function createUserHandler(req, res) {
     // console.log('CONNECTED TO MONGO');
 
     // console.log('CREATING DOCUMENT');
-    const user = new UserDB({
+    const user = await UserDB.create({
       firstName: "Sita",
       lastName: "Ram",
       mobile: "9876545766",
     });
-    // res.json({ user: req.user });
+    res.json({ user: req.user });
     res.json({ user });
   } catch (error) {
     console.log(error);
