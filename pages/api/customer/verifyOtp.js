@@ -17,6 +17,9 @@ const customersignUpSchema = Joi.object({
 async function verifyOtp(req, res) {
     await dbConnect();
     try {
+        if (req.method != 'POST') {
+            return res.json({ status: false, error: true, message: "HTTP method not allowed" });
+        }
         let validateData = customersignUpSchema.validate(req.body);
         if (validateData.error) {
             return res.json({ status: false, error: validateData, message: "Invalid data" });

@@ -21,6 +21,9 @@ const bookingSchema = Joi.object({
 async function createBooking(req, res) {
   await dbConnect();
   try {
+    if (req.method != 'POST') {
+      return res.json({ status: false, error: true, message: "HTTP method not allowed" });
+    }
     let validateData = bookingSchema.validate(req.body);
     if (validateData.error) {
       return res.json({ status: false, error: validateData, message: "Invalid data" });
