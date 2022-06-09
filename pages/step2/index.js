@@ -88,7 +88,7 @@ const Step2 = () => {
       </div>
       <div className="flex justify-center items-center">
         <button
-          className="mt-4 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-lg rounded"
+          className="mt-4 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-lg rounded shadow-lg"
           type="submit"
           onClick={handleSubmit}
         >
