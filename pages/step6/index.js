@@ -88,7 +88,7 @@ const Step6 = () => {
         </p>
       </div>
 
-      <div class="w-5/6">
+      <div className="w-5/6">
       <form className="max-w-screen-xl m-auto py-10 px-5">
       <div className="grid gap-8 space-x-1 lg:grid-cols-3">
         <div className="px-4  ">
