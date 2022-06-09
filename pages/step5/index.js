@@ -42,47 +42,47 @@ const Step5 = () => {
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-4 mt-5">
-        <Card image={"images/car.png"} item={"Carton boxes"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Wet grinders"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Painting/frames"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Swings"} itemCount={0} />
+        <Card image={"images/carton-box-24.png"} item={"Carton boxes"} itemCount={0} />
+        <Card image={"images/grinder-24.png"} item={"Wet grinders"} itemCount={0} />
+        <Card image={"images/home-decorations-24.png"} item={"Painting/frames"} itemCount={0} />
+        <Card image={"images/swings-24.png"} item={"Swings"} itemCount={0} />
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-4 mt-5">
-        <Card image={"images/car.png"} item={"Water drums"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Water purifiers"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Cockery sets"} itemCount={0} />
+        <Card image={"images/sterilization-24.png"} item={"Water drums"} itemCount={0} />
+        <Card image={"images/water-cooler-24.png"} item={"Water purifiers"} itemCount={0} />
+        <Card image={"images/cookery-24.png"} item={"Cockery sets"} itemCount={0} />
         <Card
-          image={"images/car.png"}
+          image={"images/cyclist-24.png"}
           item={"Excercise cycles"}
           itemCount={0}
         />
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-4 mt-5">
-        <Card image={"images/car.png"} item={"Cribes"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Vacum cleaners"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Home theatres"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Tread mils"} itemCount={0} />
+        <Card image={"images/crib-24.png"} item={"Cribes"} itemCount={0} />
+        <Card image={"images/carpet-cleaning-24.png"} item={"Vacum cleaners"} itemCount={0} />
+        <Card image={"images/home-theater-24.png"} item={"Home theatres"} itemCount={0} />
+        <Card image={"images/treadmill-24.png"} item={"Tread mils"} itemCount={0} />
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-4 mt-5">
-        <Card image={"images/car.png"} item={"Lpg cylinders"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Dish washers"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Show pieces"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Infant cycles"} itemCount={0} />
+        <Card image={"images/cylinder-24.png"} item={"Lpg cylinders"} itemCount={0} />
+        <Card image={"images/sponge-24.png"} item={"Dish washers"} itemCount={0} />
+        <Card image={"images/home-decorations-24.png"} item={"Show pieces"} itemCount={0} />
+        <Card image={"images/bicycle-trailer-24.png"} item={"Infant cycles"} itemCount={0} />
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-4 mt-5">
         <Card
-          image={"images/car.png"}
+          image={"images/suitcase-24.png"}
           item={"Trunks/Suitcases"}
           itemCount={0}
         />
-        <Card image={"images/car.png"} item={"Desktops"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Bar cabinets"} itemCount={0} />
+        <Card image={"images/desktop-24.png"} item={"Desktops"} itemCount={0} />
+        <Card image={"images/bureau-24.png"} item={"Bar cabinets"} itemCount={0} />
         <Card
-          image={"images/car.png"}
+          image={"images/bigpotted-plant-24.png"}
           item={"Flower pot small"}
           itemCount={0}
         />
@@ -90,24 +90,24 @@ const Step5 = () => {
 
       <div className="grid gap-8 space-x-1 md:grid-cols-4 mt-5">
         <Card
-          image={"images/car.png"}
+          image={"images/inverter-24.png"}
           item={"Inverter+batteries"}
           itemCount={0}
         />
-        <Card image={"images/car.png"} item={"Swing machines"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Lamps"} itemCount={0} />
+        <Card image={"images/sewing-machine-24.png"} item={"Swing machines"} itemCount={0} />
+        <Card image={"images/lamp-24.png"} item={"Lamps"} itemCount={0} />
         <Card
-          image={"images/car.png"}
+          image={"images/potted-plant-24.png"}
           item={"Flower pot large"}
           itemCount={0}
         />
       </div>
 
       <div className="grid gap-8 space-x-1 md:grid-cols-4 mt-5">
-        <Card image={"images/car.png"} item={"Kitchen racks"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Stoves"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Temples"} itemCount={0} />
-        <Card image={"images/car.png"} item={"Bean bags"} itemCount={0} />
+        <Card image={"images/kitchen-room-24.png"} item={"Kitchen racks"} itemCount={0} />
+        <Card image={"images/cooker-24.png"} item={"Stoves"} itemCount={0} />
+        <Card image={"images/temple-24.png"} item={"Temples"} itemCount={0} />
+        <Card image={"images/bean-bag-24.png"} item={"Bean bags"} itemCount={0} />
       </div>
     </form>
     </div>
