@@ -27,7 +27,7 @@ const Step7 = () => {
           +NEW ORDER
         </button>
       </div>
-      <div class="flex m-10 space-x-5">
+      <div className="flex m-10 space-x-5">
         <div className="h-80 w-2/5 rounded shadow-lg">
           <div className="flex ">
             <div className="w-1/3 h-80">
@@ -138,7 +138,7 @@ const Step7 = () => {
             <div className="flex- 1 w-1/2  ">{moveType}</div>
           </div>
 
-          <div class="w-5/6">
+          <div className="w-5/6">
             <form className="max-w-screen-xl m-auto py-10 px-5">
               <div className="grid space-x-1 lg:grid-cols-1">
                 <div className="px-4  ">
