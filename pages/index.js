@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 const HomePage = () => {
-
-  const [enteredName, setEnteredName] = useState('');
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [enteredPhoneNumber, setEnteredPhoneNumber] = useState('');
+  const [enteredName, setEnteredName] = useState("");
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPhoneNumber, setEnteredPhoneNumber] = useState("");
 
   const [nameBlur, setNameBlur] = useState(false);
   const [emailBlur, setEmailBlur] = useState(false);
@@ -12,56 +11,55 @@ const HomePage = () => {
 
   const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(true);
 
-  useEffect(()=>{
-    if(enteredName){
+  useEffect(() => {
+    if (enteredName) {
       console.log("Name is valid");
     }
-  },[enteredName]);
+  }, [enteredName]);
 
-  useEffect(()=>{
-    if(enteredEmail){
+  useEffect(() => {
+    if (enteredEmail) {
       console.log("Email is valid");
     }
-  },[enteredEmail]);
-  
-  useEffect(()=>{
-    if(enteredPhoneNumber){
+  }, [enteredEmail]);
+
+  useEffect(() => {
+    if (enteredPhoneNumber) {
       console.log("PhoneNumber is valid");
     }
-  },[enteredPhoneNumber]);
-  
-  const nameInputChangeHandler = (event) =>{
+  }, [enteredPhoneNumber]);
+
+  const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
-  }
+  };
 
-  const emailInputChangeHandler = (event) =>{
-   // validateEmail(event.target.value);
-   // if(enteredEmailIsValid){
+  const emailInputChangeHandler = (event) => {
+    // validateEmail(event.target.value);
+    // if(enteredEmailIsValid){
     setEnteredEmail(event.target.value);
-   // }
-  }
+    // }
+  };
 
-  const phoneNumberInputChangeHandler = (event) =>{
+  const phoneNumberInputChangeHandler = (event) => {
     setEnteredPhoneNumber(event.target.value);
-  }
+  };
 
-  function validateEmail(email){
+  function validateEmail(email) {
     setEnteredEmailIsValid(false);
-    const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+    const pattern =
+      /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
     const result = pattern.test(email);
-    if(result){
+    if (result) {
       setEnteredEmailIsValid(true);
     }
   }
 
-    
-  // const [values, setValues] = useState({ 
+  // const [values, setValues] = useState({
   //   name: '',
-  //   email: '', 
-  //   phoneNumber: '' 
+  //   email: '',
+  //   phoneNumber: ''
   // });
 
-  
   // const set = name => {
   //   return ({ target: { value } }) => {
   //     setValues(oldValues => ({...oldValues, [name]: value }));
@@ -69,14 +67,14 @@ const HomePage = () => {
   // };
 
   const saveFormData = async () => {
-    const response = await fetch('/api/', {
-      method: 'POST',
-      body: JSON.stringify(values)
+    const response = await fetch("/api/", {
+      method: "POST",
+      body: JSON.stringify(values),
     });
     if (response.status !== 200) {
-      throw new Error(`Request failed: ${response.status}`); 
+      throw new Error(`Request failed: ${response.status}`);
     }
-  }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
@@ -84,19 +82,18 @@ const HomePage = () => {
     setEmailBlur(true);
     setPhoneNumberBlur(true);
 
-    if(!enteredName || !enteredEmail || !enteredPhoneNumber) return;
-     try {
+    if (!enteredName || !enteredEmail || !enteredPhoneNumber) return;
+    try {
       //await saveFormData();
-      console.log(enteredName + enteredEmail + enteredPhoneNumber );
-      alert('Success!' );
-      setEnteredName('');
-      setEnteredEmail('');
-      setEnteredPhoneNumber('');
-      
+      console.log(enteredName + enteredEmail + enteredPhoneNumber);
+      alert("Success!");
+      setEnteredName("");
+      setEnteredEmail("");
+      setEnteredPhoneNumber("");
     } catch (e) {
       alert(`Submission failed! ${e.message}`);
     }
-  }
+  };
 
   return (
     <div>
@@ -113,10 +110,14 @@ const HomePage = () => {
           required
           onChange={nameInputChangeHandler}
           value={enteredName}
-          onBlur={()=> setNameBlur(true)}
+          onBlur={() => setNameBlur(true)}
         />
-        {nameBlur && !enteredName && (<div className="text-red-400">Name must not be empty.</div>)}
-        <label className="text-gray-600 font-medium text-lg">Email Address</label>
+        {nameBlur && !enteredName && (
+          <div className="text-red-400">Name must not be empty.</div>
+        )}
+        <label className="text-gray-600 font-medium text-lg">
+          Email Address
+        </label>
         <input
           className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 mb-10"
           type="email"
@@ -124,20 +125,26 @@ const HomePage = () => {
           required
           onChange={emailInputChangeHandler}
           value={enteredEmail}
-          onBlur={()=>setEmailBlur(true)}
+          onBlur={() => setEmailBlur(true)}
         />
-        {emailBlur && !enteredEmail && (<p className="text-red-400">Email address must be valid.</p>)}
-        <label className="text-gray-600 font-medium text-lg">Phone Number</label>
+        {emailBlur && !enteredEmail && (
+          <p className="text-red-400">Email address must be valid.</p>
+        )}
+        <label className="text-gray-600 font-medium text-lg">
+          Phone Number
+        </label>
         <input
           className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 mb-10"
-          type="text" 
-          required 
+          type="text"
+          required
           placeholder=""
           onChange={phoneNumberInputChangeHandler}
           value={enteredPhoneNumber}
-          onBlur={()=> setPhoneNumberBlur(true)}
+          onBlur={() => setPhoneNumberBlur(true)}
         />
-        {phoneNumberBlur && !enteredPhoneNumber && (<p className="text-red-400">Phone Number must not be empty.</p>)}
+        {phoneNumberBlur && !enteredPhoneNumber && (
+          <p className="text-red-400">Phone Number must not be empty.</p>
+        )}
         <button
           className="mt-4 w-full bg-blue-500 hover:bg-blue-400 text-green-100 border py-3 px-6 font-semibold text-lg rounded"
           type="submit"
@@ -145,7 +152,9 @@ const HomePage = () => {
         >
           Calculate Your Moving Cost
         </button>
-        <p className="text-xs text-center text-gray-500 py-3 px-6">Trusted By 100K+ Happy Customers.</p>
+        <p className="text-xs text-center text-gray-500 py-3 px-6">
+          Trusted By 100K+ Happy Customers.
+        </p>
       </form>
     </div>
   );
