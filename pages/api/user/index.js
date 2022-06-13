@@ -7,7 +7,7 @@ import withProtect from "../../../middlewares/withProtect";
  * @param {import('next').NextApiResponse} res
  */
 async function createUserHandler(req, res) {
-  await dbConnect();
+  //await dbConnect();
   try {
     // console.log('CONNECTING TO MONGO');
     // await connectMongo();
@@ -19,7 +19,7 @@ async function createUserHandler(req, res) {
       lastName: "Ram",
       mobile: "9876545766",
     });
-    res.json({ user: req.user });
+    //res.json({ user: req.user });
     res.json({ user });
   } catch (error) {
     console.log(error);

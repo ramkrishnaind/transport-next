@@ -1,6 +1,8 @@
 import "../public/globals.css";
 import { useRouter } from "next/router";
 import NormalLayout from "../components/UI/NormalLayout";
+import "antd/dist/antd.css";
+import "../public/overRide.css";
 // import "../database/connection";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
