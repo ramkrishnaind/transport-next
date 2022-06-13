@@ -8,8 +8,14 @@ const index = (props) => {
       <div className="grid grid-cols-12">
         <Header />
       </div>
-      <div className="grid grid-cols-12" style={{ minHeight: "80vh" }}>
-        <div className="bg-red-100">{props.children}</div>
+      <div
+        className="grid grid-cols-12 gap-4 flex-1"
+        style={{ minHeight: "80vh" }}
+      >
+        <div className="bg-blue-100 col-span-4">
+          <LeftNavigation />
+        </div>
+        <div className="bg-red-100 col-span-8">{props.children}</div>
       </div>
       <div className="grid grid-cols-12">
         <Footer />
