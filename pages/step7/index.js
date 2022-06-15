@@ -24,7 +24,7 @@ const Step7 = () => {
           className="m-5 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-10 text-sm rounded shadow-lg"
           type="submit"
         >
-          +NEW ORDER
+          + NEW ORDER
         </button>
       </div>
       <div className="flex m-10 space-x-5">

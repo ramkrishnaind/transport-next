@@ -1,0 +1,859 @@
+{
+  "Furniture": [
+    {
+      "Sofasets": [
+        {
+          "1 seat": [
+            {
+              "type": "Leather",
+              "sofaRecliner": ["Recliner", "Non Recliner"],
+              "storageType": ""
+            },
+            {
+              "type": "Wooden",
+              "sofaRecliner": "",
+              "storageType": ["With storage", "Without storage"]
+            },
+            {
+              "type": "Fabric",
+              "sofaRecliner": ["Recliner", "Non Recliner"],
+              "storageType": ""
+            },
+            {
+              "type": "Cane",
+              "sofaRecliner": "",
+              "storageType": ""
+            }
+          ]
+        },
+        {
+          "2 seats": [
+            {
+              "2": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ],
+              "1+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "3 seats": [
+            {
+              "3": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ],
+              "2+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "4 seats": [
+            {
+              "3+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ],
+              "2+2": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ]
+            },
+            {
+              "2+1+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ],
+              "4": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "5 seats": [
+            {
+              "4+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ],
+              "2+2+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ]
+            },
+            {
+              "3+1+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ],
+              "3+2": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "6 seats": [
+            {
+              "4+2": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ],
+              "4+1+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ]
+            },
+            {
+              "3+2+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ],
+              "2+2+1+1": [
+                {
+                  "type": "Leather",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Wooden",
+                  "sofaRecliner": "",
+                  "storageType": ["With storage", "Without storage"]
+                },
+                {
+                  "type": "Fabric",
+                  "sofaRecliner": ["Recliner", "Non Recliner"],
+                  "storageType": ""
+                },
+                {
+                  "type": "Cane",
+                  "sofaRecliner": "",
+                  "storageType": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "7 seats": [
+            {
+              "type": "Leather",
+              "sofaRecliner": ["Recliner", "Non Recliner"],
+              "storageType": ""
+            },
+            {
+              "type": "Wooden",
+              "sofaRecliner": "",
+              "storageType": ["With storage", "Without storage"]
+            },
+            {
+              "type": "Fabric",
+              "sofaRecliner": ["Recliner", "Non Recliner"],
+              "storageType": ""
+            },
+            {
+              "type": "Cane",
+              "sofaRecliner": "",
+              "storageType": ""
+            }
+          ]
+        }
+    ]},
+    {
+      "Tables": [
+        {
+          "Coffee/Centre": [
+            {
+              "type": "",
+              "model": ["Glass top", "Wooden top"]
+            }
+          ]
+        },
+        {
+          "Dinning table": [
+            {
+                
+                  "2 seater": [
+                    {
+                      
+                      "model": ["Glass top", "Metal top", "Wooden top"],
+                      "storage": ""
+                    }
+                  ],
+                  "3 seater": [
+                    {
+                      "model": ["Glass top", "Metal top", "Wooden top"],
+                      "storage": ""
+                    }
+                  ],
+                  "4 seater": [
+                    {
+                      "model": ["Glass top", "Metal top", "Wooden top"],
+                      "storage": ""
+                    }
+                  ],
+                  "5 seater": [
+                    {
+                      "model": ["Glass top", "Metal top", "Wooden top"],
+                      "storage": ""
+                    }
+                  ],
+                  "6 seater": [
+                    {
+                      "model": ["Glass top", "Metal top", "Wooden top"],
+                      "storage": ""
+                    }
+                  ],
+                  "7 or more seater": [
+                    {
+                      "model": ["Glass top", "Metal top", "Wooden top"],
+                      "storage": ""
+                    }
+                  ]
+            }
+          ]
+        },
+        { "Side table": [
+          {
+            "model": ["Glass top", "Wooden top"],
+            "storage": ""
+          }
+        ] },
+        { "Plastic table": [
+          {
+            "model": "",
+            "storage": ""
+          }
+        ] },
+        { "Computer/Office table": [
+          {
+            "model":"",
+            "storage": ["With Storage", "Without Storage"]
+          }
+        ] },
+        { "Dressing table": [
+          {
+            "model": ["Dismantlable", "Non-dismantable"],
+            "storage": ""
+          }
+        ] },
+        { "Iron board": [
+          {
+            "model":"",
+            "storage": ""
+          }
+        ] }
+    ]},
+    { "Chairs": [
+      "Office/Computer", 
+      "Kid",
+      "Dining",
+      "Rocking",
+      "Plastic",
+      "Executive"
+    ] },
+    {"Cot":[
+      {
+      "King size":[
+        {
+          "cotType": ["Dismantlable", "Foldable", "Neither"],
+          "storageType" : ["With storage", "Without storage"]
+        }
+      ],
+      "Queen Size":[
+        {
+          "cotType": ["Dismantlable", "Foldable", "Neither"],
+          "storageType" : ["With storage", "Without storage"]
+        }
+      ], 
+      "Double cot":[
+        {
+          "cotType": ["Dismantlable", "Foldable", "Neither"],
+          "storageType" : ["With storage", "Without storage"]
+        }
+      ], 
+      "Single cot":[
+        {
+          "cotType": ["Dismantlable", "Foldable", "Neither"],
+          "storageType" : ["With storage", "Without storage"]
+        }
+      ], 
+      "Bunk bed":"", 
+      "Diwan":[
+        {
+          "storageType" : ["With storage", "Without storage"]
+        }
+      ]
+    }
+    ]},
+    { "Mattress": [
+      {
+        "Double" :["< 4 inch thickness", "4 to 8 inch thickness", "> 8 inch thickness"]
+      },
+      {
+        "Single" : ""
+      }
+    ] },
+    { "Cupboards": [
+      {      
+      "Wooden wardroble":[{
+          "height": ["Height < 2 ft", "Height 2-4 ft", "Height 4-6 ft", "Height > 6 ft"],
+          "width": ["Width < 2 ft", "Width 2-4 ft", "Width 4-6 ft", "Width > 6 ft"]
+        }]
+      },
+       {"Steel almirah":[{
+        "height": ["Height < 5 ft", "Height > 5 ft"],
+        "width": ""
+       }]},
+       {"Plastic cupboard":""}, 
+       {"Show case":[{
+        "height": ["Height < 2 ft", "Height 2-4 ft", "Height 4-6 ft", "Height > 6 ft"],
+        "width": ["Width < 2 ft", "Width 2-4 ft", "Width 4-6 ft", "Width > 6 ft"],
+        "fitmentType":["With glass fitments", "without glass fitments"]
+       }]}, 
+       {"Shoe rack":[{
+        "height": ["Height < 2 ft", "Height 2-4 ft", "Height 4-6 ft", "Height > 6 ft"],
+        "width": ["Width < 2 ft", "Width 2-4 ft", "Width 4-6 ft", "Width > 6 ft"]
+       }]}, 
+       {"Tv cabinet":[{
+        "height": ["Height < 2 ft", "Height 2-4 ft", "Height 4-6 ft", "Height > 6 ft"],
+        "width": ["Width < 2 ft", "Width 2-4 ft", "Width 4-6 ft", "Width > 6 ft"],
+        "fitmentType":["With glass fitments", "without glass fitments"]
+       }]}, 
+       {"Book shelf":[{
+        "height": ["Height < 2 ft", "Height 2-4 ft", "Height 4-6 ft", "Height > 6 ft"],
+        "width": ["Width < 2 ft", "Width 2-4 ft", "Width 4-6 ft", "Width > 6 ft"],
+        "fitmentType":["With glass fitments", "without glass fitments"]
+       }]}
+    ]}
+  ],
+  "Electronic": [
+    {"TVs" : [{
+      "model":[
+        {
+          "LED":[
+            {
+              "size":[{
+                "< 24 inch" :[
+                  {"mounted": ["Wall mounted", "Non-wall mounted"]}
+                ],
+                "24-31 inch" :[
+                  {"mounted": ["Wall mounted", "Non-wall mounted"]}
+                ],
+                "32 inch" :[
+                  {"mounted": ["Wall mounted", "Non-wall mounted"]}
+                ],
+                "33-39 inch" :[
+                  {"mounted": ["Wall mounted", "Non-wall mounted"]}
+                ]
+              }] 
+            }],
+            "LCD":[{
+              "size":[{
+                "< 24 inch" :[
+                  {"mounted": ["Wall mounted", "Non-wall mounted"]}
+                ],
+                "24-31 inch" :[
+                  {"mounted": ["Wall mounted", "Non-wall mounted"]}
+                ],
+                "32 inch" :[
+                  {"mounted": ["Wall mounted", "Non-wall mounted"]}
+                ],
+                "33-39 inch" :[
+                  {"mounted": ["Wall mounted", "Non-wall mounted"]}
+                ]
+              }] 
+            }],
+            "CRT":""
+        }
+      ]
+      
+    }]},
+    {"Refrigerators":[{
+      "model" : ["Single door", "Double door", "Side by Side", "Triple door"]
+    }]},
+    {"Washing Machines":[{
+      "model" : [
+        {
+          "Top Loading":[
+          {
+            "type" : ["Automatic", "Semi automatic"]
+          }],
+          "Front Loading":""
+        }]
+    
+    }]},
+    {"Ovens":[{
+      "model" : ["Microwave", "Ofg", "Cooking range"]
+    }]},
+    {"Air Conditioners":[{
+      "model" :[
+        {
+          "Window" : [
+            {
+              "size" : ["< 1 ton", "1 - 1.5 ton", "1.5 - 2 ton"]
+            }] ,
+           "Split" :[
+            {
+              "size" : ["< 1 ton", "1 - 1.5 ton", "1.5 - 2 ton"]
+            }] 
+        }]
+    }]},
+    {"Fans/Coolers":[{
+      "model" : ["Tower Cooler","Ceiling fan","Table fan", "Pedestal fan","Wall mounted fan"]
+    }]}
+  ],
+  "Vehicle": [
+    {"Bikes":[{
+      "brand":[
+        {
+          "Honda":[
+            {
+              "model": [ "Activa", "CB Shine", "CB Unicorn", "Dio", "Livo", "CBR 150", "CB Trigger", "CBR 250", "Dream Yuga", "CB Twister", "Aviaton", "CBF Stunner", "Dream Neo", "CD 110 Dream", "CBR 1000 RR"]
+            }
+          ],
+          "Bajaj":[
+            {
+              "model" : ["Pulsar DTS-i", "Pulsar RS200", "Pulsar 220F", "Pulsar NS 200", "Pulsar 135", "CT100", "Platina", "Avenger", "Pulsar AS", "Discover" ]
+            }
+          ],
+          "Hero":[
+            {
+              "model" : ["Splendor", "Passion", "Maestro", "Glamour", "Pleasure", "Splendor Classic", "HF Deluxe", "Hunk", "Ignitor", "Karizma", "Xtreme", "HF Dawn", "Achiever", "Impulse", "Duet" ]
+            }
+          ],
+          "TVS Motors":[
+            {
+              "model" :["Apache RTR", "Jupiter", "Sport", "StarCity Plus", "Heavy Duty super XL", "Scooty", "Wego", "Phoenix", "MAX4R" ]
+            }
+          ],
+          "Royal Enfield":[
+            {
+              "model":["Classic 350", "Thunderbird 350", "Bullet 350", "Bullet Electra", "Classic 500", "Thunderbird 500", "Continental GT (Cafe Racer)", "Bullet 500" ]
+            }
+          ],
+          "Yamaha":[
+            {
+              "model": ["FZ S", "YZF R15", "Fazer", "FZ", "SZRR", "YZF-R3", "Crux", "Saluto", "Ray", "Alpha", "Fascino", "Vmax", "YZF R1", "FZ1" ] 
+            }
+          ],
+          "Suzuki":[
+            {
+              "model": ["Gixxer", "Gixxer SF", "GS150R", "Hayate", "SlingShot Plus", "Swish 125 facelift", "Lets", "Access", "GSX-R1000", "M1800R", "M800", "GSX-S1000", "Bandit", "Hayabusa", "V-Strom 1000" ]
+            }
+          ],
+          "KTM":[
+            {
+              "model" :  ["Duke 200", "RC 200", "390 Duke ABS", "RC 390" ]
+            }
+          ],
+          "Mahindra":[
+            {
+              "model" : ["Gusto", "Rodeo", "Centuro", "Duro", "Mojo" ] 
+            }
+          ],
+          "Kawasaki":[],
+          "Harley Davidson":[
+            {
+              "model" : ["Street 750", "Iron 883", "Superlow", "Forty Eight", "V Rod", "CVO Limited", "Fat Bob", "Street Bob", "Fat Boy Special", "Breakout", "Road King 2016", "Heritage Softail Classic", "Street Glide Special" ]
+            }
+          ],
+          "BMW":[
+            {
+              "model" :["S1000RR", "K1300", "K1600", "S1000R", "R nineT", "R1200" ] 
+            }
+          ]
+        }
+      ]
+    }]}, 
+    {"Cars":[{
+      "brand":  [
+        {
+          "Maruti Suzuki":[
+            {
+              "model" : ["Alto", "Wagon R", "Celerio", "Ritz", "Swift", "Swift Drize", "Ertiga", "Ciaz", "S-Cross", "Omni", "800", "Baleno", "A-Star", "Zen estilo", "Esteem", "Eeco", "Versa", "Gypsy"]
+            }
+          ],
+          "Hyundai":[
+            {
+              "model" : ["Eon", "i10", "Grand i10", "Xcent", "i20", "Verna", "Creta", "Elantra", "Santro", "Sonata", "Tucson", "Accent"]
+            }
+          ],
+          "Honda siel":[
+            {
+              "model" : ["Brio", "Amaze", "Jazz", "Mobilio", "City", "CR-V", "Accord", "Civic"]
+            }
+          ],
+          "Mahindra":[
+            {
+              "model" : ["Thar", "XUV500", "Xylo", "Scorpio", "e2o", "Verito Vibe", "Bolero", "Quanto", "Verito", "TUV300"]
+            }
+          ],
+          "Tata Motors":[
+            {
+              "model" : ["Nano", "Indica", "Bolt", "Zest", "Indigo eCS", "Manza", "Sumo", "Safari", "XenonXT", "Aria"]
+            }
+          ],
+          "Toyota":[
+            {
+              "model" : ["Etios Liva", "Etios", "Qualis", "Innova", "Corolla Altis"]
+            }
+          ],
+          "Volkswagen":[
+            {
+              "model" : ["Polo", "Vento", "Jetta", "Beetle"]
+            }
+          ],
+          "Ford":[
+            {
+              "model" : ["Figo", "Figo Aspire", "Classic", "EcoSport", "Fiesta"]
+            }
+          ],
+          "Datsun":[
+            {
+              "model" : ["Go"]
+            }
+          ],
+          "Chevrolet":[
+            {
+              "model" : ["Spark", "Beat", "Sail Hatchback", "Sail", "Enjoy", "Tavera", "Cruze", "Captiva", "Trailblazer"]
+            }
+          ],
+          "Renault":[
+            {
+              "model" : ["Kwid", "Pulse", "Scala", "Lodgy", "Duster", "Fluence", "Koleos"]
+            }
+          ],
+          "Audi":[
+            {
+              "model" : ["Audi A3"]
+            }
+          ],
+          "Mercedes-Benz":[
+            {
+              "model" : ["A-class","B-class","CLA-class","GLA-class"]
+            }
+          ],
+          "Nissan":[
+            {
+              "model" : ["Micra", "Sunny", "Evalia", "Teana", "Terrano"]
+            }
+          ],
+          "BMW":[
+            {
+              "model" : ["1 Series","3 Series","X1"]
+            }
+          ],
+          "Skoda":[
+            {
+              "model" : ["Rapid", "Octavia", "Fabia", "Yeti", "Superb"]
+            }
+          ],
+          "Fait":[
+            {
+              "model" : ["Punto","Linea","Avventura"]
+            }
+          ],
+          "Ssangyong":[
+            {
+              "model" : ["Rexton"]
+            }
+          ],
+          "Eicher":[
+            {
+              "model" : ["Polaris Multix"]
+            }
+          ],
+          "Isuzu":[
+            {
+              "model" : ["MU7"]
+            }
+          ]
+        }
+      ]
+    }]}, 
+    {"Cycles":[{
+      "model" : ["With gear", "Without gear"]
+    }]}
+  ]
+}

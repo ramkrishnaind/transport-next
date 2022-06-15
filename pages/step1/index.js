@@ -42,12 +42,12 @@ const Step1 = () => {
   };
   return (
     <form className="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
-      <div className="flex items-center mb-5 justify-center items-center">
+      <div className="flex items-center mb-5 justify-center">
         <label htmlFor="name" className="inline-block ml-20 mr-2 text-gray-600">
           I am shifting my
         </label>
         <Select
-          className="block appearance w-60 bg-white  border-gray-400 hover:border-gray-500 px-4 py-2 focus:outline-none focus:shadow-outline"
+          className="w-60 bg-white  border-gray-400 hover:border-gray-500 px-4 py-2 focus:outline-none focus:shadow-outline"
           defaultValue={houseType}
           onChange={setHouseType}
           options={houseTypeOptions}
@@ -57,7 +57,7 @@ const Step1 = () => {
           from
         </label>
         <Select
-          className="block appearance-none w-80 bg-white  border-gray-400 hover:border-gray-500 px-4 py-2 focus:outline-none focus:shadow-outline"
+          className="w-80 bg-white  border-gray-400 hover:border-gray-500 px-4 py-2 focus:outline-none focus:shadow-outline"
           defaultValue={fromState}
           onChange={setFromState}
           options={cityOptions}

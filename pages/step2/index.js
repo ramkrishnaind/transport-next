@@ -39,7 +39,7 @@ const Step2 = () => {
   };
   return (
     <form className="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
-      <div className="flex items-center mb-5 justify-center items-center">
+      <div className="flex items-center mb-5 justify-center">
         <label htmlFor="name" className="inline-block mr-2 text-gray-600">
           I currently live on
         </label>
@@ -63,7 +63,7 @@ const Step2 = () => {
           for shifting.
         </label>
       </div>
-      <div className="flex items-center mb-5  justify-center items-center">
+      <div className="flex items-center mb-5  justify-center">
         <label htmlFor="name" className="inline-block w-30 mr-2 text-gray-600">
           I&apos;m moving to
         </label>
