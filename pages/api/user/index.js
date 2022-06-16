@@ -2,11 +2,13 @@
 import dbConnect from "../../../database/lib/dbConnect";
 import UserDB from "../../../database/Schemas/user";
 import withProtect from "../../../middlewares/withProtect";
-
+const _ = require('lodash');
 const Joi = require('joi');
+import { customAlphabet } from 'nanoid';
+const numbers = "0123456789";
 
 const userSignUpSchema = Joi.object({
-  fullName: Joi.string().trim().required(),
+  firstName: Joi.string().trim().required(),
   email: Joi.string().email().trim(),
   mobile: Joi.number().required(),
 });
@@ -30,7 +32,7 @@ async function createUserHandler(req, res) {
 
 
      // pick data from req.body
-     let userData = _.pick(req.body, ['fullName', 'email', 'mobile']);
+     let userData = _.pick(req.body, ['firstName', 'email', 'mobile']);
      let getHash = customAlphabet(numbers, 4)
      let otp = getHash();
      userData.otp = otp;
