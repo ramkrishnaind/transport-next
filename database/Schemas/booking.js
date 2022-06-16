@@ -37,6 +37,51 @@ const bookingSchema = new Schema({
     isLiftAvailableOnMovingFloor: {
         type: Boolean,
     },
+    Sofasets: {
+        type: Number,
+    },
+    Tables: {
+        type: Number,
+    },
+    Chairs: {
+        type: Number,
+    },
+    Cots: {
+        type: Number,
+    },
+    Mattress: {
+        type: Number,
+    },
+    Cupboards: {
+        type: Number,
+    },
+    TVs: {
+        type: Number,
+    },
+    Refrigerators: {
+        type: Number,
+    },
+    WashingMachines: {
+        type: Number,
+    },
+    Ovens: {
+        type: Number,
+    },
+    AirConditioners: {
+        type: Number,
+    },
+    FansCoolers: {
+        type: Number,
+    },
+    Bikes: {
+        type: Number,
+    },
+    Cars: {
+        type: Number,
+    },
+    Cycles: {
+        type: Number,
+    },
 },
     {
         timestamps: {
