@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import { registerCustomer } from '../services/customer-api-service';
+import { Button, notification, Alert } from 'antd';
 const HomePage = () => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -54,26 +55,14 @@ const HomePage = () => {
     }
   }
 
-  // const [values, setValues] = useState({
-  //   name: '',
-  //   email: '',
-  //   phoneNumber: ''
-  // });
-
-  // const set = name => {
-  //   return ({ target: { value } }) => {
-  //     setValues(oldValues => ({...oldValues, [name]: value }));
-  //   }
-  // };
-
   const saveFormData = async () => {
-    const response = await fetch("/api/", {
-      method: "POST",
-      body: JSON.stringify(values),
-    });
-    if (response.status !== 200) {
-      throw new Error(`Request failed: ${response.status}`);
-    }
+    return await registerCustomer(
+      {
+        fullName: enteredName,
+        email: enteredEmail,
+        mobile: enteredPhoneNumber
+      }
+    );
   };
 
   const handleSubmit = async (event) => {
@@ -84,12 +73,23 @@ const HomePage = () => {
 
     if (!enteredName || !enteredEmail || !enteredPhoneNumber) return;
     try {
-      //await saveFormData();
-      console.log(enteredName + enteredEmail + enteredPhoneNumber);
-      alert("Success!");
-      setEnteredName("");
-      setEnteredEmail("");
-      setEnteredPhoneNumber("");
+      let saveResponse = await saveFormData();
+      console.log('saveRes', saveResponse.data)
+      if (saveResponse.data.status) {
+        alert(saveResponse.data.message)
+        setEnteredName("");
+        setEnteredEmail("");
+        setEnteredPhoneNumber("");
+        //Redirect to OTP Screen
+      } else {
+        console.log("i am in else", saveResponse.data.error.error.details[0].message)
+        notification.open({
+          type: 'error',
+          message: 'Error',
+          description: saveResponse.data.error.error.details[0].message,
+        });
+      }
+
     } catch (e) {
       alert(`Submission failed! ${e.message}`);
     }
