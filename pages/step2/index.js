@@ -37,6 +37,7 @@ const Step2 = () => {
         toLift.value
     );
   };
+  const disabled = !(fromFloorType && fromLift && toFloorType && toLift);
   return (
     <form className="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
       <div className="flex items-center mb-5 justify-center">
@@ -88,9 +89,10 @@ const Step2 = () => {
       </div>
       <div className="flex justify-center items-center">
         <button
-          className="mt-4 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-lg rounded shadow-lg"
+          className="mt-4 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-lg rounded shadow-lg disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
           type="submit"
           onClick={handleSubmit}
+          disabled={disabled}
         >
           Next
         </button>
