@@ -44,7 +44,11 @@ const HomePage = () => {
   const phoneNumberInputChangeHandler = (event) => {
     setEnteredPhoneNumber(event.target.value);
   };
-
+  const disableSubmit =
+    !enteredName ||
+    !enteredPhoneNumber ||
+    !enteredEmail ||
+    !enteredEmail.includes("@");
   function validateEmail(email) {
     setEnteredEmailIsValid(false);
     const pattern =
@@ -101,52 +105,59 @@ const HomePage = () => {
         Find out how much your moving will cost you?
       </h1>
       <form className="max-w-xl m-auto py-10 mt-10 px-12 border">
-        <label className="text-gray-600 font-medium text-lg">Full Name</label>
-        <input
-          className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 mb-10"
-          type="text"
-          placeholder=""
-          autoFocus
-          required
-          onChange={nameInputChangeHandler}
-          value={enteredName}
-          onBlur={() => setNameBlur(true)}
-        />
-        {nameBlur && !enteredName && (
-          <div className="text-red-400">Name must not be empty.</div>
-        )}
-        <label className="text-gray-600 font-medium text-lg">
-          Email Address
-        </label>
-        <input
-          className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 mb-10"
-          type="email"
-          placeholder=""
-          required
-          onChange={emailInputChangeHandler}
-          value={enteredEmail}
-          onBlur={() => setEmailBlur(true)}
-        />
-        {emailBlur && !enteredEmail && (
-          <p className="text-red-400">Email address must be valid.</p>
-        )}
-        <label className="text-gray-600 font-medium text-lg">
-          Phone Number
-        </label>
-        <input
-          className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 mb-10"
-          type="text"
-          required
-          placeholder=""
-          onChange={phoneNumberInputChangeHandler}
-          value={enteredPhoneNumber}
-          onBlur={() => setPhoneNumberBlur(true)}
-        />
-        {phoneNumberBlur && !enteredPhoneNumber && (
-          <p className="text-red-400">Phone Number must not be empty.</p>
-        )}
+        <div className="mb-10">
+          <label className="text-gray-600 font-medium text-lg">Full Name</label>
+          <input
+            className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 "
+            type="text"
+            placeholder=""
+            autoFocus
+            required
+            onChange={nameInputChangeHandler}
+            value={enteredName}
+            onBlur={() => setNameBlur(true)}
+          />
+          {nameBlur && !enteredName && (
+            <div className="text-red-400">Name must not be empty.</div>
+          )}
+        </div>
+        <div className="mb-10">
+          <label className="text-gray-600 font-medium text-lg">
+            Email Address
+          </label>
+          <input
+            className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700"
+            type="email"
+            placeholder=""
+            required
+            onChange={emailInputChangeHandler}
+            value={enteredEmail}
+            onBlur={() => setEmailBlur(true)}
+          />
+          {emailBlur && (!enteredEmail || !enteredEmail.includes("@")) && (
+            <p className="text-red-400">Email address must be valid.</p>
+          )}
+        </div>
+        <div className="mb-10">
+          <label className="text-gray-600 font-medium text-lg">
+            Phone Number
+          </label>
+          <input
+            className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700"
+            type="text"
+            required
+            placeholder=""
+            onChange={phoneNumberInputChangeHandler}
+            value={enteredPhoneNumber}
+            onBlur={() => setPhoneNumberBlur(true)}
+          />
+          {phoneNumberBlur && !enteredPhoneNumber && (
+            <p className="text-red-400">Phone Number must not be empty.</p>
+          )}
+        </div>
         <button
-          className="mt-4 w-full bg-blue-500 hover:bg-blue-400 text-green-100 border py-3 px-6 font-semibold text-lg rounded"
+          className="mt-4 w-full bg-blue-500 hover:bg-blue-400 text-green-100 border py-3 px-6 font-semibold text-lg rounded disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
+          disabled={disableSubmit}
           type="submit"
           onClick={handleSubmit}
         >
