@@ -55,24 +55,25 @@ const HomePage = () => {
   }
 
     
-  // const [values, setValues] = useState({ 
-  //   name: '',
-  //   email: '', 
-  //   phoneNumber: '' 
-  // });
+  const [values, setValues] = useState({ 
+    name: '',
+    email: '', 
+    phoneNumber: '' 
+  });
 
   
-  // const set = name => {
-  //   return ({ target: { value } }) => {
-  //     setValues(oldValues => ({...oldValues, [name]: value }));
-  //   }
-  // };
+  const set = name => {
+    return ({ target: { value } }) => {
+      setValues(oldValues => ({...oldValues, [name]: value }));
+    }
+  };
 
   const saveFormData = async () => {
-    const response = await fetch('/api/', {
+    const response = await fetch('/api/customer/', {
       method: 'POST',
       body: JSON.stringify(values)
     });
+    console.log('ressssss',response);
     if (response.status !== 200) {
       throw new Error(`Request failed: ${response.status}`); 
     }
@@ -86,7 +87,7 @@ const HomePage = () => {
 
     if(!enteredName || !enteredEmail || !enteredPhoneNumber) return;
      try {
-      //await saveFormData();
+      await saveFormData();
       console.log(enteredName + enteredEmail + enteredPhoneNumber );
       alert('Success!' );
       setEnteredName('');
