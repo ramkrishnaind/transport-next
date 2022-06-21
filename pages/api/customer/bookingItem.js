@@ -1,5 +1,4 @@
 // import connectMongo from "../../../database/connection";
-import { array } from "joi";
 import dbConnect from "../../../database/lib/dbConnect";
 import BookingDB from "../../../database/Schemas/booking";
 import withProtect from "../../../middlewares/withProtect";
@@ -45,28 +44,28 @@ async function booking_item(req, res) {
     // pick data from req.body
     let booking_itemData = _.pick(req.body, ['bookingId','sofaSets','tables','chairs','cots','mattress','cupBoards','tvs','refrigerators','washingMachines','ovens','airConditioners','fansCoolers','bikes','cars','cycles']);
     
-   var sofaData = [
-      {
-        capcity:3,
-        name:"2+1",
-        storage:true,
-        mateial:"lather",
-        reclyner:true,
-        CFT:120
-      },
-      {
-        capcity:3,
-        name:"2+1",
-        storage:true,
-        mateial:"lather",
-        reclyner:true,
-        CTF:150
-      }
-    ];
+  //  var sofaData = [
+  //     {
+  //       capcity:3,
+  //       name:"2+1",
+  //       storage:true,
+  //       mateial:"lather",
+  //       reclyner:true,
+  //       CFT:120
+  //     },
+  //     {
+  //       capcity:3,
+  //       name:"2+1",
+  //       storage:true,
+  //       mateial:"lather",
+  //       reclyner:true,
+  //       CTF:150
+  //     }
+  //   ];
 
     let setData = {
-        sofaSets:sofaData,
-        tables:sofaData,
+        sofaSets:booking_itemData.sofaSets,
+        tables:booking_itemData.tables,
         chairs:booking_itemData.chairs,
         cots:booking_itemData.cots,
         mattress:booking_itemData.mattress,
