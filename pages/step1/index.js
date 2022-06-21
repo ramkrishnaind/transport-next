@@ -32,14 +32,14 @@ const Step1 = () => {
     event.preventDefault(); // Prevent default submission
     alert(
       "Success!" +
-        houseType.value +
-        startDate.getDate() +
-        "/" +
-        startDate.getMonth() +
-        "/" +
-        startDate.getFullYear() +
-        fromState.value +
-        toState.value
+      houseType.value +
+      startDate.getDate() +
+      "/" +
+      startDate.getMonth() +
+      "/" +
+      startDate.getFullYear() +
+      fromState.value +
+      toState.value
     );
   };
   const disabled = !houseType || !fromState || !toState;
