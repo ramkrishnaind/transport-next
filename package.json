@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^1.0.3",
-    "antd": "^4.21.0",
+    "ant": "^0.2.0",
+    "antd": "^4.21.3",
     "joi": "^17.6.0",
     "joi-objectid": "^4.0.2",
     "lodash": "^4.17.21",

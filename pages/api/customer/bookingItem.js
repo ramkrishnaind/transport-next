@@ -45,25 +45,24 @@ async function booking_item(req, res) {
     // pick data from req.body
     let booking_itemData = _.pick(req.body, ['bookingId','sofaSets','tables','chairs','cots','mattress','cupBoards','tvs','refrigerators','washingMachines','ovens','airConditioners','fansCoolers','bikes','cars','cycles']);
     
-   var sofaData = {
-      sofa:"5",
-      sofaDesc:[{
-        qty:"1",
-        capcity:"3",
-        type:"2+1",
-        storage:"with",
+   var sofaData = [
+      {
+        capcity:3,
+        name:"2+1",
+        storage:true,
         mateial:"lather",
-        property:"reclner"
+        reclyner:true,
+        CFT:120
       },
       {
-        qty:"4",
-        capcity:"3",
-        type:"2+1",
-        storage:"without",
+        capcity:3,
+        name:"2+1",
+        storage:true,
         mateial:"lather",
-        property:"reclner"
-      }]
-    };
+        reclyner:true,
+        CTF:150
+      }
+    ];
 
     let setData = {
         sofaSets:sofaData,
