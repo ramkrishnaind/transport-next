@@ -1,3 +1,4 @@
+import { array } from 'joi';
 import { Schema, model, models, mongoose } from 'mongoose';
 
 const bookingSchema = new Schema({
@@ -36,6 +37,51 @@ const bookingSchema = new Schema({
     },
     isLiftAvailableOnMovingFloor: {
         type: Boolean,
+    },
+    sofaSets: {
+        type: Array,
+    },
+    tables: {
+        type: Array,
+    },
+    chairs: {
+        type: Array,
+    },
+    cots: {
+        type: Array,
+    },
+    mattress: {
+        type: Array,
+    },
+    cupBoards: {
+        type: Array,
+    },
+    tvs: {
+        type: Array,
+    },
+    refrigerators: {
+        type: Array,
+    },
+    washingMachines: {
+        type: Array,
+    },
+    ovens: {
+        type: Array,
+    },
+    airConditioners: {
+        type: Array,
+    },
+    fansCoolers: {
+        type: Array,
+    },
+    bikes: {
+        type: Array,
+    },
+    cars: {
+        type: Array,
+    },
+    cycles: {
+        type: Array,
     },
 },
     {

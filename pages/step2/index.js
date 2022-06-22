@@ -35,10 +35,10 @@ const Step2 = () => {
     event.preventDefault(); // Prevent default submission
     alert(
       "Success!" +
-        fromFloorType.value +
-        fromLift.value +
-        toFloorType.value +
-        toLift.value
+      fromFloorType.value +
+      fromLift.value +
+      toFloorType.value +
+      toLift.value
     );
   };
   const disabled = !(fromFloorType && fromLift && toFloorType && toLift);
