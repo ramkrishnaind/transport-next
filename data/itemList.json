@@ -3675,7 +3675,7 @@
   },
   {
     "Item": "Refrigerators",
-    "Image": "refrigerator-24.png",
+    "Image": "refrigerator.png",
     "Category": "Electronic",
     "Action 1": "Single door",
     "Action 2": null,
@@ -3686,7 +3686,7 @@
   },
   {
     "Item": "Refrigerators",
-    "Image": "refrigerator-24.png",
+    "Image": "refrigerator.png",
     "Category": "Electronic",
     "Action 1": "Double door",
     "Action 2": null,
@@ -3697,7 +3697,7 @@
   },
   {
     "Item": "Refrigerators",
-    "Image": "refrigerator-24.png",
+    "Image": "refrigerator.png",
     "Category": "Electronic",
     "Action 1": "Side by side",
     "Action 2": null,
@@ -3708,7 +3708,7 @@
   },
   {
     "Item": "Refrigerators",
-    "Image": "refrigerator-24.png",
+    "Image": "refrigerator.png",
     "Category": "Electronic",
     "Action 1": "Triple door",
     "Action 2": null,
