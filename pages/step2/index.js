@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
+import data1 from "../../data/bikeList.json";
 import Select from "react-select";
 
+const data = data1;
+debugger;
+console.log(data[0]["Item Name"]);
 const floorOptions = [
   { value: "1st", label: "1st" },
   { value: "2nd", label: "2nd" },
