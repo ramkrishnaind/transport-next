@@ -55,7 +55,7 @@
     {
       "title": "Refrigerators",
       "image": "images/refrigerator.png",
-      "count": 2
+      "count": 5
     },
     {
       "title": "TVs",
@@ -75,7 +75,7 @@
       "count": 1
     },
     {
-      "title": "Bikes",
+      "title": "Cycles",
       "image": "images/biCycle50.png",
       "count": 3
     }

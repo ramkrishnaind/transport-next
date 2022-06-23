@@ -17,7 +17,7 @@ const Step3 = () => {
   const Vehicles = [
     { title: "Bikes", image: "images/bike50.png" },
     { title: "Cars", image: "images/cars50.png" },
-    { title: "Bikes", image: "images/biCycle50.png" },
+    { title: "Cycles", image: "images/biCycle50.png" },
   ];
   categories.forEach((c) => {
     if (c && !uniqueCategories.includes(c) && c !== "Cycles") {

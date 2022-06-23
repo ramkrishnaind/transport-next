@@ -2,6 +2,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height<2 FT",
@@ -13,6 +17,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height<2 FT",
@@ -24,6 +32,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height<2 FT",
@@ -35,6 +47,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height<2 FT",
@@ -46,6 +62,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height 2-4 ft",
@@ -57,6 +77,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height 2-4 ft",
@@ -68,6 +92,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height 2-4 ft",
@@ -79,6 +107,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height 2-4 ft",
@@ -90,6 +122,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height 4-6 ft",
@@ -101,6 +137,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height 4-6 ft",
@@ -112,6 +152,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height 4-6 ft",
@@ -123,6 +167,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height 4-6 ft",
@@ -134,6 +182,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height >6 ft",
@@ -145,6 +197,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height >6 ft",
@@ -156,6 +212,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height >6 ft",
@@ -167,6 +227,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Wooden Wardrobe",
     "Action 2": "Height >6 ft",
@@ -179,6 +243,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Steel Almirah",
     "Action 2": "Height <=5ft",
@@ -190,6 +258,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Steel Almirah",
     "Action 2": "Height >5 ft",
@@ -202,6 +274,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Plastic Cupboard",
     "Action 2": null,
@@ -214,6 +290,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -225,6 +305,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -236,6 +320,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -247,6 +335,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -258,6 +350,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -269,6 +365,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -280,6 +380,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -291,6 +395,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -302,6 +410,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -313,6 +425,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -324,6 +440,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -335,6 +455,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -346,6 +470,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -357,6 +485,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -368,6 +500,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -379,6 +515,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "With Glass fitment",
@@ -390,6 +530,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -401,6 +545,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -412,6 +560,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -423,6 +575,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -434,6 +590,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -445,6 +605,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -456,6 +620,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -467,6 +635,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -478,6 +650,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -489,6 +665,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -500,6 +680,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -511,6 +695,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -522,6 +710,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -533,6 +725,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -544,6 +740,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -555,6 +755,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Showcase",
     "Action 2": "Without glass fitment",
@@ -567,6 +771,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height<2 FT",
@@ -578,6 +786,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height<2 FT",
@@ -589,6 +801,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height<2 FT",
@@ -600,6 +816,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height<2 FT",
@@ -611,6 +831,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height 2-4 ft",
@@ -622,6 +846,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height 2-4 ft",
@@ -633,6 +861,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height 2-4 ft",
@@ -644,6 +876,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height 2-4 ft",
@@ -655,6 +891,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height 4-6 ft",
@@ -666,6 +906,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height 4-6 ft",
@@ -677,6 +921,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height 4-6 ft",
@@ -688,6 +936,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "Height 4-6 ft",
@@ -699,6 +951,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "height >6 ft",
@@ -710,6 +966,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "height >6 ft",
@@ -721,6 +981,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "height >6 ft",
@@ -732,6 +996,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Shoe Rack",
     "Action 2": "height >6 ft",
@@ -744,6 +1012,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -755,6 +1027,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -766,6 +1042,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -777,6 +1057,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -788,6 +1072,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -799,6 +1087,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -810,6 +1102,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -821,6 +1117,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -832,6 +1132,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -843,6 +1147,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -854,6 +1162,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -865,6 +1177,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -876,6 +1192,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -887,6 +1207,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -898,6 +1222,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -909,6 +1237,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "With Glass fitment",
@@ -920,6 +1252,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -931,6 +1267,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -942,6 +1282,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -953,6 +1297,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -964,6 +1312,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -975,6 +1327,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -986,6 +1342,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -997,6 +1357,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -1008,6 +1372,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -1019,6 +1387,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -1030,6 +1402,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -1041,6 +1417,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -1052,6 +1432,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -1063,6 +1447,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -1074,6 +1462,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -1085,6 +1477,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "TV Cabinet",
     "Action 2": "Without glass fitment",
@@ -1097,6 +1493,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1108,6 +1508,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1119,6 +1523,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1130,6 +1538,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1141,6 +1553,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1152,6 +1568,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1163,6 +1583,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1174,6 +1598,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1185,6 +1613,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1196,6 +1628,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1207,6 +1643,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1218,6 +1658,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1229,6 +1673,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1240,6 +1688,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1251,6 +1703,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1262,6 +1718,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "With Glass fitment",
@@ -1273,6 +1733,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1284,6 +1748,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1295,6 +1763,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1306,6 +1778,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1317,6 +1793,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1328,6 +1808,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1339,6 +1823,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1350,6 +1838,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1361,6 +1853,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1372,6 +1868,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1383,6 +1883,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1394,6 +1898,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1405,6 +1913,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1416,6 +1928,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1427,6 +1943,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1438,6 +1958,10 @@
   {
     "Item": "Cupboard",
     "Image": "cupboard50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "cupboard50.png",
+    "Action3Image": "cupboard50.png",
+    "Action4Image": "cupboard50.png",
     "Category": "Furniture",
     "Action 1": "Book Shelf",
     "Action 2": "Without glass fitment",
@@ -1450,6 +1974,10 @@
   {
     "Item": "Mattress",
     "Image": "mattress50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "mattress50.png",
+    "Action3Image": "mattress50.png",
+    "Action4Image": "mattress50.png",
     "Category": "Furniture",
     "Action 1": "Double",
     "Action 2": "<4 Inch thickness",
@@ -1461,6 +1989,10 @@
   {
     "Item": "Mattress",
     "Image": "mattress50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "mattress50.png",
+    "Action3Image": "mattress50.png",
+    "Action4Image": "mattress50.png",
     "Category": "Furniture",
     "Action 1": "Double",
     "Action 2": "4-8 Inch thickness",
@@ -1472,6 +2004,10 @@
   {
     "Item": "Mattress",
     "Image": "mattress50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "mattress50.png",
+    "Action3Image": "mattress50.png",
+    "Action4Image": "mattress50.png",
     "Category": "Furniture",
     "Action 1": "Double",
     "Action 2": ">8 inch thickness",
@@ -1483,6 +2019,10 @@
   {
     "Item": "Mattress",
     "Image": "mattress50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "mattress50.png",
+    "Action3Image": "mattress50.png",
+    "Action4Image": "mattress50.png",
     "Category": "Furniture",
     "Action 1": "Single",
     "Action 2": "<4 Inch thickness",
@@ -1494,6 +2034,10 @@
   {
     "Item": "Mattress",
     "Image": "mattress50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "mattress50.png",
+    "Action3Image": "mattress50.png",
+    "Action4Image": "mattress50.png",
     "Category": "Furniture",
     "Action 1": "Single",
     "Action 2": "4-8 Inch thickness",
@@ -1505,6 +2049,10 @@
   {
     "Item": "Mattress",
     "Image": "mattress50.png",
+    "Action1Image": "cupboard50.png",
+    "Action2Image": "mattress50.png",
+    "Action3Image": "mattress50.png",
+    "Action4Image": "mattress50.png",
     "Category": "Furniture",
     "Action 1": "Single",
     "Action 2": ">8 inch thickness",
@@ -1517,6 +2065,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "King Size",
     "Action 2": "Dismantlable",
@@ -1528,6 +2080,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "King Size",
     "Action 2": "Dismantlable",
@@ -1539,6 +2095,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "King Size",
     "Action 2": "Foldable",
@@ -1550,6 +2110,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "King Size",
     "Action 2": "Neither",
@@ -1561,6 +2125,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Queen Size",
     "Action 2": "Dismantlable",
@@ -1572,6 +2140,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Queen Size",
     "Action 2": "Dismantlable",
@@ -1583,6 +2155,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Queen Size",
     "Action 2": "Foldable",
@@ -1594,6 +2170,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Queen Size",
     "Action 2": "Neither",
@@ -1605,6 +2185,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Double Cot",
     "Action 2": "Dismantlable",
@@ -1616,6 +2200,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Double Cot",
     "Action 2": "Dismantlable",
@@ -1627,6 +2215,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Double Cot",
     "Action 2": "Foldable",
@@ -1638,6 +2230,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Double Cot",
     "Action 2": "Neither",
@@ -1649,6 +2245,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Single Cot",
     "Action 2": "Dismantlable",
@@ -1660,6 +2260,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Single Cot",
     "Action 2": "Dismantlable",
@@ -1671,6 +2275,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Single Cot",
     "Action 2": "Foldable",
@@ -1682,6 +2290,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Single Cot",
     "Action 2": "Neither",
@@ -1693,6 +2305,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Bunk Bed",
     "Action 2": null,
@@ -1704,6 +2320,10 @@
   {
     "Item": "Cots",
     "Image": "bed50.png",
+    "Action1Image": "bed50.png",
+    "Action2Image": "bed50.png",
+    "Action3Image": "bed50.png",
+    "Action4Image": "bed50.png",
     "Category": "Furniture",
     "Action 1": "Diwan",
     "Action 2": "With storage",
@@ -1715,6 +2335,10 @@
   {
     "Item": "Chair",
     "Image": "chair50.png",
+    "Action1Image": "chair50.png",
+    "Action2Image": "chair50.png",
+    "Action3Image": "chair50.png",
+    "Action4Image": "chair50.png",
     "Category": "Furniture",
     "Action 1": "Office/Computer",
     "Action 2": null,
@@ -1726,6 +2350,10 @@
   {
     "Item": "Chair",
     "Image": "chair50.png",
+    "Action1Image": "chair50.png",
+    "Action2Image": "chair50.png",
+    "Action3Image": "chair50.png",
+    "Action4Image": "chair50.png",
     "Category": "Furniture",
     "Action 1": "Kid",
     "Action 2": null,
@@ -1737,6 +2365,10 @@
   {
     "Item": "Chair",
     "Image": "chair50.png",
+    "Action1Image": "chair50.png",
+    "Action2Image": "chair50.png",
+    "Action3Image": "chair50.png",
+    "Action4Image": "chair50.png",
     "Category": "Furniture",
     "Action 1": "Dinning",
     "Action 2": null,
@@ -1748,6 +2380,10 @@
   {
     "Item": "Chair",
     "Image": "chair50.png",
+    "Action1Image": "chair50.png",
+    "Action2Image": "chair50.png",
+    "Action3Image": "chair50.png",
+    "Action4Image": "chair50.png",
     "Category": "Furniture",
     "Action 1": "Rocking",
     "Action 2": "Wooden",
@@ -1759,6 +2395,10 @@
   {
     "Item": "Chair",
     "Image": "chair50.png",
+    "Action1Image": "chair50.png",
+    "Action2Image": "chair50.png",
+    "Action3Image": "chair50.png",
+    "Action4Image": "chair50.png",
     "Category": "Furniture",
     "Action 1": "Rocking",
     "Action 2": "Steel",
@@ -1770,6 +2410,10 @@
   {
     "Item": "Chair",
     "Image": "chair50.png",
+    "Action1Image": "chair50.png",
+    "Action2Image": "chair50.png",
+    "Action3Image": "chair50.png",
+    "Action4Image": "chair50.png",
     "Category": "Furniture",
     "Action 1": "Plastic",
     "Action 2": null,
@@ -1781,6 +2425,10 @@
   {
     "Item": "Chair",
     "Image": "chair50.png",
+    "Action1Image": "chair50.png",
+    "Action2Image": "chair50.png",
+    "Action3Image": "chair50.png",
+    "Action4Image": "chair50.png",
     "Category": "Furniture",
     "Action 1": "Executive",
     "Action 2": "Rolling",
@@ -1792,6 +2440,10 @@
   {
     "Item": "Chair",
     "Image": "chair50.png",
+    "Action1Image": "chair50.png",
+    "Action2Image": "chair50.png",
+    "Action3Image": "chair50.png",
+    "Action4Image": "chair50.png",
     "Category": "Furniture",
     "Action 1": "Executive",
     "Action 2": "Non Rolling",
@@ -1803,6 +2455,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Coffee/centre",
     "Action 2": "Glass top",
@@ -1814,6 +2470,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Coffee/centre",
     "Action 2": "Wooden Top",
@@ -1825,6 +2485,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2 seater",
@@ -1836,6 +2500,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3 seater",
@@ -1847,6 +2515,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3 seater",
@@ -1858,6 +2530,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3 seater",
@@ -1869,6 +2545,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3 seater",
@@ -1880,6 +2560,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3 seater",
@@ -1891,6 +2575,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3 seater",
@@ -1902,6 +2590,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3 seater",
@@ -1913,6 +2605,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3 seater",
@@ -1924,6 +2620,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3 seater",
@@ -1935,6 +2635,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "4 seater",
@@ -1946,6 +2650,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "4 seater",
@@ -1957,6 +2665,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "5 seater",
@@ -1968,6 +2680,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "6 seater",
@@ -1979,6 +2695,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "7 seater",
@@ -1990,6 +2710,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "5 seater",
@@ -2001,6 +2725,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "5 seater",
@@ -2012,6 +2740,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "5 seater",
@@ -2023,6 +2755,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "5 seater",
@@ -2034,6 +2770,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "5 seater",
@@ -2045,6 +2785,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "6 seater",
@@ -2056,6 +2800,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "6 seater",
@@ -2067,6 +2815,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "6 seater",
@@ -2078,6 +2830,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "6 seater",
@@ -2089,6 +2845,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "6 seater",
@@ -2100,6 +2860,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "7 or more seater",
@@ -2111,6 +2875,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "7 or more seater",
@@ -2122,6 +2890,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "7 or more seater",
@@ -2133,6 +2905,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "glass top",
@@ -2144,6 +2920,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "wooden top",
@@ -2155,6 +2935,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "wooden top",
@@ -2166,6 +2950,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "With storage",
@@ -2177,6 +2965,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "without storage",
@@ -2188,6 +2980,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "dismentlable",
@@ -2199,6 +2995,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "non-dismentlable",
@@ -2210,6 +3010,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "non-dismentlable",
@@ -2221,6 +3025,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "leather",
@@ -2232,6 +3040,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "leather",
@@ -2243,6 +3055,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "wooden",
@@ -2254,6 +3070,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "wooden",
@@ -2265,6 +3085,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "fabric",
@@ -2276,6 +3100,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "fabric",
@@ -2287,6 +3115,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "cane",
@@ -2298,6 +3130,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "1+1",
@@ -2309,6 +3145,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "1+1",
@@ -2320,6 +3160,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "1+1",
@@ -2331,6 +3175,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "1+1",
@@ -2342,6 +3190,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 2,
@@ -2353,6 +3205,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 2,
@@ -2364,6 +3220,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 2,
@@ -2375,6 +3235,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 2,
@@ -2386,6 +3250,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 3,
@@ -2397,6 +3265,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 3,
@@ -2408,6 +3280,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 3,
@@ -2419,6 +3295,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 3,
@@ -2430,6 +3310,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1",
@@ -2441,6 +3325,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1",
@@ -2452,6 +3340,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1",
@@ -2463,6 +3355,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1",
@@ -2474,6 +3370,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1",
@@ -2485,6 +3385,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3+1",
@@ -2496,6 +3400,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3+1",
@@ -2507,6 +3415,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3+1",
@@ -2518,6 +3430,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3+1",
@@ -2529,6 +3445,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3+1",
@@ -2540,6 +3460,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3+1",
@@ -2551,6 +3475,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "3+1",
@@ -2562,6 +3490,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+2",
@@ -2573,6 +3505,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+2",
@@ -2584,6 +3520,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+2",
@@ -2595,6 +3535,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+2",
@@ -2606,6 +3550,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+2",
@@ -2617,6 +3565,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+2",
@@ -2628,6 +3580,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+2",
@@ -2639,6 +3595,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1+1",
@@ -2650,6 +3610,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1+2",
@@ -2661,6 +3625,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1+3",
@@ -2672,6 +3640,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1+4",
@@ -2683,6 +3655,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1+5",
@@ -2694,6 +3670,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1+6",
@@ -2705,6 +3685,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": "2+1+7",
@@ -2716,6 +3700,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 4,
@@ -2727,6 +3715,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 4,
@@ -2738,6 +3730,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 4,
@@ -2749,6 +3745,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 4,
@@ -2760,6 +3760,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 4,
@@ -2771,6 +3775,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 4,
@@ -2782,6 +3790,10 @@
   {
     "Item": "Table",
     "Image": "table50.png",
+    "Action1Image": "table50.png",
+    "Action2Image": "table50.png",
+    "Action3Image": "table50.png",
+    "Action4Image": "table50.png",
     "Category": "Furniture",
     "Action 1": "Dinning table",
     "Action 2": 4,
@@ -2793,6 +3805,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "4+1",
@@ -2804,6 +3821,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "4+1",
@@ -2815,6 +3837,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "4+1",
@@ -2826,6 +3853,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "4+1",
@@ -2837,6 +3869,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "4+1",
@@ -2848,6 +3885,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "4+1",
@@ -2859,6 +3901,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "4+1",
@@ -2870,6 +3917,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "2+2+1",
@@ -2881,6 +3933,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "2+2+1",
@@ -2892,6 +3949,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "2+2+1",
@@ -2903,6 +3965,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "2+2+1",
@@ -2914,6 +3981,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "2+2+1",
@@ -2925,6 +3997,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "2+2+1",
@@ -2936,6 +4013,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "2+2+1",
@@ -2947,6 +4029,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+1+1",
@@ -2958,6 +4045,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+1+1",
@@ -2969,6 +4061,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+1+1",
@@ -2980,6 +4077,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+1+1",
@@ -2991,6 +4093,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+1+1",
@@ -3002,6 +4109,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+1+1",
@@ -3013,6 +4125,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+1+1",
@@ -3024,6 +4141,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+2",
@@ -3035,6 +4157,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+2",
@@ -3046,6 +4173,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+2",
@@ -3057,6 +4189,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+2",
@@ -3068,6 +4205,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+2",
@@ -3079,6 +4221,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+2",
@@ -3090,6 +4237,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "5 seats",
     "Action 2": "3+2",
@@ -3101,6 +4253,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+2",
@@ -3112,6 +4269,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+2",
@@ -3123,6 +4285,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+2",
@@ -3134,6 +4301,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+2",
@@ -3145,6 +4317,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+2",
@@ -3156,6 +4333,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+2",
@@ -3167,6 +4349,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+2",
@@ -3178,6 +4365,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+1+1",
@@ -3189,6 +4381,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+1+1",
@@ -3200,6 +4397,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+1+1",
@@ -3211,6 +4413,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+1+1",
@@ -3222,6 +4429,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+1+1",
@@ -3233,6 +4445,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+1+1",
@@ -3244,6 +4461,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "4+1+1",
@@ -3255,6 +4477,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "3+2+1",
@@ -3266,6 +4493,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "3+2+1",
@@ -3277,6 +4509,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "3+2+1",
@@ -3288,6 +4525,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "3+2+1",
@@ -3299,6 +4541,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "3+2+1",
@@ -3310,6 +4557,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "3+2+1",
@@ -3321,6 +4573,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "3+2+1",
@@ -3332,6 +4589,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "2+2+1+1",
@@ -3343,6 +4605,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "2+2+1+1",
@@ -3354,6 +4621,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "2+2+1+1",
@@ -3365,6 +4637,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "2+2+1+1",
@@ -3376,6 +4653,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "2+2+1+1",
@@ -3387,6 +4669,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "2+2+1+1",
@@ -3398,6 +4685,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "6 seats",
     "Action 2": "2+2+1+1",
@@ -3409,6 +4701,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "7+ seats",
     "Action 2": "leather",
@@ -3420,6 +4717,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "7+ seats",
     "Action 2": "leather",
@@ -3431,6 +4733,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "7+ seats",
     "Action 2": "wooden",
@@ -3442,6 +4749,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "7+ seats",
     "Action 2": "wooden",
@@ -3453,6 +4765,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "7+ seats",
     "Action 2": "fabric",
@@ -3464,6 +4781,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "7+ seats",
     "Action 2": "fabric",
@@ -3475,6 +4797,11 @@
   {
     "Item": "Sofa sets",
     "Image": "sofa50.png",
+    "Action1Image": "sofa50.png",
+    "Action2Image": "sofa50.png",
+    "Action3Image": "sofa50.png",
+    "Action4Image": "sofa50.png",
+
     "Category": "Furniture",
     "Action 1": "7+ seats",
     "Action 2": "Cane",
@@ -3486,6 +4813,8 @@
   {
     "Item": "Fans/cooler",
     "Image": "fan.png",
+    "Action1Image": "fan.png",
+
     "Category": "Electronic",
     "Action 1": "Tower cooler",
     "Action 2": null,
@@ -3498,6 +4827,8 @@
   {
     "Item": "Fans/cooler",
     "Image": "fan.png",
+    "Action1Image": "fan.png",
+
     "Category": "Electronic",
     "Action 1": "Ceiling fan",
     "Action 2": null,
@@ -3510,6 +4841,8 @@
   {
     "Item": "Fans/cooler",
     "Image": "fan.png",
+    "Action1Image": "fan.png",
+
     "Category": "Electronic",
     "Action 1": "Table fan",
     "Action 2": null,
@@ -3521,6 +4854,8 @@
   {
     "Item": "Fans/cooler",
     "Image": "fan.png",
+    "Action1Image": "fan.png",
+
     "Category": "Electronic",
     "Action 1": "Pedestal fan",
     "Action 2": null,
@@ -3532,6 +4867,8 @@
   {
     "Item": "Fans/cooler",
     "Image": "fan.png",
+    "Action1Image": "fan.png",
+
     "Category": "Electronic",
     "Action 1": "Wall mounted fan",
     "Action 2": null,
@@ -3543,6 +4880,9 @@
   {
     "Item": "Air conditioners",
     "Image": "air-conditioner50.png",
+    "Action1Image": "air-conditioner50.png",
+    "Action2Image": "air-conditioner50.png",
+
     "Category": "Electronic",
     "Action 1": "Window",
     "Action 2": "<1 ton",
@@ -3554,6 +4894,9 @@
   {
     "Item": "Air conditioners",
     "Image": "air-conditioner50.png",
+    "Action1Image": "air-conditioner50.png",
+    "Action2Image": "air-conditioner50.png",
+
     "Category": "Electronic",
     "Action 1": "Window",
     "Action 2": "1-1.5 ton",
@@ -3565,6 +4908,9 @@
   {
     "Item": "Air conditioners",
     "Image": "air-conditioner50.png",
+    "Action1Image": "air-conditioner50.png",
+    "Action2Image": "air-conditioner50.png",
+
     "Category": "Electronic",
     "Action 1": "Window",
     "Action 2": "1.5-2 ton",
@@ -3577,6 +4923,9 @@
   {
     "Item": "Air conditioners",
     "Image": "air-conditioner50.png",
+    "Action1Image": "air-conditioner50.png",
+    "Action2Image": "air-conditioner50.png",
+
     "Category": "Electronic",
     "Action 1": "Split",
     "Action 2": "<1 ton",
@@ -3588,6 +4937,9 @@
   {
     "Item": "Air conditioners",
     "Image": "air-conditioner50.png",
+    "Action1Image": "air-conditioner50.png",
+    "Action2Image": "air-conditioner50.png",
+
     "Category": "Electronic",
     "Action 1": "Split",
     "Action 2": "1-1.5 ton",
@@ -3599,6 +4951,9 @@
   {
     "Item": "Air conditioners",
     "Image": "air-conditioner50.png",
+    "Action1Image": "air-conditioner50.png",
+    "Action2Image": "air-conditioner50.png",
+
     "Category": "Electronic",
     "Action 1": "Split",
     "Action 2": "1.5-2 ton",
@@ -3610,6 +4965,8 @@
   {
     "Item": "Ovens",
     "Image": "ovens.png",
+    "Action1Image": "ovens.png",
+
     "Category": "Electronic",
     "Action 1": "Microwave",
     "Action 2": null,
@@ -3621,6 +4978,8 @@
   {
     "Item": "Ovens",
     "Image": "ovens.png",
+    "Action1Image": "ovens.png",
+
     "Category": "Electronic",
     "Action 1": "OTG",
     "Action 2": null,
@@ -3632,6 +4991,8 @@
   {
     "Item": "Ovens",
     "Image": "ovens.png",
+    "Action1Image": "ovens.png",
+
     "Category": "Electronic",
     "Action 1": "Cooking Range",
     "Action 2": null,
@@ -3643,6 +5004,9 @@
   {
     "Item": "Washing Machines",
     "Image": "washingmachine50.png",
+    "Action1Image": "washingmachine50.png",
+    "Action2Image": "washingmachine50.png",
+
     "Category": "Electronic",
     "Action 1": "Top loading",
     "Action 2": "Automatic ",
@@ -3654,6 +5018,9 @@
   {
     "Item": "Washing Machines",
     "Image": "washingmachine50.png",
+    "Action1Image": "washingmachine50.png",
+    "Action2Image": "washingmachine50.png",
+
     "Category": "Electronic",
     "Action 1": "Top loading",
     "Action 2": "Semi automatic",
@@ -3665,6 +5032,9 @@
   {
     "Item": "Washing Machines",
     "Image": "washingmachine50.png",
+    "Action1Image": "washingmachine50.png",
+    "Action2Image": "washingmachine50.png",
+
     "Category": "Electronic",
     "Action 1": "Front loding",
     "Action 2": null,
@@ -3676,6 +5046,9 @@
   {
     "Item": "Refrigerators",
     "Image": "refrigerator.png",
+    "Action1Image": "refrigerator.png",
+
+    "Action4Image": "refrigerator.png",
     "Category": "Electronic",
     "Action 1": "Single door",
     "Action 2": null,
@@ -3687,6 +5060,9 @@
   {
     "Item": "Refrigerators",
     "Image": "refrigerator.png",
+    "Action1Image": "refrigerator.png",
+
+    "Action4Image": "refrigerator.png",
     "Category": "Electronic",
     "Action 1": "Double door",
     "Action 2": null,
@@ -3698,6 +5074,8 @@
   {
     "Item": "Refrigerators",
     "Image": "refrigerator.png",
+    "Action1Image": "refrigerator.png",
+
     "Category": "Electronic",
     "Action 1": "Side by side",
     "Action 2": null,
@@ -3709,6 +5087,8 @@
   {
     "Item": "Refrigerators",
     "Image": "refrigerator.png",
+    "Action1Image": "refrigerator.png",
+
     "Category": "Electronic",
     "Action 1": "Triple door",
     "Action 2": null,
@@ -3720,6 +5100,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "<24 inch",
@@ -3731,6 +5114,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "<24 inch",
@@ -3742,6 +5128,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "24-31 inch",
@@ -3753,6 +5142,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "24-31 inch",
@@ -3764,6 +5156,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "32 inch",
@@ -3775,6 +5170,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "32 inch",
@@ -3786,6 +5184,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "33-39 inch",
@@ -3797,6 +5198,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "33-39 inch",
@@ -3808,6 +5212,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "40-42 inch",
@@ -3819,6 +5226,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "40-42 inch",
@@ -3830,6 +5240,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "43-54 inch",
@@ -3841,6 +5254,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": "43-54 inch",
@@ -3852,6 +5268,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": ">54 inch",
@@ -3863,6 +5282,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LED",
     "Action 2": ">54 inch",
@@ -3874,6 +5296,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "<24 inch",
@@ -3885,6 +5310,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "<24 inch",
@@ -3896,6 +5324,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "24-31 inch",
@@ -3907,6 +5338,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "24-31 inch",
@@ -3918,6 +5352,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "32 inch",
@@ -3929,6 +5366,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "32 inch",
@@ -3940,6 +5380,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "33-39 inch",
@@ -3951,6 +5394,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "33-39 inch",
@@ -3962,6 +5408,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "40-42 inch",
@@ -3973,6 +5422,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "40-42 inch",
@@ -3984,6 +5436,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "43-54 inch",
@@ -3995,6 +5450,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": "43-54 inch",
@@ -4006,6 +5464,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": ">54 inch",
@@ -4017,6 +5478,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+    "Action3Image": "tv50.png",
     "Category": "Electronic",
     "Action 1": "LCD",
     "Action 2": ">54 inch",
@@ -4028,6 +5492,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+
     "Category": "Electronic",
     "Action 1": "CRT",
     "Action 2": "<=14 inch",
@@ -4039,6 +5506,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+
     "Category": "Electronic",
     "Action 1": "CRT",
     "Action 2": "15-21 inch",
@@ -4050,6 +5520,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+
     "Category": "Electronic",
     "Action 1": "CRT",
     "Action 2": "22-28 inch",
@@ -4061,6 +5534,9 @@
   {
     "Item": "TVs",
     "Image": "tv50.png",
+    "Action1Image": "tv50.png",
+    "Action2Image": "tv50.png",
+
     "Category": "Electronic",
     "Action 1": "CRT",
     "Action 2": ">28 inch",
@@ -4071,7 +5547,9 @@
   },
   {
     "Item": "Cycles",
+    "Category": "Vehicle",
     "Image": "bicycle50.png",
+    "Action1Image": "bicycle50.png",
     "Action 1": "With gear",
     "Action 2": null,
     "Action 3": null,
@@ -4082,6 +5560,8 @@
   {
     "Item": "Cycles",
     "Image": "bicycle50.png",
+    "Category": "Vehicle",
+    "Action1Image": "bicycle50.png",
     "Action 1": "Without gear",
     "Action 2": null,
     "Action 3": null,
