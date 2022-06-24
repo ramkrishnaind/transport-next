@@ -192,16 +192,17 @@ bikeTransformed.forEach((item) => {
 const Step4 = (props) => {
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
-  const [stateData, setStateDate] = useState([]);
+  const [stateData, setStateData] = useState([]);
   const checkKeyExist = (object, key) => {};
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
   const getStateData = () => {
     const result = [];
-    const obj = {};
+
     const filteredItems = items.filter((i) => i.completed);
     filteredItems.forEach((i) => {
+      const obj = {};
       obj.category = i.category;
       obj.item = i.key;
       i.value?.forEach((vi) => {
@@ -218,10 +219,23 @@ const Step4 = (props) => {
                       obj.Action4 = vi4.key;
                     }
                   });
+
+                  if (!vi3?.value) {
+                    obj.Action4 = null;
+                  }
                 }
               });
+              if (!vi2?.value) {
+                obj.Action3 = null;
+                obj.Action4 = null;
+              }
             }
           });
+          if (!vi?.value) {
+            obj.Action2 = null;
+            obj.Action3 = null;
+            obj.Action4 = null;
+          }
         }
       });
       const itemData = itemList.find(
@@ -236,7 +250,7 @@ const Step4 = (props) => {
       obj.CFT = itemData?.CFT || 0;
       result.push({ ...obj });
     });
-    setStateDate(result);
+    setStateData(result);
   };
   console.log("stateDate", stateData);
   useEffect(getStateData, [items]);
@@ -279,8 +293,7 @@ const Step4 = (props) => {
         }
       }
     });
-
-    setItems([...newItems]);
+    if (newItems && newItems.length > 0) setItems([...newItems]);
   };
   useEffect(() => {
     const keys = Object.keys(objectState);
@@ -311,7 +324,7 @@ const Step4 = (props) => {
         });
       });
     });
-    setItems(arrayItems);
+    if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
     setState(arr);
   }, []);
   useEffect(() => {}, []);
@@ -333,19 +346,28 @@ const Step4 = (props) => {
       return i;
     });
     setCurrentHeader(arrSelected);
+    items.forEach((i) => {
+      if (!i.completed && i.key !== element.key) {
+        // if (i.index == index) {
+        resetState(i);
+        // }
+      }
+    });
     // setDisplaysetCurrentHeader1("visible");
   };
   const handleFirstLevelItemClick = (event, index, element) => {
+    debugger;
     event.stopPropagation();
     let itemsNew = [...items];
     itemsNew = itemsNew.map((i) => {
       let item = { ...i };
-      item = getCopiedObject(item);
+      // item = getCopiedObject(item);
       if (
         item.key === element.key &&
         item.index === index &&
-        item.category == currentHeader[0].category
+        item.category == element.category
       ) {
+        // debugger;
         item.checked = true;
         item.currentIndex = index;
         if (item.value.length == 0) item.completed = true;
@@ -357,10 +379,18 @@ const Step4 = (props) => {
       }
       return item;
     });
-
-    setItems(itemsNew);
+    debugger;
+    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    itemsNew.forEach((i) => {
+      if (!i.completed && i.key !== element.key) {
+        if (i.index == index) {
+          resetState(i);
+        }
+      }
+    });
   };
   const handleSecondLevelClick = (event, parentIndex, index, element) => {
+    debugger;
     event.stopPropagation();
     let itemsNew = [...items];
     let itemsSub = [...itemsNew[parentIndex].value] || [];
@@ -384,25 +414,38 @@ const Step4 = (props) => {
       return item;
     });
     itemsNew[parentIndex].value = itemsSub;
-    setItems([...itemsNew]);
+    if (itemsNew && itemsNew.length > 0) setItems([...itemsNew]);
   };
-  const handleThirdLevelClick = (event, index, element) => {
+  const handleThirdLevelClick = (
+    event,
+    topIndex,
+    parentIndex,
+    index,
+    parentElement,
+    element
+  ) => {
     event.stopPropagation();
+    debugger;
     let itemsNew = [...items];
     const itemsSub =
-      itemsNew.find(
+      items.find(
         (i) =>
-          i.index === i.currentIndex && i.category == currentHeader[0].category
+          i.index === i.currentIndex &&
+          i.category == currentHeader[0].category &&
+          i.key === parentElement.key
       )?.value || [];
     let itemsSubSub =
-      itemsSub.find((i) => i.index === i.currentIndex)?.value || [];
+      itemsSub?.find((i) => i.index === i.currentIndex)?.value || [];
     itemsSubSub = itemsSubSub.map((i) => {
       if (i.key === element.key && i.index === index) {
         i.checked = true;
         if (i.value.length == 0) {
-          debugger;
+          // debugger;
           itemsNew.find(
-            (iParent) => iParent.index === iParent.currentIndex
+            (iParent) =>
+              iParent.index === iParent.currentIndex &&
+              iParent.key === parentElement.key &&
+              iParent.category == currentHeader[0].category
           ).completed = true;
         }
         i.currentIndex = index;
@@ -412,15 +455,17 @@ const Step4 = (props) => {
 
       return i;
     });
-    setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
   };
-  const handleFourthLevelClick = (event, index, element) => {
+  const handleFourthLevelClick = (event, index, parentItem, element) => {
     event.stopPropagation();
     let itemsNew = [...items];
     const itemsSub =
       itemsNew.find(
         (i) =>
-          i.index === i.currentIndex && i.category == currentHeader[0].category
+          i.index === i.currentIndex &&
+          i.category == currentHeader[0].category &&
+          i.key === parentItem.key
       )?.value || [];
     let itemsSubSub =
       itemsSub.find((i) => i.index === i.currentIndex)?.value || [];
@@ -431,7 +476,9 @@ const Step4 = (props) => {
         i.checked = true;
         if (i.value.length == 0) {
           itemsNew.find(
-            (iParent) => iParent.index === iParent.currentIndex
+            (iParent) =>
+              iParent.index === iParent.currentIndex &&
+              iParent.key === parentItem.key
           ).completed = true;
           i.currentIndex = index;
         } else if (i.key === element.key) {
@@ -441,15 +488,17 @@ const Step4 = (props) => {
 
       return i;
     });
-    setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
   };
-  const handleFifthLevelClick = (event, index, element) => {
+  const handleFifthLevelClick = (event, index, parentItem, element) => {
     event.stopPropagation();
     let itemsNew = [...items];
     const itemsSub =
       itemsNew.find(
         (i) =>
-          i.index === i.currentIndex && i.category == currentHeader[0].category
+          i.index === i.currentIndex &&
+          i.category == currentHeader[0].category &&
+          i.key === parentItem.key
       )?.value || [];
     let itemsSubSub =
       itemsSub.find((i) => i.index === i.currentIndex)?.value || [];
@@ -462,7 +511,9 @@ const Step4 = (props) => {
         i.checked = true;
         // if (i.value.length == 0) {
         itemsNew.find(
-          (iParent) => iParent.index === iParent.currentIndex
+          (iParent) =>
+            iParent.index === iParent.currentIndex &&
+            iParent.key === parentItem.key
         ).completed = true;
         i.currentIndex = index;
         // } else if (i.key === element.key) {
@@ -472,7 +523,7 @@ const Step4 = (props) => {
 
       return i;
     });
-    setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
   };
   // console.log("items", items);
   const displayFirstLevel = () => {
@@ -631,12 +682,24 @@ const Step4 = (props) => {
     return contentSelected.length > 0;
   };
   const displayThirdLevel = () => {
+    const topIndex = items.findIndex(
+      (i) =>
+        i.index === i.currentIndex &&
+        !i.completed &&
+        i.category == currentHeader[0].category
+    );
+
     let contentSelected;
     let contentText;
+    const parentItem = items.find(
+      (i) => i.index === i.currentIndex && !i.completed
+    );
     const contentSelectedFirstLevel =
       items.find((i) => i.index === i.currentIndex && !i.completed)?.value ||
       [];
-
+    const firstLevelIndex = contentSelectedFirstLevel.findIndex(
+      (i) => i.index === i.currentIndex
+    );
     if (contentSelectedFirstLevel.length > 0) {
       contentText = items.find((i) => i.index === i.currentIndex)?.key;
       contentSelected =
@@ -660,7 +723,16 @@ const Step4 = (props) => {
                 backgroundColor:
                   item?.index === item?.currentIndex ? "lightpink" : "white",
               }}
-              onClick={(e) => handleThirdLevelClick(e, index, item)}
+              onClick={(e) => {
+                handleThirdLevelClick(
+                  e,
+                  topIndex,
+                  firstLevelIndex,
+                  index,
+                  parentItem,
+                  item
+                );
+              }}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
                 <img src={`images/${item?.image}`} alt="" />
@@ -675,6 +747,9 @@ const Step4 = (props) => {
   const displayFourthLevel = () => {
     let contentSelected;
     let contentText;
+    const parentItem = items.find(
+      (i) => i.index === i.currentIndex && !i.completed
+    );
     const contentSelectedFirstLevel =
       items.find((i) => i.index === i.currentIndex && !i.completed)?.value ||
       [];
@@ -711,7 +786,9 @@ const Step4 = (props) => {
                 backgroundColor:
                   item?.index === item?.currentIndex ? "lightpink" : "white",
               }}
-              onClick={(e) => handleFourthLevelClick(e, index, item)}
+              onClick={(e) =>
+                handleFourthLevelClick(e, index, parentItem, item)
+              }
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
                 <img src={`images/${item?.image}`} alt="" />
@@ -726,6 +803,9 @@ const Step4 = (props) => {
   const displayFifthLevel = () => {
     let contentSelected;
     let contentText;
+    const parentItem = items.find(
+      (i) => i.index === i.currentIndex && !i.completed
+    );
     const contentSelectedFirstLevel =
       items.find((i) => i.index === i.currentIndex && !i.completed)?.value ||
       [];
@@ -767,7 +847,7 @@ const Step4 = (props) => {
                 backgroundColor:
                   item?.index === item?.currentIndex ? "lightpink" : "white",
               }}
-              onClick={(e) => handleFifthLevelClick(e, index, item)}
+              onClick={(e) => handleFifthLevelClick(e, index, parentItem, item)}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
                 <img src={`images/${item?.image}`} alt="" />
