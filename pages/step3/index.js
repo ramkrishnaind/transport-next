@@ -15,9 +15,9 @@ const Step3 = () => {
   let uniqueCategories = [],
     items = {};
   const Vehicles = [
-    { title: "Bikes", image: "images/bike50.png" },
-    { title: "Cars", image: "images/cars50.png" },
-    { title: "Cycles", image: "images/biCycle50.png" },
+      { title: "Bikes", image: "images/bike-24.png" },
+      { title: "Cars", image: "images/car.png" },
+      { title: "Cycles", image: "images/cycle-24.png" },
   ];
   categories.forEach((c) => {
     if (c && !uniqueCategories.includes(c) && c !== "Cycles") {
@@ -25,7 +25,7 @@ const Step3 = () => {
     }
   });
 
-  uniqueCategories.push("Vehicle");
+  //uniqueCategories.push("Vehicle");
   itemList.map((item) => {
     const keys = Object.keys(items);
     const keyExist = item?.Category && keys.includes(item?.Category);
