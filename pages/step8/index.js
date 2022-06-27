@@ -1,5 +1,6 @@
-import react, { useState } from "react";
 import Card from "../Card";
+
+import React, { useState } from "react";
 
 const Step8 = () => {
   const refrigerators = ["refrigerators1", "refrigerators2"];
@@ -22,9 +23,10 @@ const Step8 = () => {
       onClick={handleClick}
     >
       <div className="flex-col w-1/5 mt-4 ">
-        {refrigerators.map((element) => (
+        {refrigerators.map((element, index) => (
           <Card
-            image={"images/refrigerator.png"}
+            key={index}
+            image={"images/refrigerator-24.png"}
             item={element}
             itemCount={1}
           />
@@ -32,12 +34,11 @@ const Step8 = () => {
       </div>
 
       <div className={`w-1/5 ${display}  px-2 py-4`}>
-        {refrigeratorModel.map((element) => (
-          <Card image={""} item={element} />
+        {refrigeratorModel.map((element, index) => (
+          <Card key={index} image={""} item={element} />
         ))}
       </div>
     </div>
   );
 };
-
 export default Step8;
