@@ -21,15 +21,15 @@ const Step4 = (props) => {
     { name: "Fans/Coolers", img: "images/ceiling-fan-off50.png" },
   ];
 
-  const [state, setState] = useState('');
+  const [state, setState] = useState("");
   console.log(state);
 
-  const changeState = ()=>{
-          setState("Sofasets");
-   };
+  const changeState = () => {
+    setState("Sofasets");
+  };
 
   const handleClick = () => {
-   // setDisplay1("visible");
+    // setDisplay1("visible");
   };
 
   return (
@@ -53,14 +53,17 @@ const Step4 = (props) => {
       </div>
       <div className="flex overflow-x-auto space-x-4 w-1/2 m-auto py-2 mt-5 px-5 border">
         <div className="flex flex-row space-x-4" onClick={handleClick}>
-          {items.map((element) => (
-            <div className="border px-2 ">
+          {items.map((element, index) => (
+            <div className="border px-2" key={index}>
               <div className="flex justify-center py-2">
                 <img src={element.img} alt="" />
               </div>
               <div className="text-center text-sm">{element.name}</div>
               <div className="px-5 mt-2 hover:bg-blue-100">
-                <button className="text-gray-500 text-center m-auto" onClick={changeState}>
+                <button
+                  className="text-gray-500 text-center m-auto"
+                  onClick={changeState}
+                >
                   0/1
                 </button>
               </div>
