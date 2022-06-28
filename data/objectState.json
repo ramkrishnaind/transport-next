@@ -1,0 +1,31 @@
+{
+  "Furniture": [
+    {
+      "title": "Cupboard",
+      "image": "images/cupboard50.png",
+      "count": 1
+    },
+    {
+      "title": "Mattress",
+      "image": "images/mattress50.png",
+      "count": 1
+    },
+    {
+      "title": "Chair",
+      "image": "images/chair50.png",
+      "count": 2
+    }
+  ],
+  "Electronic": [
+    {
+      "title": "Fans/cooler",
+      "image": "images/fan.png",
+      "count": 1
+    },
+    {
+      "title": "Air conditioners",
+      "image": "images/air-conditioner50.png",
+      "count": 1
+    }
+  ]
+}

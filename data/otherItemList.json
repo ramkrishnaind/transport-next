@@ -1,0 +1,199 @@
+[
+    {
+      "Item": "Cartonboxes",
+      "Image": "carton-box-24.png",
+      "Category": "Utility",
+      "CFT": 4,
+      "Article Name": "Cartonboxes"
+    },
+    {
+      "Item": "Waterdrums",
+      "Image": "sterilization-24.png",
+      "Category": "Utility",
+      "CFT": 20,
+      "Article Name": "Waterdrums"
+    },
+    {
+        "Item": "Cribes",
+        "Image": "crib-24.png",
+        "Category": "Utility",
+        "CFT": 15,
+        "Article Name": "Cribes"
+      },
+      {
+        "Item": "Lpg cylinders",
+        "Image": "cylinder-24.png",
+        "Category": "Utility",
+        "CFT": 4,
+        "Article Name": "Lpg cylinders"
+      },
+      {
+        "Item": "Trunks/Suitcases",
+        "Image": "suitcase-24.png",
+        "Category": "Utility",
+        "CFT": 12,
+        "Article Name": "Trunks/Suitcases"
+      },
+      {
+        "Item": "Inverter+batteries",
+        "Image": "inverter-24.png",
+        "Category": "Utility",
+        "CFT": 10,
+        "Article Name": "Inverter+batteries"
+      },
+      {
+        "Item": "Kitchen racks",
+        "Image": "kitchen-room-24.png",
+        "Category": "Utility",
+        "CFT": 9,
+        "Article Name": "Kitchen racks"
+      },
+      {
+        "Item": "Wet grinders",
+        "Image": "grinder-24.png",
+        "Category": "HomeAppliances",
+        "CFT": 4,
+        "Article Name": "Wet grinders"
+      },
+      {
+        "Item": "Water purifiers",
+        "Image": "water-cooler-24.png",
+        "Category": "HomeAppliances",
+        "CFT": 5,
+        "Article Name": "Water purifiers"
+      },
+      {
+        "Item": "Vacum cleaners",
+        "Image": "carpet-cleaning-24.png",
+        "Category": "HomeAppliances",
+        "CFT": 8,
+        "Article Name": "Vacum cleaners"
+      },
+      {
+        "Item": "Dish washers",
+        "Image": "sponge-24.png",
+        "Category": "HomeAppliances",
+        "CFT": 12,
+        "Article Name": "Dish washers"
+      },
+      {
+        "Item": "Desktops",
+        "Image": "desktop-24.png",
+        "Category": "HomeAppliances",
+        "CFT": 8,
+        "Article Name": "Desktops"
+      },
+      {
+        "Item": "Swing machines",
+        "Image": "sewing-machine-24.png",
+        "Category": "HomeAppliances",
+        "CFT": 10,
+        "Article Name": "Swing machines"
+      },
+      {
+        "Item": "Stoves",
+        "Image": "cooker-24.png",
+        "Category": "HomeAppliances",
+        "CFT": 4,
+        "Article Name": "Stoves"
+      },
+      {
+        "Item": "Painting/frames",
+        "Image": "home-decorations-24.png",
+        "Category": "CareItems",
+        "CFT": 6,
+        "Article Name": "Painting/frames"
+      },
+      {
+        "Item": "Cockery sets",
+        "Image": "cookery-24.png",
+        "Category": "CareItems",
+        "CFT": 5,
+        "Article Name": "Cockery sets"
+      },
+      {
+        "Item": "Home theatres",
+        "Image": "home-theater-24.png",
+        "Category": "CareItems",
+        "CFT": 8,
+        "Article Name": "Home theatres"
+      },
+      {
+        "Item": "Show pieces",
+        "Image": "home-decorations-24.png",
+        "Category": "CareItems",
+        "CFT": 5,
+        "Article Name": "Show pieces"
+      },
+      {
+        "Item": "Bar cabinets",
+        "Image": "bureau-24.png",
+        "Category": "CareItems",
+        "CFT": 34,
+        "Article Name": "Bar cabinets"
+      },
+      {
+        "Item": "Lamps",
+        "Image": "lamp-24.png",
+        "Category": "CareItems",
+        "CFT": 10,
+        "Article Name": "Lamps"
+      },
+      {
+        "Item": "Temples",
+        "Image": "temple-24.png",
+        "Category": "CareItems",
+        "CFT": 15,
+        "Article Name": "Temples"
+      },
+      {
+        "Item": "Swings",
+        "Image": "swings-24.png",
+        "Category": "Fitness",
+        "CFT": 4,
+        "Article Name": "Swings"
+      },
+      {
+        "Item": "Excercise cycles",
+        "Image": "cyclist-24.png",
+        "Category": "Fitness",
+        "CFT": 12,
+        "Article Name": "Excercise cycles"
+      },
+      {
+        "Item": "Tread mils",
+        "Image": "treadmill-24.png",
+        "Category": "Fitness",
+        "CFT": 45,
+        "Article Name": "Tread mils"
+      },
+      {
+        "Item": "Infant cycles",
+        "Image": "bicycle-trailer-24.png",
+        "Category": "Fitness",
+        "CFT": 4,
+        "Article Name": "Infant cycles"
+      },
+      {
+        "Item": "Flower pot small",
+        "Image": "bigpotted-plant-24.png",
+        "Category": "Fitness",
+        "CFT": 2,
+        "Article Name": "Flower pot small"
+      },
+      {
+        "Item": "Flower pot large",
+        "Image": "potted-plant-24.png",
+        "Category": "Fitness",
+        "CFT": 4,
+        "Article Name": "Flower pot large"
+      },
+      {
+        "Item": "Bean bags",
+        "Image": "bean-bag-24.png",
+        "Category": "Fitness",
+        "CFT": 6,
+        "Article Name": "Bean bags"
+      }
+  ]
+  
