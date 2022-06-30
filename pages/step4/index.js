@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import ItemCard from "../ItemCard";
-import { TransportContext } from "../../context";
+import TransportContext from "../../context";
 import Card from "../Card";
 // import objectState from "../../data/objectState.json";
 import itemList from "../../data/itemList.json";
@@ -299,6 +299,8 @@ const Step4 = (props) => {
     if (newItems && newItems.length > 0) setItems([...newItems]);
   };
   useEffect(() => {
+    debugger;
+    if (!step3State) return;
     const keys = Object.keys(step3State);
     const arr = [];
     const arrayItems = [];

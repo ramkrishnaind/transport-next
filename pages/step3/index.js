@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Card from "../Card";
 import bikeList from "../../data/bikeList.json";
 import itemList from "../../data/itemList.json";
-import { TransportContext } from "../../context";
+import TransportContext from "../../context";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faSearch,
@@ -99,7 +99,8 @@ const Step3 = () => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    alert("Success!");
+    ctx.setStep3State(objectState);
+    console.log("objectState", objectState);
   };
   return (
     <div>
@@ -112,7 +113,8 @@ const Step3 = () => {
         </button>
         <button
           className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="submit"
+          type="button"
+          onClick={handleSubmit}
         >
           NEXT
         </button>

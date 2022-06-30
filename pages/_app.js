@@ -5,7 +5,7 @@ import AdminLayout from "../components/UI/AdminLayout";
 import "antd/dist/antd.css";
 import "../public/overRide.css";
 import Script from "next/script";
-import { Provider } from "../context";
+import { AppProvider } from "../context";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
@@ -21,9 +21,11 @@ function MyApp({ Component, pageProps }) {
       component = <Component {...pageProps} />;
       break;
     case router?.asPath.startsWith("/admin"):
-      <AdminLayout>
-        <Component {...pageProps} />
-      </AdminLayout>;
+      component = (
+        <AdminLayout>
+          <Component {...pageProps} />
+        </AdminLayout>
+      );
       break;
     default:
       component = (
@@ -33,12 +35,9 @@ function MyApp({ Component, pageProps }) {
       );
       break;
   }
-  return component;
+
+  return <AppProvider>{component}</AppProvider>;
   // return <Component {...pageProps} />;
 }
 
-export default (
-  <Provider>
-    <MyApp />
-  </Provider>
-);
+export default MyApp;
