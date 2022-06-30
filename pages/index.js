@@ -84,11 +84,10 @@ const HomePage = () => {
       let saveResponse = await saveFormData();
       console.log('saveRes', saveResponse.data)
       if (saveResponse.data.status) {
-        alert(saveResponse.data.message)
+        router.push("/otp")
         setEnteredName("");
         setEnteredEmail("");
         setEnteredPhoneNumber("");
-        router.push("/otp")
       } else {
         console.log("i am in else", saveResponse.data.error.error.details[0].message)
         notification.open({

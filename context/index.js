@@ -4,6 +4,8 @@ import { createContext, useState } from "react";
 const initContext = {
   isAuth: Boolean,
   setIsAuth: () => { },
+  booking: {},
+  setBooking: () => { },
   userState: {},
   customerDetails: {},
   setCustomerDetails: () => { },
@@ -19,6 +21,7 @@ export const AppProvider = ({ children }) => {
   const [step3State, setStep3State] = useState();
   const [isAuth, setIsAuth] = useState(false);
   const [customerDetails, setCustomerDetails] = useState();
+  const [booking, setBooking] = useState();
   return (
     <TransportContext.Provider
       value={{
@@ -26,6 +29,8 @@ export const AppProvider = ({ children }) => {
         setIsAuth,
         customerDetails,
         setCustomerDetails,
+        booking,
+        setBooking,
         userState,
         step3State,
         setUserState,

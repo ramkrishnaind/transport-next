@@ -33,10 +33,10 @@ async function createBooking(req, res) {
     let bookingData = _.pick(req.body, ['customerId', 'shiftingFor', 'shiftingFrom', 'shiftingTo', 'shiftingOn']);
 
     const booking = await BookingDB.create(bookingData);
-    return res.json({ status: true, error: false, message: "Booking created", bookingId: booking._id });
+    return res.status(200).send({ status: true, error: false, message: "Booking created", bookingId: booking._id });
   } catch (error) {
     console.log(error);
-    return res.json({ status: false, error: true, errorMessage: error });
+    return res.status(400).send({ status: false, error: true, errorMessage: error });
   }
 }
 export default withProtect(createBooking);

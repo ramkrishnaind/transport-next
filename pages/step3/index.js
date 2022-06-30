@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useRouter } from "next/router";
 import Card from "../Card";
 import bikeList from "../../data/bikeList.json";
 import itemList from "../../data/itemList.json";
@@ -12,6 +13,7 @@ import TransportContext from "../../context";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
 
 const Step3 = () => {
+  const router = useRouter();
   const ctx = useContext(TransportContext);
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
@@ -101,6 +103,7 @@ const Step3 = () => {
     event.preventDefault();
     ctx.setStep3State(objectState);
     console.log("objectState", objectState);
+    router.push("/step4")
   };
   return (
     <div>
