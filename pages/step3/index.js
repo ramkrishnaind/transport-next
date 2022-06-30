@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "../Card";
 import bikeList from "../../data/bikeList.json";
 import itemList from "../../data/itemList.json";
+import { TransportContext } from "../../context";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faSearch,
@@ -11,13 +12,14 @@ import itemList from "../../data/itemList.json";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
 
 const Step3 = () => {
+  const ctx = useContext(TransportContext);
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
     items = {};
   const Vehicles = [
-      { title: "Bikes", image: "images/bike-24.png" },
-      { title: "Cars", image: "images/car.png" },
-      { title: "Cycles", image: "images/cycle-24.png" },
+    { title: "Bikes", image: "images/bike-24.png" },
+    { title: "Cars", image: "images/car.png" },
+    { title: "Cycles", image: "images/cycle-24.png" },
   ];
   categories.forEach((c) => {
     if (c && !uniqueCategories.includes(c) && c !== "Cycles") {
@@ -78,6 +80,7 @@ const Step3 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
+    ctx.setStep3State(newState);
   };
   const decrementHandler = (key, item) => {
     const newState = { ...objectState };

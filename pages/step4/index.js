@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import ItemCard from "../ItemCard";
+import { TransportContext } from "../../context";
 import Card from "../Card";
-import objectState from "../../data/objectState.json";
+// import objectState from "../../data/objectState.json";
 import itemList from "../../data/itemList.json";
 import bikeList from "../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
@@ -197,6 +198,8 @@ const Step4 = (props) => {
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
+  const ctx = useContext(TransportContext);
+  const { step3State } = ctx;
   const getStateData = () => {
     const result = [];
 
@@ -296,11 +299,11 @@ const Step4 = (props) => {
     if (newItems && newItems.length > 0) setItems([...newItems]);
   };
   useEffect(() => {
-    const keys = Object.keys(objectState);
+    const keys = Object.keys(step3State);
     const arr = [];
     const arrayItems = [];
     keys.forEach((k) => {
-      objectState[k].forEach((i) => {
+      step3State[k].forEach((i) => {
         i.category = k;
         arr.push(i);
         const arryStateCount = [...Array(i.count).keys()];
@@ -326,7 +329,7 @@ const Step4 = (props) => {
     });
     if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
     setState(arr);
-  }, []);
+  }, [step3State]);
   useEffect(() => {}, []);
   // console.log("currentHeader", currentHeader);
 
