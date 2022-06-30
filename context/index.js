@@ -28,7 +28,7 @@ export const AppProvider = ({ children }) => {
         isAuth,
         setIsAuth,
         customerDetails,
-        setCustomerDetails,
+        setCustomerDetails,<<<<<<< Api-Init
         booking,
         setBooking,
         userState,

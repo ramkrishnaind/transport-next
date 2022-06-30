@@ -88,6 +88,7 @@ const HomePage = () => {
         setEnteredName("");
         setEnteredEmail("");
         setEnteredPhoneNumber("");
+        router.push("/otp")
       } else {
         console.log("i am in else", saveResponse.data.error.error.details[0].message)
         notification.open({
