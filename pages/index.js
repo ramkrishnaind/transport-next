@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { registerCustomer } from '../services/customer-api-service';
 import { Button, notification, Alert } from 'antd';
+import TransportContext from "../context";
+import { useRouter } from "next/router"
 const HomePage = () => {
+  const context = useContext(TransportContext);
+  const router = useRouter();
   const [enteredName, setEnteredName] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPhoneNumber, setEnteredPhoneNumber] = useState("");
@@ -60,13 +64,13 @@ const HomePage = () => {
   }
 
   const saveFormData = async () => {
-    return await registerCustomer(
-      {
-        fullName: enteredName,
-        email: enteredEmail,
-        mobile: enteredPhoneNumber
-      }
-    );
+    const formData = {
+      fullName: enteredName,
+      email: enteredEmail,
+      mobile: enteredPhoneNumber
+    }
+    context.setCustomerDetails(formData);
+    return await registerCustomer(formData);
   };
 
   const handleSubmit = async (event) => {
@@ -84,7 +88,7 @@ const HomePage = () => {
         setEnteredName("");
         setEnteredEmail("");
         setEnteredPhoneNumber("");
-        //Redirect to OTP Screen
+        router.push("/otp")
       } else {
         console.log("i am in else", saveResponse.data.error.error.details[0].message)
         notification.open({

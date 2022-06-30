@@ -6,8 +6,8 @@ const _ = require('lodash');
 const Joi = require('joi');
 
 const customersignUpSchema = Joi.object({
-    otp: Joi.number().trim().required(),
-    mobile: Joi.number().trim().required(),
+    otp: Joi.number().required(),
+    mobile: Joi.number().required(),
 });
 
 /**
@@ -28,24 +28,25 @@ async function verifyOtp(req, res) {
         // pick data from req.body
         let customerData = _.pick(req.body, ['otp', 'mobile']);
 
-        let findData = await CustomerDB.findOne({ mobile: customerData.mobile });
+        let findData = await CustomerDB.findOne({ mobile: customerData.mobile }).lean();
+        console.log('findData is', findData)
         if (findData) {
             if (findData.otp == customerData.otp) {
                 if (!findData.verified) {
-                    verifyData = {
+                    const verifyData = {
                         verified: true,
                         verificationDate: new Date(),
                     };
                     const verifyCustomer = await CustomerDB.findOneAndUpdate({ mobile: customerData.mobile }, { $set: verifyData })
                 }
-                return res.json({ status: true, error: false, message: "OTP Varified" });
+                return res.status(200).send({ status: true, error: false, message: "OTP Varified", customerData: findData });
             }
         } else {
-            return res.json({ status: false, error: true, message: "Invalid OTP", });
+            return res.status(500).send({ status: false, error: true, message: "Invalid OTP", });
         }
     } catch (error) {
         console.log(error);
-        return res.json({ status: false, error: true, errorMessage: error });
+        return res.status(400).send({ status: false, error: true, errorMessage: error });
     }
 }
 export default withProtect(verifyOtp);
