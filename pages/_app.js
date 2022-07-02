@@ -1,4 +1,5 @@
 import "../public/globals.css";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import NormalLayout from "../components/UI/NormalLayout";
 import AdminLayout from "../components/UI/AdminLayout";
@@ -13,6 +14,7 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 // import "../database/connection";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  //const [isAuth, setIsAuth] = useState(false);
   if (!router || !router.asPath) return null;
   console.log("asPath", router?.asPath);
   let component;
