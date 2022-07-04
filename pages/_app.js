@@ -1,10 +1,12 @@
 import "../public/globals.css";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import NormalLayout from "../components/UI/NormalLayout";
 import AdminLayout from "../components/UI/AdminLayout";
 import "antd/dist/antd.css";
 import "../public/overRide.css";
 import Script from "next/script";
+import { AppProvider } from "../context";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
@@ -12,6 +14,7 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 // import "../database/connection";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  //const [isAuth, setIsAuth] = useState(false);
   if (!router || !router.asPath) return null;
   console.log("asPath", router?.asPath);
   let component;
@@ -20,9 +23,11 @@ function MyApp({ Component, pageProps }) {
       component = <Component {...pageProps} />;
       break;
     case router?.asPath.startsWith("/admin"):
-      <AdminLayout>
-        <Component {...pageProps} />
-      </AdminLayout>;
+      component = (
+        <AdminLayout>
+          <Component {...pageProps} />
+        </AdminLayout>
+      );
       break;
     default:
       component = (
@@ -32,7 +37,8 @@ function MyApp({ Component, pageProps }) {
       );
       break;
   }
-  return component;
+
+  return <AppProvider>{component}</AppProvider>;
   // return <Component {...pageProps} />;
 }
 

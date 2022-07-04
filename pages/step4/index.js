@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import ItemCard from "../ItemCard";
+import TransportContext from "../../context";
 import Card from "../Card";
-import objectState from "../../data/objectState.json";
+// import objectState from "../../data/objectState.json";
 import itemList from "../../data/itemList.json";
 import bikeList from "../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
@@ -197,6 +198,9 @@ const Step4 = (props) => {
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
+  const ctx = useContext(TransportContext);
+  const { step3State } = ctx;
+  console.log("ctx.step3State2", ctx.step3State);
   const getStateData = () => {
     const result = [];
 
@@ -296,12 +300,15 @@ const Step4 = (props) => {
     if (newItems && newItems.length > 0) setItems([...newItems]);
   };
   useEffect(() => {
-    const keys = Object.keys(objectState);
+    debugger;
+    if (!step3State) return;
+    const keys = Object.keys(step3State);
     const arr = [];
     const arrayItems = [];
     keys.forEach((k) => {
-      objectState[k].forEach((i) => {
+      step3State[k].forEach((i) => {
         i.category = k;
+        if (i.count < 1) return;
         arr.push(i);
         const arryStateCount = [...Array(i.count).keys()];
         arryStateCount.forEach((it) => {
@@ -326,7 +333,7 @@ const Step4 = (props) => {
     });
     if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
     setState(arr);
-  }, []);
+  }, [step3State]);
   useEffect(() => {}, []);
   // console.log("currentHeader", currentHeader);
 
@@ -415,6 +422,14 @@ const Step4 = (props) => {
     });
     itemsNew[parentIndex].value = itemsSub;
     if (itemsNew && itemsNew.length > 0) setItems([...itemsNew]);
+    debugger;
+    itemsSub.forEach((i) => {
+      if (i.key !== element.key) {
+        // if (i.index == index) {
+        resetState(i);
+        // }
+      }
+    });
   };
   const handleThirdLevelClick = (
     event,
@@ -456,6 +471,13 @@ const Step4 = (props) => {
       return i;
     });
     if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    itemsSubSub.forEach((i) => {
+      if (i.key !== element.key) {
+        // if (i.index == index) {
+        resetState(i);
+        // }
+      }
+    });
   };
   const handleFourthLevelClick = (event, index, parentItem, element) => {
     event.stopPropagation();
@@ -489,6 +511,13 @@ const Step4 = (props) => {
       return i;
     });
     if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    itemsSubSubSub.forEach((i) => {
+      if (i.key !== element.key) {
+        // if (i.index == index) {
+        resetState(i);
+        // }
+      }
+    });
   };
   const handleFifthLevelClick = (event, index, parentItem, element) => {
     event.stopPropagation();
@@ -524,6 +553,13 @@ const Step4 = (props) => {
       return i;
     });
     if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    itemsSubSubSubSub.forEach((i) => {
+      if (i.key !== element.key) {
+        // if (i.index == index) {
+        resetState(i);
+        // }
+      }
+    });
   };
   // console.log("items", items);
   const displayFirstLevel = () => {
