@@ -39,8 +39,8 @@ async function mailSend(req, res) {
       secure: false,
       requireTLS: true,
       auth: {
-        user: "ashwani.kumar@rosmertaauto.com", // generated ethereal user
-        pass: "rapl1234", // generated ethereal password
+        user: "Dummy", // generated ethereal user
+        pass: "Dummy", // generated ethereal password
       },
     });
 
