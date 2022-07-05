@@ -3,6 +3,9 @@ import { registerCustomer } from '../services/customer-api-service';
 import { Button, notification, Alert } from 'antd';
 import TransportContext from "../context";
 import { useRouter } from "next/router"
+
+import { Spin } from 'antd';
+
 const HomePage = () => {
   const context = useContext(TransportContext);
   const router = useRouter();
@@ -15,6 +18,8 @@ const HomePage = () => {
   const [phoneNumberBlur, setPhoneNumberBlur] = useState(false);
 
   const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(true);
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (enteredName) {
@@ -53,6 +58,7 @@ const HomePage = () => {
     !enteredPhoneNumber ||
     !enteredEmail ||
     !enteredEmail.includes("@");
+    
   function validateEmail(email) {
     setEnteredEmailIsValid(false);
     const pattern =
@@ -81,6 +87,7 @@ const HomePage = () => {
 
     if (!enteredName || !enteredEmail || !enteredPhoneNumber) return;
     try {
+      setLoading(true);
       let saveResponse = await saveFormData();
       console.log('saveRes', saveResponse.data)
       if (saveResponse.data.status) {
@@ -88,6 +95,7 @@ const HomePage = () => {
         setEnteredName("");
         setEnteredEmail("");
         setEnteredPhoneNumber("");
+        setLoading(false);
         router.push("/otp")
       } else {
         console.log("i am in else", saveResponse.data.error.error.details[0].message)
@@ -96,6 +104,7 @@ const HomePage = () => {
           message: 'Error',
           description: saveResponse.data.error.error.details[0].message,
         });
+        setLoading(false);
       }
 
     } catch (e) {
@@ -104,6 +113,7 @@ const HomePage = () => {
   };
 
   return (
+    <>
     <div>
       <h1 className="text-center text-4xl font-semibold mt-10 p-30">
         Find out how much your moving will cost you?
@@ -164,14 +174,16 @@ const HomePage = () => {
           disabled={disableSubmit}
           type="submit"
           onClick={handleSubmit}
-        >
-          Calculate Your Moving Cost
+        >{loading && (<Spin />)}
+           Calculate Your Moving Cost
         </button>
+
         <p className="text-xs text-center text-gray-500 py-3 px-6">
           Trusted By 100K+ Happy Customers.
         </p>
       </form>
     </div>
+    </>
   );
 };
 
