@@ -91,7 +91,7 @@ const HomePage = () => {
       let saveResponse = await saveFormData();
       console.log('saveRes', saveResponse.data)
       if (saveResponse.data.status) {
-        alert(saveResponse.data.message)
+        router.push("/otp")
         setEnteredName("");
         setEnteredEmail("");
         setEnteredPhoneNumber("");
