@@ -8,6 +8,11 @@ const utilityItemSchema = new Schema(
       ref: "booking",
       default: null,
     },
+    customerId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'customer',
+      default: null
+    },
     cartonboxes: {
       type: Array,
     },

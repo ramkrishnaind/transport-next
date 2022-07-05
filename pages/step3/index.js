@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "../Card";
 import bikeList from "../../data/bikeList.json";
 import itemList from "../../data/itemList.json";
+import { useRouter } from "next/router";
+import TransportContext from "../../context";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faSearch,
@@ -11,13 +13,15 @@ import itemList from "../../data/itemList.json";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
 
 const Step3 = () => {
+  const router = useRouter();
+  const ctx = useContext(TransportContext);
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
     items = {};
   const Vehicles = [
-    { title: "Bikes", image: "images/bike50.png" },
-    { title: "Cars", image: "images/cars50.png" },
-    { title: "Bikes", image: "images/biCycle50.png" },
+    { title: "Bikes", image: "images/bike-24.png" },
+    { title: "Cars", image: "images/car.png" },
+    { title: "Cycles", image: "images/cycle-24.png" },
   ];
   categories.forEach((c) => {
     if (c && !uniqueCategories.includes(c) && c !== "Cycles") {
@@ -25,7 +29,7 @@ const Step3 = () => {
     }
   });
 
-  uniqueCategories.push("Vehicle");
+  //uniqueCategories.push("Vehicle");
   itemList.map((item) => {
     const keys = Object.keys(items);
     const keyExist = item?.Category && keys.includes(item?.Category);
@@ -78,6 +82,7 @@ const Step3 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
+    ctx.setStep3State(newState);
   };
   const decrementHandler = (key, item) => {
     const newState = { ...objectState };
@@ -96,7 +101,10 @@ const Step3 = () => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    alert("Success!");
+    ctx.setStep3State(objectState);
+    console.log("objectState", objectState);
+    router.push("/step4");
+    console.log("ctx.step3State", ctx.step3State);
   };
   return (
     <div>
@@ -109,7 +117,8 @@ const Step3 = () => {
         </button>
         <button
           className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="submit"
+          type="button"
+          onClick={handleSubmit}
         >
           NEXT
         </button>
