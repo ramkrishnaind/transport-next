@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useRouter } from "next/router";
 import Card from "../Card";
 import bikeList from "../../data/bikeList.json";
 import itemList from "../../data/itemList.json";
@@ -103,8 +104,7 @@ const Step3 = () => {
     event.preventDefault();
     ctx.setStep3State(objectState);
     console.log("objectState", objectState);
-    router.push("/step4");
-    console.log("ctx.step3State", ctx.step3State);
+    router.push("/step4")
   };
   return (
     <div>

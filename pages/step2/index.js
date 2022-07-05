@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import data1 from "../../data/bikeList.json";
 import Select from "react-select";
+import TransportContext from "../../context";
+import { useRouter } from "next/router"
+import { liftAvailability } from '../../services/customer-api-service';
 
 const data = data1;
-debugger;
+//debugger;
 console.log(data[0]["Item Name"]);
 const floorOptions = [
   { value: "1st", label: "1st" },
@@ -21,24 +24,46 @@ const floorOptions = [
 ];
 
 const liftOptions = [
-  { value: "available", label: "available" },
-  { value: "not available", label: "not available" },
+  { value: true, label: "available" },
+  { value: false, label: "not available" },
 ];
 
 const Step2 = () => {
+  const router = useRouter();
+  const context = useContext(TransportContext);
+  const { booking, setBooking } = context;
+
   const [fromFloorType, setFromFloorType] = useState(null);
   const [toFloorType, setToFloorType] = useState(null);
   const [fromLift, setFromLift] = useState(null);
   const [toLift, setToLift] = useState(null);
+  const [bookingData, setBookingData] = useState({});
+
+  useEffect(() => {
+    console.log('booking in step 2 is', booking)
+    setBookingData(booking)
+  }, [booking])
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
-    alert(
-      "Success!" +
-      fromFloorType.value +
-      fromLift.value +
-      toFloorType.value +
-      toLift.value
+    let result = await callApi();
+    if (result.data.status) {
+      console.log("liftAvailability result is", result)
+      setBooking(result.data)
+      router.push("/step3")
+    }
+    console.log("step 2 result is", result)
+  };
+  const callApi = async () => {
+
+    return await liftAvailability(
+      {
+        bookingId: booking?.bookingId,
+        currentFloor: fromFloorType.value,
+        isLiftAvailableOnCurrentFloor: fromLift.value,
+        movingOnFloor: toFloorType.value,
+        isLiftAvailableOnMovingFloor: toLift.value,
+      }
     );
   };
   const disabled = !(fromFloorType && fromLift && toFloorType && toLift);

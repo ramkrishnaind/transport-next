@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
+import TransportContext from "../../context";
+import { useRouter } from "next/router"
+import { collectBasicInfo } from '../../services/customer-api-service';
 
 const houseTypeOptions = [
   { value: "1 BHK", label: "1 BHK" },
@@ -21,6 +24,9 @@ const cityOptions = [
 ];
 
 const Step1 = () => {
+  const router = useRouter();
+  const context = useContext(TransportContext);
+  const { customerDetails, setBooking } = context;
   const [houseType, setHouseType] = useState(null);
   const [fromState, setFromState] = useState(null);
   const [toState, setToState] = useState(null);
@@ -28,18 +34,34 @@ const Step1 = () => {
   const [houseTypeBlur, setHouseTypeBlur] = useState(false);
   const [fromBlur, setFromBlur] = useState(false);
   const [toBlur, setToBlur] = useState(false);
+  const [customerData, setCustomerData] = useState({});
+
+
+  useEffect(() => {
+    console.log('customerDetails in step 1 is', customerDetails)
+    setCustomerData(customerDetails)
+  }, [customerDetails])
+
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
-    alert(
-      "Success!" +
-      houseType.value +
-      startDate.getDate() +
-      "/" +
-      startDate.getMonth() +
-      "/" +
-      startDate.getFullYear() +
-      fromState.value +
-      toState.value
+    let result = await callApi();
+    if (result.data.status) {
+      console.log("CollectBasicInfo result is", result)
+      setBooking({ bookingId: result.data.bookingId })
+      router.push("/step2")
+    }
+    console.log("step 1 result is", result)
+  };
+  const callApi = async () => {
+
+    return await collectBasicInfo(
+      {
+        customerId: customerData?._id,
+        shiftingFor: houseType.value,
+        shiftingFrom: fromState.value,
+        shiftingTo: toState.value,
+        shiftingOn: startDate,
+      }
     );
   };
   const disabled = !houseType || !fromState || !toState;
