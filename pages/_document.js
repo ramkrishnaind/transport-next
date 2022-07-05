@@ -1,6 +1,54 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 import FirstSVG from "../public/svg/first.svg";
+import Maritime_transport from "../public/svg/maritime_transport.svg";
+import Landing from "../public/svg/landing.svg";
+import PagesSVG from "../public/svg/pages.svg";
+import AboutUsSVG from "../public/svg/aboutUs.svg";
+import OurTeamSVG from "../public/svg/our_team.svg";
+import MeetTheCrewSVG from "../public/svg/meet_the_crew.svg";
+import JobApplicationSVG from "../public/svg/job_application.svg";
+import AvailablePositionsSVG from "../public/svg/available_positions.svg";
+import OurClientsSVG from "../public/svg/OurClients.svg";
+import FAQPageSVG from "../public/svg/FAQPage.svg";
+import ErrorPageSVG from "../public/svg/404_error_page.svg";
+import ServicesSVG from "../public/svg/Services.svg";
+import OurServicesSVG from "../public/svg/ourServices.svg";
+import WhatWeDoSVG from "../public/svg/WhatWeDo.svg";
+import RequestFreightSVG from "../public/svg/request_reight.svg";
+import BlogSVG from "../public/svg/blog.svg";
+import RightSidebarSVG from "../public/svg/rightSidebar.svg";
+import LeftSidebarSVG from "../public/svg/leftSidebar.svg";
+import NoSidebarSVG from "../public/svg/noSidebar.svg";
+import PostTypesSVG from "../public/svg/postTypes.svg";
+import PostTypes2SVG from "../public/svg/postTypes2.svg";
+import StandardPostSVG from "../public/svg/standardPost.svg";
+import GalleryPostSVG from "../public/svg/galleryPost.svg";
+import QuotePostSVG from "../public/svg/quotePost.svg";
+import LinkPostSVG from "../public/svg/linkPost.svg";
+import AudioPostSVG from "../public/svg/audioPost.svg";
+import VideoPostSVG from "../public/svg/videoPost.svg";
+import NoSidebarPostSVG from "../public/svg/noSidebarPost.svg";
+import ContactSVG from "../public/svg/contact.svg";
+import GetInTouchSVG from "../public/svg/getInTouch.svg";
+import GlobalNetworkSVG from "../public/svg/globalNetwork.svg";
+import TrackYourOrderSVG from "../public/svg/trackYourOrder.svg";
+import TrackTraceSVG from "../public/svg/TrackTrace.svg";
+import MenuSVG from "../public/svg/menu.svg";
+import MenuCloseSVG from "../public/svg/menu_close.svg";
+import HomesSVG from "../public/svg/homes.svg";
+import MainHomeSVG from "../public/svg/mainHome.svg";
+import CargoShippingSVG from "../public/svg/cargoShipping.svg";
+import AirFreightSVG from "../public/svg/airFreight.svg";
+import RailFreightSVG from "../public/svg/railFreight.svg";
+import ComingSoonSVG from "../public/svg/comingSoon.svg";
+import DividedSliderHomeSVG from "../public/svg/dividedSliderHome.svg";
+import ViewMoreSVG from "../public/svg/view_more.svg";
+import BackToTopSVG from "../public/svg/back_to_top.svg";
+
+
+
+
 export default function Document() {
   return (
     <Html>
@@ -448,25 +496,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2516">
                             <a href="https://globefarer.qodeinteractive.com/maritime-transport/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                              <Maritime_transport />
                                 Maritime Transport
                               </span>
                             </a>
@@ -506,25 +536,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5224">
                             <a href="https://globefarer.qodeinteractive.com/landing/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                               <Landing />
                                 Landing
                               </span>
                             </a>
@@ -537,23 +549,7 @@ window.RS_MODULES.type = 'compiled';`}
                     <a onclick="JavaScript: return false;">
                       <span class="qodef-menu-item-text">
                         Pages
-                        <svg
-                          class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          width="8.485"
-                          height="14.14"
-                          viewBox="0 0 8.485 14.14"
-                        >
-                          <path
-                            d="M0,0H10V2H0Z"
-                            transform="translate(8.485 7.069) rotate(135)"
-                          />
-                          <path
-                            d="M0,0H10V2H0Z"
-                            transform="translate(7.071 8.485) rotate(-135)"
-                          />
-                        </svg>
+                        <PagesSVG />
                       </span>
                     </a>
                     <div class="qodef-drop-down-second">
@@ -562,25 +558,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2638">
                             <a href="https://globefarer.qodeinteractive.com/about-us/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <AboutUsSVG />
                                 About Us
                               </span>
                             </a>
@@ -588,25 +566,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-3439">
                             <a href="https://globefarer.qodeinteractive.com/team/mary-simens/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <OurTeamSVG />
                                 Our Team
                               </span>
                             </a>
@@ -614,25 +574,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3438">
                             <a href="https://globefarer.qodeinteractive.com/meet-the-crew/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <MeetTheCrewSVG />
                                 Meet The Crew
                               </span>
                             </a>
@@ -640,25 +582,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-career-item menu-item-3596">
                             <a href="https://globefarer.qodeinteractive.com/career-item/stocking-associate/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <JobApplicationSVG />
                                 Job Application
                               </span>
                             </a>
@@ -666,25 +590,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4022">
                             <a href="https://globefarer.qodeinteractive.com/available-positions/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <AvailablePositionsSVG />
                                 Available Positions
                               </span>
                             </a>
@@ -692,25 +598,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3136">
                             <a href="https://globefarer.qodeinteractive.com/our-clients/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                               <OurClientsSVG />
                                 Our Clients
                               </span>
                             </a>
@@ -718,25 +606,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3176">
                             <a href="https://globefarer.qodeinteractive.com/faq-page/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                               <FAQPageSVG />
                                 FAQ Page
                               </span>
                             </a>
@@ -744,25 +614,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4573">
                             <a href="https://globefarer.qodeinteractive.com/404-error-page">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <ErrorPageSVG />
                                 404 Error Page
                               </span>
                             </a>
@@ -775,23 +627,7 @@ window.RS_MODULES.type = 'compiled';`}
                     <a onclick="JavaScript: return false;">
                       <span class="qodef-menu-item-text">
                         Services
-                        <svg
-                          class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          width="8.485"
-                          height="14.14"
-                          viewBox="0 0 8.485 14.14"
-                        >
-                          <path
-                            d="M0,0H10V2H0Z"
-                            transform="translate(8.485 7.069) rotate(135)"
-                          />
-                          <path
-                            d="M0,0H10V2H0Z"
-                            transform="translate(7.071 8.485) rotate(-135)"
-                          />
-                        </svg>
+                        <ServicesSVG />
                       </span>
                     </a>
                     <div class="qodef-drop-down-second">
@@ -800,25 +636,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2715">
                             <a href="https://globefarer.qodeinteractive.com/our-services/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <OurServicesSVG />
                                 Our Services
                               </span>
                             </a>
@@ -826,25 +644,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3137">
                             <a href="https://globefarer.qodeinteractive.com/what-we-do/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <WhatWeDoSVG />
                                 What We Do
                               </span>
                             </a>
@@ -852,25 +652,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3450">
                             <a href="https://globefarer.qodeinteractive.com/step-1-3/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <RequestFreightSVG />
                                 Request a Freight
                               </span>
                             </a>
@@ -883,23 +665,7 @@ window.RS_MODULES.type = 'compiled';`}
                     <a onclick="JavaScript: return false;">
                       <span class="qodef-menu-item-text">
                         Blog
-                        <svg
-                          class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          width="8.485"
-                          height="14.14"
-                          viewBox="0 0 8.485 14.14"
-                        >
-                          <path
-                            d="M0,0H10V2H0Z"
-                            transform="translate(8.485 7.069) rotate(135)"
-                          />
-                          <path
-                            d="M0,0H10V2H0Z"
-                            transform="translate(7.071 8.485) rotate(-135)"
-                          />
-                        </svg>
+                        <BlogSVG />
                       </span>
                     </a>
                     <div class="qodef-drop-down-second">
@@ -908,25 +674,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3007">
                             <a href="https://globefarer.qodeinteractive.com/blog/right-sidebar/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <RightSidebarSVG />
                                 Right Sidebar
                               </span>
                             </a>
@@ -934,25 +682,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3006">
                             <a href="https://globefarer.qodeinteractive.com/blog/left-sidebar/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <LeftSidebarSVG />
                                 Left Sidebar
                               </span>
                             </a>
@@ -960,25 +690,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3005">
                             <a href="https://globefarer.qodeinteractive.com/blog/no-sidebar/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <NoSidebarSVG />
                                 No Sidebar
                               </span>
                             </a>
@@ -986,68 +698,16 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2799 qodef--hide-link">
                             <a onclick="JavaScript: return false;">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <PostTypesSVG />
                                 Post Types
-                                <svg
-                                  class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="8.485"
-                                  height="14.14"
-                                  viewBox="0 0 8.485 14.14"
-                                >
-                                  <path
-                                    d="M0,0H10V2H0Z"
-                                    transform="translate(8.485 7.069) rotate(135)"
-                                  />
-                                  <path
-                                    d="M0,0H10V2H0Z"
-                                    transform="translate(7.071 8.485) rotate(-135)"
-                                  />
-                                </svg>
+                               <PostTypes2SVG />
                               </span>
                             </a>
                             <ul class="sub-menu">
                               <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2806">
                                 <a href="https://globefarer.qodeinteractive.com/electric-wave-motion/">
                                   <span class="qodef-menu-item-text">
-                                    <svg
-                                      class="qodef-svg--plus qodef-menu-item-plus"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                                      width="14"
-                                      height="14"
-                                      viewBox="0 0 14 14"
-                                    >
-                                      <path
-                                        class="qodef-m-horizontal"
-                                        d="M0,0H14V2H0Z"
-                                        transform="translate(0 6)"
-                                      />
-                                      <path
-                                        class="qodef-m-vertical"
-                                        d="M0,0H2V14H0Z"
-                                        transform="translate(6)"
-                                      />
-                                    </svg>
+                                    <StandardPostSVG />
                                     Standard Post
                                   </span>
                                 </a>
@@ -1055,25 +715,7 @@ window.RS_MODULES.type = 'compiled';`}
                               <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2805">
                                 <a href="https://globefarer.qodeinteractive.com/the-hidden-gems/">
                                   <span class="qodef-menu-item-text">
-                                    <svg
-                                      class="qodef-svg--plus qodef-menu-item-plus"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                                      width="14"
-                                      height="14"
-                                      viewBox="0 0 14 14"
-                                    >
-                                      <path
-                                        class="qodef-m-horizontal"
-                                        d="M0,0H14V2H0Z"
-                                        transform="translate(0 6)"
-                                      />
-                                      <path
-                                        class="qodef-m-vertical"
-                                        d="M0,0H2V14H0Z"
-                                        transform="translate(6)"
-                                      />
-                                    </svg>
+                                    <GalleryPostSVG />
                                     Gallery Post
                                   </span>
                                 </a>
@@ -1081,25 +723,7 @@ window.RS_MODULES.type = 'compiled';`}
                               <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2804">
                                 <a href="https://globefarer.qodeinteractive.com/creating-memories/">
                                   <span class="qodef-menu-item-text">
-                                    <svg
-                                      class="qodef-svg--plus qodef-menu-item-plus"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                                      width="14"
-                                      height="14"
-                                      viewBox="0 0 14 14"
-                                    >
-                                      <path
-                                        class="qodef-m-horizontal"
-                                        d="M0,0H14V2H0Z"
-                                        transform="translate(0 6)"
-                                      />
-                                      <path
-                                        class="qodef-m-vertical"
-                                        d="M0,0H2V14H0Z"
-                                        transform="translate(6)"
-                                      />
-                                    </svg>
+                                    <QuotePostSVG />
                                     Quote Post
                                   </span>
                                 </a>
@@ -1107,25 +731,7 @@ window.RS_MODULES.type = 'compiled';`}
                               <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2803">
                                 <a href="https://globefarer.qodeinteractive.com/large-scale-fishing/">
                                   <span class="qodef-menu-item-text">
-                                    <svg
-                                      class="qodef-svg--plus qodef-menu-item-plus"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                                      width="14"
-                                      height="14"
-                                      viewBox="0 0 14 14"
-                                    >
-                                      <path
-                                        class="qodef-m-horizontal"
-                                        d="M0,0H14V2H0Z"
-                                        transform="translate(0 6)"
-                                      />
-                                      <path
-                                        class="qodef-m-vertical"
-                                        d="M0,0H2V14H0Z"
-                                        transform="translate(6)"
-                                      />
-                                    </svg>
+                                    <LinkPostSVG />
                                     Link Post
                                   </span>
                                 </a>
@@ -1133,25 +739,7 @@ window.RS_MODULES.type = 'compiled';`}
                               <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2802">
                                 <a href="https://globefarer.qodeinteractive.com/the-industrial-proletariat/">
                                   <span class="qodef-menu-item-text">
-                                    <svg
-                                      class="qodef-svg--plus qodef-menu-item-plus"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                                      width="14"
-                                      height="14"
-                                      viewBox="0 0 14 14"
-                                    >
-                                      <path
-                                        class="qodef-m-horizontal"
-                                        d="M0,0H14V2H0Z"
-                                        transform="translate(0 6)"
-                                      />
-                                      <path
-                                        class="qodef-m-vertical"
-                                        d="M0,0H2V14H0Z"
-                                        transform="translate(6)"
-                                      />
-                                    </svg>
+                                    <AudioPostSVG />
                                     Audio Post
                                   </span>
                                 </a>
@@ -1159,25 +747,7 @@ window.RS_MODULES.type = 'compiled';`}
                               <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2801">
                                 <a href="https://globefarer.qodeinteractive.com/a-sustainable-future/">
                                   <span class="qodef-menu-item-text">
-                                    <svg
-                                      class="qodef-svg--plus qodef-menu-item-plus"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                                      width="14"
-                                      height="14"
-                                      viewBox="0 0 14 14"
-                                    >
-                                      <path
-                                        class="qodef-m-horizontal"
-                                        d="M0,0H14V2H0Z"
-                                        transform="translate(0 6)"
-                                      />
-                                      <path
-                                        class="qodef-m-vertical"
-                                        d="M0,0H2V14H0Z"
-                                        transform="translate(6)"
-                                      />
-                                    </svg>
+                                   <VideoPostSVG />
                                     Video Post
                                   </span>
                                 </a>
@@ -1185,25 +755,7 @@ window.RS_MODULES.type = 'compiled';`}
                               <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2800">
                                 <a href="https://globefarer.qodeinteractive.com/tips-and-strategies/">
                                   <span class="qodef-menu-item-text">
-                                    <svg
-                                      class="qodef-svg--plus qodef-menu-item-plus"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                                      width="14"
-                                      height="14"
-                                      viewBox="0 0 14 14"
-                                    >
-                                      <path
-                                        class="qodef-m-horizontal"
-                                        d="M0,0H14V2H0Z"
-                                        transform="translate(0 6)"
-                                      />
-                                      <path
-                                        class="qodef-m-vertical"
-                                        d="M0,0H2V14H0Z"
-                                        transform="translate(6)"
-                                      />
-                                    </svg>
+                                   <NoSidebarPostSVG />
                                     No Sidebar Post
                                   </span>
                                 </a>
@@ -1218,23 +770,7 @@ window.RS_MODULES.type = 'compiled';`}
                     <a onclick="JavaScript: return false;">
                       <span class="qodef-menu-item-text">
                         Contact
-                        <svg
-                          class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          width="8.485"
-                          height="14.14"
-                          viewBox="0 0 8.485 14.14"
-                        >
-                          <path
-                            d="M0,0H10V2H0Z"
-                            transform="translate(8.485 7.069) rotate(135)"
-                          />
-                          <path
-                            d="M0,0H10V2H0Z"
-                            transform="translate(7.071 8.485) rotate(-135)"
-                          />
-                        </svg>
+                        <ContactSVG />
                       </span>
                     </a>
                     <div class="qodef-drop-down-second">
@@ -1243,25 +779,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3254">
                             <a href="https://globefarer.qodeinteractive.com/get-in-touch/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <GetInTouchSVG />
                                 Get in Touch
                               </span>
                             </a>
@@ -1269,25 +787,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3228">
                             <a href="https://globefarer.qodeinteractive.com/global-network/">
                               <span class="qodef-menu-item-text">
-                                <svg
-                                  class="qodef-svg--plus qodef-menu-item-plus"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="14"
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                >
-                                  <path
-                                    class="qodef-m-horizontal"
-                                    d="M0,0H14V2H0Z"
-                                    transform="translate(0 6)"
-                                  />
-                                  <path
-                                    class="qodef-m-vertical"
-                                    d="M0,0H2V14H0Z"
-                                    transform="translate(6)"
-                                  />
-                                </svg>
+                                <GlobalNetworkSVG />
                                 Global Network
                               </span>
                             </a>
@@ -1306,41 +806,7 @@ window.RS_MODULES.type = 'compiled';`}
                   {" "}
                   <div class="qodef-order-tracking">
                     <div class="qodef-m-opener">
-                      <svg
-                        class="qodef-svg--flag qodef-m-opener-icon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        width="18"
-                        height="22"
-                        viewBox="0 0 18 22"
-                      >
-                        <g transform="translate(-1811.5 -48)">
-                          <path
-                            d="M0,0H13.391L11.4,2H0Z"
-                            transform="translate(1815.5 50)"
-                          />
-                          <path
-                            d="M0,0H8V2H0Z"
-                            transform="translate(1811.5 68)"
-                          />
-                          <path
-                            d="M0,0H11.533l1.92,2H0Z"
-                            transform="translate(1815.5 58)"
-                          />
-                          <path
-                            d="M0,0,6.983-.017,9,2H0Z"
-                            transform="translate(1821.636 54.95) rotate(-45)"
-                          />
-                          <path
-                            d="M0,0,9.121.021,7.11,2.032,0,2Z"
-                            transform="translate(1823.05 53.536) rotate(45)"
-                          />
-                          <path
-                            d="M0,0H2V22H0Z"
-                            transform="translate(1814.5 48)"
-                          />
-                        </g>
-                      </svg>{" "}
+                     <TrackYourOrderSVG /> {" "}
                       <span class="qodef-m-opener-text">Track Your Order</span>
                     </div>
                     <div class="qodef-m-dropdown">
@@ -1420,25 +886,7 @@ window.RS_MODULES.type = 'compiled';`}
                                   class="wpcf7-form-control wpcf7-submit qodef-button qodef-size--normal qodef-layout--filled qodef-m"
                                 >
                                   <span class="qodef-m-button-icon">
-                                    <svg
-                                      class="qodef-svg--plus"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                                      width="14"
-                                      height="14"
-                                      viewBox="0 0 14 14"
-                                    >
-                                      <path
-                                        class="qodef-m-horizontal"
-                                        d="M0,0H14V2H0Z"
-                                        transform="translate(0 6)"
-                                      />
-                                      <path
-                                        class="qodef-m-vertical"
-                                        d="M0,0H2V14H0Z"
-                                        transform="translate(6)"
-                                      />
-                                    </svg>
+                                    <TrackTraceSVG />
                                   </span>
                                   <span class="qodef-m-button-text">
                                     Track & Trace
@@ -1474,32 +922,7 @@ window.RS_MODULES.type = 'compiled';`}
                     style="background-color: #ffffff00;"
                   >
                     <span class="qodef-m-icon qodef--open">
-                      <svg
-                        class="qodef-svg--menu"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        width="26"
-                        height="16"
-                        viewBox="0 0 26 16"
-                      >
-                        <g transform="translate(-27 -32)">
-                          <rect
-                            width="26"
-                            height="2"
-                            transform="translate(27 46)"
-                          />
-                          <rect
-                            width="26"
-                            height="2"
-                            transform="translate(27 39)"
-                          />
-                          <rect
-                            width="26"
-                            height="2"
-                            transform="translate(27 32)"
-                          />
-                        </g>
-                      </svg>{" "}
+                    <MenuSVG />  {" "}
                     </span>
                   </a>
                 </div>
@@ -1530,23 +953,7 @@ window.RS_MODULES.type = 'compiled';`}
                       <a onclick="JavaScript: return false;">
                         <span class="qodef-menu-item-text">
                           Homes
-                          <svg
-                            class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="8.485"
-                            height="14.14"
-                            viewBox="0 0 8.485 14.14"
-                          >
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(8.485 7.069) rotate(135)"
-                            />
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(7.071 8.485) rotate(-135)"
-                            />
-                          </svg>
+                          <HomesSVG />
                         </span>
                       </a>
                       <div class="qodef-drop-down-second">
@@ -1555,25 +962,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-50 current_page_item menu-item-762">
                               <a href="https://globefarer.qodeinteractive.com/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <MainHomeSVG />
                                   Main Home
                                 </span>
                               </a>
@@ -1581,25 +970,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1143">
                               <a href="https://globefarer.qodeinteractive.com/cargo-shipping/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <CargoShippingSVG />
                                   Cargo Shipping
                                 </span>
                               </a>
@@ -1607,25 +978,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2516">
                               <a href="https://globefarer.qodeinteractive.com/maritime-transport/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <Maritime_transport />
                                   Maritime Transport
                                 </span>
                               </a>
@@ -1633,25 +986,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-763">
                               <a href="https://globefarer.qodeinteractive.com/air-freight/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <AirFreightSVG />
                                   Air Freight
                                 </span>
                               </a>
@@ -1659,25 +994,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1780">
                               <a href="https://globefarer.qodeinteractive.com/rail-freight/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                <RailFreightSVG />
                                   Rail Freight
                                 </span>
                               </a>
@@ -1685,25 +1002,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6680">
                               <a href="https://globefarer.qodeinteractive.com/coming-soon/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <ComingSoonSVG />
                                   Coming Soon
                                 </span>
                               </a>
@@ -1711,25 +1010,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1142">
                               <a href="https://globefarer.qodeinteractive.com/divided-slider-home/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <DividedSliderHomeSVG />
                                   Divided Slider Home
                                 </span>
                               </a>
@@ -1737,25 +1018,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5224">
                               <a href="https://globefarer.qodeinteractive.com/landing/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <Landing />
                                   Landing
                                 </span>
                               </a>
@@ -1768,23 +1031,7 @@ window.RS_MODULES.type = 'compiled';`}
                       <a onclick="JavaScript: return false;">
                         <span class="qodef-menu-item-text">
                           Pages
-                          <svg
-                            class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="8.485"
-                            height="14.14"
-                            viewBox="0 0 8.485 14.14"
-                          >
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(8.485 7.069) rotate(135)"
-                            />
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(7.071 8.485) rotate(-135)"
-                            />
-                          </svg>
+                          <PagesSVG />
                         </span>
                       </a>
                       <div class="qodef-drop-down-second">
@@ -1793,25 +1040,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2638">
                               <a href="https://globefarer.qodeinteractive.com/about-us/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <AboutUsSVG />
                                   About Us
                                 </span>
                               </a>
@@ -1819,25 +1048,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-3439">
                               <a href="https://globefarer.qodeinteractive.com/team/mary-simens/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <OurTeamSVG />
                                   Our Team
                                 </span>
                               </a>
@@ -1845,25 +1056,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3438">
                               <a href="https://globefarer.qodeinteractive.com/meet-the-crew/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <MeetTheCrewSVG />
                                   Meet The Crew
                                 </span>
                               </a>
@@ -1871,25 +1064,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-career-item menu-item-3596">
                               <a href="https://globefarer.qodeinteractive.com/career-item/stocking-associate/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <JobApplicationSVG />
                                   Job Application
                                 </span>
                               </a>
@@ -1897,25 +1072,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4022">
                               <a href="https://globefarer.qodeinteractive.com/available-positions/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <AvailablePositionsSVG />
                                   Available Positions
                                 </span>
                               </a>
@@ -1923,25 +1080,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3136">
                               <a href="https://globefarer.qodeinteractive.com/our-clients/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <OurClientsSVG />
                                   Our Clients
                                 </span>
                               </a>
@@ -1949,25 +1088,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3176">
                               <a href="https://globefarer.qodeinteractive.com/faq-page/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <FAQPageSVG />
                                   FAQ Page
                                 </span>
                               </a>
@@ -1975,25 +1096,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4573">
                               <a href="https://globefarer.qodeinteractive.com/404-error-page">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <ErrorPageSVG />
                                   404 Error Page
                                 </span>
                               </a>
@@ -2006,23 +1109,7 @@ window.RS_MODULES.type = 'compiled';`}
                       <a onclick="JavaScript: return false;">
                         <span class="qodef-menu-item-text">
                           Services
-                          <svg
-                            class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="8.485"
-                            height="14.14"
-                            viewBox="0 0 8.485 14.14"
-                          >
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(8.485 7.069) rotate(135)"
-                            />
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(7.071 8.485) rotate(-135)"
-                            />
-                          </svg>
+                          <ServicesSVG />
                         </span>
                       </a>
                       <div class="qodef-drop-down-second">
@@ -2031,25 +1118,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2715">
                               <a href="https://globefarer.qodeinteractive.com/our-services/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <OurServicesSVG />
                                   Our Services
                                 </span>
                               </a>
@@ -2057,25 +1126,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3137">
                               <a href="https://globefarer.qodeinteractive.com/what-we-do/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <WhatWeDoSVG />
                                   What We Do
                                 </span>
                               </a>
@@ -2083,25 +1134,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3450">
                               <a href="https://globefarer.qodeinteractive.com/step-1-3/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <RequestFreightSVG />
                                   Request a Freight
                                 </span>
                               </a>
@@ -2114,23 +1147,7 @@ window.RS_MODULES.type = 'compiled';`}
                       <a onclick="JavaScript: return false;">
                         <span class="qodef-menu-item-text">
                           Blog
-                          <svg
-                            class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="8.485"
-                            height="14.14"
-                            viewBox="0 0 8.485 14.14"
-                          >
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(8.485 7.069) rotate(135)"
-                            />
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(7.071 8.485) rotate(-135)"
-                            />
-                          </svg>
+                          <BlogSVG />
                         </span>
                       </a>
                       <div class="qodef-drop-down-second">
@@ -2139,25 +1156,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3007">
                               <a href="https://globefarer.qodeinteractive.com/blog/right-sidebar/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <RightSidebarSVG />
                                   Right Sidebar
                                 </span>
                               </a>
@@ -2165,25 +1164,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3006">
                               <a href="https://globefarer.qodeinteractive.com/blog/left-sidebar/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <LeftSidebarSVG />
                                   Left Sidebar
                                 </span>
                               </a>
@@ -2191,25 +1172,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3005">
                               <a href="https://globefarer.qodeinteractive.com/blog/no-sidebar/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                 <NoSidebarSVG>
                                   No Sidebar
                                 </span>
                               </a>
@@ -2217,68 +1180,16 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2799 qodef--hide-link">
                               <a onclick="JavaScript: return false;">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <PostTypesSVG />
                                   Post Types
-                                  <svg
-                                    class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="8.485"
-                                    height="14.14"
-                                    viewBox="0 0 8.485 14.14"
-                                  >
-                                    <path
-                                      d="M0,0H10V2H0Z"
-                                      transform="translate(8.485 7.069) rotate(135)"
-                                    />
-                                    <path
-                                      d="M0,0H10V2H0Z"
-                                      transform="translate(7.071 8.485) rotate(-135)"
-                                    />
-                                  </svg>
+                                  <PostTypes2SVG />
                                 </span>
                               </a>
                               <ul class="sub-menu">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2806">
                                   <a href="https://globefarer.qodeinteractive.com/electric-wave-motion/">
                                     <span class="qodef-menu-item-text">
-                                      <svg
-                                        class="qodef-svg--plus qodef-menu-item-plus"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 14 14"
-                                      >
-                                        <path
-                                          class="qodef-m-horizontal"
-                                          d="M0,0H14V2H0Z"
-                                          transform="translate(0 6)"
-                                        />
-                                        <path
-                                          class="qodef-m-vertical"
-                                          d="M0,0H2V14H0Z"
-                                          transform="translate(6)"
-                                        />
-                                      </svg>
+                                      <StandardPostSVG />
                                       Standard Post
                                     </span>
                                   </a>
@@ -2286,25 +1197,7 @@ window.RS_MODULES.type = 'compiled';`}
                                 <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2805">
                                   <a href="https://globefarer.qodeinteractive.com/the-hidden-gems/">
                                     <span class="qodef-menu-item-text">
-                                      <svg
-                                        class="qodef-svg--plus qodef-menu-item-plus"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 14 14"
-                                      >
-                                        <path
-                                          class="qodef-m-horizontal"
-                                          d="M0,0H14V2H0Z"
-                                          transform="translate(0 6)"
-                                        />
-                                        <path
-                                          class="qodef-m-vertical"
-                                          d="M0,0H2V14H0Z"
-                                          transform="translate(6)"
-                                        />
-                                      </svg>
+                                      <GalleryPostSVG />
                                       Gallery Post
                                     </span>
                                   </a>
@@ -2312,25 +1205,7 @@ window.RS_MODULES.type = 'compiled';`}
                                 <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2804">
                                   <a href="https://globefarer.qodeinteractive.com/creating-memories/">
                                     <span class="qodef-menu-item-text">
-                                      <svg
-                                        class="qodef-svg--plus qodef-menu-item-plus"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 14 14"
-                                      >
-                                        <path
-                                          class="qodef-m-horizontal"
-                                          d="M0,0H14V2H0Z"
-                                          transform="translate(0 6)"
-                                        />
-                                        <path
-                                          class="qodef-m-vertical"
-                                          d="M0,0H2V14H0Z"
-                                          transform="translate(6)"
-                                        />
-                                      </svg>
+                                      <QuotePostSVG />
                                       Quote Post
                                     </span>
                                   </a>
@@ -2338,25 +1213,7 @@ window.RS_MODULES.type = 'compiled';`}
                                 <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2803">
                                   <a href="https://globefarer.qodeinteractive.com/large-scale-fishing/">
                                     <span class="qodef-menu-item-text">
-                                      <svg
-                                        class="qodef-svg--plus qodef-menu-item-plus"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 14 14"
-                                      >
-                                        <path
-                                          class="qodef-m-horizontal"
-                                          d="M0,0H14V2H0Z"
-                                          transform="translate(0 6)"
-                                        />
-                                        <path
-                                          class="qodef-m-vertical"
-                                          d="M0,0H2V14H0Z"
-                                          transform="translate(6)"
-                                        />
-                                      </svg>
+                                      <LinkPostSVG />
                                       Link Post
                                     </span>
                                   </a>
@@ -2364,25 +1221,7 @@ window.RS_MODULES.type = 'compiled';`}
                                 <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2802">
                                   <a href="https://globefarer.qodeinteractive.com/the-industrial-proletariat/">
                                     <span class="qodef-menu-item-text">
-                                      <svg
-                                        class="qodef-svg--plus qodef-menu-item-plus"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 14 14"
-                                      >
-                                        <path
-                                          class="qodef-m-horizontal"
-                                          d="M0,0H14V2H0Z"
-                                          transform="translate(0 6)"
-                                        />
-                                        <path
-                                          class="qodef-m-vertical"
-                                          d="M0,0H2V14H0Z"
-                                          transform="translate(6)"
-                                        />
-                                      </svg>
+                                      <AudioPostSVG />
                                       Audio Post
                                     </span>
                                   </a>
@@ -2390,25 +1229,7 @@ window.RS_MODULES.type = 'compiled';`}
                                 <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2801">
                                   <a href="https://globefarer.qodeinteractive.com/a-sustainable-future/">
                                     <span class="qodef-menu-item-text">
-                                      <svg
-                                        class="qodef-svg--plus qodef-menu-item-plus"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 14 14"
-                                      >
-                                        <path
-                                          class="qodef-m-horizontal"
-                                          d="M0,0H14V2H0Z"
-                                          transform="translate(0 6)"
-                                        />
-                                        <path
-                                          class="qodef-m-vertical"
-                                          d="M0,0H2V14H0Z"
-                                          transform="translate(6)"
-                                        />
-                                      </svg>
+                                      <VideoPostSVG />
                                       Video Post
                                     </span>
                                   </a>
@@ -2416,25 +1237,7 @@ window.RS_MODULES.type = 'compiled';`}
                                 <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2800">
                                   <a href="https://globefarer.qodeinteractive.com/tips-and-strategies/">
                                     <span class="qodef-menu-item-text">
-                                      <svg
-                                        class="qodef-svg--plus qodef-menu-item-plus"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 14 14"
-                                      >
-                                        <path
-                                          class="qodef-m-horizontal"
-                                          d="M0,0H14V2H0Z"
-                                          transform="translate(0 6)"
-                                        />
-                                        <path
-                                          class="qodef-m-vertical"
-                                          d="M0,0H2V14H0Z"
-                                          transform="translate(6)"
-                                        />
-                                      </svg>
+                                      <NoSidebarPostSVG />
                                       No Sidebar Post
                                     </span>
                                   </a>
@@ -2449,23 +1252,7 @@ window.RS_MODULES.type = 'compiled';`}
                       <a onclick="JavaScript: return false;">
                         <span class="qodef-menu-item-text">
                           Contact
-                          <svg
-                            class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="8.485"
-                            height="14.14"
-                            viewBox="0 0 8.485 14.14"
-                          >
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(8.485 7.069) rotate(135)"
-                            />
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(7.071 8.485) rotate(-135)"
-                            />
-                          </svg>
+                          <ContactSVG />
                         </span>
                       </a>
                       <div class="qodef-drop-down-second">
@@ -2474,25 +1261,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3254">
                               <a href="https://globefarer.qodeinteractive.com/get-in-touch/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <GetInTouchSVG />
                                   Get in Touch
                                 </span>
                               </a>
@@ -2500,25 +1269,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3228">
                               <a href="https://globefarer.qodeinteractive.com/global-network/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <GlobalNetworkSVG />
                                   Global Network
                                 </span>
                               </a>
@@ -2539,32 +1290,7 @@ window.RS_MODULES.type = 'compiled';`}
                       class="qodef-opener-icon qodef-m qodef-source--predefined qodef-side-area-opener"
                     >
                       <span class="qodef-m-icon qodef--open">
-                        <svg
-                          class="qodef-svg--menu"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          width="26"
-                          height="16"
-                          viewBox="0 0 26 16"
-                        >
-                          <g transform="translate(-27 -32)">
-                            <rect
-                              width="26"
-                              height="2"
-                              transform="translate(27 46)"
-                            />
-                            <rect
-                              width="26"
-                              height="2"
-                              transform="translate(27 39)"
-                            />
-                            <rect
-                              width="26"
-                              height="2"
-                              transform="translate(27 32)"
-                            />
-                          </g>
-                        </svg>{" "}
+                        <MenuSVG />{" "}
                       </span>
                     </a>
                   </div>
@@ -2592,65 +1318,10 @@ window.RS_MODULES.type = 'compiled';`}
                 class="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener"
               >
                 <span class="qodef-m-icon qodef--open">
-                  <svg
-                    class="qodef-svg--menu"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="26"
-                    height="16"
-                    viewBox="0 0 26 16"
-                  >
-                    <g transform="translate(-27 -32)">
-                      <rect
-                        width="26"
-                        height="2"
-                        transform="translate(27 46)"
-                      />
-                      <rect
-                        width="26"
-                        height="2"
-                        transform="translate(27 39)"
-                      />
-                      <rect
-                        width="26"
-                        height="2"
-                        transform="translate(27 32)"
-                      />
-                    </g>
-                  </svg>{" "}
+                  <MenuSVG />{" "}
                 </span>
                 <span class="qodef-m-icon qodef--close">
-                  <svg
-                    class="qodef-svg--close"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="19.778"
-                    height="19.778"
-                    viewBox="0 0 19.778 19.778"
-                  >
-                    <g transform="translate(-30 -30)">
-                      <rect
-                        width="13"
-                        height="2"
-                        transform="translate(31.414 30) rotate(45)"
-                      />
-                      <rect
-                        width="13"
-                        height="2"
-                        transform="translate(48.364 49.778) rotate(-135)"
-                      />
-                      <rect
-                        width="13"
-                        height="2"
-                        transform="translate(30 48.364) rotate(-45)"
-                      />
-                      <rect
-                        width="13"
-                        height="2"
-                        transform="translate(49.778 31.414) rotate(135)"
-                      />
-                    </g>
-                  </svg>{" "}
+                  <MenuCloseSVG /> {" "}
                 </span>
               </a>
             </div>
@@ -2664,48 +1335,14 @@ window.RS_MODULES.type = 'compiled';`}
                   <a onclick="JavaScript: return false;">
                     <span class="qodef-menu-item-text">Homes</span>
                   </a>
-                  <svg
-                    class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="8.485"
-                    height="14.14"
-                    viewBox="0 0 8.485 14.14"
-                  >
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(8.485 7.069) rotate(135)"
-                    />
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(7.071 8.485) rotate(-135)"
-                    />
-                  </svg>
+                  <HomesSVG />
                   <div class="qodef-drop-down-second">
                     <div class="qodef-drop-down-second-inner">
                       <ul class="sub-menu">
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-50 current_page_item menu-item-762">
                           <a href="https://globefarer.qodeinteractive.com/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <MainHomeSVG />
                               Main Home
                             </span>
                           </a>
@@ -2713,25 +1350,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1143">
                           <a href="https://globefarer.qodeinteractive.com/cargo-shipping/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <CargoShippingSVG />
                               Cargo Shipping
                             </span>
                           </a>
@@ -2739,25 +1358,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2516">
                           <a href="https://globefarer.qodeinteractive.com/maritime-transport/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <Maritime_transport />
                               Maritime Transport
                             </span>
                           </a>
@@ -2765,25 +1366,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-763">
                           <a href="https://globefarer.qodeinteractive.com/air-freight/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <AirFreightSVG />
                               Air Freight
                             </span>
                           </a>
@@ -2791,25 +1374,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1780">
                           <a href="https://globefarer.qodeinteractive.com/rail-freight/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <RailFreightSVG />
                               Rail Freight
                             </span>
                           </a>
@@ -2817,25 +1382,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6680">
                           <a href="https://globefarer.qodeinteractive.com/coming-soon/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <ComingSoonSVG />
                               Coming Soon
                             </span>
                           </a>
@@ -2843,25 +1390,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1142">
                           <a href="https://globefarer.qodeinteractive.com/divided-slider-home/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <DividedSliderHomeSVG />
                               Divided Slider Home
                             </span>
                           </a>
@@ -2869,25 +1398,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5224">
                           <a href="https://globefarer.qodeinteractive.com/landing/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <Landing />
                               Landing
                             </span>
                           </a>
@@ -2900,48 +1411,14 @@ window.RS_MODULES.type = 'compiled';`}
                   <a onclick="JavaScript: return false;">
                     <span class="qodef-menu-item-text">Pages</span>
                   </a>
-                  <svg
-                    class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="8.485"
-                    height="14.14"
-                    viewBox="0 0 8.485 14.14"
-                  >
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(8.485 7.069) rotate(135)"
-                    />
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(7.071 8.485) rotate(-135)"
-                    />
-                  </svg>
+                  <PagesSVG />
                   <div class="qodef-drop-down-second">
                     <div class="qodef-drop-down-second-inner">
                       <ul class="sub-menu">
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2638">
                           <a href="https://globefarer.qodeinteractive.com/about-us/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <AboutUsSVG />
                               About Us
                             </span>
                           </a>
@@ -2949,25 +1426,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-team menu-item-3439">
                           <a href="https://globefarer.qodeinteractive.com/team/mary-simens/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <OurTeamSVG />
                               Our Team
                             </span>
                           </a>
@@ -2975,25 +1434,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3438">
                           <a href="https://globefarer.qodeinteractive.com/meet-the-crew/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <MeetTheCrewSVG />
                               Meet The Crew
                             </span>
                           </a>
@@ -3001,25 +1442,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-career-item menu-item-3596">
                           <a href="https://globefarer.qodeinteractive.com/career-item/stocking-associate/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <JobApplicationSVG />
                               Job Application
                             </span>
                           </a>
@@ -3027,25 +1450,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4022">
                           <a href="https://globefarer.qodeinteractive.com/available-positions/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <AvailablePositionsSVG />
                               Available Positions
                             </span>
                           </a>
@@ -3053,25 +1458,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3136">
                           <a href="https://globefarer.qodeinteractive.com/our-clients/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <OurClientsSVG />
                               Our Clients
                             </span>
                           </a>
@@ -3079,25 +1466,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3176">
                           <a href="https://globefarer.qodeinteractive.com/faq-page/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <FAQPageSVG />
                               FAQ Page
                             </span>
                           </a>
@@ -3105,25 +1474,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4573">
                           <a href="https://globefarer.qodeinteractive.com/404-error-page">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <ErrorPageSVG />
                               404 Error Page
                             </span>
                           </a>
@@ -3136,48 +1487,14 @@ window.RS_MODULES.type = 'compiled';`}
                   <a onclick="JavaScript: return false;">
                     <span class="qodef-menu-item-text">Services</span>
                   </a>
-                  <svg
-                    class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="8.485"
-                    height="14.14"
-                    viewBox="0 0 8.485 14.14"
-                  >
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(8.485 7.069) rotate(135)"
-                    />
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(7.071 8.485) rotate(-135)"
-                    />
-                  </svg>
+                  <ServicesSVG />
                   <div class="qodef-drop-down-second">
                     <div class="qodef-drop-down-second-inner">
                       <ul class="sub-menu">
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2715">
                           <a href="https://globefarer.qodeinteractive.com/our-services/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <OurServicesSVG />
                               Our Services
                             </span>
                           </a>
@@ -3185,25 +1502,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3137">
                           <a href="https://globefarer.qodeinteractive.com/what-we-do/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <WhatWeDoSVG />
                               What We Do
                             </span>
                           </a>
@@ -3211,25 +1510,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3450">
                           <a href="https://globefarer.qodeinteractive.com/step-1-3/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <RequestFreightSVG />
                               Request a Freight
                             </span>
                           </a>
@@ -3242,48 +1523,14 @@ window.RS_MODULES.type = 'compiled';`}
                   <a onclick="JavaScript: return false;">
                     <span class="qodef-menu-item-text">Blog</span>
                   </a>
-                  <svg
-                    class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="8.485"
-                    height="14.14"
-                    viewBox="0 0 8.485 14.14"
-                  >
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(8.485 7.069) rotate(135)"
-                    />
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(7.071 8.485) rotate(-135)"
-                    />
-                  </svg>
+                  <BlogSVG />
                   <div class="qodef-drop-down-second">
                     <div class="qodef-drop-down-second-inner">
                       <ul class="sub-menu">
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3007">
                           <a href="https://globefarer.qodeinteractive.com/blog/right-sidebar/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <RightSidebarSVG />
                               Right Sidebar
                             </span>
                           </a>
@@ -3291,25 +1538,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3006">
                           <a href="https://globefarer.qodeinteractive.com/blog/left-sidebar/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <LeftSidebarSVG />
                               Left Sidebar
                             </span>
                           </a>
@@ -3317,25 +1546,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3005">
                           <a href="https://globefarer.qodeinteractive.com/blog/no-sidebar/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <NoSidebarSVG />
                               No Sidebar
                             </span>
                           </a>
@@ -3343,68 +1554,16 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2799 qodef--hide-link">
                           <a onclick="JavaScript: return false;">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <PostTypesSVG />
                               Post Types
                             </span>
                           </a>
-                          <svg
-                            class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="8.485"
-                            height="14.14"
-                            viewBox="0 0 8.485 14.14"
-                          >
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(8.485 7.069) rotate(135)"
-                            />
-                            <path
-                              d="M0,0H10V2H0Z"
-                              transform="translate(7.071 8.485) rotate(-135)"
-                            />
-                          </svg>
+                          <PostTypes2SVG />
                           <ul class="sub-menu">
                             <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2806">
                               <a href="https://globefarer.qodeinteractive.com/electric-wave-motion/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <StandardPostSVG />
                                   Standard Post
                                 </span>
                               </a>
@@ -3412,25 +1571,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2805">
                               <a href="https://globefarer.qodeinteractive.com/the-hidden-gems/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <GalleryPostSVG />
                                   Gallery Post
                                 </span>
                               </a>
@@ -3438,25 +1579,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2804">
                               <a href="https://globefarer.qodeinteractive.com/creating-memories/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <QuotePostSVG />
                                   Quote Post
                                 </span>
                               </a>
@@ -3464,25 +1587,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2803">
                               <a href="https://globefarer.qodeinteractive.com/large-scale-fishing/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <LinkPostSVG />
                                   Link Post
                                 </span>
                               </a>
@@ -3490,25 +1595,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2802">
                               <a href="https://globefarer.qodeinteractive.com/the-industrial-proletariat/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <AudioPostSVG />
                                   Audio Post
                                 </span>
                               </a>
@@ -3516,25 +1603,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2801">
                               <a href="https://globefarer.qodeinteractive.com/a-sustainable-future/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <VideoPostSVG />
                                   Video Post
                                 </span>
                               </a>
@@ -3542,25 +1611,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2800">
                               <a href="https://globefarer.qodeinteractive.com/tips-and-strategies/">
                                 <span class="qodef-menu-item-text">
-                                  <svg
-                                    class="qodef-svg--plus qodef-menu-item-plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                  >
-                                    <path
-                                      class="qodef-m-horizontal"
-                                      d="M0,0H14V2H0Z"
-                                      transform="translate(0 6)"
-                                    />
-                                    <path
-                                      class="qodef-m-vertical"
-                                      d="M0,0H2V14H0Z"
-                                      transform="translate(6)"
-                                    />
-                                  </svg>
+                                  <NoSidebarPostSVG />
                                   No Sidebar Post
                                 </span>
                               </a>
@@ -3575,48 +1626,14 @@ window.RS_MODULES.type = 'compiled';`}
                   <a onclick="JavaScript: return false;">
                     <span class="qodef-menu-item-text">Contact</span>
                   </a>
-                  <svg
-                    class="qodef-svg--menu-arrow qodef-menu-item-arrow"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="8.485"
-                    height="14.14"
-                    viewBox="0 0 8.485 14.14"
-                  >
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(8.485 7.069) rotate(135)"
-                    />
-                    <path
-                      d="M0,0H10V2H0Z"
-                      transform="translate(7.071 8.485) rotate(-135)"
-                    />
-                  </svg>
+                  <ContactSVG />
                   <div class="qodef-drop-down-second">
                     <div class="qodef-drop-down-second-inner">
                       <ul class="sub-menu">
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3254">
                           <a href="https://globefarer.qodeinteractive.com/get-in-touch/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <GetInTouchSVG />
                               Get in Touch
                             </span>
                           </a>
@@ -3624,25 +1641,7 @@ window.RS_MODULES.type = 'compiled';`}
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3228">
                           <a href="https://globefarer.qodeinteractive.com/global-network/">
                             <span class="qodef-menu-item-text">
-                              <svg
-                                class="qodef-svg--plus qodef-menu-item-plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                              >
-                                <path
-                                  class="qodef-m-horizontal"
-                                  d="M0,0H14V2H0Z"
-                                  transform="translate(0 6)"
-                                />
-                                <path
-                                  class="qodef-m-vertical"
-                                  d="M0,0H2V14H0Z"
-                                  transform="translate(6)"
-                                />
-                              </svg>
+                              <GlobalNetworkSVG />
                               Global Network
                             </span>
                           </a>
@@ -4029,25 +2028,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                         >
                                           {" "}
                                           <span class="qodef-m-button-icon">
-                                            <svg
-                                              class="qodef-svg--plus"
-                                              xmlns="http://www.w3.org/2000/svg"
-                                              xmlns:xlink="http://www.w3.org/1999/xlink"
-                                              width="14"
-                                              height="14"
-                                              viewBox="0 0 14 14"
-                                            >
-                                              <path
-                                                class="qodef-m-horizontal"
-                                                d="M0,0H14V2H0Z"
-                                                transform="translate(0 6)"
-                                              />
-                                              <path
-                                                class="qodef-m-vertical"
-                                                d="M0,0H2V14H0Z"
-                                                transform="translate(6)"
-                                              />
-                                            </svg>
+                                            <ViewMoreSVG />
                                           </span>{" "}
                                           <span class="qodef-m-button-text">
                                             View more
@@ -4164,25 +2145,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                           >
                                             {" "}
                                             <span class="qodef-m-button-icon">
-                                              <svg
-                                                class="qodef-svg--plus"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                width="14"
-                                                height="14"
-                                                viewBox="0 0 14 14"
-                                              >
-                                                <path
-                                                  class="qodef-m-horizontal"
-                                                  d="M0,0H14V2H0Z"
-                                                  transform="translate(0 6)"
-                                                />
-                                                <path
-                                                  class="qodef-m-vertical"
-                                                  d="M0,0H2V14H0Z"
-                                                  transform="translate(6)"
-                                                />
-                                              </svg>
+                                              <ViewMoreSVG />
                                             </span>{" "}
                                             <span class="qodef-m-button-text">
                                               View more
@@ -4227,25 +2190,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                           >
                                             {" "}
                                             <span class="qodef-m-button-icon">
-                                              <svg
-                                                class="qodef-svg--plus"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                width="14"
-                                                height="14"
-                                                viewBox="0 0 14 14"
-                                              >
-                                                <path
-                                                  class="qodef-m-horizontal"
-                                                  d="M0,0H14V2H0Z"
-                                                  transform="translate(0 6)"
-                                                />
-                                                <path
-                                                  class="qodef-m-vertical"
-                                                  d="M0,0H2V14H0Z"
-                                                  transform="translate(6)"
-                                                />
-                                              </svg>
+                                              <ViewMoreSVG />
                                             </span>{" "}
                                             <span class="qodef-m-button-text">
                                               View more
@@ -4290,25 +2235,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                           >
                                             {" "}
                                             <span class="qodef-m-button-icon">
-                                              <svg
-                                                class="qodef-svg--plus"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                width="14"
-                                                height="14"
-                                                viewBox="0 0 14 14"
-                                              >
-                                                <path
-                                                  class="qodef-m-horizontal"
-                                                  d="M0,0H14V2H0Z"
-                                                  transform="translate(0 6)"
-                                                />
-                                                <path
-                                                  class="qodef-m-vertical"
-                                                  d="M0,0H2V14H0Z"
-                                                  transform="translate(6)"
-                                                />
-                                              </svg>
+                                              <ViewMoreSVG />
                                             </span>{" "}
                                             <span class="qodef-m-button-text">
                                               View more
@@ -4352,25 +2279,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                           >
                                             {" "}
                                             <span class="qodef-m-button-icon">
-                                              <svg
-                                                class="qodef-svg--plus"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                width="14"
-                                                height="14"
-                                                viewBox="0 0 14 14"
-                                              >
-                                                <path
-                                                  class="qodef-m-horizontal"
-                                                  d="M0,0H14V2H0Z"
-                                                  transform="translate(0 6)"
-                                                />
-                                                <path
-                                                  class="qodef-m-vertical"
-                                                  d="M0,0H2V14H0Z"
-                                                  transform="translate(6)"
-                                                />
-                                              </svg>
+                                              <ViewMoreSVG />
                                             </span>{" "}
                                             <span class="qodef-m-button-text">
                                               View more
@@ -4415,25 +2324,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                           >
                                             {" "}
                                             <span class="qodef-m-button-icon">
-                                              <svg
-                                                class="qodef-svg--plus"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                width="14"
-                                                height="14"
-                                                viewBox="0 0 14 14"
-                                              >
-                                                <path
-                                                  class="qodef-m-horizontal"
-                                                  d="M0,0H14V2H0Z"
-                                                  transform="translate(0 6)"
-                                                />
-                                                <path
-                                                  class="qodef-m-vertical"
-                                                  d="M0,0H2V14H0Z"
-                                                  transform="translate(6)"
-                                                />
-                                              </svg>
+                                              <ViewMoreSVG />
                                             </span>{" "}
                                             <span class="qodef-m-button-text">
                                               View more
@@ -4478,25 +2369,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                           >
                                             {" "}
                                             <span class="qodef-m-button-icon">
-                                              <svg
-                                                class="qodef-svg--plus"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                width="14"
-                                                height="14"
-                                                viewBox="0 0 14 14"
-                                              >
-                                                <path
-                                                  class="qodef-m-horizontal"
-                                                  d="M0,0H14V2H0Z"
-                                                  transform="translate(0 6)"
-                                                />
-                                                <path
-                                                  class="qodef-m-vertical"
-                                                  d="M0,0H2V14H0Z"
-                                                  transform="translate(6)"
-                                                />
-                                              </svg>
+                                            <ViewMoreSVG />
                                             </span>{" "}
                                             <span class="qodef-m-button-text">
                                               View more
@@ -4829,25 +2702,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                         >
                                           {" "}
                                           <span class="qodef-m-button-icon">
-                                            <svg
-                                              class="qodef-svg--plus"
-                                              xmlns="http://www.w3.org/2000/svg"
-                                              xmlns:xlink="http://www.w3.org/1999/xlink"
-                                              width="14"
-                                              height="14"
-                                              viewBox="0 0 14 14"
-                                            >
-                                              <path
-                                                class="qodef-m-horizontal"
-                                                d="M0,0H14V2H0Z"
-                                                transform="translate(0 6)"
-                                              />
-                                              <path
-                                                class="qodef-m-vertical"
-                                                d="M0,0H2V14H0Z"
-                                                transform="translate(6)"
-                                              />
-                                            </svg>
+                                           <ViewMoreSVG />
                                           </span>{" "}
                                           <span class="qodef-m-button-text">
                                             View more
@@ -5090,25 +2945,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                                     >
                                                       {" "}
                                                       <span class="qodef-m-button-icon">
-                                                        <svg
-                                                          class="qodef-svg--plus"
-                                                          xmlns="http://www.w3.org/2000/svg"
-                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                          width="14"
-                                                          height="14"
-                                                          viewBox="0 0 14 14"
-                                                        >
-                                                          <path
-                                                            class="qodef-m-horizontal"
-                                                            d="M0,0H14V2H0Z"
-                                                            transform="translate(0 6)"
-                                                          />
-                                                          <path
-                                                            class="qodef-m-vertical"
-                                                            d="M0,0H2V14H0Z"
-                                                            transform="translate(6)"
-                                                          />
-                                                        </svg>
+                                                        <ViewMoreSVG />
                                                       </span>{" "}
                                                       <span class="qodef-m-button-text">
                                                         Read more
@@ -5199,25 +3036,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                                     >
                                                       {" "}
                                                       <span class="qodef-m-button-icon">
-                                                        <svg
-                                                          class="qodef-svg--plus"
-                                                          xmlns="http://www.w3.org/2000/svg"
-                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                          width="14"
-                                                          height="14"
-                                                          viewBox="0 0 14 14"
-                                                        >
-                                                          <path
-                                                            class="qodef-m-horizontal"
-                                                            d="M0,0H14V2H0Z"
-                                                            transform="translate(0 6)"
-                                                          />
-                                                          <path
-                                                            class="qodef-m-vertical"
-                                                            d="M0,0H2V14H0Z"
-                                                            transform="translate(6)"
-                                                          />
-                                                        </svg>
+                                                        <ViewMoreSVG />
                                                       </span>{" "}
                                                       <span class="qodef-m-button-text">
                                                         Read more
@@ -5308,25 +3127,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                                     >
                                                       {" "}
                                                       <span class="qodef-m-button-icon">
-                                                        <svg
-                                                          class="qodef-svg--plus"
-                                                          xmlns="http://www.w3.org/2000/svg"
-                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                          width="14"
-                                                          height="14"
-                                                          viewBox="0 0 14 14"
-                                                        >
-                                                          <path
-                                                            class="qodef-m-horizontal"
-                                                            d="M0,0H14V2H0Z"
-                                                            transform="translate(0 6)"
-                                                          />
-                                                          <path
-                                                            class="qodef-m-vertical"
-                                                            d="M0,0H2V14H0Z"
-                                                            transform="translate(6)"
-                                                          />
-                                                        </svg>
+                                                        <ViewMoreSVG />
                                                       </span>{" "}
                                                       <span class="qodef-m-button-text">
                                                         Read more
@@ -5735,54 +3536,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
           </footer>
           <a id="qodef-back-to-top" href="#" class="qodef--predefined">
             <span class="qodef-back-to-top-icon">
-              <svg
-                class="qodef-svg--back-to-top"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                width="24.042"
-                height="26.433"
-                viewBox="0 0 24.042 26.433"
-              >
-                <g transform="translate(-1740.938 -900.216)">
-                  <g class="qodef-m-hover">
-                    <rect
-                      width="16"
-                      height="2"
-                      transform="translate(1754.373 901.63) rotate(135)"
-                    />
-                    <rect
-                      width="24"
-                      height="2"
-                      transform="translate(1753.958 902.649) rotate(90)"
-                    />
-                    <rect
-                      width="16"
-                      height="2"
-                      transform="translate(1752.958 900.216) rotate(45)"
-                    />
-                  </g>
-                  <g class="qodef-m-initial" transform="translate(39 9.15)">
-                    <rect
-                      class="qodef-m-oblique"
-                      width="17"
-                      height="2"
-                      transform="translate(1715.373 898.979) rotate(135)"
-                    />
-                    <rect
-                      class="qodef-m-vertical"
-                      width="0.5"
-                      height="2"
-                      transform="translate(1714.958 899.998) rotate(90)"
-                    />
-                    <rect
-                      class="qodef-m-oblique"
-                      width="17"
-                      height="2"
-                      transform="translate(1713.958 897.565) rotate(45)"
-                    />
-                  </g>
-                </g>
-              </svg>{" "}
+              <BackToTopSVG />{" "}
             </span>
           </a>
           <div id="qodef-custom-cursor">
@@ -5867,37 +3621,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
               class="qodef-opener-icon qodef-m qodef-source--predefined qodef--opened"
             >
               <span class="qodef-m-icon qodef--close">
-                <svg
-                  class="qodef-svg--close"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  width="19.778"
-                  height="19.778"
-                  viewBox="0 0 19.778 19.778"
-                >
-                  <g transform="translate(-30 -30)">
-                    <rect
-                      width="13"
-                      height="2"
-                      transform="translate(31.414 30) rotate(45)"
-                    />
-                    <rect
-                      width="13"
-                      height="2"
-                      transform="translate(48.364 49.778) rotate(-135)"
-                    />
-                    <rect
-                      width="13"
-                      height="2"
-                      transform="translate(30 48.364) rotate(-45)"
-                    />
-                    <rect
-                      width="13"
-                      height="2"
-                      transform="translate(49.778 31.414) rotate(135)"
-                    />
-                  </g>
-                </svg>{" "}
+               <MenuCloseSVG />{" "}
               </span>
             </a>
             <div id="qodef-side-area-inner">
