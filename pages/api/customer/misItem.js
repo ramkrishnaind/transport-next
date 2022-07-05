@@ -8,6 +8,7 @@ Joi.objectId = require("joi-objectid")(Joi);
 
 const utilityItem_Schema = Joi.object({
   bookingId: Joi.objectId().required(),
+  customerId: Joi.objectId().required(),
   cartonboxes: Joi.array(),
   wetgrinders: Joi.array(),
   frames: Joi.array(),
@@ -56,6 +57,7 @@ async function utility_itemfunc(req, res) {
     // pick data from req.body
     let utility_itemData = _.pick(req.body, [
       "bookingId",
+      "customerId",
       "cartonboxes",
       "wetgrinders",
       "frames",
@@ -87,6 +89,7 @@ async function utility_itemfunc(req, res) {
     ]);
 
     let setData = {
+      customerId: utility_itemData.customerId,
       cartonboxes: utility_itemData.cartonboxes,
       wetgrinders: utility_itemData.wetgrinders,
       frames: utility_itemData.frames,
