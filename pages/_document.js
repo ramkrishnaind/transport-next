@@ -1172,7 +1172,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3005">
                               <a href="https://globefarer.qodeinteractive.com/blog/no-sidebar/">
                                 <span class="qodef-menu-item-text">
-                                 <NoSidebarSVG>
+                                 <NoSidebarSVG />
                                   No Sidebar
                                 </span>
                               </a>
