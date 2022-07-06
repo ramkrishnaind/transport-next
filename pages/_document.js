@@ -46,9 +46,6 @@ import DividedSliderHomeSVG from "../public/svg/dividedSliderHome.svg";
 import ViewMoreSVG from "../public/svg/view_more.svg";
 import BackToTopSVG from "../public/svg/back_to_top.svg";
 
-
-
-
 export default function Document() {
   return (
     <Html>
@@ -496,7 +493,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2516">
                             <a href="https://globefarer.qodeinteractive.com/maritime-transport/">
                               <span class="qodef-menu-item-text">
-                              <Maritime_transport />
+                                <Maritime_transport />
                                 Maritime Transport
                               </span>
                             </a>
@@ -536,7 +533,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5224">
                             <a href="https://globefarer.qodeinteractive.com/landing/">
                               <span class="qodef-menu-item-text">
-                               <Landing />
+                                <Landing />
                                 Landing
                               </span>
                             </a>
@@ -598,7 +595,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3136">
                             <a href="https://globefarer.qodeinteractive.com/our-clients/">
                               <span class="qodef-menu-item-text">
-                               <OurClientsSVG />
+                                <OurClientsSVG />
                                 Our Clients
                               </span>
                             </a>
@@ -606,7 +603,7 @@ window.RS_MODULES.type = 'compiled';`}
                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3176">
                             <a href="https://globefarer.qodeinteractive.com/faq-page/">
                               <span class="qodef-menu-item-text">
-                               <FAQPageSVG />
+                                <FAQPageSVG />
                                 FAQ Page
                               </span>
                             </a>
@@ -700,7 +697,7 @@ window.RS_MODULES.type = 'compiled';`}
                               <span class="qodef-menu-item-text">
                                 <PostTypesSVG />
                                 Post Types
-                               <PostTypes2SVG />
+                                <PostTypes2SVG />
                               </span>
                             </a>
                             <ul class="sub-menu">
@@ -747,7 +744,7 @@ window.RS_MODULES.type = 'compiled';`}
                               <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2801">
                                 <a href="https://globefarer.qodeinteractive.com/a-sustainable-future/">
                                   <span class="qodef-menu-item-text">
-                                   <VideoPostSVG />
+                                    <VideoPostSVG />
                                     Video Post
                                   </span>
                                 </a>
@@ -755,7 +752,7 @@ window.RS_MODULES.type = 'compiled';`}
                               <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-2800">
                                 <a href="https://globefarer.qodeinteractive.com/tips-and-strategies/">
                                   <span class="qodef-menu-item-text">
-                                   <NoSidebarPostSVG />
+                                    <NoSidebarPostSVG />
                                     No Sidebar Post
                                   </span>
                                 </a>
@@ -806,7 +803,7 @@ window.RS_MODULES.type = 'compiled';`}
                   {" "}
                   <div class="qodef-order-tracking">
                     <div class="qodef-m-opener">
-                     <TrackYourOrderSVG /> {" "}
+                      <TrackYourOrderSVG />{" "}
                       <span class="qodef-m-opener-text">Track Your Order</span>
                     </div>
                     <div class="qodef-m-dropdown">
@@ -922,7 +919,7 @@ window.RS_MODULES.type = 'compiled';`}
                     style="background-color: #ffffff00;"
                   >
                     <span class="qodef-m-icon qodef--open">
-                    <MenuSVG />  {" "}
+                      <MenuSVG />{" "}
                     </span>
                   </a>
                 </div>
@@ -994,7 +991,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1780">
                               <a href="https://globefarer.qodeinteractive.com/rail-freight/">
                                 <span class="qodef-menu-item-text">
-                                <RailFreightSVG />
+                                  <RailFreightSVG />
                                   Rail Freight
                                 </span>
                               </a>
@@ -1172,7 +1169,7 @@ window.RS_MODULES.type = 'compiled';`}
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3005">
                               <a href="https://globefarer.qodeinteractive.com/blog/no-sidebar/">
                                 <span class="qodef-menu-item-text">
-                                 <NoSidebarSVG>
+                                  <NoSidebarSVG />
                                   No Sidebar
                                 </span>
                               </a>
@@ -1321,7 +1318,7 @@ window.RS_MODULES.type = 'compiled';`}
                   <MenuSVG />{" "}
                 </span>
                 <span class="qodef-m-icon qodef--close">
-                  <MenuCloseSVG /> {" "}
+                  <MenuCloseSVG />{" "}
                 </span>
               </a>
             </div>
@@ -2369,7 +2366,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                           >
                                             {" "}
                                             <span class="qodef-m-button-icon">
-                                            <ViewMoreSVG />
+                                              <ViewMoreSVG />
                                             </span>{" "}
                                             <span class="qodef-m-button-text">
                                               View more
@@ -2702,7 +2699,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
                                         >
                                           {" "}
                                           <span class="qodef-m-button-icon">
-                                           <ViewMoreSVG />
+                                            <ViewMoreSVG />
                                           </span>{" "}
                                           <span class="qodef-m-button-text">
                                             View more
@@ -3621,7 +3618,7 @@ setREVStartSize({c: 'rev_slider_2_1',rl:[1920,1700,1025,680],el:[900,768,960,720
               class="qodef-opener-icon qodef-m qodef-source--predefined qodef--opened"
             >
               <span class="qodef-m-icon qodef--close">
-               <MenuCloseSVG />{" "}
+                <MenuCloseSVG />{" "}
               </span>
             </a>
             <div id="qodef-side-area-inner">
