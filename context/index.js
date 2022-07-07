@@ -3,16 +3,16 @@ import { createContext, useState } from "react";
 //Please add more properties as needed
 const initContext = {
   isAuth: Boolean,
-  setIsAuth: () => { },
+  setIsAuth: () => {},
   booking: {},
-  setBooking: () => { },
+  setBooking: () => {},
   userState: {},
   customerDetails: {},
-  setCustomerDetails: () => { },
-  setUserState: () => { },
+  setCustomerDetails: () => {},
+  setUserState: () => {},
   step3State: {},
-  setUserState: () => { },
-  setStep3State: () => { },
+  setUserState: () => {},
+  setStep3State: () => {},
 };
 const TransportContext = createContext(initContext);
 
@@ -28,7 +28,7 @@ export const AppProvider = ({ children }) => {
         isAuth,
         setIsAuth,
         customerDetails,
-        setCustomerDetails,<<<<<<< Api-Init
+        setCustomerDetails,
         booking,
         setBooking,
         userState,
