@@ -1,0 +1,9 @@
+{
+"smtpOptions" : {
+  "host": "whiteglove.co.in",
+  "port": 465,
+  "auth": {
+    "user": "development@whiteglove.co.in", 
+    "pass": "dev@333" 
+  }
+}}

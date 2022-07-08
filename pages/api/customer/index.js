@@ -2,6 +2,7 @@
 import dbConnect from "../../../database/lib/dbConnect";
 import CustomerDB from "../../../database/Schemas/customer";
 import withProtect from "../../../middlewares/withProtect";
+import SendEmail from "../../../helperFunction/nodeMail/sendEmail";
 const _ = require('lodash');
 const Joi = require('joi');
 import { customAlphabet } from 'nanoid';
@@ -9,7 +10,7 @@ const numbers = "0123456789";
 
 const customersignUpSchema = Joi.object({
   fullName: Joi.string().trim().required(),
-  email: Joi.string().email().trim(),
+  email: Joi.string().email().trim().required(),
   mobile: Joi.number().required(),
 });
 
@@ -39,9 +40,11 @@ async function createCustomer(req, res) {
       if (!findData.active) {
         return res.json({ status: false, error: true, message: "Your account has been disabled. Please contact admin", adminDisable: true, statusCode: 401 });
       }
+      SendEmail('development@whiteglove.co.in',customerData.email,'Customer Login OTP',customerData.otp);
       return res.json({ status: true, error: false, message: "OTP Sent to " + customerData.mobile, OTP: customerData.otp, alreadyAUser: true })
     } else {
       const customer = await CustomerDB.create(customerData);
+      SendEmail('development@whiteglove.co.in',customerData.email,'New Customer Login OTP',customerData.otp);
       return res.json({ status: true, error: false, message: "OTP Sent to " + customerData.mobile, OTP: customerData.otp });
     }
   } catch (error) {
