@@ -225,7 +225,7 @@ const HomePage = () => {
                           <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-50 current_page_item menu-item-762">
                             <a href="https://globefarer.qodeinteractive.com/">
                               <span className="qodef-menu-item-text">
-                              <img src="../public/svg/mainHome.svg" />
+                                <img src="../public/svg/mainHome.svg" />
                                 Main Home
                               </span>
                             </a>
@@ -233,7 +233,7 @@ const HomePage = () => {
                           <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1143">
                             <a href="https://globefarer.qodeinteractive.com/cargo-shipping/">
                               <span className="qodef-menu-item-text">
-                              <img src="../public/svg/cargoShipping.svg" />
+                                <img src="../public/svg/cargoShipping.svg" />
                                 Cargo Shipping
                               </span>
                             </a>
@@ -249,7 +249,7 @@ const HomePage = () => {
                           <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-763">
                             <a href="https://globefarer.qodeinteractive.com/air-freight/">
                               <span className="qodef-menu-item-text">
-                              <img src="../public/svg/airFreight.svg" />
+                                <img src="../public/svg/airFreight.svg" />
                                 Air Freight
                               </span>
                             </a>
@@ -257,7 +257,7 @@ const HomePage = () => {
                           <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1780">
                             <a href="https://globefarer.qodeinteractive.com/rail-freight/">
                               <span className="qodef-menu-item-text">
-                              <img src="../public/svg/railFreight.svg" />
+                                <img src="../public/svg/railFreight.svg" />
                                 Rail Freight
                               </span>
                             </a>
@@ -265,7 +265,7 @@ const HomePage = () => {
                           <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6680">
                             <a href="https://globefarer.qodeinteractive.com/coming-soon/">
                               <span className="qodef-menu-item-text">
-                              <img src="../public/svg/comingSoon.svg" />
+                                <img src="../public/svg/comingSoon.svg" />
                                 Coming Soon
                               </span>
                             </a>
@@ -273,7 +273,7 @@ const HomePage = () => {
                           <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1142">
                             <a href="https://globefarer.qodeinteractive.com/divided-slider-home/">
                               <span className="qodef-menu-item-text">
-                              <img src="../public/svg/dividedSliderHome.svg" />
+                                <img src="../public/svg/dividedSliderHome.svg" />
                                 Divided Slider Home
                               </span>
                             </a>
@@ -327,7 +327,7 @@ const HomePage = () => {
                           <li className="menu-item menu-item-type-post_type menu-item-object-career-item menu-item-3596">
                             <a href="https://globefarer.qodeinteractive.com/career-item/stocking-associate/">
                               <span className="qodef-menu-item-text">
-                              <img src="../public/svg/job_application.svg" />
+                                <img src="../public/svg/job_application.svg" />
                                 Job Application
                               </span>
                             </a>
@@ -585,7 +585,7 @@ const HomePage = () => {
                               data-status="init"
                             >
                               <div
-                              // style={{ display: "none" }}
+                                style={{ display: "none" }}
                               >
                                 <input
                                   type="hidden"
@@ -668,7 +668,7 @@ const HomePage = () => {
                   <a
                     href="javascript:void(0)"
                     className="qodef-opener-icon qodef-m qodef-source--predefined qodef-side-area-opener"
-                    // style="background-color: #ffffff00;"
+                    style={{ backgroundColor: "#ffffff" }}
                   >
                     <span className="qodef-m-icon qodef--open">
                       <img src="../public/svg/menu.svg" />
@@ -727,7 +727,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2516">
                               <a href="https://globefarer.qodeinteractive.com/maritime-transport/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/maritime_transport.svg" />
+                                  <img src="../public/svg/maritime_transport.svg" />
                                   Maritime Transport
                                 </span>
                               </a>
@@ -767,7 +767,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5224">
                               <a href="https://globefarer.qodeinteractive.com/landing/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/landing.svg" />
+                                  <img src="../public/svg/landing.svg" />
                                   Landing
                                 </span>
                               </a>
@@ -789,7 +789,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2638">
                               <a href="https://globefarer.qodeinteractive.com/about-us/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/aboutUs.svg" />
+                                  <img src="../public/svg/aboutUs.svg" />
                                   About Us
                                 </span>
                               </a>
@@ -797,7 +797,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-team menu-item-3439">
                               <a href="https://globefarer.qodeinteractive.com/team/mary-simens/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/our_team.svg"/>
+                                  <img src="../public/svg/our_team.svg" />
                                   Our Team
                                 </span>
                               </a>
@@ -805,7 +805,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3438">
                               <a href="https://globefarer.qodeinteractive.com/meet-the-crew/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/meet_the_crew.svg" />
+                                  <img src="../public/svg/meet_the_crew.svg" />
                                   Meet The Crew
                                 </span>
                               </a>
@@ -813,7 +813,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-career-item menu-item-3596">
                               <a href="https://globefarer.qodeinteractive.com/career-item/stocking-associate/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/job_application.svg" />
+                                  <img src="../public/svg/job_application.svg" />
                                   Job Application
                                 </span>
                               </a>
@@ -821,7 +821,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4022">
                               <a href="https://globefarer.qodeinteractive.com/available-positions/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/available_positions.svg" />
+                                  <img src="../public/svg/available_positions.svg" />
                                   Available Positions
                                 </span>
                               </a>
@@ -829,7 +829,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3136">
                               <a href="https://globefarer.qodeinteractive.com/our-clients/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/OurClients.svg" />
+                                  <img src="../public/svg/OurClients.svg" />
                                   Our Clients
                                 </span>
                               </a>
@@ -837,7 +837,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3176">
                               <a href="https://globefarer.qodeinteractive.com/faq-page/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/FAQPage.svg" />
+                                  <img src="../public/svg/FAQPage.svg" />
                                   FAQ Page
                                 </span>
                               </a>
@@ -845,7 +845,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-4573">
                               <a href="https://globefarer.qodeinteractive.com/404-error-page">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/404_error_page.svg" />
+                                  <img src="../public/svg/404_error_page.svg" />
                                   404 Error Page
                                 </span>
                               </a>
@@ -867,7 +867,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2715">
                               <a href="https://globefarer.qodeinteractive.com/our-services/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/ourServices.svg" />
+                                  <img src="../public/svg/ourServices.svg" />
                                   Our Services
                                 </span>
                               </a>
@@ -875,7 +875,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3137">
                               <a href="https://globefarer.qodeinteractive.com/what-we-do/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/WhatWeDo.svg" />
+                                  <img src="../public/svg/WhatWeDo.svg" />
                                   What We Do
                                 </span>
                               </a>
@@ -883,7 +883,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3450">
                               <a href="https://globefarer.qodeinteractive.com/step-1-3/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/request_reight.svg" />
+                                  <img src="../public/svg/request_reight.svg" />
                                   Request a Freight
                                 </span>
                               </a>
@@ -905,7 +905,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3007">
                               <a href="https://globefarer.qodeinteractive.com/blog/right-sidebar/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/rightSidebar.svg" />
+                                  <img src="../public/svg/rightSidebar.svg" />
                                   Right Sidebar
                                 </span>
                               </a>
@@ -913,7 +913,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3006">
                               <a href="https://globefarer.qodeinteractive.com/blog/left-sidebar/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/leftSidebar.svg" />
+                                  <img src="../public/svg/leftSidebar.svg" />
                                   Left Sidebar
                                 </span>
                               </a>
@@ -921,7 +921,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3005">
                               <a href="https://globefarer.qodeinteractive.com/blog/no-sidebar/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/noSidebar.svg" />
+                                  <img src="../public/svg/noSidebar.svg" />
                                   No Sidebar
                                 </span>
                               </a>
@@ -929,7 +929,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2799 qodef--hide-link">
                               <a onclick="JavaScript: return false;">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/postTypes.svg" />
+                                  <img src="../public/svg/postTypes.svg" />
                                   Post Types
                                   <img src="../public/svg/postTypes2.svg" />
                                 </span>
@@ -938,7 +938,7 @@ const HomePage = () => {
                                 <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2806">
                                   <a href="https://globefarer.qodeinteractive.com/electric-wave-motion/">
                                     <span className="qodef-menu-item-text">
-                                    <img src="../public/svg/standardPost.svg" />
+                                      <img src="../public/svg/standardPost.svg" />
                                       Standard Post
                                     </span>
                                   </a>
@@ -946,7 +946,7 @@ const HomePage = () => {
                                 <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2805">
                                   <a href="https://globefarer.qodeinteractive.com/the-hidden-gems/">
                                     <span className="qodef-menu-item-text">
-                                    <img src="../public/svg/galleryPost.svg" />
+                                      <img src="../public/svg/galleryPost.svg" />
                                       Gallery Post
                                     </span>
                                   </a>
@@ -954,7 +954,7 @@ const HomePage = () => {
                                 <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2804">
                                   <a href="https://globefarer.qodeinteractive.com/creating-memories/">
                                     <span className="qodef-menu-item-text">
-                                    <img src="../public/svg/quotePost.svg" />
+                                      <img src="../public/svg/quotePost.svg" />
                                       Quote Post
                                     </span>
                                   </a>
@@ -962,7 +962,7 @@ const HomePage = () => {
                                 <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2803">
                                   <a href="https://globefarer.qodeinteractive.com/large-scale-fishing/">
                                     <span className="qodef-menu-item-text">
-                                    <img src="../public/svg/linkPost.svg" />
+                                      <img src="../public/svg/linkPost.svg" />
                                       Link Post
                                     </span>
                                   </a>
@@ -970,7 +970,7 @@ const HomePage = () => {
                                 <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2802">
                                   <a href="https://globefarer.qodeinteractive.com/the-industrial-proletariat/">
                                     <span className="qodef-menu-item-text">
-                                    <img src="../public/svg/audioPost.svg" />
+                                      <img src="../public/svg/audioPost.svg" />
                                       Audio Post
                                     </span>
                                   </a>
@@ -978,7 +978,7 @@ const HomePage = () => {
                                 <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2801">
                                   <a href="https://globefarer.qodeinteractive.com/a-sustainable-future/">
                                     <span className="qodef-menu-item-text">
-                                    <img src="../public/svg/videoPost.svg" />
+                                      <img src="../public/svg/videoPost.svg" />
                                       Video Post
                                     </span>
                                   </a>
@@ -986,7 +986,7 @@ const HomePage = () => {
                                 <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2800">
                                   <a href="https://globefarer.qodeinteractive.com/tips-and-strategies/">
                                     <span className="qodef-menu-item-text">
-                                    <img src="../public/svg/noSidebarPost.svg" />
+                                      <img src="../public/svg/noSidebarPost.svg" />
                                       No Sidebar Post
                                     </span>
                                   </a>
@@ -1010,7 +1010,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3254">
                               <a href="https://globefarer.qodeinteractive.com/get-in-touch/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/getInTouch.svg" />
+                                  <img src="../public/svg/getInTouch.svg" />
                                   Get in Touch
                                 </span>
                               </a>
@@ -1018,7 +1018,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3228">
                               <a href="https://globefarer.qodeinteractive.com/global-network/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/globalNetwork.svg" />
+                                  <img src="../public/svg/globalNetwork.svg" />
                                   Global Network
                                 </span>
                               </a>
@@ -1039,7 +1039,7 @@ const HomePage = () => {
                       className="qodef-opener-icon qodef-m qodef-source--predefined qodef-side-area-opener"
                     >
                       <span className="qodef-m-icon qodef--open">
-                      <img src="../public/svg/menu.svg" />
+                        <img src="../public/svg/menu.svg" />
                       </span>
                     </a>
                   </div>
@@ -1067,7 +1067,7 @@ const HomePage = () => {
                 className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener"
               >
                 <span className="qodef-m-icon qodef--open">
-                <img src="../public/svg/menu.svg" />
+                  <img src="../public/svg/menu.svg" />
                 </span>
                 <span className="qodef-m-icon qodef--close">
                   <img src="../public/svg/menu_close.svg" />
@@ -1091,7 +1091,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-50 current_page_item menu-item-762">
                           <a href="https://globefarer.qodeinteractive.com/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/mainHome.svg" />
+                              <img src="../public/svg/mainHome.svg" />
                               Main Home
                             </span>
                           </a>
@@ -1099,7 +1099,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1143">
                           <a href="https://globefarer.qodeinteractive.com/cargo-shipping/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/cargoShipping.svg" />
+                              <img src="../public/svg/cargoShipping.svg" />
                               Cargo Shipping
                             </span>
                           </a>
@@ -1107,7 +1107,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2516">
                           <a href="https://globefarer.qodeinteractive.com/maritime-transport/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/maritime_transport.svg" />
+                              <img src="../public/svg/maritime_transport.svg" />
                               Maritime Transport
                             </span>
                           </a>
@@ -1115,7 +1115,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-763">
                           <a href="https://globefarer.qodeinteractive.com/air-freight/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/airFreight.svg" />
+                              <img src="../public/svg/airFreight.svg" />
                               Air Freight
                             </span>
                           </a>
@@ -1123,7 +1123,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1780">
                           <a href="https://globefarer.qodeinteractive.com/rail-freight/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/railFreight.svg" />
+                              <img src="../public/svg/railFreight.svg" />
                               Rail Freight
                             </span>
                           </a>
@@ -1131,7 +1131,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6680">
                           <a href="https://globefarer.qodeinteractive.com/coming-soon/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/comingSoon.svg" />
+                              <img src="../public/svg/comingSoon.svg" />
                               Coming Soon
                             </span>
                           </a>
@@ -1139,7 +1139,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1142">
                           <a href="https://globefarer.qodeinteractive.com/divided-slider-home/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/dividedSliderHome.svg" />
+                              <img src="../public/svg/dividedSliderHome.svg" />
                               Divided Slider Home
                             </span>
                           </a>
@@ -1147,7 +1147,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5224">
                           <a href="https://globefarer.qodeinteractive.com/landing/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/landing.svg" />
+                              <img src="../public/svg/landing.svg" />
                               Landing
                             </span>
                           </a>
@@ -1167,7 +1167,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2638">
                           <a href="https://globefarer.qodeinteractive.com/about-us/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/aboutUs.svg" />
+                              <img src="../public/svg/aboutUs.svg" />
                               About Us
                             </span>
                           </a>
@@ -1175,7 +1175,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-team menu-item-3439">
                           <a href="https://globefarer.qodeinteractive.com/team/mary-simens/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/our_team.svg" />
+                              <img src="../public/svg/our_team.svg" />
                               Our Team
                             </span>
                           </a>
@@ -1183,7 +1183,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3438">
                           <a href="https://globefarer.qodeinteractive.com/meet-the-crew/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/meet_the_crew.svg" />
+                              <img src="../public/svg/meet_the_crew.svg" />
                               Meet The Crew
                             </span>
                           </a>
@@ -1191,7 +1191,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-career-item menu-item-3596">
                           <a href="https://globefarer.qodeinteractive.com/career-item/stocking-associate/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/job_application.svg" />
+                              <img src="../public/svg/job_application.svg" />
                               Job Application
                             </span>
                           </a>
@@ -1207,7 +1207,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3136">
                           <a href="https://globefarer.qodeinteractive.com/our-clients/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/OurClients.svg" />
+                              <img src="../public/svg/OurClients.svg" />
                               Our Clients
                             </span>
                           </a>
@@ -1215,7 +1215,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3176">
                           <a href="https://globefarer.qodeinteractive.com/faq-page/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/FAQPage.svg" />
+                              <img src="../public/svg/FAQPage.svg" />
                               FAQ Page
                             </span>
                           </a>
@@ -1223,7 +1223,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-4573">
                           <a href="https://globefarer.qodeinteractive.com/404-error-page">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/404_error_page.svg" />
+                              <img src="../public/svg/404_error_page.svg" />
                               404 Error Page
                             </span>
                           </a>
@@ -1243,7 +1243,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2715">
                           <a href="https://globefarer.qodeinteractive.com/our-services/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/ourServices.svg" />
+                              <img src="../public/svg/ourServices.svg" />
                               Our Services
                             </span>
                           </a>
@@ -1251,7 +1251,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3137">
                           <a href="https://globefarer.qodeinteractive.com/what-we-do/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/WhatWeDo.svg" />
+                              <img src="../public/svg/WhatWeDo.svg" />
                               What We Do
                             </span>
                           </a>
@@ -1259,7 +1259,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3450">
                           <a href="https://globefarer.qodeinteractive.com/step-1-3/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/request_reight.svg" />
+                              <img src="../public/svg/request_reight.svg" />
                               Request a Freight
                             </span>
                           </a>
@@ -1279,7 +1279,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3007">
                           <a href="https://globefarer.qodeinteractive.com/blog/right-sidebar/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/rightSidebar.svg" />
+                              <img src="../public/svg/rightSidebar.svg" />
                               Right Sidebar
                             </span>
                           </a>
@@ -1287,7 +1287,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3006">
                           <a href="https://globefarer.qodeinteractive.com/blog/left-sidebar/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/leftSidebar.svg" />
+                              <img src="../public/svg/leftSidebar.svg" />
                               Left Sidebar
                             </span>
                           </a>
@@ -1295,7 +1295,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3005">
                           <a href="https://globefarer.qodeinteractive.com/blog/no-sidebar/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/noSidebar.svg" />
+                              <img src="../public/svg/noSidebar.svg" />
                               No Sidebar
                             </span>
                           </a>
@@ -1303,7 +1303,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2799 qodef--hide-link">
                           <a onclick="JavaScript: return false;">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/postTypes.svg" />
+                              <img src="../public/svg/postTypes.svg" />
                               Post Types
                             </span>
                           </a>
@@ -1312,7 +1312,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2806">
                               <a href="https://globefarer.qodeinteractive.com/electric-wave-motion/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/standardPost.svg" />
+                                  <img src="../public/svg/standardPost.svg" />
                                   Standard Post
                                 </span>
                               </a>
@@ -1320,7 +1320,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2805">
                               <a href="https://globefarer.qodeinteractive.com/the-hidden-gems/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/galleryPost.svg" />
+                                  <img src="../public/svg/galleryPost.svg" />
                                   Gallery Post
                                 </span>
                               </a>
@@ -1328,7 +1328,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2804">
                               <a href="https://globefarer.qodeinteractive.com/creating-memories/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/quotePost.svg" />
+                                  <img src="../public/svg/quotePost.svg" />
                                   Quote Post
                                 </span>
                               </a>
@@ -1336,7 +1336,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2803">
                               <a href="https://globefarer.qodeinteractive.com/large-scale-fishing/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/linkPost.svg" />
+                                  <img src="../public/svg/linkPost.svg" />
                                   Link Post
                                 </span>
                               </a>
@@ -1344,7 +1344,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2802">
                               <a href="https://globefarer.qodeinteractive.com/the-industrial-proletariat/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/audioPost.svg" />
+                                  <img src="../public/svg/audioPost.svg" />
                                   Audio Post
                                 </span>
                               </a>
@@ -1352,7 +1352,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2801">
                               <a href="https://globefarer.qodeinteractive.com/a-sustainable-future/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/videoPost.svg" />
+                                  <img src="../public/svg/videoPost.svg" />
                                   Video Post
                                 </span>
                               </a>
@@ -1360,7 +1360,7 @@ const HomePage = () => {
                             <li className="menu-item menu-item-type-post_type menu-item-object-post menu-item-2800">
                               <a href="https://globefarer.qodeinteractive.com/tips-and-strategies/">
                                 <span className="qodef-menu-item-text">
-                                <img src="../public/svg/noSidebarPost.svg" />
+                                  <img src="../public/svg/noSidebarPost.svg" />
                                   No Sidebar Post
                                 </span>
                               </a>
@@ -1382,7 +1382,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3254">
                           <a href="https://globefarer.qodeinteractive.com/get-in-touch/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/getInTouch.svg" />
+                              <img src="../public/svg/getInTouch.svg" />
                               Get in Touch
                             </span>
                           </a>
@@ -1390,7 +1390,7 @@ const HomePage = () => {
                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3228">
                           <a href="https://globefarer.qodeinteractive.com/global-network/">
                             <span className="qodef-menu-item-text">
-                            <img src="../public/svg/globalNetwork.svg" />
+                              <img src="../public/svg/globalNetwork.svg" />
                               Global Network
                             </span>
                           </a>
@@ -1443,7 +1443,7 @@ const HomePage = () => {
                                       <rs-module-wrap
                                         id="rev_slider_2_1_wrapper"
                                         data-source="gallery"
-                                        // style="visibility:hidden;background:transparent;padding:0;"
+                                        style={{ visibility: "hidden", background: "transparent", padding: "0" }}
                                       >
                                         <rs-module
                                           id="rev_slider_2_1"
@@ -1452,6 +1452,7 @@ const HomePage = () => {
                                           <rs-slides>
                                             <rs-slide
                                               // style="position: absolute;"
+                                              style={{ position: "absolute" }}
                                               data-key="rs-2"
                                               data-title="Slide"
                                               data-thumb="//globefarer.qodeinteractive.com/wp-content/uploads/2021/08/main-home-rev-slide-1-1-50x100.jpg"
@@ -1482,7 +1483,7 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                                // style="z-index:6;font-family:'Sarabun';"
+                                              // style="z-index:6;font-family:'Sarabun';"
                                               >
                                                 Worldwide shipping and
                                                 professional solutions
@@ -1499,7 +1500,7 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                                // style="z-index:7;font-family:'Sarabun';"
+                                              // style="z-index:7;font-family:'Sarabun';"
                                               >
                                                 No matter the location we got
                                                 you covered with our global
@@ -1538,7 +1539,7 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                                // style="z-index:6;font-family:'Sarabun';"
+                                              // style="z-index:6;font-family:'Sarabun';"
                                               >
                                                 Fast and secure courier for all
                                                 your packages
@@ -1555,7 +1556,7 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                                // style="z-index:7;font-family:'Sarabun';"
+                                              // style="z-index:7;font-family:'Sarabun';"
                                               >
                                                 Your packages will not be
                                                 damaged with our expert courier
@@ -1594,7 +1595,7 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                                // style="z-index:6;font-family:'Sarabun';"
+                                              // style="z-index:6;font-family:'Sarabun';"
                                               >
                                                 We provide super-fast and
                                                 fuss-free delivery service
@@ -1611,7 +1612,7 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                                // style="z-index:7;font-family:'Sarabun';"
+                                              // style="z-index:7;font-family:'Sarabun';"
                                               >
                                                 We guarantee no complications
                                                 and full refunds in case of
@@ -1650,7 +1651,7 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                                // style="z-index:6;font-family:'Sarabun';"
+                                              // style="z-index:6;font-family:'Sarabun';"
                                               >
                                                 Always stay ahead of schedule
                                                 with White Glove
@@ -1667,7 +1668,7 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                                // style="z-index:7;font-family:'Sarabun';"
+                                              // style="z-index:7;font-family:'Sarabun';"
                                               >
                                                 Cost efficient & always on time,
                                                 that’s our transport company
@@ -1706,7 +1707,7 @@ const HomePage = () => {
                                               data-frame_0="x:-50;"
                                               data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                               data-frame_999="o:0;st:w;"
-                                              // style="z-index:5;"
+                                            // style="z-index:5;"
                                             >
                                               <img
                                                 src="//globefarer.qodeinteractive.com/wp-content/plugins/revslider/public/assets/assets/dummy.png"
@@ -1818,12 +1819,12 @@ function setREVStartSize(e){
                                     <div className="qodef-shortcode qodef-m  qodef-divided-image-info qodef-layout--image-right qodef-separator--on  qodef-breakpoint--1024 qodef-appear-animation--yes qodef-appear-animation-type--roll-out">
                                       <div
                                         className="qodef-m-content"
-                                        // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
+                                      // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
                                       >
                                         <h2
                                           itemprop="name"
                                           className="qodef-m-title"
-                                          // style="margin-bottom: 29px"
+                                        // style="margin-bottom: 29px"
                                         >
                                           Fast and reliable shipping services{" "}
                                         </h2>
@@ -1849,7 +1850,7 @@ function setREVStartSize(e){
                                       </div>
                                       <div
                                         className="qodef-m-image"
-                                        // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
+                                      // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
                                       >
                                         <img
                                           width="800"
@@ -1956,7 +1957,7 @@ function setREVStartSize(e){
                                           >
                                             {" "}
                                             <span className="qodef-m-button-icon">
-                                            <img src="../public/svg/view_more.svg" />
+                                              <img src="../public/svg/view_more.svg" />
                                             </span>{" "}
                                             <span className="qodef-m-button-text">
                                               View more
@@ -2001,7 +2002,7 @@ function setREVStartSize(e){
                                           >
                                             {" "}
                                             <span className="qodef-m-button-icon">
-                                            <img src="../public/svg/view_more.svg" />
+                                              <img src="../public/svg/view_more.svg" />
                                             </span>{" "}
                                             <span className="qodef-m-button-text">
                                               View more
@@ -2046,7 +2047,7 @@ function setREVStartSize(e){
                                           >
                                             {" "}
                                             <span className="qodef-m-button-icon">
-                                            <img src="../public/svg/view_more.svg" />
+                                              <img src="../public/svg/view_more.svg" />
                                             </span>{" "}
                                             <span className="qodef-m-button-text">
                                               View more
@@ -2090,7 +2091,7 @@ function setREVStartSize(e){
                                           >
                                             {" "}
                                             <span className="qodef-m-button-icon">
-                                            <img src="../public/svg/view_more.svg" />
+                                              <img src="../public/svg/view_more.svg" />
                                             </span>{" "}
                                             <span className="qodef-m-button-text">
                                               View more
@@ -2135,7 +2136,7 @@ function setREVStartSize(e){
                                           >
                                             {" "}
                                             <span className="qodef-m-button-icon">
-                                            <img src="../public/svg/view_more.svg" />
+                                              <img src="../public/svg/view_more.svg" />
                                             </span>{" "}
                                             <span className="qodef-m-button-text">
                                               View more
@@ -2180,7 +2181,7 @@ function setREVStartSize(e){
                                           >
                                             {" "}
                                             <span className="qodef-m-button-icon">
-                                            <img src="../public/svg/view_more.svg" />
+                                              <img src="../public/svg/view_more.svg" />
                                             </span>{" "}
                                             <span className="qodef-m-button-text">
                                               View more
@@ -2222,7 +2223,7 @@ function setREVStartSize(e){
                                     >
                                       <div
                                         className="qodef-m-icon"
-                                        // style="color: #FFFFFF"
+                                      // style="color: #FFFFFF"
                                       >
                                         {/* <svg
                                           className="qodef-svg--quote"
@@ -2269,7 +2270,7 @@ function setREVStartSize(e){
                                               <div className="qodef-e-author">
                                                 <h6
                                                   className="qodef-e-author-job"
-                                                  // style="color: #FFFFFF"
+                                                // style="color: #FFFFFF"
                                                 >
                                                   Satisfied Client
                                                 </h6>
@@ -2326,7 +2327,7 @@ function setREVStartSize(e){
                                         </h4>
                                         <p
                                           className="qodef-m-text"
-                                          // style="margin-top: 18px"
+                                        // style="margin-top: 18px"
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2369,7 +2370,7 @@ function setREVStartSize(e){
                                         </h4>
                                         <p
                                           className="qodef-m-text"
-                                          // style="margin-top: 18px"
+                                        // style="margin-top: 18px"
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2412,7 +2413,7 @@ function setREVStartSize(e){
                                         </h4>
                                         <p
                                           className="qodef-m-text"
-                                          // style="margin-top: 18px"
+                                        // style="margin-top: 18px"
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2455,7 +2456,7 @@ function setREVStartSize(e){
                                         </h4>
                                         <p
                                           className="qodef-m-text"
-                                          // style="margin-top: 18px"
+                                        // style="margin-top: 18px"
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2492,12 +2493,12 @@ function setREVStartSize(e){
                                     <div className="qodef-shortcode qodef-m  qodef-divided-image-info qodef-layout--image-right qodef-separator--on  qodef-breakpoint--1024 qodef-appear-animation--yes qodef-appear-animation-type--roll-out">
                                       <div
                                         className="qodef-m-content"
-                                        // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
+                                      // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
                                       >
                                         <h2
                                           itemprop="name"
                                           className="qodef-m-title"
-                                          // style="margin-bottom: 29px"
+                                        // style="margin-bottom: 29px"
                                         >
                                           Secure courier for all your packages{" "}
                                         </h2>
@@ -2513,7 +2514,7 @@ function setREVStartSize(e){
                                         >
                                           {" "}
                                           <span className="qodef-m-button-icon">
-                                          <img src="../public/svg/view_more.svg" />
+                                            <img src="../public/svg/view_more.svg" />
                                           </span>{" "}
                                           <span className="qodef-m-button-text">
                                             View more
@@ -2523,7 +2524,7 @@ function setREVStartSize(e){
                                       </div>
                                       <div
                                         className="qodef-m-image"
-                                        // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
+                                      // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
                                       >
                                         <img
                                           width="800"
@@ -2565,14 +2566,14 @@ function setREVStartSize(e){
                                     <div className="qodef-shortcode qodef-m  qodef-section-title qodef-alignment--left   qodef-appear-animation--no">
                                       <h1
                                         className="qodef-m-title"
-                                        // style="color: #FFFFFF"
+                                      // style="color: #FFFFFF"
                                       >
                                         We provide the best and fastest courier
                                         services nowadays{" "}
                                       </h1>
                                       <p
                                         className="qodef-m-text"
-                                        // style="margin-top: 30px;color: #FFFFFF"
+                                      // style="margin-top: 30px;color: #FFFFFF"
                                       >
                                         Id veniam malorum mel. At tempor euismod
                                         postulant commodo.
@@ -2756,7 +2757,7 @@ function setREVStartSize(e){
                                                     >
                                                       {" "}
                                                       <span className="qodef-m-button-icon">
-                                                      <img src="../public/svg/view_more.svg" />
+                                                        <img src="../public/svg/view_more.svg" />
                                                       </span>{" "}
                                                       <span className="qodef-m-button-text">
                                                         Read more
@@ -2847,7 +2848,7 @@ function setREVStartSize(e){
                                                     >
                                                       {" "}
                                                       <span className="qodef-m-button-icon">
-                                                      <img src="../public/svg/view_more.svg" />
+                                                        <img src="../public/svg/view_more.svg" />
                                                       </span>{" "}
                                                       <span className="qodef-m-button-text">
                                                         Read more
@@ -2938,7 +2939,7 @@ function setREVStartSize(e){
                                                     >
                                                       {" "}
                                                       <span className="qodef-m-button-icon">
-                                                      <img src="../public/svg/view_more.svg" />
+                                                        <img src="../public/svg/view_more.svg" />
                                                       </span>{" "}
                                                       <span className="qodef-m-button-text">
                                                         Read more
@@ -3270,7 +3271,7 @@ function setREVStartSize(e){
                           <span
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#f7c600"
-                            // style="margin: 13px 25px 0px 0px"
+                          // style="margin: 13px 25px 0px 0px"
                           >
                             {" "}
                             <a
@@ -3281,14 +3282,14 @@ function setREVStartSize(e){
                               {" "}
                               <span
                                 className="qodef-icon-font-awesome fab fa-twitter qodef-icon qodef-e"
-                                // style="color: #e5e5e5;font-size: 20px"
+                              // style="color: #e5e5e5;font-size: 20px"
                               ></span>{" "}
                             </a>{" "}
                           </span>
                           <span
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#f7c600"
-                            // style="margin: 13px 25px 0px 0px"
+                          // style="margin: 13px 25px 0px 0px"
                           >
                             {" "}
                             <a
@@ -3299,14 +3300,14 @@ function setREVStartSize(e){
                               {" "}
                               <span
                                 className="qodef-icon-font-awesome fab fa-instagram qodef-icon qodef-e"
-                                // style="color: #e5e5e5;font-size: 20px"
+                              // style="color: #e5e5e5;font-size: 20px"
                               ></span>{" "}
                             </a>{" "}
                           </span>
                           <span
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#f7c600"
-                            // style="margin: 13px 25px 0px 0px"
+                          // style="margin: 13px 25px 0px 0px"
                           >
                             {" "}
                             <a
@@ -3317,14 +3318,14 @@ function setREVStartSize(e){
                               {" "}
                               <span
                                 className="qodef-icon-font-awesome fab fa-facebook-square qodef-icon qodef-e"
-                                // style="color: #e5e5e5;font-size: 20px"
+                              // style="color: #e5e5e5;font-size: 20px"
                               ></span>{" "}
                             </a>{" "}
                           </span>
                           <span
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#F7C600"
-                            // style="margin: 13px 0px 0px 0px"
+                          // style="margin: 13px 0px 0px 0px"
                           >
                             {" "}
                             <a
@@ -3335,7 +3336,7 @@ function setREVStartSize(e){
                               {" "}
                               <span
                                 className="qodef-icon-font-awesome fab fa-vimeo-v qodef-icon qodef-e"
-                                // style="color: #e5e5e5;font-size: 18px"
+                              // style="color: #e5e5e5;font-size: 18px"
                               ></span>{" "}
                             </a>{" "}
                           </span>{" "}
@@ -3434,7 +3435,7 @@ function setREVStartSize(e){
               className="qodef-opener-icon qodef-m qodef-source--predefined qodef--opened"
             >
               <span className="qodef-m-icon qodef--close">
-              <img src="../public/svg/menu_close.svg" />
+                <img src="../public/svg/menu_close.svg" />
               </span>
             </a>
             <div id="qodef-side-area-inner">
