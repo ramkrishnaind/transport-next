@@ -1,0 +1,9 @@
+{
+"smtpOptions" : {
+  "host": "smtpout.secureserver.net",
+  "port": 465,
+  "auth": {
+    "user": "development@flitte.in", 
+    "pass": "Develop@333" 
+  }
+}}
