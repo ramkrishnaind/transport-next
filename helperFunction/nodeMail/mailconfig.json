@@ -1,9 +1,9 @@
 {
 "smtpOptions" : {
-  "host": "whiteglove.co.in",
+  "host": "smtpout.secureserver.net",
   "port": 465,
   "auth": {
-    "user": "development@whiteglove.co.in", 
-    "pass": "dev@333" 
+    "user": "development@flitte.in", 
+    "pass": "Develop@333" 
   }
 }}
