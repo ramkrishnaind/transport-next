@@ -35,16 +35,16 @@ async function createCustomer(req, res) {
     let otp = getHash();
     customerData.otp = otp;
     //
-    let findData = await CustomerDB.findOne({ mobile: customerData.mobile });
+    let findData = await CustomerDB.findOne({ $or: [{ mobile: customerData.mobile }, { email: customerData.email }] });
     if (findData) {
       if (!findData.active) {
         return res.json({ status: false, error: true, message: "Your account has been disabled. Please contact admin", adminDisable: true, statusCode: 401 });
       }
-      SendEmail('development@flitte.in',customerData.email,'Customer Login OTP',customerData.otp);
+      SendEmail(customerData.email, 'Customer Login OTP', customerData.otp);
       return res.json({ status: true, error: false, message: "OTP Sent to " + customerData.mobile, OTP: customerData.otp, alreadyAUser: true })
     } else {
       const customer = await CustomerDB.create(customerData);
-      SendEmail('development@flitte.in',customerData.email,'New Customer Login OTP',customerData.otp);
+      SendEmail(customerData.email, 'New Customer Login OTP', customerData.otp);
       return res.json({ status: true, error: false, message: "OTP Sent to " + customerData.mobile, OTP: customerData.otp });
     }
   } catch (error) {

@@ -34,11 +34,11 @@ const Otp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    alert("Submission! " + tpin);
     let result = await submitOTP(tpin);
     console.log('result is', result)
     if (result.data.status) {
       router.push("/step1")
+      setCustomerDetails(result.data.customerData)
     }
 
   };
