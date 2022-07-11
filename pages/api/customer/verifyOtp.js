@@ -2,6 +2,7 @@
 import dbConnect from "../../../database/lib/dbConnect";
 import CustomerDB from "../../../database/Schemas/customer";
 import withProtect from "../../../middlewares/withProtect";
+import createToken from "../../../helperFunction/JSON_WebToken/authverification";
 const _ = require('lodash');
 const Joi = require('joi');
 
@@ -39,6 +40,7 @@ async function verifyOtp(req, res) {
                     };
                     const verifyCustomer = await CustomerDB.findOneAndUpdate({ mobile: customerData.mobile }, { $set: verifyData })
                 }
+                createToken(findData._id);
                 return res.status(200).send({ status: true, error: false, message: "OTP Varified", customerData: findData });
             }
         } else {
