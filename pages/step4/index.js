@@ -194,12 +194,13 @@ const Step4 = (props) => {
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   const [stateData, setStateData] = useState([]);
-  const checkKeyExist = (object, key) => {};
+  const checkKeyExist = (object, key) => { };
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
   const ctx = useContext(TransportContext);
   const { step3State } = ctx;
+  console.log("ctx.step3State2", ctx.step3State);
   const getStateData = () => {
     const result = [];
 
@@ -299,7 +300,7 @@ const Step4 = (props) => {
     if (newItems && newItems.length > 0) setItems([...newItems]);
   };
   useEffect(() => {
-    debugger;
+    //debugger;
     if (!step3State) return;
     const keys = Object.keys(step3State);
     const arr = [];
@@ -307,6 +308,7 @@ const Step4 = (props) => {
     keys.forEach((k) => {
       step3State[k].forEach((i) => {
         i.category = k;
+        if (i.count < 1) return;
         arr.push(i);
         const arryStateCount = [...Array(i.count).keys()];
         arryStateCount.forEach((it) => {
@@ -332,7 +334,7 @@ const Step4 = (props) => {
     if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
     setState(arr);
   }, [step3State]);
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   // console.log("currentHeader", currentHeader);
 
   const changeState = () => {
@@ -361,7 +363,7 @@ const Step4 = (props) => {
     // setDisplaysetCurrentHeader1("visible");
   };
   const handleFirstLevelItemClick = (event, index, element) => {
-    debugger;
+    //debugger;
     event.stopPropagation();
     let itemsNew = [...items];
     itemsNew = itemsNew.map((i) => {
@@ -372,7 +374,7 @@ const Step4 = (props) => {
         item.index === index &&
         item.category == element.category
       ) {
-        // debugger;
+        // //debugger;
         item.checked = true;
         item.currentIndex = index;
         if (item.value.length == 0) item.completed = true;
@@ -384,7 +386,7 @@ const Step4 = (props) => {
       }
       return item;
     });
-    debugger;
+    //debugger;
     if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
     itemsNew.forEach((i) => {
       if (!i.completed && i.key !== element.key) {
@@ -395,7 +397,7 @@ const Step4 = (props) => {
     });
   };
   const handleSecondLevelClick = (event, parentIndex, index, element) => {
-    debugger;
+    //debugger;
     event.stopPropagation();
     let itemsNew = [...items];
     let itemsSub = [...itemsNew[parentIndex].value] || [];
@@ -420,6 +422,14 @@ const Step4 = (props) => {
     });
     itemsNew[parentIndex].value = itemsSub;
     if (itemsNew && itemsNew.length > 0) setItems([...itemsNew]);
+    debugger;
+    itemsSub.forEach((i) => {
+      if (i.key !== element.key) {
+        // if (i.index == index) {
+        resetState(i);
+        // }
+      }
+    });
   };
   const handleThirdLevelClick = (
     event,
@@ -430,7 +440,7 @@ const Step4 = (props) => {
     element
   ) => {
     event.stopPropagation();
-    debugger;
+    //debugger;
     let itemsNew = [...items];
     const itemsSub =
       items.find(
@@ -445,7 +455,7 @@ const Step4 = (props) => {
       if (i.key === element.key && i.index === index) {
         i.checked = true;
         if (i.value.length == 0) {
-          // debugger;
+          // //debugger;
           itemsNew.find(
             (iParent) =>
               iParent.index === iParent.currentIndex &&
@@ -461,6 +471,13 @@ const Step4 = (props) => {
       return i;
     });
     if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    itemsSubSub.forEach((i) => {
+      if (i.key !== element.key) {
+        // if (i.index == index) {
+        resetState(i);
+        // }
+      }
+    });
   };
   const handleFourthLevelClick = (event, index, parentItem, element) => {
     event.stopPropagation();
@@ -494,6 +511,13 @@ const Step4 = (props) => {
       return i;
     });
     if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    itemsSubSubSub.forEach((i) => {
+      if (i.key !== element.key) {
+        // if (i.index == index) {
+        resetState(i);
+        // }
+      }
+    });
   };
   const handleFifthLevelClick = (event, index, parentItem, element) => {
     event.stopPropagation();
@@ -529,6 +553,13 @@ const Step4 = (props) => {
       return i;
     });
     if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    itemsSubSubSubSub.forEach((i) => {
+      if (i.key !== element.key) {
+        // if (i.index == index) {
+        resetState(i);
+        // }
+      }
+    });
   };
   // console.log("items", items);
   const displayFirstLevel = () => {
@@ -552,8 +583,8 @@ const Step4 = (props) => {
                 backgroundColor: item?.completed
                   ? "lightgreen"
                   : item?.index === item?.currentIndex
-                  ? "lightpink"
-                  : "white",
+                    ? "lightpink"
+                    : "white",
               }}
               onClick={(e) => {
                 if (!item?.completed) handleFirstLevelItemClick(e, index, item);
@@ -899,7 +930,7 @@ const Step4 = (props) => {
               <div className="px-5 mt-2 hover:bg-blue-100">
                 <button
                   className="text-gray-500 text-center m-auto"
-                  // onClick={changeState}
+                // onClick={changeState}
                 >
                   {getCompletedCount(element.title)}/{element.count}
                 </button>
