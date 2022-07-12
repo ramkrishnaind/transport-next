@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 // import FirstSVG from "../public/svg/first.svg";
 // import Maritime_transport from "../public/svg/maritime_transport.svg";
 // import Landing from "../public/svg/landing.svg";
-// import PagesSVG from "../public/svg/pages.svg"; 
+// import PagesSVG from "../public/svg/pages.svg";
 // import AboutUsSVG from "../public/svg/aboutUs.svg";
 // import OurTeamSVG from "../public/svg/our_team.svg";
 // import MeetTheCrewSVG from "../public/svg/meet_the_crew.svg";
@@ -178,11 +178,12 @@ const HomePage = () => {
         <div id="qodef-page-wrapper" className="">
           <div id="qodef-menu-cover"></div>
           <header id="qodef-page-header" role="banner">
-            <div id="qodef-page-header-inner"
+            <div
+              id="qodef-page-header-inner"
               className=" qodef-skin--light qodef-header-cursor--light"
             >
               <a
-                itemprop="url"
+                itemProp="url"
                 className="qodef-header-logo-link qodef-height--not-set qodef-source--image"
                 href="https://globefarer.qodeinteractive.com/"
                 rel="home"
@@ -190,19 +191,19 @@ const HomePage = () => {
                 <img
                   src="assets/image/logo.png"
                   className="qodef-header-logo-image qodef--main"
-                  itemprop="image"
+                  itemProp="image"
                   alt="logo main"
                 />
                 <img
                   src="assets/image/logo.png"
                   className="qodef-header-logo-image qodef--dark"
-                  itemprop="image"
+                  itemProp="image"
                   alt="logo dark"
                 />
                 <img
                   src="assets/image/logo.png"
                   className="qodef-header-logo-image qodef--light"
-                  itemprop="image"
+                  itemProp="image"
                   alt="logo light"
                 />
               </a>
@@ -213,7 +214,7 @@ const HomePage = () => {
               >
                 <ul id="menu-main-menu-1" className="menu">
                   <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-757 qodef--hide-link qodef-menu-item--narrow">
-                    <a onclick="JavaScript: return false;">
+                    <a onClick="JavaScript: return false;">
                       <span className="qodef-menu-item-text">
                         Homes
                         <img src="../public/svg/homes.svg" />
@@ -291,7 +292,7 @@ const HomePage = () => {
                     </div>
                   </li>
                   <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 qodef--hide-link qodef-menu-item--narrow">
-                    <a onclick="JavaScript: return false;">
+                    <a onClick="JavaScript: return false;">
                       <span className="qodef-menu-item-text">
                         Pages
                         <img src="../public/svg/pages.svg" />
@@ -369,7 +370,7 @@ const HomePage = () => {
                     </div>
                   </li>
                   <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-764 qodef--hide-link qodef-menu-item--narrow">
-                    <a onclick="JavaScript: return false;">
+                    <a onClick="JavaScript: return false;">
                       <span className="qodef-menu-item-text">
                         Services
                         <img src="../public/svg/Services.svg" />
@@ -407,7 +408,7 @@ const HomePage = () => {
                     </div>
                   </li>
                   <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-765 qodef--hide-link qodef-menu-item--narrow">
-                    <a onclick="JavaScript: return false;">
+                    <a onClick="JavaScript: return false;">
                       <span className="qodef-menu-item-text">
                         Blog
                         <img src="../public/svg/blog.svg" />
@@ -441,7 +442,7 @@ const HomePage = () => {
                             </a>
                           </li>
                           <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2799 qodef--hide-link">
-                            <a onclick="JavaScript: return false;">
+                            <a onClick="JavaScript: return false;">
                               <span className="qodef-menu-item-text">
                                 <img src="../public/svg/postTypes.svg" />
                                 Post Types
@@ -512,7 +513,7 @@ const HomePage = () => {
                     </div>
                   </li>
                   <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-766 qodef--hide-link qodef-menu-item--narrow">
-                    <a onclick="JavaScript: return false;">
+                    <a onClick="JavaScript: return false;">
                       <span className="qodef-menu-item-text">
                         Contact
                         <img src="../public/svg/contact.svg" />
@@ -581,41 +582,45 @@ const HomePage = () => {
                               action="/#wpcf7-f1991-o1"
                               method="post"
                               className="wpcf7-form init"
-                              novalidate="novalidate"
+                              noValidate="noValidate"
                               data-status="init"
                             >
-                              <div
-                                style={{ display: "none" }}
-                              >
+                              <div style={{ display: "none" }}>
                                 <input
                                   type="hidden"
                                   name="_wpcf7"
-                                  value="1991"
+                                  defaultValue="1991"
+                                  readOnly
                                 />
                                 <input
                                   type="hidden"
                                   name="_wpcf7_version"
-                                  value="5.5.3"
+                                  defaultValue="5.5.3"
+                                  readOnly
                                 />
                                 <input
                                   type="hidden"
                                   name="_wpcf7_locale"
-                                  value="en_US"
+                                  defaultValue="en_US"
+                                  readOnly
                                 />
                                 <input
                                   type="hidden"
                                   name="_wpcf7_unit_tag"
-                                  value="wpcf7-f1991-o1"
+                                  defaultValue="wpcf7-f1991-o1"
+                                  readOnly
                                 />
                                 <input
                                   type="hidden"
                                   name="_wpcf7_container_post"
-                                  value="0"
+                                  defaultValue="0"
+                                  readOnly
                                 />
                                 <input
                                   type="hidden"
                                   name="_wpcf7_posted_data_hash"
-                                  value=""
+                                  defaultValue=""
+                                  readOnly
                                 />
                               </div>
                               <div className="qodef-contact-form-7--order-tracking-widget">
@@ -623,7 +628,8 @@ const HomePage = () => {
                                   <input
                                     type="text"
                                     name="your-id"
-                                    value=""
+                                    defaultValue=""
+                                    readOnly
                                     size="40"
                                     className="wpcf7-form-control wpcf7-text"
                                     aria-invalid="false"
@@ -651,9 +657,10 @@ const HomePage = () => {
                         </div>
                         <a
                           className="qodef-m-dropdown-link"
-                          itemprop="url"
+                          itemProp="url"
                           href=""
                           target="_blank"
+                          rel="noreferrer"
                         >
                           <span>Need help?</span>
                         </a>
@@ -666,7 +673,7 @@ const HomePage = () => {
                   data-area="header-light"
                 >
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="qodef-opener-icon qodef-m qodef-source--predefined qodef-side-area-opener"
                     style={{ backgroundColor: "#ffffff" }}
                   >
@@ -680,7 +687,7 @@ const HomePage = () => {
             <div className="qodef-header-sticky qodef-custom-header-layout qodef-appearance--down">
               <div className="qodef-header-sticky-inner ">
                 <a
-                  itemprop="url"
+                  itemProp="url"
                   className="qodef-header-logo-link qodef-height--not-set qodef-source--image"
                   href="https://globefarer.qodeinteractive.com/"
                   rel="home"
@@ -688,7 +695,7 @@ const HomePage = () => {
                   <img
                     src="assets/image/logo.png"
                     className="qodef-header-logo-image qodef--main"
-                    itemprop="image"
+                    itemProp="image"
                     alt="logo main"
                   />
                 </a>
@@ -699,7 +706,7 @@ const HomePage = () => {
                 >
                   <ul id="menu-main-menu-2" className="menu">
                     <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-757 qodef--hide-link qodef-menu-item--narrow">
-                      <a onclick="JavaScript: return false;">
+                      <a onClick="JavaScript: return false;">
                         <span className="qodef-menu-item-text">
                           Homes
                           <img src="../public/svg/homes.svg" />
@@ -777,7 +784,7 @@ const HomePage = () => {
                       </div>
                     </li>
                     <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 qodef--hide-link qodef-menu-item--narrow">
-                      <a onclick="JavaScript: return false;">
+                      <a onClick="JavaScript: return false;">
                         <span className="qodef-menu-item-text">
                           Pages
                           <img src="../public/svg/pages.svg" />
@@ -855,7 +862,7 @@ const HomePage = () => {
                       </div>
                     </li>
                     <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-764 qodef--hide-link qodef-menu-item--narrow">
-                      <a onclick="JavaScript: return false;">
+                      <a onClick="JavaScript: return false;">
                         <span className="qodef-menu-item-text">
                           Services
                           <img src="../public/svg/Services.svg" />
@@ -893,7 +900,7 @@ const HomePage = () => {
                       </div>
                     </li>
                     <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-765 qodef--hide-link qodef-menu-item--narrow">
-                      <a onclick="JavaScript: return false;">
+                      <a onClick="JavaScript: return false;">
                         <span className="qodef-menu-item-text">
                           Blog
                           <img src="../public/svg/blog.svg" />
@@ -927,7 +934,7 @@ const HomePage = () => {
                               </a>
                             </li>
                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2799 qodef--hide-link">
-                              <a onclick="JavaScript: return false;">
+                              <a onClick="JavaScript: return false;">
                                 <span className="qodef-menu-item-text">
                                   <img src="../public/svg/postTypes.svg" />
                                   Post Types
@@ -998,7 +1005,7 @@ const HomePage = () => {
                       </div>
                     </li>
                     <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-766 qodef--hide-link qodef-menu-item--narrow">
-                      <a onclick="JavaScript: return false;">
+                      <a onClick="JavaScript: return false;">
                         <span className="qodef-menu-item-text">
                           Contact
                           <img src="../public/svg/contact.svg" />
@@ -1035,7 +1042,7 @@ const HomePage = () => {
                     className="widget widget_globefarer_core_side_area_opener qodef-sticky-right"
                   >
                     <a
-                      href="javascript:void(0)"
+                      href="#"
                       className="qodef-opener-icon qodef-m qodef-source--predefined qodef-side-area-opener"
                     >
                       <span className="qodef-m-icon qodef--open">
@@ -1050,7 +1057,7 @@ const HomePage = () => {
           <header id="qodef-page-mobile-header" role="banner">
             <div id="qodef-page-mobile-header-inner" className="">
               <a
-                itemprop="url"
+                itemProp="url"
                 className="qodef-mobile-header-logo-link qodef-height--not-set qodef-source--image"
                 href="https://globefarer.qodeinteractive.com/"
                 rel="home"
@@ -1059,11 +1066,11 @@ const HomePage = () => {
                   src="assets/image/logo.png"
                   className="qodef-header-logo-image qodef--main"
                   alt="logo main"
-                  itemprop="image"
+                  itemProp="image"
                 />
               </a>
               <a
-                href="javascript:void(0)"
+                href="#"
                 className="qodef-opener-icon qodef-m qodef-source--predefined qodef-mobile-header-opener"
               >
                 <span className="qodef-m-icon qodef--open">
@@ -1081,7 +1088,7 @@ const HomePage = () => {
             >
               <ul id="menu-main-menu-4" className="">
                 <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-757 qodef--hide-link qodef-menu-item--narrow">
-                  <a onclick="JavaScript: return false;">
+                  <a onClick="JavaScript: return false;">
                     <span className="qodef-menu-item-text">Homes</span>
                   </a>
                   <img src="../public/svg/homes.svg" />
@@ -1157,7 +1164,7 @@ const HomePage = () => {
                   </div>
                 </li>
                 <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 qodef--hide-link qodef-menu-item--narrow">
-                  <a onclick="JavaScript: return false;">
+                  <a onClick="JavaScript: return false;">
                     <span className="qodef-menu-item-text">Pages</span>
                   </a>
                   <img src="../public/svg/pages.svg" />
@@ -1233,7 +1240,7 @@ const HomePage = () => {
                   </div>
                 </li>
                 <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-764 qodef--hide-link qodef-menu-item--narrow">
-                  <a onclick="JavaScript: return false;">
+                  <a onClick="JavaScript: return false;">
                     <span className="qodef-menu-item-text">Services</span>
                   </a>
                   <img src="../public/svg/Services.svg" />
@@ -1269,7 +1276,7 @@ const HomePage = () => {
                   </div>
                 </li>
                 <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-765 qodef--hide-link qodef-menu-item--narrow">
-                  <a onclick="JavaScript: return false;">
+                  <a onClick="JavaScript: return false;">
                     <span className="qodef-menu-item-text">Blog</span>
                   </a>
                   <img src="../public/svg/blog.svg" />
@@ -1301,7 +1308,7 @@ const HomePage = () => {
                           </a>
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2799 qodef--hide-link">
-                          <a onclick="JavaScript: return false;">
+                          <a onClick="JavaScript: return false;">
                             <span className="qodef-menu-item-text">
                               <img src="../public/svg/postTypes.svg" />
                               Post Types
@@ -1372,7 +1379,7 @@ const HomePage = () => {
                   </div>
                 </li>
                 <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-766 qodef--hide-link qodef-menu-item--narrow">
-                  <a onclick="JavaScript: return false;">
+                  <a onClick="JavaScript: return false;">
                     <span className="qodef-menu-item-text">Contact</span>
                   </a>
                   <img src="../public/svg/contact.svg" />
@@ -1443,7 +1450,11 @@ const HomePage = () => {
                                       <rs-module-wrap
                                         id="rev_slider_2_1_wrapper"
                                         data-source="gallery"
-                                        style={{ visibility: "hidden", background: "transparent", padding: "0" }}
+                                        style={{
+                                          visibility: "hidden",
+                                          background: "transparent",
+                                          padding: "0",
+                                        }}
                                       >
                                         <rs-module
                                           id="rev_slider_2_1"
@@ -1482,8 +1493,11 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                              // style="z-index:6;font-family:'Sarabun';"
-                                              style={{zIndex:6, fontFamily:"Sarabun" }}
+                                                // style="z-index:6;font-family:'Sarabun';"
+                                                style={{
+                                                  zIndex: 6,
+                                                  fontFamily: "Sarabun",
+                                                }}
                                               >
                                                 Worldwide shipping and
                                                 professional solutions
@@ -1500,8 +1514,11 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                              // style="z-index:7;font-family:'Sarabun';"
-                                              style={{zIndex:7, fontFamily:"Sarabun" }}
+                                                // style="z-index:7;font-family:'Sarabun';"
+                                                style={{
+                                                  zIndex: 7,
+                                                  fontFamily: "Sarabun",
+                                                }}
                                               >
                                                 No matter the location we got
                                                 you covered with our global
@@ -1510,7 +1527,7 @@ const HomePage = () => {
                                             </rs-slide>
                                             <rs-slide
                                               // style="position: absolute;"
-                                              style={{position: "absolute"}}
+                                              style={{ position: "absolute" }}
                                               data-key="rs-6"
                                               data-title="Slide"
                                               data-thumb="//globefarer.qodeinteractive.com/wp-content/uploads/2021/08/main-home-rev-slide-2-50x100.jpg"
@@ -1541,8 +1558,11 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                              // style="z-index:6;font-family:'Sarabun';"
-                                              style={{zIndex:6, fontFamily:"Sarabun" }}
+                                                // style="z-index:6;font-family:'Sarabun';"
+                                                style={{
+                                                  zIndex: 6,
+                                                  fontFamily: "Sarabun",
+                                                }}
                                               >
                                                 Fast and secure courier for all
                                                 your packages
@@ -1559,8 +1579,11 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                              // style="z-index:7;font-family:'Sarabun';"
-                                              style={{zIndex:7, fontFamily:"Sarabun" }}
+                                                // style="z-index:7;font-family:'Sarabun';"
+                                                style={{
+                                                  zIndex: 7,
+                                                  fontFamily: "Sarabun",
+                                                }}
                                               >
                                                 Your packages will not be
                                                 damaged with our expert courier
@@ -1569,7 +1592,7 @@ const HomePage = () => {
                                             </rs-slide>
                                             <rs-slide
                                               // style="position: absolute;"
-                                              style={{position: "absolute"}}
+                                              style={{ position: "absolute" }}
                                               data-key="rs-7"
                                               data-title="Slide"
                                               data-thumb="//globefarer.qodeinteractive.com/wp-content/uploads/2021/08/main-home-rev-slide-3-50x100.jpg"
@@ -1600,8 +1623,11 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                              // style="z-index:6;font-family:'Sarabun';"
-                                              style={{zIndex:6, fontFamily:"Sarabun" }}
+                                                // style="z-index:6;font-family:'Sarabun';"
+                                                style={{
+                                                  zIndex: 6,
+                                                  fontFamily: "Sarabun",
+                                                }}
                                               >
                                                 We provide super-fast and
                                                 fuss-free delivery service
@@ -1618,8 +1644,11 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                              // style="z-index:7;font-family:'Sarabun';"
-                                              style={{zIndex:7, fontFamily:"Sarabun" }}
+                                                // style="z-index:7;font-family:'Sarabun';"
+                                                style={{
+                                                  zIndex: 7,
+                                                  fontFamily: "Sarabun",
+                                                }}
                                               >
                                                 We guarantee no complications
                                                 and full refunds in case of
@@ -1628,7 +1657,7 @@ const HomePage = () => {
                                             </rs-slide>
                                             <rs-slide
                                               // style="position: absolute;"
-                                              style={{position: "absolute"}}
+                                              style={{ position: "absolute" }}
                                               data-key="rs-8"
                                               data-title="Slide"
                                               data-thumb="//globefarer.qodeinteractive.com/wp-content/uploads/2021/08/main-home-rev-slide-4-50x100.jpg"
@@ -1659,8 +1688,11 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                              // style="z-index:6;font-family:'Sarabun';"
-                                              style={{zIndex:6, fontFamily:"Sarabun" }}
+                                                // style="z-index:6;font-family:'Sarabun';"
+                                                style={{
+                                                  zIndex: 6,
+                                                  fontFamily: "Sarabun",
+                                                }}
                                               >
                                                 Always stay ahead of schedule
                                                 with White Glove
@@ -1677,8 +1709,11 @@ const HomePage = () => {
                                                 data-frame_0="x:50;"
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
-                                              // style="z-index:7;font-family:'Sarabun';"
-                                              style={{zIndex:7, fontFamily:"Sarabun" }}
+                                                // style="z-index:7;font-family:'Sarabun';"
+                                                style={{
+                                                  zIndex: 7,
+                                                  fontFamily: "Sarabun",
+                                                }}
                                               >
                                                 Cost efficient & always on time,
                                                 that’s our transport company
@@ -1687,7 +1722,7 @@ const HomePage = () => {
                                             </rs-slide>
                                             <rs-slide
                                               // style="position: absolute;"
-                                              style={{position: "absolute"}}
+                                              style={{ position: "absolute" }}
                                               data-key="rs-29"
                                               data-title="Slide"
                                               data-in="o:0;"
@@ -1718,8 +1753,8 @@ const HomePage = () => {
                                               data-frame_0="x:-50;"
                                               data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                               data-frame_999="o:0;st:w;"
-                                            // style="z-index:5;"
-                                            style={{zIndex:5 }}
+                                              // style="z-index:5;"
+                                              style={{ zIndex: 5 }}
                                             >
                                               <img
                                                 src="//globefarer.qodeinteractive.com/wp-content/plugins/revslider/public/assets/assets/dummy.png"
@@ -1831,14 +1866,18 @@ function setREVStartSize(e){
                                     <div className="qodef-shortcode qodef-m  qodef-divided-image-info qodef-layout--image-right qodef-separator--on  qodef-breakpoint--1024 qodef-appear-animation--yes qodef-appear-animation-type--roll-out">
                                       <div
                                         className="qodef-m-content"
-                                      // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
-                                      style={{marginTop: "10px", paddingLeft: "0px", paddingRight:"4%" }}
+                                        // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
+                                        style={{
+                                          marginTop: "10px",
+                                          paddingLeft: "0px",
+                                          paddingRight: "4%",
+                                        }}
                                       >
                                         <h2
-                                          itemprop="name"
+                                          itemProp="name"
                                           className="qodef-m-title"
-                                        // style="margin-bottom: 29px"
-                                        style={{marginBottom: "29px"}}
+                                          // style="margin-bottom: 29px"
+                                          style={{ marginBottom: "29px" }}
                                         >
                                           Fast and reliable shipping services{" "}
                                         </h2>
@@ -1864,8 +1903,12 @@ function setREVStartSize(e){
                                       </div>
                                       <div
                                         className="qodef-m-image"
-                                      // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
-                                      style={{width: "63%", paddingLeft: "5.8%", paddingRight: "0px"}}
+                                        // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
+                                        style={{
+                                          width: "63%",
+                                          paddingLeft: "5.8%",
+                                          paddingRight: "0px",
+                                        }}
                                       >
                                         <img
                                           width="800"
@@ -1873,7 +1916,7 @@ function setREVStartSize(e){
                                           src="assets/image/main-home-img-1.jpg"
                                           className="attachment-full size-full"
                                           alt="d"
-                                          srcset="assets/image/main-home-img-1.jpg 800w, assets/image/main-home-img-1.jpg 300w, assets/image/main-home-img-1.jpg 768w"
+                                          srcSet="assets/image/main-home-img-1.jpg 800w, assets/image/main-home-img-1.jpg 300w, assets/image/main-home-img-1.jpg 768w"
                                           sizes="(max-width: 800px) 100vw, 800px"
                                         />
                                       </div>
@@ -1948,7 +1991,7 @@ function setREVStartSize(e){
                                               src="assets/image/main-home-tabbed-info-1.png"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcset="assets/image/main-home-tabbed-info-1.png 800w, assets/image/main-home-tabbed-info-1.png 300w, assets/image/main-home-tabbed-info-1.png 768w"
+                                              srcSet="assets/image/main-home-tabbed-info-1.png 800w, assets/image/main-home-tabbed-info-1.png 300w, assets/image/main-home-tabbed-info-1.png 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />
                                           </div>
@@ -1993,7 +2036,7 @@ function setREVStartSize(e){
                                               src="assets/image/main-home-tabbed-info-2.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcset="assets/image/main-home-tabbed-info-2.jpg 800w, assets/image/main-home-tabbed-info-2.jpg 300w, assets/image/main-home-tabbed-info-2.jpg 768w"
+                                              srcSet="assets/image/main-home-tabbed-info-2.jpg 800w, assets/image/main-home-tabbed-info-2.jpg 300w, assets/image/main-home-tabbed-info-2.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />
                                           </div>
@@ -2038,7 +2081,7 @@ function setREVStartSize(e){
                                               src="assets/image/main-home-tabbed-info-3.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcset="assets/image/main-home-tabbed-info-3.jpg 800w, assets/image/main-home-tabbed-info-3.jpg 300w, assets/image/main-home-tabbed-info-3.jpg 768w"
+                                              srcSet="assets/image/main-home-tabbed-info-3.jpg 800w, assets/image/main-home-tabbed-info-3.jpg 300w, assets/image/main-home-tabbed-info-3.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />{" "}
                                           </div>
@@ -2083,7 +2126,7 @@ function setREVStartSize(e){
                                               src="assets/image/main-home-tabbed-info-4.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcset="assets/image/main-home-tabbed-info-4.jpg 800w, assets/image/main-home-tabbed-info-4.jpg 300w, assets/image/main-home-tabbed-info-4.jpg 768w"
+                                              srcSet="assets/image/main-home-tabbed-info-4.jpg 800w, assets/image/main-home-tabbed-info-4.jpg 300w, assets/image/main-home-tabbed-info-4.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />{" "}
                                           </div>
@@ -2127,7 +2170,7 @@ function setREVStartSize(e){
                                               src="assets/image/main-home-tabbed-info-5.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcset="assets/image/main-home-tabbed-info-5.jpg 800w, assets/image/main-home-tabbed-info-5.jpg 300w, assets/image/main-home-tabbed-info-5.jpg 768w"
+                                              srcSet="assets/image/main-home-tabbed-info-5.jpg 800w, assets/image/main-home-tabbed-info-5.jpg 300w, assets/image/main-home-tabbed-info-5.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />{" "}
                                           </div>
@@ -2172,7 +2215,7 @@ function setREVStartSize(e){
                                               src="assets/image/main-home-tabbed-info-6.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcset="assets/image/main-home-tabbed-info-6.jpg 800w, assets/image/main-home-tabbed-info-6.jpg 300w, assets/image/main-home-tabbed-info-6.jpg 768w"
+                                              srcSet="assets/image/main-home-tabbed-info-6.jpg 800w, assets/image/main-home-tabbed-info-6.jpg 300w, assets/image/main-home-tabbed-info-6.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />{" "}
                                           </div>
@@ -2238,8 +2281,8 @@ function setREVStartSize(e){
                                     >
                                       <div
                                         className="qodef-m-icon"
-                                      // style="color: #FFFFFF"
-                                      style={{color: "#FFFFFF"}}
+                                        // style="color: #FFFFFF"
+                                        style={{ color: "#FFFFFF" }}
                                       >
                                         {/* <svg
                                           className="qodef-svg--quote"
@@ -2264,7 +2307,7 @@ function setREVStartSize(e){
                                         <div className="qodef-e swiper-slide ">
                                           <div className="qodef-e-inner">
                                             <h2
-                                              itemprop="description"
+                                              itemProp="description"
                                               className="qodef-e-text"
                                             >
                                               Eos no dico graeci sea, debet
@@ -2279,15 +2322,15 @@ function setREVStartSize(e){
                                                   src="assets/image/main-home-testimonial-150x150.png"
                                                   className="attachment-thumbnail size-thumbnail wp-post-image"
                                                   alt="d"
-                                                  srcset="assets/image/main-home-testimonial-150x150.png 150w, assets/image/main-home-testimonial-150x150.png 156w"
+                                                  srcSet="assets/image/main-home-testimonial-150x150.png 150w, assets/image/main-home-testimonial-150x150.png 156w"
                                                   sizes="(max-width: 150px) 100vw, 150px"
                                                 />{" "}
                                               </div>
                                               <div className="qodef-e-author">
                                                 <h6
                                                   className="qodef-e-author-job"
-                                                // style="color: #FFFFFF"
-                                                style={{color: "#FFFFFF"}}
+                                                  // style="color: #FFFFFF"
+                                                  style={{ color: "#FFFFFF" }}
                                                 >
                                                   Satisfied Client
                                                 </h6>
@@ -2344,8 +2387,8 @@ function setREVStartSize(e){
                                         </h4>
                                         <p
                                           className="qodef-m-text"
-                                        // style="margin-top: 18px"
-                                        style={{marginTop : "18px"}}
+                                          // style="margin-top: 18px"
+                                          style={{ marginTop: "18px" }}
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2388,8 +2431,8 @@ function setREVStartSize(e){
                                         </h4>
                                         <p
                                           className="qodef-m-text"
-                                        // style="margin-top: 18px"
-                                        style={{marginTop : "18px"}}
+                                          // style="margin-top: 18px"
+                                          style={{ marginTop: "18px" }}
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2432,8 +2475,8 @@ function setREVStartSize(e){
                                         </h4>
                                         <p
                                           className="qodef-m-text"
-                                        // style="margin-top: 18px"
-                                        style={{marginTop : "18px"}}
+                                          // style="margin-top: 18px"
+                                          style={{ marginTop: "18px" }}
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2476,8 +2519,8 @@ function setREVStartSize(e){
                                         </h4>
                                         <p
                                           className="qodef-m-text"
-                                        // style="margin-top: 18px"
-                                        style={{marginTop : "18px"}}
+                                          // style="margin-top: 18px"
+                                          style={{ marginTop: "18px" }}
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2514,14 +2557,18 @@ function setREVStartSize(e){
                                     <div className="qodef-shortcode qodef-m  qodef-divided-image-info qodef-layout--image-right qodef-separator--on  qodef-breakpoint--1024 qodef-appear-animation--yes qodef-appear-animation-type--roll-out">
                                       <div
                                         className="qodef-m-content"
-                                      // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
-                                      style={{marginTop: "10 px", paddingLeft: "0px", paddingRight: "4%"}}
+                                        // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
+                                        style={{
+                                          marginTop: "10 px",
+                                          paddingLeft: "0px",
+                                          paddingRight: "4%",
+                                        }}
                                       >
                                         <h2
-                                          itemprop="name"
+                                          itemProp="name"
                                           className="qodef-m-title"
-                                        // style="margin-bottom: 29px"
-                                        style={{marginTop : "29px"}}
+                                          // style="margin-bottom: 29px"
+                                          style={{ marginTop: "29px" }}
                                         >
                                           Secure courier for all your packages{" "}
                                         </h2>
@@ -2547,8 +2594,12 @@ function setREVStartSize(e){
                                       </div>
                                       <div
                                         className="qodef-m-image"
-                                      // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
-                                      style={{width: "63%", paddingLeft: "5.8%", paddingRight:"0px" }}
+                                        // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
+                                        style={{
+                                          width: "63%",
+                                          paddingLeft: "5.8%",
+                                          paddingRight: "0px",
+                                        }}
                                       >
                                         <img
                                           width="800"
@@ -2556,7 +2607,7 @@ function setREVStartSize(e){
                                           src="assets/image/main-home-img-2.jpg"
                                           className="attachment-full size-full"
                                           alt="d"
-                                          srcset="assets/image/main-home-img-2.jpg 800w, assets/image/main-home-img-2-300x153.jpg 300w, assets/image/main-home-img-2-768x392.jpg 768w"
+                                          srcSet="assets/image/main-home-img-2.jpg 800w, assets/image/main-home-img-2-300x153.jpg 300w, assets/image/main-home-img-2-768x392.jpg 768w"
                                           sizes="(max-width: 800px) 100vw, 800px"
                                         />{" "}
                                       </div>
@@ -2590,16 +2641,19 @@ function setREVStartSize(e){
                                     <div className="qodef-shortcode qodef-m  qodef-section-title qodef-alignment--left   qodef-appear-animation--no">
                                       <h1
                                         className="qodef-m-title"
-                                      // style="color: #FFFFFF"
-                                      style={{color: "#FFFFFF"}}
+                                        // style="color: #FFFFFF"
+                                        style={{ color: "#FFFFFF" }}
                                       >
                                         We provide the best and fastest courier
                                         services nowadays{" "}
                                       </h1>
                                       <p
                                         className="qodef-m-text"
-                                      // style="margin-top: 30px;color: #FFFFFF"
-                                      style={{marginTop: "30px", color: "#FFFFFF"}}
+                                        // style="margin-top: 30px;color: #FFFFFF"
+                                        style={{
+                                          marginTop: "30px",
+                                          color: "#FFFFFF",
+                                        }}
                                       >
                                         Id veniam malorum mel. At tempor euismod
                                         postulant commodo.
@@ -2634,7 +2688,7 @@ function setREVStartSize(e){
                                     <div className="qodef-shortcode qodef-m  qodef-section-title qodef-alignment--center  qodef-custom-cursor--enabled qodef-appear-animation--no">
                                       <h2 className="qodef-m-title">
                                         <a
-                                          itemprop="url"
+                                          itemProp="url"
                                           href="https://globefarer.qodeinteractive.com/what-we-do/"
                                           target="_self"
                                         >
@@ -2709,7 +2763,7 @@ function setREVStartSize(e){
                                             <div className="qodef-e-media">
                                               <div className="qodef-e-media-image">
                                                 <a
-                                                  itemprop="url"
+                                                  itemProp="url"
                                                   href="https://globefarer.qodeinteractive.com/the-great-innovators/"
                                                 ></a>
                                                 <img
@@ -2719,7 +2773,7 @@ function setREVStartSize(e){
                                                   className="attachment-full size-full wp-post-image"
                                                   alt="f"
                                                   loading="lazy"
-                                                  srcset="assets/image/maih-home-blog-img1.jpg 1400w, assets/image/maih-home-blog-img1-300x200.jpg 300w, assets/image/maih-home-blog-img1-1024x684.jpg 1024w, assets/image/maih-home-blog-img1-768x513.jpg 768w"
+                                                  srcSet="assets/image/maih-home-blog-img1.jpg 1400w, assets/image/maih-home-blog-img1-300x200.jpg 300w, assets/image/maih-home-blog-img1-1024x684.jpg 1024w, assets/image/maih-home-blog-img1-768x513.jpg 768w"
                                                   sizes="(max-width: 1400px) 100vw, 1400px"
                                                 />
                                               </div>
@@ -2727,7 +2781,7 @@ function setREVStartSize(e){
                                             <div className="qodef-e-content">
                                               <div className="qodef-e-left-holder">
                                                 <a
-                                                  itemprop="dateCreated"
+                                                  itemProp="dateCreated"
                                                   href="https://globefarer.qodeinteractive.com/2021/08/"
                                                   className="qodef-e-date entry-date published updated"
                                                 >
@@ -2754,11 +2808,11 @@ function setREVStartSize(e){
                                                 </div>
                                                 <div className="qodef-e-text">
                                                   <h4
-                                                    itemprop="name"
+                                                    itemProp="name"
                                                     className="qodef-e-title entry-title"
                                                   >
                                                     <a
-                                                      itemprop="url"
+                                                      itemProp="url"
                                                       className="qodef-e-title-link"
                                                       href="https://globefarer.qodeinteractive.com/the-great-innovators/"
                                                     >
@@ -2766,7 +2820,7 @@ function setREVStartSize(e){
                                                     </a>
                                                   </h4>
                                                   <p
-                                                    itemprop="description"
+                                                    itemProp="description"
                                                     className="qodef-e-excerpt"
                                                   >
                                                     Lorem ipsum dolor sit amet,
@@ -2800,7 +2854,7 @@ function setREVStartSize(e){
                                             <div className="qodef-e-media">
                                               <div className="qodef-e-media-image">
                                                 <a
-                                                  itemprop="url"
+                                                  itemProp="url"
                                                   href="https://globefarer.qodeinteractive.com/the-story-of-civilization/"
                                                 ></a>
                                                 <img
@@ -2810,7 +2864,7 @@ function setREVStartSize(e){
                                                   className="attachment-full size-full wp-post-image"
                                                   alt="d"
                                                   loading="lazy"
-                                                  srcset="assets/image/maih-home-blog-img2.jpg 1400w, assets/image/maih-home-blog-img2-300x200.jpg 300w, assets/image/maih-home-blog-img2-1024x684.jpg 1024w, assets/image/maih-home-blog-img2-768x513.jpg 768w"
+                                                  srcSet="assets/image/maih-home-blog-img2.jpg 1400w, assets/image/maih-home-blog-img2-300x200.jpg 300w, assets/image/maih-home-blog-img2-1024x684.jpg 1024w, assets/image/maih-home-blog-img2-768x513.jpg 768w"
                                                   sizes="(max-width: 1400px) 100vw, 1400px"
                                                 />
                                               </div>
@@ -2818,7 +2872,7 @@ function setREVStartSize(e){
                                             <div className="qodef-e-content">
                                               <div className="qodef-e-left-holder">
                                                 <a
-                                                  itemprop="dateCreated"
+                                                  itemProp="dateCreated"
                                                   href="https://globefarer.qodeinteractive.com/2021/08/"
                                                   className="qodef-e-date entry-date published updated"
                                                 >
@@ -2845,11 +2899,11 @@ function setREVStartSize(e){
                                                 </div>
                                                 <div className="qodef-e-text">
                                                   <h4
-                                                    itemprop="name"
+                                                    itemProp="name"
                                                     className="qodef-e-title entry-title"
                                                   >
                                                     <a
-                                                      itemprop="url"
+                                                      itemProp="url"
                                                       className="qodef-e-title-link"
                                                       href="https://globefarer.qodeinteractive.com/the-story-of-civilization/"
                                                     >
@@ -2857,7 +2911,7 @@ function setREVStartSize(e){
                                                     </a>
                                                   </h4>
                                                   <p
-                                                    itemprop="description"
+                                                    itemProp="description"
                                                     className="qodef-e-excerpt"
                                                   >
                                                     Lorem ipsum dolor sit amet,
@@ -2891,7 +2945,7 @@ function setREVStartSize(e){
                                             <div className="qodef-e-media">
                                               <div className="qodef-e-media-image">
                                                 <a
-                                                  itemprop="url"
+                                                  itemProp="url"
                                                   href="https://globefarer.qodeinteractive.com/building-for-society/"
                                                 ></a>
                                                 <img
@@ -2901,7 +2955,7 @@ function setREVStartSize(e){
                                                   className="attachment-full size-full wp-post-image"
                                                   alt="d"
                                                   loading="lazy"
-                                                  srcset="assets/image/maih-home-blog-img3.jpg 1400w, assets/image/maih-home-blog-img3-300x200.jpg 300w, assets/image/maih-home-blog-img3-1024x684.jpg 1024w, assets/image/maih-home-blog-img3-768x513.jpg 768w"
+                                                  srcSet="assets/image/maih-home-blog-img3.jpg 1400w, assets/image/maih-home-blog-img3-300x200.jpg 300w, assets/image/maih-home-blog-img3-1024x684.jpg 1024w, assets/image/maih-home-blog-img3-768x513.jpg 768w"
                                                   sizes="(max-width: 1400px) 100vw, 1400px"
                                                 />
                                               </div>
@@ -2909,7 +2963,7 @@ function setREVStartSize(e){
                                             <div className="qodef-e-content">
                                               <div className="qodef-e-left-holder">
                                                 <a
-                                                  itemprop="dateCreated"
+                                                  itemProp="dateCreated"
                                                   href="https://globefarer.qodeinteractive.com/2021/08/"
                                                   className="qodef-e-date entry-date published updated"
                                                 >
@@ -2936,11 +2990,11 @@ function setREVStartSize(e){
                                                 </div>
                                                 <div className="qodef-e-text">
                                                   <h4
-                                                    itemprop="name"
+                                                    itemProp="name"
                                                     className="qodef-e-title entry-title"
                                                   >
                                                     <a
-                                                      itemprop="url"
+                                                      itemProp="url"
                                                       className="qodef-e-title-link"
                                                       href="https://globefarer.qodeinteractive.com/building-for-society/"
                                                     >
@@ -2948,7 +3002,7 @@ function setREVStartSize(e){
                                                     </a>
                                                   </h4>
                                                   <p
-                                                    itemprop="description"
+                                                    itemProp="description"
                                                     className="qodef-e-excerpt"
                                                   >
                                                     Lorem ipsum dolor sit amet,
@@ -3271,15 +3325,15 @@ function setREVStartSize(e){
                         data-area="qodef-footer-bottom-area-column-1"
                       >
                         <p
-                        // style="font-size: 15px"
-                        style={{fontSize: "15px"}}
+                          // style="font-size: 15px"
+                          style={{ fontSize: "15px" }}
                         >
                           © 2021{" "}
                           <a
                             className="qodef-custom-link"
                             href="https://qodeinteractive.com/"
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noreferrer"
                           >
                             White Glove
                           </a>
@@ -3298,82 +3352,84 @@ function setREVStartSize(e){
                           <span
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#f7c600"
-                          // style="margin: 13px 25px 0px 0px"
-                          style={{margin : "13px 25px 0px 0px"}}
+                            // style="margin: 13px 25px 0px 0px"
+                            style={{ margin: "13px 25px 0px 0px" }}
                           >
-                          
                             {" "}
                             <a
-                              itemprop="url"
+                              itemProp="url"
                               href="https://twitter.com/QodeInteractive/"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               {" "}
                               <span
                                 className="qodef-icon-font-awesome fab fa-twitter qodef-icon qodef-e"
-                              // style="color: #e5e5e5;font-size: 20px"
-                              style={{color: "#e5e5e5", fontSize: "20px"}}
+                                // style="color: #e5e5e5;font-size: 20px"
+                                style={{ color: "#e5e5e5", fontSize: "20px" }}
                               ></span>{" "}
                             </a>{" "}
                           </span>
                           <span
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#f7c600"
-                          // style="margin: 13px 25px 0px 0px"
-                          style={{margin : "13px 25px 0px 0px"}}
+                            // style="margin: 13px 25px 0px 0px"
+                            style={{ margin: "13px 25px 0px 0px" }}
                           >
                             {" "}
                             <a
-                              itemprop="url"
+                              itemProp="url"
                               href="https://www.instagram.com/qodeinteractive/"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               {" "}
                               <span
                                 className="qodef-icon-font-awesome fab fa-instagram qodef-icon qodef-e"
-                              // style="color: #e5e5e5;font-size: 20px"
-                              style={{color: "#e5e5e5", fontSize: "20px"}}
-                              
+                                // style="color: #e5e5e5;font-size: 20px"
+                                style={{ color: "#e5e5e5", fontSize: "20px" }}
                               ></span>{" "}
                             </a>{" "}
                           </span>
                           <span
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#f7c600"
-                          // style="margin: 13px 25px 0px 0px"
-                          style={{margin : "13px 25px 0px 0px"}}
+                            // style="margin: 13px 25px 0px 0px"
+                            style={{ margin: "13px 25px 0px 0px" }}
                           >
                             {" "}
                             <a
-                              itemprop="url"
+                              itemProp="url"
                               href="https://www.facebook.com/QodeInteractive/"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               {" "}
                               <span
                                 className="qodef-icon-font-awesome fab fa-facebook-square qodef-icon qodef-e"
-                              // style="color: #e5e5e5;font-size: 20px"
-                              style={{color: "#e5e5e5", fontSize: "20px"}}
+                                // style="color: #e5e5e5;font-size: 20px"
+                                style={{ color: "#e5e5e5", fontSize: "20px" }}
                               ></span>{" "}
                             </a>{" "}
                           </span>
                           <span
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#F7C600"
-                          // style="margin: 13px 0px 0px 0px"
-                          style={{margin : "13px 25px 0px 0px"}}
+                            // style="margin: 13px 0px 0px 0px"
+                            style={{ margin: "13px 25px 0px 0px" }}
                           >
                             {" "}
                             <a
-                              itemprop="url"
+                              itemProp="url"
                               href="https://vimeo.com/qodeinteractive/"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               {" "}
                               <span
                                 className="qodef-icon-font-awesome fab fa-vimeo-v qodef-icon qodef-e"
-                              // style="color: #e5e5e5;font-size: 18px"
-                              style={{color: "#e5e5e5", fontSize: "18px"}}
+                                // style="color: #e5e5e5;font-size: 18px"
+                                style={{ color: "#e5e5e5", fontSize: "18px" }}
                               ></span>{" "}
                             </a>{" "}
                           </span>{" "}
@@ -3467,7 +3523,7 @@ function setREVStartSize(e){
           </div>
           <div id="qodef-side-area">
             <a
-              href="javascript:void(0)"
+              href="#"
               id="qodef-side-area-close"
               className="qodef-opener-icon qodef-m qodef-source--predefined qodef--opened"
             >
@@ -3497,8 +3553,8 @@ function setREVStartSize(e){
                 data-area="side-area"
               >
                 <p
-                // style="margin-top: -10px"
-                style={{marginTop : "-10px"}}
+                  // style="margin-top: -10px"
+                  style={{ marginTop: "-10px" }}
                 >
                   Everything your logistics business needs is already here!
                   White Glove, a theme made for transport service companies.
@@ -3510,15 +3566,24 @@ function setREVStartSize(e){
                 data-area="side-area"
               >
                 <div
-                // style="margin-bottom: 13px; margin-top: 13px; font-size: 14px"
-                style={{marginBottom: "13px", paddingLtop: "13px", fontSize:"14px" }}
+                  // style="margin-bottom: 13px; margin-top: 13px; font-size: 14px"
+                  style={{
+                    marginBottom: "13px",
+                    paddingLtop: "13px",
+                    fontSize: "14px",
+                  }}
                 >
                   Support center 24/7
                 </div>
                 <p>
                   <a
                     // style="color: #ffffff; font-size: 32px; font-weight: 700; letter-spacing: -0.01em"
-                    style={{color: "#ffffff", fontSize: "32px", fontWeight: "700", letterSpacing:"-0.01em"}}
+                    style={{
+                      color: "#ffffff",
+                      fontSize: "32px",
+                      fontWeight: "700",
+                      letterSpacing: "-0.01em",
+                    }}
                     href="tel:18005476842"
                   >
                     1800 547 68 42
@@ -3533,18 +3598,28 @@ function setREVStartSize(e){
                 <div className="wp-container-3 wp-block-columns">
                   <div className="wp-container-1 wp-block-column">
                     <div
-                    // style="margin-bottom: -5px; margin-top: -20px; font-size: 14px"
-                    style={{marginBottom: "-5px", paddingTop: "-20px", fontSize:"14px" }}
+                      // style="margin-bottom: -5px; margin-top: -20px; font-size: 14px"
+                      style={{
+                        marginBottom: "-5px",
+                        paddingTop: "-20px",
+                        fontSize: "14px",
+                      }}
                     >
                       You can find us at
                     </div>
                     <p>
                       <a
                         // style="color: #ffffff; font-size: 17px; line-height: 22px; font-weight: 700; letter-spacing: -0.01em"
-                        style={{color: "#ffffff", fontSize: "17px", lineHeight:"22px", fontWeight:"700", letterSpacing:"-0.01em"}}
+                        style={{
+                          color: "#ffffff",
+                          fontSize: "17px",
+                          lineHeight: "22px",
+                          fontWeight: "700",
+                          letterSpacing: "-0.01em",
+                        }}
                         href="https://www.google.com/maps/@28.494333,77.021056,15z?hl=en"
                         target="_blank"
-                        rel="noopener"
+                        rel="noreferrer"
                       >
                         FLITTE Logistics Services Private Limited
                         <br />
@@ -3558,15 +3633,25 @@ function setREVStartSize(e){
                   </div>
                   <div className="wp-container-2 wp-block-column">
                     <div
-                    // style="margin-bottom: -5px; margin-top: -20px; font-size: 14px"
-                    style={{marginBottom: "-5px", paddingTop: "-20px", fontSize:"14px" }}
+                      // style="margin-bottom: -5px; margin-top: -20px; font-size: 14px"
+                      style={{
+                        marginBottom: "-5px",
+                        paddingTop: "-20px",
+                        fontSize: "14px",
+                      }}
                     >
                       Get in touch with us
                     </div>
                     <p>
                       <a
                         // style="color: #ffffff; font-size: 17px; line-height: 22px; font-weight: 700; letter-spacing: -0.01em"
-                        style={{color:"#ffffff", fontSize:"17px", lineHeight:"22px", fontWeigth:"700", letterSpacing:"-0.01em"}}
+                        style={{
+                          color: "#ffffff",
+                          fontSize: "17px",
+                          lineHeight: "22px",
+                          fontWeigth: "700",
+                          letterSpacing: "-0.01em",
+                        }}
                         href="/cdn-cgi/l/email-protection#fe9992919c9bbe9b869f938e929bd09d9193"
                       >
                         <span

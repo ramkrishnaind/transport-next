@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import data1 from "../../data/bikeList.json";
 import Select from "react-select";
 import TransportContext from "../../context";
-import { useRouter } from "next/router"
-import { liftAvailability } from '../../services/customer-api-service';
+import { useRouter } from "next/router";
+import { liftAvailability } from "../../services/customer-api-service";
 
 const data = data1;
 //debugger;
@@ -40,31 +40,28 @@ const Step2 = () => {
   const [bookingData, setBookingData] = useState({});
 
   useEffect(() => {
-    console.log('booking in step 2 is', booking)
-    setBookingData(booking)
-  }, [booking])
+    console.log("booking in step 2 is", booking);
+    setBookingData(booking);
+  }, [booking]);
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
     let result = await callApi();
     if (result.data.status) {
-      console.log("liftAvailability result is", result)
-      setBooking(result.data)
-      router.push("/step3")
+      console.log("liftAvailability result is", result);
+      setBooking(result.data);
+      router.push("/step3");
     }
-    console.log("step 2 result is", result)
+    console.log("step 2 result is", result);
   };
   const callApi = async () => {
-
-    return await liftAvailability(
-      {
-        bookingId: booking?.bookingId,
-        currentFloor: fromFloorType.value,
-        isLiftAvailableOnCurrentFloor: fromLift.value,
-        movingOnFloor: toFloorType.value,
-        isLiftAvailableOnMovingFloor: toLift.value,
-      }
-    );
+    return await liftAvailability({
+      bookingId: booking?.bookingId,
+      currentFloor: fromFloorType.value,
+      isLiftAvailableOnCurrentFloor: fromLift.value,
+      movingOnFloor: toFloorType.value,
+      isLiftAvailableOnMovingFloor: toLift.value,
+    });
   };
   const disabled = !(fromFloorType && fromLift && toFloorType && toLift);
   return (

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Card from "../Card";
 import bikeList from "../../data/bikeList.json";
 import itemList from "../../data/itemList.json";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import TransportContext from "../../context";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
@@ -104,7 +104,7 @@ const Step3 = () => {
     event.preventDefault();
     ctx.setStep3State(objectState);
     console.log("objectState", objectState);
-    router.push("/step4")
+    router.push("/step4");
   };
   return (
     <div>

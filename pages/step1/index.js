@@ -3,8 +3,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import TransportContext from "../../context";
-import { useRouter } from "next/router"
-import { collectBasicInfo } from '../../services/customer-api-service';
+import { useRouter } from "next/router";
+import { collectBasicInfo } from "../../services/customer-api-service";
 
 const houseTypeOptions = [
   { value: "1 BHK", label: "1 BHK" },
@@ -36,33 +36,29 @@ const Step1 = () => {
   const [toBlur, setToBlur] = useState(false);
   const [customerData, setCustomerData] = useState({});
 
-
   useEffect(() => {
-    console.log('customerDetails in step 1 is', customerDetails)
-    setCustomerData(customerDetails)
-  }, [customerDetails])
+    console.log("customerDetails in step 1 is", customerDetails);
+    setCustomerData(customerDetails);
+  }, [customerDetails]);
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
     let result = await callApi();
     if (result.data.status) {
-      console.log("CollectBasicInfo result is", result)
-      setBooking({ bookingId: result.data.bookingId })
-      router.push("/step2")
+      console.log("CollectBasicInfo result is", result);
+      setBooking({ bookingId: result.data.bookingId });
+      router.push("/step2");
     }
-    console.log("step 1 result is", result)
+    console.log("step 1 result is", result);
   };
   const callApi = async () => {
-
-    return await collectBasicInfo(
-      {
-        customerId: customerData?._id,
-        shiftingFor: houseType.value,
-        shiftingFrom: fromState.value,
-        shiftingTo: toState.value,
-        shiftingOn: startDate,
-      }
-    );
+    return await collectBasicInfo({
+      customerId: customerData?._id,
+      shiftingFor: houseType.value,
+      shiftingFrom: fromState.value,
+      shiftingTo: toState.value,
+      shiftingOn: startDate,
+    });
   };
   const disabled = !houseType || !fromState || !toState;
   return (

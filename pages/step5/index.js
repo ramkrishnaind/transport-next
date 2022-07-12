@@ -13,7 +13,6 @@ const Step5 = () => {
     }
   });
 
-
   itemList.map((item) => {
     const keys = Object.keys(items);
     const keyExist = item?.Category && keys.includes(item?.Category);
@@ -92,7 +91,7 @@ const Step5 = () => {
         <p>Do you want to move any of these items?</p>
       </div>
 
-        <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
+      <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
         <button
           className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
           type="submit"
@@ -137,7 +136,11 @@ const Step5 = () => {
                 key={index}
                 item={item.title}
                 itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "HomeAppliances", item)}
+                onDecrement={decrementHandler.bind(
+                  null,
+                  "HomeAppliances",
+                  item
+                )}
                 onClick={clickHandler.bind(null, "HomeAppliances", item)}
               />
             ))}
