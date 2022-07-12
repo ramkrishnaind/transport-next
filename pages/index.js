@@ -1451,7 +1451,6 @@ const HomePage = () => {
                                         >
                                           <rs-slides>
                                             <rs-slide
-                                              // style="position: absolute;"
                                               style={{ position: "absolute" }}
                                               data-key="rs-2"
                                               data-title="Slide"
@@ -1484,6 +1483,7 @@ const HomePage = () => {
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
                                               // style="z-index:6;font-family:'Sarabun';"
+                                              style={{zIndex:6, fontFamily:"Sarabun" }}
                                               >
                                                 Worldwide shipping and
                                                 professional solutions
@@ -1501,6 +1501,7 @@ const HomePage = () => {
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
                                               // style="z-index:7;font-family:'Sarabun';"
+                                              style={{zIndex:7, fontFamily:"Sarabun" }}
                                               >
                                                 No matter the location we got
                                                 you covered with our global
@@ -1509,6 +1510,7 @@ const HomePage = () => {
                                             </rs-slide>
                                             <rs-slide
                                               // style="position: absolute;"
+                                              style={{position: "absolute"}}
                                               data-key="rs-6"
                                               data-title="Slide"
                                               data-thumb="//globefarer.qodeinteractive.com/wp-content/uploads/2021/08/main-home-rev-slide-2-50x100.jpg"
@@ -1540,6 +1542,7 @@ const HomePage = () => {
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
                                               // style="z-index:6;font-family:'Sarabun';"
+                                              style={{zIndex:6, fontFamily:"Sarabun" }}
                                               >
                                                 Fast and secure courier for all
                                                 your packages
@@ -1557,6 +1560,7 @@ const HomePage = () => {
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
                                               // style="z-index:7;font-family:'Sarabun';"
+                                              style={{zIndex:7, fontFamily:"Sarabun" }}
                                               >
                                                 Your packages will not be
                                                 damaged with our expert courier
@@ -1565,6 +1569,7 @@ const HomePage = () => {
                                             </rs-slide>
                                             <rs-slide
                                               // style="position: absolute;"
+                                              style={{position: "absolute"}}
                                               data-key="rs-7"
                                               data-title="Slide"
                                               data-thumb="//globefarer.qodeinteractive.com/wp-content/uploads/2021/08/main-home-rev-slide-3-50x100.jpg"
@@ -1596,6 +1601,7 @@ const HomePage = () => {
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
                                               // style="z-index:6;font-family:'Sarabun';"
+                                              style={{zIndex:6, fontFamily:"Sarabun" }}
                                               >
                                                 We provide super-fast and
                                                 fuss-free delivery service
@@ -1613,6 +1619,7 @@ const HomePage = () => {
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
                                               // style="z-index:7;font-family:'Sarabun';"
+                                              style={{zIndex:7, fontFamily:"Sarabun" }}
                                               >
                                                 We guarantee no complications
                                                 and full refunds in case of
@@ -1621,6 +1628,7 @@ const HomePage = () => {
                                             </rs-slide>
                                             <rs-slide
                                               // style="position: absolute;"
+                                              style={{position: "absolute"}}
                                               data-key="rs-8"
                                               data-title="Slide"
                                               data-thumb="//globefarer.qodeinteractive.com/wp-content/uploads/2021/08/main-home-rev-slide-4-50x100.jpg"
@@ -1652,6 +1660,7 @@ const HomePage = () => {
                                                 data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
                                               // style="z-index:6;font-family:'Sarabun';"
+                                              style={{zIndex:6, fontFamily:"Sarabun" }}
                                               >
                                                 Always stay ahead of schedule
                                                 with White Glove
@@ -1669,6 +1678,7 @@ const HomePage = () => {
                                                 data-frame_1="e:power4.inOut;st:320;sp:1000;"
                                                 data-frame_999="o:0;st:w;"
                                               // style="z-index:7;font-family:'Sarabun';"
+                                              style={{zIndex:7, fontFamily:"Sarabun" }}
                                               >
                                                 Cost efficient & always on time,
                                                 that’s our transport company
@@ -1677,6 +1687,7 @@ const HomePage = () => {
                                             </rs-slide>
                                             <rs-slide
                                               // style="position: absolute;"
+                                              style={{position: "absolute"}}
                                               data-key="rs-29"
                                               data-title="Slide"
                                               data-in="o:0;"
@@ -1708,6 +1719,7 @@ const HomePage = () => {
                                               data-frame_1="e:power4.inOut;st:250;sp:1000;"
                                               data-frame_999="o:0;st:w;"
                                             // style="z-index:5;"
+                                            style={{zIndex:5 }}
                                             >
                                               <img
                                                 src="//globefarer.qodeinteractive.com/wp-content/plugins/revslider/public/assets/assets/dummy.png"
@@ -1820,11 +1832,13 @@ function setREVStartSize(e){
                                       <div
                                         className="qodef-m-content"
                                       // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
+                                      style={{marginTop: "10px", paddingLeft: "0px", paddingRight:"4%" }}
                                       >
                                         <h2
                                           itemprop="name"
                                           className="qodef-m-title"
                                         // style="margin-bottom: 29px"
+                                        style={{marginBottom: "29px"}}
                                         >
                                           Fast and reliable shipping services{" "}
                                         </h2>
@@ -1851,6 +1865,7 @@ function setREVStartSize(e){
                                       <div
                                         className="qodef-m-image"
                                       // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
+                                      style={{width: "63%", paddingLeft: "5.8%", paddingRight: "0px"}}
                                       >
                                         <img
                                           width="800"
@@ -2224,6 +2239,7 @@ function setREVStartSize(e){
                                       <div
                                         className="qodef-m-icon"
                                       // style="color: #FFFFFF"
+                                      style={{color: "#FFFFFF"}}
                                       >
                                         {/* <svg
                                           className="qodef-svg--quote"
@@ -2271,6 +2287,7 @@ function setREVStartSize(e){
                                                 <h6
                                                   className="qodef-e-author-job"
                                                 // style="color: #FFFFFF"
+                                                style={{color: "#FFFFFF"}}
                                                 >
                                                   Satisfied Client
                                                 </h6>
@@ -2328,6 +2345,7 @@ function setREVStartSize(e){
                                         <p
                                           className="qodef-m-text"
                                         // style="margin-top: 18px"
+                                        style={{marginTop : "18px"}}
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2371,6 +2389,7 @@ function setREVStartSize(e){
                                         <p
                                           className="qodef-m-text"
                                         // style="margin-top: 18px"
+                                        style={{marginTop : "18px"}}
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2414,6 +2433,7 @@ function setREVStartSize(e){
                                         <p
                                           className="qodef-m-text"
                                         // style="margin-top: 18px"
+                                        style={{marginTop : "18px"}}
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2457,6 +2477,7 @@ function setREVStartSize(e){
                                         <p
                                           className="qodef-m-text"
                                         // style="margin-top: 18px"
+                                        style={{marginTop : "18px"}}
                                         >
                                           Vix ut ignota deserunt partien ad,
                                           pros tale falli periculis ad, idque
@@ -2494,11 +2515,13 @@ function setREVStartSize(e){
                                       <div
                                         className="qodef-m-content"
                                       // style="margin-top: 10px;padding-left: 0px;padding-right: 4%"
+                                      style={{marginTop: "10 px", paddingLeft: "0px", paddingRight: "4%"}}
                                       >
                                         <h2
                                           itemprop="name"
                                           className="qodef-m-title"
                                         // style="margin-bottom: 29px"
+                                        style={{marginTop : "29px"}}
                                         >
                                           Secure courier for all your packages{" "}
                                         </h2>
@@ -2525,6 +2548,7 @@ function setREVStartSize(e){
                                       <div
                                         className="qodef-m-image"
                                       // style="width: 63%;padding-left: 5.8%;padding-right: 0px"
+                                      style={{width: "63%", paddingLeft: "5.8%", paddingRight:"0px" }}
                                       >
                                         <img
                                           width="800"
@@ -2567,6 +2591,7 @@ function setREVStartSize(e){
                                       <h1
                                         className="qodef-m-title"
                                       // style="color: #FFFFFF"
+                                      style={{color: "#FFFFFF"}}
                                       >
                                         We provide the best and fastest courier
                                         services nowadays{" "}
@@ -2574,6 +2599,7 @@ function setREVStartSize(e){
                                       <p
                                         className="qodef-m-text"
                                       // style="margin-top: 30px;color: #FFFFFF"
+                                      style={{marginTop: "30px", color: "#FFFFFF"}}
                                       >
                                         Id veniam malorum mel. At tempor euismod
                                         postulant commodo.
@@ -3246,6 +3272,7 @@ function setREVStartSize(e){
                       >
                         <p
                         // style="font-size: 15px"
+                        style={{fontSize: "15px"}}
                         >
                           © 2021{" "}
                           <a
@@ -3272,7 +3299,9 @@ function setREVStartSize(e){
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#f7c600"
                           // style="margin: 13px 25px 0px 0px"
+                          style={{margin : "13px 25px 0px 0px"}}
                           >
+                          
                             {" "}
                             <a
                               itemprop="url"
@@ -3283,6 +3312,7 @@ function setREVStartSize(e){
                               <span
                                 className="qodef-icon-font-awesome fab fa-twitter qodef-icon qodef-e"
                               // style="color: #e5e5e5;font-size: 20px"
+                              style={{color: "#e5e5e5", fontSize: "20px"}}
                               ></span>{" "}
                             </a>{" "}
                           </span>
@@ -3290,6 +3320,7 @@ function setREVStartSize(e){
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#f7c600"
                           // style="margin: 13px 25px 0px 0px"
+                          style={{margin : "13px 25px 0px 0px"}}
                           >
                             {" "}
                             <a
@@ -3301,6 +3332,8 @@ function setREVStartSize(e){
                               <span
                                 className="qodef-icon-font-awesome fab fa-instagram qodef-icon qodef-e"
                               // style="color: #e5e5e5;font-size: 20px"
+                              style={{color: "#e5e5e5", fontSize: "20px"}}
+                              
                               ></span>{" "}
                             </a>{" "}
                           </span>
@@ -3308,6 +3341,7 @@ function setREVStartSize(e){
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#f7c600"
                           // style="margin: 13px 25px 0px 0px"
+                          style={{margin : "13px 25px 0px 0px"}}
                           >
                             {" "}
                             <a
@@ -3319,6 +3353,7 @@ function setREVStartSize(e){
                               <span
                                 className="qodef-icon-font-awesome fab fa-facebook-square qodef-icon qodef-e"
                               // style="color: #e5e5e5;font-size: 20px"
+                              style={{color: "#e5e5e5", fontSize: "20px"}}
                               ></span>{" "}
                             </a>{" "}
                           </span>
@@ -3326,6 +3361,7 @@ function setREVStartSize(e){
                             className="qodef-shortcode qodef-m  qodef-icon-holder  qodef-layout--normal"
                             data-hover-color="#F7C600"
                           // style="margin: 13px 0px 0px 0px"
+                          style={{margin : "13px 25px 0px 0px"}}
                           >
                             {" "}
                             <a
@@ -3337,6 +3373,7 @@ function setREVStartSize(e){
                               <span
                                 className="qodef-icon-font-awesome fab fa-vimeo-v qodef-icon qodef-e"
                               // style="color: #e5e5e5;font-size: 18px"
+                              style={{color: "#e5e5e5", fontSize: "18px"}}
                               ></span>{" "}
                             </a>{" "}
                           </span>{" "}
@@ -3461,6 +3498,7 @@ function setREVStartSize(e){
               >
                 <p
                 // style="margin-top: -10px"
+                style={{marginTop : "-10px"}}
                 >
                   Everything your logistics business needs is already here!
                   White Glove, a theme made for transport service companies.
@@ -3473,12 +3511,14 @@ function setREVStartSize(e){
               >
                 <div
                 // style="margin-bottom: 13px; margin-top: 13px; font-size: 14px"
+                style={{marginBottom: "13px", paddingLtop: "13px", fontSize:"14px" }}
                 >
                   Support center 24/7
                 </div>
                 <p>
                   <a
                     // style="color: #ffffff; font-size: 32px; font-weight: 700; letter-spacing: -0.01em"
+                    style={{color: "#ffffff", fontSize: "32px", fontWeight: "700", letterSpacing:"-0.01em"}}
                     href="tel:18005476842"
                   >
                     1800 547 68 42
@@ -3494,12 +3534,14 @@ function setREVStartSize(e){
                   <div className="wp-container-1 wp-block-column">
                     <div
                     // style="margin-bottom: -5px; margin-top: -20px; font-size: 14px"
+                    style={{marginBottom: "-5px", paddingTop: "-20px", fontSize:"14px" }}
                     >
                       You can find us at
                     </div>
                     <p>
                       <a
                         // style="color: #ffffff; font-size: 17px; line-height: 22px; font-weight: 700; letter-spacing: -0.01em"
+                        style={{color: "#ffffff", fontSize: "17px", lineHeight:"22px", fontWeight:"700", letterSpacing:"-0.01em"}}
                         href="https://www.google.com/maps/@28.494333,77.021056,15z?hl=en"
                         target="_blank"
                         rel="noopener"
@@ -3517,12 +3559,14 @@ function setREVStartSize(e){
                   <div className="wp-container-2 wp-block-column">
                     <div
                     // style="margin-bottom: -5px; margin-top: -20px; font-size: 14px"
+                    style={{marginBottom: "-5px", paddingTop: "-20px", fontSize:"14px" }}
                     >
                       Get in touch with us
                     </div>
                     <p>
                       <a
                         // style="color: #ffffff; font-size: 17px; line-height: 22px; font-weight: 700; letter-spacing: -0.01em"
+                        style={{color:"#ffffff", fontSize:"17px", lineHeight:"22px", fontWeigth:"700", letterSpacing:"-0.01em"}}
                         href="/cdn-cgi/l/email-protection#fe9992919c9bbe9b869f938e929bd09d9193"
                       >
                         <span
