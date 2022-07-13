@@ -189,19 +189,19 @@ const HomePage = () => {
                 rel="home"
               >
                 <img
-                  src="assets/image/logo.png"
+                  src="/image/logo.png"
                   className="qodef-header-logo-image qodef--main"
                   itemProp="image"
                   alt="logo main"
                 />
                 <img
-                  src="assets/image/logo.png"
+                  src="/image/logo.png"
                   className="qodef-header-logo-image qodef--dark"
                   itemProp="image"
                   alt="logo dark"
                 />
                 <img
-                  src="assets/image/logo.png"
+                  src="/image/logo.png"
                   className="qodef-header-logo-image qodef--light"
                   itemProp="image"
                   alt="logo light"
@@ -693,7 +693,7 @@ const HomePage = () => {
                   rel="home"
                 >
                   <img
-                    src="assets/image/logo.png"
+                    src="/image/logo.png"
                     className="qodef-header-logo-image qodef--main"
                     itemProp="image"
                     alt="logo main"
@@ -1063,7 +1063,7 @@ const HomePage = () => {
                 rel="home"
               >
                 <img
-                  src="assets/image/logo.png"
+                  src="/image/logo.png"
                   className="qodef-header-logo-image qodef--main"
                   alt="logo main"
                   itemProp="image"
@@ -1913,10 +1913,10 @@ function setREVStartSize(e){
                                         <img
                                           width="800"
                                           height="407"
-                                          src="assets/image/main-home-img-1.jpg"
+                                          src="/image/main-home-img-1.jpg"
                                           className="attachment-full size-full"
                                           alt="d"
-                                          srcSet="assets/image/main-home-img-1.jpg 800w, assets/image/main-home-img-1.jpg 300w, assets/image/main-home-img-1.jpg 768w"
+                                          srcSet="/image/main-home-img-1.jpg 800w, /image/main-home-img-1.jpg 300w, /image/main-home-img-1.jpg 768w"
                                           sizes="(max-width: 800px) 100vw, 800px"
                                         />
                                       </div>
@@ -1988,10 +1988,10 @@ function setREVStartSize(e){
                                             <img
                                               width="800"
                                               height="425"
-                                              src="assets/image/main-home-tabbed-info-1.png"
+                                              src="/image/main-home-tabbed-info-1.png"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcSet="assets/image/main-home-tabbed-info-1.png 800w, assets/image/main-home-tabbed-info-1.png 300w, assets/image/main-home-tabbed-info-1.png 768w"
+                                              srcSet="/image/main-home-tabbed-info-1.png 800w, /image/main-home-tabbed-info-1.png 300w, /image/main-home-tabbed-info-1.png 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />
                                           </div>
@@ -2033,10 +2033,10 @@ function setREVStartSize(e){
                                             <img
                                               width="800"
                                               height="425"
-                                              src="assets/image/main-home-tabbed-info-2.jpg"
+                                              src="/image/main-home-tabbed-info-2.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcSet="assets/image/main-home-tabbed-info-2.jpg 800w, assets/image/main-home-tabbed-info-2.jpg 300w, assets/image/main-home-tabbed-info-2.jpg 768w"
+                                              srcSet="/image/main-home-tabbed-info-2.jpg 800w, /image/main-home-tabbed-info-2.jpg 300w, /image/main-home-tabbed-info-2.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />
                                           </div>
@@ -2078,10 +2078,10 @@ function setREVStartSize(e){
                                             <img
                                               width="800"
                                               height="425"
-                                              src="assets/image/main-home-tabbed-info-3.jpg"
+                                              src="/image/main-home-tabbed-info-3.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcSet="assets/image/main-home-tabbed-info-3.jpg 800w, assets/image/main-home-tabbed-info-3.jpg 300w, assets/image/main-home-tabbed-info-3.jpg 768w"
+                                              srcSet="/image/main-home-tabbed-info-3.jpg 800w, /image/main-home-tabbed-info-3.jpg 300w, /image/main-home-tabbed-info-3.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />{" "}
                                           </div>
@@ -2123,10 +2123,10 @@ function setREVStartSize(e){
                                             <img
                                               width="800"
                                               height="425"
-                                              src="assets/image/main-home-tabbed-info-4.jpg"
+                                              src="/image/main-home-tabbed-info-4.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcSet="assets/image/main-home-tabbed-info-4.jpg 800w, assets/image/main-home-tabbed-info-4.jpg 300w, assets/image/main-home-tabbed-info-4.jpg 768w"
+                                              srcSet="/image/main-home-tabbed-info-4.jpg 800w, /image/main-home-tabbed-info-4.jpg 300w, /image/main-home-tabbed-info-4.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />{" "}
                                           </div>
@@ -2167,10 +2167,10 @@ function setREVStartSize(e){
                                             <img
                                               width="800"
                                               height="425"
-                                              src="assets/image/main-home-tabbed-info-5.jpg"
+                                              src="/image/main-home-tabbed-info-5.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcSet="assets/image/main-home-tabbed-info-5.jpg 800w, assets/image/main-home-tabbed-info-5.jpg 300w, assets/image/main-home-tabbed-info-5.jpg 768w"
+                                              srcSet="/image/main-home-tabbed-info-5.jpg 800w, /image/main-home-tabbed-info-5.jpg 300w, /image/main-home-tabbed-info-5.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />{" "}
                                           </div>
@@ -2212,10 +2212,10 @@ function setREVStartSize(e){
                                             <img
                                               width="800"
                                               height="425"
-                                              src="assets/image/main-home-tabbed-info-6.jpg"
+                                              src="/image/main-home-tabbed-info-6.jpg"
                                               className="attachment-full size-full"
                                               alt="m"
-                                              srcSet="assets/image/main-home-tabbed-info-6.jpg 800w, assets/image/main-home-tabbed-info-6.jpg 300w, assets/image/main-home-tabbed-info-6.jpg 768w"
+                                              srcSet="/image/main-home-tabbed-info-6.jpg 800w, /image/main-home-tabbed-info-6.jpg 300w, /image/main-home-tabbed-info-6.jpg 768w"
                                               sizes="(max-width: 800px) 100vw, 800px"
                                             />{" "}
                                           </div>
@@ -2319,10 +2319,10 @@ function setREVStartSize(e){
                                                 <img
                                                   width="150"
                                                   height="150"
-                                                  src="assets/image/main-home-testimonial-150x150.png"
+                                                  src="/image/main-home-testimonial-150x150.png"
                                                   className="attachment-thumbnail size-thumbnail wp-post-image"
                                                   alt="d"
-                                                  srcSet="assets/image/main-home-testimonial-150x150.png 150w, assets/image/main-home-testimonial-150x150.png 156w"
+                                                  srcSet="/image/main-home-testimonial-150x150.png 150w, /image/main-home-testimonial-150x150.png 156w"
                                                   sizes="(max-width: 150px) 100vw, 150px"
                                                 />{" "}
                                               </div>
@@ -2374,7 +2374,7 @@ function setREVStartSize(e){
                                         <img
                                           width="45"
                                           height="34"
-                                          src="assets/image/landing-icon-3.png"
+                                          src="/image/landing-icon-3.png"
                                           className="attachment-full size-full"
                                           alt="d"
                                         />
@@ -2418,7 +2418,7 @@ function setREVStartSize(e){
                                         <img
                                           width="45"
                                           height="34"
-                                          src="assets/image/landing-icon-4.png"
+                                          src="/image/landing-icon-4.png"
                                           className="attachment-full size-full"
                                           alt="d"
                                         />{" "}
@@ -2462,7 +2462,7 @@ function setREVStartSize(e){
                                         <img
                                           width="45"
                                           height="34"
-                                          src="assets/image/landing-icon-1.png"
+                                          src="/image/landing-icon-1.png"
                                           className="attachment-full size-full"
                                           alt="d"
                                         />{" "}
@@ -2506,7 +2506,7 @@ function setREVStartSize(e){
                                         <img
                                           width="45"
                                           height="34"
-                                          src="assets/image/landing-icon-2.png"
+                                          src="/image/landing-icon-2.png"
                                           className="attachment-full size-full"
                                           alt="d"
                                         />{" "}
@@ -2604,10 +2604,10 @@ function setREVStartSize(e){
                                         <img
                                           width="800"
                                           height="408"
-                                          src="assets/image/main-home-img-2.jpg"
+                                          src="/image/main-home-img-2.jpg"
                                           className="attachment-full size-full"
                                           alt="d"
-                                          srcSet="assets/image/main-home-img-2.jpg 800w, assets/image/main-home-img-2-300x153.jpg 300w, assets/image/main-home-img-2-768x392.jpg 768w"
+                                          srcSet="/image/main-home-img-2.jpg 800w, /image/main-home-img-2-300x153.jpg 300w, /image/main-home-img-2-768x392.jpg 768w"
                                           sizes="(max-width: 800px) 100vw, 800px"
                                         />{" "}
                                       </div>
@@ -2769,11 +2769,11 @@ function setREVStartSize(e){
                                                 <img
                                                   width="1400"
                                                   height="935"
-                                                  src="assets/image/maih-home-blog-img1.jpg"
+                                                  src="/image/maih-home-blog-img1.jpg"
                                                   className="attachment-full size-full wp-post-image"
                                                   alt="f"
                                                   loading="lazy"
-                                                  srcSet="assets/image/maih-home-blog-img1.jpg 1400w, assets/image/maih-home-blog-img1-300x200.jpg 300w, assets/image/maih-home-blog-img1-1024x684.jpg 1024w, assets/image/maih-home-blog-img1-768x513.jpg 768w"
+                                                  srcSet="/image/maih-home-blog-img1.jpg 1400w, /image/maih-home-blog-img1-300x200.jpg 300w, /image/maih-home-blog-img1-1024x684.jpg 1024w, /image/maih-home-blog-img1-768x513.jpg 768w"
                                                   sizes="(max-width: 1400px) 100vw, 1400px"
                                                 />
                                               </div>
@@ -2860,11 +2860,11 @@ function setREVStartSize(e){
                                                 <img
                                                   width="1400"
                                                   height="935"
-                                                  src="assets/image/maih-home-blog-img2.jpg"
+                                                  src="/image/maih-home-blog-img2.jpg"
                                                   className="attachment-full size-full wp-post-image"
                                                   alt="d"
                                                   loading="lazy"
-                                                  srcSet="assets/image/maih-home-blog-img2.jpg 1400w, assets/image/maih-home-blog-img2-300x200.jpg 300w, assets/image/maih-home-blog-img2-1024x684.jpg 1024w, assets/image/maih-home-blog-img2-768x513.jpg 768w"
+                                                  srcSet="/image/maih-home-blog-img2.jpg 1400w, /image/maih-home-blog-img2-300x200.jpg 300w, /image/maih-home-blog-img2-1024x684.jpg 1024w, /image/maih-home-blog-img2-768x513.jpg 768w"
                                                   sizes="(max-width: 1400px) 100vw, 1400px"
                                                 />
                                               </div>
@@ -2951,11 +2951,11 @@ function setREVStartSize(e){
                                                 <img
                                                   width="1400"
                                                   height="935"
-                                                  src="assets/image/maih-home-blog-img3.jpg"
+                                                  src="/image/maih-home-blog-img3.jpg"
                                                   className="attachment-full size-full wp-post-image"
                                                   alt="d"
                                                   loading="lazy"
-                                                  srcSet="assets/image/maih-home-blog-img3.jpg 1400w, assets/image/maih-home-blog-img3-300x200.jpg 300w, assets/image/maih-home-blog-img3-1024x684.jpg 1024w, assets/image/maih-home-blog-img3-768x513.jpg 768w"
+                                                  srcSet="/image/maih-home-blog-img3.jpg 1400w, /image/maih-home-blog-img3-300x200.jpg 300w, /image/maih-home-blog-img3-1024x684.jpg 1024w, /image/maih-home-blog-img3-768x513.jpg 768w"
                                                   sizes="(max-width: 1400px) 100vw, 1400px"
                                                 />
                                               </div>
@@ -3063,7 +3063,7 @@ function setREVStartSize(e){
                         <figure className="wp-block-image size-full">
                           <a href="https://globefarer.qodeinteractive.com/">
                             <img
-                              src="assets/image/logo.png"
+                              src="/image/logo.png"
                               alt="d"
                               className="wp-image-2178"
                             />
@@ -3540,7 +3540,7 @@ function setREVStartSize(e){
                 <figure className="wp-block-image size-full">
                   <a href="https://globefarer.qodeinteractive.com/">
                     <img
-                      src="assets/image/logo.png"
+                      src="/image/logo.png"
                       alt="d"
                       className="wp-image-2154"
                     />
