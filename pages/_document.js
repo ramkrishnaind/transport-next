@@ -38,49 +38,49 @@ export default function Document() {
         <link
           rel="stylesheet"
           id="dripicons-css"
-          href="../css/dripicons.min.css"
+          href="css/dripicons.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="elegant-icons-css"
-          href="../css/elegant-icons.min.css"
+          href="css/elegant-icons.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="font-awesome-css"
-          href="../css/all.min.css"
+          href="css/all.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="fontkiko-css"
-          href="../css/kiko-all.min.css"
+          href="css/kiko-all.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="ionicons-css"
-          href="../css/ionicons.min.css"
+          href="css/ionicons.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="linea-icons-css"
-          href="../css/linea-icons.min.css"
+          href="css/linea-icons.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="linear-icons-css"
-          href="../css/linear-icons.min.css"
+          href="css/linear-icons.min.css"
           type="text/css"
           media="all"
         />
@@ -94,84 +94,84 @@ export default function Document() {
         <link
           rel="stylesheet"
           id="simple-line-icons-css"
-          href="../css/simple-line-icons.min.css"
+          href="css/simple-line-icons.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="wp-block-library-css"
-          href="../css/style.min.css"
+          href="css/style.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="contact-form-7-css"
-          href="../css/styles.css"
+          href="css/styles.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="cf7msm_styles-css"
-          href="../css/cf7msm.css"
+          href="css/cf7msm.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="rabbit_css-css"
-          href="../css/rbt-modules.css"
+          href="css/rbt-modules.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="swiper-css"
-          href="../css/swiper.min.css"
+          href="css/swiper.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="qi-addons-for-elementor-grid-style-css"
-          href="../css/plugins/grid.min.css"
+          href="css/plugins/grid.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="qi-addons-for-elementor-helper-parts-style-css"
-          href="../css/helper-parts.min.css"
+          href="css/helper-parts.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="qi-addons-for-elementor-style-css"
-          href="../css/plugins/main.min.css"
+          href="css/plugins/main.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="perfect-scrollbar-css"
-          href="../css/perfect-scrollbar.css"
+          href="css/perfect-scrollbar.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="globefarer-main-css"
-          href="../css/main.min.css"
+          href="css/main.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="globefarer-core-style-css"
-          href="../css/globefarer-core.min.css"
+          href="css/globefarer-core.min.css"
           type="text/css"
           media="all"
         />
@@ -185,56 +185,56 @@ export default function Document() {
         <link
           rel="stylesheet"
           id="globefarer-grid-css"
-          href="../css/grid.min.css"
+          href="css/grid.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="globefarer-style-css"
-          href="../css/style.css"
+          href="css/style.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="globefarer-core-elementor-css"
-          href="../css/elementor.min.css"
+          href="css/elementor.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="elementor-icons-css"
-          href="../css/elementor-icons.min.css"
+          href="css/elementor-icons.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="elementor-frontend-css"
-          href="../css/custom-frontend-lite.min.css"
+          href="css/custom-frontend-lite.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="elementor-post-7709-css"
-          href="../css/post-7709.css"
+          href="css/post-7709.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="elementor-post-50-css"
-          href="../css/post-50.css"
+          href="css/post-50.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="qode-zendesk-chat-css"
-          href="../css/main.css"
+          href="css/main.css"
           type="text/css"
           media="all"
         />
@@ -268,21 +268,21 @@ export default function Document() {
         <link
           rel="stylesheet"
           id="mediaelement-css"
-          href="../css/mediaelementplayer-legacy.min.css"
+          href="css/mediaelementplayer-legacy.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="wp-mediaelement-css"
-          href="../css/wp-mediaelement.min.css"
+          href="css/wp-mediaelement.min.css"
           type="text/css"
           media="all"
         />
         <link
           rel="stylesheet"
           id="rs-plugin-settings-css"
-          href="../css/rs6.css"
+          href="css/rs6.css"
           type="text/css"
           media="all"
         />
