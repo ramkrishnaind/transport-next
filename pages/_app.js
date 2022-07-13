@@ -1,17 +1,17 @@
-import "../public/globals.css";
+import "../globals.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import NormalLayout from "../components/UI/NormalLayout";
 import AdminLayout from "../components/UI/AdminLayout";
 import "antd/dist/antd.css";
-import "../public/overRide.css";
+import "../overRide.css";
 import Script from "next/script";
 import { AppProvider } from "../context";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
-import "../public/css/first.css";
-// import "../public/css/dripicons.min.css";
+import "../css/first.css";
+// import "../css/dripicons.min.css";
 // import second from "elegant-icons.min.css";
 // import "all.min.css";
 // import "kiko-all.min.css";
