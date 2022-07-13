@@ -5,9 +5,9 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/ICWKbYpdb5timH4nClKEI/_buildManifest.js",
-    "static/ICWKbYpdb5timH4nClKEI/_ssgManifest.js",
-    "static/ICWKbYpdb5timH4nClKEI/_middlewareManifest.js"
+    "static/qn2qh5zplilnOBqnZG05W/_buildManifest.js",
+    "static/qn2qh5zplilnOBqnZG05W/_ssgManifest.js",
+    "static/qn2qh5zplilnOBqnZG05W/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
@@ -15,8 +15,8 @@
       "static/chunks/framework-a87821de553db91d.js",
       "static/chunks/main-d8b1ff545a609496.js",
       "static/chunks/669-35c2a2ae52e31864.js",
-      "static/chunks/634-bbd943a59d4c14fd.js",
-      "static/chunks/66-4d26f6d7484b90c8.js",
+      "static/chunks/634-25a19341f3c0d041.js",
+      "static/chunks/66-831a6cc6bd7bcb45.js",
       "static/chunks/pages/index-2805404e6e635feb.js"
     ],
     "/Card": [
@@ -48,8 +48,8 @@
       "static/chunks/webpack-4a1b1b1902672574.js",
       "static/chunks/framework-a87821de553db91d.js",
       "static/chunks/main-d8b1ff545a609496.js",
-      "static/chunks/634-bbd943a59d4c14fd.js",
-      "static/chunks/433-c47f916cfbd713ee.js",
+      "static/chunks/634-25a19341f3c0d041.js",
+      "static/chunks/433-3ea1ff45f7792560.js",
       "static/chunks/pages/adminLogin-c01a6564d9a528ca.js"
     ],
     "/auth": [
@@ -78,7 +78,7 @@
       "static/chunks/669-35c2a2ae52e31864.js",
       "static/chunks/936-005bb80fb0fefff8.js",
       "static/css/f8aee2f66a30e49b.css",
-      "static/chunks/pages/step1-0ed67956699218fb.js"
+      "static/chunks/pages/step1-39f1ec01c464da7a.js"
     ],
     "/step2": [
       "static/chunks/webpack-4a1b1b1902672574.js",
