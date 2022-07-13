@@ -21,12 +21,12 @@ export default function Document() {
         />
         <meta property="og:title" content="White Glove" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="assets/image/logo.png" />
+        <meta property="og:image" content="/images/logo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="White Glove" />
-        <meta name="twitter:image" content="assets/image/logo.png" />
+        <meta name="twitter:image" content="/images/logo.png" />
         <meta
           name="twitter:description"
           content="Transportation and Logistics"
