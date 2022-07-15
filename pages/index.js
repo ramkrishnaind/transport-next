@@ -77,7 +77,7 @@ const HomePage = () => {
                                     Secure Sifting for small & big moves
                                 </div>
                                 <p className="homeTabInfo w-104 ml-32">
-                                    Get complete care from top to bottom with your own moving expert. This customer care expert organizes your experience from the second you book until the moment you realize you're home. Your representative offers an effective plan for a seamless, easy, and unforgettable domestic moving experience.
+                                    Get complete care from top to bottom with your own moving expert. This customer care expert organizes your experience from the second you book until the moment you realize you`re home. Your representative offers an effective plan for a seamless, easy, and unforgettable domestic moving experience.
                                 </p>
                                 <Divider />
                                 <div className="movingList mt-8 ml-32 justify">
@@ -126,10 +126,10 @@ const HomePage = () => {
                             </div>
                             <div>
                                 <div className="homeTabInfoTitle w-96 ml-32 mt-16">
-                                    It's a Office or Factory we’ll be there
+                                    It`s a Office or Factory we’ll be there
                                 </div>
                                 <p className="homeTabInfo w-104 ml-32">
-                                    Moving an office & factory is both time-consuming and a stressful experience. Complete office and commercial relocations take a significant amount of time, energy, and resources, so it is critical to have sound pre-move plans and estimate in advance. When you're moving your current office space with your team, or relocating the contents of an entire building, White Glove Packers and Movers has your back!
+                                    Moving an office & factory is both time-consuming and a stressful experience. Complete office and commercial relocations take a significant amount of time, energy, and resources, so it is critical to have sound pre-move plans and estimate in advance. When you`re moving your current office space with your team, or relocating the contents of an entire building, White Glove Packers and Movers has your back!
                                 </p>
                                 <Divider />
                                 <div className="movingList mt-8 ml-32 justify">
@@ -152,7 +152,7 @@ const HomePage = () => {
                             </div>
                             <div>
                                 <div className="homeTabInfoTitle w-96 ml-32 mt-16">
-                                    Weather it's Bike, Car or SUV
+                                    Weather it`s Bike, Car or SUV
                                 </div>
                                 <p className="homeTabInfo w-104 ml-32">
                                     Our 360° vehicle shifting services include packing, moving, and point to point delivery, at transparent and affordable prices. You can trust White Glove to provide quality services with no damage to your vehicle.
@@ -239,7 +239,7 @@ const HomePage = () => {
                         <div className="shortCodeTitle pt-8 pb-8">
                             Precise pickup and delivery
                         </div >
-                        <p className="subBanner-p w-72 ">There's no need to get held up by service windows. With White Glove Packers and Movers, you can relax knowing your movers and belongings will be there exactly when they are requested to be there.</p>
+                        <p className="subBanner-p w-72 ">There`s no need to get held up by service windows. With White Glove Packers and Movers, you can relax knowing your movers and belongings will be there exactly when they are requested to be there.</p>
                     </div>
                 </div>
                 <div>
@@ -255,7 +255,7 @@ const HomePage = () => {
                         <div className="shortCodeTitle pt-8 pb-8">
                             Dedicated Trucks
                         </div >
-                        <p className="subBanner-p w-72 ">Don't worry about sharing your truck space or move-day with anyone else. Opt for a dedicated rental truck packed by professional movers with you in mind and driven directly to your new home.</p>
+                        <p className="subBanner-p w-72 ">Don`t worry about sharing your truck space or move-day with anyone else. Opt for a dedicated rental truck packed by professional movers with you in mind and driven directly to your new home.</p>
                     </div>
                 </div>
             </div>
