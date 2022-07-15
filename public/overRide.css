@@ -127,8 +127,105 @@ body {
   line-height: 1.155em;
 }
 .subBanner-p {
+  font-family: Sarabun,sans-serif;
   color: #ffffff;
   position: relative;
   font-size: 20px;
   font-weight: 400;
+}
+.movingList {
+  display: inline-flex;
+}
+.mListIcon {
+  align-items: center;
+  background-color: #f7c600;
+  border-radius: 50%;
+  display: flex;
+  flex-shrink: 0;
+  height: 54px;
+  justify-content: center;
+  margin: 0;
+  width: 54px;
+  font-weight: bolder;
+  font-size: x-large;
+}
+.movingListContant {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: #1b1b1b;
+}
+.relocationTabTitle {
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: #1b1b1b;
+  font-size: 20px;
+  line-height: 1.294em;
+
+  border-bottom: 1px solid #a6a6a6;
+  display: flex;
+  list-style: none;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #f7c602;
+  text-shadow: 0 0 0.25px #f7c602;
+  font-size: 24px;
+  font-weight: 600;
+}
+.ant-tabs-tab {
+  font-size: 24px;
+  font-weight: 600;
+}
+.homeTabInfoTitle {
+  font-family: Sarabun,sans-serif;
+  font-size: 45px;
+  font-weight: 800;
+  color: #1b1b1b
+}
+.homeTabInfo {
+  padding: 0 1% 30px 0;
+  font-family: Sarabun,sans-serif;
+  font-size: 20px;
+  color: #5b5b5b
+}
+.shortCodeMain {
+  background-color: #2698bc
+}
+
+.iconImage {
+  width: 65px;
+}
+.shortCodeTitle {
+  font-family: Sarabun,sans-serif;
+  color: #f7c600;
+  font-size: 24px;
+  font-weight: 600;
+}
+.tagMsgSection {
+  font-size: 60px;
+  color: #f7c600;
+  font-weight: 500;
+}
+.blogPostTitle {
+  font-size: 48px;
+  font-weight:500px;
+}
+.blogDate {
+  font-size: 36px;
+}
+.blogDateDig {
+  font-weight: bold;
+  margin-bottom: -20px;
+}
+.blogClass {
+  color: #504e4e;
+  font-size: 18px
+}
+.blogTitle {
+  font-size: 24px;
+  font-weight:bold;
+}
+.blogshortDesc {
+  font-size: 20px
 }
