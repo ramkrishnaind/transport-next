@@ -50,10 +50,10 @@ function MyApp({ Component, pageProps }) {
   console.log("asPath", router?.asPath);
   let component;
   switch (true) {
-    case router?.asPath.startsWith("/auth"):
+    case router?.asPath.startsWith("/admin"):
       component = <Component {...pageProps} />;
       break;
-    case router?.asPath.startsWith("/admin"):
+    case router?.asPath.startsWith("/app"):
       component = (
         <AdminLayout>
           <Component {...pageProps} />

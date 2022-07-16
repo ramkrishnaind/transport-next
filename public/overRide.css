@@ -229,3 +229,109 @@ body {
 .blogshortDesc {
   font-size: 20px
 }
+.footerLayout {
+  background-color: #000000;
+  /* padding-left: 30px;
+  padding-right: 30px; */
+  padding: 120px 60px 60px 60px; 
+}
+.footerSpan {
+  color: #ffffff;
+}
+.footerTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+.footerLink {
+  font-size: 20px;
+  color: #5b5b5b;
+  font-weight: 500;
+}
+.copyRight {
+  background-color: #000000;
+  color: #5b5b5b;
+  font-size: 20px;
+  font-weight:400;
+}
+.cRText {
+  text-align: center;
+}
+.ant-divider-horizontal {
+  margin: 0px !important;
+}
+.topHeder {
+  background-color: #000000;
+  color: #ffffff;
+}
+.mainHeader {
+  background-color: #f7c602;
+  color: #000000;
+  font-size: 24px;
+  font-weight:500;
+  font-family: Sarabun,sans-serif;
+  text-align: center;
+}
+.hederBurger {
+  background-color: #000000;
+  color: #ffffff;
+}
+.hederDivider {
+  background-color: #000000;
+}
+.ant-btn {
+  background-color: #f7c602;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight:bold;
+  height: 100%;
+}
+.ant-btn:hover, .ant-btn:focus {
+  color: #f7c602;
+  border-color: #f7c602;
+  background: #000000;
+}
+.seconderyButton {
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight:bold;
+  color: #f7c602;
+  height: 100%;
+}
+a {
+  color: #000000 !important;
+}
+.heartColor {
+  color: #f90101
+}
+
+
+/* Admin CSS */
+.ant-layout-sider {
+  max-width: 100% !important;
+  min-width: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.appHeader {
+  background-color: #011529
+}
+.appFooter {
+  background-color: #011529;
+  color: #ffffff;
+  font-size: 18px;
+}
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background: #011529;
+}
+.ant-menu-inline > .ant-menu-item {
+  font-size: 18px;
+  height: 48px;
+  line-height: 40px;
+}
+.ant-menu-inline.ant-menu-root .ant-menu-submenu-title > .ant-menu-title-content {
+  font-size: 18px;
+}
+.ant-menu-item-icon {
+  font-size: 18px !important;
+}

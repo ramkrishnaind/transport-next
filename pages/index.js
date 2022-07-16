@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Divider, Tabs } from "antd";
+import HomeForm from "../components/Home";
 
 const { TabPane } = Tabs;
 //import 
@@ -16,14 +17,15 @@ const HomePage = () => {
                     />
                 </div>
                 <div className="col-span-2">
-                    <div className="bannerTitle self-center space-y-4 w-96 mt-64">
+                    {/* <div className="bannerTitle self-center space-y-4 w-96 mt-64">
                         Shifting Happiness
                     </div>
                     <div className="bannerSubTitle w-96">
                         We Make Your Moving Easy
-                    </div>
-                    <p className="w-96">Lorem ipsum Get complete care from top to bottom with your own moving expert.  Get complete care from top to bottom with your own moving expert. </p>
-                    <Button className="">Calculate Moving Price</Button>
+                    </div> */}
+                    {/* <p className="w-96">Lorem ipsum Get complete care from top to bottom with your own moving expert.  Get complete care from top to bottom with your own moving expert. </p>
+                    <Button className="">Calculate Moving Price</Button> */}
+                    <HomeForm />
                 </div>
             </div>
             <div className="grid grid-flow-col grid-cols-5 modernMoving">
@@ -384,8 +386,6 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-
-
         </>
     )
 }
