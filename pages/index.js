@@ -7,7 +7,7 @@ const { TabPane } = Tabs;
 const HomePage = () => {
     return (
         <>
-            <div className="grid grid-flow-col grid-cols-5 gap-2 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-5  lg:grid-cols-5 gap-2 mb-16">
                 <div className="col-span-3">
                     <img
                         className="bannerImage"
@@ -28,27 +28,27 @@ const HomePage = () => {
                     <HomeForm />
                 </div>
             </div>
-            <div className="grid grid-flow-col grid-cols-5 modernMoving">
+            <div className="grid grid-cols-1 md:grid-cols-5  lg:grid-cols-5 modernMoving">
                 <div className="col-span-2">
                     <div>
-                        <div className="subBannerTitle w-96 ml-32 mt-16">
+                        <div className="subBannerTitle w-96 mt-16 sm:ml-16 md:ml-24 lg:ml-32">
                             Moving Made Modern
                         </div>
-                        <p className="subBanner-p w-96 ml-32">
+                        <p className="subBanner-p w-96 sm:ml-16 md:ml-24 lg:ml-32">
                             By choosing White Glove Packers and Movers, you’re guaranteeing a great moving day. All customers receive transparent pricing, flexible service and payment options, Quality Packaging Material, industry-best customer support, and an easy-to-access online dashboard.
                         </p>
                     </div>
                     <Divider />
                     {/* Create a component for this */}
-                    <div className="movingList mt-16 ml-32 justify">
+                    <div className="movingList mt-16 sm:ml-16 md:ml-24 lg:ml-32 justify">
                         <span className="mListIcon">+</span>
                         <span className="movingListContant w-48 pl-4">Get Price  Get Free Quote Now</span>
                     </div>
-                    <div className="movingList mt-16 ml-32 justify">
+                    <div className="movingList mt-16 sm:ml-16 md:ml-24 lg:ml-32 justify">
                         <span className="mListIcon">+</span>
                         <span className="movingListContant w-48 pl-4">Get Price  Get Free Quote Now</span>
                     </div>
-                    <div className="movingList mt-16 ml-32 justify">
+                    <div className="movingList mt-16 sm:ml-16 md:ml-24 lg:ml-32 justify">
                         <span className="mListIcon">+</span>
                         <span className="movingListContant w-48 pl-4">Get Price  Get Free Quote Now</span>
                     </div>
@@ -62,10 +62,10 @@ const HomePage = () => {
                     />
                 </div>
             </div>
-            <div className="ml-16 mr-16 md:mt-16 mb-2">
+            <div className="ml-16 mr-16 mt-16 mb-2">
                 <Tabs defaultActiveKey="1">
                     <TabPane tab="Domestic Relocation" key="1">
-                        <div className="grid grid-flow-col grid-cols-2 mb-16">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-16">
                             <div>
                                 <img
                                     className="mt-16"
@@ -75,14 +75,14 @@ const HomePage = () => {
                                 />
                             </div>
                             <div>
-                                <div className="homeTabInfoTitle w-96 ml-32 mt-16">
+                                <div className="homeTabInfoTitle w-96 md:ml-32 lg:ml-32 mt-16 justify">
                                     Secure Sifting for small & big moves
                                 </div>
-                                <p className="homeTabInfo w-104 ml-32">
+                                <p className="homeTabInfo w-104 md:ml-32 lg:ml-32 mt-16 justify">
                                     Get complete care from top to bottom with your own moving expert. This customer care expert organizes your experience from the second you book until the moment you realize you`re home. Your representative offers an effective plan for a seamless, easy, and unforgettable domestic moving experience.
                                 </p>
                                 <Divider />
-                                <div className="movingList mt-8 ml-32 justify">
+                                <div className="movingList mt-8 md:ml-32 lg:ml-32 justify">
                                     <span className="mListIcon">+</span>
                                     <span className="movingListContant w-48 pl-4">Get Price  Get Free Quote Now</span>
                                 </div>
@@ -91,7 +91,7 @@ const HomePage = () => {
                     </TabPane>
                     <TabPane tab="International Relocation" key="2">
                         {/* Content of Tab Pane 2 */}
-                        <div className="grid grid-flow-col grid-cols-2 mb-16">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-16">
                             <div>
                                 <img
                                     className="mt-16"
@@ -101,14 +101,14 @@ const HomePage = () => {
                                 />
                             </div>
                             <div>
-                                <div className="homeTabInfoTitle w-96 ml-32 mt-16">
+                                <div className="homeTabInfoTitle w-96 md:ml-32 lg:ml-32 mt-16 justify">
                                     Great & affordable shifting services
                                 </div>
-                                <p className="homeTabInfo w-104 ml-32">
+                                <p className="homeTabInfo w-104 md:ml-32 lg:ml-32 mt-16 justify">
                                     Receive fixed-price, individualized plans and reserve your move without having to worry about hidden fees. Our house estimates come at affordable rates while offering a full-service moving experience.
                                 </p>
                                 <Divider />
-                                <div className="movingList mt-8 ml-32 justify">
+                                <div className="movingList mt-8 md:ml-32 lg:ml-32 justify">
                                     <span className="mListIcon">+</span>
                                     <span className="movingListContant w-48 pl-4">Get Price  Get Free Quote Now</span>
                                 </div>
@@ -117,7 +117,7 @@ const HomePage = () => {
                     </TabPane>
                     <TabPane tab="Corporate Relocation" key="3">
                         {/* Content of Tab Pane 3 */}
-                        <div className="grid grid-flow-col grid-cols-2 mb-16">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-16">
                             <div>
                                 <img
                                     className="mt-16"
@@ -127,14 +127,14 @@ const HomePage = () => {
                                 />
                             </div>
                             <div>
-                                <div className="homeTabInfoTitle w-96 ml-32 mt-16">
+                                <div className="homeTabInfoTitle w-96 md:ml-32 lg:ml-32 mt-16 justify">
                                     It`s a Office or Factory we’ll be there
                                 </div>
-                                <p className="homeTabInfo w-104 ml-32">
+                                <p className="homeTabInfo w-104 md:ml-32 lg:ml-32 mt-16 justify">
                                     Moving an office & factory is both time-consuming and a stressful experience. Complete office and commercial relocations take a significant amount of time, energy, and resources, so it is critical to have sound pre-move plans and estimate in advance. When you`re moving your current office space with your team, or relocating the contents of an entire building, White Glove Packers and Movers has your back!
                                 </p>
                                 <Divider />
-                                <div className="movingList mt-8 ml-32 justify">
+                                <div className="movingList mt-8 md:ml-32 lg:ml-32 justify">
                                     <span className="mListIcon">+</span>
                                     <span className="movingListContant w-48 pl-4">Get Price  Get Free Quote Now</span>
                                 </div>
@@ -143,7 +143,7 @@ const HomePage = () => {
                     </TabPane>
                     <TabPane tab="Vehicle Relocation" key="4" mb-16>
                         {/* Content of Tab Pane 4 */}
-                        <div className="grid grid-flow-col grid-cols-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-16">
                             <div>
                                 <img
                                     className="mt-16"
@@ -153,14 +153,14 @@ const HomePage = () => {
                                 />
                             </div>
                             <div>
-                                <div className="homeTabInfoTitle w-96 ml-32 mt-16">
+                                <div className="homeTabInfoTitle w-96 md:ml-32 lg:ml-32 mt-16 justify">
                                     Weather it`s Bike, Car or SUV
                                 </div>
-                                <p className="homeTabInfo w-104 ml-32">
+                                <p className="homeTabInfo w-104 md:ml-32 lg:ml-32 mt-16 justify">
                                     Our 360° vehicle shifting services include packing, moving, and point to point delivery, at transparent and affordable prices. You can trust White Glove to provide quality services with no damage to your vehicle.
                                 </p>
                                 <Divider />
-                                <div className="movingList mt-8 ml-32 justify">
+                                <div className="movingList mt-8 md:ml-32 lg:ml-32 justify">
                                     <span className="mListIcon">+</span>
                                     <span className="movingListContant w-48 pl-4">Get Price  Get Free Quote Now</span>
                                 </div>
@@ -169,7 +169,7 @@ const HomePage = () => {
                     </TabPane>
                     <TabPane tab="Storage" key="5">
                         {/* Content of Tab Pane 5 */}
-                        <div className="grid grid-flow-col grid-cols-2 mb-16">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mb-16">
                             <div>
                                 <img
                                     className="mt-16"
@@ -179,14 +179,14 @@ const HomePage = () => {
                                 />
                             </div>
                             <div>
-                                <div className="homeTabInfoTitle w-96 ml-32 mt-16">
+                                <div className="homeTabInfoTitle w-96 md:ml-32 lg:ml-32 mt-16 justify">
                                     Are you looking for a new place to store your belongings?
                                 </div>
-                                <p className="homeTabInfo w-104 ml-32">
+                                <p className="homeTabInfo w-104 md:ml-32 lg:ml-32 mt-16 justify">
                                     You’ve come to the right place! White Glove Packers and Movers offer affordable and convenient with our partnered self-storage solutions. Whether you need storage for a few months or just want some extra space, we have what you need.
                                 </p>
                                 <Divider />
-                                <div className="movingList mt-8 ml-32 justify">
+                                <div className="movingList mt-8 md:ml-32 lg:ml-32 justify">
                                     <span className="mListIcon">+</span>
                                     <span className="movingListContant w-48 pl-4">Get Price  Get Free Quote Now</span>
                                 </div>
@@ -195,7 +195,7 @@ const HomePage = () => {
                     </TabPane>
                 </Tabs>
             </div>
-            <div className="grid grid-flow-col grid-cols-4 pl-16 pr-16 pt-16 pb-16 shortCodeMain">
+            <div className="grid grid-col-1 md:grid-cols-3 lg:grid-cols-4 pl-16 pr-16 pt-16 pb-16 shortCodeMain">
                 <div>
                     <div>
                         <img
@@ -261,16 +261,16 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-flow-col grid-cols-3 mb-16 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16 ">
                 <div>
-                    <div className="homeTabInfoTitle w-96 ml-32 mt-16">
+                    <div className="homeTabInfoTitle w-96  md:ml-32 lg:ml-32 mt-16 justify">
                         Relax while your White Glove pros get the job done.
                     </div>
-                    <p className="homeTabInfo w-104 ml-32">
+                    <p className="homeTabInfo w-104  md:ml-32 lg:ml-32 mt-16 justify">
                         Your lead White Glove pro will get in touch on the day of your service to let you know your team is on the way. Once they arrive, they’ll conduct a brief walk-through, take note of any special instructions, and then get to work
                     </p>
                     <Divider />
-                    <div className="movingList mt-8 ml-32 justify">
+                    <div className="movingList mt-8  md:ml-32 lg:ml-32 justify">
                         <span className="mListIcon">+</span>
                         <span className="movingListContant w-48 pl-4">Get Price  Get Free Quote Now</span>
                     </div>
@@ -284,7 +284,7 @@ const HomePage = () => {
                     />
                 </div>
             </div>
-            <div className="grid grid-flow-col pl-48 pr-32 pt-64 pb-64 shortCodeMain">
+            <div className="grid  md:pl-48 md:pr-32 md:pt-64 md:pb-64 shortCodeMain">
                 <div className="tagMsgSection">
                     An innovative service for easy & fast shifting, transportation coordinated by qualified staff
                 </div>
@@ -293,7 +293,7 @@ const HomePage = () => {
                 <div className="ml-16 mb-8 blogPostTitle">
                     Latest blog posts
                 </div>
-                <div className="grid grid-flow-col grid-cols-3 ml-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ml-16">
                     <div>
                         <div>
                             <img
@@ -303,7 +303,7 @@ const HomePage = () => {
                                 alt="main BannerImage"
                             />
                         </div>
-                        <div className="grid grid-flow-col grid-cols-6">
+                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
                             <div className="blogDate">
                                 <div className="blogDateDig">
                                     10
@@ -319,7 +319,7 @@ const HomePage = () => {
                                 <Divider />
                                 <div className="movingList mt-2 justify">
                                     <span className="mListIcon">+</span>
-                                    <span className="movingListContant w-48 pl-4">Read More</span>
+                                    <span className="movingListContant w-48 p-4">Read More</span>
                                 </div>
                             </div>
                         </div>
@@ -333,7 +333,7 @@ const HomePage = () => {
                                 alt="main BannerImage"
                             />
                         </div>
-                        <div className="grid grid-flow-col grid-cols-6">
+                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
                             <div className="blogDate">
                                 <div className="blogDateDig">
                                     10
@@ -349,7 +349,7 @@ const HomePage = () => {
                                 <Divider />
                                 <div className="movingList mt-2 justify">
                                     <span className="mListIcon">+</span>
-                                    <span className="movingListContant w-48 pl-4">Read More</span>
+                                    <span className="movingListContant w-48 p-4">Read More</span>
                                 </div>
                             </div>
                         </div>
@@ -363,7 +363,7 @@ const HomePage = () => {
                                 alt="main BannerImage"
                             />
                         </div>
-                        <div className="grid grid-flow-col grid-cols-6">
+                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
                             <div className="blogDate">
                                 <div className="blogDateDig">
                                     10
@@ -379,7 +379,7 @@ const HomePage = () => {
                                 <Divider />
                                 <div className="movingList mt-2 justify">
                                     <span className="mListIcon">+</span>
-                                    <span className="movingListContant w-48 pl-4">Read More</span>
+                                    <span className="movingListContant w-48 p-4">Read More</span>
                                 </div>
                             </div>
                         </div>
