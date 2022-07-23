@@ -9,7 +9,7 @@ const Footer = () => {
         </div>
 
         <div className="col-start-5 col-span-2 text-right">
-          © 2021 White Glove, All Rights Reserved
+          © 2022 White Glove, All Rights Reserved
         </div>
       </div>
     </>
