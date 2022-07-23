@@ -15,7 +15,7 @@ const index = (props) => {
         <div className="bg-blue-100 col-span-2">
           <LeftNavigation />
         </div>
-        <div className="bg-red-100 col-span-10 p-4">{props.children}</div>
+        <div className="layoutBG col-span-10 p-4">{props.children}</div>
       </div>
       <div className="grid">
         <Footer />
