@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Divider, Tabs } from "antd";
-
+import Image from 'next/image'
 const { TabPane } = Tabs;
 //import 
 const HomePage = () => {
@@ -8,7 +8,7 @@ const HomePage = () => {
         <>
             <div className="grid grid-flow-col grid-cols-5 gap-2 mb-16">
                 <div className="col-span-3">
-                    <img
+                    <Image
                         className="bannerImage"
                         src="/images/home/BannerImage.png"
                         itemProp="image"
@@ -51,7 +51,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="col-span-3">
-                    <img
+                    <Image
                         className="bannerImage"
                         src="/images/home/modern-moving.png"
                         itemProp="image"

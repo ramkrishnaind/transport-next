@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import ItemCard from "../ItemCard";
 import TransportContext from "../../context";
 import Card from "../Card";
@@ -6,6 +6,7 @@ import Card from "../Card";
 import itemList from "../../data/itemList.json";
 import bikeList from "../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
+import Image from 'next/image';
 let objToAppend = [];
 const bikeTransformed = [];
 bikeList.forEach((bikeItem) => {
@@ -275,7 +276,8 @@ const Step4 = (props) => {
       return ++prevValue;
     }, 0);
   };
-  const getCopiedObject = (objFound) => {
+  
+  const getCopiedObject = useCallback((objFound) => {
     //
     const objValues = [];
     if (objFound?.value?.length > 0) {
@@ -286,7 +288,7 @@ const Step4 = (props) => {
     } else {
       return { ...objFound };
     }
-  };
+  }, []);
   const editHandler = (category, index) => {
     const newItems = [...items];
     newItems.forEach((i) => {
@@ -333,8 +335,8 @@ const Step4 = (props) => {
     });
     if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
     setState(arr);
-  }, [step3State]);
-  useEffect(() => {}, []);
+  }, [step3State, getCopiedObject]);
+  //useEffect(() => {}, []);
   // console.log("currentHeader", currentHeader);
 
   const changeState = () => {
@@ -591,7 +593,7 @@ const Step4 = (props) => {
               }}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`${item?.image}`} alt="" />
+                <Image src={`${item?.image}`} alt="" />
               </div>
               {item?.completed && (
                 <div
@@ -601,7 +603,7 @@ const Step4 = (props) => {
                     editHandler(item.category, index);
                   }}
                 >
-                  <img src={`images/edit.png`} alt="" />
+                  <Image src={`images/edit.png`} alt="" />
                 </div>
               )}
 
@@ -649,7 +651,7 @@ const Step4 = (props) => {
               }
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <Image src={`images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -771,7 +773,7 @@ const Step4 = (props) => {
               }}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <Image src={`images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -827,7 +829,7 @@ const Step4 = (props) => {
               }
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <Image src={`images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -886,7 +888,7 @@ const Step4 = (props) => {
               onClick={(e) => handleFifthLevelClick(e, index, parentItem, item)}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <Image src={`images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -924,7 +926,7 @@ const Step4 = (props) => {
               onClick={(e) => handleCarouselClick(e, element)}
             >
               <div className="flex justify-center py-2" style={{ height: 60 }}>
-                <img src={element.image} alt="" />
+                <Image src={element.image} alt="" />
               </div>
               {/* <div className="text-center text-sm">{element.title}</div> */}
               <div className="px-5 mt-2 hover:bg-blue-100">

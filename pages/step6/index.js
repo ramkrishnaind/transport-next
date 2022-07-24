@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card"
+import Image from 'next/image';
 
 const Step6 = () => {
   const [name, setName] = useState("Test");
@@ -16,7 +17,7 @@ const Step6 = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <img className="mt-5" src={"images/cup-java-50.png"} alt="" />
+      <Image className="mt-5" src={"images/cup-java-50.png"} alt="" />
       <p className="mt-10 mb-3 text-gray-800 font-medium text-lg text-center">
         Thank you {name}!
       </p>

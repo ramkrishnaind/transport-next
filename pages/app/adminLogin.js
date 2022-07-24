@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import antd, { Alert, Checkbox, Form, Input, Button } from 'antd';
+import Image from 'next/image'
 const AdminLoginPage = () => {
 
     const [enteredName, setEnteredName] = useState('');
@@ -102,7 +103,7 @@ const AdminLoginPage = () => {
         <div className="login-page">
             <div className="login-box">
                 <div className="illustration-wrapper">
-                    <img src="https://mixkit.imgix.net/art/preview/mixkit-left-handed-man-sitting-at-a-table-writing-in-a-notebook-27-original-large.png?q=80&auto=format%2Ccompress&h=700" alt="Login" />
+                    <Image src="https://mixkit.imgix.net/art/preview/mixkit-left-handed-man-sitting-at-a-table-writing-in-a-notebook-27-original-large.png?q=80&auto=format%2Ccompress&h=700" alt="Login" />
                 </div>
                 <Form
                     name="login-form"

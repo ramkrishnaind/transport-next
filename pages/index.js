@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Divider, Tabs } from "antd";
 import HomeForm from "../components/Home";
-
+import Image from 'next/image';
 const { TabPane } = Tabs;
 //import 
 const HomePage = () => {
@@ -9,7 +9,7 @@ const HomePage = () => {
         <>
             <div className="grid grid-flow-col grid-cols-5 gap-2 mb-16">
                 <div className="col-span-3">
-                    <img
+                    <Image
                         className="bannerImage"
                         src="/images/home/BannerImage.png"
                         itemProp="image"
@@ -54,7 +54,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="col-span-3">
-                    <img
+                    <Image
                         className="bannerImage"
                         src="/images/home/modern-moving.png"
                         itemProp="image"
@@ -67,7 +67,7 @@ const HomePage = () => {
                     <TabPane tab="Domestic Relocation" key="1">
                         <div className="grid grid-flow-col grid-cols-2 mb-16">
                             <div>
-                                <img
+                                <Image
                                     className="mt-16"
                                     src="/images/home/main-home-tabbed-info-1.png"
                                     itemProp="image"
@@ -93,7 +93,7 @@ const HomePage = () => {
                         {/* Content of Tab Pane 2 */}
                         <div className="grid grid-flow-col grid-cols-2 mb-16">
                             <div>
-                                <img
+                                <Image
                                     className="mt-16"
                                     src="/images/home/international-relocation.png"
                                     itemProp="image"
@@ -119,7 +119,7 @@ const HomePage = () => {
                         {/* Content of Tab Pane 3 */}
                         <div className="grid grid-flow-col grid-cols-2 mb-16">
                             <div>
-                                <img
+                                <Image
                                     className="mt-16"
                                     src="/images/home/corporate-relocation.png"
                                     itemProp="image"
@@ -145,7 +145,7 @@ const HomePage = () => {
                         {/* Content of Tab Pane 4 */}
                         <div className="grid grid-flow-col grid-cols-2">
                             <div>
-                                <img
+                                <Image
                                     className="mt-16"
                                     src="/images/home/vehicle-relocation.png"
                                     itemProp="image"
@@ -171,7 +171,7 @@ const HomePage = () => {
                         {/* Content of Tab Pane 5 */}
                         <div className="grid grid-flow-col grid-cols-2 mb-16">
                             <div>
-                                <img
+                                <Image
                                     className="mt-16"
                                     src="/images/home/storage.png"
                                     itemProp="image"
@@ -198,7 +198,7 @@ const HomePage = () => {
             <div className="grid grid-flow-col grid-cols-4 pl-16 pr-16 pt-16 pb-16 shortCodeMain">
                 <div>
                     <div>
-                        <img
+                        <Image
                             className="iconImage"
                             src="/images/home/icon/booking.png"
                             itemProp="image"
@@ -214,7 +214,7 @@ const HomePage = () => {
                 </div>
                 <div>
                     <div>
-                        <img
+                        <Image
                             className="iconImage"
                             src="/images/home/icon/price.png"
                             itemProp="image"
@@ -230,7 +230,7 @@ const HomePage = () => {
                 </div>
                 <div>
                     <div>
-                        <img
+                        <Image
                             className="iconImage"
                             src="/images/home/icon/precise-delivery.png"
                             itemProp="image"
@@ -246,7 +246,7 @@ const HomePage = () => {
                 </div>
                 <div>
                     <div>
-                        <img
+                        <Image
                             className="iconImage"
                             src="/images/home/icon/truck.png"
                             itemProp="image"
@@ -276,7 +276,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="col-span-2">
-                    <img
+                    <Image
                         className="mt-16"
                         src="/images/home/whiteglove-pro.png"
                         itemProp="image"
@@ -296,7 +296,7 @@ const HomePage = () => {
                 <div className="grid grid-flow-col grid-cols-3 ml-16">
                     <div>
                         <div>
-                            <img
+                            <Image
                                 className="mt-8 w-96 mb-16"
                                 src="/images/home/maih-home-blog-img2.jpeg"
                                 itemProp="image"
@@ -326,7 +326,7 @@ const HomePage = () => {
                     </div>
                     <div>
                         <div>
-                            <img
+                            <Image
                                 className="mt-8 w-96  mb-16"
                                 src="/images/home/maih-home-blog-img3.jpeg"
                                 itemProp="image"
@@ -356,7 +356,7 @@ const HomePage = () => {
                     </div>
                     <div>
                         <div>
-                            <img
+                            <Image
                                 className="mt-8 w-96 mb-16"
                                 src="/images/home/maih-home-blog-img2.jpeg"
                                 itemProp="image"

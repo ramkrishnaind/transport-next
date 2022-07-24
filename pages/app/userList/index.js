@@ -35,7 +35,7 @@ const ListUser = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
   const headers = {
     Accept: "application/json, text/plain, */*",
     "Content-Length": "43",

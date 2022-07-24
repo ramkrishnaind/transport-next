@@ -1,13 +1,13 @@
 import React from "react";
 import { Divider } from "antd";
-
+import Image from 'next/image';
 const Footer = () => {
   return (
     <>
       <div className="footerLayout">
         <div className="grid grid-flow-col grid-cols-6 footerSpan">
           <div className="col-span-2">
-            <img
+            <Image
               className="w-96"
               src="/images/home/logo/logo-white.png"
               itemProp="image"

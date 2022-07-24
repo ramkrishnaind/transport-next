@@ -1,9 +1,8 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../database/lib/dbConnect";
 import JsonTokenDB from "../../database/Schemas/authToken";
-require("dotenv").config();
-const _ = require("lodash");
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
+
 module.exports = createToken;
 
 async function createToken(user_id) {

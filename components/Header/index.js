@@ -1,6 +1,7 @@
 import React from "react";
 import { Divider } from "antd";
 import Link from 'next/link';
+import Image from 'next/image';
 const Header = () => {
   return <>
     <div className="topHeder grid grid-flow-col grid-cols-6 pl-16 pr-16 pb-2 pt-2">
@@ -16,7 +17,7 @@ const Header = () => {
     <div className="mainHeader grid grid-flow-col grid-cols-8 pl-16">
       <div>
         <Link href="/">
-          <img
+          <Image
             className="w-96"
             src="/images/home/logo/logo.png"
             itemProp="image"

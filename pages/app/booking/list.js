@@ -141,7 +141,7 @@ const data = [
 const BookingList = () => {
     return (
         <>
-            <div class="grid">
+            <div className="grid">
                 <h3 page="page-title">Booking Management</h3><small>manage booking here</small>
 
             </div>
