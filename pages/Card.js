@@ -1,5 +1,5 @@
 import React from "react";
-import Image from 'next/image'
+import Image from "next/image";
 const Card = ({ image, item, itemCount, onClick, onDecrement }) => {
   console.log("itemCount", itemCount);
   return (
@@ -8,7 +8,7 @@ const Card = ({ image, item, itemCount, onClick, onDecrement }) => {
       className="flex relative justify-start align-top px-2 py-4 mb-2 bg-white border-2 border-gray-200 rounded shadow-md hover:bg-slate-100 hover:font-bold"
     >
       <div className="mr-5" style={{ maxWidth: 30 }}>
-        <Image src={image} alt="" />
+        <img src={image} alt="" />
       </div>
       <div className="text-gray-500">{item}</div>
       <div

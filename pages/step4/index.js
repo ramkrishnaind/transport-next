@@ -6,7 +6,7 @@ import Card from "../Card";
 import itemList from "../../data/itemList.json";
 import bikeList from "../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
-import Image from 'next/image';
+import Image from "next/image";
 let objToAppend = [];
 const bikeTransformed = [];
 bikeList.forEach((bikeItem) => {
@@ -276,7 +276,7 @@ const Step4 = (props) => {
       return ++prevValue;
     }, 0);
   };
-  
+
   const getCopiedObject = useCallback((objFound) => {
     //
     const objValues = [];
@@ -593,7 +593,7 @@ const Step4 = (props) => {
               }}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <Image src={`${item?.image}`} alt="" />
+                <img src={`${item?.image}`} alt="" />
               </div>
               {item?.completed && (
                 <div
@@ -603,7 +603,7 @@ const Step4 = (props) => {
                     editHandler(item.category, index);
                   }}
                 >
-                  <Image src={`images/edit.png`} alt="" />
+                  <img src={`images/edit.png`} alt="" />
                 </div>
               )}
 
@@ -651,7 +651,7 @@ const Step4 = (props) => {
               }
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <Image src={`images/${item?.image}`} alt="" />
+                <img src={`images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -773,7 +773,7 @@ const Step4 = (props) => {
               }}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <Image src={`images/${item?.image}`} alt="" />
+                <img src={`images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -829,7 +829,7 @@ const Step4 = (props) => {
               }
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <Image src={`images/${item?.image}`} alt="" />
+                <img src={`images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -888,7 +888,7 @@ const Step4 = (props) => {
               onClick={(e) => handleFifthLevelClick(e, index, parentItem, item)}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <Image src={`images/${item?.image}`} alt="" />
+                <img src={`images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -926,7 +926,7 @@ const Step4 = (props) => {
               onClick={(e) => handleCarouselClick(e, element)}
             >
               <div className="flex justify-center py-2" style={{ height: 60 }}>
-                <Image src={element.image} alt="" />
+                <img src={element.image} alt="" />
               </div>
               {/* <div className="text-center text-sm">{element.title}</div> */}
               <div className="px-5 mt-2 hover:bg-blue-100">

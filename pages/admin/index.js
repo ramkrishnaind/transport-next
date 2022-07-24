@@ -3,7 +3,7 @@ import antd, { Alert, Checkbox, Form, Input, Button, Spin } from "antd";
 import { useRouter } from "next/router";
 import { registerCustomer } from "../../services/admin-api-service";
 import { values } from "lodash";
-import Image from 'next/image'
+import Image from "next/image";
 
 const AdminLoginPage = () => {
   const router = useRouter();
@@ -40,7 +40,7 @@ const AdminLoginPage = () => {
       alert(`Submission failed! ${e.message}`);
     }
   };
-  
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -49,7 +49,7 @@ const AdminLoginPage = () => {
     <div className="login-page">
       <div className="login-box">
         <div className="illustration-wrapper">
-          <Image
+          <img
             src="https://mixkit.imgix.net/art/preview/mixkit-left-handed-man-sitting-at-a-table-writing-in-a-notebook-27-original-large.png?q=80&auto=format%2Ccompress&h=700"
             alt="Login"
           />
