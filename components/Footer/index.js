@@ -48,10 +48,10 @@ const Footer = () => {
           Made with <span className="heartColor">❤</span> By Infinity Coder`s
         </div>
         <div className="col-start-3 col-span-3 ml-16">
-          © 2021 White Glove, All Rights Reserved
+          © 2022 White Glove, All Rights Reserved
         </div>
         <div className="col-start-6">
-          <div>F</div>
+          <div>Facebook</div>
         </div>
       </div>
     </>
