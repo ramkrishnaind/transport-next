@@ -2,6 +2,8 @@ import React from "react";
 import { Divider } from "antd";
 import Link from "next/link";
 import Image from "next/image";
+import Hamburger from "./hamburger";
+
 const Header = () => {
   return (
     <>
@@ -39,12 +41,15 @@ const Header = () => {
             <div>Contact</div>
           </div>
         </div>
-        <div className="col-start-7 col-span-2 grid grid-flow-col grid-cols-5">
-          <div className="col-span-4 headTrack self-center">
-            Track Your Order
-          </div>
-          <div className="hederBurger">:::</div>
-        </div>
+        <div className="md:col-start-7 md:col-span-2 md:grid md:grid-flow-col md:grid-cols-5 lg:col-start-7 lg:col-span-2 lg:grid lg:grid-flow-col lg:grid-cols-5">
+        <div className="col-span-4 headTrack self-center">
+          Track Your Order
+         </div>
+         <div>
+                <Hamburger/>
+        </div> 
+      </div>
+          
       </div>
       <Divider className="hederDivider" />
     </>
