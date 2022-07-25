@@ -234,9 +234,9 @@ const HomePage = () => {
           </TabPane>
         </Tabs>
       </div>
-      <div className="grid grid-col-1 md:grid-cols-3 lg:grid-cols-4 pl-16 pr-16 pt-16 pb-16 shortCodeMain">
+      <div className="flex flex-col-1 md:flex-cols-3 lg:flex-cols-4 pl-16 pr-16 pt-16 pb-16 shortCodeMain">
         <div>
-          <div>
+          <div style={{ minHeight: 80 }} className="p-8">
             <img
               className="iconImage"
               src="/images/home/icon/booking.png"
@@ -245,8 +245,8 @@ const HomePage = () => {
             />
           </div>
           <div>
-            <div className="shortCodeTitle pt-8 pb-8">Convenient Booking</div>
-            <p className="subBanner-p w-72 ">
+            <div className="shortCodeTitle p-8 ">Convenient Booking</div>
+            <p className=" " style={{ padding: "0 2rem" }}>
               Book on your schedule and get estimates instantly with the help of
               our dedicated customer service agents. Without an in-home estimate
               start the quote process right away with our handy inventory tool.
@@ -254,7 +254,7 @@ const HomePage = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div style={{ minHeight: 80 }} className="p-8">
             <img
               className="iconImage"
               src="/images/home/icon/price.png"
@@ -263,10 +263,8 @@ const HomePage = () => {
             />
           </div>
           <div>
-            <div className="shortCodeTitle pt-8 pb-8">
-              A Non-to-Exceed quote
-            </div>
-            <p className="subBanner-p w-72 ">
+            <div className="shortCodeTitle p-8 ">A Non-to-Exceed quote</div>
+            <p className=" " style={{ padding: "0 2rem" }}>
               Receive fixed-price, individualized plans and reserve your move
               without having to worry about hidden fees. Our house estimates
               come at affordable rates with Not-to-Exceed amount.
@@ -274,7 +272,7 @@ const HomePage = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div style={{ minHeight: 80 }} className="p-8">
             <img
               className="iconImage"
               src="/images/home/icon/precise-delivery.png"
@@ -283,10 +281,10 @@ const HomePage = () => {
             />
           </div>
           <div>
-            <div className="shortCodeTitle pt-8 pb-8">
+            <div className="shortCodeTitle p-8 ">
               Precise pickup and delivery
             </div>
-            <p className="subBanner-p w-72 ">
+            <p className=" " style={{ padding: "0 2rem" }}>
               There`s no need to get held up by service windows. With White
               Glove Packers and Movers, you can relax knowing your movers and
               belongings will be there exactly when they are requested to be
@@ -295,7 +293,7 @@ const HomePage = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div style={{ minHeight: 80 }} className="p-8">
             <img
               className="iconImage"
               src="/images/home/icon/truck.png"
@@ -304,8 +302,8 @@ const HomePage = () => {
             />
           </div>
           <div>
-            <div className="shortCodeTitle pt-8 pb-8">Dedicated Trucks</div>
-            <p className="subBanner-p w-72 ">
+            <div className="shortCodeTitle p-8 ">Dedicated Trucks</div>
+            <p className=" " style={{ padding: "0 2rem" }}>
               Don`t worry about sharing your truck space or move-day with anyone
               else. Opt for a dedicated rental truck packed by professional
               movers with you in mind and driven directly to your new home.
