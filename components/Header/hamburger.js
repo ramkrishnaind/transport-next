@@ -5,7 +5,7 @@ export default function Hamburger() {
 
   return (
     <div>
-     <nav>
+      <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div
             className="HAMBURGER-ICON space-y-2"
@@ -34,21 +34,54 @@ export default function Hamburger() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
-            <ul className="flex flex-col items-center justify-between min-h-[250px]">
+            <ul className="flex flex-col items-center justify-between min-h-[150px]">
               <li className="border-b border-gray-400 my-2">
-                <a href="/home1" className="block px-2 py-2 hover:bg-slate-300 transition duration-500">Home</a>
+                <a
+                  href="/home1"
+                  className="block px-2 py-2 hover:bg-slate-300 transition duration-500"
+                >
+                  Home
+                </a>
               </li>
               <li className="border-b border-gray-400 my-2">
-                <a href="/aboutus" className="block px-2 py-2 hover:bg-slate-300 transition duration-500">About Us</a>
+                <a
+                  href="/aboutus"
+                  className="block px-2 py-2 hover:bg-slate-300 transition duration-500"
+                >
+                  About Us
+                </a>
               </li>
               <li className="border-b border-gray-400 my-2">
-                <a href="/services" className="block px-2 py-2 hover:bg-slate-300 transition duration-500">Services</a>
+                <a
+                  href="/services"
+                  className="block px-2 py-2 hover:bg-slate-300 transition duration-500"
+                >
+                  Services
+                </a>
               </li>
               <li className="border-b border-gray-400 my-2">
-                <a href="/blog" className="block px-2 py-2 hover:bg-slate-300 transition duration-500">Blog</a>
+                <a
+                  href="/blog"
+                  className="block px-2 py-2 hover:bg-slate-300 transition duration-500"
+                >
+                  Blog
+                </a>
               </li>
               <li className="border-b border-gray-400 my-2">
-                <a href="/contact" className="block px-2 py-2 hover:bg-slate-300 transition duration-500">Contact</a>
+                <a
+                  href="/contact"
+                  className="block px-2 py-2 hover:bg-slate-300 transition duration-500"
+                >
+                  Contact
+                </a>
+              </li>
+              <li className="border-b border-gray-400 my-2">
+                <a
+                  href="/contact"
+                  className="block px-2 py-2 hover:bg-slate-300 transition duration-500"
+                >
+                  Track Your Order
+                </a>
               </li>
             </ul>
           </div>

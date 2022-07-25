@@ -41,15 +41,14 @@ const Header = () => {
             <div>Contact</div>
           </div>
         </div>
-        <div className="md:col-start-7 md:col-span-2 md:grid md:grid-flow-col md:grid-cols-5 lg:col-start-7 lg:col-span-2 lg:grid lg:grid-flow-col lg:grid-cols-5">
-        <div className="col-span-4 headTrack self-center">
-          Track Your Order
-         </div>
-         <div>
-                <Hamburger/>
-        </div> 
-      </div>
-          
+        <div className="hamburger md:col-start-7 md:col-span-2 md:grid md:grid-flow-col md:grid-cols-5 lg:col-start-7 lg:col-span-2 lg:grid lg:grid-flow-col lg:grid-cols-5">
+          <div className="col-span-4 headTrack self-center">
+            Track Your Order
+          </div>
+          <div style={{ marginRight: 25 }}>
+            <Hamburger />
+          </div>
+        </div>
       </div>
       <Divider className="hederDivider" />
     </>
