@@ -28,7 +28,7 @@ const HomePage = () => {
           <HomeForm />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-5  lg:grid-cols-5 modernMoving">
+      <div className="grid grid-cols-1 p-8 md:grid-cols-5  lg:grid-cols-5 modernMoving">
         <div className="col-span-2">
           <div>
             <div className="subBannerTitle w-96 mt-16 sm:ml-16 md:ml-24 lg:ml-32">
@@ -313,7 +313,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16 ">
+      <div className="grid grid-cols-1 p-8 md:grid-cols-2 lg:grid-cols-3 mb-16 ">
         <div>
           <div className="homeTabInfoTitle w-96  md:ml-32 lg:ml-32 mt-16 justify">
             Relax while your White Glove pros get the job done.
@@ -342,7 +342,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="grid  md:pl-48 md:pr-32 md:pt-64 md:pb-64 shortCodeMain">
-        <div className="tagMsgSection">
+        <div className="p-8 tagMsgSection">
           An innovative service for easy & fast shifting, transportation
           coordinated by qualified staff
         </div>
