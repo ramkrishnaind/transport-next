@@ -1,65 +1,139 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
+// import { isLoggedIn, logout } from "@services/auth.service";
+import { Button, Menu, Switch, Divider } from "antd";
+// import {
+//   developerMenuItems,
+//   adminMenuItems,
+// } from "@components/constants/sideBar";
+import { SettingOutlined } from "@ant-design/icons";
+
+// import { AuthContext } from "context/useAuth";
+// import useAuth from "@hooks/useAuth";
+
+const { SubMenu } = Menu;
+
 import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
+  ArrowRightOutlined,
+  ArrowLeftOutlined,
+  LogoutOutlined,
+  DashboardOutlined,
   UserOutlined,
+  LaptopOutlined
 } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
-const { Sider } = Layout;
+// import withPrivate from "./auth/_router-protector";
 
-function getItem(label, key, icon, children) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  };
-}
-
-const items = [
-  getItem("Dashboard", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
-  getItem("Bookings", "9", <FileOutlined />),
-];
-
-const LeftNavigation = ({ children, href }) => {
-  const [collapsed, setCollapsed] = useState(false);
+function Sidebar() {
+  // const { setIsAuth, isAdmin } = useContext(AuthContext);
+  const [open, setOpen] = useState(false);
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [collapsed, setCollapsed] = React.useState(false);
+  const [selectedMenu, setSelectedMenu] = React.useState("0");
 
-  function clickHandler(e) {
-    switch (e.key) {
-      case "2":
-        router.push("userList");
-      case "4":
-        return <h1>item2</h1>;
-      default:
-        break;
-    }
-  }
+  // const sideBarItems = isAdmin
+  //   ? adminMenuItems.items
+  //   : developerMenuItems.items;
+  const menuitems = [
+    {
+      key: "0",
+      icon: <DashboardOutlined />,
+      name: "Dashboard",
+      link: "/app/dashboard",
+      rel: "noopener noreferrer",
+    },
+    {
+      key: "1",
+      icon: <UserOutlined />,
+      name: "Customers",
+      link: "/app/customers",
+      rel: "noopener noreferrer",
+    },
+    {
+      key: "2",
+      icon: <SettingOutlined />,
+      name: "Booking",
+      link: "/app/booking",
+      rel: "noopener noreferrer",
+    },
+    {
+      key: "3",
+      icon: <LaptopOutlined />,
+      name: "Users Roles",
+      link: "/app/userRoles",
+      rel: "noopener noreferrer",
+    },
+    {
+      key: "4",
+      icon: <UserOutlined />,
+      name: "Users",
+      link: "/app/users",
+      rel: "noopener noreferrer",
+    },
+  ];
+  
 
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+  // const handleLogout = async () => {
+  //   setLoading(true);
+  //   await logout();
+  //   localStorage.clear();
+  //   setLoading(false);
+  //   setIsAuth(false);
+  //   if (isAdmin) {
+  //     router.push("/login");
+  //   } else {
+  //     router.push("/developers/login");
+  //   }
+  // };
+  useEffect(() => {
+    let currentPath = router.pathname;
+    const result = menuitems.find((item) => item.link === currentPath);
+    setSelectedMenu(result ? result.key : "0");
+  }, [router.pathname]);
   return (
-    <Sider>
-      <div className="logo" />
-      <Menu
-        theme="dark"
-        defaultSelectedKeys={["1"]}
-        mode="inline"
-        items={items}
-        onClick={clickHandler}
-      />
-    </Sider>
+    <>
+      <div className='sideBar'>
+        <Menu
+          defaultSelectedKeys={[selectedMenu]}
+          selectedKeys={[selectedMenu]}
+          mode='inline'
+          inlineCollapsed={collapsed}
+          theme='light'
+        >
+          <br />
+          <br />
+          <Menu.Item
+            onClick={toggleCollapsed}
+            key={"collaps"}
+            icon={collapsed ? <ArrowRightOutlined /> : <ArrowLeftOutlined />}
+          ></Menu.Item>
+          {menuitems.map((item) => {
+            return (
+              <Menu.Item key={item.key} icon={item.icon}>
+                <Link key={item.key} href={item.link}>
+                  <a rel={item.rel}>{item.name}</a>
+                </Link>
+              </Menu.Item>
+            );
+          })}
+          <Menu.Divider />
+          {/* <Menu.Item
+            key='logOut'
+            icon={<LogoutOutlined />}
+            onClick={() => {
+              handleLogout();
+            }}
+          >
+            Logout
+          </Menu.Item> */}
+        </Menu>
+      </div>
+    </>
   );
-};
-
-export default LeftNavigation;
+}
+export default Sidebar;
