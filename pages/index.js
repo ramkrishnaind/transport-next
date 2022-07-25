@@ -234,7 +234,7 @@ const HomePage = () => {
           </TabPane>
         </Tabs>
       </div>
-      <div className="flex flex-col-1 md:flex-cols-3 lg:flex-cols-4 pl-16 pr-16 pt-16 pb-16 shortCodeMain">
+      <div className="xs:columns-1 sm:columns-2 lg:columns-4 pl-16 pr-16 pt-16 pb-16 shortCodeMain">
         <div>
           <div style={{ minHeight: 80 }} className="p-8">
             <img
