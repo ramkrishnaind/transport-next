@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 const Card = ({ image, item, itemCount, onClick, onDecrement }) => {
   console.log("itemCount", itemCount);
   return (

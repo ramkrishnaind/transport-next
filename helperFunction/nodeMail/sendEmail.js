@@ -1,7 +1,7 @@
 const _ = require("lodash");
 
-const nodemailer = require('nodemailer');
-const config = require('./mailconfig.json');
+const nodemailer = require("nodemailer");
+const config = require("./mailconfig.json");
 
 module.exports = sendEmail;
 
@@ -15,5 +15,4 @@ async function sendEmail(to, subject, html) {
       console.log(info);
     }
   });
-  //await transporter.sendMail(emailOption);
 }

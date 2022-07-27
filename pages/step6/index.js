@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Card from "../Card"
+import Card from "../Card";
+import Image from "next/image";
 
 const Step6 = () => {
   const [name, setName] = useState("Test");
@@ -16,6 +17,7 @@ const Step6 = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
+      {/* <img className="mt-5" src={"images/cup-java-50.png"} alt="" /> */}
       <img className="mt-5" src={"images/cup-java-50.png"} alt="" />
       <p className="mt-10 mb-3 text-gray-800 font-medium text-lg text-center">
         Thank you {name}!
@@ -89,29 +91,36 @@ const Step6 = () => {
       </div>
 
       <div className="w-5/6">
-      <form className="max-w-screen-xl m-auto py-10 px-5">
-      <div className="grid gap-8 space-x-1 lg:grid-cols-3">
-        <div className="px-4  ">
-          <h3 className="text-md text-center text-gray-600">Furniture</h3>
-        </div>
-        <div className="px-4">
-          <h3 className="text-md text-center text-gray-600">Electronic</h3>
-        </div>
-        <div className="px-4">
-          <h3 className="text-md text-center text-gray-600">Vehicle</h3>
-        </div>
+        <form className="max-w-screen-xl m-auto py-10 px-5">
+          <div className="grid gap-8 space-x-1 lg:grid-cols-3">
+            <div className="px-4  ">
+              <h3 className="text-md text-center text-gray-600">Furniture</h3>
+            </div>
+            <div className="px-4">
+              <h3 className="text-md text-center text-gray-600">Electronic</h3>
+            </div>
+            <div className="px-4">
+              <h3 className="text-md text-center text-gray-600">Vehicle</h3>
+            </div>
+          </div>
+          <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
+            <Card image={"images/table-24.png"} item={"Tables"} itemCount={1} />
+            <Card
+              image={"images/washing-machine-24.png"}
+              item={"Washing machines"}
+              itemCount={1}
+            />
+            <Card image={"images/bike-24.png"} item={"Bikes"} itemCount={1} />
+          </div>
+          <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
+            <Card
+              image={"images/office-chair-24.png"}
+              item={"Chairs"}
+              itemCount={1}
+            />
+          </div>
+        </form>
       </div>
-      <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-        <Card image={"images/table-24.png"} item={"Tables"} itemCount={1} />
-        <Card image={"images/washing-machine-24.png"} item={"Washing machines"} itemCount={1} />
-        <Card image={"images/bike-24.png"} item={"Bikes"} itemCount={1} />
-      </div>
-      <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-        <Card image={"images/office-chair-24.png"} item={"Chairs"} itemCount={1} />
-      </div>
-
-    </form>
-    </div>
     </div>
   );
 };

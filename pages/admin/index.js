@@ -3,6 +3,7 @@ import antd, { Alert, Checkbox, Form, Input, Button, Spin } from "antd";
 import { useRouter } from "next/router";
 import { registerCustomer } from "../../services/admin-api-service";
 import { values } from "lodash";
+import Image from "next/image";
 
 const AdminLoginPage = () => {
   const router = useRouter();
@@ -39,7 +40,7 @@ const AdminLoginPage = () => {
       alert(`Submission failed! ${e.message}`);
     }
   };
-  
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };

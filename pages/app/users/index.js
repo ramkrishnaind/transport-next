@@ -138,11 +138,11 @@ const data = [
     },
 ];
 
-const BookingList = () => {
+const Users = () => {
     return (
         <>
-            <div class="grid">
-                <h3 page="page-title">Booking Management</h3><small>manage booking here</small>
+            <div className="grid">
+                <h3 page="page-title">Users Management</h3><small>manage Users here</small>
 
             </div>
             <Table columns={columns} dataSource={data} />
@@ -150,4 +150,4 @@ const BookingList = () => {
     );
 }
 
-export default BookingList;
+export default Users;
