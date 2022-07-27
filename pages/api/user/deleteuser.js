@@ -8,6 +8,7 @@ const _ = require("lodash");
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
+
 async function createUserHandler(req, res) {
   await dbConnect();
   try {
@@ -20,7 +21,13 @@ async function createUserHandler(req, res) {
     }
 
     // pick data from req.body
-    let findData = await UserDB.find({ active: 1 });
+    let userData = _.pick(req.body, ["userid"]);
+
+    let findData = await UserDB.findOneAndUpdate(
+      { _id: userData.userid },
+      { active: 0 }
+    );
+    console.log(findData);
     if (findData) {
       return res.json({
         status: true,
@@ -28,7 +35,6 @@ async function createUserHandler(req, res) {
         message: findData,
       });
     } else {
-      //const customer = await UserDB.create(userData);
       return res.json({
         status: false,
         error: true,
