@@ -5,11 +5,14 @@ import {
   editUser,
   listoneUser,
 } from "../../../services/admin-api-service";
+import Link from "next/link";
 import { Space, Table, Row, Col, Icon, Modal, Button, Form, Input } from "antd";
 import React, { useState, useEffect } from "react";
 import Layout, { Header, Content, Footer } from "antd/lib/layout/layout";
 import axios from "axios";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+
+
 
 const saveFormData = async (formData) => {
   try {
@@ -78,84 +81,84 @@ const ListUser = () => {
     };
     const res = await listoneUser(formTOData);
     
-    Modal.confirm({
-      title: "User Info",
-      content: (
-        <div className="modal_data_wrapper">
-          {/* {values} */}
-          <Form>
-            <Form.Item
-              name="firstName"
-              label="First Name"
-              rules={[
-                {
-                  required: true,
-                  message: "First Name is required!",
-                },
-              ]}
-            >
-              <Input defaultValue={res.data.data[0].firstName} />
-            </Form.Item>
+    // Modal.confirm({
+    //   title: "User Info",
+    //   content: (
+    //     <div className="modal_data_wrapper">
+    //       {/* {values} */}
+    //       <Form>
+    //         <Form.Item
+    //           name="firstName"
+    //           label="First Name"
+    //           rules={[
+    //             {
+    //               required: true,
+    //               message: "First Name is required!",
+    //             },
+    //           ]}
+    //         >
+    //           <Input defaultValue={res.data.data[0].firstName} />
+    //         </Form.Item>
 
-            <Form.Item
-              name="lastName"
-              label="Last Name"
-              rules={[
-                {
-                  required: true,
-                  message: "Last Name is required!",
-                },
-              ]}
-            >
-              <Input defaultValue={res.data.data[0].lastName} />
-            </Form.Item>
+    //         <Form.Item
+    //           name="lastName"
+    //           label="Last Name"
+    //           rules={[
+    //             {
+    //               required: true,
+    //               message: "Last Name is required!",
+    //             },
+    //           ]}
+    //         >
+    //           <Input defaultValue={res.data.data[0].lastName} />
+    //         </Form.Item>
 
-            <Form.Item
-              name="userName"
-              label="User Name"
-              rules={[
-                {
-                  required: true,
-                  message: "User Name is required!",
-                },
-              ]}
-            >
-              <Input defaultValue={res.data.data[0].userName} />
-            </Form.Item>
+    //         <Form.Item
+    //           name="userName"
+    //           label="User Name"
+    //           rules={[
+    //             {
+    //               required: true,
+    //               message: "User Name is required!",
+    //             },
+    //           ]}
+    //         >
+    //           <Input defaultValue={res.data.data[0].userName} />
+    //         </Form.Item>
 
-            <Form.Item
-              name="mobile"
-              label="Mobile Number"
-              rules={[
-                {
-                  required: true,
-                  message: "Mobile Number is required!",
-                },
-              ]}
-            >
-              <Input defaultValue={res.data.data[0].mobile} />
-            </Form.Item>
+    //         <Form.Item
+    //           name="mobile"
+    //           label="Mobile Number"
+    //           rules={[
+    //             {
+    //               required: true,
+    //               message: "Mobile Number is required!",
+    //             },
+    //           ]}
+    //         >
+    //           <Input defaultValue={res.data.data[0].mobile} />
+    //         </Form.Item>
 
-            <Form.Item
-              name="email"
-              label="User Email"
-              rules={[
-                {
-                  required: true,
-                  message: "Email is required!",
-                },
-              ]}
-            >
-              <Input defaultValue={res.data.data[0].email} />
-            </Form.Item>
-          </Form>
-        </div>
-      ),
-      style: { top: 0, height: "83vh" },
-      width: "70%",
-      onOk() {},
-      onCancel() {},
-    });
+    //         <Form.Item
+    //           name="email"
+    //           label="User Email"
+    //           rules={[
+    //             {
+    //               required: true,
+    //               message: "Email is required!",
+    //             },
+    //           ]}
+    //         >
+    //           <Input defaultValue={res.data.data[0].email} />
+    //         </Form.Item>
+    //       </Form>
+    //     </div>
+    //   ),
+    //   style: { top: 0, height: "83vh" },
+    //   width: "70%",
+    //   onOk() {},
+    //   onCancel() {},
+    // });
   };
 
   const getData = async () => {
@@ -171,7 +174,7 @@ const ListUser = () => {
         mobile: row.mobile,
         email: row.email,
         delete: <DeleteOutlined onClick={() => clickdelHandler(row._id)} />,
-        edit: <EditOutlined onClick={() => clickeditHandler(row._id)} />,
+        edit: <Link href={{pathname:'users/adduser',query:{userid:row._id}}}><a>Edit</a></Link>,
       }))
     );
   };

@@ -4,17 +4,20 @@ import UserDB from "../../../database/Schemas/user";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
-Joi.objectId = require("joi-objectid")(Joi);
 
-const userSchema = Joi.object({
-  userId: Joi.objectId().required(),
+const userSignUpSchema = Joi.object({
+  userName: Joi.string().trim().required(),
+  password: Joi.string().trim().required(),
+  firstName: Joi.string().trim().required(),
+  lastName: Joi.string().trim().required(),
+  email: Joi.string().trim().required(),
+  mobile: Joi.string().trim().required(),
 });
 
 /**
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-
 async function createUserHandler(req, res) {
   await dbConnect();
   try {
@@ -26,15 +29,33 @@ async function createUserHandler(req, res) {
       });
     }
 
-    // pick data from req.body
-    let userData = _.pick(req.body, ["userId"]);
+    let validateData = userSignUpSchema.validate(req.body);
+    if (validateData.error) {
+      return res.json({
+        status: false,
+        error: validateData,
+        message: "Invalid data",
+      });
+    }
 
-    let findData = await UserDB.findOne({ _id: userData.userId });
-    if (findData) {
+    // pick data from req.body
+    let userData = _.pick(req.body, [
+      "userName",
+      "password",
+      "firstName",
+      "lastName",
+      "mobile",
+      "email",
+    ]);
+
+    const addData = await UserDB.create(userData);
+
+    if (addData) {
       return res.json({
         status: true,
         error: false,
-        message: "List One User " + findData,
+        message: "User Added!!!",
+        statusCode: 200,
       });
     } else {
       return res.json({
