@@ -15,3 +15,15 @@ export const deleteUser = async (params) => {
 export const editUser = async (params) => {
   return axios.post("/api/user/edituser", params);
 };
+
+export const addUserrole = async (params) => {
+  return axios.post("/api/userRoles/addUserRole", params);
+};
+
+export const listUserrole = async (params) => {
+  return axios.post("/api/userRoles/listUserRole", params);
+};
+
+export const deleteUserrole = async (params) => {
+  return axios.post("/api/userRoles/deleteUserRole", params);
+};
