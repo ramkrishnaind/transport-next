@@ -37,6 +37,10 @@ const userSchema = new Schema(
       unique: true,
       trim: true,
     },
+    roleValue: {
+      type: String,
+      required: true,
+    },
     image: {
       type: String,
     },

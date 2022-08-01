@@ -6,6 +6,7 @@ const _ = require("lodash");
 const Joi = require("joi");
 
 const userSignUpSchema = Joi.object({
+  uid: Joi.objectId(),
   userName: Joi.string().trim().required(),
   password: Joi.string().trim().required(),
   firstName: Joi.string().trim().required(),
@@ -40,6 +41,7 @@ async function createUserHandler(req, res) {
 
     // pick data from req.body
     let userData = _.pick(req.body, [
+      "uid",
       "userName",
       "password",
       "firstName",
@@ -48,23 +50,55 @@ async function createUserHandler(req, res) {
       "email",
     ]);
 
-    const addData = await UserDB.create(userData);
+    let setData = {
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      userName: userData.userName,
+      password: userData.password,
+      email: userData.email,
+      mobile: userData.mobile,
+    };
 
-    if (addData) {
-      return res.json({
-        status: true,
-        error: false,
-        message: "User Added!!!",
-        statusCode: 200,
-      });
+    if (userData.uid) {
+      const editData = await UserDB.findOneAndUpdate(
+        { _id: userData.uid },
+        { $set: setData }
+      );
+      if (editData) {
+        return res.json({
+          status: true,
+          error: false,
+          message: "User Updated!!",
+          statusCode: 200,
+        });
+      } else {
+        return res.json({
+          status: false,
+          error: true,
+          message: "Unable to update!",
+          adminDisable: true,
+          statusCode: 401,
+        });
+      }
     } else {
-      return res.json({
-        status: false,
-        error: true,
-        message: "Your account has been disabled. Please contact admin",
-        adminDisable: true,
-        statusCode: 401,
-      });
+      const addData = await UserDB.create(userData);
+
+      if (addData) {
+        return res.json({
+          status: true,
+          error: false,
+          message: "User Added!!!",
+          statusCode: 200,
+        });
+      } else {
+        return res.json({
+          status: false,
+          error: true,
+          message: "Unable to Update. Please contact admin",
+          adminDisable: true,
+          statusCode: 401,
+        });
+      }
     }
   } catch (error) {
     console.log(error);

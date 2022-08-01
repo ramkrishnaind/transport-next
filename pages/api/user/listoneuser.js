@@ -34,7 +34,7 @@ async function createUserHandler(req, res) {
       return res.json({
         status: true,
         error: false,
-        message: "List One User " + findData,
+        data: findData,
       });
     } else {
       return res.json({

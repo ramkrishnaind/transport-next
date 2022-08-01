@@ -65,18 +65,18 @@ function Sidebar() {
       link: "/app/userRoles/listUserRole",
       rel: "noopener noreferrer",
     },
+    // {
+    //   key: "4",
+    //   icon: <UserOutlined />,
+    //   name: "Add Users",
+    //   link: "/app/users/adduser",
+    //   rel: "noopener noreferrer",
+    // },
     {
       key: "4",
       icon: <UserOutlined />,
-      name: "Add Users",
-      link: "users/adduser",
-      rel: "noopener noreferrer",
-    },
-    {
-      key: "5",
-      icon: <UserOutlined />,
       name: "Users",
-      link: "/app/userList",
+      link: "/app/users",
       rel: "noopener noreferrer",
     },
   ];

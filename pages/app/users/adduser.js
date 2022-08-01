@@ -1,17 +1,22 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import "antd/dist/antd.css";
-import { addUser, listoneUser } from "../../../services/admin-api-service";
-import { Button, Form, Input, InputNumber } from "antd";
-
-
+import {
+  addUser,
+  listoneUser,
+  listUserrole,
+} from "../../../services/admin-api-service";
+import { Button, Form, Input, Select, Spin } from "antd";
+const { Option } = Select;
+let finalvalue = [];
+let categories = [];
 
 const layout = {
   labelCol: {
-    span: 8,
+    span: 4,
   },
   wrapperCol: {
-    span: 16,
+    span: 10,
   },
 };
 /* eslint-disable no-template-curly-in-string */
@@ -32,73 +37,105 @@ const App = () => {
   const router = useRouter();
   const query = router.query;
   const UserId = query.userid;
+  const [loading, setLoading] = useState(false);
+  const [category, setCategory] = useState([]);
 
-  const [data, setData] = useState("");
-  
-   console.log('ram',query);
-
-  const onFinish = async (values) => {
-
-    const formData = {
-      firstName: values.user.firstName,
-      lastName: values.user.lastName,
-      userName: values.user.userName,
-      password: values.user.password,
-      email: values.user.email,
-      mobile: values.user.mobile,
-    };
-
-    let res = await addUser(formData);
-    if (res.data.status == true) {
-      alert("user added succesfully");
-    }
-  };
+  const [form] = Form.useForm();
 
   useEffect(() => {
-  getData();
+    getData();
   }, []);
 
-
-
-  const getData = async () => {
-    console.log('form data',UserId);
-    let res= await saveFormData(UserId);
-   // console.log("data entered is ",res);
-  //  setData(res);
-
-    
-  };
-
-  const saveFormData = async (values) => {
+  const userRoleData = async () => {
+    let formData = { dummyvalue: 1 };
     try {
-      const formTOData = {
-        userId: values,
-      };
-      // console.log('values',formTOData);
-      // return
-       let result = await listoneUser(formTOData);
-       console.log('result',result);
+      return await listUserrole(formData);
     } catch (err) {
       throw err;
       console.log(err);
     }
-   
   };
 
- 
+  const onFinish = async (values) => {
+    setLoading(true);
+    const formData = {
+      uid: values.uid,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      userName: values.userName,
+      password: values.password,
+      email: values.email,
+      mobile: values.mobile,
+    };
+
+    let res = await addUser(formData);
+    if (res.data.status == true) {
+      if (UserId) {
+        alert("user Updated succesfully");
+      } else {
+        alert("user added succesfully");
+      }
+      setLoading(false);
+      router.push("/app/users");
+    }
+  };
+
+  const getData = async () => {
+    const value = 1;
+    let userRoleRes = await userRoleData();
+    categories = userRoleRes.data.message;
+
+    setCategory(
+      categories.map((row) => ({
+        label: row.roleName,
+        value: row.roleValue,
+      }))
+    );
+
+    if (UserId) {
+      let res = await saveFormData();
+      finalvalue = res.data.data;
+
+      form.setFieldsValue({
+        uid: UserId,
+        firstName: finalvalue.firstName,
+        lastName: finalvalue.lastName,
+        userName: finalvalue.userName,
+        password: finalvalue.password,
+        email: finalvalue.email,
+        mobile: finalvalue.mobile,
+      });
+    }
+  };
+
+  const saveFormData = async () => {
+    try {
+      const formTOData = {
+        userId: UserId,
+      };
+      return await listoneUser(formTOData);
+    } catch (err) {
+      throw err;
+      console.log(err);
+    }
+  };
+
   return (
-    //console.log("ahshshsh",data);
     <>
       <h1>Add/Edit User</h1>
-
       <Form
+        form={form}
         {...layout}
         name="nest-messages"
         onFinish={onFinish}
         validateMessages={validateMessages}
       >
+        <Form.Item name="uid" hidden={true}>
+          <Input />
+        </Form.Item>
+
         <Form.Item
-          name={["user", "firstName"]}
+          name="firstName"
           label="First Name"
           rules={[
             {
@@ -106,11 +143,10 @@ const App = () => {
             },
           ]}
         >
-          {/* <Input /> */}
-          <Input defaultValue={data} />
+          <Input />
         </Form.Item>
         <Form.Item
-          name={["user", "lastName"]}
+          name="lastName"
           label="Last Name"
           rules={[
             {
@@ -119,11 +155,10 @@ const App = () => {
           ]}
         >
           <Input />
-          {/* <Input defaultValue={response.data.data[0].lastName} /> */}
         </Form.Item>
 
         <Form.Item
-          name={["user", "email"]}
+          name="email"
           label="Email"
           rules={[
             {
@@ -133,10 +168,9 @@ const App = () => {
           ]}
         >
           <Input />
-          {/* <Input defaultValue={response.data.data[0].email} /> */}
         </Form.Item>
         <Form.Item
-          name={["user", "mobile"]}
+          name="mobile"
           label="Mobile"
           rules={[
             {
@@ -145,10 +179,9 @@ const App = () => {
           ]}
         >
           <Input />
-          {/* <Input defaultValue={response.data.data[0].mobile} /> */}
         </Form.Item>
         <Form.Item
-          name={["user", "userName"]}
+          name="userName"
           label="UserName"
           rules={[
             {
@@ -157,10 +190,9 @@ const App = () => {
           ]}
         >
           <Input />
-          {/* <Input defaultValue={response.data.data[0].userName} /> */}
         </Form.Item>
         <Form.Item
-          name={["user", "password"]}
+          name="password"
           label="Password"
           rules={[
             {
@@ -169,17 +201,28 @@ const App = () => {
           ]}
         >
           <Input />
-          {/* <Input defaultValue={response.data.data[0].password} /> */}
         </Form.Item>
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+
+        <Form.Item
+          name="user_role"
+          label="Assign User Role"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Select showSearch placeholder="Select Role" options={category} />
+        </Form.Item>
+
+        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 7 }}>
           <Button type="primary" htmlType="submit">
-            Submit
+            {loading && <Spin />} Submit
           </Button>
         </Form.Item>
       </Form>
     </>
   );
-  
 };
 
 export default App;
