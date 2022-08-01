@@ -30,12 +30,19 @@ const validateMessages = {
 
 const App = () => {
   const router = useRouter();
-  const query = router.query;
-  const UserId = query.userid;
+  useEffect(() => {
+      if(router.isReady){
+          const { userid } = router.query;
+          if (!userid) return null;
+          getData(userid)
+      }
+  }, [router.isReady]);
+  // const query = router.query;
+  // const UserId = query.userid;
 
   const [data, setData] = useState("");
   
-   console.log('ram',query);
+  //  console.log('ram',query);
 
   const onFinish = async (values) => {
 
@@ -54,19 +61,13 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-  getData();
-  }, []);
 
 
-
-  const getData = async () => {
+  const getData = async (UserId) => {
     console.log('form data',UserId);
     let res= await saveFormData(UserId);
-   // console.log("data entered is ",res);
-  //  setData(res);
-
-    
+    console.log("data entered is ",res);
+    setData(res);
   };
 
   const saveFormData = async (values) => {
