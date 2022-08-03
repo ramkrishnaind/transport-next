@@ -35,19 +35,35 @@ const validateMessages = {
 
 const App = () => {
   const router = useRouter();
-  const query = router.query;
-  const UserId = query.userid;
+  // const query = router.query;
+  // const UserId = query.userid;
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
 
   const [form] = Form.useForm();
 
-  useEffect(() => {
-    getData();
-  }, []);
+  useEffect(async () => {
+    // const UserId = query.userid;
+    if (router.isReady) {
+      const { userid } = router.query;
+      if (!userid) return null;
+      getData(userid);
 
-  const userRoleData = async () => {
-    let formData = { dummyvalue: 1 };
+      let userRoleRes = await userRoleData("");
+      categories = userRoleRes.data.message;
+
+      setCategory(
+        categories.map((row) => ({
+          label: row.roleName,
+          value: row.roleValue,
+        }))
+      );
+      console.log("category values is-------->", category);
+    }
+  }, [router.isReady]);
+
+  const userRoleData = async (dummyvalue) => {
+    let formData = { roleId: dummyvalue };
     try {
       return await listUserrole(formData);
     } catch (err) {
@@ -66,6 +82,7 @@ const App = () => {
       password: values.password,
       email: values.email,
       mobile: values.mobile,
+      roleValue: values.user_role,
     };
 
     let res = await addUser(formData);
@@ -80,21 +97,17 @@ const App = () => {
     }
   };
 
-  const getData = async () => {
-    const value = 1;
-    let userRoleRes = await userRoleData();
-    categories = userRoleRes.data.message;
-
-    setCategory(
-      categories.map((row) => ({
-        label: row.roleName,
-        value: row.roleValue,
-      }))
-    );
+  const getData = async (UserId) => {
+    // const value = 1;
 
     if (UserId) {
       let res = await saveFormData();
       finalvalue = res.data.data;
+
+      let userRoleRes = await userRoleData(finalvalue.roleValue);
+      categories = userRoleRes.data.message[0];
+      // console.log("user list data", userRoleRes);
+      // console.log("user categories data", categories);
 
       form.setFieldsValue({
         uid: UserId,
@@ -104,6 +117,7 @@ const App = () => {
         password: finalvalue.password,
         email: finalvalue.email,
         mobile: finalvalue.mobile,
+        user_role: categories.roleValue,
       });
     }
   };
@@ -212,7 +226,13 @@ const App = () => {
             },
           ]}
         >
-          <Select showSearch placeholder="Select Role" options={category} />
+          <Select
+            showSearch
+            placeholder="Select Role"
+            options={category}
+            // defaultValue={categories.roleValue}
+            // value={categories.roleName}
+          ></Select>
         </Form.Item>
 
         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 7 }}>

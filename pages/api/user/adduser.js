@@ -4,6 +4,7 @@ import UserDB from "../../../database/Schemas/user";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
+Joi.objectId = require('joi-objectid')(Joi);
 
 const userSignUpSchema = Joi.object({
   uid: Joi.objectId(),
@@ -13,6 +14,7 @@ const userSignUpSchema = Joi.object({
   lastName: Joi.string().trim().required(),
   email: Joi.string().trim().required(),
   mobile: Joi.string().trim().required(),
+  roleValue: Joi.number().required(),
 });
 
 /**
@@ -48,6 +50,7 @@ async function createUserHandler(req, res) {
       "lastName",
       "mobile",
       "email",
+      "roleValue",
     ]);
 
     let setData = {
@@ -57,6 +60,7 @@ async function createUserHandler(req, res) {
       password: userData.password,
       email: userData.email,
       mobile: userData.mobile,
+      roleValue: userData.roleValue,
     };
 
     if (userData.uid) {

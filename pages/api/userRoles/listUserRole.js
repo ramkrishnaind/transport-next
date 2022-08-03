@@ -4,6 +4,13 @@ import RoleDB from "../../../database/Schemas/userRole";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 
+const Joi = require("joi");
+Joi.objectId = require("joi-objectid")(Joi);
+
+const userSchema = Joi.object({
+  roleId: Joi.string().trim(),
+});
+
 /**
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
@@ -20,9 +27,14 @@ async function delroleHandler(req, res) {
     }
 
     // pick data from req.body
-    //  let userData = _.pick(req.body, ["username", "password"]);
+    let userData = _.pick(req.body, ["roleId"]);
+    let findData = [];
+    if (userData.roleId) {
+      findData = await RoleDB.find({ roleValue: userData.roleId });
+    } else {
+      findData = await RoleDB.find();
+    }
 
-    let findData = await RoleDB.find();
     if (findData) {
       return res.json({
         status: true,

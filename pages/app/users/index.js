@@ -51,6 +51,11 @@ const Users = () => {
       key: "email",
     },
     {
+      title: "User Role",
+      dataIndex: "user_role",
+      key: "user_role",
+    },
+    {
       title: "Action",
       key: "action",
       render: (_, record) => (
@@ -104,6 +109,7 @@ const Users = () => {
         last_name: row.lastName,
         mobile: row.mobile,
         email: row.email,
+        user_role: row.roleValue,
       }))
     );
   };
