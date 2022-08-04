@@ -372,10 +372,22 @@ a {
 .layoutBG {
   background-color: #344c643b;
 }
-
+.pageHeader{
+  font-size: 24px;
+  font-weight: bold;
+  text-align: justify;
+}
+.pageTitle{
+  font-size: 24px;
+  font-weight: bold;
+  text-align: justify;
+}
 /* Hamburger */
 .hideMenuNav {
   display: none;
+}
+.breadcrumb {
+  background-color: #cdd2e0;
 }
 /* .showMenuNav {
   display: block;
@@ -391,3 +403,20 @@ a {
   justify-content: space-evenly;
   align-items: center;
 } */
+.ant-table-thead > tr > th {
+  color: #ffffff;
+  background: #011529;
+}
+.tableTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #011529;
+}
+.ant-card-head {
+  background-color: #011529;
+  color: #ffffff;
+  font-weight: bold;
+}
+.ant-card-body{ 
+  padding: 0%;
+}

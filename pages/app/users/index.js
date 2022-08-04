@@ -6,13 +6,16 @@ import {
   listoneUser,
 } from "../../../services/admin-api-service";
 import Link from "next/link";
-import { Table, Space, Button, Divider, Row, Col } from "antd";
+import { Table, Space, Button, Divider, Row, Col, Breadcrumb } from "antd";
 import React, { useState, useEffect } from "react";
 import {
   DeleteOutlined,
   EditOutlined,
   UserAddOutlined,
+  UserOutlined,
+  HomeOutlined
 } from "@ant-design/icons";
+import PageHeader from "../../../components/helper/pageTitle";
 
 const Users = () => {
   const router = useRouter();
@@ -116,24 +119,24 @@ const Users = () => {
 
   return (
     <>
-      <Row>
-        <Col span={21}>
-          <div className="grid">
-            <h3 page="page-title">Users Management</h3>
-            <small>Manage Users Here</small>
-          </div>
-        </Col>
-        <Col span={3}>
-          <Button
-            size="large"
-            shape="round"
-            onClick={() => router.push("users/adduser")}
-          >
-            <UserAddOutlined /> Add User
-          </Button>
-        </Col>
-      </Row>
-      <Table columns={columns} dataSource={data} />
+        <PageHeader
+            mainTitle="Users Management"
+            subTitle="create and manage user here"
+            currentPage="Users List"
+        />
+        <div className="flex flex-row">
+            <div class="basis-11/12 ml-1 mt-4 tableTitle">Users List</div>
+            <div class="basis-1/12 mb-2">
+            <Button className="adminprimary"
+                size="large"
+                icon={<UserAddOutlined />}
+                onClick={() => router.push("users/adduser")}
+            >
+                Add User
+            </Button>
+            </div>
+        </div>
+        <Table columns={columns} dataSource={data} />
     </>
   );
 };
