@@ -6,10 +6,10 @@ import { Button, Form, Input, InputNumber } from "antd";
 
 const layout = {
   labelCol: {
-    span: 8,
+    span: 4,
   },
   wrapperCol: {
-    span: 16,
+    span: 10,
   },
 };
 /* eslint-disable no-template-curly-in-string */

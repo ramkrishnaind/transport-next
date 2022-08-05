@@ -62,7 +62,7 @@ function Sidebar() {
       key: "3",
       icon: <LaptopOutlined />,
       name: "Users Roles",
-      link: "/app/userRoles/listUserRole",
+      link: "/app/userRoles",
       rel: "noopener noreferrer",
     },
     // {

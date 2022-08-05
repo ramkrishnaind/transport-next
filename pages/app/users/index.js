@@ -6,7 +6,7 @@ import {
   listoneUser,
 } from "../../../services/admin-api-service";
 import Link from "next/link";
-import { Table, Space, Button, Divider, Row, Col } from "antd";
+import { Table, Space, Button, Row, Col } from "antd";
 import React, { useState, useEffect } from "react";
 import {
   DeleteOutlined,
@@ -24,6 +24,7 @@ const Users = () => {
       console.log(err);
     }
   };
+  
   const columns = [
     {
       title: "First Name",

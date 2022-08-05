@@ -235,7 +235,7 @@ const App = () => {
           ></Select>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 7 }}>
+        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
           <Button type="primary" htmlType="submit">
             {loading && <Spin />} Submit
           </Button>
