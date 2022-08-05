@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import "antd/dist/antd.css";
-import {
-  addUser,
-  listoneUser,
-  listUserrole,
-} from "../../../services/admin-api-service";
-import { Button, Form, Input, Select, Spin } from "antd";
+import { addUser, userByID, userRoleList } from "../../../services/admin-api-service";
+import { Button, Form, Input, Select, Spin, Card, Divider  } from "antd";
+import PageHeader from "../../../components/helper/pageTitle";
+import { Upload } from 'antd';
+import ImgCrop from 'antd-img-crop';
+
 const { Option } = Select;
 let finalvalue = [];
 let categories = [];
@@ -34,6 +34,36 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 const App = () => {
+
+/////// Image Upload /////////
+const [fileList, setFileList] = useState([
+
+]);
+
+const onChange = ({ fileList: newFileList }) => {
+  setFileList(newFileList);
+};
+
+const onPreview = async (file) => {
+  let src = file.url;
+
+  if (!src) {
+    src = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file.originFileObj);
+
+      reader.onload = () => resolve(reader.result);
+    });
+  }
+
+  const image = new Image();
+  image.src = src;
+  const imgWindow = window.open(src);
+  imgWindow?.document.write(image.outerHTML);
+};
+
+
+
   const router = useRouter();
   // const query = router.query;
   // const UserId = query.userid;
@@ -136,8 +166,15 @@ const App = () => {
 
   return (
     <>
-      <h1>Add/Edit User</h1>
-      <Form
+      <PageHeader
+          mainTitle="Create New Users"
+          subTitle="create and edit user here"
+          currentPage="Create New User"
+      />
+      <Card size="small" title="Create New User">
+        <h1>Personal Information</h1>
+        <Divider />
+        <Form
         form={form}
         {...layout}
         name="nest-messages"
@@ -235,12 +272,14 @@ const App = () => {
           ></Select>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 7 }}>
           <Button type="primary" htmlType="submit">
             {loading && <Spin />} Submit
           </Button>
         </Form.Item>
       </Form>
+        
+      </Card>
     </>
   );
 };
