@@ -1,153 +1,142 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Divider, Space, Table, Tag } from "antd";
-
-const columns = [
-    {
-        title: 'Name',
-        dataIndex: 'name',
-        key: 'name',
-        render: (text) => <a>{text}</a>,
-    },
-    {
-        title: 'Age',
-        dataIndex: 'age',
-        key: 'age',
-    },
-    {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
-    },
-    {
-        title: 'Tags',
-        key: 'tags',
-        dataIndex: 'tags',
-        render: (_, { tags }) => (
-            <>
-                {tags.map((tag) => {
-                    let color = tag.length > 5 ? 'geekblue' : 'green';
-
-                    if (tag === 'loser') {
-                        color = 'volcano';
-                    }
-
-                    return (
-                        <Tag color={color} key={tag}>
-                            {tag.toUpperCase()}
-                        </Tag>
-                    );
-                })}
-            </>
-        ),
-    },
-    {
-        title: 'Action',
-        key: 'action',
-        render: (_, record) => (
-            <Space size="middle">
-                <a>Invite {record.name}</a>
-                <a>Delete</a>
-            </Space>
-        ),
-    },
-];
-const data = [
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-    },
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-    },
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-    },
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-    },
-];
+import "antd/dist/antd.css";
+import { useRouter } from "next/router";
+import {
+  listUser,
+  deleteUser,
+  listoneUser,
+} from "../../../services/admin-api-service";
+import Link from "next/link";
+import { Table, Space, Button, Divider, Row, Col } from "antd";
+import React, { useState, useEffect } from "react";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  UserAddOutlined,
+} from "@ant-design/icons";
 
 const Users = () => {
-    return (
-        <>
-            <div className="grid">
-                <h3 page="page-title">Users Management</h3><small>manage Users here</small>
+  const router = useRouter();
+  const saveFormData = async (formData) => {
+    try {
+      return await listUser(formData);
+    } catch (err) {
+      throw err;
+      console.log(err);
+    }
+  };
+  
+  const columns = [
+    {
+      title: "First Name",
+      dataIndex: "first_name",
+      key: "first_name",
+    },
+    {
+      title: "Last Name",
+      dataIndex: "last_name",
+      key: "last_name",
+    },
+    {
+      title: "User Name",
+      dataIndex: "user_name",
+      key: "user_name",
+    },
+    {
+      title: "mobile",
+      dataIndex: "mobile",
+      key: "mobile",
+    },
+    {
+      title: "email",
+      dataIndex: "email",
+      key: "email",
+    },
+    {
+      title: "User Role",
+      dataIndex: "user_role",
+      key: "user_role",
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <Link
+            href={{ pathname: "users/adduser", query: { userid: record.id } }}
+          >
+            <a>
+              <EditOutlined />
+            </a>
+          </Link>
+          <a>
+            <DeleteOutlined onClick={() => clickdelHandler(record.id)} />
+          </a>
+        </Space>
+      ),
+    },
+  ];
 
-            </div>
-            <Table columns={columns} dataSource={data} />
-        </>
+  const [data, setdata] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const clickdelHandler = async (value) => {
+    const formTOData = {
+      userid: value,
+    };
+    const res = await deleteUser(formTOData);
+    getData();
+  };
+
+  const clickeditHandler = async (values) => {
+    const formTOData = {
+      userId: values,
+    };
+    const res = await listoneUser(formTOData);
+  };
+
+  const getData = async () => {
+    const value = 1;
+    const res = await saveFormData(value);
+    console.log("ashwani", res.data.message);
+
+    setdata(
+      res.data.message.map((row) => ({
+        id: row._id,
+        first_name: row.firstName,
+        user_name: row.userName,
+        last_name: row.lastName,
+        mobile: row.mobile,
+        email: row.email,
+        user_role: row.roleValue,
+      }))
     );
-}
+  };
+
+  return (
+    <>
+      <Row>
+        <Col span={21}>
+          <div className="grid">
+            <h3 page="page-title">Users Management</h3>
+            <small>Manage Users Here</small>
+          </div>
+        </Col>
+        <Col span={3}>
+          <Button
+            size="large"
+            shape="round"
+            onClick={() => router.push("users/adduser")}
+          >
+            <UserAddOutlined /> Add User
+          </Button>
+        </Col>
+      </Row>
+      <Table columns={columns} dataSource={data} />
+    </>
+  );
+};
 
 export default Users;

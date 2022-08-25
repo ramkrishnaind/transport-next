@@ -1,6 +1,6 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
-import UserDB from "../../../database/Schemas/user";
+import RoleDB from "../../../database/Schemas/userRole";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 
@@ -8,7 +8,7 @@ const _ = require("lodash");
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-async function createUserHandler(req, res) {
+async function delroleHandler(req, res) {
   await dbConnect();
   try {
     if (req.method != "POST") {
@@ -20,7 +20,10 @@ async function createUserHandler(req, res) {
     }
 
     // pick data from req.body
-    let findData = await UserDB.find({ active: 1 });
+    let roleData = _.pick(req.body, ["roleid"]);
+
+    let findData = await RoleDB.deleteOne({ _id: roleData.roleid });
+    console.log(findData);
     if (findData) {
       return res.json({
         status: true,
@@ -42,4 +45,4 @@ async function createUserHandler(req, res) {
     res.json({ error });
   }
 }
-export default withProtect(createUserHandler);
+export default withProtect(delroleHandler);

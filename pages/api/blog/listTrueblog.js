@@ -20,7 +20,7 @@ async function list_blog(req, res) {
       });
     }
 
-    let findData = await BlogDB.find({});
+    let findData = await BlogDB.find({ blogStatus: true });
     if (findData) {
       return res.json({ status: true, error: false, message: findData });
     }

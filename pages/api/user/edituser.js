@@ -1,21 +1,25 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
-import BlogDB from "../../../database/Schemas/blog";
+import UserDB from "../../../database/Schemas/user";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 
-const status_blogSchema = Joi.object({
-  blogId: Joi.objectId().required(),
-  blogStatus: Joi.boolean(),
+const userSchema = Joi.object({
+  userId: Joi.objectId().required(),
+  firstname: Joi.string(),
+  username: Joi.string(),
+  password: Joi.string(),
+  email: Joi.string(),
+  mobile: Joi.string(),
 });
 
 /**
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-async function status_blog(req, res) {
+async function createUserHandler(req, res) {
   await dbConnect();
   try {
     if (req.method != "POST") {
@@ -25,7 +29,8 @@ async function status_blog(req, res) {
         message: "HTTP method not allowed",
       });
     }
-    let validateData = status_blogSchema.validate(req.body);
+
+    let validateData = userSchema.validate(req.body);
     if (validateData.error) {
       return res.json({
         status: false,
@@ -35,34 +40,44 @@ async function status_blog(req, res) {
     }
 
     // pick data from req.body
-    let status_blogData = _.pick(req.body, ["blogId", "blogStatus"]);
+    let userData = _.pick(req.body, [
+      "userId",
+      "firstname",
+      "username",
+      "password",
+      "email",
+      "mobile",
+    ]);
 
     let setData = {
-      blogStatus: status_blogData.blogStatus,
+      firstName: userData.firstname,
+      userName: userData.username,
+      password: userData.password,
+      email: userData.email,
+      mobile: userData.mobile,
     };
-
-    // update data from req.body
-    let findData = await BlogDB.findOneAndUpdate(
-      { _id: status_blogData.blogId },
+    let findData = await UserDB.findOneAndUpdate(
+      { _id: userData.userId },
       { $set: setData }
     );
     if (findData) {
       return res.json({
         status: true,
         error: false,
-        message: "Blog Status Updated For " + status_blogData.blogId,
+        message: findData,
       });
     } else {
-      const blogData = await BlogDB.create(setData);
       return res.json({
-        status: true,
-        error: false,
-        message: "Blog Item Insert Successfully For " + status_blogData.blogId,
+        status: false,
+        error: true,
+        message: "Your account has been disabled. Please contact admin",
+        adminDisable: true,
+        statusCode: 401,
       });
     }
   } catch (error) {
     console.log(error);
-    return res.json({ status: false, error: true, errorMessage: error });
+    res.json({ error });
   }
 }
-export default withProtect(status_blog);
+export default withProtect(createUserHandler);

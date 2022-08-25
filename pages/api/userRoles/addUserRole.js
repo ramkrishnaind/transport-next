@@ -1,14 +1,20 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
-import UserDB from "../../../database/Schemas/user";
+import RoleDB from "../../../database/Schemas/userRole";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
+const Joi = require("joi");
+
+const userRoleSchema = Joi.object({
+  roleName: Joi.string().trim().required(),
+  roleValue: Joi.number().required(),
+});
 
 /**
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-async function createUserHandler(req, res) {
+async function createRoleHandler(req, res) {
   await dbConnect();
   try {
     if (req.method != "POST") {
@@ -19,16 +25,29 @@ async function createUserHandler(req, res) {
       });
     }
 
+    let validateData = userRoleSchema.validate(req.body);
+    if (validateData.error) {
+      return res.json({
+        status: false,
+        error: validateData,
+        message: "Invalid data",
+      });
+    }
+
     // pick data from req.body
-    let findData = await UserDB.find({ active: 1 });
-    if (findData) {
+    let roleData = _.pick(req.body, ["roleName", "roleValue"]);
+
+    const addData = await RoleDB.create(roleData);
+
+    if (addData) {
       return res.json({
         status: true,
         error: false,
-        message: findData,
+        message: "Role Added!!!",
+        adminDisable: true,
+        statusCode: 401,
       });
     } else {
-      //const customer = await UserDB.create(userData);
       return res.json({
         status: false,
         error: true,
@@ -42,4 +61,4 @@ async function createUserHandler(req, res) {
     res.json({ error });
   }
 }
-export default withProtect(createUserHandler);
+export default withProtect(createRoleHandler);

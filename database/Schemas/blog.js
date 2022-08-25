@@ -102,7 +102,7 @@ const blogSchema = new Schema({
     },
     blogStatus:{
         type:Boolean,
-        default:false
+        default:true,
    },
 },
     {

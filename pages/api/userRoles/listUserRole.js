@@ -1,14 +1,21 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
-import UserDB from "../../../database/Schemas/user";
+import RoleDB from "../../../database/Schemas/userRole";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
+
+const Joi = require("joi");
+Joi.objectId = require("joi-objectid")(Joi);
+
+const userSchema = Joi.object({
+  roleId: Joi.string().trim(),
+});
 
 /**
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-async function createUserHandler(req, res) {
+async function delroleHandler(req, res) {
   await dbConnect();
   try {
     if (req.method != "POST") {
@@ -20,7 +27,14 @@ async function createUserHandler(req, res) {
     }
 
     // pick data from req.body
-    let findData = await UserDB.find({ active: 1 });
+    let userData = _.pick(req.body, ["roleId"]);
+    let findData = [];
+    if (userData.roleId) {
+      findData = await RoleDB.find({ roleValue: userData.roleId });
+    } else {
+      findData = await RoleDB.find();
+    }
+
     if (findData) {
       return res.json({
         status: true,
@@ -32,8 +46,7 @@ async function createUserHandler(req, res) {
       return res.json({
         status: false,
         error: true,
-        message: "Your account has been disabled. Please contact admin",
-        adminDisable: true,
+        message: "No Data found",
         statusCode: 401,
       });
     }
@@ -42,4 +55,4 @@ async function createUserHandler(req, res) {
     res.json({ error });
   }
 }
-export default withProtect(createUserHandler);
+export default withProtect(delroleHandler);

@@ -65,6 +65,13 @@ function Sidebar() {
       link: "/app/userRoles",
       rel: "noopener noreferrer",
     },
+    // {
+    //   key: "4",
+    //   icon: <UserOutlined />,
+    //   name: "Add Users",
+    //   link: "/app/users/adduser",
+    //   rel: "noopener noreferrer",
+    // },
     {
       key: "4",
       icon: <UserOutlined />,
