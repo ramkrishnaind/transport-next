@@ -42,17 +42,17 @@ const Users = () => {
       key: "user_name",
     },
     {
-      title: "mobile",
+      title: "Mobile Number",
       dataIndex: "mobile",
       key: "mobile",
     },
     {
-      title: "email",
+      title: "Email ID",
       dataIndex: "email",
       key: "email",
     },
     {
-      title: "User Role",
+      title: "User Roles",
       dataIndex: "user_role",
       key: "user_role",
     },

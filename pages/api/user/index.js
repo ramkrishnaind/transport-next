@@ -1,6 +1,7 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
 import UserDB from "../../../database/Schemas/user";
+import UserRoleDB from "../../../database/Schemas/userrole";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
@@ -52,14 +53,17 @@ async function createUserHandler(req, res) {
           statusCode: 401,
         });
       }
+     // console.log(findData);
+      let findroleData = await UserRoleDB.findOne({roleValue:findData.roleValue});
       return res.json({
         status: true,
         error: false,
-        message: "OTP Sent to ",
+        logindata: findData,
+        roledata:findroleData,
         login: true,
       });
     } else {
-      //const customer = await UserDB.create(userData);
+      
       return res.json({
         status: false,
         error: true,

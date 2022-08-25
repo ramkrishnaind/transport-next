@@ -6,8 +6,10 @@ const _ = require("lodash");
 const Joi = require("joi");
 
 const userRoleSchema = Joi.object({
+  roleId:Joi.objectId(),
   roleName: Joi.string().trim().required(),
   roleValue: Joi.number().required(),
+  permission: Joi.array(),
 });
 
 /**
@@ -35,9 +37,23 @@ async function createRoleHandler(req, res) {
     }
 
     // pick data from req.body
-    let roleData = _.pick(req.body, ["roleName", "roleValue"]);
-
-    const addData = await RoleDB.create(roleData);
+    let roleData = _.pick(req.body, ["roleId","roleName", "roleValue","permission"]);
+    console.log("role for update",roleData);
+    let addData=0 ;
+    
+    if(roleData.roleId)
+    {
+      let setData = {
+        roleName:roleData.roleName,
+        roleValue:roleData.roleValue,
+        permission:roleData.permission,
+      };
+      addData= await RoleDB.findOneAndUpdate({_id:roleData.roleId}, { $set: setData });
+    }
+    else
+    {
+    addData= await RoleDB.create(roleData);
+    }
 
     if (addData) {
       return res.json({
