@@ -108,7 +108,12 @@ const BookingList = () => {
         <h3 page="page-title">Booking Management</h3>
         <small>manage booking here</small>
       </div>
-      <Table columns={columns} dataSource={data} />
+      <Table
+        columns={columns}
+        dataSource={data}
+        pagination={{ pageSize: 10 }}
+        scroll={{ x: 1100, y: 400 }}
+      />
     </>
   );
 };

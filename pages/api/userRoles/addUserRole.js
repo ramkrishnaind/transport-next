@@ -4,6 +4,7 @@ import RoleDB from "../../../database/Schemas/userRole";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
+Joi.objectId = require('joi-objectid')(Joi);
 
 const userRoleSchema = Joi.object({
   roleId:Joi.objectId(),
