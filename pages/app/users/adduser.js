@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import "antd/dist/antd.css";
-import { addUser, userByID, userRoleList } from "../../../services/admin-api-service";
-import { Button, Form, Input, Select, Spin, Card, Divider  } from "antd";
+import {
+  addUser,
+  userByID,
+  userRoleList,
+} from "../../../services/admin-api-service";
+import { Button, Form, Input, Select, Spin, Card, Divider } from "antd";
 import PageHeader from "../../../components/helper/pageTitle";
-import { Upload } from 'antd';
-import ImgCrop from 'antd-img-crop';
+import { Upload } from "antd";
+import ImgCrop from "antd-img-crop";
 
 const { Option } = Select;
 let finalvalue = [];
@@ -34,35 +38,30 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 const App = () => {
+  /////// Image Upload /////////
+  const [fileList, setFileList] = useState([]);
 
-/////// Image Upload /////////
-const [fileList, setFileList] = useState([
+  const onChange = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
+  };
 
-]);
+  const onPreview = async (file) => {
+    let src = file.url;
 
-const onChange = ({ fileList: newFileList }) => {
-  setFileList(newFileList);
-};
+    if (!src) {
+      src = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file.originFileObj);
 
-const onPreview = async (file) => {
-  let src = file.url;
+        reader.onload = () => resolve(reader.result);
+      });
+    }
 
-  if (!src) {
-    src = await new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file.originFileObj);
-
-      reader.onload = () => resolve(reader.result);
-    });
-  }
-
-  const image = new Image();
-  image.src = src;
-  const imgWindow = window.open(src);
-  imgWindow?.document.write(image.outerHTML);
-};
-
-
+    const image = new Image();
+    image.src = src;
+    const imgWindow = window.open(src);
+    imgWindow?.document.write(image.outerHTML);
+  };
 
   const router = useRouter();
   // const query = router.query;
@@ -72,25 +71,27 @@ const onPreview = async (file) => {
 
   const [form] = Form.useForm();
 
-  useEffect(async () => {
-    // const UserId = query.userid;
+  useEffect(() => {
     if (router.isReady) {
       const { userid } = router.query;
-      if (!userid) return null;
-      getData(userid);
-
-      let userRoleRes = await userRoleData("");
-      categories = userRoleRes.data.message;
-
-      setCategory(
-        categories.map((row) => ({
-          label: row.roleName,
-          value: row.roleValue,
-        }))
-      );
-      console.log("category values is-------->", category);
+      if (userid) {
+        getData(userid);
+        callCategoryData();
+      }
     }
   }, [router.isReady]);
+
+  const callCategoryData = async () => {
+    let userRoleRes = await userRoleData("");
+    categories = userRoleRes.data.message;
+
+    setCategory(
+      categories.map((row) => ({
+        label: row.roleName,
+        value: row.roleValue,
+      }))
+    );
+  };
 
   const userRoleData = async (dummyvalue) => {
     let formData = { roleId: dummyvalue };
@@ -136,8 +137,6 @@ const onPreview = async (file) => {
 
       let userRoleRes = await userRoleData(finalvalue.roleValue);
       categories = userRoleRes.data.message[0];
-      // console.log("user list data", userRoleRes);
-      // console.log("user categories data", categories);
 
       form.setFieldsValue({
         uid: UserId,
@@ -167,118 +166,117 @@ const onPreview = async (file) => {
   return (
     <>
       <PageHeader
-          mainTitle="Create New Users"
-          subTitle="create and edit user here"
-          currentPage="Create New User"
+        mainTitle="Create New Users"
+        subTitle="create and edit user here"
+        currentPage="Create New User"
       />
       <Card size="small" title="Create New User">
         <h1>Personal Information</h1>
         <Divider />
         <Form
-        form={form}
-        {...layout}
-        name="nest-messages"
-        onFinish={onFinish}
-        validateMessages={validateMessages}
-      >
-        <Form.Item name="uid" hidden={true}>
-          <Input />
-        </Form.Item>
+          form={form}
+          {...layout}
+          name="nest-messages"
+          onFinish={onFinish}
+          validateMessages={validateMessages}
+        >
+          <Form.Item name="uid" hidden={true}>
+            <Input />
+          </Form.Item>
 
-        <Form.Item
-          name="firstName"
-          label="First Name"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="lastName"
-          label="Last Name"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
+          <Form.Item
+            name="firstName"
+            label="First Name"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="lastName"
+            label="Last Name"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-        <Form.Item
-          name="email"
-          label="Email"
-          rules={[
-            {
-              type: "email",
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="mobile"
-          label="Mobile"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="userName"
-          label="UserName"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="password"
-          label="Password"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
+          <Form.Item
+            name="email"
+            label="Email"
+            rules={[
+              {
+                type: "email",
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="mobile"
+            label="Mobile"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="userName"
+            label="UserName"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="password"
+            label="Password"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-        <Form.Item
-          name="user_role"
-          label="Assign User Role"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Select
-            showSearch
-            placeholder="Select Role"
-            options={category}
-            // defaultValue={categories.roleValue}
-            // value={categories.roleName}
-          ></Select>
-        </Form.Item>
+          <Form.Item
+            name="user_role"
+            label="Assign User Role"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Select
+              showSearch
+              placeholder="Select Role"
+              options={category}
+              // defaultValue={categories.roleValue}
+              // value={categories.roleName}
+            ></Select>
+          </Form.Item>
 
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 7 }}>
-          <Button type="primary" htmlType="submit">
-            {loading && <Spin />} Submit
-          </Button>
-        </Form.Item>
-      </Form>
-        
+          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 7 }}>
+            <Button type="primary" htmlType="submit">
+              {loading && <Spin />} Submit
+            </Button>
+          </Form.Item>
+        </Form>
       </Card>
     </>
   );
