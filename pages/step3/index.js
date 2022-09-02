@@ -106,12 +106,17 @@ const Step3 = () => {
     console.log("objectState", objectState);
     router.push("/step4");
   };
+  const handleSkip = () =>{
+    router.push("/step5");
+  };
+
   return (
     <div>
       <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
         <button
           className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="submit"
+          type="button"
+          onClick={handleSkip}
         >
           SKIP
         </button>

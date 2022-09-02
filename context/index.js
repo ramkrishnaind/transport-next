@@ -13,11 +13,17 @@ const initContext = {
   step3State: {},
   setUserState: () => {},
   setStep3State: () => {},
+  step1State: {},
+  setStep1State: () => {},
+  step2State: {},
+  setStep2State: () => {},
 };
 const TransportContext = createContext(initContext);
 
 export const AppProvider = ({ children }) => {
   const [userState, setUserState] = useState();
+  const [step1State, setStep1State] = useState();
+  const [step2State, setStep2State] = useState();
   const [step3State, setStep3State] = useState();
   const [isAuth, setIsAuth] = useState(false);
   const [customerDetails, setCustomerDetails] = useState();
@@ -35,6 +41,10 @@ export const AppProvider = ({ children }) => {
         step3State,
         setUserState,
         setStep3State,
+        step1State,
+        setStep1State,
+        step2State,
+        setStep2State,
       }}
     >
       {children}

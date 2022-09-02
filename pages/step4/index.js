@@ -7,6 +7,7 @@ import itemList from "../../data/itemList.json";
 import bikeList from "../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
 import Image from "next/image";
+import { useRouter } from "next/router";
 let objToAppend = [];
 const bikeTransformed = [];
 bikeList.forEach((bikeItem) => {
@@ -192,6 +193,7 @@ bikeTransformed.forEach((item) => {
   }
 });
 const Step4 = (props) => {
+  const router = useRouter();
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   const [stateData, setStateData] = useState([]);
@@ -897,6 +899,11 @@ const Step4 = (props) => {
       </div>
     );
   };
+  
+  const handleSubmit = () =>{
+    router.push("/step6");
+  };
+
   return (
     <div className="relative flex-1">
       <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
@@ -908,7 +915,8 @@ const Step4 = (props) => {
         </button>
         <button
           className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="submit"
+          type="button"
+          onClick={handleSubmit}
         >
           PROCEED
         </button>

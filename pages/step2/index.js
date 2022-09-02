@@ -32,7 +32,7 @@ const Step2 = () => {
   const router = useRouter();
   const context = useContext(TransportContext);
   const { booking, setBooking } = context;
-
+  const { step1State, setStep1State} = context;
   const [fromFloorType, setFromFloorType] = useState(null);
   const [toFloorType, setToFloorType] = useState(null);
   const [fromLift, setFromLift] = useState(null);
@@ -41,8 +41,9 @@ const Step2 = () => {
 
   useEffect(() => {
     console.log("booking in step 2 is", booking);
+    console.log("step1State is ", step1State);
     setBookingData(booking);
-  }, [booking]);
+  }, [booking, step1State]);
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
@@ -50,6 +51,14 @@ const Step2 = () => {
     if (result.data.status) {
       console.log("liftAvailability result is", result);
       setBooking(result.data);
+      const formData = {
+        currentFloor: fromFloorType.value,
+        isLiftAvailableOnCurrentFloor: fromLift.value,
+        movingOnFloor: toFloorType.value,
+        isLiftAvailableOnMovingFloor: toLift.value,
+      };
+      context.setStep2State(formData);
+      console.log(formData);
       router.push("/step3");
     }
     console.log("step 2 result is", result);

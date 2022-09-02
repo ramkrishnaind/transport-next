@@ -83,6 +83,7 @@ const Step5 = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     alert("Success!");
+    router.push("/step6");
   };
 
   return (

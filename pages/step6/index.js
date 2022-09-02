@@ -1,19 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "../Card";
 import Image from "next/image";
+import TransportContext from "../../context";
 
 const Step6 = () => {
-  const [name, setName] = useState("Test");
+  const [name, setName] = useState("");
   const [orderId, setOrderId] = useState("#BLL285609");
-  const [moveType, setMoveType] = useState("3 BHK");
-  const [mobileNo, setMobileNo] = useState("98XXXXXX0");
-  const [emailId, setEmailId] = useState("test@gmail.com");
+  const [moveType, setMoveType] = useState("");
+  const [mobileNo, setMobileNo] = useState("");
+  const [emailId, setEmailId] = useState("");
   const [orderCreated, setOrderCreated] = useState("₹ 0/CREATED");
-  const [formAddress, setFromAddress] = useState("Bhubaneswar, Odisha, India");
-  const [toAddress, setToAddress] = useState("Chennai, Tamil Nadu, India");
+  const [formAddress, setFromAddress] = useState("");
+  const [toAddress, setToAddress] = useState("");
   const [date, setDate] = useState("14 June 2022");
-  const [fromLift, setFromLift] = useState("Lift available");
+  const [fromLift, setFromLift] = useState("");
   const [toLift, setToLift] = useState("Lift not available");
+  
+  const context = useContext(TransportContext);
+  const { step1State} = context;
+  const { step2State} = context;
+  console.log("ctx.step1State", step1State);
+  console.log("ctx.step2State", step2State);
+  const { customerDetails } = context;
+  const [customerData, setCustomerData] = useState({});
+
+  useEffect(()=>{
+   
+    if (!step1State) return;
+    setFromAddress(step1State["shiftingFrom"]);
+    setToAddress(step1State["shiftingTo"]);
+    setMoveType(step1State["shiftingFor"])
+   
+    if (!step2State) return;
+    setFromLift(step2State["isLiftAvailableOnCurrentFloor"]);
+    setToLift(step2State["isLiftAvailableOnMovingFloor"]);
+    
+     if(!customerDetails) return;
+      setEmailId(customerDetails["email"]);
+      setName(customerDetails["fullName"]);
+      setMobileNo(customerDetails["mobile"]);
+  },[step1State, step2State, customerDetails]);
 
   return (
     <div className="flex flex-col items-center justify-center">
