@@ -4,16 +4,8 @@ export const registerUser = async (params) => {
   return axios.post("/api/user/", params);
 };
 
-export const addUser = async (params) => {
-  return axios.post("/api/user/adduser", params);
-};
-
 export const addMenu = async (params) => {
   return axios.post("/api/menu/addmenu", params);
-};
-
-export const listUser = async (params) => {
-  return axios.post("/api/user/listuser", params);
 };
 
 export const listBooking = async (params) => {
@@ -24,10 +16,15 @@ export const listMenu = async (params) => {
   return axios.post("/api/menu/", params);
 };
 
-export const listoneUser = async (params) => {
-  return axios.post("/api/user/listoneuser", params);
+export const addUser = async (params) => {
+  return axios.post("/api/user/adduser", params);
 };
-
+export const getAllUsers = async (params) => {
+  return axios.post("/api/user/getAllUsers", params);
+};
+export const getUserByID = async (params) => {
+  return axios.post("/api/user/getUserByID", params);
+};
 export const deleteUser = async (params) => {
   return axios.post("/api/user/deleteuser", params);
 };
@@ -39,6 +36,7 @@ export const editUser = async (params) => {
 export const addUserrole = async (params) => {
   return axios.post("/api/userRoles/addUserRole", params);
 };
+
 
 export const listUserrole = async (params) => {
   return axios.post("/api/userRoles/listUserRole", params);

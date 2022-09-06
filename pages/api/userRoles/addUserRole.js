@@ -11,6 +11,7 @@ const userRoleSchema = Joi.object({
   roleName: Joi.string().trim().required(),
   roleValue: Joi.number().required(),
   permission: Joi.array(),
+
 });
 
 /**

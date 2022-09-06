@@ -1,6 +1,5 @@
 import {  Schema, model, models, mongoose} from "mongoose";
 
-
 const userRoleSchema = new Schema(
   {
     roleName: {

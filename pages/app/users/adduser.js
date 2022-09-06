@@ -38,34 +38,33 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 const App = () => {
-  /////// Image Upload /////////
-  const [fileList, setFileList] = useState([]);
+const [roleList, setRoleList] = useState([]);
+/////// Image Upload /////////
+const [fileList, setFileList] = useState([]);
 
-  const onChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList);
-  };
+const onChange = ({ fileList: newFileList }) => {
+  setFileList(newFileList);
+};
 
-  const onPreview = async (file) => {
-    let src = file.url;
+const onPreview = async (file) => {
+  let src = file.url;
 
-    if (!src) {
-      src = await new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file.originFileObj);
+  if (!src) {
+    src = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file.originFileObj);
 
-        reader.onload = () => resolve(reader.result);
-      });
-    }
+      reader.onload = () => resolve(reader.result);
+    });
+  }
 
-    const image = new Image();
-    image.src = src;
-    const imgWindow = window.open(src);
-    imgWindow?.document.write(image.outerHTML);
-  };
+  const image = new Image();
+  image.src = src;
+  const imgWindow = window.open(src);
+  imgWindow?.document.write(image.outerHTML);
+};
 
   const router = useRouter();
-  // const query = router.query;
-  // const UserId = query.userid;
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
 
@@ -92,7 +91,7 @@ const App = () => {
       }))
     );
   };
-
+  
   const userRoleData = async (dummyvalue) => {
     let formData = { roleId: dummyvalue };
     try {
@@ -100,7 +99,7 @@ const App = () => {
     } catch (err) {
       throw err;
       console.log(err);
-    }
+    }   
   };
 
   const onFinish = async (values) => {
@@ -134,10 +133,8 @@ const App = () => {
     if (UserId) {
       let res = await saveFormData();
       finalvalue = res.data.data;
-
       let userRoleRes = await userRoleData(finalvalue.roleValue);
       categories = userRoleRes.data.message[0];
-
       form.setFieldsValue({
         uid: UserId,
         firstName: finalvalue.firstName,
@@ -166,117 +163,138 @@ const App = () => {
   return (
     <>
       <PageHeader
-        mainTitle="Create New Users"
-        subTitle="create and edit user here"
-        currentPage="Create New User"
+          mainTitle="Create New Users"
+          subTitle="create and edit user here"
+          currentPage="Create New User"
       />
       <Card size="small" title="Create New User">
         <h1>Personal Information</h1>
         <Divider />
         <Form
-          form={form}
-          {...layout}
-          name="nest-messages"
-          onFinish={onFinish}
-          validateMessages={validateMessages}
-        >
-          <Form.Item name="uid" hidden={true}>
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            name="firstName"
-            label="First Name"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
+        form={form}
+        {...layout}
+        name="nest-messages"
+        onFinish={onFinish}
+        validateMessages={validateMessages}
+      >
+        <div className="mt-8 ml-8">
+          <div className="flex flex-row ">
+            <div className="basis-1/2">
+            <Form.Item
+              name="firstName"
+              label="First Name"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+            <div className="basis-1/2">
+            <Form.Item
+              name="lastName"
+              label="Last Name"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="basis-1/2">
+            <Form.Item
+              name="email"
+              label="Email"
+              rules={[
+                {
+                  type: "email",
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+            <div className="basis-1/2">
+            <Form.Item
+              name="userName"
+              label="UserName"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="basis-1/2">
+            <Form.Item
+              name="mobile"
+              label="Mobile"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+            <div className="basis-1/2">
+            <Form.Item
+              name="user_role"
+              label="Assign User Role"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Select
+                showSearch
+                placeholder="Select Role"
+                options={roleList.roleName}
+                defaultValue={roleList.roleName}
+                value={roleList.roleName}
+              ></Select>
+            </Form.Item>
+            </div>
+          </div>
+        </div>
+        <Card size="small" title="Upload Image">
+        <ImgCrop rotate>
+          <Upload
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            listType="picture-card"
+            fileList={fileList}
+            onChange={onChange}
+            onPreview={onPreview}
           >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="lastName"
-            label="Last Name"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            name="email"
-            label="Email"
-            rules={[
-              {
-                type: "email",
-                required: true,
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="mobile"
-            label="Mobile"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="userName"
-            label="UserName"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="password"
-            label="Password"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            name="user_role"
-            label="Assign User Role"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-          >
-            <Select
-              showSearch
-              placeholder="Select Role"
-              options={category}
-              // defaultValue={categories.roleValue}
-              // value={categories.roleName}
-            ></Select>
-          </Form.Item>
-
-          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 7 }}>
-            <Button type="primary" htmlType="submit">
-              {loading && <Spin />} Submit
-            </Button>
-          </Form.Item>
-        </Form>
+            {fileList.length < 5 && '+ Upload'}
+          </Upload>
+          </ImgCrop>
+        </Card>
+        <div className="mt-8 p-0 ml-16">
+        <Form.Item>
+        <Button htmlType="submit">
+          Submit
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button htmlType="button" type="secondry">
+          Reset
+        </Button>
+      </Form.Item>
+        </div>
+      </Form>
       </Card>
     </>
   );
