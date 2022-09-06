@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "../Card";
 import itemList from "../../data/otherItemList.json";
+import TransportContext from "../../context";
+import { useRouter } from "next/router";
 
 const Step5 = () => {
+  const ctx = useContext(TransportContext);
+  const router = useRouter();
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
     items = {};
@@ -64,6 +68,7 @@ const Step5 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
+    ctx.setStep5State(newState);
   };
   const decrementHandler = (key, item) => {
     const newState = { ...objectState };
@@ -79,10 +84,13 @@ const Step5 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
+    ctx.setStep5State(newState);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    alert("Success!");
+    //ctx.setStep5State(objectState);
+    console.log("objectState - 5", ctx.step5State);
+    //alert("Success!");
     router.push("/step6");
   };
 
@@ -95,7 +103,8 @@ const Step5 = () => {
       <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
         <button
           className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="submit"
+          type="button"
+          onClick={handleSubmit}
         >
           NEXT
         </button>

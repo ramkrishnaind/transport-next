@@ -203,7 +203,7 @@ const Step4 = (props) => {
   const itemToSet = {};
   const ctx = useContext(TransportContext);
   const { step3State } = ctx;
-  console.log("ctx.step3State2", ctx.step3State);
+  console.log("ctx.step3State - ", ctx.step3State);
   const getStateData = () => {
     const result = [];
 

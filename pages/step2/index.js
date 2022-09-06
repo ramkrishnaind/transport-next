@@ -52,6 +52,7 @@ const Step2 = () => {
       console.log("liftAvailability result is", result);
       setBooking(result.data);
       const formData = {
+        bookingId: booking?.bookingId,
         currentFloor: fromFloorType.value,
         isLiftAvailableOnCurrentFloor: fromLift.value,
         movingOnFloor: toFloorType.value,
