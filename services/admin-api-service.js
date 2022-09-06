@@ -3,11 +3,11 @@ import axios from "axios";
 export const addUser = async (params) => {
   return axios.post("/api/user/adduser", params);
 };
-export const listUser = async (params) => {
-  return axios.post("/api/user/listuser", params);
+export const getAllUsers = async (params) => {
+  return axios.post("/api/user/getAllUsers", params);
 };
-export const listoneUser = async (params) => {
-  return axios.post("/api/user/listoneuser", params);
+export const getUserByID = async (params) => {
+  return axios.post("/api/user/getUserByID", params);
 };
 export const deleteUser = async (params) => {
   return axios.post("/api/user/deleteuser", params);
@@ -20,7 +20,7 @@ export const addUserrole = async (params) => {
   return axios.post("/api/userRoles/addUserRole", params);
 };
 
-export const listUserrole = async (params) => {
+export const userRoleList = async (params) => {
   return axios.post("/api/userRoles/listUserRole", params);
 };
 

@@ -8,8 +8,6 @@ import { Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
 
 const { Option } = Select;
-let finalvalue = [];
-let categories = [];
 
 const layout = {
   labelCol: {
@@ -34,11 +32,9 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 const App = () => {
-
+const [roleList, setRoleList] = useState([]);
 /////// Image Upload /////////
-const [fileList, setFileList] = useState([
-
-]);
+const [fileList, setFileList] = useState([]);
 
 const onChange = ({ fileList: newFileList }) => {
   setFileList(newFileList);
@@ -65,31 +61,22 @@ const onPreview = async (file) => {
 
 
   const router = useRouter();
-  // const query = router.query;
-  // const UserId = query.userid;
+  
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
 
   const [form] = Form.useForm();
 
-  useEffect(async () => {
-    // const UserId = query.userid;
+  useEffect( async () => {
     if (router.isReady) {
       const { userid } = router.query;
-      if (!userid) return null;
-      getData(userid);
-
-      let userRoleRes = await userRoleData("");
-      categories = userRoleRes.data.message;
-
-      setCategory(
-        categories.map((row) => ({
-          label: row.roleName,
-          value: row.roleValue,
-        }))
-      );
-      console.log("category values is-------->", category);
+      // if (!userid) return null;
+      // if(userid)
+      //   getData(userid);
     }
+    let userRoleRes = await userRoleList();
+    console.log("userRoleRes is", userRoleRes.data.data)
+    setRoleList(userRoleRes.data.data)
   }, [router.isReady]);
 
   const userRoleData = async (dummyvalue) => {
@@ -99,7 +86,7 @@ const onPreview = async (file) => {
     } catch (err) {
       throw err;
       console.log(err);
-    }
+    }   
   };
 
   const onFinish = async (values) => {
@@ -133,12 +120,6 @@ const onPreview = async (file) => {
     if (UserId) {
       let res = await saveFormData();
       finalvalue = res.data.data;
-
-      let userRoleRes = await userRoleData(finalvalue.roleValue);
-      categories = userRoleRes.data.message[0];
-      // console.log("user list data", userRoleRes);
-      // console.log("user categories data", categories);
-
       form.setFieldsValue({
         uid: UserId,
         firstName: finalvalue.firstName,
@@ -181,102 +162,123 @@ const onPreview = async (file) => {
         onFinish={onFinish}
         validateMessages={validateMessages}
       >
-        <Form.Item name="uid" hidden={true}>
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          name="firstName"
-          label="First Name"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="lastName"
-          label="Last Name"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          name="email"
-          label="Email"
-          rules={[
-            {
-              type: "email",
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="mobile"
-          label="Mobile"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="userName"
-          label="UserName"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="password"
-          label="Password"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          name="user_role"
-          label="Assign User Role"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Select
-            showSearch
-            placeholder="Select Role"
-            options={category}
-            // defaultValue={categories.roleValue}
-            // value={categories.roleName}
-          ></Select>
-        </Form.Item>
-
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 7 }}>
-          <Button type="primary" htmlType="submit">
-            {loading && <Spin />} Submit
-          </Button>
-        </Form.Item>
+        <div className="mt-8 ml-8">
+          <div className="flex flex-row ">
+            <div className="basis-1/2">
+            <Form.Item
+              name="firstName"
+              label="First Name"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+            <div className="basis-1/2">
+            <Form.Item
+              name="lastName"
+              label="Last Name"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="basis-1/2">
+            <Form.Item
+              name="email"
+              label="Email"
+              rules={[
+                {
+                  type: "email",
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+            <div className="basis-1/2">
+            <Form.Item
+              name="userName"
+              label="UserName"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="basis-1/2">
+            <Form.Item
+              name="mobile"
+              label="Mobile"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            </div>
+            <div className="basis-1/2">
+            <Form.Item
+              name="user_role"
+              label="Assign User Role"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Select
+                showSearch
+                placeholder="Select Role"
+                options={roleList.roleName}
+                defaultValue={roleList.roleName}
+                value={roleList.roleName}
+              ></Select>
+            </Form.Item>
+            </div>
+          </div>
+        </div>
+        <Card size="small" title="Upload Image">
+        <ImgCrop rotate>
+          <Upload
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            listType="picture-card"
+            fileList={fileList}
+            onChange={onChange}
+            onPreview={onPreview}
+          >
+            {fileList.length < 5 && '+ Upload'}
+          </Upload>
+          </ImgCrop>
+        </Card>
+        <div className="mt-8 p-0 ml-16">
+        <Form.Item>
+        <Button htmlType="submit">
+          Submit
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button htmlType="button" type="secondry">
+          Reset
+        </Button>
+      </Form.Item>
+        </div>
       </Form>
         
       </Card>
