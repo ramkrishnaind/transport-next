@@ -14,7 +14,7 @@ const customerSchema = new Schema({
         lowercase: true,
     },
     otp: {
-        type: Number,
+        type: String,
         required: true,
     },
     mobile: {

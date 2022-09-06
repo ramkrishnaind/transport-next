@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import "antd/dist/antd.css";
-import { addUser, userByID, userRoleList } from "../../../services/admin-api-service";
-import { Button, Form, Input, Select, Spin, Card, Divider  } from "antd";
+import {
+  addUser,
+  userByID,
+  userRoleList,
+} from "../../../services/admin-api-service";
+import { Button, Form, Input, Select, Spin, Card, Divider } from "antd";
 import PageHeader from "../../../components/helper/pageTitle";
-import { Upload } from 'antd';
-import ImgCrop from 'antd-img-crop';
+import { Upload } from "antd";
+import ImgCrop from "antd-img-crop";
 
 const { Option } = Select;
+let finalvalue = [];
+let categories = [];
 
 const layout = {
   labelCol: {
@@ -58,27 +64,34 @@ const onPreview = async (file) => {
   imgWindow?.document.write(image.outerHTML);
 };
 
-
-
   const router = useRouter();
-  
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
 
   const [form] = Form.useForm();
 
-  useEffect( async () => {
+  useEffect(() => {
     if (router.isReady) {
       const { userid } = router.query;
-      // if (!userid) return null;
-      // if(userid)
-      //   getData(userid);
+      if (userid) {
+        getData(userid);
+        callCategoryData();
+      }
     }
-    let userRoleRes = await userRoleList();
-    console.log("userRoleRes is", userRoleRes.data.data)
-    setRoleList(userRoleRes.data.data)
   }, [router.isReady]);
 
+  const callCategoryData = async () => {
+    let userRoleRes = await userRoleData("");
+    categories = userRoleRes.data.message;
+
+    setCategory(
+      categories.map((row) => ({
+        label: row.roleName,
+        value: row.roleValue,
+      }))
+    );
+  };
+  
   const userRoleData = async (dummyvalue) => {
     let formData = { roleId: dummyvalue };
     try {
@@ -120,6 +133,8 @@ const onPreview = async (file) => {
     if (UserId) {
       let res = await saveFormData();
       finalvalue = res.data.data;
+      let userRoleRes = await userRoleData(finalvalue.roleValue);
+      categories = userRoleRes.data.message[0];
       form.setFieldsValue({
         uid: UserId,
         firstName: finalvalue.firstName,
@@ -280,7 +295,6 @@ const onPreview = async (file) => {
       </Form.Item>
         </div>
       </Form>
-        
       </Card>
     </>
   );

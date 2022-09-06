@@ -4,7 +4,7 @@ import BookingDB from "../../../database/Schemas/booking";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require('lodash');
 const Joi = require('joi');
-Joi.objectId = require('joi-objectid')(Joi)
+Joi.objectId = require('joi-objectid')(Joi);
 
 const bookingSchema = Joi.object({
   customerId: Joi.objectId().required(),
@@ -31,6 +31,8 @@ async function createBooking(req, res) {
 
     // pick data from req.body
     let bookingData = _.pick(req.body, ['customerId', 'shiftingFor', 'shiftingFrom', 'shiftingTo', 'shiftingOn']);
+    let date = new Date();
+    bookingData.booking_id = "WG"+ date.getFullYear().toString()+date.getMonth().toString()+date.getDate().toString();
 
     const booking = await BookingDB.create(bookingData);
     return res.status(200).send({ status: true, error: false, message: "Booking created", bookingId: booking._id });

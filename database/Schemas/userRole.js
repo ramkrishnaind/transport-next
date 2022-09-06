@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import {  Schema, model, models, mongoose} from "mongoose";
 
 const userRoleSchema = new Schema(
   {
@@ -12,6 +12,10 @@ const userRoleSchema = new Schema(
       required: true,
       trim: true,
     },
+    permission: {
+      type: Array,
+      required: true,
+      },
   },
   {
     timestamps: {

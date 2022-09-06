@@ -1,8 +1,8 @@
 import "antd/dist/antd.css";
 import { useRouter } from "next/router";
+import { Table, Space, Button, Divider, Row, Col } from "antd";
 import { getAllUsers, deleteUser, getRoleByType } from "../../../services/admin-api-service";
 import Link from "next/link";
-import { Table, Space, Button, Spin } from "antd";
 import React, { useState, useEffect } from "react";
 import {
   DeleteOutlined,
@@ -12,7 +12,15 @@ import {
 
 const Users = () => {
   const router = useRouter();
-
+  const saveFormData = async (formData) => {
+    try {
+      return await listUser(formData);
+    } catch (err) {
+      throw err;
+      console.log(err);
+    }
+  };
+  
   const columns = [
     {
       title: "First Name",
@@ -30,17 +38,17 @@ const Users = () => {
       key: "user_name",
     },
     {
-      title: "mobile",
+      title: "Mobile Number",
       dataIndex: "mobile",
       key: "mobile",
     },
     {
-      title: "email",
+      title: "Email ID",
       dataIndex: "email",
       key: "email",
     },
     {
-      title: "User Role",
+      title: "User Roles",
       dataIndex: "user_role",
       key: "user_role",
     },
@@ -57,21 +65,22 @@ const Users = () => {
             </a>
           </Link>
           <a>
-            <DeleteOutlined onClick={() => deleteUserRecord(record.id)} />
+            <DeleteOutlined onClick={() => clickdelHandler(record.id)} />
           </a>
         </Space>
       ),
     },
   ];
 
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [data, setdata] = useState([]);
 
   useEffect(() => {
     getData();
   }, []);
 
+  const [isLoading, setIsLoading] = useState(false);
   const deleteUserRecord = async (value) => {
+
     const formTOData = {
       userid: value,
     };
@@ -127,7 +136,6 @@ const Users = () => {
                 <Table columns={columns} dataSource={data} />
             </>
         }
-        
     </>
   );
 };

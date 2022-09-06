@@ -1,5 +1,21 @@
 import axios from "axios";
 
+export const registerUser = async (params) => {
+  return axios.post("/api/user/", params);
+};
+
+export const addMenu = async (params) => {
+  return axios.post("/api/menu/addmenu", params);
+};
+
+export const listBooking = async (params) => {
+  return axios.post("/api/customer/listBooking", params);
+};
+
+export const listMenu = async (params) => {
+  return axios.post("/api/menu/", params);
+};
+
 export const addUser = async (params) => {
   return axios.post("/api/user/adduser", params);
 };
@@ -12,6 +28,7 @@ export const getUserByID = async (params) => {
 export const deleteUser = async (params) => {
   return axios.post("/api/user/deleteuser", params);
 };
+
 export const editUser = async (params) => {
   return axios.post("/api/user/edituser", params);
 };
@@ -20,7 +37,8 @@ export const addUserrole = async (params) => {
   return axios.post("/api/userRoles/addUserRole", params);
 };
 
-export const userRoleList = async (params) => {
+
+export const listUserrole = async (params) => {
   return axios.post("/api/userRoles/listUserRole", params);
 };
 
