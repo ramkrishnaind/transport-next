@@ -1,12 +1,8 @@
 import "antd/dist/antd.css";
 import { useRouter } from "next/router";
-import {
-  listUser,
-  deleteUser,
-  listoneUser,
-} from "../../../services/admin-api-service";
-import Link from "next/link";
 import { Table, Space, Button, Divider, Row, Col } from "antd";
+import { getAllUsers, deleteUser, getRoleByType } from "../../../services/admin-api-service";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import {
   DeleteOutlined,
@@ -42,17 +38,17 @@ const Users = () => {
       key: "user_name",
     },
     {
-      title: "mobile",
+      title: "Mobile Number",
       dataIndex: "mobile",
       key: "mobile",
     },
     {
-      title: "email",
+      title: "Email ID",
       dataIndex: "email",
       key: "email",
     },
     {
-      title: "User Role",
+      title: "User Roles",
       dataIndex: "user_role",
       key: "user_role",
     },
@@ -82,7 +78,9 @@ const Users = () => {
     getData();
   }, []);
 
-  const clickdelHandler = async (value) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const deleteUserRecord = async (value) => {
+
     const formTOData = {
       userid: value,
     };
@@ -90,51 +88,54 @@ const Users = () => {
     getData();
   };
 
-  const clickeditHandler = async (values) => {
-    const formTOData = {
-      userId: values,
-    };
-    const res = await listoneUser(formTOData);
-  };
-
   const getData = async () => {
-    const value = 1;
-    const res = await saveFormData(value);
-    console.log("ashwani", res.data.message);
-
-    setdata(
-      res.data.message.map((row) => ({
-        id: row._id,
-        first_name: row.firstName,
-        user_name: row.userName,
-        last_name: row.lastName,
-        mobile: row.mobile,
-        email: row.email,
-        user_role: row.roleValue,
-      }))
-    );
+    setIsLoading(true);
+    const res = await getAllUsers();
+    if(res.status){
+        setIsLoading(false);
+        setData(
+            res.data.data.map((row) => ({
+                id: row._id,
+                first_name: row.firstName,
+                user_name: row.userName,
+                last_name: row.lastName,
+                mobile: row.mobile,
+                email: row.email,
+                user_role: row.roleValue,
+            }))
+        );
+    }
   };
 
   return (
     <>
-      <Row>
-        <Col span={21}>
-          <div className="grid">
-            <h3 page="page-title">Users Management</h3>
-            <small>Manage Users Here</small>
-          </div>
-        </Col>
-        <Col span={3}>
-          <Button
-            size="large"
-            shape="round"
-            onClick={() => router.push("users/adduser")}
-          >
-            <UserAddOutlined /> Add User
-          </Button>
-        </Col>
-      </Row>
-      <Table columns={columns} dataSource={data} />
+        <PageHeader
+            mainTitle="Users Management"
+            subTitle="create and manage user here"
+            currentPage="Users List"
+        />
+        <div className="flex flex-row">
+            <div class="basis-11/12 ml-1 mt-4 tableTitle">Users List</div>
+            <div class="basis-1/12 mb-2">
+            <Button className="adminprimary"
+                size="large"
+                icon={<UserAddOutlined />}
+                onClick={() => router.push("users/adduser")}
+            >
+                Add User
+            </Button>
+            </div>
+        </div>
+        {isLoading ? 
+            <>
+                <div className="centerSpiner">
+                    <Spin size="large" />
+                </div>
+            </> :
+            <>
+                <Table columns={columns} dataSource={data} />
+            </>
+        }
     </>
   );
 };

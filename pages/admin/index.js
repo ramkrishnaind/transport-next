@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import antd, { Alert, Checkbox, Form, Input, Button, Spin } from "antd";
 import { useRouter } from "next/router";
-import { registerCustomer } from "../../services/admin-api-service";
+import { registerUser } from "../../services/admin-api-service";
 import { values } from "lodash";
 import Image from "next/image";
 
@@ -16,7 +16,7 @@ const AdminLoginPage = () => {
         password: values.password,
       };
       console.log(formData, "form TO Data");
-      return await registerCustomer(formData);
+      return await registerUser(formData);
     } catch (err) {
       setLoading(false);
       throw err;
@@ -25,15 +25,18 @@ const AdminLoginPage = () => {
   };
 
   const onFinish = async (values) => {
-    console.log("Clicked", values);
-    if (!values.username || !values.password) return;
+   if (!values.username || !values.password) return;
     try {
       let result = await saveFormData(values);
-      console.log(result, "check");
+      console.log("mylogindata",result);
       setLoading(false);
       if (!result.data.status) {
         alert("Invalid Username Or Password!");
       } else {
+       
+        localStorage.setItem('userName', result.data.logindata.userName);
+        localStorage.setItem('Password', result.data.logindata.password);
+        localStorage.setItem('permission', result.data.roledata.permission);
         router.push("./../app/dashboard");
       }
     } catch (e) {

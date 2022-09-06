@@ -1,4 +1,5 @@
 import "antd/dist/antd.css";
+import { useRouter } from "next/router";
 import {
   listUserrole,
   deleteUserrole,
@@ -75,7 +76,6 @@ const UserRoles = () => {
       roleId: values,
     };
   };
-
   const getData = async () => {
     const value = 1;
     const res = await saveFormData(value);
@@ -83,6 +83,7 @@ const UserRoles = () => {
 
     setdata(
       res.data.message.map((row) => ({
+
         id: row._id,
         role_name: row.roleName,
         role_value: row.roleValue,
@@ -114,4 +115,28 @@ const UserRoles = () => {
   );
 };
 
-export default UserRoles;
+  return (
+    <>
+    <Row>
+        <Col span={20}>
+          <div className="grid">
+            <h3 page="page-title">List of Users Role</h3>
+            <small></small>
+          </div>
+        </Col>
+        <Col span={4}>
+          <Button
+            size="large"
+            shape="round"
+            onClick={() => router.push("/app/userRoles/addUserRole")}
+          >
+            <UserAddOutlined /> Add UserRole
+          </Button>
+        </Col>
+      </Row>
+      <Table dataSource={data} columns={columns} />
+    </>
+  );
+};
+
+export default ListUserrole;

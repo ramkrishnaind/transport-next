@@ -7,6 +7,11 @@ const bookingSchema = new Schema({
         ref: 'customer',
         default: null
     },
+    booking_id: {
+        type: String,
+        required: true,
+        trim: true,
+    },
     shiftingFor: {
         type: String,
         required: true,

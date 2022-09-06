@@ -2,9 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import {
-  listMenu,
-  } from "../../services/admin-api-service";
 // import { isLoggedIn, logout } from "@services/auth.service";
 import { Button, Menu, Switch, Divider } from "antd";
 // import {
@@ -24,39 +21,21 @@ import {
   LogoutOutlined,
   DashboardOutlined,
   UserOutlined,
-  LaptopOutlined,
-  CaretRightFilled
+  LaptopOutlined
 } from "@ant-design/icons";
 // import withPrivate from "./auth/_router-protector";
 
 function Sidebar() {
   // const { setIsAuth, isAdmin } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
-  //const [menulistitem, setmenulistitem] = useState([]);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [collapsed, setCollapsed] = React.useState(false);
   const [selectedMenu, setSelectedMenu] = React.useState("0");
-  const [menulistitem, setmenulistitem] = React.useState([]);
-  let menulistitems=[];
+
   // const sideBarItems = isAdmin
   //   ? adminMenuItems.items
   //   : developerMenuItems.items;
-
-  const listMenuData = async () => {
-    try {
-      let perValue= localStorage.getItem('permission');
-      const formData={
-        permission:perValue,
-        };
-      
-      return await listMenu(formData);
-    } catch (err) {
-      throw err;
-      console.log(err);
-    }
-  };
-
   const menuitems = [
     {
       key: "0",
@@ -83,7 +62,7 @@ function Sidebar() {
       key: "3",
       icon: <LaptopOutlined />,
       name: "Users Roles",
-      link: "/app/userRoles/listUserRole",
+      link: "/app/userRoles",
       rel: "noopener noreferrer",
     },
     // {
@@ -106,26 +85,23 @@ function Sidebar() {
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
-  
-  let handleLogout  =() => {
-    
-    localStorage.clear();
-  
-     localStorage.setItem('userName', "");
-     localStorage.setItem('Password',"");
-     localStorage.setItem('permission',"");
-    router.push("/admin");
-    
-  };
-  const getData = async () => {
-        return await listMenuData();
-    
-  }
-  useEffect(  () => {
-      getData().then((menulistitem) => setmenulistitem(menulistitem.data.data));
-   
-  }, []);
-
+  // const handleLogout = async () => {
+  //   setLoading(true);
+  //   await logout();
+  //   localStorage.clear();
+  //   setLoading(false);
+  //   setIsAuth(false);
+  //   if (isAdmin) {
+  //     router.push("/login");
+  //   } else {
+  //     router.push("/developers/login");
+  //   }
+  // };
+  useEffect(() => {
+    let currentPath = router.pathname;
+    const result = menuitems.find((item) => item.link === currentPath);
+    setSelectedMenu(result ? result.key : "0");
+  }, [router.pathname]);
   return (
     <>
       <div className='sideBar'>
@@ -143,10 +119,9 @@ function Sidebar() {
             key={"collaps"}
             icon={collapsed ? <ArrowRightOutlined /> : <ArrowLeftOutlined />}
           ></Menu.Item>
-          {menulistitem.map((item) => {
+          {menuitems.map((item) => {
             return (
-              
-              <Menu.Item key={item.key}  icon={<CaretRightFilled />}>
+              <Menu.Item key={item.key} icon={item.icon}>
                 <Link key={item.key} href={item.link}>
                   <a rel={item.rel}>{item.name}</a>
                 </Link>
@@ -154,12 +129,15 @@ function Sidebar() {
             );
           })}
           <Menu.Divider />
-           <Menu.Item
+          {/* <Menu.Item
             key='logOut'
             icon={<LogoutOutlined />}
-           onClick={() => handleLogout()}>logout
-           
-          </Menu.Item>
+            onClick={() => {
+              handleLogout();
+            }}
+          >
+            Logout
+          </Menu.Item> */}
         </Menu>
       </div>
     </>
