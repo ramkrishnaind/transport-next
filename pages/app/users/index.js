@@ -1,32 +1,19 @@
 import "antd/dist/antd.css";
 import { useRouter } from "next/router";
-import {
-  listUser,
-  deleteUser,
-  listoneUser,
-} from "../../../services/admin-api-service";
+import { getAllUsers, deleteUser, getRoleByType } from "../../../services/admin-api-service";
 import Link from "next/link";
-import { Table, Space, Button, Divider, Row, Col, Breadcrumb } from "antd";
+import { Table, Space, Button, Spin } from "antd";
 import React, { useState, useEffect } from "react";
 import {
   DeleteOutlined,
   EditOutlined,
   UserAddOutlined,
-  UserOutlined,
-  HomeOutlined
 } from "@ant-design/icons";
 import PageHeader from "../../../components/helper/pageTitle";
 
 const Users = () => {
   const router = useRouter();
-  const saveFormData = async (formData) => {
-    try {
-      return await listUser(formData);
-    } catch (err) {
-      throw err;
-      console.log(err);
-    }
-  };
+
   const columns = [
     {
       title: "First Name",
@@ -71,20 +58,21 @@ const Users = () => {
             </a>
           </Link>
           <a>
-            <DeleteOutlined onClick={() => clickdelHandler(record.id)} />
+            <DeleteOutlined onClick={() => deleteUserRecord(record.id)} />
           </a>
         </Space>
       ),
     },
   ];
 
-  const [data, setdata] = useState([]);
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getData();
   }, []);
 
-  const clickdelHandler = async (value) => {
+  const deleteUserRecord = async (value) => {
     const formTOData = {
       userid: value,
     };
@@ -92,29 +80,23 @@ const Users = () => {
     getData();
   };
 
-  const clickeditHandler = async (values) => {
-    const formTOData = {
-      userId: values,
-    };
-    const res = await listoneUser(formTOData);
-  };
-
   const getData = async () => {
-    const value = 1;
-    const res = await saveFormData(value);
-    console.log("ashwani", res.data.message);
-
-    setdata(
-      res.data.message.map((row) => ({
-        id: row._id,
-        first_name: row.firstName,
-        user_name: row.userName,
-        last_name: row.lastName,
-        mobile: row.mobile,
-        email: row.email,
-        user_role: row.roleValue,
-      }))
-    );
+    setIsLoading(true);
+    const res = await getAllUsers();
+    if(res.status){
+        setIsLoading(false);
+        setData(
+            res.data.data.map((row) => ({
+                id: row._id,
+                first_name: row.firstName,
+                user_name: row.userName,
+                last_name: row.lastName,
+                mobile: row.mobile,
+                email: row.email,
+                user_role: row.roleValue,
+            }))
+        );
+    }
   };
 
   return (
@@ -136,7 +118,17 @@ const Users = () => {
             </Button>
             </div>
         </div>
-        <Table columns={columns} dataSource={data} />
+        {isLoading ? 
+            <>
+                <div className="centerSpiner">
+                    <Spin size="large" />
+                </div>
+            </> :
+            <>
+                <Table columns={columns} dataSource={data} />
+            </>
+        }
+        
     </>
   );
 };

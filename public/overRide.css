@@ -420,3 +420,9 @@ a {
 .ant-card-body{ 
   padding: 0%;
 }
+.centerSpiner {
+  margin: 20px 0;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  text-align: center;
+}

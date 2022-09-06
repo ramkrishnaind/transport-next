@@ -8,7 +8,7 @@ const _ = require("lodash");
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-async function createUserHandler(req, res) {
+async function getAllUsers(req, res) {
   await dbConnect();
   try {
     if (req.method != "POST") {
@@ -25,7 +25,8 @@ async function createUserHandler(req, res) {
       return res.json({
         status: true,
         error: false,
-        message: findData,
+        data: findData,
+        message: "Users List"
       });
     } else {
       //const customer = await UserDB.create(userData);
@@ -42,4 +43,4 @@ async function createUserHandler(req, res) {
     res.json({ error });
   }
 }
-export default withProtect(createUserHandler);
+export default withProtect(getAllUsers);

@@ -39,7 +39,7 @@ async function delroleHandler(req, res) {
       return res.json({
         status: true,
         error: false,
-        message: findData,
+        data: findData,
       });
     } else {
       //const customer = await UserDB.create(userData);

@@ -8,8 +8,6 @@ import { Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
 
 const { Option } = Select;
-let finalvalue = [];
-let categories = [];
 
 const layout = {
   labelCol: {
@@ -34,11 +32,9 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 const App = () => {
-
+const [roleList, setRoleList] = useState([]);
 /////// Image Upload /////////
-const [fileList, setFileList] = useState([
-
-]);
+const [fileList, setFileList] = useState([]);
 
 const onChange = ({ fileList: newFileList }) => {
   setFileList(newFileList);
@@ -65,31 +61,22 @@ const onPreview = async (file) => {
 
 
   const router = useRouter();
-  // const query = router.query;
-  // const UserId = query.userid;
+  
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
 
   const [form] = Form.useForm();
 
-  useEffect(async () => {
-    // const UserId = query.userid;
+  useEffect( async () => {
     if (router.isReady) {
       const { userid } = router.query;
-      if (!userid) return null;
-      getData(userid);
-
-      let userRoleRes = await userRoleData("");
-      categories = userRoleRes.data.message;
-
-      setCategory(
-        categories.map((row) => ({
-          label: row.roleName,
-          value: row.roleValue,
-        }))
-      );
-      console.log("category values is-------->", category);
+      // if (!userid) return null;
+      // if(userid)
+      //   getData(userid);
     }
+    let userRoleRes = await userRoleList();
+    console.log("userRoleRes is", userRoleRes.data.data)
+    setRoleList(userRoleRes.data.data)
   }, [router.isReady]);
 
   const userRoleData = async (dummyvalue) => {
@@ -99,7 +86,7 @@ const onPreview = async (file) => {
     } catch (err) {
       throw err;
       console.log(err);
-    }
+    }   
   };
 
   const onFinish = async (values) => {
@@ -133,12 +120,6 @@ const onPreview = async (file) => {
     if (UserId) {
       let res = await saveFormData();
       finalvalue = res.data.data;
-
-      let userRoleRes = await userRoleData(finalvalue.roleValue);
-      categories = userRoleRes.data.message[0];
-      // console.log("user list data", userRoleRes);
-      // console.log("user categories data", categories);
-
       form.setFieldsValue({
         uid: UserId,
         firstName: finalvalue.firstName,
@@ -183,7 +164,7 @@ const onPreview = async (file) => {
       >
         <div className="mt-8 ml-8">
           <div className="flex flex-row ">
-            <div class="basis-1/2">
+            <div className="basis-1/2">
             <Form.Item
               name="firstName"
               label="First Name"
@@ -196,7 +177,7 @@ const onPreview = async (file) => {
               <Input />
             </Form.Item>
             </div>
-            <div class="basis-1/2">
+            <div className="basis-1/2">
             <Form.Item
               name="lastName"
               label="Last Name"
@@ -211,7 +192,7 @@ const onPreview = async (file) => {
             </div>
           </div>
           <div className="flex flex-row">
-            <div class="basis-1/2">
+            <div className="basis-1/2">
             <Form.Item
               name="email"
               label="Email"
@@ -225,7 +206,7 @@ const onPreview = async (file) => {
               <Input />
             </Form.Item>
             </div>
-            <div class="basis-1/2">
+            <div className="basis-1/2">
             <Form.Item
               name="userName"
               label="UserName"
@@ -240,7 +221,7 @@ const onPreview = async (file) => {
             </div>
           </div>
           <div className="flex flex-row">
-            <div class="basis-1/2">
+            <div className="basis-1/2">
             <Form.Item
               name="mobile"
               label="Mobile"
@@ -253,7 +234,7 @@ const onPreview = async (file) => {
               <Input />
             </Form.Item>
             </div>
-            <div class="basis-1/2">
+            <div className="basis-1/2">
             <Form.Item
               name="user_role"
               label="Assign User Role"
@@ -266,9 +247,9 @@ const onPreview = async (file) => {
               <Select
                 showSearch
                 placeholder="Select Role"
-                options={category}
-                // defaultValue={categories.roleValue}
-                // value={categories.roleName}
+                options={roleList.roleName}
+                defaultValue={roleList.roleName}
+                value={roleList.roleName}
               ></Select>
             </Form.Item>
             </div>
