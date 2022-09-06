@@ -9,7 +9,6 @@ import {
   EditOutlined,
   UserAddOutlined,
 } from "@ant-design/icons";
-import PageHeader from "../../../components/helper/pageTitle";
 
 const Users = () => {
   const router = useRouter();
