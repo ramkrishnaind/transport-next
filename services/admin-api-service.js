@@ -37,8 +37,8 @@ export const addUserrole = async (params) => {
   return axios.post("/api/userRoles/addUserRole", params);
 };
 
+export const userRoleList = async (params) => {
 
-export const listUserrole = async (params) => {
   return axios.post("/api/userRoles/listUserRole", params);
 };
 

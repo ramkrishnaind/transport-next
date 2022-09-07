@@ -1,9 +1,11 @@
 import "antd/dist/antd.css";
 import { useRouter } from "next/router";
+
 import { Table, Space, Button, Divider, Row, Col } from "antd";
 import { getAllUsers, deleteUser, getRoleByType } from "../../../services/admin-api-service";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import PageHeader from "../../../components/helper/pageTitle";
 import {
   DeleteOutlined,
   EditOutlined,
@@ -12,15 +14,7 @@ import {
 
 const Users = () => {
   const router = useRouter();
-  const saveFormData = async (formData) => {
-    try {
-      return await listUser(formData);
-    } catch (err) {
-      throw err;
-      console.log(err);
-    }
-  };
-  
+
   const columns = [
     {
       title: "First Name",
@@ -65,22 +59,22 @@ const Users = () => {
             </a>
           </Link>
           <a>
-            <DeleteOutlined onClick={() => clickdelHandler(record.id)} />
+            <DeleteOutlined onClick={() => deleteUserRecord(record.id)} />
           </a>
         </Space>
       ),
     },
   ];
 
-  const [data, setdata] = useState([]);
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getData();
   }, []);
-
   const [isLoading, setIsLoading] = useState(false);
   const deleteUserRecord = async (value) => {
-
+  
     const formTOData = {
       userid: value,
     };

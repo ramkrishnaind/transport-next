@@ -12,8 +12,6 @@ import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
 
 const { Option } = Select;
-let finalvalue = [];
-let categories = [];
 
 const layout = {
   labelCol: {
@@ -69,16 +67,24 @@ const onPreview = async (file) => {
   const [category, setCategory] = useState([]);
 
   const [form] = Form.useForm();
-
+  const getAllRoles = async (param) =>{
+     let userRoleRes = await userRoleList(param);
+    let roleOptions = userRoleRes.data.data.map((item)=>{
+      return {value:item.roleName,
+        label: item.roleName }
+      
+    })
+    setRoleList(roleOptions)
+  }
   useEffect(() => {
     if (router.isReady) {
       const { userid } = router.query;
-      if (userid) {
+      if(userid)
         getData(userid);
-        callCategoryData();
-      }
     }
+    getAllRoles();
   }, [router.isReady]);
+  
 
   const callCategoryData = async () => {
     let userRoleRes = await userRoleData("");
@@ -133,8 +139,6 @@ const onPreview = async (file) => {
     if (UserId) {
       let res = await saveFormData();
       finalvalue = res.data.data;
-      let userRoleRes = await userRoleData(finalvalue.roleValue);
-      categories = userRoleRes.data.message[0];
       form.setFieldsValue({
         uid: UserId,
         firstName: finalvalue.firstName,
@@ -260,11 +264,11 @@ const onPreview = async (file) => {
               ]}
             >
               <Select
-                showSearch
                 placeholder="Select Role"
-                options={roleList.roleName}
-                defaultValue={roleList.roleName}
-                value={roleList.roleName}
+                options={roleList}
+                // defaultValue={roleList.roleName}
+                //value={roleList[0].roleName}
+
               ></Select>
             </Form.Item>
             </div>
