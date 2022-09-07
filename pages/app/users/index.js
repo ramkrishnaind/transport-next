@@ -72,7 +72,6 @@ const Users = () => {
   useEffect(() => {
     getData();
   }, []);
-  const [isLoading, setIsLoading] = useState(false);
   const deleteUserRecord = async (value) => {
   
     const formTOData = {
