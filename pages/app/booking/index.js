@@ -10,6 +10,8 @@ import {
   UserAddOutlined,
 } from "@ant-design/icons";
 
+import PageHeader from "../../../components/helper/pageTitle";
+
 const BookingList = () => {
   const router = useRouter();
   const saveFormData = async (formData) => {
@@ -104,10 +106,11 @@ const BookingList = () => {
 
   return (
     <>
-      <div className="grid">
-        <h3 page="page-title">Booking Management</h3>
-        <small>manage booking here</small>
-      </div>
+      <PageHeader
+            mainTitle="Booking Management"
+            subTitle="manage booking here"
+            currentPage="Booking Management"
+        />
       <Table
         columns={columns}
         dataSource={data}

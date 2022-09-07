@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Divider, Space, Table, Tag } from "antd";
+import PageHeader from "../../../components/helper/pageTitle";
 
 const columns = [
     {
@@ -141,10 +142,11 @@ const data = [
 const Customers = () => {
     return (
         <>
-            <div className="grid">
-                <h3 page="page-title">Customer Management</h3><small>manage Customer here</small>
-
-            </div>
+            <PageHeader
+                mainTitle="Customer Management"
+                subTitle="manage Customer here"
+                currentPage="Customer Management"
+            />
             <Table columns={columns} dataSource={data} />
         </>
     );
