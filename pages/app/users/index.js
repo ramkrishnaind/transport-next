@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import { useRouter } from "next/router";
 
-import { Table, Space, Button, Divider, Row, Col } from "antd";
+import { Table, Space, Button, Spin } from "antd";
 import { getAllUsers, deleteUser, getRoleByType } from "../../../services/admin-api-service";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -108,8 +108,8 @@ const Users = () => {
             currentPage="Users List"
         />
         <div className="flex flex-row">
-            <div class="basis-11/12 ml-1 mt-4 tableTitle">Users List</div>
-            <div class="basis-1/12 mb-2">
+            <div className="basis-11/12 ml-1 mt-4 tableTitle">Users List</div>
+            <div className="basis-1/12 mb-2">
             <Button className="adminprimary"
                 size="large"
                 icon={<UserAddOutlined />}

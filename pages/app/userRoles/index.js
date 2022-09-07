@@ -1,8 +1,7 @@
 import "antd/dist/antd.css";
-import { useRouter } from "next/router";
 import {
-  listUserrole,
   deleteUserrole,
+  userRoleList,
 } from "../../../services/admin-api-service";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -17,7 +16,7 @@ import {
 const UserRoles = () => {
   const saveFormData = async (formData) => {
     try {
-      return await listUserrole(formData);
+      return await userRoleList(formData);
     } catch (err) {
       throw err;
       console.log(err);
@@ -82,7 +81,7 @@ const UserRoles = () => {
     console.log("ashwani", res.data.message);
 
     setdata(
-      res.data.message.map((row) => ({
+      res.data.data.map((row) => ({
 
         id: row._id,
         role_name: row.roleName,
@@ -115,28 +114,28 @@ const UserRoles = () => {
   );
 };
 
-  return (
-    <>
-    <Row>
-        <Col span={20}>
-          <div className="grid">
-            <h3 page="page-title">List of Users Role</h3>
-            <small></small>
-          </div>
-        </Col>
-        <Col span={4}>
-          <Button
-            size="large"
-            shape="round"
-            onClick={() => router.push("/app/userRoles/addUserRole")}
-          >
-            <UserAddOutlined /> Add UserRole
-          </Button>
-        </Col>
-      </Row>
-      <Table dataSource={data} columns={columns} />
-    </>
-  );
-};
+//   return (
+//     <>
+//     <Row>
+//         <Col span={20}>
+//           <div className="grid">
+//             <h3 page="page-title">List of Users Role</h3>
+//             <small></small>
+//           </div>
+//         </Col>
+//         <Col span={4}>
+//           <Button
+//             size="large"
+//             shape="round"
+//             onClick={() => router.push("/app/userRoles/addUserRole")}
+//           >
+//             <UserAddOutlined /> Add UserRole
+//           </Button>
+//         </Col>
+//       </Row>
+//       <Table dataSource={data} columns={columns} />
+//     </>
+//   );
+// };
 
-export default ListUserrole;
+export default UserRoles;
