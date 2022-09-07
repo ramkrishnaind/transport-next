@@ -25,6 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
+    "mongodb-autoincrement": "^1.0.1",
     "mongoose": "^6.4.4",
     "nanoid": "^3.3.4",
     "next": "12.1.6",

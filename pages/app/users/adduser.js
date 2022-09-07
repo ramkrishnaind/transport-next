@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import "antd/dist/antd.css";
-import { addUser, userByID, userRoleList } from "../../../services/admin-api-service";
-import { Button, Form, Input, Select, Spin, Card, Divider  } from "antd";
+import {
+  addUser,
+  userByID,
+  userRoleList,
+} from "../../../services/admin-api-service";
+import { Button, Form, Input, Select, Spin, Card, Divider } from "antd";
 import PageHeader from "../../../components/helper/pageTitle";
-import { Upload } from 'antd';
-import ImgCrop from 'antd-img-crop';
+import { Upload } from "antd";
+import ImgCrop from "antd-img-crop";
 
 const { Option } = Select;
 
@@ -58,10 +62,7 @@ const onPreview = async (file) => {
   imgWindow?.document.write(image.outerHTML);
 };
 
-
-
   const router = useRouter();
-  
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
 
@@ -76,7 +77,6 @@ const onPreview = async (file) => {
     setRoleList(roleOptions)
   }
   useEffect(() => {
-
     if (router.isReady) {
       const { userid } = router.query;
       if(userid)
@@ -86,6 +86,18 @@ const onPreview = async (file) => {
   }, [router.isReady]);
   
 
+  const callCategoryData = async () => {
+    let userRoleRes = await userRoleData("");
+    categories = userRoleRes.data.message;
+
+    setCategory(
+      categories.map((row) => ({
+        label: row.roleName,
+        value: row.roleValue,
+      }))
+    );
+  };
+  
   const userRoleData = async (dummyvalue) => {
     let formData = { roleId: dummyvalue };
     try {
@@ -256,6 +268,7 @@ const onPreview = async (file) => {
                 options={roleList}
                 // defaultValue={roleList.roleName}
                 //value={roleList[0].roleName}
+
               ></Select>
             </Form.Item>
             </div>
@@ -286,7 +299,6 @@ const onPreview = async (file) => {
       </Form.Item>
         </div>
       </Form>
-        
       </Card>
     </>
   );

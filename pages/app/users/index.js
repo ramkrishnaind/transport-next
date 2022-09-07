@@ -1,8 +1,9 @@
 import "antd/dist/antd.css";
 import { useRouter } from "next/router";
+
+import { Table, Space, Button, Divider, Row, Col } from "antd";
 import { getAllUsers, deleteUser, getRoleByType } from "../../../services/admin-api-service";
 import Link from "next/link";
-import { Table, Space, Button, Spin } from "antd";
 import React, { useState, useEffect } from "react";
 import PageHeader from "../../../components/helper/pageTitle";
 import {
@@ -31,17 +32,17 @@ const Users = () => {
       key: "user_name",
     },
     {
-      title: "mobile",
+      title: "Mobile Number",
       dataIndex: "mobile",
       key: "mobile",
     },
     {
-      title: "email",
+      title: "Email ID",
       dataIndex: "email",
       key: "email",
     },
     {
-      title: "User Role",
+      title: "User Roles",
       dataIndex: "user_role",
       key: "user_role",
     },
@@ -71,8 +72,9 @@ const Users = () => {
   useEffect(() => {
     getData();
   }, []);
-
+  const [isLoading, setIsLoading] = useState(false);
   const deleteUserRecord = async (value) => {
+  
     const formTOData = {
       userid: value,
     };
@@ -128,7 +130,6 @@ const Users = () => {
                 <Table columns={columns} dataSource={data} />
             </>
         }
-        
     </>
   );
 };
