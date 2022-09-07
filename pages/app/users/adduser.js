@@ -66,18 +66,25 @@ const onPreview = async (file) => {
   const [category, setCategory] = useState([]);
 
   const [form] = Form.useForm();
+  const getAllRoles = async (param) =>{
+     let userRoleRes = await userRoleList(param);
+    let roleOptions = userRoleRes.data.data.map((item)=>{
+      return {value:item.roleName,
+        label: item.roleName }
+      
+    })
+    setRoleList(roleOptions)
+  }
+  useEffect(() => {
 
-  useEffect( async () => {
     if (router.isReady) {
       const { userid } = router.query;
-      // if (!userid) return null;
-      // if(userid)
-      //   getData(userid);
+      if(userid)
+        getData(userid);
     }
-    let userRoleRes = await userRoleList();
-    console.log("userRoleRes is", userRoleRes.data.data)
-    setRoleList(userRoleRes.data.data)
+    getAllRoles();
   }, [router.isReady]);
+  
 
   const userRoleData = async (dummyvalue) => {
     let formData = { roleId: dummyvalue };
@@ -245,11 +252,10 @@ const onPreview = async (file) => {
               ]}
             >
               <Select
-                showSearch
                 placeholder="Select Role"
-                options={roleList.roleName}
-                defaultValue={roleList.roleName}
-                value={roleList.roleName}
+                options={roleList}
+                // defaultValue={roleList.roleName}
+                //value={roleList[0].roleName}
               ></Select>
             </Form.Item>
             </div>
