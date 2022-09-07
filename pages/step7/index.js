@@ -17,10 +17,10 @@ const Step7 = () => {
   const [fromLift, setFromLift] = useState("");
   const [toLift, setToLift] = useState("");
   const [currentFloor, setCurrentFloor] = useState("");
-  const [movingOnFloor, setmovingOnFloor] = useState(""); 
+  const [movingOnFloor, setmovingOnFloor] = useState("");
   const context = useContext(TransportContext);
-  const { step1State} = context;
-  const { step2State} = context;
+  const { step1State } = context;
+  const { step2State } = context;
   const { step3State } = context;
   console.log("context.step1State", step1State);
   console.log("context.step2State", step2State);
@@ -30,49 +30,124 @@ const Step7 = () => {
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   let objToAppend = [];
-  const [dayName, setDayName] =useState("");
-  const [day, setDay] =useState("");
-  const [month, setMonth] =useState("");
-  
+  const [dayName, setDayName] = useState("");
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
+
   // todo - mover planner and manager name comes from where
   const [moverPlanner, setMoverPlanner] = useState("Charmee Kothari");
   const [moverPlannerNo, setMoverPlannerNo] = useState("08047094008");
   const [moveManager, setMoveManager] = useState("Not Assigned");
 
-  useEffect(()=>{
-   
+  useEffect(() => {
     if (!step1State) return;
     setFromAddress(step1State["shiftingFrom"]);
     setToAddress(step1State["shiftingTo"]);
-    setMoveType(step1State["shiftingFor"])
+    setMoveType(step1State["shiftingFor"]);
     //setDate(step1State["shiftingOn"])
-    const months = {0: 'January', 1: 'February', 2: 'March', 3: 'April', 4: 'May', 5: 'June', 6: 'July', 7: 'August', 8: 'September', 9: 'October', 10: 'November', 11: 'December',}
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-  
+    const months = {
+      0: "January",
+      1: "February",
+      2: "March",
+      3: "April",
+      4: "May",
+      5: "June",
+      6: "July",
+      7: "August",
+      8: "September",
+      9: "October",
+      10: "November",
+      11: "December",
+    };
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
     const d = step1State["shiftingOn"];
-    const year = d.getFullYear()
-    const date = d.getDate()
-    const monthName = months[d.getMonth()]
-    const dayName = days[d.getDay()] 
-    const formattedDate = `${dayName}, ${date} ${monthName} ${year}`
+    const year = d.getFullYear();
+    const date = d.getDate();
+    const monthName = months[d.getMonth()];
+    const dayName = days[d.getDay()];
+    const formattedDate = `${dayName}, ${date} ${monthName} ${year}`;
     setDate(formattedDate);
     setDay(date);
     setDayName(dayName);
-    setMonth(monthName + " " + year );
+    setMonth(monthName + " " + year);
 
- 
     if (!step2State) return;
     setOrderId(step2State["bookingId"]);
     setCurrentFloor(step2State["currentFloor"]);
     setFromLift(step2State["isLiftAvailableOnCurrentFloor"]);
     setToLift(step2State["isLiftAvailableOnMovingFloor"]);
     setmovingOnFloor(step2State["movingOnFloor"]);
-    
-     if(!customerDetails) return;
-      setEmailId(customerDetails["email"]);
-      setName(customerDetails["fullName"]);
-      setMobileNo(customerDetails["mobile"]);
-  },[step1State, step2State, customerDetails]);
+
+    if (!customerDetails) return;
+    setEmailId(customerDetails["email"]);
+    setName(customerDetails["fullName"]);
+    setMobileNo(customerDetails["mobile"]);
+  }, [step1State, step2State, customerDetails]);
+
+
+  const getCopiedObject = useCallback((objFound) => {
+    //
+    const objValues = [];
+    if (objFound?.value?.length > 0) {
+      objFound?.value.forEach((i) => {
+        objValues.push(getCopiedObject(i));
+      });
+      return { ...objFound, value: [...objValues] };
+    } else {
+      return { ...objFound };
+    }
+  }, []);
+
+  useEffect(() => {
+    //debugger;
+    if (!step3State) return;
+    const keys = Object.keys(step3State);
+    const arr = [];
+    const arrayItems = [];
+    keys.forEach((k) => {
+      step3State[k].forEach((i) => {
+        i.category = k;
+        if (i.count < 1) return;
+        arr.push(i);
+        const arryStateCount = [...Array(i.count).keys()];
+        arryStateCount.forEach((it) => {
+          let objFound = objToAppend.find((itemToFind) => {
+            // if (itemToFind.key === "TVS") {
+            //
+            // }
+            return itemToFind.key === i.title;
+          });
+          objFound = getCopiedObject(objFound);
+          //
+          if (objFound) {
+            arrayItems.push({
+              ...objFound,
+              index: it,
+              currentIndex: -1,
+              completed: false,
+            });
+          }
+        });
+      });
+    });
+    if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
+    setState(arr);
+  }, [step3State, getCopiedObject]);
+ 
+
+  // state.forEach((s) => {
+  //   console.log("state = " + s.title);
+  //   console.log("state = " + s.image);
+  //   console.log("state = " + s.count);
+  //   console.log("state = " + s.category);
+  // });
+
+  // console.log("items------", items);
+  // console.log("state------", state);
+
+  const clickHandler = (key, item) => {};
+  const decrementHandler = (key, item) => {};
 
   const handleNewOrder = async (event) => {
     event.preventDefault();
@@ -114,9 +189,7 @@ const Step7 = () => {
                 </div>
 
                 <div className="flex mt-5 justify-center ">
-                  <div className="font-bold text-xl text-gray-100">
-                    {month}
-                  </div>
+                  <div className="font-bold text-xl text-gray-100">{month}</div>
                 </div>
               </div>
             </div>
@@ -206,55 +279,21 @@ const Step7 = () => {
           </div>
 
           <div className="w-5/6">
-            <form className="max-w-screen-xl m-auto py-10 px-5">
-              <div className="grid space-x-1 lg:grid-cols-1">
-                <div className="px-4  ">
-                  <h3 className="text-md text-center text-gray-600">
-                    Furniture
-                  </h3>
-                </div>
-
-                <div className="grid gap-8 space-x-1 md:grid-cols-1 mt-1">
-                  <Card
-                    image={"images/office-chair-24.png"}
-                    item={"Chairs"}
-                    itemCount={1}
-                  />
-                </div>
-              </div>
-              <div className="grid gap-8 space-x-1 md:grid-cols-1 mt-1">
-                <Card
-                  image={"images/table-24.png"}
-                  item={"Tables"}
-                  itemCount={1}
-                />
-              </div>
-              <div className="grid space-x-1 lg:grid-cols-1 mt-1">
-                <div className="px-4">
-                  <h3 className="text-md text-center text-gray-600">
-                    Electronic
-                  </h3>
-                </div>
-              </div>
-              <div className="grid gap-8 space-x-1 md:grid-cols-1 mt-1">
-                <Card
-                  image={"images/washing-machine-24.png"}
-                  item={"Washing machines"}
-                  itemCount={1}
-                />
-              </div>
-
-              <div className="grid space-x-1 lg:grid-cols-1 mt-2">
-                <div className="px-4">
-                  <h3 className="text-md text-center text-gray-600">Vehicle</h3>
-                </div>
-              </div>
-              <div className="grid gap-8 space-x-1 md:grid-cols-1 mt-1">
-                <Card
-                  image={"images/bike-24.png"}
-                  item={"Bikes"}
-                  itemCount={1}
-                />
+            <form className="max-w-xl m-auto py-10 px-5">
+              <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
+                {state.map((st, index) => {
+                  console.log("item", st);
+                  return (
+                    <Card
+                      image={st.image}
+                      key={index}
+                      item={st.title}
+                      itemCount={st.count}
+                      onDecrement={decrementHandler.bind(null, "", st)}
+                      onClick={clickHandler.bind(null, "", st)}
+                    />
+                  );
+                })}
               </div>
             </form>
           </div>

@@ -18,11 +18,11 @@ const Step6 = () => {
   const [fromLift, setFromLift] = useState("");
   const [toLift, setToLift] = useState("");
   const [currentFloor, setCurrentFloor] = useState("");
-  const [movingOnFloor, setmovingOnFloor] = useState(""); 
-  
+  const [movingOnFloor, setmovingOnFloor] = useState("");
+
   const context = useContext(TransportContext);
-  const { step1State} = context;
-  const { step2State} = context;
+  const { step1State } = context;
+  const { step2State } = context;
   const { step3State } = context;
   console.log("context.step1State", step1State);
   console.log("context.step2State", step2State);
@@ -33,46 +33,55 @@ const Step6 = () => {
   const [items, setItems] = useState([]);
   const [liftAvailability, setLiftAvailability] = useState("");
   let objToAppend = [];
-  
-  useEffect(()=>{
-   
+
+  useEffect(() => {
     if (!step1State) return;
     setFromAddress(step1State["shiftingFrom"]);
     setToAddress(step1State["shiftingTo"]);
-    setMoveType(step1State["shiftingFor"])
-    const months = {0: 'January', 1: 'February', 2: 'March', 3: 'April', 4: 'May', 5: 'June', 6: 'July', 7: 'August', 8: 'September', 9: 'October', 10: 'November', 11: 'December',}
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-    
+    setMoveType(step1State["shiftingFor"]);
+    const months = {
+      0: "January",
+      1: "February",
+      2: "March",
+      3: "April",
+      4: "May",
+      5: "June",
+      6: "July",
+      7: "August",
+      8: "September",
+      9: "October",
+      10: "November",
+      11: "December",
+    };
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
     if (!step2State) return;
     setOrderId(step2State["bookingId"]);
     setCurrentFloor(step2State["currentFloor"]);
-    if(step2State["isLiftAvailableOnCurrentFloor"]){
-      setFromLift(step2State["currentFloor"] + " , " + "Lift is available");  
+    if (step2State["isLiftAvailableOnCurrentFloor"]) {
+      setFromLift(step2State["currentFloor"] + " , " + "Lift is available");
+    } else {
+      setFromLift(step2State["currentFloor"] + " , " + "Lift is not available");
     }
-    else{
-      setFromLift(step2State["currentFloor"] + " , " + "Lift is not available");  
-    }
-    if(step2State["isLiftAvailableOnMovingFloor"]){
-      setToLift(step2State["movingOnFloor"] + " , " + "Lift is available");  
-    }
-    else{
-      setToLift(step2State["movingOnFloor"] + " , " + "Lift is not available");  
+    if (step2State["isLiftAvailableOnMovingFloor"]) {
+      setToLift(step2State["movingOnFloor"] + " , " + "Lift is available");
+    } else {
+      setToLift(step2State["movingOnFloor"] + " , " + "Lift is not available");
     }
     setmovingOnFloor(step2State["movingOnFloor"]);
     const d = step1State["shiftingOn"];
-    const year = d.getFullYear()
-    const date = d.getDate()
-    const monthName = months[d.getMonth()]
-    const dayName = days[d.getDay()] 
-    const formattedDate = `${dayName}, ${date} ${monthName} ${year}`
+    const year = d.getFullYear();
+    const date = d.getDate();
+    const monthName = months[d.getMonth()];
+    const dayName = days[d.getDay()];
+    const formattedDate = `${dayName}, ${date} ${monthName} ${year}`;
     setDate(formattedDate);
 
-
-     if(!customerDetails) return;
-      setEmailId(customerDetails["email"]);
-      setName(customerDetails["fullName"]);
-      setMobileNo(customerDetails["mobile"]);
-  },[step1State, step2State, customerDetails]);
+    if (!customerDetails) return;
+    setEmailId(customerDetails["email"]);
+    setName(customerDetails["fullName"]);
+    setMobileNo(customerDetails["mobile"]);
+  }, [step1State, step2State, customerDetails]);
 
   const getCopiedObject = useCallback((objFound) => {
     //
@@ -122,18 +131,19 @@ const Step6 = () => {
     if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
     setState(arr);
   }, [step3State, getCopiedObject]);
- 
 
-  state.forEach((s) => {
-    console.log("state = " + s.title);
-    console.log("state = " + s.image);
-    console.log("state = " + s.count);
-    console.log("state = " + s.category);
-  });
+  // state.forEach((s) => {
+  //   console.log("state = " + s.title);
+  //   console.log("state = " + s.image);
+  //   console.log("state = " + s.count);
+  //   console.log("state = " + s.category);
+  // });
 
-  console.log("items------", items);
-  console.log("state------", state);
+  // console.log("items------", items);
+  // console.log("state------", state);
 
+  const clickHandler = (key, item) => {};
+  const decrementHandler = (key, item) => {};
   const handleSubmit = async (event) => {
     event.preventDefault();
     // ctx.setStep5State(objectState);
@@ -204,7 +214,7 @@ const Step6 = () => {
             <div className="flex- 1 w-1/2  ">{toAddress}</div>
             <div className="flex- 1 w-1/2 ">{date}</div>
           </div>
-          
+
           <div className="flex ml-10 mr-10 mt-1 space-x-2">
             <div className="flex- 1 w-1/2">{fromLift}</div>
             <div className="flex- 1 w-1/2  ">{toLift}</div>
@@ -219,33 +229,21 @@ const Step6 = () => {
       </div>
 
       <div className="w-5/6">
-        <form className="max-w-screen-xl m-auto py-10 px-5">
-          <div className="grid gap-8 space-x-1 lg:grid-cols-3">
-            <div className="px-4  ">
-              <h3 className="text-md text-center text-gray-600">Furniture</h3>
-            </div>
-            <div className="px-4">
-              <h3 className="text-md text-center text-gray-600">Electronic</h3>
-            </div>
-            <div className="px-4">
-              <h3 className="text-md text-center text-gray-600">Vehicle</h3>
-            </div>
-          </div>
-          <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-            <Card image={"images/table-24.png"} item={"Tables"} itemCount={1} />
-            <Card
-              image={"images/washing-machine-24.png"}
-              item={"Washing machines"}
-              itemCount={1}
-            />
-            <Card image={"images/bike-24.png"} item={"Bikes"} itemCount={1} />
-          </div>
-          <div className="grid gap-8 space-x-1 md:grid-cols-3 mt-5">
-            <Card
-              image={"images/office-chair-24.png"}
-              item={"Chairs"}
-              itemCount={1}
-            />
+        <form className="max-w-xl m-auto py-10 px-5">
+          <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
+            {state.map((st, index) => {
+              console.log("item", st);
+              return (
+                <Card
+                  image={st.image}
+                  key={index}
+                  item={st.title}
+                  itemCount={st.count}
+                  onDecrement={decrementHandler.bind(null, "", st)}
+                  onClick={clickHandler.bind(null, "", st)}
+                />
+              );
+            })}
           </div>
         </form>
       </div>
