@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import {
   addUserrole,
   listMenu,
-  listUserrole,
+  userRoleList,
 } from "../../../services/admin-api-service";
 import { Button, Form, Input, InputNumber, Checkbox } from "antd";
 
@@ -17,7 +17,7 @@ const App = () => {
   const listFormData = async (roleId) => {
     try {
       const formData = { roleId: roleId };
-      return await listUserrole(formData);
+      return await userRoleList(formData);
     } catch (err) {
       throw err;
       console.log(err);

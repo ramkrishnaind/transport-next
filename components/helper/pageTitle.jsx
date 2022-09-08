@@ -5,15 +5,15 @@ const pageHeader = (params) => {
     return (
         <>
 
-            <div class="flex flex-row">
-                <div class="basis-1/24 gap-2 pageHeader">
+            <div className="flex flex-row">
+                <div className="basis-1/24 gap-2 pageHeader">
                     <UserOutlined/>
                 </div>
-                <div class="basis-4/5 gap-2 mt-2 ml-2">
+                <div className="basis-4/5 gap-2 mt-2 ml-2">
                     <span className="pageTitle">{params.mainTitle}</span>
                     <small className="ml-1">{params.subTitle}</small>
                 </div>
-                <div class="flex-1 w-32 ml-1">
+                <div className="flex-1 w-32 ml-1">
                     
                 </div>
             </div>
