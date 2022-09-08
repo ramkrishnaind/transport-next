@@ -5,6 +5,7 @@ import bikeList from "../../data/bikeList.json";
 import itemList from "../../data/itemList.json";
 // import { useRouter } from "next/router";
 import TransportContext from "../../context";
+import { bookingItem } from "../../services/customer-api-service";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faSearch,
@@ -16,6 +17,15 @@ import TransportContext from "../../context";
 const Step3 = () => {
   const router = useRouter();
   const ctx = useContext(TransportContext);
+  const { booking} = ctx;
+  const { step1State} = ctx;
+  const { step2State} = ctx;
+  const { step3State, setStep3State } = ctx;
+  console.log("context.booking -- ", booking);
+  console.log("context.step1State -- ", step1State);
+  console.log("context.step2State -- ", step2State);
+  console.log("context.step3State -- ", step3State);
+
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
     items = {};
@@ -55,6 +65,7 @@ const Step3 = () => {
     ...items,
     Vehicle: Vehicles,
   });
+  
   useEffect(() => {
     setObjectState((prev) => {
       const newState = { ...prev };
@@ -68,7 +79,23 @@ const Step3 = () => {
       return newState;
     });
   }, []);
-  console.log("objectState", objectState);
+  
+  useEffect(() => {
+    if (!step3State) return;
+    setObjectState((prev) => {
+      const newState = { ...prev };
+      const keys = Object.keys(step3State);
+      keys.forEach((k) => {
+        newState[k] = newState[k]?.map((i) => {
+          console.log(" title - ", i.title);
+          console.log(" title - ", i.count);
+          return i;
+        });
+      });
+      return newState;
+    });
+  }, [step3State]);
+  
   const clickHandler = (key, item) => {
     const newState = { ...objectState };
     const newArray = [];
@@ -99,9 +126,17 @@ const Step3 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
+    ctx.setStep3State(newState);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // ----------------------
+    let result = await callApi();
+    if (result.data.status) {
+      console.log("Booking result is", result);
+    //  setBooking(result.data);
+    }
+      //--------------------------
     ctx.setStep3State(objectState);
     console.log("objectState", objectState);
     router.push("/step4");
@@ -109,6 +144,28 @@ const Step3 = () => {
   const handleSkip = () =>{
     router.push("/step5");
   };
+
+  const callApi = async () => {
+    return await bookingItem({
+      bookingId: step2State?.bookingId,
+      sofaSets:objectState.sofaSets,
+      tables:objectState.tables,
+      chairs:objectState.chairs,
+      cots:objectState.cots,
+      mattress:objectState.mattress,
+      cupBoards:objectState.cupBoards,
+      tvs:objectState.tvs,
+      refrigerators:objectState.refrigerators,
+      washingMachines:objectState.washingMachines,
+      ovens:objectState.ovens,
+      airConditioners:objectState.airConditioners,
+      fansCoolers:objectState.fansCoolers,
+      bikes:objectState.bikes,
+      cars:objectState.cars,
+      cycles:objectState.cycles
+    });
+  };
+
 
   return (
     <div>
