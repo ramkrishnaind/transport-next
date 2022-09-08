@@ -154,6 +154,11 @@ const Step7 = () => {
     router.push("/step1");
   };
 
+  const handleEditInventory = async (event) => {
+    event.preventDefault();
+    router.push("/step3");
+  };
+
   return (
     <div>
       <div className="flex justify-end">
@@ -232,6 +237,7 @@ const Step7 = () => {
                 <button
                   className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
                   type="submit"
+                  onClick={handleEditInventory}
                 >
                   EDIT INVENTORY
                 </button>
