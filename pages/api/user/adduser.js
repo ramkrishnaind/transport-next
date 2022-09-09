@@ -2,20 +2,30 @@
 import dbConnect from "../../../database/lib/dbConnect";
 import UserDB from "../../../database/Schemas/user";
 import withProtect from "../../../middlewares/withProtect";
+import SendEmail from "../../../helperFunction/nodeMail/sendEmail";
 const _ = require("lodash");
 const Joi = require("joi");
-Joi.objectId = require('joi-objectid')(Joi);
+Joi.objectId = require("joi-objectid")(Joi);
 
 const userSignUpSchema = Joi.object({
   uid: Joi.objectId(),
   userName: Joi.string().trim().required(),
-  password: Joi.string().trim().required(),
   firstName: Joi.string().trim().required(),
   lastName: Joi.string().trim().required(),
   email: Joi.string().trim().required(),
   mobile: Joi.string().trim().required(),
-  roleValue: Joi.number().required(),
+  roleValue: Joi.string().required(),
 });
+
+const generatePassword = async () => {
+  var length = 10,
+    charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+    retVal = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+    retVal += charset.charAt(Math.floor(Math.random() * n));
+  }
+  return retVal;
+};
 
 /**
  * @param {import('next').NextApiRequest} req
@@ -45,7 +55,6 @@ async function createUserHandler(req, res) {
     let userData = _.pick(req.body, [
       "uid",
       "userName",
-      "password",
       "firstName",
       "lastName",
       "mobile",
@@ -53,11 +62,22 @@ async function createUserHandler(req, res) {
       "roleValue",
     ]);
 
+    let findData = await UserDB.findOne({
+      $or: [{ mobile: userData.mobile }, { email: userData.email }],
+    });
+
+    if (findData) {
+      return res.json({
+        status: false,
+        error: true,
+        message: "Email or Mobile Already Exits",
+      });
+    }
+
     let setData = {
       firstName: userData.firstName,
       lastName: userData.lastName,
       userName: userData.userName,
-      password: userData.password,
       email: userData.email,
       mobile: userData.mobile,
       roleValue: userData.roleValue,
@@ -72,7 +92,7 @@ async function createUserHandler(req, res) {
         return res.json({
           status: true,
           error: false,
-          message: "User Updated!!",
+          message: "User Updated Succesfully!!",
           statusCode: 200,
         });
       } else {
@@ -85,13 +105,26 @@ async function createUserHandler(req, res) {
         });
       }
     } else {
+      // send password to mobile
+      const randomPassword = await generatePassword();
+      userData.password = randomPassword;
+      SendEmail(
+        userData.email,
+        "White Glove New User Details",
+        "Hello, " +
+          userData.firstName +
+          " This is your Login Password => " +
+          userData.password +
+          " Please use this Password to Login."
+      );
+
       const addData = await UserDB.create(userData);
 
       if (addData) {
         return res.json({
           status: true,
           error: false,
-          message: "User Added!!!",
+          message: "User Created Succesfully and Password Send to EMail !!!",
           statusCode: 200,
         });
       } else {
