@@ -2,9 +2,9 @@ import React, { useEffect, useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
-import TransportContext from "../../context";
+import TransportContext from "../../../context";
 import { useRouter } from "next/router";
-import { collectBasicInfo } from "../../services/customer-api-service";
+import { collectBasicInfo } from "../../../services/customer-api-service";
 
 const houseTypeOptions = [
   { value: "1 BHK", label: "1 BHK" },

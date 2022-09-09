@@ -426,3 +426,11 @@ a {
   padding: 30px 50px;
   text-align: center;
 }
+.orderHeader {
+  background-color: #d9a75c;
+}
+.orderFooter {
+  background-color: #d9a75c;
+  color: #011529;
+  font-size: 18px;
+}

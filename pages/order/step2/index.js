@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import data1 from "../../data/bikeList.json";
+import data1 from "../../../data/bikeList.json";
 import Select from "react-select";
-import TransportContext from "../../context";
+import TransportContext from "../../../context";
 import { useRouter } from "next/router";
-import { liftAvailability } from "../../services/customer-api-service";
+import { liftAvailability } from "../../../services/customer-api-service";
 
 const data = data1;
 //debugger;
