@@ -34,7 +34,7 @@ const Otp = () => {
     let result = await submitOTP(tpin);
     console.log("result is", result);
     if (result.data.status) {
-      router.push("/step1");
+      router.push("/order/step1");
       setCustomerDetails(result.data.customerData);
     }
   };
