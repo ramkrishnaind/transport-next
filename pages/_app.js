@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import NormalLayout from "../components/UI/NormalLayout";
 import AdminLayout from "../components/UI/AdminLayout";
+import OrderLayout from "../components/UI/OrderLayout";
 import "antd/dist/antd.css";
 import "../public/overRide.css";
 import Script from "next/script";
@@ -58,6 +59,13 @@ function MyApp({ Component, pageProps }) {
         <AdminLayout>
           <Component {...pageProps} />
         </AdminLayout>
+      );
+      break;
+    case router?.asPath.startsWith("/order"):
+      component = (
+        <OrderLayout>
+          <Component {...pageProps} />
+        </OrderLayout>
       );
       break;
     default:
