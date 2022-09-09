@@ -111,6 +111,20 @@ const BookingList = () => {
             subTitle="manage booking here"
             currentPage="Booking Management"
         />
+
+        <div className="flex flex-row">
+            <div className="basis-11/12 ml-1 mt-4 tableTitle">All Booking</div>
+            <div className="basis-1/12 mb-2">
+            <Button className="adminprimary"
+                size="large"
+                icon={<UserAddOutlined />}
+                // to create booking add on the function
+                // onClick={() => router.push("users/adduser")} 
+            >
+                Create Booking
+            </Button>
+            </div>
+        </div>
       <Table
         columns={columns}
         dataSource={data}
