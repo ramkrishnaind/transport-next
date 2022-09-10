@@ -55,7 +55,7 @@ const Step1 = () => {
       };
       context.setStep1State(formData);
       console.log(formData);
-      router.push("/step2");
+      router.push("/order/step2");
     }
     console.log("step 1 result is", result);
   };
@@ -70,7 +70,10 @@ const Step1 = () => {
   };
   const disabled = !houseType || !fromState || !toState;
   return (
-    <form className="max-w-screen-xl m-auto py-10 mt-10 px-5 border" onSubmit={handleSubmit}>
+    <form
+      className="max-w-screen-xl m-auto py-10 mt-10 px-5 border"
+      onSubmit={handleSubmit}
+    >
       <div className="flex items-top  mb-5 justify-center">
         <label
           htmlFor="name"

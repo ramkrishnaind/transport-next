@@ -22,7 +22,7 @@ const Step9 = () => {
         {washingmachine.map((element, index) => (
           <Card
             key={index}
-            image={"images/washing-machine-24.png"}
+            image={"/images/washing-machine-24.png"}
             item={element}
             itemCount={1}
           />

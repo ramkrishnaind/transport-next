@@ -1,40 +1,22 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const registerCustomer = async (params) => {
-    return axios.post(
-        '/api/customer',
-        params
-    )
-}
+  return axios.post("/api/customer", params);
+};
 export const verifyOtp = async (params) => {
-    return axios.post(
-        '/api/customer/verifyOtp',
-        params
-    )
-}
+  return axios.post("/api/customer/verifyOtp", params);
+};
 export const collectBasicInfo = async (params) => {
-    return axios.post(
-        '/api/customer/collectBasicInfo',
-        params
-    )
-}
+  return axios.post("/api/customer/collectBasicInfo", params);
+};
 export const liftAvailability = async (params) => {
-    return axios.put(
-        'api/customer/liftAvailability',
-        params
-    )
-}
+  return axios.put("/api/customer/liftAvailability", params);
+};
 
 export const bookingItem = async (params) => {
-    return axios.put(
-        'api/customer/bookingItem',
-        params
-    )
-}
+  return axios.put("/api/customer/bookingItem", params);
+};
 
 export const misItem = async (params) => {
-    return axios.put(
-        'api/customer/misItem',
-        params
-    )
-}
+  return axios.put("/api/customer/misItem", params);
+};

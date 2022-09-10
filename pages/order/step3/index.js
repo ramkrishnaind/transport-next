@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
-import Card from "../Card";
-import bikeList from "../../data/bikeList.json";
-import itemList from "../../data/itemList.json";
+import Card from "../../Card";
+import bikeList from "../../../data/bikeList.json";
+import itemList from "../../../data/itemList.json";
 // import { useRouter } from "next/router";
-import TransportContext from "../../context";
-import { bookingItem } from "../../services/customer-api-service";
+import TransportContext from "../../../context";
+import { bookingItem } from "../../../services/customer-api-service";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faSearch,
@@ -17,9 +17,9 @@ import { bookingItem } from "../../services/customer-api-service";
 const Step3 = () => {
   const router = useRouter();
   const ctx = useContext(TransportContext);
-  const { booking} = ctx;
-  const { step1State} = ctx;
-  const { step2State} = ctx;
+  const { booking } = ctx;
+  const { step1State } = ctx;
+  const { step2State } = ctx;
   const { step3State, setStep3State } = ctx;
   console.log("context.booking -- ", booking);
   console.log("context.step1State -- ", step1State);
@@ -30,9 +30,9 @@ const Step3 = () => {
   let uniqueCategories = [],
     items = {};
   const Vehicles = [
-    { title: "Bikes", image: "images/bike-24.png" },
-    { title: "Cars", image: "images/car.png" },
-    { title: "Cycles", image: "images/cycle-24.png" },
+    { title: "Bikes", image: "/images/bike-24.png" },
+    { title: "Cars", image: "/images/car.png" },
+    { title: "Cycles", image: "/images/cycle-24.png" },
   ];
   categories.forEach((c) => {
     if (c && !uniqueCategories.includes(c) && c !== "Cycles") {
@@ -46,7 +46,7 @@ const Step3 = () => {
     const keyExist = item?.Category && keys.includes(item?.Category);
     if (!keyExist && item?.Category) {
       items[item?.Category] = [
-        { title: item["Item"], image: `images/${item.Image}` },
+        { title: item["Item"], image: `/images/${item.Image}` },
       ];
     } else if (item?.Category) {
       const itemIndex = items[item?.Category].findIndex(
@@ -56,7 +56,7 @@ const Step3 = () => {
       if (itemIndex === -1) {
         items[item?.Category].push({
           title: item["Item"],
-          image: `images/${item.Image}`,
+          image: `/images/${item.Image}`,
         });
       }
     }
@@ -65,7 +65,7 @@ const Step3 = () => {
     ...items,
     Vehicle: Vehicles,
   });
-  
+
   useEffect(() => {
     setObjectState((prev) => {
       const newState = { ...prev };
@@ -79,7 +79,7 @@ const Step3 = () => {
       return newState;
     });
   }, []);
-  
+
   useEffect(() => {
     if (!step3State) return;
     setObjectState((prev) => {
@@ -95,7 +95,7 @@ const Step3 = () => {
       return newState;
     });
   }, [step3State]);
-  
+
   const clickHandler = (key, item) => {
     const newState = { ...objectState };
     const newArray = [];
@@ -134,38 +134,37 @@ const Step3 = () => {
     let result = await callApi();
     if (result.data.status) {
       console.log("Booking result is", result);
-    //  setBooking(result.data);
+      //  setBooking(result.data);
     }
-      //--------------------------
+    //--------------------------
     ctx.setStep3State(objectState);
     console.log("objectState", objectState);
-    router.push("/step4");
+    router.push("/order/step4");
   };
-  const handleSkip = () =>{
-    router.push("/step5");
+  const handleSkip = () => {
+    router.push("/order/step5");
   };
 
   const callApi = async () => {
     return await bookingItem({
       bookingId: step2State?.bookingId,
-      sofaSets:objectState.sofaSets,
-      tables:objectState.tables,
-      chairs:objectState.chairs,
-      cots:objectState.cots,
-      mattress:objectState.mattress,
-      cupBoards:objectState.cupBoards,
-      tvs:objectState.tvs,
-      refrigerators:objectState.refrigerators,
-      washingMachines:objectState.washingMachines,
-      ovens:objectState.ovens,
-      airConditioners:objectState.airConditioners,
-      fansCoolers:objectState.fansCoolers,
-      bikes:objectState.bikes,
-      cars:objectState.cars,
-      cycles:objectState.cycles
+      sofaSets: objectState.sofaSets,
+      tables: objectState.tables,
+      chairs: objectState.chairs,
+      cots: objectState.cots,
+      mattress: objectState.mattress,
+      cupBoards: objectState.cupBoards,
+      tvs: objectState.tvs,
+      refrigerators: objectState.refrigerators,
+      washingMachines: objectState.washingMachines,
+      ovens: objectState.ovens,
+      airConditioners: objectState.airConditioners,
+      fansCoolers: objectState.fansCoolers,
+      bikes: objectState.bikes,
+      cars: objectState.cars,
+      cycles: objectState.cycles,
     });
   };
-
 
   return (
     <div>

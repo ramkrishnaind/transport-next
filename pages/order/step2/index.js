@@ -32,7 +32,7 @@ const Step2 = () => {
   const router = useRouter();
   const context = useContext(TransportContext);
   const { booking, setBooking } = context;
-  const { step1State, setStep1State} = context;
+  const { step1State, setStep1State } = context;
   const [fromFloorType, setFromFloorType] = useState(null);
   const [toFloorType, setToFloorType] = useState(null);
   const [fromLift, setFromLift] = useState(null);
@@ -60,7 +60,7 @@ const Step2 = () => {
       };
       context.setStep2State(formData);
       console.log(formData);
-      router.push("/step3");
+      router.push("/order/step3");
     }
     console.log("step 2 result is", result);
   };

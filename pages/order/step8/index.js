@@ -26,7 +26,7 @@ const Step8 = () => {
         {refrigerators.map((element, index) => (
           <Card
             key={index}
-            image={"images/refrigerator-24.png"}
+            image={"/images/refrigerator-24.png"}
             item={element}
             itemCount={1}
           />

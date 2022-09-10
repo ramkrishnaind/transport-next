@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import ItemCard from "../ItemCard";
-import TransportContext from "../../context";
-import Card from "../Card";
+import ItemCard from "../../ItemCard";
+import TransportContext from "../../../context";
+import Card from "../../Card";
 // import objectState from "../../data/objectState.json";
-import itemList from "../../data/itemList.json";
-import bikeList from "../../data/bikeList.json";
+import itemList from "../../../data/itemList.json";
+import bikeList from "../../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -573,7 +573,7 @@ const Step4 = (props) => {
       items.filter((i) => i.key == currentHeader?.[0]?.key) || [];
     return (
       <div
-        className="border flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-start justify-start flex-wrap px-2 overflow-auto py-32"
         title={currentHeader?.[0]?.key}
         style={{ minHeight: "77.5vh" }}
       >
@@ -581,7 +581,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md relative"
+              className="px-2 cursor-pointer flex items-center mb-24 rounded shadow-md relative"
               title={item?.key}
               style={{
                 backgroundColor: item?.completed
@@ -605,7 +605,7 @@ const Step4 = (props) => {
                     editHandler(item.category, index);
                   }}
                 >
-                  <img src={`images/edit.png`} alt="" />
+                  <img src={`/images/edit.png`} alt="" />
                 </div>
               )}
 
@@ -641,7 +641,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -653,7 +653,7 @@ const Step4 = (props) => {
               }
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <img src={`/images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -748,7 +748,7 @@ const Step4 = (props) => {
     }
     return (
       <div
-        className="border flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
         title={contentText}
         style={{ minHeight: "77.5vh" }}
       >
@@ -756,7 +756,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -775,7 +775,7 @@ const Step4 = (props) => {
               }}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <img src={`/images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -811,7 +811,7 @@ const Step4 = (props) => {
 
     return (
       <div
-        className="border flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
         title={contentText}
         style={{ minHeight: "77.5vh" }}
       >
@@ -819,7 +819,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -831,7 +831,7 @@ const Step4 = (props) => {
               }
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <img src={`/images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -872,7 +872,7 @@ const Step4 = (props) => {
 
     return (
       <div
-        className="border flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
         title={contentText}
         style={{ minHeight: "77.5vh" }}
       >
@@ -880,7 +880,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -890,7 +890,7 @@ const Step4 = (props) => {
               onClick={(e) => handleFifthLevelClick(e, index, parentItem, item)}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <img src={`/images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -899,9 +899,9 @@ const Step4 = (props) => {
       </div>
     );
   };
-  
-  const handleSubmit = () =>{
-    router.push("/step6");
+
+  const handleSubmit = () => {
+    router.push("/order/step5");
   };
 
   return (

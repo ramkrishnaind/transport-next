@@ -2,6 +2,8 @@ import { createContext, useState } from "react";
 
 //Please add more properties as needed
 const initContext = {
+  OTP: null,
+  setOTP: () => {},
   isAuth: Boolean,
   setIsAuth: () => {},
   booking: {},
@@ -26,6 +28,7 @@ const TransportContext = createContext(initContext);
 
 export const AppProvider = ({ children }) => {
   const [userState, setUserState] = useState();
+  const [OTP, setOTP] = useState();
   const [step1State, setStep1State] = useState();
   const [step2State, setStep2State] = useState();
   const [step3State, setStep3State] = useState();
@@ -37,6 +40,8 @@ export const AppProvider = ({ children }) => {
   return (
     <TransportContext.Provider
       value={{
+        OTP,
+        setOTP,
         isAuth,
         setIsAuth,
         customerDetails,

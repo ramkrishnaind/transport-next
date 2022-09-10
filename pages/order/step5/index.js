@@ -1,17 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
-import Card from "../Card";
-import itemList from "../../data/otherItemList.json";
-import TransportContext from "../../context";
+import Card from "../../Card";
+import itemList from "../../../data/otherItemList.json";
+import TransportContext from "../../../context";
 import { useRouter } from "next/router";
-import { misItem } from "../../services/customer-api-service";
+import { misItem } from "../../../services/customer-api-service";
 
 const Step5 = () => {
   const ctx = useContext(TransportContext);
   const router = useRouter();
-  const {customerDetails} = ctx;
-  const { booking} = ctx;
-  const { step1State} = ctx;
-  const { step2State} = ctx;
+  const { customerDetails } = ctx;
+  const { booking } = ctx;
+  const { step1State } = ctx;
+  const { step2State } = ctx;
   const { step3State, setStep3State } = ctx;
   console.log("customerDetails -- ", customerDetails);
   console.log("context.booking -- ", booking);
@@ -34,7 +34,7 @@ const Step5 = () => {
     const keyExist = item?.Category && keys.includes(item?.Category);
     if (!keyExist && item?.Category) {
       items[item?.Category] = [
-        { title: item["Item"], image: `images/${item.Image}` },
+        { title: item["Item"], image: `/images/${item.Image}` },
       ];
     } else if (item?.Category) {
       const itemIndex = items[item?.Category].findIndex(
@@ -44,7 +44,7 @@ const Step5 = () => {
       if (itemIndex === -1) {
         items[item?.Category].push({
           title: item["Item"],
-          image: `images/${item.Image}`,
+          image: `/images/${item.Image}`,
         });
       }
     }
@@ -104,12 +104,12 @@ const Step5 = () => {
     let result = await callApi();
     if (result.data.status) {
       console.log("Booking result is", result);
-    //  setBooking(result.data);
+      //  setBooking(result.data);
     }
     ctx.setStep5State(objectState);
     console.log("objectState", objectState);
     console.log("objectState - 5", ctx.step5State);
-    router.push("/step6");
+    router.push("/order/step6");
   };
 
   const callApi = async () => {
@@ -145,7 +145,6 @@ const Step5 = () => {
       beanbags: objectState.beanbags,
     });
   };
-
 
   return (
     <div>

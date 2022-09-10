@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import Card from "../Card";
-import TransportContext from "../../context";
+import Card from "../../Card";
+import TransportContext from "../../../context";
 import { useRouter } from "next/router";
 
 const Step7 = () => {
@@ -85,7 +85,6 @@ const Step7 = () => {
     setMobileNo(customerDetails["mobile"]);
   }, [step1State, step2State, customerDetails]);
 
-
   const getCopiedObject = useCallback((objFound) => {
     //
     const objValues = [];
@@ -134,7 +133,6 @@ const Step7 = () => {
     if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
     setState(arr);
   }, [step3State, getCopiedObject]);
- 
 
   // state.forEach((s) => {
   //   console.log("state = " + s.title);
@@ -151,12 +149,12 @@ const Step7 = () => {
 
   const handleNewOrder = async (event) => {
     event.preventDefault();
-    router.push("/step1");
+    router.push("/order/step1");
   };
 
   const handleEditInventory = async (event) => {
     event.preventDefault();
-    router.push("/step3");
+    router.push("/order/step3");
   };
 
   return (

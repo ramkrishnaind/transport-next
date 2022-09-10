@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import Card from "../Card";
+import Card from "../../Card";
 import Image from "next/image";
-import TransportContext from "../../context";
+import TransportContext from "../../../context";
 import { useRouter } from "next/router";
 
 const Step6 = () => {
@@ -149,13 +149,13 @@ const Step6 = () => {
     // ctx.setStep5State(objectState);
     // console.log("objectState - 5", ctx.step5State);
     // alert("Success!");
-    router.push("/step7");
+    router.push("/order/step7");
   };
 
   return (
     <div className="flex flex-col items-center justify-center">
-      {/* <img className="mt-5" src={"images/cup-java-50.png"} alt="" /> */}
-      <img className="mt-5" src={"images/cup-java-50.png"} alt="" />
+      {/* <img className="mt-5" src={"/images/cup-java-50.png"} alt="" /> */}
+      <img className="mt-5" src={"/images/cup-java-50.png"} alt="" />
       <p className="mt-10 mb-3 text-gray-800 font-medium text-lg text-center">
         Thank you {name}!
       </p>
