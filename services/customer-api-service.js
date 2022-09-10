@@ -24,3 +24,17 @@ export const liftAvailability = async (params) => {
         params
     )
 }
+
+export const bookingItem = async (params) => {
+    return axios.put(
+        'api/customer/bookingItem',
+        params
+    )
+}
+
+export const misItem = async (params) => {
+    return axios.put(
+        'api/customer/misItem',
+        params
+    )
+}

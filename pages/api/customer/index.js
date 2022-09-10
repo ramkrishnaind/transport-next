@@ -40,6 +40,7 @@ async function createCustomer(req, res) {
       if (!findData.active) {
         return res.json({ status: false, error: true, message: "Your account has been disabled. Please contact admin", adminDisable: true, statusCode: 401 });
       }
+      await CustomerDB.updateOne({ mobile: customerData.mobile }, { $set: {otp:customerData.otp}});
       SendEmail(customerData.email, 'Customer Login OTP', customerData.otp + " is the TPIN for your White Glove transaction Please use this pin to complete your transaction");
       return res.json({ status: true, error: false, message: "OTP Sent to " + customerData.mobile, OTP: customerData.otp, alreadyAUser: true })
     } else {

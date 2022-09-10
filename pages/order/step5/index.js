@@ -1,8 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "../Card";
 import itemList from "../../data/otherItemList.json";
+import TransportContext from "../../context";
+import { useRouter } from "next/router";
+import { misItem } from "../../services/customer-api-service";
 
 const Step5 = () => {
+  const ctx = useContext(TransportContext);
+  const router = useRouter();
+  const {customerDetails} = ctx;
+  const { booking} = ctx;
+  const { step1State} = ctx;
+  const { step2State} = ctx;
+  const { step3State, setStep3State } = ctx;
+  console.log("customerDetails -- ", customerDetails);
+  console.log("context.booking -- ", booking);
+  console.log("context.step1State -- ", step1State);
+  console.log("context.step2State -- ", step2State);
+  console.log("context.step3State -- ", step3State);
+
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
     items = {};
@@ -64,6 +80,7 @@ const Step5 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
+    ctx.setStep5State(newState);
   };
   const decrementHandler = (key, item) => {
     const newState = { ...objectState };
@@ -79,11 +96,56 @@ const Step5 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
+    ctx.setStep5State(newState);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    alert("Success!");
+    // ----------------------
+    let result = await callApi();
+    if (result.data.status) {
+      console.log("Booking result is", result);
+    //  setBooking(result.data);
+    }
+    ctx.setStep5State(objectState);
+    console.log("objectState", objectState);
+    console.log("objectState - 5", ctx.step5State);
+    router.push("/step6");
   };
+
+  const callApi = async () => {
+    return await misItem({
+      customerId: customerDetails?.customerId,
+      cartonboxes: objectState.cartonboxes,
+      wetgrinders: objectState.wetgrinders,
+      frames: objectState.frames,
+      swings: objectState.swings,
+      waterdrums: objectState.waterdrums,
+      waterpurifiers: objectState.waterpurifiers,
+      cockerysets: objectState.cockerysets,
+      excercisecycles: objectState.excercisecycles,
+      cribes: objectState.cribes,
+      vacumcleaners: objectState.vacumcleaners,
+      hometheatres: objectState.hometheatres,
+      treadmils: objectState.treadmils,
+      lpgcylinders: objectState.lpgcylinders,
+      dishwashers: objectState.dishwashers,
+      showpieces: objectState.showpieces,
+      infantcycles: objectState.infantcycles,
+      Trunks: objectState.Trunks,
+      desktops: objectState.desktops,
+      barcabinets: objectState.barcabinets,
+      flowerpot: objectState.flowerpot,
+      batteries: objectState.batteries,
+      swingmachines: objectState.swingmachines,
+      lamps: objectState.lamps,
+      flowerpotlarge: objectState.flowerpotlarge,
+      kitchenracks: objectState.kitchenracks,
+      stoves: objectState.stoves,
+      temples: objectState.temples,
+      beanbags: objectState.beanbags,
+    });
+  };
+
 
   return (
     <div>
@@ -94,7 +156,8 @@ const Step5 = () => {
       <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
         <button
           className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="submit"
+          type="button"
+          onClick={handleSubmit}
         >
           NEXT
         </button>
