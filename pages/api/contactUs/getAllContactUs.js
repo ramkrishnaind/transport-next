@@ -1,6 +1,6 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
-import MenuDB from "../../../database/Schemas/menu";
+import ContactUsDB from "../../../database/Schemas/contact_us";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 
@@ -8,7 +8,7 @@ const _ = require("lodash");
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-async function createMenuHandler(req, res) {
+async function createContactUsHandler(req, res) {
   await dbConnect();
   try {
     if (req.method != "POST") {
@@ -19,22 +19,14 @@ async function createMenuHandler(req, res) {
       });
     }
 
-    let mypermission = [];
-    let menuData = _.pick(req.body, ["permission"]);
+    // pick data from req.body
+    let findData = await ContactUsDB.find();
 
-    let findData = [];
-    if (menuData.permission) {
-      mypermission = menuData.permission.split(",");
-      findData = await MenuDB.find({ name: { $in: mypermission } });
-    } else {
-      findData = await MenuDB.find();
-    }
-    // console.log("datavalue= ", findData);
     if (findData) {
       return res.json({
         status: true,
         error: false,
-        data: findData,
+        message: findData,
       });
     } else {
       return res.json({
@@ -50,4 +42,4 @@ async function createMenuHandler(req, res) {
     res.json({ error });
   }
 }
-export default withProtect(createMenuHandler);
+export default withProtect(createContactUsHandler);

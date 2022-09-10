@@ -116,7 +116,7 @@ const BookingList = () => {
             <div className="basis-11/12 ml-1 mt-4 tableTitle">All Booking</div>
             <div className="basis-1/12 mb-2">
             <Button className="adminprimary"
-                size="large"
+                size="large"  shape="round"
                 icon={<UserAddOutlined />}
                 // to create booking add on the function
                 // onClick={() => router.push("users/adduser")} 
