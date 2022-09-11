@@ -980,7 +980,7 @@ const Step4 = (props) => {
       bookingId: step2State?.bookingId,
       step4: [...items],
     });
-    // router.push("/order/step5");
+    router.push("/order/step5");
   };
 
   return (
