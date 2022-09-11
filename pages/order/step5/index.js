@@ -101,48 +101,65 @@ const Step5 = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // ----------------------
+    debugger;
+
     let result = await callApi();
     if (result.data.status) {
       console.log("Booking result is", result);
       //  setBooking(result.data);
     }
     ctx.setStep5State(objectState);
+
     console.log("objectState", objectState);
     console.log("objectState - 5", ctx.step5State);
-    router.push("/order/step6");
+    // router.push("/order/step6");
   };
 
   const callApi = async () => {
+    let arr = [];
+    Object.keys(objectState).forEach((key) => {
+      arr = [...arr, ...objectState[key]];
+    });
+
+    const objCreated = {};
+    arr.forEach((item) => {
+      const key = item.title.replace("/", " ");
+      const items = key.split(" ");
+      let newKey = "";
+      items.forEach((i, index) => {
+        if (index === 0) {
+          newKey += i.toLowerCase();
+        } else {
+          newKey += i.substr(0, 1).toUpperCase() + i.substr(1);
+        }
+      });
+      // const newKey = items.join("");
+      debugger;
+      objCreated[newKey] = item;
+    });
+    //   debugger;
+    //   return await bookingItem({
+    //     bookingId: step2State?.bookingId,
+    //     sofaSets: objCreated.sofaSets,
+    //     tables: objCreated.tables,
+    //     chairs: objCreated.chairs,
+    //     cots: objCreated.cots,
+    //     mattress: objCreated.mattress,
+    //     cupBoards: objCreated.cupBoards,
+    //     tvs: objCreated.tvs,
+    //     refrigerators: objCreated.refrigerators,
+    //     washingMachines: objCreated.washingMachines,
+    //     ovens: objCreated.ovens,
+    //     airConditioners: objCreated.airConditioners,
+    //     fansCoolers: objCreated.fansCoolers,
+    //     bikes: objCreated.bikes,
+    //     cars: objCreated.cars,
+    //     cycles: objCreated.cycles,
+    //   });
+
     return await misItem({
       customerId: customerDetails?.customerId,
-      cartonboxes: objectState.cartonboxes,
-      wetgrinders: objectState.wetgrinders,
-      frames: objectState.frames,
-      swings: objectState.swings,
-      waterdrums: objectState.waterdrums,
-      waterpurifiers: objectState.waterpurifiers,
-      cockerysets: objectState.cockerysets,
-      excercisecycles: objectState.excercisecycles,
-      cribes: objectState.cribes,
-      vacumcleaners: objectState.vacumcleaners,
-      hometheatres: objectState.hometheatres,
-      treadmils: objectState.treadmils,
-      lpgcylinders: objectState.lpgcylinders,
-      dishwashers: objectState.dishwashers,
-      showpieces: objectState.showpieces,
-      infantcycles: objectState.infantcycles,
-      Trunks: objectState.Trunks,
-      desktops: objectState.desktops,
-      barcabinets: objectState.barcabinets,
-      flowerpot: objectState.flowerpot,
-      batteries: objectState.batteries,
-      swingmachines: objectState.swingmachines,
-      lamps: objectState.lamps,
-      flowerpotlarge: objectState.flowerpotlarge,
-      kitchenracks: objectState.kitchenracks,
-      stoves: objectState.stoves,
-      temples: objectState.temples,
-      beanbags: objectState.beanbags,
+      ...objCreated,
     });
   };
 
