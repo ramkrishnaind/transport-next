@@ -21,6 +21,8 @@ const initContext = {
   setStep2State: () => {},
   step4State: {},
   setStep4State: () => {},
+  step4Items: [],
+  setStep4Items: () => {},
   step5State: {},
   setStep5State: () => {},
 };
@@ -33,6 +35,7 @@ export const AppProvider = ({ children }) => {
   const [step2State, setStep2State] = useState();
   const [step3State, setStep3State] = useState();
   const [step4State, setStep4State] = useState();
+  const [step4Items, setStep4Items] = useState();
   const [step5State, setStep5State] = useState();
   const [isAuth, setIsAuth] = useState(false);
   const [customerDetails, setCustomerDetails] = useState();
@@ -58,6 +61,8 @@ export const AppProvider = ({ children }) => {
         setStep2State,
         step4State,
         setStep4State,
+        step4Items,
+        setStep4Items,
         step5State,
         setStep5State,
       }}

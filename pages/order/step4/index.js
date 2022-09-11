@@ -7,7 +7,9 @@ import itemList from "../../../data/itemList.json";
 import bikeList from "../../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
 import Image from "next/image";
+import { bookingItem, step4Item } from "../../../services/customer-api-service";
 import { useRouter } from "next/router";
+import { faPersonWalkingDashedLineArrowRight } from "@fortawesome/free-solid-svg-icons";
 let objToAppend = [];
 const bikeTransformed = [];
 bikeList.forEach((bikeItem) => {
@@ -202,7 +204,7 @@ const Step4 = (props) => {
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
   const ctx = useContext(TransportContext);
-  const { step3State } = ctx;
+  const { step3State, step2State } = ctx;
   console.log("ctx.step3State - ", ctx.step3State);
   const getStateData = () => {
     const result = [];
@@ -301,7 +303,10 @@ const Step4 = (props) => {
         }
       }
     });
-    if (newItems && newItems.length > 0) setItems([...newItems]);
+    if (newItems && newItems.length > 0) {
+      ctx.setStep4Items([...newItems]);
+      setItems([...newItems]);
+    }
   };
   useEffect(() => {
     //debugger;
@@ -391,7 +396,10 @@ const Step4 = (props) => {
       return item;
     });
     //debugger;
-    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems(itemsNew);
+    }
     itemsNew.forEach((i) => {
       if (!i.completed && i.key !== element.key) {
         if (i.index == index) {
@@ -400,6 +408,11 @@ const Step4 = (props) => {
       }
     });
   };
+  useEffect(() => {
+    debugger;
+    if (ctx?.step4Items && ctx?.step4Items?.length > 0)
+      setItems([...(ctx.step4Items || [])]);
+  }, ctx.step4Items);
   const handleSecondLevelClick = (event, parentIndex, index, element) => {
     //debugger;
     event.stopPropagation();
@@ -425,7 +438,11 @@ const Step4 = (props) => {
       return item;
     });
     itemsNew[parentIndex].value = itemsSub;
-    if (itemsNew && itemsNew.length > 0) setItems([...itemsNew]);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems([...itemsNew]);
+    }
+
     debugger;
     itemsSub.forEach((i) => {
       if (i.key !== element.key) {
@@ -474,7 +491,11 @@ const Step4 = (props) => {
 
       return i;
     });
-    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems([...itemsNew]);
+    }
+
     itemsSubSub.forEach((i) => {
       if (i.key !== element.key) {
         // if (i.index == index) {
@@ -514,7 +535,11 @@ const Step4 = (props) => {
 
       return i;
     });
-    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems([...itemsNew]);
+    }
+
     itemsSubSubSub.forEach((i) => {
       if (i.key !== element.key) {
         // if (i.index == index) {
@@ -556,7 +581,11 @@ const Step4 = (props) => {
 
       return i;
     });
-    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems([...itemsNew]);
+    }
+
     itemsSubSubSubSub.forEach((i) => {
       if (i.key !== element.key) {
         // if (i.index == index) {
@@ -621,7 +650,7 @@ const Step4 = (props) => {
       (i) =>
         i.index === i.currentIndex &&
         !i.completed &&
-        i.category == currentHeader[0].category
+        i.category == currentHeader[0]?.category
     );
     const contentSelected =
       items.find(
@@ -900,8 +929,58 @@ const Step4 = (props) => {
     );
   };
 
-  const handleSubmit = () => {
-    router.push("/order/step5");
+  const handleSubmit = async () => {
+    // await bookingItem({
+    //   bookingId: step2State?.bookingId,
+    //   sofaSets: objCreated.sofaSets,
+    //   tables: objCreated.tables,
+    //   chairs: objCreated.chairs,
+    //   cots: objCreated.cots,
+    //   mattress: objCreated.mattress,
+    //   cupBoards: objCreated.cupBoards,
+    //   tvs: objCreated.tvs,
+    //   refrigerators: objCreated.refrigerators,
+    //   washingMachines: objCreated.washingMachines,
+    //   ovens: objCreated.ovens,
+    //   airConditioners: objCreated.airConditioners,
+    //   fansCoolers: objCreated.fansCoolers,
+    //   bikes: objCreated.bikes,
+    //   cars: objCreated.cars,
+    //   cycles: objCreated.cycles,
+    // });
+    const objCreated = {};
+    stateData?.forEach((item) => {
+      const key = item?.item.replace("/", " ");
+      const items = key.split(" ");
+      let newKey = "";
+      items.forEach((i, index) => {
+        if (index === 0) {
+          newKey += i.toLowerCase();
+        } else {
+          newKey += i.substr(0, 1).toUpperCase() + i.substr(1);
+        }
+      });
+      // const newKey = items.join("");
+      debugger;
+      if (Object.keys(objCreated).includes(newKey)) {
+        objCreated[newKey] = [...objCreated[newKey], { ...item }];
+      } else {
+        objCreated[newKey] = [{ ...item }];
+      }
+    });
+
+    debugger;
+    console.log("stateData", stateData);
+    console.log("items", items);
+    await bookingItem({
+      bookingId: step2State?.bookingId,
+      ...objCreated,
+    });
+    await step4Item({
+      bookingId: step2State?.bookingId,
+      step4: [...items],
+    });
+    // router.push("/order/step5");
   };
 
   return (

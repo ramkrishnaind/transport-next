@@ -2,28 +2,27 @@
 import dbConnect from "../../../database/lib/dbConnect";
 import BookingDB from "../../../database/Schemas/booking";
 import withProtect from "../../../middlewares/withProtect";
-const _ = require('lodash');
-const Joi = require('joi');
-Joi.objectId = require('joi-objectid')(Joi);
-
+const _ = require("lodash");
+const Joi = require("joi");
+Joi.objectId = require("joi-objectid")(Joi);
 
 const booking_itemSchema = Joi.object({
-    bookingId: Joi.objectId().required(),
-    sofaSets: Joi.array(),
-    tables: Joi.array(),
-    chairs: Joi.array(),
-    cots: Joi.array(),
-    mattress: Joi.array(),
-    cupBoards: Joi.array(),
-    tvs: Joi.array(),
-    refrigerators: Joi.array(),
-    washingMachines: Joi.array(),
-    ovens: Joi.array(),
-    airConditioners: Joi.array(),
-    fansCoolers:Joi.array(),
-    bikes:Joi.array(),
-    cars:Joi.array(),
-    cycles:Joi.array(),
+  bookingId: Joi.objectId().required(),
+  sofaSets: Joi.array().allow(null),
+  tables: Joi.array().allow(null),
+  chairs: Joi.array().allow(null),
+  cots: Joi.array().allow(null),
+  mattress: Joi.array().allow(null),
+  cupBoards: Joi.array().allow(null),
+  tvs: Joi.array().allow(null),
+  refrigerators: Joi.array().allow(null),
+  washingMachines: Joi.array().allow(null),
+  ovens: Joi.array().allow(null),
+  airConditioners: Joi.array().allow(null),
+  fansCoolers: Joi.array().allow(null),
+  bikes: Joi.array().allow(null),
+  cars: Joi.array().allow(null),
+  cycles: Joi.array().allow(null),
 });
 
 /**
@@ -33,62 +32,78 @@ const booking_itemSchema = Joi.object({
 async function booking_item(req, res) {
   await dbConnect();
   try {
-    if (req.method != 'POST') {
-      return res.json({ status: false, error: true, message: "HTTP method not allowed" });
-    }
+    // if (req.method != "POST") {
+    //   return res.json({
+    //     status: false,
+    //     error: true,
+    //     message: "HTTP method not allowed",
+    //   });
+    // }
     let validateData = booking_itemSchema.validate(req.body);
-    if (validateData.error) {
-      return res.json({ status: false, error: validateData, message: "Invalid data" });
-    }
+    // if (validateData.error) {
+    //   return res.json({
+    //     status: false,
+    //     error: validateData,
+    //     message: "Invalid data",
+    //   });
+    // }
 
     // pick data from req.body
-    let booking_itemData = _.pick(req.body, ['bookingId','sofaSets','tables','chairs','cots','mattress','cupBoards','tvs','refrigerators','washingMachines','ovens','airConditioners','fansCoolers','bikes','cars','cycles']);
-    
-  //  var sofaData = [
-  //     {
-  //       capcity:3,
-  //       name:"2+1",
-  //       storage:true,
-  //       mateial:"lather",
-  //       reclyner:true,
-  //       CFT:120
-  //     },
-  //     {
-  //       capcity:3,
-  //       name:"2+1",
-  //       storage:true,
-  //       mateial:"lather",
-  //       reclyner:true,
-  //       CTF:150
-  //     }
-  //   ];
+
+    let booking_itemData = _.pick(req.body, [
+      "bookingId",
+      "sofaSets",
+      "table",
+      "chair",
+      "cots",
+      "mattress",
+      "cupboard",
+      "tvs",
+      "refrigerators",
+      "washingMachines",
+      "ovens",
+      "airConditioners",
+      "fansCooler",
+      "bikes",
+      "cars",
+      "cycles",
+    ]);
+    const { bookingId, ...remaining } = booking_itemData;
+    //  var sofaData = [
+    //     {
+    //       capcity:3,
+    //       name:"2+1",
+    //       storage:true,
+    //       mateial:"lather",
+    //       reclyner:true,
+    //       CFT:120
+    //     },
+    //     {
+    //       capcity:3,
+    //       name:"2+1",
+    //       storage:true,
+    //       mateial:"lather",
+    //       reclyner:true,
+    //       CTF:150
+    //     }
+    //   ];
 
     let setData = {
-        sofaSets:booking_itemData.sofaSets,
-        tables:booking_itemData.tables,
-        chairs:booking_itemData.chairs,
-        cots:booking_itemData.cots,
-        mattress:booking_itemData.mattress,
-        cupBoards:booking_itemData.cupBoards,
-        tvs:booking_itemData.tvs,
-        refrigerators:booking_itemData.refrigerators,
-        washingMachines:booking_itemData.washingMachines,
-        ovens:booking_itemData.ovens,
-        airConditioners:booking_itemData.airConditioners,
-        fansCoolers:booking_itemData.fansCoolers,
-        bikes:booking_itemData.bikes,
-        cars:booking_itemData.cars,
-        cycles:booking_itemData.cycles
-      }
+      ...remaining,
+    };
 
     // update data from req.body
     // console.log("Value updated",sofaData);
-    let booking_item = await BookingDB.findOneAndUpdate({ _id: booking_itemData.bookingId },  { $set: setData });
-    return res.json({ status: true, error: false, message: "Booking updated.", bookingId:  booking_itemData.bookingId });
-
-   } catch (error) {
+    await BookingDB.findOneAndUpdate({ _id: bookingId }, { $set: setData });
+    return res.json({
+      status: true,
+      error: false,
+      message: "Booking updated.",
+      bookingId: booking_itemData.bookingId,
+    });
+  } catch (error) {
     console.log(error);
     return res.json({ status: false, error: true, errorMessage: error });
-   }
+  }
 }
 export default withProtect(booking_item);

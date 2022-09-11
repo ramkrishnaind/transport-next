@@ -14,7 +14,7 @@ import { bookingItem } from "../../../services/customer-api-service";
 // } from "@fortawesome/free-solid-svg-icons";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
 
-const Step3 = () => {
+const Step3 = (props) => {
   const router = useRouter();
   const ctx = useContext(TransportContext);
   const { booking } = ctx;
@@ -61,10 +61,16 @@ const Step3 = () => {
       }
     }
   });
-  const [objectState, setObjectState] = useState({
-    ...items,
-    Vehicle: Vehicles,
-  });
+  // debugger;
+  const [objectState, setObjectState] = useState(
+    step3State || {
+      ...items,
+      Vehicle: Vehicles,
+    }
+  );
+  // if (props.location !== prevProps.location) {
+  //   console.log("ss");
+  // }
 
   useEffect(() => {
     setObjectState((prev) => {
@@ -72,15 +78,15 @@ const Step3 = () => {
       const keys = Object.keys(newState);
       keys.forEach((k) => {
         newState[k] = newState[k]?.map((i) => {
-          i.count = 0;
+          if (i?.count === undefined) i.count = 0;
           return i;
         });
       });
       return newState;
     });
   }, []);
-
   useEffect(() => {
+    debugger;
     if (!step3State) return;
     setObjectState((prev) => {
       const newState = { ...prev };
@@ -94,7 +100,7 @@ const Step3 = () => {
       });
       return newState;
     });
-  }, [step3State]);
+  }, []);
 
   const clickHandler = (key, item) => {
     const newState = { ...objectState };
@@ -110,7 +116,8 @@ const Step3 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
-    ctx.setStep3State(newState);
+    ctx.setStep4Items([]);
+    // ctx.setStep3State(newState);
   };
   const decrementHandler = (key, item) => {
     const newState = { ...objectState };
@@ -126,16 +133,18 @@ const Step3 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
-    ctx.setStep3State(newState);
+    ctx.setStep4Items([]);
+    // ctx.setStep3State(newState);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
     // ----------------------
-    let result = await callApi();
-    if (result.data.status) {
-      console.log("Booking result is", result);
-      //  setBooking(result.data);
-    }
+    // let result = await callApi();
+    // debugger;
+    // if (result.data.status) {
+    //   console.log("Booking result is", result);
+    //   //  setBooking(result.data);
+    // }
     //--------------------------
     ctx.setStep3State(objectState);
     console.log("objectState", objectState);
@@ -145,26 +154,48 @@ const Step3 = () => {
     router.push("/order/step5");
   };
 
-  const callApi = async () => {
-    return await bookingItem({
-      bookingId: step2State?.bookingId,
-      sofaSets: objectState.sofaSets,
-      tables: objectState.tables,
-      chairs: objectState.chairs,
-      cots: objectState.cots,
-      mattress: objectState.mattress,
-      cupBoards: objectState.cupBoards,
-      tvs: objectState.tvs,
-      refrigerators: objectState.refrigerators,
-      washingMachines: objectState.washingMachines,
-      ovens: objectState.ovens,
-      airConditioners: objectState.airConditioners,
-      fansCoolers: objectState.fansCoolers,
-      bikes: objectState.bikes,
-      cars: objectState.cars,
-      cycles: objectState.cycles,
-    });
-  };
+  // const callApi = async () => {
+  //   let arr = objectState?.Furniture ? [...objectState.Furniture] : [];
+  //   arr = objectState?.Electronic
+  //     ? [...arr, ...objectState.Electronic]
+  //     : [...arr];
+  //   arr = objectState?.Vehicle ? [...arr, ...objectState.Vehicle] : [...arr];
+  //   const objCreated = {};
+  //   arr.forEach((item) => {
+  //     const key = item.title.replace("/", " ");
+  //     const items = key.split(" ");
+  //     let newKey = "";
+  //     items.forEach((i, index) => {
+  //       if (index === 0) {
+  //         newKey += i.toLowerCase();
+  //       } else {
+  //         newKey += i.substr(0, 1).toUpperCase() + i.substr(1);
+  //       }
+  //     });
+  //     // const newKey = items.join("");
+  //     debugger;
+  //     objCreated[newKey] = item;
+  //   });
+  //   debugger;
+  //   return await bookingItem({
+  //     bookingId: step2State?.bookingId,
+  //     sofaSets: objCreated.sofaSets,
+  //     tables: objCreated.tables,
+  //     chairs: objCreated.chairs,
+  //     cots: objCreated.cots,
+  //     mattress: objCreated.mattress,
+  //     cupBoards: objCreated.cupBoards,
+  //     tvs: objCreated.tvs,
+  //     refrigerators: objCreated.refrigerators,
+  //     washingMachines: objCreated.washingMachines,
+  //     ovens: objCreated.ovens,
+  //     airConditioners: objCreated.airConditioners,
+  //     fansCoolers: objCreated.fansCoolers,
+  //     bikes: objCreated.bikes,
+  //     cars: objCreated.cars,
+  //     cycles: objCreated.cycles,
+  //   });
+  // };
 
   return (
     <div>

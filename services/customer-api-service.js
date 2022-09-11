@@ -16,7 +16,9 @@ export const liftAvailability = async (params) => {
 export const bookingItem = async (params) => {
   return axios.put("/api/customer/bookingItem", params);
 };
-
+export const step4Item = async (params) => {
+  return axios.put("/api/customer/step4", params);
+};
 export const misItem = async (params) => {
   return axios.put("/api/customer/misItem", params);
 };

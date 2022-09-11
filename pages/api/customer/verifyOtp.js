@@ -42,7 +42,7 @@ async function verifyOtp(req, res) {
       $or: [{ mobile: customerData.mobile }, { email: customerData.email }],
       //   mobile: customerData.mobile,
     }).lean();
-    debugger;
+    // debugger;
     console.log("findData is", findData);
     if (findData) {
       if (findData.otp == customerData.otp) {

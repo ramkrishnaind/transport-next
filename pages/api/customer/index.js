@@ -58,7 +58,9 @@ async function createCustomer(req, res) {
         });
       }
       await CustomerDB.updateOne(
-        { email: customerData.email },
+        {
+          $or: [{ mobile: customerData.mobile }, { email: customerData.email }],
+        },
         { $set: { otp: customerData.otp } }
       );
       SendEmail(
