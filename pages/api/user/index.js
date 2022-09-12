@@ -1,14 +1,14 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
 import UserDB from "../../../database/Schemas/user";
-import UserRoleDB from "../../../database/Schemas/userrole";
+import UserRoleDB from "../../../database/Schemas/userRole";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
 
 const userSignUpSchema = Joi.object({
   username: Joi.string().trim().required(),
-  password: Joi.string().trim().required()
+  password: Joi.string().trim().required(),
 });
 
 /**
@@ -53,17 +53,18 @@ async function createUserHandler(req, res) {
           statusCode: 401,
         });
       }
-     // console.log(findData);
-      let findroleData = await UserRoleDB.findOne({roleValue:findData.roleValue});
+      // console.log(findData);
+      let findroleData = await UserRoleDB.findOne({
+        roleValue: findData.roleValue,
+      });
       return res.json({
         status: true,
         error: false,
         logindata: findData,
-        roledata:findroleData,
+        roledata: findroleData,
         login: true,
       });
     } else {
-      
       return res.json({
         status: false,
         error: true,
