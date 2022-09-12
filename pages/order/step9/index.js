@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../Card";
+import Card from "../../Card";
 
 const Step9 = () => {
   const washingmachine = ["Washing Machine"];
