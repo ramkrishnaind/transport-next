@@ -12,13 +12,15 @@ const Step5 = () => {
   const { booking } = ctx;
   const { step1State } = ctx;
   const { step2State } = ctx;
-  const { step3State, setStep3State } = ctx;
+  const { step3State } = ctx;
+  const { step4State } = ctx;
   console.log("customerDetails -- ", customerDetails);
   console.log("context.booking -- ", booking);
   console.log("context.step1State -- ", step1State);
   console.log("context.step2State -- ", step2State);
   console.log("context.step3State -- ", step3State);
-
+  console.log("context.step4State -- ", step4State);
+  const bookingId = step2State["bookingId"];
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
     items = {};
@@ -112,7 +114,7 @@ const Step5 = () => {
 
     console.log("objectState", objectState);
     console.log("objectState - 5", ctx.step5State);
-    // router.push("/order/step6");
+    router.push("/order/step6");
   };
 
   const callApi = async () => {
@@ -123,14 +125,16 @@ const Step5 = () => {
 
     const objCreated = {};
     arr.forEach((item) => {
-      const key = item.title.replace("/", " ");
+      //const key = item.title.replace("/", " ");
+      debugger;
+      const key = item.title.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
       const items = key.split(" ");
       let newKey = "";
       items.forEach((i, index) => {
         if (index === 0) {
           newKey += i.toLowerCase();
         } else {
-          newKey += i.substr(0, 1).toUpperCase() + i.substr(1);
+          newKey += i.toLowerCase();
         }
       });
       // const newKey = items.join("");
@@ -158,6 +162,7 @@ const Step5 = () => {
     //   });
 
     return await misItem({
+      bookingId: bookingId,
       customerId: customerDetails?.customerId,
       ...objCreated,
     });

@@ -61,7 +61,7 @@ const utilityItemSchema = new Schema(
     infantcycles: {
       type: Array,
     },
-    Trunks: {
+    trunks: {
       type: Array,
     },
     desktops: {
@@ -70,7 +70,7 @@ const utilityItemSchema = new Schema(
     barcabinets: {
       type: Array,
     },
-    flowerpot: {
+    flowerpotsmall: {
       type: Array,
     },
     batteries: {
