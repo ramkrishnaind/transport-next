@@ -14,12 +14,14 @@ const Step5 = () => {
   const { step2State } = ctx;
   const { step3State } = ctx;
   const { step4State } = ctx;
+  const { step5State } = ctx;
   console.log("customerDetails -- ", customerDetails);
   console.log("context.booking -- ", booking);
   console.log("context.step1State -- ", step1State);
   console.log("context.step2State -- ", step2State);
   console.log("context.step3State -- ", step3State);
   console.log("context.step4State -- ", step4State);
+  console.log("context.step5State -- ", step5State);
   const bookingId = step2State["bookingId"];
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
@@ -51,9 +53,13 @@ const Step5 = () => {
       }
     }
   });
-  const [objectState, setObjectState] = useState({
-    ...items,
-  });
+  
+  const [objectState, setObjectState] = useState(
+    step5State || {
+      ...items
+    }
+  );
+  
   useEffect(() => {
     setObjectState((prev) => {
       const newState = { ...prev };
@@ -67,6 +73,25 @@ const Step5 = () => {
       return newState;
     });
   }, []);
+
+  useEffect(() => {
+   
+    if (!step5State) return;
+    debugger;
+    setObjectState((prev) => {
+      const newState = { ...prev };
+      const keys = Object.keys(step5State);
+      keys.forEach((k) => {
+        newState[k] = newState[k]?.map((i) => {
+          console.log(" title - ", i.title);
+          console.log(" title - ", i.count);
+          return i;
+        });
+      });
+      return newState;
+    });
+  }, []);
+
   console.log("objectState", objectState);
   const clickHandler = (key, item) => {
     const newState = { ...objectState };
@@ -82,7 +107,7 @@ const Step5 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
-    ctx.setStep5State(newState);
+   // ctx.setStep5State(newState);
   };
   const decrementHandler = (key, item) => {
     const newState = { ...objectState };
@@ -98,22 +123,21 @@ const Step5 = () => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
-    ctx.setStep5State(newState);
+    //ctx.setStep5State(newState);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
     // ----------------------
-    debugger;
+    //debugger;
 
     let result = await callApi();
     if (result.data.status) {
       console.log("Booking result is", result);
       //  setBooking(result.data);
     }
-    ctx.setStep5State(objectState);
-
     console.log("objectState", objectState);
-    console.log("objectState - 5", ctx.step5State);
+    ctx.setStep5State(objectState);
+    console.log("step5State - 5", ctx.step5State);
     router.push("/order/step6");
   };
 
@@ -126,7 +150,7 @@ const Step5 = () => {
     const objCreated = {};
     arr.forEach((item) => {
       //const key = item.title.replace("/", " ");
-      debugger;
+     // debugger;
       const key = item.title.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
       const items = key.split(" ");
       let newKey = "";
@@ -138,7 +162,7 @@ const Step5 = () => {
         }
       });
       // const newKey = items.join("");
-      debugger;
+      //debugger;
       objCreated[newKey] = item;
     });
     //   debugger;
