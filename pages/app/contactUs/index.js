@@ -66,7 +66,6 @@ const getAllContactUsList = () => {
   const getData = async () => {
     const value = 1;
     const res = await saveFormData(value);
-    console.log("ashwani", res.data.message);
 
     setdata(
       res.data.message.map((row) => ({
