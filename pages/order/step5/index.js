@@ -22,7 +22,7 @@ const Step5 = () => {
   console.log("context.step3State -- ", step3State);
   console.log("context.step4State -- ", step4State);
   console.log("context.step5State -- ", step5State);
-  const bookingId = step2State["bookingId"];
+  const bookingId = booking?.bookingId;
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
     items = {};
@@ -54,30 +54,29 @@ const Step5 = () => {
     }
   });
   
+  // debugger;
   const [objectState, setObjectState] = useState(
     step5State || {
       ...items
     }
   );
-  
+
   useEffect(() => {
     setObjectState((prev) => {
       const newState = { ...prev };
       const keys = Object.keys(newState);
       keys.forEach((k) => {
         newState[k] = newState[k]?.map((i) => {
-          i.count = 0;
+          if (i?.count === undefined) i.count = 0;
           return i;
         });
       });
       return newState;
     });
   }, []);
-
   useEffect(() => {
-   
+    //debugger;
     if (!step5State) return;
-    debugger;
     setObjectState((prev) => {
       const newState = { ...prev };
       const keys = Object.keys(step5State);
@@ -92,7 +91,7 @@ const Step5 = () => {
     });
   }, []);
 
-  console.log("objectState", objectState);
+  // console.log("objectState", objectState);
   const clickHandler = (key, item) => {
     const newState = { ...objectState };
     const newArray = [];

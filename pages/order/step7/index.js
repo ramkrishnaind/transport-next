@@ -281,7 +281,7 @@ const Step7 = () => {
             </div>
           </div>
         </div>
-        <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg">
+        <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg overflow-y-auto">
           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
             <div className="flex- 1 w-1/2">Order Id</div>
             <div className="flex- 1 w-1/2 ">Date Timeslot</div>
