@@ -5,7 +5,7 @@ import bikeList from "../../../data/bikeList.json";
 import itemList from "../../../data/itemList.json";
 // import { useRouter } from "next/router";
 import TransportContext from "../../../context";
-import { bookingItem } from "../../../services/customer-api-service";
+import { bookingItem, step3Item } from "../../../services/customer-api-service";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faSearch,
@@ -138,6 +138,7 @@ const Step3 = (props) => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
+    await step3Item({ ...objectState });
     // ----------------------
     // let result = await callApi();
     // debugger;

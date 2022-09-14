@@ -3,7 +3,7 @@ import Card from "../../Card";
 import itemList from "../../../data/otherItemList.json";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
-import { misItem } from "../../../services/customer-api-service";
+import { misItem, step5Item } from "../../../services/customer-api-service";
 
 const Step5 = () => {
   const ctx = useContext(TransportContext);
@@ -102,7 +102,10 @@ const Step5 = () => {
     event.preventDefault();
     // ----------------------
     debugger;
-
+    await step5Item({
+      customerId: customerDetails?.customerId,
+      step5: { ...objectState },
+    });
     let result = await callApi();
     if (result.data.status) {
       console.log("Booking result is", result);

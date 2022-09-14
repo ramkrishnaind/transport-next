@@ -89,7 +89,13 @@ const bookingSchema = new Schema(
     cycles: {
       type: Array,
     },
+    step3: {
+      type: Array,
+    },
     step4: {
+      type: Array,
+    },
+    step5: {
       type: Array,
     },
   },
