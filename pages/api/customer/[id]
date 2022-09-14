@@ -1,0 +1,9 @@
+async function booking_item(req, res) {
+  await dbConnect();
+  try {
+    if (req.method === "GET") {
+      const data = await BookingDB.findById(req.query.id);
+      res.json({ status: true, error: false, data });
+    }
+  } catch {}
+}

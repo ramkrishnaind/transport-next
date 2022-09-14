@@ -96,8 +96,6 @@ async function booking_item(req, res) {
         bookingId: booking_itemData.bookingId,
       });
     } else {
-      const data = await BookingDB.findById(req.params.id);
-      res.json({ status: true, error: false, data });
     }
   } catch (error) {
     console.log(error);
