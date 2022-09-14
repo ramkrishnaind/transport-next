@@ -128,7 +128,11 @@ const Step5 = () => {
     event.preventDefault();
     // ----------------------
     //debugger;
-    await step5Item({ ...objectState });
+    await step5Item({
+      bookingId: step2State?.bookingId,
+      step5: ({ ...objectState })
+    });
+   // await step5Item({ ...objectState });
     let result = await callApi();
     if (result.data.status) {
       console.log("Booking result is", result);

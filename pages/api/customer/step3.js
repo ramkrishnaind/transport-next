@@ -6,7 +6,7 @@ const _ = require("lodash");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 
-const step5_itemSchema = Joi.object({
+const step3_itemSchema = Joi.object({
   bookingId: Joi.objectId().required(),
   step3: Joi.array().required(),
 });
@@ -18,21 +18,21 @@ async function step3_item(req, res) {
   await dbConnect();
   try {
     let validateData = step3_itemSchema.validate(req.body);
-    if (validateData.error) {
-      return res.json({
-        status: false,
-        error: validateData,
-        message: "Invalid data",
-      });
-    }
-
+    // if (validateData.error) {
+    //   return res.json({
+    //     status: false,
+    //     error: validateData,
+    //     message: "Invalid data",
+    //   });
+    // }
+    
     // pick data from req.body
     let step3_itemData = _.pick(req.body, ["step3", "bookingId"]);
 
     let setData = {
       step3: step3_itemData.step3,
     };
-
+    
     // update data from req.body
     // console.log("Value updated",sofaData);
     await BookingDB.findOneAndUpdate(

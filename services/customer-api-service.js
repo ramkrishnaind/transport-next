@@ -17,7 +17,7 @@ export const bookingItem = async (params) => {
   return axios.put("/api/customer/bookingItem", params);
 };
 export const getBookingItem = async (id) => {
-  return axios.get(`/api/customer/bookingItem/${id}`, params);
+  return axios.get(`/api/customer/bookingItem/${id}`);
 };
 export const step3Item = async (params) => {
   return axios.put("/api/customer/step3", params);

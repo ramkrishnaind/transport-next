@@ -18,13 +18,13 @@ async function step5_item(req, res) {
   await dbConnect();
   try {
     let validateData = step5_itemSchema.validate(req.body);
-    if (validateData.error) {
-      return res.json({
-        status: false,
-        error: validateData,
-        message: "Invalid data",
-      });
-    }
+    // if (validateData.error) {
+    //   return res.json({
+    //     status: false,
+    //     error: validateData,
+    //     message: "Invalid data",
+    //   });
+    // }
 
     // pick data from req.body
     let step5_itemData = _.pick(req.body, ["step5", "bookingId"]);

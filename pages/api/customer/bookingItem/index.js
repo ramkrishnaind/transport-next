@@ -1,7 +1,7 @@
 // import connectMongo from "../../../database/connection";
-import dbConnect from "../../../database/lib/dbConnect";
-import BookingDB from "../../../database/Schemas/booking";
-import withProtect from "../../../middlewares/withProtect";
+import dbConnect from "../../../../database/lib/dbConnect";
+import BookingDB from "../../../../database/Schemas/booking";
+import withProtect from "../../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
