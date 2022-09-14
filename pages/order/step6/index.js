@@ -24,12 +24,17 @@ const Step6 = () => {
   const { step1State } = context;
   const { step2State } = context;
   const { step3State } = context;
+  const { step5State } = context;
+  const { step6State, setStep6State } = context;
+
   console.log("context.step1State", step1State);
   console.log("context.step2State", step2State);
   console.log("context.step3State", step3State);
+  console.log("context.step5State", step5State);
   const { customerDetails } = context;
   const [customerData, setCustomerData] = useState({});
   const [state, setState] = useState([]);
+  const [state5, setState5] = useState([]);
   const [items, setItems] = useState([]);
   const [liftAvailability, setLiftAvailability] = useState("");
   let objToAppend = [];
@@ -132,6 +137,42 @@ const Step6 = () => {
     setState(arr);
   }, [step3State, getCopiedObject]);
 
+  useEffect(() => {
+    //debugger;
+    if (!step5State) return;
+    const keys = Object.keys(step5State);
+    const arr = [];
+    const arrayItems = [];
+    keys.forEach((k) => {
+      step5State[k].forEach((i) => {
+        i.category = k;
+        if (i.count < 1) return;
+        arr.push(i);
+        const arryStateCount = [...Array(i.count).keys()];
+        arryStateCount.forEach((it) => {
+          let objFound = objToAppend.find((itemToFind) => {
+            // if (itemToFind.key === "TVS") {
+            //
+            // }
+            return itemToFind.key === i.title;
+          });
+          objFound = getCopiedObject(objFound);
+          //
+          if (objFound) {
+            arrayItems.push({
+              ...objFound,
+              index: it,
+              currentIndex: -1,
+              completed: false,
+            });
+          }
+        });
+      });
+    });
+    if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
+    setState5(arr);
+  }, [step5State, getCopiedObject]);
+
   // state.forEach((s) => {
   //   console.log("state = " + s.title);
   //   console.log("state = " + s.image);
@@ -232,6 +273,19 @@ const Step6 = () => {
         <form className="max-w-xl m-auto py-10 px-5">
           <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
             {state.map((st, index) => {
+              console.log("item", st);
+              return (
+                <Card
+                  image={st.image}
+                  key={index}
+                  item={st.title}
+                  itemCount={st.count}
+                  onDecrement={decrementHandler.bind(null, "", st)}
+                  onClick={clickHandler.bind(null, "", st)}
+                />
+              );
+            })}
+            { state5 && state5.map((st, index) => {
               console.log("item", st);
               return (
                 <Card

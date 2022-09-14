@@ -22,13 +22,16 @@ const Step7 = () => {
   const { step1State } = context;
   const { step2State } = context;
   const { step3State } = context;
+  const { step5State } = context;
   console.log("context.step1State", step1State);
   console.log("context.step2State", step2State);
   console.log("context.step3State", step3State);
+  console.log("context.step5State", step5State);
   const { customerDetails } = context;
   const [customerData, setCustomerData] = useState({});
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
+  const [state5, setState5] = useState([]);
   let objToAppend = [];
   const [dayName, setDayName] = useState("");
   const [day, setDay] = useState("");
@@ -134,6 +137,41 @@ const Step7 = () => {
     setState(arr);
   }, [step3State, getCopiedObject]);
 
+  useEffect(() => {
+    //debugger;
+    if (!step5State) return;
+    const keys = Object.keys(step5State);
+    const arr = [];
+    const arrayItems = [];
+    keys.forEach((k) => {
+      step5State[k].forEach((i) => {
+        i.category = k;
+        if (i.count < 1) return;
+        arr.push(i);
+        const arryStateCount = [...Array(i.count).keys()];
+        arryStateCount.forEach((it) => {
+          let objFound = objToAppend.find((itemToFind) => {
+            // if (itemToFind.key === "TVS") {
+            //
+            // }
+            return itemToFind.key === i.title;
+          });
+          objFound = getCopiedObject(objFound);
+          //
+          if (objFound) {
+            arrayItems.push({
+              ...objFound,
+              index: it,
+              currentIndex: -1,
+              completed: false,
+            });
+          }
+        });
+      });
+    });
+    if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
+    setState5(arr);
+  }, [step5State, getCopiedObject]);
   // state.forEach((s) => {
   //   console.log("state = " + s.title);
   //   console.log("state = " + s.image);
@@ -243,7 +281,7 @@ const Step7 = () => {
             </div>
           </div>
         </div>
-        <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg">
+        <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg overflow-y-auto">
           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
             <div className="flex- 1 w-1/2">Order Id</div>
             <div className="flex- 1 w-1/2 ">Date Timeslot</div>
@@ -298,6 +336,20 @@ const Step7 = () => {
                     />
                   );
                 })}
+                {state5 &&
+                  state5.map((st, index) => {
+                    console.log("item", st);
+                    return (
+                      <Card
+                        image={st.image}
+                        key={index}
+                        item={st.title}
+                        itemCount={st.count}
+                        onDecrement={decrementHandler.bind(null, "", st)}
+                        onClick={clickHandler.bind(null, "", st)}
+                      />
+                    );
+                  })}
               </div>
             </form>
           </div>
