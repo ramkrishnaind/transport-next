@@ -1,6 +1,7 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../../database/lib/dbConnect";
 import BookingDB from "../../../../database/Schemas/booking";
+import CustomerDB from "../../../../database/Schemas/customer";
 import withProtect from "../../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
