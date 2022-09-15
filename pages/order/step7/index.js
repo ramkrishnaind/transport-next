@@ -60,6 +60,9 @@ const Step7 = () => {
             const transformedStep5 = item?.step5
               ? transformStep5Object(item?.step5)
               : null;
+            if (item?.step3) {
+              debugger;
+            }
             arr.push({
               step3: transformedStep3,
               step3State: item?.step3 || {},
