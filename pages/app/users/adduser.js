@@ -119,7 +119,6 @@ const App = () => {
   };
 
   const getData = async (UserId) => {
-
     if (UserId) {
       let res = await saveFormData();
       finalvalue = res.data.data;

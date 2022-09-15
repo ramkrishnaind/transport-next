@@ -1,25 +1,24 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
-import MenuDB from "../../../database/Schemas/menu";
+import ContactUsDB from "../../../database/Schemas/contact_us";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
-Joi.objectId = require("joi-objectid")(Joi);
 
-const menuSignUpSchema = Joi.object({
-  key: Joi.string().trim().required(),
-  icon: Joi.string().trim().required(),
+const ContactUsSchema = Joi.object({
   name: Joi.string().trim().required(),
-  link: Joi.string().trim().required(),
-  rel: Joi.string().trim().required(),
-  active: Joi.boolean(),
+  phone: Joi.string().trim().required(),
+  email: Joi.string().trim().required(),
+  message: Joi.string().trim().required(),
+  actionTaken: Joi.string().trim().required(),
+  contactStatus: Joi.string().trim().required(),
 });
 
 /**
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-async function createMenuHandler(req, res) {
+async function createContact_usHandler(req, res) {
   await dbConnect();
   try {
     if (req.method != "POST") {
@@ -30,7 +29,7 @@ async function createMenuHandler(req, res) {
       });
     }
 
-    let validateData = menuSignUpSchema.validate(req.body);
+    let validateData = ContactUsSchema.validate(req.body);
     if (validateData.error) {
       return res.json({
         status: false,
@@ -40,22 +39,21 @@ async function createMenuHandler(req, res) {
     }
 
     // pick data from req.body
-    let menuData = _.pick(req.body, [
-      "key",
-      "icon",
+    let userData = _.pick(req.body, [
       "name",
-      "link",
-      "rel",
-      "active",
+      "phone",
+      "email",
+      "message",
+      "actionTaken",
+      "contactStatus",
     ]);
 
-    const addData = await MenuDB.create(menuData);
-    console.log(addData);
+    const addData = await ContactUsDB.create(userData);
     if (addData) {
       return res.json({
         status: true,
         error: false,
-        message: "Menu Added!!!",
+        message: "Contact Us Added!!!",
         statusCode: 200,
       });
     } else {
@@ -72,4 +70,4 @@ async function createMenuHandler(req, res) {
     res.json({ error });
   }
 }
-export default withProtect(createMenuHandler);
+export default withProtect(createContact_usHandler);
