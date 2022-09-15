@@ -2,81 +2,81 @@
   "Furniture": [
     {
       "title": "Cupboard",
-      "image": "images/cupboard50.png",
+      "image": "/images/cupboard50.png",
       "count": 2
     },
     {
       "title": "Mattress",
-      "image": "images/mattress50.png",
+      "image": "/images/mattress50.png",
       "count": 1
     },
     {
       "title": "Cots",
-      "image": "images/bed50.png",
+      "image": "/images/bed50.png",
       "count": 1
     },
     {
       "title": "Chair",
-      "image": "images/chair50.png",
+      "image": "/images/chair50.png",
       "count": 2
     },
     {
       "title": "Table",
-      "image": "images/table50.png",
+      "image": "/images/table50.png",
       "count": 1
     },
     {
       "title": "Sofa sets",
-      "image": "images/sofa50.png",
+      "image": "/images/sofa50.png",
       "count": 1
     }
   ],
   "Electronic": [
     {
       "title": "Fans/cooler",
-      "image": "images/fan.png",
+      "image": "/images/fan.png",
       "count": 1
     },
     {
       "title": "Air conditioners",
-      "image": "images/air-conditioner50.png",
+      "image": "/images/air-conditioner50.png",
       "count": 1
     },
     {
       "title": "Ovens",
-      "image": "images/ovens.png",
+      "image": "/images/ovens.png",
       "count": 2
     },
     {
       "title": "Washing Machines",
-      "image": "images/washingmachine50.png",
+      "image": "/images/washingmachine50.png",
       "count": 1
     },
     {
       "title": "Refrigerators",
-      "image": "images/refrigerator.png",
+      "image": "/images/refrigerator.png",
       "count": 5
     },
     {
       "title": "TVs",
-      "image": "images/tv50.png",
+      "image": "/images/tv50.png",
       "count": 1
     }
   ],
   "Vehicle": [
     {
       "title": "Bikes",
-      "image": "images/bike50.png",
+      "image": "/images/bike50.png",
       "count": 3
     },
     {
       "title": "Cars",
-      "image": "images/cars50.png",
+      "image": "/images/cars50.png",
       "count": 1
     },
     {
       "title": "Cycles",
-      "image": "images/biCycle50.png",
+      "image": "/images/biCycle50.png",
       "count": 3
     }
   ]

@@ -10,7 +10,7 @@ const HomePage = () => {
         <div className="col-span-3">
           <img
             className="bannerImage"
-            src="/images/home/BannerImage.png"
+            src="//images/home/BannerImage.png"
             itemProp="image"
             alt="main BannerImage"
           />
@@ -65,7 +65,7 @@ const HomePage = () => {
         <div className="col-span-3">
           <img
             className="bannerImage"
-            src="/images/home/modern-moving.png"
+            src="//images/home/modern-moving.png"
             itemProp="image"
             alt="main BannerImage"
           />

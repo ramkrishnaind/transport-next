@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../Card";
+import Card from "../../Card";
 
 const Step9 = () => {
   const washingmachine = ["Washing Machine"];
@@ -22,7 +22,7 @@ const Step9 = () => {
         {washingmachine.map((element, index) => (
           <Card
             key={index}
-            image={"images/washing-machine-24.png"}
+            image={"/images/washing-machine-24.png"}
             item={element}
             itemCount={1}
           />

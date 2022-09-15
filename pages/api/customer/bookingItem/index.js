@@ -1,7 +1,7 @@
 // import connectMongo from "../../../database/connection";
-import dbConnect from "../../../database/lib/dbConnect";
-import BookingDB from "../../../database/Schemas/booking";
-import withProtect from "../../../middlewares/withProtect";
+import dbConnect from "../../../../database/lib/dbConnect";
+import BookingDB from "../../../../database/Schemas/booking";
+import withProtect from "../../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
@@ -96,8 +96,6 @@ async function booking_item(req, res) {
         bookingId: booking_itemData.bookingId,
       });
     } else {
-      const data = await BookingDB.findById(req.params.id);
-      res.json({ status: true, error: false, data });
     }
   } catch (error) {
     console.log(error);

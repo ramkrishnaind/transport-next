@@ -4,16 +4,8 @@ export const registerUser = async (params) => {
   return axios.post("/api/user/", params);
 };
 
-export const addMenu = async (params) => {
-  return axios.post("/api/menu/addmenu", params);
-};
-
 export const listBooking = async (params) => {
   return axios.post("/api/customer/listBooking", params);
-};
-
-export const listMenu = async (params) => {
-  return axios.post("/api/menu/", params);
 };
 
 export const addUser = async (params) => {
@@ -48,6 +40,20 @@ export const deleteUserrole = async (params) => {
   return axios.post("/api/userRoles/deleteUserRole", params);
 };
 
+
 export const getAllContactUs = async (params) => {
   return axios.post("/api/contactUs/getAllContactUs", params);
 };
+
+export const listMenu = async (params) => {
+  return axios.post("/api/menu/", params);
+};
+
+export const addMenu = async (params) => {
+  return axios.post("/api/menu/addmenu", params);
+};
+
+export const getAllBlog = async (params) => {
+  return axios.post("/api/blog/getAllBlog", params);
+};
+

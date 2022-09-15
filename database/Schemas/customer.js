@@ -1,83 +1,85 @@
-import { Schema, model, models } from 'mongoose';
+import { Schema, model, models } from "mongoose";
 
-const customerSchema = new Schema({
+const customerSchema = new Schema(
+  {
     fullName: {
-        type: String,
-        required: true,
-        trim: true,
+      type: String,
+      required: true,
+      trim: true,
     },
     email: {
-        type: String,
-        required: false,
-        unique: true,
-        trim: true,
-        lowercase: true,
+      type: String,
+      required: false,
+      // unique: true,
+      trim: true,
+      lowercase: true,
     },
     otp: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     mobile: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
+      type: String,
+      required: true,
+      // unique: true,
+      trim: true,
     },
     image: {
-        type: String,
+      type: String,
     },
     verified: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
     verificationToken: {
-        type: String,
+      type: String,
     },
     verificationDate: {
-        type: Date,
+      type: Date,
     },
     forgetPasswordToken: {
-        type: String,
+      type: String,
     },
     active: {
-        type: Number,
-        default: true,
+      type: Number,
+      default: true,
     },
     lastLoginTime: {
-        type: Date,
+      type: Date,
     },
     country: {
-        type: String,
+      type: String,
     },
     state: {
-        type: String,
+      type: String,
     },
     city: {
-        type: String,
+      type: String,
     },
     address: {
-        type: String,
+      type: String,
     },
-},
-    {
-        timestamps: {
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
-        },
-        id: false,
-        toJSON: {
-            getters: true,
-            virtuals: true,
-        },
-        toObject: {
-            getters: true,
-            virtuals: true,
-        },
+  },
+  {
+    timestamps: {
+      createdAt: "createdAt",
+      updatedAt: "updatedAt",
     },
-    {
-        collection: "customer",
-    });
+    id: false,
+    toJSON: {
+      getters: true,
+      virtuals: true,
+    },
+    toObject: {
+      getters: true,
+      virtuals: true,
+    },
+  },
+  {
+    collection: "customer",
+  }
+);
 
-const Customer = models.customer || model('customer', customerSchema);
+const Customer = models.customer || model("customer", customerSchema);
 
 export default Customer;

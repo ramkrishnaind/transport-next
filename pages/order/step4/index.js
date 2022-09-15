@@ -1,12 +1,15 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import ItemCard from "../ItemCard";
-import TransportContext from "../../context";
-import Card from "../Card";
+import ItemCard from "../../ItemCard";
+import TransportContext from "../../../context";
+import Card from "../../Card";
 // import objectState from "../../data/objectState.json";
-import itemList from "../../data/itemList.json";
-import bikeList from "../../data/bikeList.json";
+import itemList from "../../../data/itemList.json";
+import bikeList from "../../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
 import Image from "next/image";
+import { bookingItem, step4Item } from "../../../services/customer-api-service";
+import { useRouter } from "next/router";
+import { faPersonWalkingDashedLineArrowRight } from "@fortawesome/free-solid-svg-icons";
 let objToAppend = [];
 const bikeTransformed = [];
 bikeList.forEach((bikeItem) => {
@@ -192,6 +195,7 @@ bikeTransformed.forEach((item) => {
   }
 });
 const Step4 = (props) => {
+  const router = useRouter();
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   const [stateData, setStateData] = useState([]);
@@ -200,8 +204,8 @@ const Step4 = (props) => {
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
   const ctx = useContext(TransportContext);
-  const { step3State } = ctx;
-  console.log("ctx.step3State2", ctx.step3State);
+  const { step3State, step2State } = ctx;
+  console.log("ctx.step3State - ", ctx.step3State);
   const getStateData = () => {
     const result = [];
 
@@ -299,7 +303,10 @@ const Step4 = (props) => {
         }
       }
     });
-    if (newItems && newItems.length > 0) setItems([...newItems]);
+    if (newItems && newItems.length > 0) {
+      ctx.setStep4Items([...newItems]);
+      setItems([...newItems]);
+    }
   };
   useEffect(() => {
     //debugger;
@@ -389,7 +396,10 @@ const Step4 = (props) => {
       return item;
     });
     //debugger;
-    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems(itemsNew);
+    }
     itemsNew.forEach((i) => {
       if (!i.completed && i.key !== element.key) {
         if (i.index == index) {
@@ -398,6 +408,11 @@ const Step4 = (props) => {
       }
     });
   };
+  useEffect(() => {
+    debugger;
+    if (ctx?.step4Items && ctx?.step4Items?.length > 0)
+      setItems([...(ctx.step4Items || [])]);
+  }, ctx.step4Items);
   const handleSecondLevelClick = (event, parentIndex, index, element) => {
     //debugger;
     event.stopPropagation();
@@ -423,7 +438,11 @@ const Step4 = (props) => {
       return item;
     });
     itemsNew[parentIndex].value = itemsSub;
-    if (itemsNew && itemsNew.length > 0) setItems([...itemsNew]);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems([...itemsNew]);
+    }
+
     debugger;
     itemsSub.forEach((i) => {
       if (i.key !== element.key) {
@@ -472,7 +491,11 @@ const Step4 = (props) => {
 
       return i;
     });
-    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems([...itemsNew]);
+    }
+
     itemsSubSub.forEach((i) => {
       if (i.key !== element.key) {
         // if (i.index == index) {
@@ -512,7 +535,11 @@ const Step4 = (props) => {
 
       return i;
     });
-    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems([...itemsNew]);
+    }
+
     itemsSubSubSub.forEach((i) => {
       if (i.key !== element.key) {
         // if (i.index == index) {
@@ -554,7 +581,11 @@ const Step4 = (props) => {
 
       return i;
     });
-    if (itemsNew && itemsNew.length > 0) setItems(itemsNew);
+    if (itemsNew && itemsNew.length > 0) {
+      ctx.setStep4Items([...itemsNew]);
+      setItems([...itemsNew]);
+    }
+
     itemsSubSubSubSub.forEach((i) => {
       if (i.key !== element.key) {
         // if (i.index == index) {
@@ -571,7 +602,7 @@ const Step4 = (props) => {
       items.filter((i) => i.key == currentHeader?.[0]?.key) || [];
     return (
       <div
-        className="border flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-start justify-start flex-wrap px-2 overflow-auto py-32"
         title={currentHeader?.[0]?.key}
         style={{ minHeight: "77.5vh" }}
       >
@@ -579,7 +610,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md relative"
+              className="px-2 cursor-pointer flex items-center mb-24 rounded shadow-md relative"
               title={item?.key}
               style={{
                 backgroundColor: item?.completed
@@ -603,7 +634,7 @@ const Step4 = (props) => {
                     editHandler(item.category, index);
                   }}
                 >
-                  <img src={`images/edit.png`} alt="" />
+                  <img src={`/images/edit.png`} alt="" />
                 </div>
               )}
 
@@ -619,7 +650,7 @@ const Step4 = (props) => {
       (i) =>
         i.index === i.currentIndex &&
         !i.completed &&
-        i.category == currentHeader[0].category
+        i.category == currentHeader[0]?.category
     );
     const contentSelected =
       items.find(
@@ -639,7 +670,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -651,7 +682,7 @@ const Step4 = (props) => {
               }
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <img src={`/images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -746,7 +777,7 @@ const Step4 = (props) => {
     }
     return (
       <div
-        className="border flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
         title={contentText}
         style={{ minHeight: "77.5vh" }}
       >
@@ -754,7 +785,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -773,7 +804,7 @@ const Step4 = (props) => {
               }}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <img src={`/images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -809,7 +840,7 @@ const Step4 = (props) => {
 
     return (
       <div
-        className="border flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
         title={contentText}
         style={{ minHeight: "77.5vh" }}
       >
@@ -817,7 +848,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -829,7 +860,7 @@ const Step4 = (props) => {
               }
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <img src={`/images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -870,7 +901,7 @@ const Step4 = (props) => {
 
     return (
       <div
-        className="border flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
         title={contentText}
         style={{ minHeight: "77.5vh" }}
       >
@@ -878,7 +909,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center border-2 mb-32 border-gray-200 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -888,7 +919,7 @@ const Step4 = (props) => {
               onClick={(e) => handleFifthLevelClick(e, index, parentItem, item)}
             >
               <div className="flex justify-center py-2 max-h-20 w-20">
-                <img src={`images/${item?.image}`} alt="" />
+                <img src={`/images/${item?.image}`} alt="" />
               </div>
               <div className="text-center text-sm">{item?.key}</div>
             </div>
@@ -897,6 +928,61 @@ const Step4 = (props) => {
       </div>
     );
   };
+
+  const handleSubmit = async () => {
+    // await bookingItem({
+    //   bookingId: step2State?.bookingId,
+    //   sofaSets: objCreated.sofaSets,
+    //   tables: objCreated.tables,
+    //   chairs: objCreated.chairs,
+    //   cots: objCreated.cots,
+    //   mattress: objCreated.mattress,
+    //   cupBoards: objCreated.cupBoards,
+    //   tvs: objCreated.tvs,
+    //   refrigerators: objCreated.refrigerators,
+    //   washingMachines: objCreated.washingMachines,
+    //   ovens: objCreated.ovens,
+    //   airConditioners: objCreated.airConditioners,
+    //   fansCoolers: objCreated.fansCoolers,
+    //   bikes: objCreated.bikes,
+    //   cars: objCreated.cars,
+    //   cycles: objCreated.cycles,
+    // });
+    const objCreated = {};
+    stateData?.forEach((item) => {
+      const key = item?.item.replace("/", " ");
+      const items = key.split(" ");
+      let newKey = "";
+      items.forEach((i, index) => {
+        if (index === 0) {
+          newKey += i.toLowerCase();
+        } else {
+          newKey += i.substr(0, 1).toUpperCase() + i.substr(1);
+        }
+      });
+      // const newKey = items.join("");
+      debugger;
+      if (Object.keys(objCreated).includes(newKey)) {
+        objCreated[newKey] = [...objCreated[newKey], { ...item }];
+      } else {
+        objCreated[newKey] = [{ ...item }];
+      }
+    });
+
+    debugger;
+    console.log("stateData", stateData);
+    console.log("items", items);
+    await bookingItem({
+      bookingId: step2State?.bookingId,
+      ...objCreated,
+    });
+    await step4Item({
+      bookingId: step2State?.bookingId,
+      step4: [...items],
+    });
+    router.push("/order/step5");
+  };
+
   return (
     <div className="relative flex-1">
       <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
@@ -908,7 +994,8 @@ const Step4 = (props) => {
         </button>
         <button
           className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="submit"
+          type="button"
+          onClick={handleSubmit}
         >
           PROCEED
         </button>

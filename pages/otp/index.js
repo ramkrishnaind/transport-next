@@ -19,8 +19,10 @@ const Otp = () => {
   }, [customerDetails]);
 
   const submitOTP = async (tpin) => {
+    debugger;
     return await verifyOtp({
       mobile: Number(customerData.mobile),
+      email: customerData.email,
       otp: Number(tpin),
     });
   };

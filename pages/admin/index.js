@@ -25,18 +25,17 @@ const AdminLoginPage = () => {
   };
 
   const onFinish = async (values) => {
-   if (!values.username || !values.password) return;
+    if (!values.username || !values.password) return;
     try {
       let result = await saveFormData(values);
-      console.log("mylogindata",result);
+      console.log("mylogindata", result);
       setLoading(false);
       if (!result.data.status) {
         alert("Invalid Username Or Password!");
       } else {
-       
-        localStorage.setItem('userName', result.data.logindata.userName);
-        localStorage.setItem('Password', result.data.logindata.password);
-        localStorage.setItem('permission', result.data.roledata.permission);
+        localStorage.setItem("userName", result.data.logindata.userName);
+        localStorage.setItem("Password", result.data.logindata.password);
+        localStorage.setItem("permission", result.data.roledata.permission);
         router.push("./../app/dashboard");
       }
     } catch (e) {

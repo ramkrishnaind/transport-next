@@ -45,9 +45,17 @@ const Step1 = () => {
     event.preventDefault(); // Prevent default submission
     let result = await callApi();
     if (result.data.status) {
-      console.log("CollectBasicInfo result is", result);
+      console.log("CollectBasicInfo result is", result.data);
       setBooking({ bookingId: result.data.bookingId });
-      router.push("/step2");
+      const formData = {
+        shiftingFor: houseType.value,
+        shiftingFrom: fromState.value,
+        shiftingTo: toState.value,
+        shiftingOn: startDate,
+      };
+      context.setStep1State(formData);
+      console.log(formData);
+      router.push("/order/step2");
     }
     console.log("step 1 result is", result);
   };
@@ -62,7 +70,10 @@ const Step1 = () => {
   };
   const disabled = !houseType || !fromState || !toState;
   return (
-    <form className="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
+    <form
+      className="max-w-screen-xl m-auto py-10 mt-10 px-5 border"
+      onSubmit={handleSubmit}
+    >
       <div className="flex items-top  mb-5 justify-center">
         <label
           htmlFor="name"

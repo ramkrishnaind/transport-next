@@ -8,35 +8,35 @@ Joi.objectId = require("joi-objectid")(Joi);
 
 const utilityItem_Schema = Joi.object({
   bookingId: Joi.objectId().required(),
-  customerId: Joi.objectId().required(),
+  // customerId: Joi.objectId().required(),
   cartonboxes: Joi.array(),
-  wetgrinders: Joi.array(),
+  wetGrinders: Joi.array(),
   frames: Joi.array(),
   swings: Joi.array(),
   waterdrums: Joi.array(),
-  waterpurifiers: Joi.array(),
-  cockerysets: Joi.array(),
-  excercisecycles: Joi.array(),
+  waterPurifiers: Joi.array(),
+  cockerySets: Joi.array(),
+  excerciseCycles: Joi.array(),
   cribes: Joi.array(),
-  vacumcleaners: Joi.array(),
-  hometheatres: Joi.array(),
-  treadmils: Joi.array(),
-  lpgcylinders: Joi.array(),
-  dishwashers: Joi.array(),
-  showpieces: Joi.array(),
-  infantcycles: Joi.array(),
-  Trunks: Joi.array(),
+  vacumCleaners: Joi.array(),
+  homeTheatres: Joi.array(),
+  treadMils: Joi.array(),
+  lpgCylinders: Joi.array(),
+  dishWashers: Joi.array(),
+  showPieces: Joi.array(),
+  infantCycles: Joi.array(),
+  trunks: Joi.array(),
   desktops: Joi.array(),
-  barcabinets: Joi.array(),
-  flowerpot: Joi.array(),
+  barCabinets: Joi.array(),
+  flowerPotSmall: Joi.array(),
   batteries: Joi.array(),
-  swingmachines: Joi.array(),
+  swingMachines: Joi.array(),
   lamps: Joi.array(),
-  flowerpotlarge: Joi.array(),
-  kitchenracks: Joi.array(),
+  flowerPotLarge: Joi.array(),
+  kitchenRacks: Joi.array(),
   stoves: Joi.array(),
   temples: Joi.array(),
-  beanbags: Joi.array(),
+  beanBags: Joi.array(),
 });
 
 /**
@@ -46,13 +46,17 @@ const utilityItem_Schema = Joi.object({
 async function utility_itemfunc(req, res) {
   await dbConnect();
   try {
-    if (req.method != "POST") {
-      return res.json({ status: false, error: true, message: "HTTP method not allowed",});
-    }
+    // if (req.method != "POST") {
+    //   return res.json({ status: false, error: true, message: "HTTP method not allowed",});
+    // }
     let validateData = utilityItem_Schema.validate(req.body);
-    if (validateData.error) {
-      return res.json({status: false, error: validateData, message: "Invalid data",});
-    }
+    // if (validateData.error) {
+    //   return res.json({
+    //     status: false,
+    //     error: validateData,
+    //     message: "Invalid data",
+    //   });
+    // }
 
     // pick data from req.body
     let utility_itemData = _.pick(req.body, [
@@ -74,10 +78,10 @@ async function utility_itemfunc(req, res) {
       "dishwashers",
       "showpieces",
       "infantcycles",
-      "Trunks",
+      "trunks",
       "desktops",
       "barcabinets",
-      "flowerpot",
+      "flowerpotsmall",
       "batteries",
       "swingmachines",
       "lamps",
@@ -106,10 +110,10 @@ async function utility_itemfunc(req, res) {
       dishwashers: utility_itemData.dishwashers,
       showpieces: utility_itemData.showpieces,
       infantcycles: utility_itemData.infantcycles,
-      Trunks: utility_itemData.Trunks,
+      trunks: utility_itemData.trunks,
       desktops: utility_itemData.desktops,
       barcabinets: utility_itemData.barcabinets,
-      flowerpot: utility_itemData.flowerpot,
+      flowerpotsmall: utility_itemData.flowerpotsmall,
       batteries: utility_itemData.batteries,
       swingmachines: utility_itemData.swingmachines,
       lamps: utility_itemData.lamps,
@@ -121,11 +125,24 @@ async function utility_itemfunc(req, res) {
     };
 
     // get data from req.body
-    let findData = await UtilityItemDB.findOneAndUpdate({ bookingId: utility_itemData.bookingId },{ $set: setData });
-    if (findData) { return res.json({status: true, error: false, message: "Misc Item Updated For " + utility_itemData.bookingId});
+    let findData = await UtilityItemDB.findOneAndUpdate(
+      { bookingId: utility_itemData.bookingId },
+      { $set: setData }
+    );
+    if (findData) {
+      return res.json({
+        status: true,
+        error: false,
+        message: "Misc Item Updated For " + utility_itemData.bookingId,
+      });
     } else {
       const misc_item = await UtilityItemDB.create(utility_itemData);
-      return res.json({status: true, error: false, message: "Misc Item Insert Successfully For " + utility_itemData.bookingId});
+      return res.json({
+        status: true,
+        error: false,
+        message:
+          "Misc Item Insert Successfully For " + utility_itemData.bookingId,
+      });
     }
   } catch (error) {
     console.log(error);
