@@ -43,7 +43,7 @@ const UserRoles = () => {
       render: (_, record) => (
         <Space size="middle">
           <Link
-            href={{ pathname: "users/adduser", query: { userid: record.id } }}
+            href={{ pathname: "userRoles/addUserRole", query: { roleId: record.id } }}
           >
             <a>
               <EditOutlined />
@@ -99,17 +99,19 @@ const UserRoles = () => {
           subTitle="Manage User Roles Here"
           currentPage="User Roles"
       />
-      <Row>
-        <Col span={3}>
-          <Button
-            size="large"
-            shape="round"
-            onClick={() => router.push("userRoles/addUserRole")}
+      <div className="flex flex-row">
+          <div className="basis-11/12 ml-1 mt-4 tableTitle">All Role</div>
+          <div className="basis-1/12 mb-2">
+          <Button className="adminprimary"
+              size="large"
+              shape="round"
+              icon={<UserAddOutlined />}
+              onClick={() => router.push("userRoles/addUserRole")}
           >
-            <UserAddOutlined /> Add Role
+              Add Role
           </Button>
-        </Col>
-      </Row>
+          </div>
+      </div>
       <Table columns={columns} dataSource={data} />
     </>
   );
