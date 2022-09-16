@@ -28,8 +28,8 @@ const Step1 = () => {
   const context = useContext(TransportContext);
   const { customerDetails, setBooking } = context;
   const [houseType, setHouseType] = useState(null);
-  const [fromState, setFromState] = useState(null);
-  const [toState, setToState] = useState(null);
+  const [fromState, setFromState] = useState();
+  const [toState, setToState] = useState();
   const [startDate, setStartDate] = useState(new Date());
   const [houseTypeBlur, setHouseTypeBlur] = useState(false);
   const [fromBlur, setFromBlur] = useState(false);
@@ -63,101 +63,127 @@ const Step1 = () => {
     return await collectBasicInfo({
       customerId: customerData?._id,
       shiftingFor: houseType.value,
-      shiftingFrom: fromState.value,
-      shiftingTo: toState.value,
+      shiftingFrom: fromState,
+      shiftingTo: toState,
       shiftingOn: startDate,
     });
   };
   const disabled = !houseType || !fromState || !toState;
-  return (
-    <form
-      className="max-w-screen-xl m-auto py-10 mt-10 px-5 border"
-      onSubmit={handleSubmit}
-    >
-      <div className="flex items-top  mb-5 justify-center">
-        <label
-          htmlFor="name"
-          className="inline-block ml-20 mr-2 mt-2  text-gray-600"
-        >
-          I am shifting my
-        </label>
-        <div className="flex flex-col align-top px-4 py-2">
-          <Select
-            className="w-60 bg-white  border-gray-400 hover:border-gray-500  focus:outline-none focus:shadow-outline"
-            defaultValue={houseType}
-            onChange={setHouseType}
-            options={houseTypeOptions}
-            onBlur={() => setHouseTypeBlur(true)}
-          />
-          {houseTypeBlur && !houseType && (
-            <p className="text-red-400 pt-2">Please select a house type.</p>
-          )}
-        </div>
-        <label
-          htmlFor="name"
-          className="inline-block mt-2 w-10 mr-1 text-gray-600"
-        >
-          from
-        </label>
-        <div className="flex flex-col align-top px-4 py-2">
-          <Select
-            className="w-80 bg-white  border-gray-400 hover:border-gray-500 px-4 focus:outline-none focus:shadow-outline"
-            defaultValue={fromState}
-            onChange={setFromState}
-            options={cityOptions}
-            onBlur={() => setFromBlur(true)}
-          />
-          {fromBlur && !fromState && (
-            <p className="text-red-400 ml-4 py-2">
-              Please select a from location.
-            </p>
-          )}
-        </div>
-      </div>
-      <div className="flex items-top mb-5  justify-center">
-        <label
-          htmlFor="name"
-          className="inline-block w-10 ml-20 mr-2 mt-2  text-gray-600"
-        >
-          to
-        </label>
-        <div className="flex flex-col align-top px-4 py-2">
-          <Select
-            className="block appearance-none w-80 bg-white  border-gray-400 hover:border-gray-500 px-4  focus:outline-none focus:shadow-outline"
-            defaultValue={toState}
-            onChange={setToState}
-            options={cityOptions}
-            onBlur={() => setToBlur(true)}
-          />
-          {toBlur && !toState && (
-            <p className="text-red-400 ml-4 py-2">
-              Please select a to location.
-            </p>
-          )}
-        </div>
-        <label className="inline-block w-5 ml-5 mr-6 mt-2 text-gray-600 text-right">
-          on
-        </label>
 
-        <div>
-          <DatePicker
-            selected={startDate}
-            className="border-2 p-2"
-            onChange={(date) => setStartDate(date)}
-          />
+  
+  const fromStateInputChangeHandler = (event) => {
+    setFromState(event.target.value);
+  };
+  const toStateInputChangeHandler = (event) => {
+    setToState(event.target.value);
+  };
+  return (
+    <>
+      <div className="b1">
+        <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 bg-white rounded-lg h-16">
+          <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+            Set up 0% complete
+          </div>
+          <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+            5 Step left: About 8 min
+          </div>
+        </div>
+
+        {/* DETAILS */}
+
+        <div className="flex flex-col items-left p-0 gap-2.5 r1 top-36 bg-white r4 rounded-lg pl-12 container ">
+          <div className="bg-white text-9xl pl-10">
+            <img
+              className="stepimage"
+              src="/images/movingthings.jpeg"
+              itemProp="image"
+              alt="Image"
+            />
+          </div>
+          <form className="mt-10">
+
+            <div className="grid gap-0  bg-white form_content details_form ">
+
+              <div className="bg-white w-36 font-bold text-gray-600 detailquestions  shifting_text">
+                I am shifting my
+              </div>
+              <div className="bg-white w-20 text-right font-bold text-gray-600 detailquestions">
+                <Select
+                  className="border-0 focuspt text-gray-600 placeholder-gray-400 outline-none select_java_step1 bg-white w-36 "
+                  defaultValue={houseType}
+                  onChange={setHouseType}
+                  options={houseTypeOptions}
+                  onBlur={() => setHouseTypeBlur(true)}
+                />
+              </div>
+              <div className="bg-white w-6 font-bold text-gray-600 detailquestions ">
+                from
+              </div>
+              <div className="  bg-white">
+                <input
+                  placeholder="Apartment Name/Locality"
+                  className="bg-white  border-b-2  border-gray-400 focuspt text-gray-600 placeholder-gray-400 outline-none detailfill  pl-6 mr-7 w-72"
+                  type="text"
+                  autoFocus
+                  required
+                  onChange={fromStateInputChangeHandler}
+                  defaultValue={fromState}
+                  onBlur={() => setFromBlur(true)}
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-0  bg-white  details_form pl-14">
+
+              <div className="bg-white form_content ">
+                <label
+                  for="name"
+                  className="bg-white  w-20 mr-2 text-right font-bold  detailquestions text-gray-600">
+                  to
+                </label>
+
+                <input
+                  placeholder="Apartment Name/Locality"
+                  className="bg-white  border-b-2  border-gray-400 focuspt text-gray-600 placeholder-gray-400 outline-none detailfill  pl-6 mr-7 w-72"
+                  type="text"
+                  autoFocus
+                  required
+                  onChange={toStateInputChangeHandler}
+                  defaultValue={toState}
+                  onBlur={() => setFromBlur(true)}
+                     />
+              </div>
+
+              <div className="bg-white form_content">
+                <label
+                  for="name"
+                  className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">
+                  I am shifting on
+                </label>
+              </div>
+              <div className="bg-white">
+                <DatePicker
+                  selected={startDate}
+                  className="border-gray-400 focuspt text-gray-400 placeholder-gray-400 outline-none bg-white pb-1 pl-7 text-lg "
+                  // className="border-2 p-2 bg-white"
+                  onChange={(date) => setStartDate(date)}
+                />
+              </div>
+              <div className="bg-white"></div>
+            </div>
+            {/* button */}
+
+            <div className="bg-white ">
+              <button className=" px-10 py-4 button_1 rounded-m "
+              type="submit"
+                    onClick={handleSubmit}
+                    //disabled={disabled}
+              >Next</button>
+            </div>
+          </form>
         </div>
       </div>
-      <div className="flex justify-center items-center">
-        <button
-          className="mt-4 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-lg rounded shadow-lg  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          type="submit"
-          onClick={handleSubmit}
-          disabled={disabled}
-        >
-          Next
-        </button>
-      </div>
-    </form>
+    </>
   );
 };
 
