@@ -12,7 +12,7 @@ import {
 
 import PageHeader from "../../../components/helper/pageTitle";
 
-const getAllContactUsList = () => {
+const GetAllContactUsList = () => {
   const router = useRouter();
   const saveFormData = async (formData) => {
     try {
@@ -98,4 +98,4 @@ const getAllContactUsList = () => {
   );
 };
 
-export default getAllContactUsList;
+export default GetAllContactUsList;

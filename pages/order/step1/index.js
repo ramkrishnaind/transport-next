@@ -137,7 +137,7 @@ const Step1 = () => {
 
               <div className="bg-white form_content ">
                 <label
-                  for="name"
+                  htmlFor="name"
                   className="bg-white  w-20 mr-2 text-right font-bold  detailquestions text-gray-600">
                   to
                 </label>
@@ -156,7 +156,7 @@ const Step1 = () => {
 
               <div className="bg-white form_content">
                 <label
-                  for="name"
+                  htmlFor="name"
                   className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">
                   I am shifting on
                 </label>

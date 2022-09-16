@@ -98,11 +98,11 @@ const Step2 = () => {
           <form>
             <div className="bg-white form_content">
 
-              <label for="name" className="bg-white w-20 mr-2 text-right font-bold text-gray-600 detailquestions">I currently live on</label>
+              <label htmlFor="name" className="bg-white w-20 mr-2 text-right font-bold text-gray-600 detailquestions">I currently live on</label>
               <input type="text" id="name" name="name" placeholder="Floor"
-                class="bg-white  border-b-2 border-gray-400  focuspt text-gray-600 placeholder-gray-400 outline-none w-28 bg-white detailfill pl-2"
+                className="bg-white  border-b-2 border-gray-400  focuspt text-gray-600 placeholder-gray-400 outline-none w-28 bg-white detailfill pl-2"
               />
-              <label for="name" className="bg-white  w-20 mr-2 text-right font-bold  detailquestions text-gray-600">floor with service lift</label>
+              <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold  detailquestions text-gray-600">floor with service lift</label>
               <input
                 type="text" id="name" name="name" placeholder="Lift"
                 className="bg-white  border-b-2  border-gray-400 focuspt text-gray-600 placeholder-gray-400 outline-none detailfill w-96 pl-6"
@@ -112,16 +112,16 @@ const Step2 = () => {
 
             <div className="bg-white form_content">
 
-              <label for="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600   detailquestions">for shifting. I'm moving to</label>
+              <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600   detailquestions">for shifting. I&apos; m moving to</label>
               <input type="text" id="name" name="name" placeholder="Floor"
                 className="bg-white  border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none w-96 detailfill pl-6" />
 
-              <label for="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">floor with service lift</label>
+              <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">floor with service lift</label>
             </div>
               <div className="bg-white">
                 <input type="text" id="name" name="name" placeholder="lift"
                   className="bg-white  border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none w-24  detailfill w-52 pl-7" />
-                <label for="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">for shifting.</label>
+                <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">for shifting.</label>
               </div>
 
                                                                   {/* button */}
