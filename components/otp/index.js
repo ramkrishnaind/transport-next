@@ -13,6 +13,9 @@ const Otp = () => {
   const { customerDetails, setCustomerDetails } = context;
   debugger;
   const [tpin, setTpin] = useState(context.OTP);
+  resendloading
+  const [loading, setLoading] = useState(false);
+  const [resendloading, setResendloading] = useState(false);
   const [customerData, setCustomerData] = useState({});
   useEffect(() => {
     if (tpin) {
@@ -28,10 +31,12 @@ const Otp = () => {
   }, [customerDetails]);
   const resendOTP = async () => {
     debugger;
+    setResendloading(true);
     const results = await registerCustomer(context.customerDetails);
 
     if (results.data.status) {
       context.setOTP(results.data.OTP);
+      setResendloading(false);
     }
   };
   const submitOTP = async (tpin) => {
@@ -47,12 +52,14 @@ const Otp = () => {
   };
 
   const handleSubmit = async (event) => {
+    setLoading(true);
     event.preventDefault();
     let result = await submitOTP(tpin);
     console.log("result is", result);
     if (result.data.status) {
       router.push("/order/step1");
       setCustomerDetails(result.data.customerData);
+      setLoading(false);
     }
   };
 
@@ -92,10 +99,11 @@ const Otp = () => {
             className="w-44 seconderyButton"
             onClick={resendOTP}
             size="large"
+            loading={resendloading}
           >
             Re-Send
           </Button>
-          <Button className="w-44" onClick={handleSubmit} size="large">
+          <Button className="w-44" onClick={handleSubmit} size="large" loading={loading}>
             Submit
           </Button>
         </div>

@@ -18,7 +18,7 @@ const HomePage = () => {
   const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(true);
   const [visibleOtpModal, setVisibleOtpModal] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
   };
@@ -59,6 +59,7 @@ const HomePage = () => {
   };
 
   const handleSubmit = async (event) => {
+    setLoading(true)
     event.preventDefault(); // Prevent default submission
     setNameBlur(true);
     setEmailBlur(true);
@@ -73,10 +74,10 @@ const HomePage = () => {
         // setEnteredName("");
         // setEnteredEmail("");
         // setEnteredPhoneNumber("");
-        debugger;
+        //debugger;
         context.setOTP(saveResponse.data.OTP);
         setVisibleOtpModal(true);
-
+        setLoading(false);
         //router.push("/otp")
       } else {
         console.log(
@@ -162,7 +163,8 @@ const HomePage = () => {
             <p className="text-red-400">Phone Number must not be empty.</p>
           )}
         </div>
-        <Button className="w-96" onClick={handleSubmit} size="large">
+        <Button className="w-96" onClick={handleSubmit} size="large"
+        loading={loading}>
           Calculate Your Moving Cost
         </Button>
         {/* <button

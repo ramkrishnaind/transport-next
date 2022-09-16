@@ -602,7 +602,7 @@ const Step4 = (props) => {
       items.filter((i) => i.key == currentHeader?.[0]?.key) || [];
     return (
       <div
-        className="flex-col flex h-full items-start justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-start justify-start flex-wrap px-2 overflow-auto py-8"
         title={currentHeader?.[0]?.key}
         style={{ minHeight: "77.5vh" }}
       >
@@ -610,7 +610,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center mb-24 rounded shadow-md relative"
+              className="px-2 cursor-pointer flex items-center mb-8 rounded shadow-md relative"
               title={item?.key}
               style={{
                 backgroundColor: item?.completed
@@ -662,7 +662,7 @@ const Step4 = (props) => {
 
     return (
       <div
-        className="border flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-8"
         title={contentSelected?.[0]?.key}
         style={{ minHeight: "77.5vh" }}
       >
@@ -670,7 +670,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-8 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -777,7 +777,7 @@ const Step4 = (props) => {
     }
     return (
       <div
-        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-8"
         title={contentText}
         style={{ minHeight: "77.5vh" }}
       >
@@ -785,7 +785,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-8 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -840,7 +840,7 @@ const Step4 = (props) => {
 
     return (
       <div
-        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-8"
         title={contentText}
         style={{ minHeight: "77.5vh" }}
       >
@@ -848,7 +848,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-8 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
@@ -901,7 +901,7 @@ const Step4 = (props) => {
 
     return (
       <div
-        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-32"
+        className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-8"
         title={contentText}
         style={{ minHeight: "77.5vh" }}
       >
@@ -909,7 +909,7 @@ const Step4 = (props) => {
           return (
             <div
               key={index}
-              className="px-2 cursor-pointer flex items-center mb-32 rounded shadow-md"
+              className="px-2 cursor-pointer flex items-center mb-8 rounded shadow-md"
               title={item?.key}
               style={{
                 minWidth: 220,
