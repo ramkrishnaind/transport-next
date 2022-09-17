@@ -17,7 +17,7 @@ export const bookingItem = async (params) => {
   return axios.put("/api/customer/bookingItem", params);
 };
 export const getBookingItem = async (id) => {
-  id = "632054939f0d21cf92594ca9";
+  id = id || "632054939f0d21cf92594ca9";
   debugger;
   return axios.get(`/api/customer/bookingItem/${id}`);
 };
