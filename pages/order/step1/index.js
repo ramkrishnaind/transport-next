@@ -85,7 +85,7 @@ const Step1 = () => {
             Set up 0% complete
           </div>
           <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-            5 Step left: About 8 min
+            5 Step left • About 8 min
           </div>
         </div>
 
@@ -103,6 +103,7 @@ const Step1 = () => {
           <form className="mt-10">
 
             <div className="grid gap-0  bg-white form_content details_form ">
+    
 
               <div className="bg-white w-36 font-bold text-gray-600 detailquestions  shifting_text">
                 I am shifting my
@@ -134,7 +135,7 @@ const Step1 = () => {
             </div>
 
             <div className="grid gap-0  bg-white  details_form pl-14">
-
+        {/* <div className="grid gap-0  bg-white form_content details_form "> */}
               <div className="bg-white form_content ">
                 <label
                   for="name"

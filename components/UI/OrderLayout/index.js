@@ -8,7 +8,7 @@ const index = (props) => {
       <div className="grid grid-cols-1">
         <Header />
       </div>
-      <div className="flex-1 h-full">{props.children}</div>
+      <div className="flex-1 h-full order_layout_bg">{props.children}</div>
       <div className="grid grid-cols-1 m-0">
         <Footer />
       </div>
