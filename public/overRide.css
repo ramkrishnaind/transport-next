@@ -427,10 +427,102 @@ a {
   text-align: center;
 }
 .orderHeader {
-  background-color: #d9a75c;
+  background-color: #ffffff;
 }
 .orderFooter {
-  background-color: #d9a75c;
+  /* border: solid black 2px; */
+  background-color: #ffffff;
   color: #011529;
   font-size: 18px;
 }
+.r1{
+  margin: auto;
+  width: 908px;
+}
+
+.r2{
+  font-family: 'Open Sans'; 
+  margin-top: 22px;
+  color: #26C84A;
+  
+}
+.completepersentage{
+  font-family: 'Open Sans'; 
+  color: #26C84A;
+  
+}
+.focuspt {
+  --tw-border-opacity: 1;
+  border-color: rgb(67, 159, 217 / var(--tw-border-opacity));
+  
+}
+
+.b1{
+  background: #F5F5F5;
+  font-family: 'Open Sans';
+}
+
+.r3{
+  height: 22;
+  font-family: 'Open Sans';
+  color: #4E4E4E;
+}
+
+.r4{
+  font-family: 'Open Sans'; 
+  margin-top: 11px;
+  
+}
+.backgroundwhite{
+  background: #ffffff;
+}
+
+.button_1{
+  background-color: #F7C600;
+  color: #4E4E4E;
+  margin-top: 24px;
+  margin-left: 70px;
+  font-family: 'Open Sans';
+  border-radius: 7px;
+}
+.container{
+  height: 508px;
+  font-family: 'Open Sans';
+}
+
+.stepimage{
+  width: 310px;
+  font-family: 'Open Sans';
+}
+.form_content{
+  /* line-height: 120px; */
+  font-family: 'Open Sans'; 
+  padding-left: 17px;
+  padding-bottom: 32px;
+}
+.detailfill{
+  font-size: 19px;
+}
+.detailquestions{
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.completing_bar_text{
+  font-size: 13.6px;
+}
+.details_form{
+  grid-template-columns: auto auto auto auto auto;
+}
+.shifting_text{
+  grid-column: 2 / 2;
+}
+.select_java_step1{
+  margin-left: -29px;
+}
+/* .react-datepicker__current-month {
+  margin-top: 0;
+color: #35ff0c 
+font-weight: bold;
+font-size: 1.944rem;
+} */

@@ -12,7 +12,7 @@ import {
 
 import PageHeader from "../../../components/helper/pageTitle";
 
-const getAllBlogList = () => {
+const GetAllBlogList = () => {
   const router = useRouter();
   const saveFormData = async (formData) => {
     try {
@@ -231,4 +231,4 @@ const getAllBlogList = () => {
   );
 };
 
-export default getAllBlogList;
+export default GetAllBlogList;

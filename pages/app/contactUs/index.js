@@ -12,7 +12,7 @@ import {
 
 import PageHeader from "../../../components/helper/pageTitle";
 
-const getAllContactUsList = () => {
+const GetAllContactUsList = () => {
   const router = useRouter();
   const saveFormData = async (formData) => {
     try {
@@ -66,7 +66,6 @@ const getAllContactUsList = () => {
   const getData = async () => {
     const value = 1;
     const res = await saveFormData(value);
-
     setdata(
       res.data.message.map((row) => ({
         name: row.name,
@@ -99,4 +98,4 @@ const getAllContactUsList = () => {
   );
 };
 
-export default getAllContactUsList;
+export default GetAllContactUsList;

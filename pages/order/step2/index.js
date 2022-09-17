@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import data1 from "../../../data/bikeList.json";
 import Select from "react-select";
 import TransportContext from "../../../context";
+import {Button} from "antd";
 import { useRouter } from "next/router";
 import { liftAvailability } from "../../../services/customer-api-service";
 
@@ -38,6 +39,7 @@ const Step2 = () => {
   const [fromLift, setFromLift] = useState(null);
   const [toLift, setToLift] = useState(null);
   const [bookingData, setBookingData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log("booking in step 2 is", booking);
@@ -75,6 +77,77 @@ const Step2 = () => {
   };
   const disabled = !(fromFloorType && fromLift && toFloorType && toLift);
   return (
+
+    <>
+      <div className="b1">
+
+        <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 h-16 r4 bg-white rounded-lg ">
+          <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">Set up 20% complete</div>
+          <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">4 Step left: About 7 min</div>
+        </div>
+
+                                                                {/* DETAILS */}
+
+        <div className="flex flex-col items-left p-0 gap-2.5 r1 top-36 bg-white r4 rounded-lg pl-12 container ">
+          <div className="bg-white text-9xl pl-10">
+            <img
+              className="stepimage"
+              src="/images/movingthings.jpeg"
+              itemProp="image"
+              alt="Image"
+            />
+          </div>
+          <form>
+            <div className="bg-white form_content">
+
+              <label htmlFor="name" className="bg-white w-20 mr-2 text-right font-bold text-gray-600 detailquestions">I currently live on</label>
+              <input 
+                className="bg-white  border-b-2 border-gray-400  focuspt text-gray-600 placeholder-gray-400 outline-none w-28 detailfill pl-2"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Floor"
+                autoFocus
+                  required
+                
+              
+              />
+              <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold  detailquestions text-gray-600">floor with service lift</label>
+              <input
+                type="text" id="name" name="name" placeholder="Lift"
+                className="bg-white  border-b-2  border-gray-400 focuspt text-gray-600 placeholder-gray-400 outline-none detailfill w-96 pl-6"
+              />
+            </div>
+
+
+            <div className="bg-white form_content">
+
+              <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600   detailquestions">for shifting. I&apos; m moving to</label>
+              <input type="text" id="name" name="name" placeholder="Floor"
+                className="bg-white  border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none w-96 detailfill pl-6" />
+
+              <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">floor with service lift</label>
+            </div>
+              <div className="bg-white">
+                <input type="text" id="name" name="name" placeholder="lift"
+                  className="bg-white  border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none w-24  detailfill pl-7" />
+                <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">for shifting.</label>
+              </div>
+
+                                                                  {/* button */}
+
+            <div className="bg-white ">
+              <Button className=" px-10 py-4 button_1 rounded-m "
+               loading={loading}
+               >
+                Next
+              </Button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    
     <form className="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
       <div className="flex items-center mb-5 justify-center">
         <label htmlFor="name" className="inline-block mr-2 text-gray-600">
@@ -134,6 +207,7 @@ const Step2 = () => {
         </button>
       </div>
     </form>
+    </>
   );
 };
 

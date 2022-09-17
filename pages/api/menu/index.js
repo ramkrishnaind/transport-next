@@ -29,6 +29,7 @@ async function createMenuHandler(req, res) {
     } else {
       findData = await MenuDB.find();
     }
+
     if (findData) {
       return res.json({
         status: true,
