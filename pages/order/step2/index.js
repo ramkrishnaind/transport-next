@@ -140,7 +140,7 @@ const Step2 = () => {
         {/* <div className="grid step2grid1 bg-white form_content"> */}
             <div className="grid step2grid2 gap-0 wrapper">
               <div className="pl-4_5">
-                <label for="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600   detailquestions">for shifting. I'm moving to</label>
+                <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600   detailquestions">for shifting. I&apos;m moving to</label>
               </div>
               <div>
                 <Select
