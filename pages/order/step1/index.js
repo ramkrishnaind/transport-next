@@ -5,6 +5,7 @@ import Select from "react-select";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
 import { collectBasicInfo } from "../../../services/customer-api-service";
+import { Button } from "antd";
 
 const houseTypeOptions = [
   { value: "1 BHK", label: "1 BHK" },
@@ -35,6 +36,7 @@ const Step1 = () => {
   const [fromBlur, setFromBlur] = useState(false);
   const [toBlur, setToBlur] = useState(false);
   const [customerData, setCustomerData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log("customerDetails in step 1 is", customerDetails);
@@ -42,6 +44,7 @@ const Step1 = () => {
   }, [customerDetails]);
 
   const handleSubmit = async (event) => {
+    setLoading(true);
     event.preventDefault(); // Prevent default submission
     let result = await callApi();
     if (result.data.status) {
@@ -56,6 +59,7 @@ const Step1 = () => {
       context.setStep1State(formData);
       console.log(formData);
       router.push("/order/step2");
+      setLoading(false);
     }
     console.log("step 1 result is", result);
   };
@@ -103,7 +107,6 @@ const Step1 = () => {
           <form className="mt-10">
 
             <div className="grid gap-0  bg-white form_content details_form ">
-    
 
               <div className="bg-white w-36 font-bold text-gray-600 detailquestions  shifting_text">
                 I am shifting my
@@ -135,10 +138,10 @@ const Step1 = () => {
             </div>
 
             <div className="grid gap-0  bg-white  details_form pl-14">
-        {/* <div className="grid gap-0  bg-white form_content details_form "> */}
+
               <div className="bg-white form_content ">
                 <label
-                  for="name"
+                  htmlFor="name"
                   className="bg-white  w-20 mr-2 text-right font-bold  detailquestions text-gray-600">
                   to
                 </label>
@@ -157,7 +160,7 @@ const Step1 = () => {
 
               <div className="bg-white form_content">
                 <label
-                  for="name"
+                  htmlFor="name"
                   className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">
                   I am shifting on
                 </label>
@@ -175,11 +178,12 @@ const Step1 = () => {
             {/* button */}
 
             <div className="bg-white ">
-              <button className=" px-10 py-4 button_1 rounded-m "
+              <Button className=" px-10 py-4 button_1 rounded-m "
               type="submit"
                     onClick={handleSubmit}
+                    loading={loading}
                     //disabled={disabled}
-              >Next</button>
+              >Next</Button>
             </div>
           </form>
         </div>

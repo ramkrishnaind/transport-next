@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import data1 from "../../../data/bikeList.json";
 import Select from "react-select";
 import TransportContext from "../../../context";
+import { Button } from "antd";
 import { useRouter } from "next/router";
 import { liftAvailability } from "../../../services/customer-api-service";
 
@@ -49,6 +50,7 @@ const Step2 = () => {
     setLoading(true)
     event.preventDefault(); // Prevent default submission
     let result = await callApi();
+    debugger;
     if (result.data.status) {
       console.log("liftAvailability result is", result);
       setBooking(result.data);
@@ -75,6 +77,7 @@ const Step2 = () => {
       isLiftAvailableOnMovingFloor: toLift.value,
     });
   };
+  debugger;
   const disabled = !(fromFloorType && fromLift && toFloorType && toLift);
   return (
 

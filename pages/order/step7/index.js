@@ -44,13 +44,13 @@ const Step7 = () => {
   const [moveManager] = useState("Not Assigned");
 
   useEffect(() => {
-    // debugger;
+    debugger;
     const getData = async () => {
       let results;
       try {
         results = await getBookingItem(step2State?.bookingId);
 
-        // debugger;
+        debugger;
         if (results?.data?.customerData) {
           const arr = [];
           results?.data?.customerData.forEach((item) => {
@@ -80,12 +80,12 @@ const Step7 = () => {
     getData();
   }, []);
   const transformStep3Object = (step3Object) => {
-    if (!step5State) return;
-    const keys = Object.keys(step3State);
+    if (!step3Object) return;
+    const keys = Object.keys(step3Object);
     const arr = [];
     const arrayItems = [];
     keys.forEach((k) => {
-      step3State[k].forEach((i) => {
+      step3Object[k].forEach((i) => {
         i.category = k;
         if (i.count < 1) return;
         arr.push(i);
@@ -114,12 +114,12 @@ const Step7 = () => {
     return arr;
   };
   const transformStep5Object = (step5Object) => {
-    if (!step5State) return;
-    const keys = Object.keys(step5State);
+    if (!step5Object) return;
+    const keys = Object.keys(step5Object);
     const arr = [];
     const arrayItems = [];
     keys.forEach((k) => {
-      step5State[k].forEach((i) => {
+      step5Object[k].forEach((i) => {
         i.category = k;
         if (i.count < 1) return;
         arr.push(i);

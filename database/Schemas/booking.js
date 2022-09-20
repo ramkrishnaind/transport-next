@@ -90,13 +90,13 @@ const bookingSchema = new Schema(
       type: Array,
     },
     step3: {
-      type: Array,
+      type: Object,
     },
     step4: {
       type: Array,
     },
     step5: {
-      type: Array,
+      type: Object,
     },
   },
   {

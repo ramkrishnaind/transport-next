@@ -208,85 +208,210 @@ const Step3 = (props) => {
   // };
 
   return (
-    <div>
-      <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
-        <button
-          className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="button"
-          onClick={handleSkip}
-        >
-          SKIP
-        </button>
-        <button
-          className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="button"
-          onClick={handleSubmit}
-        >
-          NEXT
-        </button>
-      </div>
-      <div className="flex justify-end mr-5  mb-5 text-sm ">
-        {/* <FontAwesomeIcon
-          icon={fa["faSearch"]}
-          style={{ fontSize: 20, color: "blue" }}
-        /> */}
-        <p>Do you know you can save this progress</p>
-      </div>
+    <>
+      <div className="b1">
+        <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-14">
+          <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+            Set up 0% complete
+          </div>
+          <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+            3 Step left • About 6 min
+          </div>
+        </div>
+        <hr className="step3_line" />
 
-      <form className="max-w-screen-xl m-auto py-10 px-5">
-        <div className="grid gap-8 lg:grid-cols-3">
-          {uniqueCategories.map((item, i) => {
-            return (
-              <div className="px-4 py-4" key={i}>
-                <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+
+
+
+        {/* details */}
+
+
+
+
+        <div className="  r1 r4 mt-2 bg-white step3_container  rounded-lg ">
+
+
+
+
+
+          <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
+            <div className="step3_heading font-medium pl-2">
+              What are the major item you want to move?
+            </div>
+            <div className=" pl-2">
+              to save you the trouble, we have pre-selected this list.
+            </div>
+          </div>
+
+
+
+          <form className="max-w-screen-xl m-auto">
+            <div className="grid gap-8 lg:grid-cols-3 mt-4 ">
+              {uniqueCategories.map((item, i) => {
+                return (
+                  <div key={i}>
+                    <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="grid gap-3 md:grid-cols-3 px-4">
+              <div className="flex flex-col gap-3 md:grid-cols-1">
+                {objectState.Furniture.map((item, index) => {
+                  console.log("item", item);
+                  return (
+                    <Card
+                      image={item.image}
+                      key={index}
+                      item={item.title}
+                      itemCount={item.count}
+                      onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                      onClick={clickHandler.bind(null, "Furniture", item)}
+                    />
+                  );
+                })}
               </div>
-            );
-          })}
+              <div className="flex flex-col gap-3 md:grid-cols-1">
+                {objectState.Electronic.map((item, index) => (
+                  <Card
+                    image={item.image}
+                    key={index}
+                    item={item.title}
+                    itemCount={item.count}
+                    onDecrement={decrementHandler.bind(null, "Electronic", item)}
+                    onClick={clickHandler.bind(null, "Electronic", item)}
+                  />
+                ))}
+              </div>
+              <div className="flex flex-col gap-3 md:grid-cols-1">
+                {objectState.Vehicle.map((item, index) => (
+                  <Card
+                    image={item.image}
+                    key={index}
+                    item={item.title}
+                    itemCount={item.count}
+                    onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+                    onClick={clickHandler.bind(null, "Vehicle", item)}
+                  />
+                ))}
+              </div>
+            </div>
+          </form>
+          <div className="mt-6 ">
+              
+            <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+              <button
+                className="button_2_skip rounded-m px-10 py-2"
+                type="button"
+                onClick={handleSkip}
+              >
+                SKIP
+              </button>
+              <button
+                className="button_3 rounded-m px-10 py-2 "
+                type="button"
+                onClick={handleSubmit}
+              >
+                NEXT
+              </button>
+            </div>
+            <div className="flex justify-start mr-5 pl-5 mb-5 text-sm ">
+              {/* <FontAwesomeIcon
+                icon={fa["faSearch"]}
+                style={{ fontSize: 20, color: "blue" }}
+              /> */}
+              <p>Do you know you can save this progress</p>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div className="grid gap-8 md:grid-cols-3 mt-5">
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.Furniture.map((item, index) => {
-              console.log("item", item);
-              return (
-                <Card
-                  image={item.image}
-                  key={index}
-                  item={item.title}
-                  itemCount={item.count}
-                  onDecrement={decrementHandler.bind(null, "Furniture", item)}
-                  onClick={clickHandler.bind(null, "Furniture", item)}
-                />
-              );
-            })}
-          </div>
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.Electronic.map((item, index) => (
-              <Card
-                image={item.image}
-                key={index}
-                item={item.title}
-                itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "Electronic", item)}
-                onClick={clickHandler.bind(null, "Electronic", item)}
-              />
-            ))}
-          </div>
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.Vehicle.map((item, index) => (
-              <Card
-                image={item.image}
-                key={index}
-                item={item.title}
-                itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "Vehicle", item)}
-                onClick={clickHandler.bind(null, "Vehicle", item)}
-              />
-            ))}
-          </div>
-        </div>
-      </form>
-    </div>
+
+
+
+
+
+    </>
+    // <div>
+    // <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
+    //   <button
+    //     className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+    //     type="button"
+    //     onClick={handleSkip}
+    //   >
+    //     SKIP
+    //   </button>
+    //   <button
+    //     className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+    //     type="button"
+    //     onClick={handleSubmit}
+    //   >
+    //     NEXT
+    //   </button>
+    // </div>
+    // <div className="flex justify-end mr-5  mb-5 text-sm ">
+    //   {/* <FontAwesomeIcon
+    //     icon={fa["faSearch"]}
+    //     style={{ fontSize: 20, color: "blue" }}
+    //   /> */}
+    //   <p>Do you know you can save this progress</p>
+    // </div>
+
+    //   <form className="max-w-screen-xl m-auto py-10 px-5">
+    //     <div className="grid gap-8 lg:grid-cols-3">
+    //       {uniqueCategories.map((item, i) => {
+    //         return (
+    //           <div className="px-4 py-4" key={i}>
+    //             <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+    //           </div>
+    //         );
+    //       })}
+    //     </div>
+
+    //     <div className="grid gap-8 md:grid-cols-3 mt-5">
+    //       <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    //         {objectState.Furniture.map((item, index) => {
+    //           console.log("item", item);
+    //           return (
+    //             <Card
+    //               image={item.image}
+    //               key={index}
+    //               item={item.title}
+    //               itemCount={item.count}
+    //               onDecrement={decrementHandler.bind(null, "Furniture", item)}
+    //               onClick={clickHandler.bind(null, "Furniture", item)}
+    //             />
+    //           );
+    //         })}
+    //       </div>
+    //       <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    //         {objectState.Electronic.map((item, index) => (
+    //           <Card
+    //             image={item.image}
+    //             key={index}
+    //             item={item.title}
+    //             itemCount={item.count}
+    //             onDecrement={decrementHandler.bind(null, "Electronic", item)}
+    //             onClick={clickHandler.bind(null, "Electronic", item)}
+    //           />
+    //         ))}
+    //       </div>
+    //       <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    //         {objectState.Vehicle.map((item, index) => (
+    //           <Card
+    //             image={item.image}
+    //             key={index}
+    //             item={item.title}
+    //             itemCount={item.count}
+    //             onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+    //             onClick={clickHandler.bind(null, "Vehicle", item)}
+    //           />
+    //         ))}
+    //       </div>
+    //     </div>
+    //   </form>
+    // </div>
+
   );
 };
 
