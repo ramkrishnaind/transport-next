@@ -89,7 +89,7 @@ const Step1 = () => {
             Set up 0% complete
           </div>
           <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-            5 Step left: About 8 min
+            5 Step left • About 8 min
           </div>
         </div>
 
