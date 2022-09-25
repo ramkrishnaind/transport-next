@@ -678,7 +678,12 @@ font-size: 1.944rem;
     margin-top: 3vh;
     border-radius: 10px;
   }
-
+  .thankyou_step7{
+    font-size: 20px;
+  }
+  .thankyou2_step7{
+    font-size: 11px;
+  }
   .widthSlect {
     width: 80vw;
   }
@@ -761,6 +766,10 @@ font-size: 1.944rem;
     margin-top: 20px;
     display: grid;
     grid-template-columns: 178px 1fr;
+  }
+  .step7_grid1 {
+    margin-top: 20px;
+    display: grid;
   }
   .widthSlect {
     width: 111px;

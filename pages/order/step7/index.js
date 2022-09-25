@@ -75,7 +75,7 @@ const Step7 = () => {
           });
           setAllRecords(arr);
         }
-      } catch (error) {}
+      } catch (error) { }
     };
     getData();
   }, []);
@@ -286,8 +286,8 @@ const Step7 = () => {
   // console.log("items------", items);
   // console.log("state------", state);
 
-  const clickHandler = (key, item) => {};
-  const decrementHandler = (key, item) => {};
+  const clickHandler = (key, item) => { };
+  const decrementHandler = (key, item) => { };
 
   const handleNewOrder = async (event) => {
     event.preventDefault();
@@ -304,177 +304,214 @@ const Step7 = () => {
   };
 
   return (
-    <div>
-      <div className="flex justify-end">
-        <button
-          className="m-5 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-10 text-sm rounded shadow-lg"
-          type="submit"
-          onClick={handleNewOrder}
-        >
-          + NEW ORDER
-        </button>
+    <>
+      <div>
+        <div className="flex flex-col m-5 p-4 rounded-lg gap-4 bg-white  ">
+          <div className="thankyou_step7">😀 Thank you Rishi Lohan!</div>
+          <div className="thankyou2_step7">The information you provided has been sent to our top secret super wise quote calculating monks. We will get you perfect tailor made quote in a day.</div>
+        </div>
       </div>
-      {allRecords?.map((record, index) => {
-        return (
-          <div className="flex m-10 space-x-5" key={index}>
-            <div className="h-80 w-2/5 rounded shadow-lg">
-              <div className="flex ">
-                <div className="w-1/3 h-80">
-                  <div className="h-32 border-t-2 border-l-2 border-b-2 bg-gray-100 rounded shadow-lg">
-                    <div className="flex mt-10 justify-center space-x-2">
-                      <div className=" text-xl font-bold justify-center">
-                        {record.bookingId}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="h-48 w-full  bg-blue-400 ">
-                    <div className="flex  justify-center ">
-                      <div className="font-bold text-xl text-gray-100 mt-7">
-                        {record.day}
-                      </div>
-                    </div>
-                    <div className="flex mt-5 justify-center">
-                      <div className="font-bold text-xl text-gray-100">
-                        {record.dayName}
-                      </div>
-                    </div>
 
-                    <div className="flex mt-5 justify-center ">
-                      <div className="font-bold text-xl text-gray-100">
-                        {record.month}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-2/3 h-80 border-2 rounded shadow-lg text-sm">
-                  <div className="flex ml-3 mr-10 mt-1 space-x-2 font-medium text-sm">
-                    <div className="flex- 1 w-1/2">From</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 space-x-2 text-sm">
-                    <div className="flex- 1 w-3/5">{record.fromAddress}</div>
-                  </div>
+      <div className="flex flex-col m-5 p-4 rounded-lg gap-4 bg-white  ">
+        <div className="step7_grid1">
+          <div className="step7_container1">s</div>
+          <div className="step7_container2">s</div>
+          <div className="step7_container3">s</div>
+        </div>
+      </div>
 
-                  <div className="flex ml-3 mr-10 mt-3 space-x-2 font-medium text-sm">
-                    <div className="flex- 1 w-1/2">To</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 space-x-2">
-                    <div className="flex- 1 w-3/5">{record.toAddress}</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 mt-5 space-x-2 font-medium text-sm">
-                    <div className="flex- 1 w-1/2">Mover Planner</div>
-                    <div className="flex- 1 w-1/2 ">Mover Manager</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 space-x-2 text-sm">
-                    <div className="flex- 1 w-1/2">{moverPlanner}</div>
-                    <div className="flex- 1 w-1/2  ">{moveManager}</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 space-x-2">
-                    <div className="flex- 1 w-1/2">{moverPlannerNo}</div>
-                  </div>
-                  <div className="flex mr-5 mt-10 justify-end text-sm">
-                    Your order is being evaluated by us
-                  </div>
+      
+        <div className="flex justify-between p-4">
+          <div>current order</div>
+          <button
+            className=" bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-10 text-sm rounded shadow-lg"
+            type="submit"
+            onClick={handleNewOrder}>
+            + NEW ORDER
+          </button>
+        </div>
 
-                  <div className="flex justify-end mr-5 mt-5 space-x-5">
-                    <button
-                      className="bg-gray-400 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
-                      type="submit"
-                    >
-                      VIEW DETAILS
-                    </button>
-                    <button
-                      className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
-                      type="submit"
-                      onClick={(e) => handleEditInventory(e, record)}
-                    >
-                      EDIT INVENTORY
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg overflow-y-auto">
-              <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-                <div className="flex- 1 w-1/2">Order Id</div>
-                <div className="flex- 1 w-1/2 ">Date Timeslot</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">{record.orderId}</div>
-                <div className="flex- 1 w-1/2  ">{record.date}</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-                <div className="flex- 1 w-1/2">From Address</div>
-                <div className="flex- 1 w-1/2 ">To Address</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">{record.fromAddress}</div>
-                <div className="flex- 1 w-1/2  ">{record.toAddress}</div>
-              </div>
 
-              <div className="flex ml-10 mr-10 mt-10 space-x-2 font-medium text-md">
-                <div className="flex- 1 w-1/2">Floor</div>
-                <div className="flex- 1 w-1/2 ">Floor</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">{record.currentFloor}</div>
-                <div className="flex- 1 w-1/2  ">{record.movingOnFloor}</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">
-                  {record.isLiftAvailableOnCurrentFloor}
-                </div>
-                <div className="flex- 1 w-1/2  ">
-                  {record.isLiftAvailableOnMovingFloor}
-                </div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-                <div className="flex- 1 w-1/2">Preferred Choice</div>
-                <div className="flex- 1 w-1/2 ">What to Move</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">{}</div>
-                <div className="flex- 1 w-1/2  ">{record.moveType}</div>
-              </div>
 
-              <div className="w-5/6">
-                <form className="max-w-xl m-auto py-10 px-5">
-                  <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
-                    {record.step3?.map((st, ind1) => {
-                      console.log("item", st);
-                      return (
-                        <Card
-                          image={st.image}
-                          key={ind1}
-                          item={st.title}
-                          itemCount={st.count}
-                          onDecrement={decrementHandler.bind(null, "", st)}
-                          onClick={clickHandler.bind(null, "", st)}
-                        />
-                      );
-                    })}
-                    {record.step5 &&
-                      record.step5?.map((st, ind2) => {
-                        console.log("item", st);
-                        return (
-                          <Card
-                            image={st.image}
-                            key={ind2}
-                            item={st.title}
-                            itemCount={st.count}
-                            onDecrement={decrementHandler.bind(null, "", st)}
-                            onClick={clickHandler.bind(null, "", st)}
-                          />
-                        );
-                      })}
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+
+
+
+
+
+
+
+    </>
   );
+  // <div>
+  //   <div className="flex justify-end">
+  //     <button
+  //       className="m-5 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-10 text-sm rounded shadow-lg"
+  //       type="submit"
+  //       onClick={handleNewOrder}
+  //     >
+  //       + NEW ORDER
+  //     </button>
+  //   </div>
+  //   {allRecords?.map((record, index) => {
+  //     return (
+  //       <div className="flex m-10 space-x-5" key={index}>
+  //         <div className="h-80 w-2/5 rounded shadow-lg">
+  //           <div className="flex ">
+  //             <div className="w-1/3 h-80">
+  //               <div className="h-32 border-t-2 border-l-2 border-b-2 bg-gray-100 rounded shadow-lg">
+  //                 <div className="flex mt-10 justify-center space-x-2">
+  //                   <div className=" text-xl font-bold justify-center">
+  //                     {record.bookingId}
+  //                   </div>
+  //                 </div>
+  //               </div>
+  //               <div className="h-48 w-full  bg-blue-400 ">
+  //                 <div className="flex  justify-center ">
+  //                   <div className="font-bold text-xl text-gray-100 mt-7">
+  //                     {record.day}
+  //                   </div>
+  //                 </div>
+  //                 <div className="flex mt-5 justify-center">
+  //                   <div className="font-bold text-xl text-gray-100">
+  //                     {record.dayName}
+  //                   </div>
+  //                 </div>
+
+  //                 <div className="flex mt-5 justify-center ">
+  //                   <div className="font-bold text-xl text-gray-100">
+  //                     {record.month}
+  //                   </div>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //             <div className="w-2/3 h-80 border-2 rounded shadow-lg text-sm">
+  //               <div className="flex ml-3 mr-10 mt-1 space-x-2 font-medium text-sm">
+  //                 <div className="flex- 1 w-1/2">From</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 space-x-2 text-sm">
+  //                 <div className="flex- 1 w-3/5">{record.fromAddress}</div>
+  //               </div>
+
+  //               <div className="flex ml-3 mr-10 mt-3 space-x-2 font-medium text-sm">
+  //                 <div className="flex- 1 w-1/2">To</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 space-x-2">
+  //                 <div className="flex- 1 w-3/5">{record.toAddress}</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 mt-5 space-x-2 font-medium text-sm">
+  //                 <div className="flex- 1 w-1/2">Mover Planner</div>
+  //                 <div className="flex- 1 w-1/2 ">Mover Manager</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 space-x-2 text-sm">
+  //                 <div className="flex- 1 w-1/2">{moverPlanner}</div>
+  //                 <div className="flex- 1 w-1/2  ">{moveManager}</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 space-x-2">
+  //                 <div className="flex- 1 w-1/2">{moverPlannerNo}</div>
+  //               </div>
+  //               <div className="flex mr-5 mt-10 justify-end text-sm">
+  //                 Your order is being evaluated by us
+  //               </div>
+
+  //               <div className="flex justify-end mr-5 mt-5 space-x-5">
+  //                 <button
+  //                   className="bg-gray-400 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
+  //                   type="submit"
+  //                 >
+  //                   VIEW DETAILS
+  //                 </button>
+  //                 <button
+  //                   className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
+  //                   type="submit"
+  //                   onClick={(e) => handleEditInventory(e, record)}
+  //                 >
+  //                   EDIT INVENTORY
+  //                 </button>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //         <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg overflow-y-auto">
+  //           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
+  //             <div className="flex- 1 w-1/2">Order Id</div>
+  //             <div className="flex- 1 w-1/2 ">Date Timeslot</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">{record.orderId}</div>
+  //             <div className="flex- 1 w-1/2  ">{record.date}</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
+  //             <div className="flex- 1 w-1/2">From Address</div>
+  //             <div className="flex- 1 w-1/2 ">To Address</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">{record.fromAddress}</div>
+  //             <div className="flex- 1 w-1/2  ">{record.toAddress}</div>
+  //           </div>
+
+  //           <div className="flex ml-10 mr-10 mt-10 space-x-2 font-medium text-md">
+  //             <div className="flex- 1 w-1/2">Floor</div>
+  //             <div className="flex- 1 w-1/2 ">Floor</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">{record.currentFloor}</div>
+  //             <div className="flex- 1 w-1/2  ">{record.movingOnFloor}</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">
+  //               {record.isLiftAvailableOnCurrentFloor}
+  //             </div>
+  //             <div className="flex- 1 w-1/2  ">
+  //               {record.isLiftAvailableOnMovingFloor}
+  //             </div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
+  //             <div className="flex- 1 w-1/2">Preferred Choice</div>
+  //             <div className="flex- 1 w-1/2 ">What to Move</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">{}</div>
+  //             <div className="flex- 1 w-1/2  ">{record.moveType}</div>
+  //           </div>
+
+  //           <div className="w-5/6">
+  //             <form className="max-w-xl m-auto py-10 px-5">
+  //               <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
+  //                 {record.step3?.map((st, ind1) => {
+  //                   console.log("item", st);
+  //                   return (
+  //                     <Card
+  //                       image={st.image}
+  //                       key={ind1}
+  //                       item={st.title}
+  //                       itemCount={st.count}
+  //                       onDecrement={decrementHandler.bind(null, "", st)}
+  //                       onClick={clickHandler.bind(null, "", st)}
+  //                     />
+  //                   );
+  //                 })}
+  //                 {record.step5 &&
+  //                   record.step5?.map((st, ind2) => {
+  //                     console.log("item", st);
+  //                     return (
+  //                       <Card
+  //                         image={st.image}
+  //                         key={ind2}
+  //                         item={st.title}
+  //                         itemCount={st.count}
+  //                         onDecrement={decrementHandler.bind(null, "", st)}
+  //                         onClick={clickHandler.bind(null, "", st)}
+  //                       />
+  //                     );
+  //                   })}
+  //               </div>
+  //             </form>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     );
+  //   })}
+  // </div>
 };
 
 export default Step7;
