@@ -36,7 +36,7 @@ const Header = () => {
               <Link href="/">Home</Link>
             </div>
             <div>About Us</div>
-            <div>Services</div>
+            <div>Services</div> 
             <div>Blog</div>
             <div>Contact</div>
           </div>

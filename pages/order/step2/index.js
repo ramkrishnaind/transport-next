@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import data1 from "../../../data/bikeList.json";
-import Select from "react-select";
+// import Select from "react-select";
 import TransportContext from "../../../context";
-import { Button } from "antd";
+import { Select, Button } from "antd";
 import { useRouter } from "next/router";
 import { liftAvailability } from "../../../services/customer-api-service";
+const { Option } = Select;
 
 const data = data1;
 //debugger;
@@ -82,108 +83,236 @@ const Step2 = () => {
   return (
 
     <>
-      <div className="b1">
-
-        <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 h-16 r4 bg-white rounded-lg ">
-          <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">Set up 20% complete</div>
-          <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">4 Step left • About 7 min</div>
+      {/* completeBAR */}
+      <div>
+        <div className="hidden md:block lg:block xl:block">
+          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
+            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              Set up 0% complete
+            </div>
+            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+            5 Step left • About 8 min
+            </div>
+          </div>
         </div>
+        <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
+          <div>
+            <hr className="step2_line hidden md:block lg:block xl:block" />
+          </div>
+        </div>
+        <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 0% complete</div>
+          <div className="not-italic ">
+            <span className=" font-semibold">5 Step left •</span>
+            <span> About 8 min</span>
+          </div>
+        </div>
+      </div>
 
-        {/* DETAILS */}
 
-        <div className="flex flex-col items-left p-0 gap-2.5 r1 top-36 bg-white r4 rounded-lg pl-12 container ">
-          <div className="bg-white text-9xl pl-10">
+      {/* FORM */}
+
+
+
+      <div className="bg-white r1_Detail ">
+        <div className=" bg-white rounded-2xl mt-9 md:mt-4 sm:mt-4 lg:mt-4 xl:mt-4 mx-4 lg:p-9 ">
+          <div className=" pt-10 pb-5 md:pt-0 sm:pt-0 lg:pt-0 xl:pt-0">
             <img
-              className="stepimage"
-              src="/images/movingthings.jpeg"
+              className="pl-8"
+              src="/images/movingthings.png"
               itemProp="image"
               alt="Image"
             />
           </div>
-          <form>
-            <div className="grid step2grid1 bg-white form_content wrapper">
-          
+          <div className="grid gap-7  h-full">
+            <form className="px-5">
+              <div className="flex flex-col  ">
+                <div className="grid1_step2">
+                  <div className=" text-gray-600 detailquestions  shifting_text">
+                    I currently live in
+                  </div>
+                  <div className=" text-left  text-gray-600 md:mt-0 lg:mt-0 xl:mt-0 ">
+                    <Select
+                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect"
 
-              <div className="bg-white w-20 mr-2 text-right font-bold text-gray-600 detailquestions whitespace-nowrap">
-                I currently live on
+                      bordered={false}
+                      defaultValue={fromFloorType}
+                      onChange={setFromFloorType}
+                      options={floorOptions}
+                    />
+                  </div>
+                  <div className=" mt-5 md:mt-0 lg:mt-0 xl:mt-0 text-gray-600 detailquestions ">
+                    floor with service lift
+                  </div>
+                  <div className=" text-left  text-gray-600 ">
+                    <Select
+                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none widthSlect2 widthSlect border-b-2 "
+
+                      bordered={false}
+                      defaultValue={fromLift}
+                      onChange={setFromLift}
+                      options={liftOptions}
+                    />
+                  </div>
+                </div>
+                <div className="grid2_step2">
+                  <div className=" mt-5 md:mt-0 lg:mt-0 xl:mt-0 text-gray-600 detailquestions ">
+                    for shifting. I&apos;m moving to
+                  </div>
+                  <div className=" text-left  text-gray-600 ">
+                    <Select
+                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect "
+                      bordered={false}
+                      defaultValue={toFloorType}
+                      onChange={setToFloorType}
+                      options={floorOptions}
+                    />
+                    {/* <Select
+                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect"
+                      bordered={false}
+                      defaultValue={fromFloorType}
+                      onChange={setFromFloorType}
+                      options={floorOptions}
+                    /> */}
+                  </div>
+                  <div className=" text-gray-600 mt-5 md:mt-0 lg:mt-0 xl:mt-0 detailquestions ">
+                    floor with service lift
+                  </div>
+                </div>
+                <div className="grid3_step2">
+                  <div className=" text-left  text-gray-600 ">
+                    <Select
+                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none widthSlect2 border-b-2 "
+
+                      bordered={false}
+                      defaultValue={toLift}
+                      onChange={setToLift}
+                      options={liftOptions}
+                    />
+                  </div>
+                  <div className=" text-gray-600 mt-5 md:mt-0 lg:mt-0 xl:mt-0 detailquestions ">
+                    for shifting.
+                  </div>
+                </div>
               </div>
-
-
-              <div className="step2_container1">
-                <Select
-                  className="block w-40 bg-white  border-gray-400 hover:border-gray-500 px-4  focus:outline-none focus:shadow-outline"
-                  defaultValue={fromFloorType}
-                  onChange={setFromFloorType}
-                  options={floorOptions}
-                />
+              <div className=" mt-5 mb-5">
+                <Button className=" px-10 py-4 button_1 buttonMobile rounded-m "
+                  type="submit"
+                  onClick={handleSubmit}
+                  loading={loading}
+                //disabled={disabled}
+                >Next</Button>
               </div>
-
-              <div className="whitespace-nowrap bg-white  w-20 pr-44  text-right font-bold  detailquestions text-gray-600">
-                floor with service lift
-              </div>
-
-              <div className=" ">
-                <Select
-                  className="block appearance-none w-60 bg-white  border-gray-400 hover:border-gray-500 focus:outline-none focus:shadow-outline"
-                  defaultValue={fromLift}
-                  onChange={setFromLift}
-                  options={liftOptions}
-                />
-              </div>
-
-
-            </div>
-
-            {/* <div className="bg-white form_content">
-          </div> */}
-
-        {/* <div className="grid step2grid1 bg-white form_content"> */}
-            <div className="grid step2grid2 gap-0 wrapper">
-              <div className="pl-4_5">
-                <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600   detailquestions">for shifting. I&apos;m moving to</label>
-              </div>
-              <div>
-                <Select
-                  className="block appearance w-40 bg-white  border-gray-400 hover:border-gray-500 focus:outline-none focus:shadow-outline"
-                  defaultValue={toFloorType}
-                  onChange={setToFloorType}
-                  options={floorOptions}
-                />
-              </div>
-              <div className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions whitespace-nowrap">
-                floor with service lift
-              </div>
-            </div>
-            <div className="grid step2grid3 gap-0 mt-6 wrapper" >
-              <div className="ml-4">
-                <Select
-                  className="block appearance-none w-60 bg-white  border-gray-400 hover:border-gray-500 focus:outline-none focus:shadow-outline "
-                  defaultValue={toLift}
-                  onChange={setToLift}
-                  options={liftOptions}
-                />
-              </div>
-              <div className="whitespace-nowrap bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">
-                for shifting.
-              </div>
-            </div>
-
-
-            {/* button */}
-
-            <div className="bg-white ">
-              <button className=" px-10 py-4 button_2 rounded-m"
-              onClick={handleSubmit}
-              loading={loading}
-              >
-                Next
-              </button>
-            </div>
-
-          </form>
+            </form>
+          </div>
         </div>
       </div>
+
+
+
+
     </>
+    // <div className="b1">
+
+    //   <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 h-16 r4 bg-white rounded-lg ">
+    //     <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">Set up 20% complete</div>
+    //     <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">4 Step left • About 7 min</div>
+    //   </div>
+
+    //   {/* DETAILS */}
+
+    //   <div className="flex flex-col items-left p-0 gap-2.5 r1 top-36 bg-white r4 rounded-lg pl-12 container ">
+    //     <div className="bg-white text-9xl pl-10">
+    //       <img
+    //         className="stepimage"
+    //         src="/images/movingthings.jpeg"
+    //         itemProp="image"
+    //         alt="Image"
+    //       />
+    //     </div>
+    //     <form>
+    //       <div className="grid step2grid1 bg-white form_content wrapper">
+
+
+    //         <div className="bg-white w-20 mr-2 text-right font-bold text-gray-600 detailquestions whitespace-nowrap">
+    //           I currently live on
+    //         </div>
+
+
+    //         <div className="step2_container1">
+    //           <Select
+    //             className="block w-40 bg-white  border-gray-400 hover:border-gray-500 px-4  focus:outline-none focus:shadow-outline"
+    //             defaultValue={fromFloorType}
+    //             onChange={setFromFloorType}
+    //             options={floorOptions}
+    //           />
+    //         </div>
+
+    //         <div className="whitespace-nowrap bg-white  w-20 pr-44  text-right font-bold  detailquestions text-gray-600">
+    //           floor with service lift
+    //         </div>
+
+    //         <div className=" ">
+    //           <Select
+    //             className="block appearance-none w-60 bg-white  border-gray-400 hover:border-gray-500 focus:outline-none focus:shadow-outline"
+    //             defaultValue={fromLift}
+    //             onChange={setFromLift}
+    //             options={liftOptions}
+    //           />
+    //         </div>
+
+
+    //       </div>
+
+    //       {/* <div className="bg-white form_content">
+    //     </div> */}
+
+    //   {/* <div className="grid step2grid1 bg-white form_content"> */}
+    //       <div className="grid step2grid2 gap-0 wrapper">
+    //         <div className="pl-4_5">
+    //           <label htmlFor="name" className="bg-white  w-20 mr-2 text-right font-bold text-gray-600   detailquestions">for shifting. I&apos;m moving to</label>
+    //         </div>
+    //         <div>
+    //           <Select
+    //             className="block appearance w-40 bg-white  border-gray-400 hover:border-gray-500 focus:outline-none focus:shadow-outline"
+    // defaultValue={toFloorType}
+    // onChange={setToFloorType}
+    // options={floorOptions}
+    //           />
+    //         </div>
+    //         <div className="bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions whitespace-nowrap">
+    //           floor with service lift
+    //         </div>
+    //       </div>
+    //       <div className="grid step2grid3 gap-0 mt-6 wrapper" >
+    //         <div className="ml-4">
+    //           <Select
+    //             className="block appearance-none w-60 bg-white  border-gray-400 hover:border-gray-500 focus:outline-none focus:shadow-outline "
+    // defaultValue={toLift}
+    // onChange={setToLift}
+    // options={liftOptions}
+    //           />
+    //         </div>
+    //         <div className="whitespace-nowrap bg-white  w-20 mr-2 text-right font-bold text-gray-600 detailquestions">
+    //           for shifting.
+    //         </div>
+    //       </div>
+
+
+    //       {/* button */}
+
+    //       <div className="bg-white ">
+    //         <button className=" px-10 py-4 button_2 rounded-m"
+    // onClick={handleSubmit}
+    // loading={loading}
+    //         >
+    //           Next
+    //         </button>
+    //       </div>
+
+    //     </form>
+    //   </div>
+    // </div>
 
 
 

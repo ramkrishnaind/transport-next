@@ -17,6 +17,8 @@ import {
 //   faAnchor,
 // } from "@fortawesome/free-solid-svg-icons";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
+import { Collapse } from 'antd';
+const { Panel } = Collapse;
 
 const Step3 = (props) => {
   const router = useRouter();
@@ -90,7 +92,7 @@ const Step3 = (props) => {
     });
   }, []);
   useEffect(() => {
-    debugger;
+    // debugger;
     if (!step3State) return;
     setObjectState((prev) => {
       const newState = { ...prev };
@@ -163,7 +165,63 @@ const Step3 = (props) => {
   const handleSkip = () => {
     router.push("/order/step5");
   };
-
+  const form1 = () => {
+    return (<form className="max-w-screen-xl m-auto px-4">
+      <div className="mt-5">
+        <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+          {objectState.Furniture.map((item, index) => {
+            console.log("item", item);
+            return (
+              <Card
+                image={item.image}
+                key={index}
+                item={item.title}
+                itemCount={item.count}
+                onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                onClick={clickHandler.bind(null, "Furniture", item)}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </form>)
+  }
+  const form2 = () => {
+    return (<form className="max-w-screen-xl m-auto px-4">
+      <div className="mt-5">
+        <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+          {objectState.Electronic.map((item, index) => (
+            <Card
+              image={item.image}
+              key={index}
+              item={item.title}
+              itemCount={item.count}
+              onDecrement={decrementHandler.bind(null, "Electronic", item)}
+              onClick={clickHandler.bind(null, "Electronic", item)}
+            />
+          ))}
+        </div>
+      </div>
+    </form>)
+  }
+  const form3 = () => {
+    return (<form className="max-w-screen-xl m-auto px-4">
+      <div className="mt-5">
+        <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+          {objectState.Vehicle.map((item, index) => (
+            <Card
+              image={item.image}
+              key={index}
+              item={item.title}
+              itemCount={item.count}
+              onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+              onClick={clickHandler.bind(null, "Vehicle", item)}
+            />
+          ))}
+        </div>
+      </div>
+    </form>)
+  }
   // const callApi = async () => {
   //   let arr = objectState?.Furniture ? [...objectState.Furniture] : [];
   //   arr = objectState?.Electronic
@@ -209,42 +267,92 @@ const Step3 = (props) => {
 
   return (
     <>
-      <div className="b1">
-        <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-14">
-          <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-            Set up 0% complete
-          </div>
-          <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-            3 Step left • About 6 min
+      {/* completeBAR */}
+      <div>
+        <div className="hidden md:block lg:block xl:block">
+          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
+            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              Set up 40% complete
+            </div>
+            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              3 Step left • About 6 min
+            </div>
           </div>
         </div>
-        <hr className="step3_line" />
+        <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
+          <div>
+            <hr className="step2_line hidden md:block lg:block xl:block" />
+          </div>
+        </div>
+        <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 40% complete</div>
+          <div className="not-italic ">
+            <span className=" font-semibold">3 Step left •</span>
+            <span> About 6 min•</span>
+          </div>
+        </div>
+      </div>
 
 
 
+      <div className="r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3">
+        <div className=" flex flex-col justify-between items-left p-0 gap-1.5  top-36 r4 mt-3 p-2 md:pl-0 lg:pl-0 xl:pl-0 md:mt-5 lg:mt-5 xl:mt-5  ">
+          <div className="step3_heading font-medium text-center md:text-left xl:text-left lg:text-left">
+            What are the major item you want to move?
+          </div>
+          <div className=" text-center md:text-left xl:text-left lg:text-left padding_Heading_step2 ">
+            to save you the trouble, we have pre-selected this list.
+          </div>
+        </div>
 
-        {/* details */}
 
+        {/* Tab Responsive */}
+        <div className="hidden ResponsiveTab">
 
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Furniture" key="1" >
+              {form1()}
+            </Panel>
+          </Collapse>
 
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Electronic" key="1" >
+              {form2()}
+            </Panel>
+          </Collapse>
 
-        <div className="  r1 r4 mt-2 bg-white step3_container  rounded-lg ">
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Vehicle" key="1" >
+              {form3()}
+            </Panel>
+          </Collapse>
 
-
-
-
-
-          <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
-            <div className="step3_heading font-medium pl-2">
-              What are the major item you want to move?
-            </div>
-            <div className=" pl-2">
-              to save you the trouble, we have pre-selected this list.
+          <div className="mt-6 ">
+            <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+              <button
+                className="button_2_skip rounded-m px-10 py-2"
+                type="button"
+                onClick={handleSkip}
+              >
+                SKIP
+              </button>
+              <button
+                className="button_3 rounded-m px-10 py-2 "
+                type="button"
+                onClick={handleSubmit}
+              >
+                NEXT
+              </button>
             </div>
           </div>
 
+        </div>
 
 
+
+
+        {/* Laptop */}
+        <div className="hidden ResponsiveLatop">
           <form className="max-w-screen-xl m-auto">
             <div className="grid gap-8 lg:grid-cols-3 mt-4 ">
               {uniqueCategories.map((item, i) => {
@@ -298,7 +406,7 @@ const Step3 = (props) => {
             </div>
           </form>
           <div className="mt-6 ">
-              
+
             <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
               <button
                 className="button_2_skip rounded-m px-10 py-2"
@@ -315,14 +423,53 @@ const Step3 = (props) => {
                 NEXT
               </button>
             </div>
-            <div className="flex justify-start mr-5 pl-5 mb-5 text-sm ">
-              {/* <FontAwesomeIcon
-                icon={fa["faSearch"]}
-                style={{ fontSize: 20, color: "blue" }}
-              /> */}
-              <p>Do you know you can save this progress</p>
-            </div>
           </div>
+        </div>
+      </div>
+
+
+      {/* MOBILE Responsive */}
+
+
+      <div className="block md:hidden lg:hidden xl:hidden">
+        <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+          <Panel header="Furniture" key="1" >
+            {form1()}
+          </Panel>
+        </Collapse>
+
+        <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+          <Panel header="Electronic" key="1" >
+            {form2()}
+          </Panel>
+        </Collapse>
+
+        <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+          <Panel header="Vehicle" key="1" >
+            {form3()}
+          </Panel>
+        </Collapse>
+
+        <div className="mt-6 ">
+          <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+            <button
+              className="button_2_skip rounded-m px-10 py-2"
+              type="button"
+              onClick={handleSkip}
+            >
+              SKIP
+            </button>
+            <button
+              className="button_3 rounded-m px-10 py-2 "
+              type="button"
+              onClick={handleSubmit}
+            >
+              NEXT
+            </button>
+          </div>
+        </div>
+        <div className="flex justify-start pl-5 mr-5  mb-5 text-sm ">
+          <p>Do you know you can save this progress</p>
         </div>
       </div>
 
@@ -331,7 +478,163 @@ const Step3 = (props) => {
 
 
 
+
+
+                    {/* completeBAR */}
+      <div>
+        <div className="hidden md:block lg:block xl:block">
+          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
+            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              Set up 0% complete
+            </div>
+            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+            5 Step left • About 8 min
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
+          <div>
+            <hr className="step2_line hidden md:block lg:block xl:block" />
+          </div>
+        </div>
+        <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 0% complete</div>
+          <div className="not-italic ">
+            <span className=" font-semibold">5 Step left •</span>
+            <span> About 8 min</span>
+          </div>
+        </div>
+      </div>
+
+
+
     </>
+
+
+
+    // <div>
+
+    //   <div className="b1">
+    //     <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-14">
+    //       <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+    //         Set up 0% complete
+    //       </div>
+    //       <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+    //         3 Step left • About 6 min
+    //       </div>
+    //     </div>
+    //     <hr className="step3_line" />
+
+
+
+
+    //     {/* details */}
+
+
+    //     <div className="  r1 r4 mt-2 bg-white step3_container  rounded-lg ">
+
+
+
+
+
+    // <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
+    //   <div className="step3_heading font-medium pl-2">
+    //     What are the major item you want to move?
+    //   </div>
+    //   <div className=" pl-2">
+    //     to save you the trouble, we have pre-selected this list.
+    //   </div>
+    // </div>
+
+
+
+    // <form className="max-w-screen-xl m-auto">
+    //   <div className="grid gap-8 lg:grid-cols-3 mt-4 ">
+    //     {uniqueCategories.map((item, i) => {
+    //       return (
+    //         <div key={i}>
+    //           <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+    //         </div>
+    //       );
+    //     })}
+    //   </div>
+    //   <div className="grid gap-3 md:grid-cols-3 px-4">
+    //     <div className="flex flex-col gap-3 md:grid-cols-1">
+    //       {objectState.Furniture.map((item, index) => {
+    //         console.log("item", item);
+    //         return (
+    //           <Card
+    //             image={item.image}
+    //             key={index}
+    //             item={item.title}
+    //             itemCount={item.count}
+    //             onDecrement={decrementHandler.bind(null, "Furniture", item)}
+    //             onClick={clickHandler.bind(null, "Furniture", item)}
+    //           />
+    //         );
+    //       })}
+    //     </div>
+    //     <div className="flex flex-col gap-3 md:grid-cols-1">
+    //       {objectState.Electronic.map((item, index) => (
+    //         <Card
+    //           image={item.image}
+    //           key={index}
+    //           item={item.title}
+    //           itemCount={item.count}
+    //           onDecrement={decrementHandler.bind(null, "Electronic", item)}
+    //           onClick={clickHandler.bind(null, "Electronic", item)}
+    //         />
+    //       ))}
+    //     </div>
+    //     <div className="flex flex-col gap-3 md:grid-cols-1">
+    //       {objectState.Vehicle.map((item, index) => (
+    //         <Card
+    //           image={item.image}
+    //           key={index}
+    //           item={item.title}
+    //           itemCount={item.count}
+    //           onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+    //           onClick={clickHandler.bind(null, "Vehicle", item)}
+    //         />
+    //       ))}
+    //     </div>
+    //   </div>
+    // </form>
+    // <div className="mt-6 ">
+
+    //   <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+    //     <button
+    //       className="button_2_skip rounded-m px-10 py-2"
+    //       type="button"
+    //       onClick={handleSkip}
+    //     >
+    //       SKIP
+    //     </button>
+    //     <button
+    //       className="button_3 rounded-m px-10 py-2 "
+    //       type="button"
+    //       onClick={handleSubmit}
+    //     >
+    //       NEXT
+    //     </button>
+    //   </div>
+    //         <div className="flex justify-start mr-5 pl-5 mb-5 text-sm ">
+    //           {/* <FontAwesomeIcon
+    //           icon={fa["faSearch"]}
+    //           style={{ fontSize: 20, color: "blue" }}
+    //         /> */}
+    //           <p>Do you know you can save this progress</p>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+
+
+
+
+
+
     // <div>
     // <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
     //   <button
