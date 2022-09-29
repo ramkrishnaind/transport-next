@@ -48,6 +48,10 @@ const Step2 = () => {
   }, [booking, step1State]);
 
   const handleSubmit = async (event) => {
+    console.log("fromFloorType is ", fromFloorType)
+    console.log("fromLift is ", fromLift)
+    console.log("toFloorType is ", toFloorType)
+    console.log("toLift is ", toLift)
     setLoading(true)
     event.preventDefault(); // Prevent default submission
     let result = await callApi();
@@ -57,9 +61,9 @@ const Step2 = () => {
       setBooking(result.data);
       const formData = {
         bookingId: booking?.bookingId,
-        currentFloor: fromFloorType.value,
-        isLiftAvailableOnCurrentFloor: fromLift.value,
-        movingOnFloor: toFloorType.value,
+        currentFloor: fromFloorType,
+        isLiftAvailableOnCurrentFloor: fromLift,
+        movingOnFloor: toFloorType,
         isLiftAvailableOnMovingFloor: toLift.value,
       };
       context.setStep2State(formData);
@@ -72,10 +76,11 @@ const Step2 = () => {
   const callApi = async () => {
     return await liftAvailability({
       bookingId: booking?.bookingId,
-      currentFloor: fromFloorType.value,
-      isLiftAvailableOnCurrentFloor: fromLift.value,
-      movingOnFloor: toFloorType.value,
-      isLiftAvailableOnMovingFloor: toLift.value,
+      currentFloor: fromFloorType,
+      isLiftAvailableOnCurrentFloor: fromLift,
+      movingOnFloor: toFloorType,
+      isLiftAvailableOnMovingFloor: toLift
+      ,
     });
   };
   debugger;

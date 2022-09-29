@@ -497,13 +497,6 @@ const Step3 = (props) => {
             <hr className="step2_line hidden md:block lg:block xl:block" />
           </div>
         </div>
-        <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
-          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 0% complete</div>
-          <div className="not-italic ">
-            <span className=" font-semibold">5 Step left •</span>
-            <span> About 8 min</span>
-          </div>
-        </div>
       </div>
 
 

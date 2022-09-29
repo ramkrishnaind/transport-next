@@ -1016,7 +1016,7 @@ const Step4 = (props) => {
               className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
               type="submit"
             >
-              SKIP
+              SKIP 1
             </button>
             <button
               className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"

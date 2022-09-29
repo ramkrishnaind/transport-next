@@ -44,10 +44,15 @@ const Step1 = () => {
 
   useEffect(() => {
     console.log("customerDetails in step 1 is", customerDetails);
+    if(!customerDetails){
+      console.log("expire session")
+      router.push("/")
+    }
     setCustomerData(customerDetails);
   }, [customerDetails]);
 
   const handleSubmit = async (event) => {
+    console.log("houseType is ", houseType)
     setLoading(true);
     event.preventDefault(); // Prevent default submission
     let result = await callApi();
@@ -55,7 +60,7 @@ const Step1 = () => {
       console.log("CollectBasicInfo result is", result.data);
       setBooking({ bookingId: result.data.bookingId });
       const formData = {
-        shiftingFor: houseType.value,
+        shiftingFor: houseType,
         shiftingFrom: fromState.value,
         shiftingTo: toState.value,
         shiftingOn: startDate,
@@ -70,7 +75,7 @@ const Step1 = () => {
   const callApi = async () => {
     return await collectBasicInfo({
       customerId: customerData?._id,
-      shiftingFor: houseType.value,
+      shiftingFor: houseType,
       shiftingFrom: fromState,
       shiftingTo: toState,
       shiftingOn: startDate,
@@ -177,7 +182,7 @@ const Step1 = () => {
                       type="text"
                       autoFocus
                       required
-                      onChange={fromStateInputChangeHandler}
+                      onChange={toStateInputChangeHandler}
                       defaultValue={fromState}
                       onBlur={() => setFromBlur(true)}
                     />
@@ -211,7 +216,7 @@ const Step1 = () => {
                   type="submit"
                   onClick={handleSubmit}
                   loading={loading}
-                //disabled={disabled}
+                  disabled={disabled}
                 >Next</Button>
               </div>
             </form>
