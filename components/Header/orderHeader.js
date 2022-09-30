@@ -3,7 +3,11 @@ import { Divider } from "antd";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useAuth from "../../hooks/useAuth";
 const AppHeader = () => {
+  const { customer, authenticated } = useAuth();
+
+  console.log("customer in header is ", customer)
   return (
     <>
     <nav className="sticky top-0 z-10 bg-white   firefox:bg-opacity-90">
@@ -32,7 +36,7 @@ const AppHeader = () => {
           </div>
           
             <div className="flex space-x-4 text-gray-900 font-medium">
-            Rishi Lohan
+            {customer?.customerName}
             </div>
         </div>
       </div>

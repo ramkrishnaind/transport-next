@@ -8,15 +8,16 @@ import { collectBasicInfo } from "../../../services/customer-api-service";
 import { Select, Input, Button, DatePicker, Space } from "antd";
 const { Option } = Select;
 const { RangePicker } = DatePicker;
-
+import useAuth from "../../../hooks/useAuth";
 
 
 const houseTypeOptions = [
   { value: "1 BHK", label: "1 BHK" },
   { value: "2 BHK", label: "2 BHK" },
   { value: "3 BHK", label: "3 BHK" },
-  { value: "3+ BHK", label: "3+ BHK" },
-  { value: "duplex villa", label: "duplex villa" },
+  { value: "4 BHK", label: "4 BHK" },
+  { value: "Duplex", label: "duplex" },
+  { value: "Villa", label: "villa" },
   { value: "vehicle", label: "vehicle" },
   { value: "few items", label: "few items" },
 ];
@@ -29,9 +30,11 @@ const cityOptions = [
 ];
 
 const Step1 = () => {
+  const { customer, authenticated } = useAuth();
   const router = useRouter();
   const context = useContext(TransportContext);
   const { customerDetails, setBooking } = context;
+  const {localCustomer, setLocalCustomer} = useState();
   const [houseType, setHouseType] = useState("Select");
   const [fromState, setFromState] = useState();
   const [toState, setToState] = useState();
@@ -41,15 +44,17 @@ const Step1 = () => {
   const [toBlur, setToBlur] = useState(false);
   const [customerData, setCustomerData] = useState({});
   const [loading, setLoading] = useState(false);
+  console.log("customer in step 1  is ", customer)
 
   useEffect(() => {
     console.log("customerDetails in step 1 is", customerDetails);
-    if(!customerDetails){
+    console.log("customer from local storage in step 1 is")
+    if(customer == null ){
       console.log("expire session")
       router.push("/")
     }
     setCustomerData(customerDetails);
-  }, [customerDetails]);
+  }, [customerDetails, customer]);
 
   const handleSubmit = async (event) => {
     console.log("houseType is ", houseType)
