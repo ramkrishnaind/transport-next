@@ -345,7 +345,7 @@ const Step7 = () => {
               <div className="flex flex-col m-5 p-2 top-2 rounded-lg gap-4 bg-white step7ProfileBox1">
                 <div className="step7_grid1 ">
                   <div className="step7_container1 p-2">
-                    <div class="ellipse_step7">
+                    <div className="ellipse_step7">
                     </div>
                   </div>
                   <div className="step7_container2 m-5 p-2 rounded-lg gap-4 bg-white ">
