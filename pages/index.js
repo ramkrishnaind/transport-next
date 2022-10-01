@@ -67,7 +67,7 @@ const HomePage = () => {
         <div className="Index_background3 mt-9 h-full p-10 ">
           <div className="Index-MovingMadeModern_text py-4">Moving Made<br />Modern</div>
           <div className="Index-MovingMadeModern_text_2">
-            by choosing Whit'Glove Packers and Movers, you're guaranteeing a great moving day. All customers receive transparent pricing, flexible service and payment options, Quality Packaging Material, industry-best customer support, and an easy-to-access online dashboard.
+            by choosing Whit&apos;Glove Packers and Movers, you&apos;re guaranteeing a great moving day. All customers receive transparent pricing, flexible service and payment options, Quality Packaging Material, industry-best customer support, and an easy-to-access online dashboard.
           </div>
         </div>
 
