@@ -199,7 +199,7 @@ const Step4 = (props) => {
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   const [stateData, setStateData] = useState([]);
-  const checkKeyExist = (object, key) => {};
+  const checkKeyExist = (object, key) => { };
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
@@ -616,8 +616,8 @@ const Step4 = (props) => {
                 backgroundColor: item?.completed
                   ? "lightgreen"
                   : item?.index === item?.currentIndex
-                  ? "lightpink"
-                  : "white",
+                    ? "lightpink"
+                    : "white",
               }}
               onClick={(e) => {
                 if (!item?.completed) handleFirstLevelItemClick(e, index, item);
@@ -983,51 +983,77 @@ const Step4 = (props) => {
     router.push("/order/step5");
   };
 
-  return (
-    <div className="relative flex-1">
-      <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
-        <button
-          className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="submit"
-        >
-          SKIP
-        </button>
-        <button
-          className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="button"
-          onClick={handleSubmit}
-        >
-          PROCEED
-        </button>
-      </div>
-      <div className="flex justify-end mr-5  mb-5 text-sm ">
-        <p>Do you know you can save this progress</p>
-      </div>
-      <div className="flex overflow-x-auto accent-emerald-500/25 absolute top-0 left-80 space-x-4 w-1/2 m-auto py-2  px-5 border mx-auto">
-        <div className="flex flex-row space-x-4">
-          {state.map((element, index) => (
-            <div
-              key={index}
-              className="border px-2 cursor-pointer "
-              title={element.title}
-              onClick={(e) => handleCarouselClick(e, element)}
-            >
-              <div className="flex justify-center py-2" style={{ height: 60 }}>
-                <img src={element.image} alt="" />
-              </div>
-              {/* <div className="text-center text-sm">{element.title}</div> */}
-              <div className="px-5 mt-2 hover:bg-blue-100">
-                <button
-                  className="text-gray-500 text-center m-auto"
-                  // onClick={changeState}
-                >
-                  {getCompletedCount(element.title)}/{element.count}
-                </button>
-              </div>
+  return (<>
+    <div>
+      {/* completeBAR */}
+      <div>
+        <div className="hidden md:block lg:block xl:block">
+          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3   rounded-lg h-12">
+            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0  completing_bar_text">
+              Set up 0% complete
             </div>
-          ))}
+            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0  completing_bar_text">
+              5 Step left • About 8 min
+            </div>
+          </div>
+        </div>
 
-          {/* <div className="flex flex-row space-x-4">
+        <div className=" flex flex-col items-center  gap-2.5 py-5 MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 0% complete</div>
+          <div className="not-italic ">
+            <span className=" font-semibold">5 Step left •</span>
+            <span> About 8 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div className="  ">
+        <div className="relative flex-1">
+          <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
+            <button
+              className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+              type="submit"
+            >
+              SKIP 1
+            </button>
+            <button
+              className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+              type="button"
+              onClick={handleSubmit}
+            >
+              PROCEED
+            </button>
+          </div>
+          <div className="flex justify-end mr-5  mb-5 text-sm ">
+            <p>Do you know you can save this progress</p>
+          </div>
+          <div className="flex overflow-x-auto accent-emerald-500/25 absolute top-0 left-80 space-x-4 w-1/2 m-auto py-2  px-5 border mx-auto">
+            <div className="flex flex-row space-x-4">
+              {state.map((element, index) => (
+                <div
+                  key={index}
+                  className="border px-2 cursor-pointer "
+                  title={element.title}
+                  onClick={(e) => handleCarouselClick(e, element)}
+                >
+                  <div className="flex justify-center py-2" style={{ height: 60 }}>
+                    <img src={element.image} alt="" />
+                  </div>
+                  {/* <div className="text-center text-sm">{element.title}</div> */}
+                  <div className="px-5 mt-2 hover:bg-blue-100">
+                    <button
+                      className="text-gray-500 text-center m-auto"
+                    // onClick={changeState}
+                    >
+                      {getCompletedCount(element.title)}/{element.count}
+                    </button>
+                  </div>
+                </div>
+              ))}
+
+              {/* <div className="flex flex-row space-x-4">
           {items.map((element) => (
             <ItemCard
               image={element.img}
@@ -1037,31 +1063,115 @@ const Step4 = (props) => {
           ))}
         </div> */}
 
-          {/* <div className="flex flex-row space-x-4">
+              {/* <div className="flex flex-row space-x-4">
           {items.map(element => (
          <ItemCard image={element.img} itemCount={"0/1"} name={element.name} />
         ))}
         </div> */}
+            </div>
+          </div>
+          <div className="flex flex-1 justify-center">
+            <div className="mr-10 first">
+              {currentHeader && displayFirstLevel()}
+            </div>
+            {items.find((i) => i.index === i.currentIndex && !i.completed) && (
+              <div className="mr-8 second">{displaySecondLevel()}</div>
+            )}
+            {checkToShowThirdLevel() && (
+              <div className="mr-8 third">{displayThirdLevel()}</div>
+            )}
+            {checkToShowFourthLevel() && (
+              <div className="mr-8 fourth">{displayFourthLevel()}</div>
+            )}
+            {checkToShowFifthLevel() && (
+              <div className="mr-8 fourth">{displayFifthLevel()}</div>
+            )}
+          </div>
         </div>
       </div>
-      <div className="flex flex-1 justify-center">
-        <div className="mr-10 first">
-          {currentHeader && displayFirstLevel()}
-        </div>
-        {items.find((i) => i.index === i.currentIndex && !i.completed) && (
-          <div className="mr-8 second">{displaySecondLevel()}</div>
-        )}
-        {checkToShowThirdLevel() && (
-          <div className="mr-8 third">{displayThirdLevel()}</div>
-        )}
-        {checkToShowFourthLevel() && (
-          <div className="mr-8 fourth">{displayFourthLevel()}</div>
-        )}
-        {checkToShowFifthLevel() && (
-          <div className="mr-8 fourth">{displayFifthLevel()}</div>
-        )}
-      </div>
-    </div>
+    
+
+
+
+  </>
+    // <div className="relative flex-1">
+    //   <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
+    //     <button
+    //       className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+    //       type="submit"
+    //     >
+    //       SKIP
+    //     </button>
+    //     <button
+    //       className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+    //       type="button"
+    //       onClick={handleSubmit}
+    //     >
+    //       PROCEED
+    //     </button>
+    //   </div>
+    //   <div className="flex justify-end mr-5  mb-5 text-sm ">
+    //     <p>Do you know you can save this progress</p>
+    //   </div>
+    //   <div className="flex overflow-x-auto accent-emerald-500/25 absolute top-0 left-80 space-x-4 w-1/2 m-auto py-2  px-5 border mx-auto">
+    //     <div className="flex flex-row space-x-4">
+    //       {state.map((element, index) => (
+    //         <div
+    //           key={index}
+    //           className="border px-2 cursor-pointer "
+    //           title={element.title}
+    //           onClick={(e) => handleCarouselClick(e, element)}
+    //         >
+    //           <div className="flex justify-center py-2" style={{ height: 60 }}>
+    //             <img src={element.image} alt="" />
+    //           </div>
+    //           {/* <div className="text-center text-sm">{element.title}</div> */}
+    //           <div className="px-5 mt-2 hover:bg-blue-100">
+    //             <button
+    //               className="text-gray-500 text-center m-auto"
+    //               // onClick={changeState}
+    //             >
+    //               {getCompletedCount(element.title)}/{element.count}
+    //             </button>
+    //           </div>
+    //         </div>
+    //       ))}
+
+    //       {/* <div className="flex flex-row space-x-4">
+    //       {items.map((element) => (
+    //         <ItemCard
+    //           image={element.img}
+    //           itemCount={"0/1"}
+    //           name={element.name}
+    //         />
+    //       ))}
+    //     </div> */}
+
+    //       {/* <div className="flex flex-row space-x-4">
+    //       {items.map(element => (
+    //      <ItemCard image={element.img} itemCount={"0/1"} name={element.name} />
+    //     ))}
+    //     </div> */}
+    //     </div>
+    //   </div>
+    //   <div className="flex flex-1 justify-center">
+    //     <div className="mr-10 first">
+    //       {currentHeader && displayFirstLevel()}
+    //     </div>
+    //     {items.find((i) => i.index === i.currentIndex && !i.completed) && (
+    //       <div className="mr-8 second">{displaySecondLevel()}</div>
+    //     )}
+    //     {checkToShowThirdLevel() && (
+    //       <div className="mr-8 third">{displayThirdLevel()}</div>
+    //     )}
+    //     {checkToShowFourthLevel() && (
+    //       <div className="mr-8 fourth">{displayFourthLevel()}</div>
+    //     )}
+    //     {checkToShowFifthLevel() && (
+    //       <div className="mr-8 fourth">{displayFifthLevel()}</div>
+    //     )}
+    //   </div>
+    // </div>
   );
 };
 

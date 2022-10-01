@@ -4,6 +4,9 @@ import itemList from "../../../data/otherItemList.json";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
 import { misItem, step5Item } from "../../../services/customer-api-service";
+import { Collapse } from 'antd';
+const { Panel } = Collapse;
+import { Button, Modal, Space } from 'antd';
 
 const Step5 = () => {
   const ctx = useContext(TransportContext);
@@ -132,9 +135,11 @@ const Step5 = () => {
       bookingId: step2State?.bookingId,
       step5: ({ ...objectState })
     });
-   // await step5Item({ ...objectState });
+    // await step5Item({ ...objectState });
     let result = await callApi();
     if (result.data.status) {
+      bookingConformation()
+
       console.log("Booking result is", result);
       //  setBooking(result.data);
     }
@@ -194,95 +199,427 @@ const Step5 = () => {
       ...objCreated,
     });
   };
+  const bookingConformation = () => {
+    Modal.success({
+      content: (<div
+        className="flex items-center justify-center flex-col  ">
+        <div >
+          <img
+            className=""
+            src="/images/check_circle.jpg"
+            itemProp="image"
+            alt="Image"
+          />
+        </div>
+
+        <div className=" greencolor text-3xl text-center mt-12 font-bold ">Well done</div>
+
+        <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">Set up 100% complete</div>
+
+        <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div>
+
+      </div>),
+    });
+  };
+
 
   return (
-    <div>
-      <div className="flex justify-start m-2 text-sm ">
-        <p>Do you want to move any of these items?</p>
+
+
+    <>
+      {/* mobile responsive  */}
+
+      <div className="hidden ResponsiveMobile">
+
+
+        <div className="px-16 py-8   font-semibold text-center text-xl steps_text_color">
+          Do you want to move any of this item?
+        </div>
+        <div className="mt-2">
+
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Utility" key="1" >
+              <form className="max-w-screen-xl m-auto px-4">
+                <div className="mt-5">
+                  <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+                    {objectState.Utility.map((item, index) => {
+                      console.log("item", item);
+                      return (
+                        <Card
+                          image={item.image}
+                          key={index}
+                          item={item.title}
+                          itemCount={item.count}
+                          onDecrement={decrementHandler.bind(null, "Utility", item)}
+                          onClick={clickHandler.bind(null, "Utility", item)}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </form>
+            </Panel>
+          </Collapse>
+
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Home Appliances" key="1" >
+              <form className="max-w-screen-xl m-auto px-4">
+                <div className="mt-5">
+                  <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+                    {objectState.HomeAppliances.map((item, index) => (
+                      <Card
+                        image={item.image}
+                        key={index}
+                        item={item.title}
+                        itemCount={item.count}
+                        onDecrement={decrementHandler.bind(
+                          null,
+                          "HomeAppliances",
+                          item
+                        )}
+                        onClick={clickHandler.bind(null, "HomeAppliances", item)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </form>
+            </Panel>
+          </Collapse>
+
+
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Special care items" key="1" >
+              <form className="max-w-screen-xl m-auto px-4">
+                <div className="mt-5">
+                  <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+                    {objectState.CareItems.map((item, index) => (
+                      <Card
+                        image={item.image}
+                        key={index}
+                        item={item.title}
+                        itemCount={item.count}
+                        onDecrement={decrementHandler.bind(null, "CareItems", item)}
+                        onClick={clickHandler.bind(null, "CareItems", item)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </form>
+            </Panel>
+          </Collapse>
+
+
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Fun and Fitness" key="1" >
+              <form className="max-w-screen-xl m-auto px-4">
+                <div className="mt-5">
+                  <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+                    {objectState.Fitness.map((item, index) => (
+                      <Card
+                        image={item.image}
+                        key={index}
+                        item={item.title}
+                        itemCount={item.count}
+                        onDecrement={decrementHandler.bind(null, "Fitness", item)}
+                        onClick={clickHandler.bind(null, "Fitness", item)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </form>
+            </Panel>
+          </Collapse>
+
+
+          <div className="flex justify-start pl-5 mr-5 mt-8 mb-2 space-x-5">
+            <button
+              className="button_3 border px-16 py-2 font-semibold text-sm rounded shadow-lg"
+              type="button"
+              onClick={handleSubmit}
+            >
+              NEXT
+            </button>
+          </div>
+          <div className="flex justify-start pl-5 mr-5  mb-5 text-sm ">
+            <p>Do you know you can save this progress</p>
+          </div>
+
+
+
+        </div>
       </div>
 
-      <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
-        <button
-          className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="button"
-          onClick={handleSubmit}
-        >
-          NEXT
-        </button>
-      </div>
-      <div className="flex justify-end mr-5  mb-5 text-sm ">
-        <p>Do you know you can save this progress</p>
-      </div>
-      <form className="max-w-screen-xl m-auto py-10 px-5">
-        <div className="grid gap-8 lg:grid-cols-4">
-          {uniqueCategories.map((item, i) => {
-            return (
-              <div className="px-4 py-4" key={i}>
-                <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+
+
+
+
+
+
+      {/* Laptop responsive */}
+
+
+
+
+
+
+
+
+
+
+
+      <div className=" hidden ResponsiveLatop ResponsiveTab">
+        <div className="b1">
+          <div>
+          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-12">
+            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              Set up 0% complete
+            </div>
+            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              3 Step left • About 6 min
+            </div>
+          </div>
+          <div  className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
+            <div>
+          <hr className="step5_line"/>
+            </div>
+          </div>
+          </div>
+
+
+
+          {/* details */}
+
+
+          <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg ">
+
+
+
+
+
+            <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
+              <div className="step3_heading font-medium pl-2">
+                Do you want to move any of these items?
               </div>
-            );
-          })}
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-4 mt-5">
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.Utility.map((item, index) => {
-              console.log("item", item);
-              return (
-                <Card
-                  image={item.image}
-                  key={index}
-                  item={item.title}
-                  itemCount={item.count}
-                  onDecrement={decrementHandler.bind(null, "Utility", item)}
-                  onClick={clickHandler.bind(null, "Utility", item)}
-                />
-              );
-            })}
-          </div>
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.HomeAppliances.map((item, index) => (
-              <Card
-                image={item.image}
-                key={index}
-                item={item.title}
-                itemCount={item.count}
-                onDecrement={decrementHandler.bind(
-                  null,
-                  "HomeAppliances",
-                  item
-                )}
-                onClick={clickHandler.bind(null, "HomeAppliances", item)}
-              />
-            ))}
-          </div>
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.CareItems.map((item, index) => (
-              <Card
-                image={item.image}
-                key={index}
-                item={item.title}
-                itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "CareItems", item)}
-                onClick={clickHandler.bind(null, "CareItems", item)}
-              />
-            ))}
-          </div>
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.Fitness.map((item, index) => (
-              <Card
-                image={item.image}
-                key={index}
-                item={item.title}
-                itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "Fitness", item)}
-                onClick={clickHandler.bind(null, "Fitness", item)}
-              />
-            ))}
+            </div>
+
+
+
+            <form className="max-w-screen-xl m-auto">
+              <div className="grid gap-8 lg:grid-cols-4 mt-2 ">
+                {uniqueCategories.map((item, i) => {
+                  return (
+                    <div className="px-4 pt-4 pb-2" key={i}>
+                      <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="grid gap-3 md:grid-cols-4 px-4">
+                <div className="flex flex-col gap-2 md:grid-cols-1">
+                  {objectState.Utility.map((item, index) => {
+                    console.log("item", item);
+                    return (
+                      <Card
+                        image={item.image}
+                        key={index}
+                        item={item.title}
+                        itemCount={item.count}
+                        onDecrement={decrementHandler.bind(null, "Utility", item)}
+                        onClick={clickHandler.bind(null, "Utility", item)}
+                      />
+                    );
+                  })}
+                </div>
+                <div className="flex flex-col gap-2 md:grid-cols-1">
+                  {objectState.HomeAppliances.map((item, index) => (
+                    <Card
+                      image={item.image}
+                      key={index}
+                      item={item.title}
+                      itemCount={item.count}
+                      onDecrement={decrementHandler.bind(
+                        null,
+                        "HomeAppliances",
+                        item
+                      )}
+                      onClick={clickHandler.bind(null, "HomeAppliances", item)}
+                    />
+                  ))}
+                </div>
+                <div className="flex flex-col gap-2 md:grid-cols-1">
+                  {objectState.CareItems.map((item, index) => (
+                    <Card
+                      image={item.image}
+                      key={index}
+                      item={item.title}
+                      itemCount={item.count}
+                      onDecrement={decrementHandler.bind(null, "CareItems", item)}
+                      onClick={clickHandler.bind(null, "CareItems", item)}
+                    />
+                  ))}
+                </div>
+                <div className="flex flex-col gap-2 md:grid-cols-1">
+                  {objectState.Fitness.map((item, index) => (
+                    <Card
+                      image={item.image}
+                      key={index}
+                      item={item.title}
+                      itemCount={item.count}
+                      onDecrement={decrementHandler.bind(null, "Fitness", item)}
+                      onClick={clickHandler.bind(null, "Fitness", item)}
+                    />
+                  ))}
+                </div>
+
+              </div>
+            </form>
+            <div className="mt-6 ">
+
+              <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+                <button
+                  className="button_2_skip rounded-m px-10 py-2"
+                  type="button"
+                 
+                >
+                  SKIP
+                </button>
+
+                <button
+                  className="button_3 rounded-m px-10 py-2"
+                  type="button"
+                  onClick={handleSubmit}
+                >
+                  NEXT
+                </button>
+
+              </div>
+              <div className="flex justify-start mr-5 pl-5 mb-5 text-sm ">
+                {/* <FontAwesomeIcon
+                icon={fa["faSearch"]}
+                style={{ fontSize: 20, color: "blue" }}
+              /> */}
+                <p>Do you know you can save this progress</p>
+              </div>
+            </div>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+      
+    </>
+
+    // <div
+    //   className="flex items-center justify-center flex-col m-4 py-3 px-7 bg-white rounded-3xl  col-span-1 ">
+    //   <div className="mt-16">
+    //   <img
+    //         className=""
+    //         src="/images/check_circle.jpg"
+    //         itemProp="image"
+    //         alt="Image"
+    //       />
+    //   </div>
+
+    //   <div className=" greencolor text-3xl text-center mt-12 font-bold ">Well done</div>
+
+    //   <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">Set up 100% complete</div>
+
+    //   <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div>
+
+    // </div>
+
+
+
+
+
+
+    // <div>
+    //   <div className="flex justify-start m-2 text-sm ">
+    //     <p>Do you want to move any of these items?</p>
+    //   </div>
+
+    //   <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
+    // <button
+    //   className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+    //   type="button"
+    //   onClick={handleSubmit}
+    // >
+    //   NEXT
+    // </button>
+    //   </div>
+    //   <div className="flex justify-end mr-5  mb-5 text-sm ">
+    //     <p>Do you know you can save this progress</p>
+    //   </div>
+    // <form className="max-w-screen-xl m-auto py-10 px-5">
+    //   <div className="grid gap-8 lg:grid-cols-4">
+    // {uniqueCategories.map((item, i) => {
+    //   return (
+    //     <div className="px-4 py-4" key={i}>
+    //       <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+    //     </div>
+    //   );
+    // })}
+    //   </div>
+
+    //   <div className="grid gap-8 md:grid-cols-4 mt-5">
+    //     <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    // {objectState.Utility.map((item, index) => {
+    //   console.log("item", item);
+    //   return (
+    //     <Card
+    //       image={item.image}
+    //       key={index}
+    //       item={item.title}
+    //       itemCount={item.count}
+    //       onDecrement={decrementHandler.bind(null, "Utility", item)}
+    //       onClick={clickHandler.bind(null, "Utility", item)}
+    //     />
+    //   );
+    // })}
+    //     </div>
+    //     <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    // {objectState.HomeAppliances.map((item, index) => (
+    //   <Card
+    //     image={item.image}
+    //     key={index}
+    //     item={item.title}
+    //     itemCount={item.count}
+    //     onDecrement={decrementHandler.bind(
+    //       null,
+    //       "HomeAppliances",
+    //       item
+    //     )}
+    //     onClick={clickHandler.bind(null, "HomeAppliances", item)}
+    //   />
+    // ))}
+    //     </div>
+    //     <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    // {objectState.CareItems.map((item, index) => (
+    //   <Card
+    //     image={item.image}
+    //     key={index}
+    //     item={item.title}
+    //     itemCount={item.count}
+    //     onDecrement={decrementHandler.bind(null, "CareItems", item)}
+    //     onClick={clickHandler.bind(null, "CareItems", item)}
+    //   />
+    // ))}
+    //     </div>
+
+    //     <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    // {objectState.Fitness.map((item, index) => (
+    //   <Card
+    //     image={item.image}
+    //     key={index}
+    //     item={item.title}
+    //     itemCount={item.count}
+    //     onDecrement={decrementHandler.bind(null, "Fitness", item)}
+    //     onClick={clickHandler.bind(null, "Fitness", item)}
+    //   />
+    // ))}
+    //     </div>
+    //   </div>
+    // </form>
+    // </div>
   );
 };
 
