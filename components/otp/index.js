@@ -4,14 +4,16 @@ import {
   verifyOtp,
   registerCustomer,
 } from "../../services/customer-api-service";
+import useAuth from "../../hooks/useAuth";
 
 import TransportContext from "../../context";
 import { useRouter } from "next/router";
 const Otp = () => {
+  const { customer, authenticated, saveUserId, gitTokenLogin, getUserRole, routerProtectorLogic } = useAuth();
   const router = useRouter();
   const context = useContext(TransportContext);
   const { customerDetails, setCustomerDetails } = context;
-  debugger;
+  
   const [tpin, setTpin] = useState(context.OTP);
   resendloading
   const [loading, setLoading] = useState(false);
@@ -30,15 +32,17 @@ const Otp = () => {
     setCustomerData(customerDetails);
   }, [customerDetails]);
   const resendOTP = async () => {
-    debugger;
+    
     setResendloading(true);
     const results = await registerCustomer(context.customerDetails);
 
     if (results.data.status) {
+      
       context.setOTP(results.data.OTP);
       setResendloading(false);
     }
   };
+  console.log("customer is ", customer)
   const submitOTP = async (tpin) => {
     return await verifyOtp({
       email: customerData.email,

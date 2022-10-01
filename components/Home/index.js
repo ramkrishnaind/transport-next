@@ -4,7 +4,9 @@ import { Button, notification, Alert, Modal } from "antd";
 import TransportContext from "../../context";
 import OTP from "../otp";
 import { useRouter } from "next/router";
+import useAuth from "../../hooks/useAuth"
 const HomePage = () => {
+  const { saveToken, authenticated, saveCustomer, gitTokenLogin, getUserRole, routerProtectorLogic } = useAuth();
   const context = useContext(TransportContext);
   const router = useRouter();
   const [enteredName, setEnteredName] = useState("");
@@ -70,6 +72,9 @@ const HomePage = () => {
       let saveResponse = await saveFormData();
       console.log("saveRes", saveResponse.data);
       if (saveResponse.data.status) {
+        saveCustomer({customerID : saveResponse.data.customerData._id,
+          customerName : saveResponse.data.customerData.fullName
+        })
         //router.push("/otp")
         // setEnteredName("");
         // setEnteredEmail("");

@@ -3,23 +3,40 @@ import { Divider } from "antd";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useAuth from "../../hooks/useAuth";
 const AppHeader = () => {
+  const { customer, authenticated } = useAuth();
+
+  console.log("customer in header is ", customer)
   return (
     <>
-    <nav className="sticky top-0 z-10 bg-white bg-opacity-30 border-b border-gray-200 firefox:bg-opacity-90">
-      <div className="max-w-5xl mx-auto px-4">
+    <nav className="sticky top-0 z-10 bg-white   firefox:bg-opacity-90">
+      <div className="w-full mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div>
+          <div className="whitespace-nowrap">
+            <div className="grid gap-5 grid-flow-col">
+
             <span className="text-2x font-semibold">
-              logo  
+            <img
+            className=" w-24"
+              src="/images/white_glove_logo.png"
+              itemProp="image"
+              alt="Image"
+              />  
             </span>
             <span>
-            <FontAwesomeIcon icon="fa-solid fa-phone" />
+            <img
+              className=" pt-5"
+              src="/images/call.png"
+              itemProp="image"
+              alt="Image"
+            />  
             </span>
+              </div>
           </div>
           
-            <div className="flex space-x-4 text-gray-900">
-            ds
+            <div className="flex space-x-4 text-gray-900 font-medium">
+            {customer?.customerName}
             </div>
         </div>
       </div>

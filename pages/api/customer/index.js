@@ -75,6 +75,7 @@ async function createCustomer(req, res) {
         message: "OTP Sent to " + customerData.mobile,
         OTP: customerData.otp,
         alreadyAUser: true,
+        customerData: findData
       });
     } else {
       const customer = await CustomerDB.create(customerData);

@@ -41,7 +41,7 @@ const HomePage = () => {
         </div>
 
         <div className="index_font_color pb-2">
-          <div className="my-5 mx-6 bg-white rounded-xl flex flex-col my-3 items-center">
+          <div className="mx-6 bg-white rounded-xl flex flex-col my-3 items-center">
             <div className="index_Calculate_price_Box-text-1 text-xl pt-6">Shifting Happiness</div>
             <div className="index_Calculate_price_Box-text-2 font-bold px-20 text-center py-4">We make your Moving Easy</div>
             <div className="pb-4">
