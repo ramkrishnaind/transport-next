@@ -1,108 +1,124 @@
-import { array } from 'joi';
-import { Schema, model, models, mongoose } from 'mongoose';
+import { array } from "joi";
+import { Schema, model, models, mongoose } from "mongoose";
 
-const bookingSchema = new Schema({
+const bookingSchema = new Schema(
+  {
     customerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'customer',
-        default: null
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "customer",
+      default: null,
+    },
+    booking_id: {
+      type: String,
+      required: true,
+      trim: true,
     },
     shiftingFor: {
-        type: String,
-        required: true,
-        trim: true,
+      type: String,
+      required: true,
+      trim: true,
     },
     shiftingFrom: {
-        type: String,
-        required: false,
-        trim: true,
+      type: String,
+      required: false,
+      trim: true,
     },
     shiftingTo: {
-        type: String,
-        required: false,
-        trim: true,
+      type: String,
+      required: false,
+      trim: true,
     },
     shiftingOn: {
-        type: Date,
-        required: false,
+      type: Date,
+      required: false,
     },
     currentFloor: {
-        type: String,
+      type: String,
     },
     isLiftAvailableOnCurrentFloor: {
-        type: Boolean,
+      type: Boolean,
     },
     movingOnFloor: {
-        type: String,
+      type: String,
     },
     isLiftAvailableOnMovingFloor: {
-        type: Boolean,
+      type: Boolean,
     },
     sofaSets: {
-        type: Array,
+      type: Array,
     },
-    tables: {
-        type: Array,
+    table: {
+      type: Array,
     },
-    chairs: {
-        type: Array,
+    chair: {
+      type: Array,
     },
     cots: {
-        type: Array,
+      type: Array,
     },
     mattress: {
-        type: Array,
+      type: Array,
     },
-    cupBoards: {
-        type: Array,
+    cupboard: {
+      type: Array,
     },
     tvs: {
-        type: Array,
+      type: Array,
     },
     refrigerators: {
-        type: Array,
+      type: Array,
     },
     washingMachines: {
-        type: Array,
+      type: Array,
     },
     ovens: {
-        type: Array,
+      type: Array,
     },
     airConditioners: {
-        type: Array,
+      type: Array,
     },
-    fansCoolers: {
-        type: Array,
+    fansCooler: {
+      type: Array,
     },
     bikes: {
-        type: Array,
+      type: Array,
     },
     cars: {
-        type: Array,
+      type: Array,
     },
     cycles: {
-        type: Array,
+      type: Array,
     },
-},
-    {
-        timestamps: {
-            createdAt: "createdAt",
-            updatedAt: "updatedAt",
-        },
-        id: false,
-        toJSON: {
-            getters: true,
-            virtuals: true,
-        },
-        toObject: {
-            getters: true,
-            virtuals: true,
-        },
+    step3: {
+      type: Object,
     },
-    {
-        collection: "booking",
-    });
+    step4: {
+      type: Array,
+    },
+    step5: {
+      type: Object,
+    },
+  },
+  {
+    timestamps: {
+      createdAt: "createdAt",
+      updatedAt: "updatedAt",
+    },
+    id: false,
+    toJSON: {
+      getters: true,
+      virtuals: true,
+    },
+    toObject: {
+      getters: true,
+      virtuals: true,
+    },
+  },
+  {
+    collection: "booking",
+  }
+);
 
-const Booking = models.booking || model('booking', bookingSchema);
+const Booking = models.booking || model("booking", bookingSchema);
 
 export default Booking;

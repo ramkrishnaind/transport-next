@@ -11,6 +11,16 @@ const userSchema = new Schema(
       type: String,
       trim: true,
     },
+    userName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     email: {
       type: String,
       required: false,
@@ -26,6 +36,10 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       trim: true,
+    },
+    roleValue: {
+      type: String,
+      required: true,
     },
     image: {
       type: String,

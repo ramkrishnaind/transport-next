@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const connect = async () => {
   try {
     console.log("CONNECTING TO MONGO");
-    await connectMongo();
+    // await connectMongo();
     console.log("CONNECTED TO MONGO");
 
     console.log("CREATING DOCUMENT");

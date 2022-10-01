@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 const ItemCard = ({ image, itemCount }) => (
   <div className="px-4 py-4 bg-white border-2 border-gray-200 justify-center rounded">
     <div className="px-3">

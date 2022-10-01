@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
-import { verifyOtp } from '../../services/customer-api-service';
+import { verifyOtp } from "../../services/customer-api-service";
 import TransportContext from "../../context";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 const Otp = () => {
   const router = useRouter();
   const context = useContext(TransportContext);
@@ -14,33 +14,31 @@ const Otp = () => {
     }
   }, [tpin]);
   useEffect(() => {
-    console.log('customerDetails is', customerDetails)
-    setCustomerData(customerDetails)
-  }, [customerDetails])
+    console.log("customerDetails is", customerDetails);
+    setCustomerData(customerDetails);
+  }, [customerDetails]);
 
   const submitOTP = async (tpin) => {
-
-    return await verifyOtp(
-      {
-        mobile: Number(customerData.mobile),
-        otp: Number(tpin),
-      }
-    );
+    debugger;
+    return await verifyOtp({
+      mobile: Number(customerData.mobile),
+      email: customerData.email,
+      otp: Number(tpin),
+    });
   };
 
   const pinInputChangeHandler = (event) => {
     setTpin(event.target.value);
-  }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     let result = await submitOTP(tpin);
-    console.log('result is', result)
+    console.log("result is", result);
     if (result.data.status) {
-      router.push("/step1")
-      setCustomerDetails(result.data.customerData)
+      router.push("/order/step1");
+      setCustomerDetails(result.data.customerData);
     }
-
   };
 
   return (
@@ -57,7 +55,7 @@ const Otp = () => {
           autoFocus
           required
           onChange={pinInputChangeHandler}
-          value={tpin}
+          defaultValue={tpin}
         />
 
         <p className="text-gray-400 font-small text-sm text-center mt-10">

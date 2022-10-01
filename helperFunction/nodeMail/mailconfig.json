@@ -1,0 +1,16 @@
+{
+  "smtpOptions": {
+    "host": "smtp.office365.com",
+    "port": 587,
+    "secureConnection": false,
+    "secure": false,
+    "requireTLS": true,
+    "auth": {
+      "user": "care@whiteglove.co.in",
+      "pass": "Whiteglove@23"
+    },
+    "tls": {
+      "rejectUnauthorized": false
+    }
+  }
+}
