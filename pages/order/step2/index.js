@@ -6,6 +6,7 @@ import { Select, Button } from "antd";
 import { useRouter } from "next/router";
 import { liftAvailability } from "../../../services/customer-api-service";
 const { Option } = Select;
+import useAuth from "../../../hooks/useAuth";
 
 const data = data1;
 //debugger;
@@ -26,11 +27,12 @@ const floorOptions = [
 ];
 
 const liftOptions = [
-  { value: true, label: "available" },
-  { value: false, label: "not available" },
+  { value: true, label: "Available" },
+  { value: false, label: "Not available" },
 ];
 
 const Step2 = () => {
+  const {bookingInfo, saveBooking } = useAuth();
   const router = useRouter();
   const context = useContext(TransportContext);
   const { booking, setBooking } = context;
@@ -75,7 +77,7 @@ const Step2 = () => {
   };
   const callApi = async () => {
     return await liftAvailability({
-      bookingId: booking?.bookingId,
+      bookingId: booking?.bookingId ? booking?.bookingId : bookingInfo.bookingId,
       currentFloor: fromFloorType,
       isLiftAvailableOnCurrentFloor: fromLift,
       movingOnFloor: toFloorType,
@@ -93,7 +95,7 @@ const Step2 = () => {
         <div className="hidden md:block lg:block xl:block">
           <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
             <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              Set up 0% complete
+              Set up 20% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
             5 Step left • About 8 min

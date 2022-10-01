@@ -16,10 +16,10 @@ const houseTypeOptions = [
   { value: "2 BHK", label: "2 BHK" },
   { value: "3 BHK", label: "3 BHK" },
   { value: "4 BHK", label: "4 BHK" },
-  { value: "Duplex", label: "duplex" },
-  { value: "Villa", label: "villa" },
-  { value: "vehicle", label: "vehicle" },
-  { value: "few items", label: "few items" },
+  { value: "duplex", label: "Duplex" },
+  { value: "villa", label: "Villa" },
+  { value: "vehicle", label: "Vehicle" },
+  { value: "few items", label: "Few items" },
 ];
 
 const cityOptions = [
@@ -30,7 +30,7 @@ const cityOptions = [
 ];
 
 const Step1 = () => {
-  const { customer, authenticated } = useAuth();
+  const { customer, authenticated, bookingInfo, saveBooking } = useAuth();
   const router = useRouter();
   const context = useContext(TransportContext);
   const { customerDetails, setBooking } = context;
@@ -49,10 +49,10 @@ const Step1 = () => {
   useEffect(() => {
     console.log("customerDetails in step 1 is", customerDetails);
     console.log("customer from local storage in step 1 is")
-    if(customer == null ){
-      console.log("expire session")
-      router.push("/")
-    }
+    // if(customer == null ){
+    //   console.log("expire session")
+    //   router.push("/")
+    // }
     setCustomerData(customerDetails);
   }, [customerDetails, customer]);
 
@@ -64,6 +64,7 @@ const Step1 = () => {
     if (result.data.status) {
       console.log("CollectBasicInfo result is", result.data);
       setBooking({ bookingId: result.data.bookingId });
+      saveBooking({ bookingId: result.data.bookingId })
       const formData = {
         shiftingFor: houseType,
         shiftingFrom: fromState.value,
@@ -79,7 +80,7 @@ const Step1 = () => {
   };
   const callApi = async () => {
     return await collectBasicInfo({
-      customerId: customerData?._id,
+      customerId: customerData?._id ? customerData?._id : customer._id,
       shiftingFor: houseType,
       shiftingFrom: fromState,
       shiftingTo: toState,

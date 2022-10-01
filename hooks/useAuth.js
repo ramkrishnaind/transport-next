@@ -12,7 +12,7 @@ const useAuth = () => {
   const router = useRouter();
   const [token, setToken] = useState(null);
   const [customer, setCustomer] = useState(null);
-  const [booking, setBooking] = useState(null);
+  const [bookingInfo, setBookingInfo] = useState(null);
   const [userId, setUserId] = useState(null);
   const [userRole] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
@@ -36,9 +36,9 @@ const useAuth = () => {
     setCustomer(customer);
     localStorage.setItem("customer", JSON.stringify(customer));
   };
-  const saveBooking = (booking) => {
-    setBooking(booking);
-    localStorage.setItem("booking", JSON.stringify(booking));
+  const saveBooking = (bookingInfo) => {
+    setBookingInfo(bookingInfo);
+    localStorage.setItem("booking", JSON.stringify(bookingInfo));
   };
 
   const removeToken = () => {
@@ -135,6 +135,7 @@ const useAuth = () => {
     platformLogout,
     userRole,
     getUserRole,
+    bookingInfo
   };
 };
 export default useAuth;
