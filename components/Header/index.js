@@ -7,13 +7,8 @@ import Hamburger from "./hamburger";
 const Header = () => {
   return (
     <>
-      <div className="hidden md:bg-black md:text-white md:grid md:grid-flow-col md:grid-cols-6 lg:bg-black lg:text-white lg:grid lg:grid-flow-col lg:grid-cols-6 pl-16 pr-16 pb-2 pt-2">
-        <div>1800-547-6842</div>
-        <div>inquiry@whiteglove.co.in</div>
-        <div className="col-start-5">Support 24/7</div>
-        <div className="col-start-6">Track and Trace</div>
-      </div>
-      <div className="mainHeader grid grid-flow-col grid-cols-8 pl-16">
+     
+      <div className="mainHeader grid grid-flow-col grid-cols-8 px-2">
         <div>
           <Link href="/">
             {/* <img
@@ -23,7 +18,7 @@ const Header = () => {
             alt="main BannerImage"
           /> */}
             <img
-              className="w-96"
+              className=" w-28"
               src="/images/home/logo/logo.png"
               itemProp="image"
               alt="main BannerImage"
@@ -50,8 +45,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Divider className="hederDivider" />
     </>
+
   );
 };
 
