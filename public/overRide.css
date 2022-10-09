@@ -814,19 +814,19 @@ font-size: 1.944rem;
     margin-right: auto;
     margin-bottom: auto;
     margin-left: auto;
-    margin-top: 20px !important;
+    margin-top: 15px !important;
     width: 64vw;
     border-radius: 10px;
   }
   .grid1_step1 {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 166px 171px 50px auto;
+    grid-template-columns: 166px 99px 62px auto;
   }
   .grid2_step1 {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 31px 209px 28px 1fr;
+    grid-template-columns: 31px 259px 28px 1fr;
   }
   .grid1_step2 {
     margin-top: 20px;
@@ -866,7 +866,7 @@ font-size: 1.944rem;
     border-radius: 7px;
     margin: 0%;
     width: 8vw;
-    height: 6vh;
+    height: 2.7rem;
     margin-top: 20px;
   }
 }
@@ -1004,4 +1004,43 @@ select:invalid {
 }
 .OrderID_text_step7{
   color: #439FD9;
+}
+
+@media screen and (max-width: 767px){
+
+  
+}
+@media screen and (min-width: 767px) and (max-width: 1023px){
+  .houseTypeOptions-select {
+    width: 55vw;
+  }
+  .Locality-inputText{
+    width: 55vw;
+    padding-left: 0.5rem;
+  }
+  .Datepicker_Step1{
+    width: 55vw;
+    padding-left: 0.5rem;
+  }
+  
+}
+@media screen and (min-width: 1023px){
+  .houseTypeOptions-select {
+    width: 5rem;
+  }
+  .Locality-inputText{
+    width: 15rem;
+    padding-left: 0.5rem;
+  }
+  .Datepicker_Step1{
+    width: 8.9rem;
+    padding-left: 0.5rem;
+  }
+  .orderBackground{
+    background-image: url("/images/Group__54.png");
+    background-position: bottom left;
+    background-size: 34%;
+    background-repeat: no-repeat;
+    padding-bottom: 4%;
+  }
 }

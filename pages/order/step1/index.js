@@ -97,6 +97,9 @@ const Step1 = () => {
   };
   return (
     <>
+    <div className="orderBackground h-full">
+
+    
       {/* <div className="p-5">.
         <Space direction="vertical" size={12}>
           <DatePicker bordered={false} />
@@ -108,7 +111,7 @@ const Step1 = () => {
         {/* completeBAR */}
         <div>
           <div className="hidden md:block lg:block xl:block">
-            <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
+            <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-5 lg:mt-5 xl:mt-5  bg-white rounded-lg  h-14">
               <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
                 Set up 0% complete
               </div>
@@ -617,7 +620,7 @@ const Step1 = () => {
           </div>
         </div>
       </div> */}
-
+</div>
     </>
   );
 };
