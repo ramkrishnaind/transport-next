@@ -201,24 +201,26 @@ const Step5 = () => {
   };
   const bookingConformation = () => {
     Modal.success({
-      content: (<div
-        className="flex items-center justify-center flex-col  ">
-        <div >
-          <img
-            className=""
-            src="/images/check_circle.jpg"
-            itemProp="image"
-            alt="Image"
-          />
+      content: (
+        <div
+          className="flex items-center justify-center flex-col  ">
+          <div >
+            <img
+              className=""
+              src="/images/check_circle.jpg"
+              itemProp="image"
+              alt="Image"
+            />
+          </div>
+
+          <div className=" greencolor text-3xl text-center mt-12 font-bold ">Well done</div>
+
+          <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">Set up 100% complete</div>
+
+          <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div>
+
         </div>
-
-        <div className=" greencolor text-3xl text-center mt-12 font-bold ">Well done</div>
-
-        <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">Set up 100% complete</div>
-
-        <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div>
-
-      </div>),
+      ),
     });
   };
 
@@ -227,6 +229,31 @@ const Step5 = () => {
 
 
     <>
+      {/* completeBAR */}
+      <div>
+        <div className="hidden md:block lg:block xl:block">
+          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
+            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              Set up 40% complete
+            </div>
+            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              3 Step left • About 6 min
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
+          <div>
+            <hr className="step2_line hidden md:block lg:block xl:block" />
+          </div>
+        </div>
+        <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 40% complete</div>
+          <div className="not-italic ">
+            <span className=" font-semibold">3 Step left •</span>
+            <span> About 6 min•</span>
+          </div>
+        </div>
+      </div>
       {/* mobile responsive  */}
 
       <div className="hidden ResponsiveMobile">
@@ -331,18 +358,28 @@ const Step5 = () => {
           </Collapse>
 
 
-          <div className="flex justify-start pl-5 mr-5 mt-8 mb-2 space-x-5">
+          <div className="flex justify-start pl-5  mt-8 mb-2 space-x-5">
             <button
-              className="button_3 border px-16 py-2 font-semibold text-sm rounded shadow-lg"
+              className="  button_2_skip rounded-m px-10 py-2"
+              type="button"
+
+            >
+              SKIP
+            </button>
+
+            <button
+              className="button_3 rounded-m px-10 py-2"
               type="button"
               onClick={handleSubmit}
             >
               NEXT
             </button>
           </div>
-          <div className="flex justify-start pl-5 mr-5  mb-5 text-sm ">
-            <p>Do you know you can save this progress</p>
+          <div className="flex flex-row justify-between px-7 py-5">
+            <div className=" text-base" >skip for now</div>
+            <div className="greencolor text-base">Save Draft</div>
           </div>
+
 
 
 
@@ -358,32 +395,9 @@ const Step5 = () => {
       {/* Laptop responsive */}
 
 
-
-
-
-
-
-
-
-
-
       <div className=" hidden ResponsiveLatop ResponsiveTab">
         <div className="b1">
-          <div>
-          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-12">
-            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              Set up 0% complete
-            </div>
-            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              3 Step left • About 6 min
-            </div>
-          </div>
-          <div  className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
-            <div>
-          <hr className="step5_line"/>
-            </div>
-          </div>
-          </div>
+
 
 
 
@@ -391,17 +405,6 @@ const Step5 = () => {
 
 
           <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg ">
-
-
-
-
-
-            <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
-              <div className="step3_heading font-medium pl-2">
-                Do you want to move any of these items?
-              </div>
-
-            </div>
 
 
 
@@ -480,7 +483,7 @@ const Step5 = () => {
                 <button
                   className="button_2_skip rounded-m px-10 py-2"
                   type="button"
-                 
+
                 >
                   SKIP
                 </button>
@@ -494,18 +497,17 @@ const Step5 = () => {
                 </button>
 
               </div>
-              <div className="flex justify-start mr-5 pl-5 mb-5 text-sm ">
-                {/* <FontAwesomeIcon
+              {/* <div className="flex justify-start mr-5 pl-5 mb-5 text-sm ">
+                <FontAwesomeIcon
                 icon={fa["faSearch"]}
-                style={{ fontSize: 20, color: "blue" }}
-              /> */}
+                style={{ fontSize: 20, color: "blue" }}/>
                 <p>Do you know you can save this progress</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
       </div>
-      
+
     </>
 
     // <div
