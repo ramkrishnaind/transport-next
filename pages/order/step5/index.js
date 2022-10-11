@@ -249,8 +249,8 @@ const Step5 = () => {
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
           <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 40% complete</div>
           <div className="not-italic ">
-            <span className=" font-semibold">3 Step left •</span>
-            <span> About 6 min•</span>
+            <span className=" font-semibold">3 Step left </span>
+            <span>• About 6 min</span>
           </div>
         </div>
       </div>
