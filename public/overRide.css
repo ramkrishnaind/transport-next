@@ -676,14 +676,14 @@ font-size: 1.944rem;
   .ResponsiveMobile {
     display: block;
   }
-  .step7SummarylBox1{
+  .step7SummarylBox1 {
     width: 90vw !important;
   }
-  .step7SummarylBox2{
+  .step7SummarylBox2 {
     width: 90vw !important;
   }
-  
-  .step7ProfileBox1{
+
+  .step7ProfileBox1 {
     width: 90vw !important;
   }
   .completing_bar_text {
@@ -727,7 +727,7 @@ font-size: 1.944rem;
   .step3_heading {
     font-size: 6vw;
   }
-  .step7_buttonbox{
+  .step7_buttonbox {
     width: 93.8vw !important;
   }
 }
@@ -757,29 +757,28 @@ font-size: 1.944rem;
     width: 55vw;
     height: 6vh;
   }
-  
 }
 @media (min-width: 1023px) {
   .ResponsiveLatop {
     display: block;
   }
-  .step7SummarylBox1{
+  .step7SummarylBox1 {
     margin-bottom: auto;
     margin-left: auto;
-    margin-right: auto ;
+    margin-right: auto;
     width: 72vw !important;
   }
-  .step7RespoMain{
+  .step7RespoMain {
     margin-bottom: auto;
     margin-left: auto;
-    margin-right: auto ;
+    margin-right: auto;
     width: 74vw !important;
   }
-  .step7RespoContainer1{
+  .step7RespoContainer1 {
     display: flex;
     flex-direction: row;
   }
-  .step7_2container{
+  .step7_2container {
     width: 45.2vw !important;
   }
   .card {
@@ -836,7 +835,7 @@ font-size: 1.944rem;
   .widthSlect2Step1 {
     width: 200px;
   }
-  .step7buttonBox1{
+  .step7buttonBox1 {
     width: 24.6rem !important;
   }
   .buttonMobile {
@@ -895,13 +894,13 @@ textarea {
 .ellipse_step7 {
   height: 75px;
   width: 75px;
-  background-image: url('https://scontent.fdel6-1.fna.fbcdn.net/v/t1.6435-9/71550128_983899375319297_6467521286582042624_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_ohc=AYfUQBTjZ9QAX-JPuDn&_nc_ht=scontent.fdel6-1.fna&oh=00_AT9CTqbqD-SmJbpw71SAdFBwhtc2YxNtOx-VWI4hXPdhmQ&oe=63580ABC');
+  background-image: url("https://scontent.fdel6-1.fna.fbcdn.net/v/t1.6435-9/71550128_983899375319297_6467521286582042624_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_ohc=AYfUQBTjZ9QAX-JPuDn&_nc_ht=scontent.fdel6-1.fna&oh=00_AT9CTqbqD-SmJbpw71SAdFBwhtc2YxNtOx-VWI4hXPdhmQ&oe=63580ABC");
   background-position: center;
   background-size: 2cm;
   border-radius: 100%;
 }
 
-.fontColor_4E4E4E{
+.fontColor_4E4E4E {
   font-family: "Open Sans";
   color: #4e4e4e;
 }
@@ -915,13 +914,13 @@ textarea {
   width: 23.2rem;
 }
 .step7ProfileBox1 {
- width: 23.2rem;
+  width: 23.2rem;
 }
-.step7Summarybox_item1{
+.step7Summarybox_item1 {
   padding-right: 37px;
-  border-right: 1px solid #D9D9D9;
+  border-right: 1px solid #d9d9d9;
 }
-.step7Summarybox_item2{
+.step7Summarybox_item2 {
   padding-right: 37px;
 }
 .step7_grid1 {
@@ -935,8 +934,8 @@ textarea {
 }
 .step7_grid2item1 {
 }
-.greyOwn{
-  background: #F9F9F9;
+.greyOwn {
+  background: #f9f9f9;
 }
 .BlackButton {
   background: #000c24;
@@ -1134,6 +1133,60 @@ textarea {
   color: #000c24;
 }
 
-.step7buttonBox1{
+.step7buttonBox1 {
   width: 26rem;
+}
+
+/* HOMEFIGMA */
+
+/* INDEX */
+
+@media (max-width: 767px) {
+  .Index_movers-Burnaby_1 {
+    position: absolute;
+    width: 176px;
+    /* object-position: 30px 26px; */
+    overflow: visible;
+  }
+  .Index_background3 {
+    background-image: url("/images/index_image/arrow_background3.svg"),
+      url("/images/index_image/Group_99.png"),
+      url("/images/index_image/Rectangle-14.png");
+    background-repeat: no-repeat;
+    background-position: -31px 366px, 290px 30px, center;
+    background-size: 363px, 100px, 100vw;
+    height: 37rem;
+  }
+  .Index-MovingMadeModern_text_2 {
+    color: #ffffff;
+    font-size: 15.1px;
+  }
+  .Index-MovingMadeModern_text {
+    color: #ffffff;
+    font-size: 2.1rem;
+    font-weight: 700;
+  }
+  .Truck_Mockup_1 {
+    position: absolute;
+    width: 9rem;
+    /* object-position: 30px 26px; */
+    overflow: visible;
+  }
+  .index_card1 {
+    background: #f5fafd;
+    border: 1px solid #c9e3f4;
+    border-radius: 20px;
+    /* width: 90% !important; */
+    margin: 10px !important;
+  }
+  .index-Worldwide-delivery-1 {
+    width: 359px;
+  }
+  .index-globe {
+    width: 2.7rem;
+  }
+}
+
+.index_Calculate_price_Box-text-2 {
+  font-size: 27px;
 }
