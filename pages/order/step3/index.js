@@ -451,25 +451,24 @@ const Step3 = (props) => {
         </Collapse>
 
         <div className="mt-6 ">
-          <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+          <div className="mt-5 mb-5 flex flex-row mx-5 justify-between">
             <button
-              className="button_2_skip rounded-m px-10 py-2"
+              className="px-5 py-4  buttonMobile_white rounded-m "
               type="button"
-              onClick={handleSkip}
-            >
+              onClick={handleSkip}>
               SKIP
             </button>
             <button
-              className="button_3 rounded-m px-10 py-2 "
+              className="px-5 py-4  buttonMobile2 rounded-m  "
               type="button"
-              onClick={handleSubmit}
-            >
+              onClick={handleSubmit}>
               NEXT
             </button>
           </div>
         </div>
-        <div className="flex justify-start pl-5 mr-5  mb-5 text-sm ">
-          <p>Do you know you can save this progress</p>
+        <div className="flex justify-between mx-5  mb-5 text-sm ">
+          <span className="step3_skip-text">Skip for now</span>
+          <span className="step3_save_draft-text">Save Deaft</span>
         </div>
       </div>
 
@@ -479,25 +478,6 @@ const Step3 = (props) => {
 
 
 
-
-                    {/* completeBAR */}
-      <div>
-        <div className="hidden md:block lg:block xl:block">
-          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
-            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              Set up 0% complete
-            </div>
-            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-            5 Step left • About 8 min
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
-          <div>
-            <hr className="step2_line hidden md:block lg:block xl:block" />
-          </div>
-        </div>
-      </div>
 
 
 

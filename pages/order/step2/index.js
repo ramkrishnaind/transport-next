@@ -32,7 +32,7 @@ const liftOptions = [
 ];
 
 const Step2 = () => {
-  const {bookingInfo, saveBooking } = useAuth();
+  const { bookingInfo, saveBooking } = useAuth();
   const router = useRouter();
   const context = useContext(TransportContext);
   const { booking, setBooking } = context;
@@ -98,7 +98,7 @@ const Step2 = () => {
               Set up 20% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-            5 Step left • About 8 min
+              4 Step left • About 7 min
             </div>
           </div>
         </div>
@@ -108,10 +108,10 @@ const Step2 = () => {
           </div>
         </div>
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
-          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 0% complete</div>
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 20% complete</div>
           <div className="not-italic ">
-            <span className=" font-semibold">5 Step left •</span>
-            <span> About 8 min</span>
+            <span className=" font-semibold">4 Step left •</span>
+            <span> About 7 min</span>
           </div>
         </div>
       </div>
@@ -139,27 +139,53 @@ const Step2 = () => {
                     I currently live in
                   </div>
                   <div className=" text-left  text-gray-600 md:mt-0 lg:mt-0 xl:mt-0 ">
-                    <Select
+
+
+                    {/* <Select
                       className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect"
 
                       bordered={false}
                       defaultValue={fromFloorType}
                       onChange={setFromFloorType}
                       options={floorOptions}
-                    />
+                    /> */}
+
+                    <select className="houseTypeOptions-select py-2 font-semibold" required>
+                      <option value="" disabled selected hidden className="step1_select_hidden_option">1 BHK</option>
+                      <option value="1st">1st</option>
+                      <option value="2nd">2nd</option>
+                      <option value="3rd">3rd</option>
+                      <option value="4th">4th</option>
+                      <option value="5th">5th</option>
+                      <option value="6th">6th</option>
+                      <option value="7th">7th</option>
+                      <option value="8th">8th</option>
+                      <option value="9th">9th</option>
+                      <option value="10th">10th</option>
+                      <option value="11th">11th</option>
+                      <option value="12th">12th</option>
+                    </select>
+
+
                   </div>
                   <div className=" mt-5 md:mt-0 lg:mt-0 xl:mt-0 text-gray-600 detailquestions ">
                     floor with service lift
                   </div>
                   <div className=" text-left  text-gray-600 ">
-                    <Select
-                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none widthSlect2 widthSlect border-b-2 "
 
+                    <select className="houseTypeOptions-select py-2 font-semibold" required>
+                      <option value="" disabled selected hidden className="step1_select_hidden_option">Available</option>
+                      <option value="1st">Available</option>
+                      <option value="2nd">Not-Available</option>
+                    </select>
+
+                    {/* <Select
+                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none widthSlect2 widthSlect border-b-2 "
                       bordered={false}
                       defaultValue={fromLift}
                       onChange={setFromLift}
                       options={liftOptions}
-                    />
+                    />*/}
                   </div>
                 </div>
                 <div className="grid2_step2">
@@ -167,13 +193,33 @@ const Step2 = () => {
                     for shifting. I&apos;m moving to
                   </div>
                   <div className=" text-left  text-gray-600 ">
-                    <Select
+
+
+                    <select className="houseTypeOptions-select py-2 font-semibold" required>
+                      <option value="" disabled selected hidden className="step1_select_hidden_option">1 BHK</option>
+                      <option value="1st">1st</option>
+                      <option value="2nd">2nd</option>
+                      <option value="3rd">3rd</option>
+                      <option value="4th">4th</option>
+                      <option value="5th">5th</option>
+                      <option value="6th">6th</option>
+                      <option value="7th">7th</option>
+                      <option value="8th">8th</option>
+                      <option value="9th">9th</option>
+                      <option value="10th">10th</option>
+                      <option value="11th">11th</option>
+                      <option value="12th">12th</option>
+                    </select>
+
+
+                    {/* <Select
                       className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect "
                       bordered={false}
                       defaultValue={toFloorType}
                       onChange={setToFloorType}
                       options={floorOptions}
-                    />
+                    /> */}
+
                     {/* <Select
                       className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect"
                       bordered={false}
@@ -188,26 +234,38 @@ const Step2 = () => {
                 </div>
                 <div className="grid3_step2">
                   <div className=" text-left  text-gray-600 ">
-                    <Select
-                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none widthSlect2 border-b-2 "
+                    <select className="houseTypeOptions-select py-2 font-semibold" required>
+                      <option value="" disabled selected hidden className="step1_select_hidden_option">Available</option>
+                      <option value="1st">Available</option>
+                      <option value="2nd">Not-Available</option>
+                    </select>
 
-                      bordered={false}
-                      defaultValue={toLift}
-                      onChange={setToLift}
-                      options={liftOptions}
-                    />
+                    {/* <Select
+                        className="border-0 focuspt text-green-600 placeholder-green-600 outline-none widthSlect2 border-b-2 "
+
+                        bordered={false}
+                        defaultValue={toLift}
+                        onChange={setToLift}
+                        options={liftOptions}
+                      /> */}
                   </div>
                   <div className=" text-gray-600 mt-5 md:mt-0 lg:mt-0 xl:mt-0 detailquestions ">
                     for shifting.
                   </div>
                 </div>
               </div>
-              <div className=" mt-5 mb-5">
-                <Button className=" px-10 py-4 button_1 buttonMobile rounded-m "
+              <div className=" mt-5 mb-5 flex flex-row gap-2">
+                <Button className=" px-5 py-4  buttonMobile_grey rounded-m "
                   type="submit"
                   onClick={handleSubmit}
                   loading={loading}
                 //disabled={disabled}
+                >back</Button>
+                <Button className=" px-5 py-4  buttonMobile2 rounded-m "
+                  type="submit"
+                  onClick={handleSubmit}
+                  loading={loading}
+                // disabled={disabled}
                 >Next</Button>
               </div>
             </form>

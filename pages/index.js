@@ -18,20 +18,13 @@ const HomePage = () => {
   return (
     <>
       <div className="index_font_color">
-        <div className="Index_background1 relative">
+        <div className="Index_background1">
           <div>
-            <img
-              className="Index_movers-Burnaby_1 absolute ml-44 mt-24"
-              src="/images/index_image/Index_movers-Burnaby-Signature-Moving-scaled-removebg.png"
-              itemProp="image"
-              alt="Movers"
-            />
-            <img
-              className="Truck_Mockup_1 absolute ml-14 mt-24"
-              src="/images/index_image/Truck_Mockup_1.png"
-              itemProp="image"
-              alt="Trunk Mockup image"
-            />
+          <img className="Index_movers-Burnaby_1 absolute ml-44 mt-24" src="/images/index_image/Index_movers-Burnaby-Signature-Moving-scaled-removebg.png" itemProp="image"
+                  alt="main BannerImage" />
+
+          <img className="Truck_Mockup_1 absolute ml-14 mt-24" src="/images/index_image/Truck_Mockup_1.png" itemProp="image"
+                  alt="main BannerImage" />
           </div>
         </div>
         <div className="index_font_color pb-2">

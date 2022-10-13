@@ -1,626 +1,309 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import Card from "../../Card";
-import itemList from "../../../data/otherItemList.json";
+import Image from "next/image";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
-import { misItem, step5Item } from "../../../services/customer-api-service";
-import { Collapse } from 'antd';
-const { Panel } = Collapse;
-import { Button, Modal, Space } from 'antd';
 
-const Step5 = () => {
-  const ctx = useContext(TransportContext);
+const Step6 = () => {
   const router = useRouter();
-  const { customerDetails } = ctx;
-  const { booking } = ctx;
-  const { step1State } = ctx;
-  const { step2State } = ctx;
-  const { step3State } = ctx;
-  const { step4State } = ctx;
-  const { step5State } = ctx;
-  console.log("customerDetails -- ", customerDetails);
-  console.log("context.booking -- ", booking);
-  console.log("context.step1State -- ", step1State);
-  console.log("context.step2State -- ", step2State);
-  console.log("context.step3State -- ", step3State);
-  console.log("context.step4State -- ", step4State);
-  console.log("context.step5State -- ", step5State);
-  const bookingId = booking?.bookingId;
-  let categories = [...itemList.map((item) => item?.Category)];
-  let uniqueCategories = [],
-    items = {};
+  const [name, setName] = useState("");
+  const [orderId, setOrderId] = useState("");
+  const [moveType, setMoveType] = useState("");
+  const [mobileNo, setMobileNo] = useState("");
+  const [emailId, setEmailId] = useState("");
+  const [orderCreated, setOrderCreated] = useState("₹ 0/CREATED");
+  const [formAddress, setFromAddress] = useState("");
+  const [toAddress, setToAddress] = useState("");
+  const [date, setDate] = useState("");
+  const [fromLift, setFromLift] = useState("");
+  const [toLift, setToLift] = useState("");
+  const [currentFloor, setCurrentFloor] = useState("");
+  const [movingOnFloor, setmovingOnFloor] = useState("");
 
-  categories.forEach((c) => {
-    if (c && !uniqueCategories.includes(c)) {
-      uniqueCategories.push(c);
-    }
-  });
+  const context = useContext(TransportContext);
+  const { step1State } = context;
+  const { step2State } = context;
+  const { step3State } = context;
+  const { step5State } = context;
+  const { step6State, setStep6State } = context;
 
-  itemList.map((item) => {
-    const keys = Object.keys(items);
-    const keyExist = item?.Category && keys.includes(item?.Category);
-    if (!keyExist && item?.Category) {
-      items[item?.Category] = [
-        { title: item["Item"], image: `/images/${item.Image}` },
-      ];
-    } else if (item?.Category) {
-      const itemIndex = items[item?.Category].findIndex(
-        (i) => i.title === item["Item"]
-      );
-      // debugger;
-      if (itemIndex === -1) {
-        items[item?.Category].push({
-          title: item["Item"],
-          image: `/images/${item.Image}`,
-        });
-      }
-    }
-  });
-
-  // debugger;
-  const [objectState, setObjectState] = useState(
-    step5State || {
-      ...items,
-    }
-  );
+  console.log("context.step1State", step1State);
+  console.log("context.step2State", step2State);
+  console.log("context.step3State", step3State);
+  console.log("context.step5State", step5State);
+  const { customerDetails } = context;
+  const [customerData, setCustomerData] = useState({});
+  const [state, setState] = useState([]);
+  const [state5, setState5] = useState([]);
+  const [items, setItems] = useState([]);
+  const [liftAvailability, setLiftAvailability] = useState("");
+  let objToAppend = [];
 
   useEffect(() => {
-    setObjectState((prev) => {
-      const newState = { ...prev };
-      const keys = Object.keys(newState);
-      keys.forEach((k) => {
-        newState[k] = newState[k]?.map((i) => {
-          if (i?.count === undefined) i.count = 0;
-          return i;
+    if (!step1State) return;
+    setFromAddress(step1State["shiftingFrom"]);
+    setToAddress(step1State["shiftingTo"]);
+    setMoveType(step1State["shiftingFor"]);
+    const months = {
+      0: "January",
+      1: "February",
+      2: "March",
+      3: "April",
+      4: "May",
+      5: "June",
+      6: "July",
+      7: "August",
+      8: "September",
+      9: "October",
+      10: "November",
+      11: "December",
+    };
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    if (!step2State) return;
+    setOrderId(step2State["bookingId"]);
+    setCurrentFloor(step2State["currentFloor"]);
+    if (step2State["isLiftAvailableOnCurrentFloor"]) {
+      setFromLift(step2State["currentFloor"] + " , " + "Lift is available");
+    } else {
+      setFromLift(step2State["currentFloor"] + " , " + "Lift is not available");
+    }
+    if (step2State["isLiftAvailableOnMovingFloor"]) {
+      setToLift(step2State["movingOnFloor"] + " , " + "Lift is available");
+    } else {
+      setToLift(step2State["movingOnFloor"] + " , " + "Lift is not available");
+    }
+    setmovingOnFloor(step2State["movingOnFloor"]);
+    const d = step1State["shiftingOn"];
+    const year = d.getFullYear();
+    const date = d.getDate();
+    const monthName = months[d.getMonth()];
+    const dayName = days[d.getDay()];
+    const formattedDate = `${dayName}, ${date} ${monthName} ${year}`;
+    setDate(formattedDate);
+
+    if (!customerDetails) return;
+    setEmailId(customerDetails["email"]);
+    setName(customerDetails["fullName"]);
+    setMobileNo(customerDetails["mobile"]);
+  }, [step1State, step2State, customerDetails]);
+
+  const getCopiedObject = useCallback((objFound) => {
+    //
+    const objValues = [];
+    if (objFound?.value?.length > 0) {
+      objFound?.value.forEach((i) => {
+        objValues.push(getCopiedObject(i));
+      });
+      return { ...objFound, value: [...objValues] };
+    } else {
+      return { ...objFound };
+    }
+  }, []);
+
+  useEffect(() => {
+    //debugger;
+    if (!step3State) return;
+    const keys = Object.keys(step3State);
+    const arr = [];
+    const arrayItems = [];
+    keys.forEach((k) => {
+      step3State[k].forEach((i) => {
+        i.category = k;
+        if (i.count < 1) return;
+        arr.push(i);
+        const arryStateCount = [...Array(i.count).keys()];
+        arryStateCount.forEach((it) => {
+          let objFound = objToAppend.find((itemToFind) => {
+            // if (itemToFind.key === "TVS") {
+            //
+            // }
+            return itemToFind.key === i.title;
+          });
+          objFound = getCopiedObject(objFound);
+          //
+          if (objFound) {
+            arrayItems.push({
+              ...objFound,
+              index: it,
+              currentIndex: -1,
+              completed: false,
+            });
+          }
         });
       });
-      return newState;
     });
-  }, []);
+    if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
+    setState(arr);
+  }, [step3State, getCopiedObject]);
+
   useEffect(() => {
     //debugger;
     if (!step5State) return;
-    setObjectState((prev) => {
-      const newState = { ...prev };
-      const keys = Object.keys(step5State);
-      keys.forEach((k) => {
-        newState[k] = newState[k]?.map((i) => {
-          console.log(" title - ", i.title);
-          console.log(" title - ", i.count);
-          return i;
+    const keys = Object.keys(step5State);
+    const arr = [];
+    const arrayItems = [];
+    keys.forEach((k) => {
+      step5State[k].forEach((i) => {
+        i.category = k;
+        if (i.count < 1) return;
+        arr.push(i);
+        const arryStateCount = [...Array(i.count).keys()];
+        arryStateCount.forEach((it) => {
+          let objFound = objToAppend.find((itemToFind) => {
+            // if (itemToFind.key === "TVS") {
+            //
+            // }
+            return itemToFind.key === i.title;
+          });
+          objFound = getCopiedObject(objFound);
+          //
+          if (objFound) {
+            arrayItems.push({
+              ...objFound,
+              index: it,
+              currentIndex: -1,
+              completed: false,
+            });
+          }
         });
       });
-      return newState;
     });
-  }, []);
+    if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
+    setState5(arr);
+  }, [step5State, getCopiedObject]);
 
-  // console.log("objectState", objectState);
-  const clickHandler = (key, item) => {
-    const newState = { ...objectState };
-    const newArray = [];
-    // debugger;
-    const arr = [...newState[key]];
-    arr?.forEach((i) => {
-      if (i.title === item.title) {
-        i.count = i.count + 1;
-      }
-      newArray.push(i);
-    });
-    console.log("called");
-    newState[key] = newArray;
-    setObjectState(newState);
-    // ctx.setStep5State(newState);
-  };
-  const decrementHandler = (key, item) => {
-    const newState = { ...objectState };
-    const newArray = [];
-    // debugger;
-    const arr = [...newState[key]];
-    arr?.forEach((i) => {
-      if (i.title === item.title && i.count !== 0) {
-        i.count = i.count - 1;
-      }
-      newArray.push(i);
-    });
-    console.log("called");
-    newState[key] = newArray;
-    setObjectState(newState);
-    //ctx.setStep5State(newState);
-  };
+  // state.forEach((s) => {
+  //   console.log("state = " + s.title);
+  //   console.log("state = " + s.image);
+  //   console.log("state = " + s.count);
+  //   console.log("state = " + s.category);
+  // });
+
+  // console.log("items------", items);
+  // console.log("state------", state);
+
+  const clickHandler = (key, item) => {};
+  const decrementHandler = (key, item) => {};
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // ----------------------
-    //debugger;
-    await step5Item({
-      bookingId: step2State?.bookingId,
-      step5: ({ ...objectState })
-    });
-    // await step5Item({ ...objectState });
-    let result = await callApi();
-    if (result.data.status) {
-      bookingConformation()
-
-      console.log("Booking result is", result);
-      //  setBooking(result.data);
-    }
-    console.log("objectState", objectState);
-    ctx.setStep5State(objectState);
-    console.log("step5State - 5", ctx.step5State);
-    router.push("/order/step6");
+    // ctx.setStep5State(objectState);
+    // console.log("objectState - 5", ctx.step5State);
+    // alert("Success!");
+    router.push("/order/step7");
   };
-
-  const callApi = async () => {
-    let arr = [];
-    Object.keys(objectState).forEach((key) => {
-      arr = [...arr, ...objectState[key]];
-    });
-
-    const objCreated = {};
-    arr.forEach((item) => {
-      //const key = item.title.replace("/", " ");
-      // debugger;
-      const key = item.title.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "");
-      const items = key.split(" ");
-      let newKey = "";
-      items.forEach((i, index) => {
-        if (index === 0) {
-          newKey += i.toLowerCase();
-        } else {
-          newKey += i.toLowerCase();
-        }
-      });
-      // const newKey = items.join("");
-      //debugger;
-      objCreated[newKey] = item;
-    });
-    //   debugger;
-    //   return await bookingItem({
-    //     bookingId: step2State?.bookingId,
-    //     sofaSets: objCreated.sofaSets,
-    //     tables: objCreated.tables,
-    //     chairs: objCreated.chairs,
-    //     cots: objCreated.cots,
-    //     mattress: objCreated.mattress,
-    //     cupBoards: objCreated.cupBoards,
-    //     tvs: objCreated.tvs,
-    //     refrigerators: objCreated.refrigerators,
-    //     washingMachines: objCreated.washingMachines,
-    //     ovens: objCreated.ovens,
-    //     airConditioners: objCreated.airConditioners,
-    //     fansCoolers: objCreated.fansCoolers,
-    //     bikes: objCreated.bikes,
-    //     cars: objCreated.cars,
-    //     cycles: objCreated.cycles,
-    //   });
-
-    return await misItem({
-      bookingId: bookingId,
-      customerId: customerDetails?.customerId,
-      ...objCreated,
-    });
-  };
-  const bookingConformation = () => {
-    Modal.success({
-      content: (<div
-        className="flex items-center justify-center flex-col  ">
-        <div >
-          <img
-            className=""
-            src="/images/check_circle.jpg"
-            itemProp="image"
-            alt="Image"
-          />
-        </div>
-
-        <div className=" greencolor text-3xl text-center mt-12 font-bold ">Well done</div>
-
-        <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">Set up 100% complete</div>
-
-        <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div>
-
-      </div>),
-    });
-  };
-
 
   return (
-
-
-    <>
-      {/* mobile responsive  */}
-
-      <div className="hidden ResponsiveMobile">
-
-
-        <div className="px-16 py-8   font-semibold text-center text-xl steps_text_color">
-          Do you want to move any of this item?
-        </div>
-        <div className="mt-2">
-
-          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-            <Panel header="Utility" key="1" >
-              <form className="max-w-screen-xl m-auto px-4">
-                <div className="mt-5">
-                  <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {objectState.Utility.map((item, index) => {
-                      console.log("item", item);
-                      return (
-                        <Card
-                          image={item.image}
-                          key={index}
-                          item={item.title}
-                          itemCount={item.count}
-                          onDecrement={decrementHandler.bind(null, "Utility", item)}
-                          onClick={clickHandler.bind(null, "Utility", item)}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-              </form>
-            </Panel>
-          </Collapse>
-
-          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-            <Panel header="Home Appliances" key="1" >
-              <form className="max-w-screen-xl m-auto px-4">
-                <div className="mt-5">
-                  <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {objectState.HomeAppliances.map((item, index) => (
-                      <Card
-                        image={item.image}
-                        key={index}
-                        item={item.title}
-                        itemCount={item.count}
-                        onDecrement={decrementHandler.bind(
-                          null,
-                          "HomeAppliances",
-                          item
-                        )}
-                        onClick={clickHandler.bind(null, "HomeAppliances", item)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </form>
-            </Panel>
-          </Collapse>
-
-
-          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-            <Panel header="Special care items" key="1" >
-              <form className="max-w-screen-xl m-auto px-4">
-                <div className="mt-5">
-                  <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {objectState.CareItems.map((item, index) => (
-                      <Card
-                        image={item.image}
-                        key={index}
-                        item={item.title}
-                        itemCount={item.count}
-                        onDecrement={decrementHandler.bind(null, "CareItems", item)}
-                        onClick={clickHandler.bind(null, "CareItems", item)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </form>
-            </Panel>
-          </Collapse>
-
-
-          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-            <Panel header="Fun and Fitness" key="1" >
-              <form className="max-w-screen-xl m-auto px-4">
-                <div className="mt-5">
-                  <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {objectState.Fitness.map((item, index) => (
-                      <Card
-                        image={item.image}
-                        key={index}
-                        item={item.title}
-                        itemCount={item.count}
-                        onDecrement={decrementHandler.bind(null, "Fitness", item)}
-                        onClick={clickHandler.bind(null, "Fitness", item)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </form>
-            </Panel>
-          </Collapse>
-
-
-          <div className="flex justify-start pl-5 mr-5 mt-8 mb-2 space-x-5">
-            <button
-              className="button_3 border px-16 py-2 font-semibold text-sm rounded shadow-lg"
-              type="button"
-              onClick={handleSubmit}
-            >
-              NEXT
-            </button>
-          </div>
-          <div className="flex justify-start pl-5 mr-5  mb-5 text-sm ">
-            <p>Do you know you can save this progress</p>
-          </div>
-
-
-
-        </div>
+    <div className="flex flex-col items-center justify-center">
+      {/* <img className="mt-5" src={"/images/cup-java-50.png"} alt="" /> */}
+      <img className="mt-5" src={"/images/cup-java-50.png"} alt="" />
+      <p className="mt-10 mb-3 text-gray-800 font-medium text-lg text-center">
+        Thank you {name}!
+      </p>
+      <p className="mt-5  text-gray-800 font-medium text-sm text-center">
+        The information you provided has been sent to our top secret super wise
+        quote calculating monks. We will get you perfect tailor made quote in a
+        day.
+      </p>
+      <p className="mt-1 text-gray-800 font-medium text-sm text-center">
+        Pikkol Tip 1 : You can instantly change the price by changing the day of
+        move. Wait for the quote page to see this in action.
+      </p>
+      <div className="flex justify-center items-center">
+        <button
+          className="m-5 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-10 font-semibold text-lg rounded shadow-lg"
+          type="submit"
+          onClick={handleSubmit}
+        >
+          MY ORDERS
+        </button>
       </div>
 
-
-
-
-
-
-
-      {/* Laptop responsive */}
-
-
-
-
-
-
-
-
-
-
-
-      <div className=" hidden ResponsiveLatop ResponsiveTab">
-        <div className="b1">
-          <div>
-          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-12">
-            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              Set up 0% complete
-            </div>
-            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              3 Step left • About 6 min
-            </div>
-          </div>
-          <div  className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
-            <div>
-          <hr className="step5_line"/>
-            </div>
-          </div>
+      <div className=" h-65 w-5/6 border-2 shadow-lg rounded">
+        <form className="mb-5">
+          <div className="flex ml-10 mr-10 mt-5 space-x-2 text-gray-800 font-medium text-md">
+            <div className="flex- 1 w-1/2">Order Id</div>
+            <div className="flex- 1 w-1/2 ">Move type</div>
+            <div className="flex- 1 w-1/2 ">User information</div>
           </div>
 
-
-
-          {/* details */}
-
-
-          <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg ">
-
-
-
-
-
-            <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
-              <div className="step3_heading font-medium pl-2">
-                Do you want to move any of these items?
-              </div>
-
-            </div>
-
-
-
-            <form className="max-w-screen-xl m-auto">
-              <div className="grid gap-8 lg:grid-cols-4 mt-2 ">
-                {uniqueCategories.map((item, i) => {
-                  return (
-                    <div className="px-4 pt-4 pb-2" key={i}>
-                      <h3 className="text-2xl text-center text-gray-600">{item}</h3>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="grid gap-3 md:grid-cols-4 px-4">
-                <div className="flex flex-col gap-2 md:grid-cols-1">
-                  {objectState.Utility.map((item, index) => {
-                    console.log("item", item);
-                    return (
-                      <Card
-                        image={item.image}
-                        key={index}
-                        item={item.title}
-                        itemCount={item.count}
-                        onDecrement={decrementHandler.bind(null, "Utility", item)}
-                        onClick={clickHandler.bind(null, "Utility", item)}
-                      />
-                    );
-                  })}
-                </div>
-                <div className="flex flex-col gap-2 md:grid-cols-1">
-                  {objectState.HomeAppliances.map((item, index) => (
-                    <Card
-                      image={item.image}
-                      key={index}
-                      item={item.title}
-                      itemCount={item.count}
-                      onDecrement={decrementHandler.bind(
-                        null,
-                        "HomeAppliances",
-                        item
-                      )}
-                      onClick={clickHandler.bind(null, "HomeAppliances", item)}
-                    />
-                  ))}
-                </div>
-                <div className="flex flex-col gap-2 md:grid-cols-1">
-                  {objectState.CareItems.map((item, index) => (
-                    <Card
-                      image={item.image}
-                      key={index}
-                      item={item.title}
-                      itemCount={item.count}
-                      onDecrement={decrementHandler.bind(null, "CareItems", item)}
-                      onClick={clickHandler.bind(null, "CareItems", item)}
-                    />
-                  ))}
-                </div>
-                <div className="flex flex-col gap-2 md:grid-cols-1">
-                  {objectState.Fitness.map((item, index) => (
-                    <Card
-                      image={item.image}
-                      key={index}
-                      item={item.title}
-                      itemCount={item.count}
-                      onDecrement={decrementHandler.bind(null, "Fitness", item)}
-                      onClick={clickHandler.bind(null, "Fitness", item)}
-                    />
-                  ))}
-                </div>
-
-              </div>
-            </form>
-            <div className="mt-6 ">
-
-              <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
-                <button
-                  className="button_2_skip rounded-m px-10 py-2"
-                  type="button"
-                 
-                >
-                  SKIP
-                </button>
-
-                <button
-                  className="button_3 rounded-m px-10 py-2"
-                  type="button"
-                  onClick={handleSubmit}
-                >
-                  NEXT
-                </button>
-
-              </div>
-              <div className="flex justify-start mr-5 pl-5 mb-5 text-sm ">
-                {/* <FontAwesomeIcon
-                icon={fa["faSearch"]}
-                style={{ fontSize: 20, color: "blue" }}
-              /> */}
-                <p>Do you know you can save this progress</p>
-              </div>
-            </div>
+          <div className="flex ml-10 mr-10 mt-1 space-x-2">
+            <div className="flex- 1 w-1/2">{orderId}</div>
+            <div className="flex- 1 w-1/2  ">{moveType}</div>
+            <div className="flex- 1 w-1/2 ">{name}</div>
           </div>
-        </div>
+
+          <div className="flex ml-10 mr-10 mt-1 space-x-2">
+            <div className="flex- 1 w-1/2">{orderCreated}</div>
+            <div className="flex- 1 w-1/2  ">{}</div>
+            <div className="flex- 1 w-1/2  ">{mobileNo}</div>
+          </div>
+
+          <div className="flex ml-10 mr-10 mt-1 space-x-2">
+            <div className="flex- 1 w-1/2">{}</div>
+            <div className="flex- 1 w-1/2  ">{}</div>
+            <div className="flex- 1 w-1/2  ">{emailId}</div>
+          </div>
+          <div className="flex ml-10 mr-10 mt-5 space-x-2 text-gray-800 font-medium text-md">
+            <div className="flex- 1 w-1/2">From</div>
+            <div className="flex- 1 w-1/2 ">To</div>
+            <div className="flex- 1 w-1/2 ">Date</div>
+          </div>
+
+          <div className="flex ml-10 mr-10 mt-1 space-x-2">
+            <div className="flex- 1 w-1/2">{formAddress}</div>
+            <div className="flex- 1 w-1/2  ">{toAddress}</div>
+            <div className="flex- 1 w-1/2 ">{date}</div>
+          </div>
+
+          <div className="flex ml-10 mr-10 mt-1 space-x-2">
+            <div className="flex- 1 w-1/2">{fromLift}</div>
+            <div className="flex- 1 w-1/2  ">{toLift}</div>
+            <div className="flex- 1 w-1/2  ">{}</div>
+          </div>
+        </form>
       </div>
-      
-    </>
+      <div>
+        <p className="mt-10 mb-3 text-gray-800 font-medium text-sm text-center">
+          Your selected items
+        </p>
+      </div>
 
-    // <div
-    //   className="flex items-center justify-center flex-col m-4 py-3 px-7 bg-white rounded-3xl  col-span-1 ">
-    //   <div className="mt-16">
-    //   <img
-    //         className=""
-    //         src="/images/check_circle.jpg"
-    //         itemProp="image"
-    //         alt="Image"
-    //       />
-    //   </div>
-
-    //   <div className=" greencolor text-3xl text-center mt-12 font-bold ">Well done</div>
-
-    //   <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">Set up 100% complete</div>
-
-    //   <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div>
-
-    // </div>
-
-
-
-
-
-
-    // <div>
-    //   <div className="flex justify-start m-2 text-sm ">
-    //     <p>Do you want to move any of these items?</p>
-    //   </div>
-
-    //   <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
-    // <button
-    //   className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-    //   type="button"
-    //   onClick={handleSubmit}
-    // >
-    //   NEXT
-    // </button>
-    //   </div>
-    //   <div className="flex justify-end mr-5  mb-5 text-sm ">
-    //     <p>Do you know you can save this progress</p>
-    //   </div>
-    // <form className="max-w-screen-xl m-auto py-10 px-5">
-    //   <div className="grid gap-8 lg:grid-cols-4">
-    // {uniqueCategories.map((item, i) => {
-    //   return (
-    //     <div className="px-4 py-4" key={i}>
-    //       <h3 className="text-2xl text-center text-gray-600">{item}</h3>
-    //     </div>
-    //   );
-    // })}
-    //   </div>
-
-    //   <div className="grid gap-8 md:grid-cols-4 mt-5">
-    //     <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-    // {objectState.Utility.map((item, index) => {
-    //   console.log("item", item);
-    //   return (
-    //     <Card
-    //       image={item.image}
-    //       key={index}
-    //       item={item.title}
-    //       itemCount={item.count}
-    //       onDecrement={decrementHandler.bind(null, "Utility", item)}
-    //       onClick={clickHandler.bind(null, "Utility", item)}
-    //     />
-    //   );
-    // })}
-    //     </div>
-    //     <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-    // {objectState.HomeAppliances.map((item, index) => (
-    //   <Card
-    //     image={item.image}
-    //     key={index}
-    //     item={item.title}
-    //     itemCount={item.count}
-    //     onDecrement={decrementHandler.bind(
-    //       null,
-    //       "HomeAppliances",
-    //       item
-    //     )}
-    //     onClick={clickHandler.bind(null, "HomeAppliances", item)}
-    //   />
-    // ))}
-    //     </div>
-    //     <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-    // {objectState.CareItems.map((item, index) => (
-    //   <Card
-    //     image={item.image}
-    //     key={index}
-    //     item={item.title}
-    //     itemCount={item.count}
-    //     onDecrement={decrementHandler.bind(null, "CareItems", item)}
-    //     onClick={clickHandler.bind(null, "CareItems", item)}
-    //   />
-    // ))}
-    //     </div>
-
-    //     <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-    // {objectState.Fitness.map((item, index) => (
-    //   <Card
-    //     image={item.image}
-    //     key={index}
-    //     item={item.title}
-    //     itemCount={item.count}
-    //     onDecrement={decrementHandler.bind(null, "Fitness", item)}
-    //     onClick={clickHandler.bind(null, "Fitness", item)}
-    //   />
-    // ))}
-    //     </div>
-    //   </div>
-    // </form>
-    // </div>
+      <div className="w-5/6">
+        <form className="max-w-xl m-auto py-10 px-5">
+          <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
+            {state.map((st, index) => {
+              console.log("item", st);
+              return (
+                <Card
+                  image={st.image}
+                  key={index}
+                  item={st.title}
+                  itemCount={st.count}
+                  onDecrement={decrementHandler.bind(null, "", st)}
+                  onClick={clickHandler.bind(null, "", st)}
+                />
+              );
+            })}
+            { state5 && state5.map((st, index) => {
+              console.log("item", st);
+              return (
+                <Card
+                  image={st.image}
+                  key={index}
+                  item={st.title}
+                  itemCount={st.count}
+                  onDecrement={decrementHandler.bind(null, "", st)}
+                  onClick={clickHandler.bind(null, "", st)}
+                />
+              );
+            })}
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 
-export default Step5;
+export default Step6;
+  
