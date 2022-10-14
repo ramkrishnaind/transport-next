@@ -344,12 +344,12 @@ const Step7 = () => {
 
               <div className="flex flex-col m-5 p-2 top-2 rounded-lg gap-4 bg-white step7ProfileBox1">
                 <div className="step7_grid1 ">
-                  <div className="step7_container1 p-2">
+                  <div className="step7_container1 p-3 my-auto">
                     <div className="ellipse_step7">
                     </div>
                   </div>
-                  <div className="step7_container2 m-5 p-2 rounded-lg gap-4 bg-white ">
-                    <div className="thankyou_step7">Rishi Lohan</div>
+                  <div className="step7_container2 my-5 py-2 rounded-lg gap-1 bg-white ">
+                    <div className=" font-bold">Rishi Lohan</div>
                     <div>rlohan318@gmail.com</div>
                     <div>9728652655</div>
                   </div>
@@ -358,10 +358,11 @@ const Step7 = () => {
 
               <div className="step7buttonBox1 step7_buttonbox pl-5">
                 <div className="flex justify-between ">
-                  <div className="current">current order</div>
+                  <div className="current font-semibold 
+                  py-3 text-xl">Current Order</div>
                   <div>
                     <button
-                      className=" bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-10 text-sm rounded shadow-lg"
+                      className=" new_order_step7 py-3 px-10 text-sm rounded"
                       type="submit"
                       onClick={handleNewOrder}>
                       + NEW ORDER
@@ -370,18 +371,32 @@ const Step7 = () => {
                 </div>
               </div>
               <div className="step7SummarylBox2 m-5 rounded-lg bg-white ">
+
+
                 <div className="flex flex-row justify-between p-4 rounded-xl">
-                  <div className="step7_grid2">
-                    <div className="step7_grid2item1" >19</div>
-                    <div>Thrusday</div>
-                    <div>September, 2022</div>
+
+                  <div className="step7_grid2 justify-start">
+
+                      <div className="step7_grid2item1 px-2" >
+                        19
+                      </div>
+                      <div className="flex flex-col my-auto px-2 pr-2">
+                        <div className=" font-bold">Thrusday</div>
+                        <div>September, 2022</div>
+                      </div>
+
                   </div>
-                  <div>
-                    <div>Order Id</div>
-                    <div>#BLL288945</div>
+                  
+                  
+                  <div className="flex flex-col gap-3 text-md">
+                    <div className=" font-semibold">Order Id</div>
+                    <div className="OrderID_text_step7 font-semibold">#BLL288945</div>
                   </div>
+
                 </div>
-                <hr />
+
+
+                <hr className="mx-auto step7SummarylBox2_hr"/>
                 <div>
                   <div className="flex flex-row justify-between p-3">
                     <div className="step7Summarybox_item1">
@@ -403,7 +418,7 @@ const Step7 = () => {
                       <div className="font-semibold">Not Assigned</div>
                     </div>
                   </div>
-                  <hr />
+                  <hr className="mx-auto step7SummarylBox2_hr" />
                   <div className="flex flex-row p-3 justify-between">
                     <div>
                       <button
@@ -433,108 +448,108 @@ const Step7 = () => {
               </div>
             </div>
 
-            
 
-              <div className="step7ProfileBox1 m-5 rounded-lg bg-white pb-1 step7_2container">
-                <div className="flex flex-row justify-between p-3">
-                  <div>
-                    <div>Order Id</div>
-                    <div>#BLL288945</div>
-                  </div>
-                  <div>
-                    <div>Order Id</div>
-                    <div>#BLL288945</div>
-                  </div>
+
+            <div className="step7ProfileBox1 m-5 rounded-lg bg-white pb-1 step7_2container">
+              <div className="flex flex-row justify-between p-3">
+                <div>
+                  <div className="font-bold">Order Id</div>
+                  <div className="OrderID_text_step7 font-bold">#BLL288945</div>
                 </div>
-                <hr />
-                <div className="p-3">
-                  Your order is being evaluated by us
-                </div>
-                <div className="p-3">
-                  <Timeline>
-                    <Timeline.Item>
-                      <div className="py-1">From</div>
-                      <div className="py-1 font-bold">Delhi Cantt Railway Station, jail Road, Nagal village, Delhi Cantonment, New Delhi</div>
-                      <div className="py-1 greencolor">Lift Avilabe</div>
-                    </Timeline.Item>
-                    <Timeline.Item>
-                      <div className="py-1">To</div>
-                      <div className="py-1 font-bold">Sonipat, Haryana, India</div>
-                      <div className="py-1 greencolor">Lift Avilabe</div>
-                    </Timeline.Item>
-                  </Timeline>
-                </div>
-                <div className="px-5">
-                  <hr />
-                </div>
-                <div className="flex flex-row justify-between p-4 mt-6">
-                  <div>
-                    <div>What to move</div>
-                    <div>3BHK</div>
-                  </div>
-                  <div>
-                    <div>Preferred Choice</div>
-                    <div>-</div>
-                  </div>
-                </div>
-                <div className="m-2 font-semibold p-2 text-lg ">
-                  Your selected items
-                </div>
-                <div className=" rounded-lg border m-2">
-                  <Collapse defaultActiveKey={['1']} ghost>
-                    <Panel header="Furniture " key="1">
-                      <div className="m-2">
-                        <div className="p-3">
-                          <div className=" font-semibold">2X Sofa set</div>
-                          <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
-                          <div className="pl-5">• 1 x 1 sofa set with storage</div>
-                        </div>
-                        <div className="p-3">
-                          <div className=" font-semibold">3x Table</div>
-                          <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
-                          <div className="pl-5">• 1 x Dismantlable dressing table</div>
-                        </div>
-                      </div>
-                    </Panel>
-                  </Collapse>
-                </div>
-                <div className=" rounded-lg border m-2">
-                  <Collapse defaultActiveKey={['1']} ghost>
-                    <Panel header="Furniture " key="1">
-                      <div className="m-2">
-                        <div className="p-3">
-                          <div className=" font-semibold">2X Sofa set</div>
-                          <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
-                          <div className="pl-5">• 1 x 1 sofa set with storage</div>
-                        </div>
-                        <div className="p-3">
-                          <div className=" font-semibold">3x Table</div>
-                          <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
-                          <div className="pl-5">• 1 x Dismantlable dressing table</div>
-                        </div>
-                      </div>
-                    </Panel>
-                  </Collapse>
-                </div>
-                <div className=" rounded-lg border m-2">
-                  <Collapse defaultActiveKey={['1']} ghost>
-                    <Panel header="Furniture " key="1">
-                      <div className="m-2">
-                        <div className="p-3">
-                          <div className=" font-semibold">2X Sofa set</div>
-                          <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
-                          <div className="pl-5">• 1 x 1 sofa set with storage</div>
-                        </div>
-                        <div className="p-3">
-                          <div className=" font-semibold">3x Table</div>
-                          <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
-                          <div className="pl-5">• 1 x Dismantlable dressing table</div>
-                        </div>
-                      </div>
-                    </Panel>
-                  </Collapse>
+                <div>
+                  <div>Date & Time slot</div>
+                  <div className=" font-semibold">11 August 2022</div>
                 </div>
               </div>
+              <hr className="mx-auto step7SummarylBox2_hr" />
+              <div className="p-3">
+                Your order is being evaluated by us
+              </div>
+              <div className="p-3">
+                <Timeline>
+                  <Timeline.Item>
+                    <div className="py-1">From</div>
+                    <div className="py-1 font-semibold">Delhi Cantt Railway Station, jail Road, Nagal village, Delhi Cantonment, New Delhi</div>
+                    <div className="py-1 greencolor">Lift Avilabe</div>
+                  </Timeline.Item>
+                  <Timeline.Item>
+                    <div className="py-1">To</div>
+                    <div className="py-1 font-semibold">Sonipat, Haryana, India</div>
+                    <div className="py-1 greencolor">Lift Avilabe</div>
+                  </Timeline.Item>
+                </Timeline>
+              </div>
+              <div className="px-5">
+                <hr className="mx-auto step7SummarylBox2_hr" />
+              </div>
+              <div className="flex flex-row justify-between p-4 mt-6">
+                <div>
+                  <div>What to move</div>
+                  <div className="font-semibold">3BHK</div>
+                </div>
+                <div>
+                  <div>Preferred Choice</div>
+                  <div className="font-semibold">-</div>
+                </div>
+              </div>
+              <div className="m-2 font-semibold p-2 text-xl ">
+                Your selected items
+              </div>
+              <div className=" rounded-lg border m-2">
+                <Collapse defaultActiveKey={['1']} ghost>
+                  <Panel header="Furniture " key="1">
+                    <div className="m-2">
+                      <div className="p-3">
+                        <div className=" font-semibold">2X Sofa set</div>
+                        <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
+                        <div className="pl-5">• 1 x 1 sofa set with storage</div>
+                      </div>
+                      <div className="p-3">
+                        <div className=" font-semibold">3x Table</div>
+                        <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
+                        <div className="pl-5">• 1 x Dismantlable dressing table</div>
+                      </div>
+                    </div>
+                  </Panel>
+                </Collapse>
+              </div>
+              <div className=" rounded-lg border m-2">
+                <Collapse defaultActiveKey={['1']} ghost>
+                  <Panel header="Furniture " key="1">
+                    <div className="m-2">
+                      <div className="p-3">
+                        <div className=" font-semibold">2X Sofa set</div>
+                        <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
+                        <div className="pl-5">• 1 x 1 sofa set with storage</div>
+                      </div>
+                      <div className="p-3">
+                        <div className=" font-semibold">3x Table</div>
+                        <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
+                        <div className="pl-5">• 1 x Dismantlable dressing table</div>
+                      </div>
+                    </div>
+                  </Panel>
+                </Collapse>
+              </div>
+              <div className=" rounded-lg border m-2">
+                <Collapse defaultActiveKey={['1']} ghost>
+                  <Panel header="Furniture " key="1">
+                    <div className="m-2">
+                      <div className="p-3">
+                        <div className=" font-semibold">2X Sofa set</div>
+                        <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
+                        <div className="pl-5">• 1 x 1 sofa set with storage</div>
+                      </div>
+                      <div className="p-3">
+                        <div className=" font-semibold">3x Table</div>
+                        <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
+                        <div className="pl-5">• 1 x Dismantlable dressing table</div>
+                      </div>
+                    </div>
+                  </Panel>
+                </Collapse>
+              </div>
+            </div>
 
 
           </div>
@@ -548,8 +563,6 @@ const Step7 = () => {
 
 
 
-
-      3
 
 
 

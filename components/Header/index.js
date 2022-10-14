@@ -7,7 +7,7 @@ import Hamburger from "./hamburger";
 const Header = () => {
   return (
     <>
-     
+
       <div className="mainHeader grid grid-flow-col grid-cols-8 px-2">
         <div>
           <Link href="/">

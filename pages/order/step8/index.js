@@ -17,7 +17,22 @@ const Step8 = () => {
     setDisplay("visible");
   };
 
-  return (
+  return (<>
+    <div>
+      <div className="flex flex-col m-5 p-4 rounded-lg gap-4 bg-white step7SummarylBox1  ">
+        <div className="thankyou_step7"><img
+          className="inline w-8 pr-2"
+          src="/images/sentiment_satisfied.png"
+          itemProp="image"
+          alt="Image"
+        />
+          Thank you Rishi Lohan!
+        </div>
+        <div className="thankyou2_step7">The information you provided has been sent to our top secret super wise quote calculating monks. We will get you perfect tailor made quote in a day.</div>
+      </div>
+    </div>
+
+
     <div
       className="flex group flex-nowrap flex-row space-x-2"
       onClick={handleClick}
@@ -39,6 +54,7 @@ const Step8 = () => {
         ))}
       </div>
     </div>
+  </>
   );
 };
 export default Step8;
