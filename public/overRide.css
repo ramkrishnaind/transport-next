@@ -1339,6 +1339,239 @@ padding-right: 8.6rem;
   line-height: 30px;
   font-weight: 700;
   text-align: center;
+  color: #000c24; 
+}
+
+.step7buttonBox1 {
+  width: 26rem;
+}
+
+/* HOMEFIGMA */
+
+/* INDEX */
+
+@media (max-width: 767px) {
+  .Index_movers-Burnaby_1 {
+    position: absolute;
+    width: 176px;
+    /* object-position: 30px 26px; */
+    overflow: visible;
+  }
+  .Index_background3 {
+    background-image: url("/images/index_image/arrow_background3.svg"),
+      url("/images/index_image/Group_99.png"),
+      url("/images/index_image/Rectangle-14.png");
+    background-repeat: no-repeat;
+    background-position: -31px 366px, 290px 30px, center;
+    background-size: 363px, 100px, 100vw;
+    height: 37rem;
+  }
+  .Index-MovingMadeModern_text_2 {
+    color: #ffffff;
+    font-size: 15.1px;
+  }
+  .Index-MovingMadeModern_text {
+    color: #ffffff;
+    font-size: 2.1rem;
+    font-weight: 700;
+  }
+  .Truck_Mockup_1 {
+    position: absolute;
+    width: 9rem;
+    /* object-position: 30px 26px; */
+    overflow: visible;
+  }
+  .index_card1 {
+    background: #f5fafd;
+    border: 1px solid #c9e3f4;
+    border-radius: 20px;
+    /* width: 90% !important; */
+    margin: 10px !important;
+  }
+  .index-Worldwide-delivery-1 {
+    width: 359px;
+  }
+  .index-globe {
+    width: 2.7rem;
+  }
+}
+
+.index_Calculate_price_Box-text-2 {
+  font-size: 27px;
+}
+
+
+
+.Index_background1 {
+  background: #f9f9f9;
+  background-image: url("/images/index_image/Home_background_1.svg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-attachment: fixed;
+}
+.Index_background5 {
+  background: #439fd9;
+}
+.Index_background6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5fafd;
+  background-image: url("/images/index_image/frame.png");
+  background-position: 72.2vw 30.7rem;
+  background-repeat: no-repeat;
+}
+
+.index_card_experience {
+  width: 231px;
+  height: 307px;
+  background: #ffffff;
+  border-radius: 20px;
+}
+.index_card_experience_text {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  padding: 20px;
+  line-height: 130%;
+  color: #ffffff;
+}
+.index_card_experience_text-2 {
+  color: #f7c600;
+}
+.index_card_experience_text-3 {
+  color: #439fd91a;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 65px;
+}
+.index_card_experience_text-4 {
+  color: #000c24;
+  font-weight: 700;
+  font-size: 16px;
+}
+.index_card_experience_text-5 {
+  font-weight: 350;
+  font-size: 14px;
+  color: #7c7c7c;
+}
+
+.index_Calculate_price_Box-text-1 {
+  color: #439fd9;
+}
+.Index_background2 {
+  background: #000c24;
+  color: #ffffff;
+}
+.TrackYourOrderBox {
+  font-size: 17px;
+}
+.index_orderType-text {
+  font-size: 15px;
+  color: #439fd9;
+}
+.Index_fAQ_text {
+  font-size: 2rem;
+}
+.index_orderType-text2 {
+  font-size: 25px;
+  color: #ffffff;
+}
+.Index-track-button {
+  padding-left: 10.1rem;
+  padding-right: 10.1rem;
+}
+.index_orderType-text3 {
+  color: #bcbcbc;
+}
+.index-international_Relocation-text {
+  font-size: 15px;
+  color: #439fd9;
+}
+.index_card1_text {
+  color: #000c24;
+  font-size: 24px;
+}
+.index_card1_text-2 {
+  color: #7c7c7c;
+  font-size: 18px;
+}
+.Index_city_card-text {
+  color: #439fd9;
+  font-size: 16px;
+}
+.Index_city_card-text-2 {
+  color: #000c24;
+  font-size: 24px;
+  font-weight: 700;
+}
+.Index_city_card-text-3 {
+  color: #000c24;
+  font-weight: 400;
+  font-size: 14px;
+}
+.Index_city_card-text-4 {
+  color: #439fd9;
+  font-weight: 400;
+  font-size: 14px;
+}
+.Index_blog-text {
+  font-weight: 400;
+  font-size: 16px;
+}
+.Index_blog-text-2 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 30px;
+}
+.Index_blog-text-3 {
+  color: #000c24;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+.Index_Clint_card-Heading {
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 40px;
+}
+.Index_Clint_card {
+  background: #ffffff;
+  border-radius: 20px;
+}
+.Index_Clint_card-text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  color: #000c24;
+}
+.Index_Clint_card-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.Index_Clint_card-item-text {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #3e3e3e;
+}
+.Index_Clint_card-item-text-2 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  color: #3e3e3e;
+}
+.Index_Clint_card-item-text-3 {
+  font-weight: 350;
+  font-size: 14px;
+  line-height: 15px;
+  color: #7c7c7c;
+}
+.Index-Clint_trust-Heading {
+  font-size: 28px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
   color: #000c24;
 }
 
