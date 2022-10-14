@@ -1019,10 +1019,7 @@ textarea {
   font-size: 25px;
   color: #ffffff;
 }
-.Index-track-button {
-  padding-left: 10.1rem;
-  padding-right: 10.1rem;
-}
+
 .index_orderType-text3 {
   color: #bcbcbc;
 }
@@ -1126,12 +1123,7 @@ textarea {
 /* INDEX */
 
 @media (max-width: 767px) {
-  .Index_movers-Burnaby_1 {
-    position: absolute;
-    width: 176px;
-    /* object-position: 30px 26px; */
-    overflow: visible;
-  }
+
   .Index_background3 {
     background-image: url("/images/index_image/arrow_background3.svg"),
       url("/images/index_image/Group_99.png"),
@@ -1253,8 +1245,8 @@ textarea {
   color: #ffffff;
 }
 .Index-track-button {
-  padding-left: 10.1rem;
-  padding-right: 10.1rem;
+  padding-left: 8.6rem;
+padding-right: 8.6rem;
 }
 .index_orderType-text3 {
   color: #bcbcbc;
@@ -1471,7 +1463,7 @@ textarea {
   }
   .Index_movers-Burnaby_1 {
     position: absolute;
-    width: 176px;
+    width: 24rem;
     /* object-position: 30px 26px; */
     overflow: visible;
   }

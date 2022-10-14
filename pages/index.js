@@ -19,12 +19,12 @@ const HomePage = () => {
     <>
       <div className="index_font_color">
         <div className="Index_background1">
-          <div>
-          <img className="Index_movers-Burnaby_1 absolute ml-44 mt-24" src="/images/index_image/Index_movers-Burnaby-Signature-Moving-scaled-removebg.png" itemProp="image"
-                  alt="main BannerImage" />
+          <div className=" flex justify-center items-center">
+            <img className="Index_movers-Burnaby_1 absolute pt-52 lg:mt-80" src="/images/index_image/truck_and_movers.png" itemProp="image"
+              alt="main BannerImage" />
 
-          <img className="Truck_Mockup_1 absolute ml-14 mt-24" src="/images/index_image/Truck_Mockup_1.png" itemProp="image"
-                  alt="main BannerImage" />
+            {/* <img className="Truck_Mockup_1 absolute ml-14 mt-24" src="/images/index_image/Truck_Mockup_1.png" itemProp="image"
+              alt="main BannerImage" /> */}
           </div>
         </div>
         <div className="index_font_color pb-2">
