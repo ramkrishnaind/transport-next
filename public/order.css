@@ -1044,3 +1044,9 @@
       padding-bottom: 4%;
     }
   }
+
+  .index_orderType-text3_new{
+    color: #000000;
+    border: none !important;
+    width: 64vw;
+  }

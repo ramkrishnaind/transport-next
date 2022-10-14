@@ -47,7 +47,8 @@ const HomePage = () => {
           <div className="index_orderType-text pt-8">Choose order type</div>
           <div className="index_orderType-text2 pb-7">LTL shipment (LRN)</div>
           <div className="bg-white rounded-md py-3">
-            <div className="index_orderType-text3 px-4">LRN Number</div>
+            <input className="index_orderType-text3_new ml-1  " type="text" placeholder="LRN Number" />
+            {/* <div className="index_orderType-text3 px-4">LRN Number</div> */}
           </div>
           <button className="yellowButton text-center Index-track-button py-4 mt-6">Track</button>
         </div>
