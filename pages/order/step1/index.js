@@ -179,6 +179,7 @@ const Step1 = () => {
                 /> */}
 
                 <select className="houseTypeOptions-select py-2 font-semibold" required onChange={houseHandler}>
+                <option value="" disabled selected hidden className="step1_select_hidden_option">1 BHK</option>
                   <option value="1 BHK">1 BHK</option>
                   <option value="2 BHK">2 BHK</option>
                   <option value="3 BHK">3 BHK</option>

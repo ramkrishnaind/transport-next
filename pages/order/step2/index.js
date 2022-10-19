@@ -171,6 +171,7 @@ const Step2 = () => {
                       required
                       onChange={fromFloorChangeHandler}
                     >
+                      <option value="" disabled selected hidden className="step1_select_hidden_option">1st</option>
                       <option value="1st">1st</option>
                       <option value="2nd">2nd</option>
                       <option value="3rd">3rd</option>
@@ -200,6 +201,7 @@ const Step2 = () => {
                       required
                       onChange={fromLiftChangeHandler}
                     >
+                      <option value="" disabled selected hidden className="step1_select_hidden_option">Available</option>
                       <option value="true">Available</option>
                       <option value="false">Not Available</option>
                     </select>
@@ -229,6 +231,7 @@ const Step2 = () => {
                       required
                       onChange={toFloorChangeHandler}
                     >
+                      <option value="" disabled selected hidden className="step1_select_hidden_option">1st</option>
                       <option value="1st">1st</option>
                       <option value="2nd">2nd</option>
                       <option value="3rd">3rd</option>
@@ -276,6 +279,7 @@ const Step2 = () => {
                       required
                       onChange={toLiftChangeHandler}
                     >
+                      <option value="" disabled selected hidden className="step1_select_hidden_option">Available</option>
                       <option value="true">Available</option>
                       <option value="false">Not Available</option>
                     </select>
@@ -309,7 +313,7 @@ const Step2 = () => {
                   type="submit"
                   onClick={handleSubmit}
                   loading={loading}
-                  // disabled={disabled}
+                  disabled={disabled}
                 >
                   Next
                 </Button>
