@@ -20,6 +20,7 @@ const customersignUpSchema = Joi.object({
  */
 async function createCustomer(req, res) {
   await dbConnect();
+  debugger;
   try {
     if (req.method != "POST") {
       return res.json({
@@ -28,7 +29,7 @@ async function createCustomer(req, res) {
         message: "HTTP method not allowed",
       });
     }
-    // debugger;
+    debugger;
     let validateData = customersignUpSchema.validate(req.body);
     if (validateData.error) {
       return res.json({
@@ -43,7 +44,7 @@ async function createCustomer(req, res) {
     let getHash = customAlphabet(numbers, 4);
     let otp = getHash();
     customerData.otp = otp;
-    //
+
     let findData = await CustomerDB.findOne({
       $or: [{ mobile: customerData.mobile }, { email: customerData.email }],
     });
@@ -90,6 +91,7 @@ async function createCustomer(req, res) {
         error: false,
         message: "OTP Sent to " + customerData.mobile,
         OTP: customerData.otp,
+        customerData: customer
       });
     }
   } catch (error) {

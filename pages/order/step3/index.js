@@ -163,7 +163,7 @@ const Step3 = (props) => {
     router.push("/order/step4");
   };
   const handleSkip = () => {
-    router.push("/order/step5");
+   // router.push("/order/step5");
   };
   const form1 = () => {
     return (<form className="max-w-screen-xl m-auto px-4">
@@ -332,7 +332,7 @@ const Step3 = (props) => {
               <button
                 className="button_2_skip rounded-m px-10 py-2"
                 type="button"
-                onClick={handleSkip}
+               // onClick={handleSkip}
               >
                 SKIP
               </button>
