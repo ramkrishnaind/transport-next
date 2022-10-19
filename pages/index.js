@@ -3,26 +3,48 @@ import { registerCustomer } from "../services/customer-api-service";
 import TransportContext from "../context";
 import OTP from "../components/otp";
 import { useRouter } from "next/router";
-import useAuth from "../hooks/useAuth"
-import { Divider, Tabs, Collapse, Carousel, Button, notification, Alert, Modal } from "antd";
+import useAuth from "../hooks/useAuth";
+import {
+  Divider,
+  Tabs,
+  Collapse,
+  Carousel,
+  Button,
+  notification,
+  Alert,
+  Modal,
+} from "antd";
 import HomeForm from "../components/Home";
 import Image from "next/image";
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 const text = (
   <p style={{ paddingLeft: 24 }}>
-    Try to provide moving companies with as much notice as possible, especially if you are moving during the summer months (mid-May to mid-September) or at the beginning or end of a month (regardless of the season). We recommend making arrangements at least four to six weeks before your desired moving date. This will increase your likelihood of securing the pickup and delivery dates you desire. Add even more time to make a decision if you are obligated by your employer to submit estimates for approval.
+    Try to provide moving companies with as much notice as possible, especially
+    if you are moving during the summer months (mid-May to mid-September) or at
+    the beginning or end of a month (regardless of the season). We recommend
+    making arrangements at least four to six weeks before your desired moving
+    date. This will increase your likelihood of securing the pickup and delivery
+    dates you desire. Add even more time to make a decision if you are obligated
+    by your employer to submit estimates for approval.
   </p>
 );
 const contentStyle = {
-  marginLeft: 'auto',
-  marginRight: 'auto'
+  marginLeft: "auto",
+  marginRight: "auto",
 };
 
 //import
 const HomePage = () => {
-//---------------------------
-  const { saveToken, authenticated, saveCustomer, gitTokenLogin, getUserRole, routerProtectorLogic } = useAuth();
+  //---------------------------
+  const {
+    saveToken,
+    authenticated,
+    saveCustomer,
+    gitTokenLogin,
+    getUserRole,
+    routerProtectorLogic,
+  } = useAuth();
   const context = useContext(TransportContext);
   const router = useRouter();
   const [enteredName, setEnteredName] = useState("");
@@ -78,7 +100,7 @@ const HomePage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission
-    setLoading(true)
+    setLoading(true);
     setNameBlur(true);
     setEmailBlur(true);
     setPhoneNumberBlur(true);
@@ -88,9 +110,10 @@ const HomePage = () => {
       let saveResponse = await saveFormData();
       console.log("saveRes", saveResponse);
       if (saveResponse.data.status) {
-        saveCustomer({customerID : saveResponse.data.customerData._id,
-          customerName : saveResponse.data.customerData.fullName
-        })
+        saveCustomer({
+          customerID: saveResponse.data.customerData._id,
+          customerName: saveResponse.data.customerData.fullName,
+        });
         //router.push("/otp")
         // setEnteredName("");
         // setEnteredEmail("");
@@ -127,18 +150,22 @@ const HomePage = () => {
     setVisibleOtpModal(false);
   };
 
-const handleEntery = () => {
-  router.push("/order/step1");
-};
-//---------------------------
-  
+  const handleEntery = () => {
+    router.push("/order/step1");
+  };
+  //---------------------------
+
   return (
     <>
       <div className="index_font_color">
         <div className="Index_background1">
           <div className=" flex justify-center items-center">
-            <img className="Index_movers-Burnaby_1 absolute pt-52 lg:mt-80" src="/images/index_image/truck_and_movers.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="Index_movers-Burnaby_1 absolute pt-52 lg:mt-80"
+              src="/images/index_image/truck_and_movers.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
 
             {/* <img className="Truck_Mockup_1 absolute ml-14 mt-24" src="/images/index_image/Truck_Mockup_1.png" itemProp="image"
               alt="main BannerImage" /> */}
@@ -146,71 +173,88 @@ const handleEntery = () => {
         </div>
         <div className="index_font_color pb-2">
           <div className="mx-6 bg-white rounded-xl flex flex-col my-3 items-center">
-            <div className="index_Calculate_price_Box-text-1 text-xl pt-6">Shifting Happiness</div>
-            <div className="index_Calculate_price_Box-text-2 font-bold px-20 text-center py-4">We make your Moving Easy</div>
-            <form className="max-w-xl m-auto mt-4 w-96">
-        <div className="mb-10">
-          <label className="text-gray-600 font-medium text-lg">Full Name</label>
-          <input
-            className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 "
-            type="text"
-            placeholder=""
-            autoFocus
-            required
-            onChange={nameInputChangeHandler}
-            value={enteredName}
-            onBlur={() => setNameBlur(true)}
-          />
-          {nameBlur && !enteredName && (
-            <div className="text-red-400">Name must not be empty.</div>
-          )}
-        </div>
-        <div className="mb-10">
-          <label className="text-gray-600 font-medium text-lg">
-            Email Address
-          </label>
-          <input
-            className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700"
-            type="email"
-            placeholder=""
-            required
-            onChange={emailInputChangeHandler}
-            value={enteredEmail}
-            onBlur={() => setEmailBlur(true)}
-          />
-          {emailBlur && (!enteredEmail || !enteredEmail.includes("@")) && (
-            <p className="text-red-400">Email address must be valid.</p>
-          )}
-        </div>
-        <div className="mb-10">
-          <label className="text-gray-600 font-medium text-lg">
-            Phone Number
-          </label>
-          <input
-            className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700"
-            type="text"
-            required
-            placeholder=""
-            onChange={phoneNumberInputChangeHandler}
-            value={enteredPhoneNumber}
-            onBlur={() => setPhoneNumberBlur(true)}
-          />
-          {phoneNumberBlur && !enteredPhoneNumber && (
-            <p className="text-red-400">Phone Number must not be empty.</p>
-          )}
-        </div>
-        <div className="pb-4">
-              <button type="button" className="yellowButton px-5 py-3.5 text-lg"    onClick={handleSubmit}>
-                Calculate Moving Prices
-                <img className="arrow-png pl-3" src="/images/index_image/arrow.png" itemProp="image"
-                  alt="main BannerImage" />
-              </button>
+            <div className="index_Calculate_price_Box-text-1 text-xl pt-6">
+              Shifting Happiness
             </div>
-        {/* <Button className="w-96" onClick={handleSubmit} size="large"
+            <div className="index_Calculate_price_Box-text-2 font-bold px-20 text-center py-4">
+              We make your Moving Easy
+            </div>
+            <form className="max-w-xl m-auto mt-4 w-96">
+              <div className="mb-10">
+                <label className="text-gray-600 font-medium text-lg">
+                  Full Name
+                </label>
+                <input
+                  className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 "
+                  type="text"
+                  placeholder=""
+                  autoFocus
+                  required
+                  onChange={nameInputChangeHandler}
+                  value={enteredName}
+                  onBlur={() => setNameBlur(true)}
+                />
+                {nameBlur && !enteredName && (
+                  <div className="text-red-400">Name must not be empty.</div>
+                )}
+              </div>
+              <div className="mb-10">
+                <label className="text-gray-600 font-medium text-lg">
+                  Email Address
+                </label>
+                <input
+                  className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700"
+                  type="email"
+                  placeholder=""
+                  required
+                  onChange={emailInputChangeHandler}
+                  value={enteredEmail}
+                  onBlur={() => setEmailBlur(true)}
+                />
+                {emailBlur &&
+                  (!enteredEmail || !enteredEmail.includes("@")) && (
+                    <p className="text-red-400">Email address must be valid.</p>
+                  )}
+              </div>
+              <div className="mb-10">
+                <label className="text-gray-600 font-medium text-lg">
+                  Phone Number
+                </label>
+                <input
+                  className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700"
+                  type="text"
+                  required
+                  placeholder=""
+                  onChange={phoneNumberInputChangeHandler}
+                  value={enteredPhoneNumber}
+                  onBlur={() => setPhoneNumberBlur(true)}
+                />
+                {phoneNumberBlur && !enteredPhoneNumber && (
+                  <p className="text-red-400">
+                    Phone Number must not be empty.
+                  </p>
+                )}
+              </div>
+              <div className="pb-4">
+                <button
+                  type="button"
+                  className="yellowButton px-5 py-3.5 text-lg"
+                  onClick={handleSubmit}
+                >
+                  Calculate Moving Prices
+                  <img
+                    className="arrow-png pl-3"
+                    src="/images/index_image/arrow.png"
+                    itemProp="image"
+                    alt="main BannerImage"
+                  />
+                </button>
+              </div>
+              {/* <Button className="w-96" onClick={handleSubmit} size="large"
       loading={loading}>
           Calculate Your Moving Cost
         </Button> */}
-        {/* <button
+              {/* <button
                     className="mt-4 w-full bg-blue-500 hover:bg-blue-400 text-green-100 border py-3 px-6 font-semibold text-lg rounded disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
                     disabled={disableSubmit}
                     type="submit"
@@ -218,168 +262,288 @@ const handleEntery = () => {
                 >
                     Calculate Your Moving Cost
                 </button> */}
-        {/* <p className="text-xs text-center text-gray-500 py-3 px-6">
+              {/* <p className="text-xs text-center text-gray-500 py-3 px-6">
           Trusted By 100K+ Happy Customers.
         </p> */}
-      </form>
-      <Modal
-        title=""
-        closable={false}
-        visible={visibleOtpModal}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
-        onCancel={handleCancel}
-        footer={null}
-      >
-        <OTP />
-      </Modal>
-
+            </form>
+            <Modal
+              title=""
+              closable={false}
+              visible={visibleOtpModal}
+              onOk={handleOk}
+              confirmLoading={confirmLoading}
+              onCancel={handleCancel}
+              footer={null}
+            >
+              <OTP />
+            </Modal>
           </div>
         </div>
         <div className="Index_background2 px-7 py-10 TrackYourOrderBox">
-          <div className=" text"><img className="location_on mr-2" src="/images/index_image/location_on.svg" itemProp="image"
-            alt="main BannerImage" />Track your Order
+          <div className=" text">
+            <img
+              className="location_on mr-2"
+              src="/images/index_image/location_on.svg"
+              itemProp="image"
+              alt="main BannerImage"
+            />
+            Track your Order
           </div>
           <div className="index_orderType-text pt-8">Choose order type</div>
           <div className="index_orderType-text2 pb-7">LTL shipment (LRN)</div>
           <div className="bg-white rounded-md py-3">
-            <input className="index_orderType-text3_new ml-1  " type="text" placeholder="LRN Number" />
+            <input
+              className="index_orderType-text3_new ml-1  "
+              type="text"
+              placeholder="LRN Number"
+            />
             {/* <div className="index_orderType-text3 px-4">LRN Number</div> */}
           </div>
-          <button className="yellowButton text-center Index-track-button py-4 mt-6">Track</button>
+          <button className="yellowButton text-center Index-track-button py-4 mt-6">
+            Track
+          </button>
         </div>
         <div className="Index_background3 mt-9 h-full p-10 ">
-          <div className="Index-MovingMadeModern_text py-4">Moving Made<br />Modern</div>
+          <div className="Index-MovingMadeModern_text py-4">
+            Moving Made
+            <br />
+            Modern
+          </div>
           <div className="Index-MovingMadeModern_text_2">
-            by choosing Whit&apos;Glove Packers and Movers, you&apos;re guaranteeing a great moving day. All customers receive transparent pricing, flexible service and payment options, Quality Packaging Material, industry-best customer support, and an easy-to-access online dashboard.
+            by choosing Whit&apos;Glove Packers and Movers, you&apos;re
+            guaranteeing a great moving day. All customers receive transparent
+            pricing, flexible service and payment options, Quality Packaging
+            Material, industry-best customer support, and an easy-to-access
+            online dashboard.
           </div>
         </div>
         <Carousel autoplay className="mb-5">
           <div className="index_card1 " style={contentStyle}>
             <div className="mb-20 mt-7">
-              <img className="ml-auto mr-auto index-Worldwide-delivery-1" src="/images/index_image/Worldwide-delivery-1.png" itemProp="image"
-                alt="Worldwide delivery " />
+              <img
+                className="ml-auto mr-auto index-Worldwide-delivery-1"
+                src="/images/index_image/Worldwide-delivery-1.png"
+                itemProp="image"
+                alt="Worldwide delivery "
+              />
             </div>
             <div className="flex flex-row mx-10 pb-10">
-              <div className="my-auto"><img className="index-globe" src="/images/index_image/globe.svg" itemProp="image"
-                alt="GLOBE" /></div>
-              <div className=" index-international_Relocation-text pl-3.5">International<br />Relocation</div>
+              <div className="my-auto">
+                <img
+                  className="index-globe"
+                  src="/images/index_image/globe.svg"
+                  itemProp="image"
+                  alt="GLOBE"
+                />
+              </div>
+              <div className=" index-international_Relocation-text pl-3.5">
+                International
+                <br />
+                Relocation
+              </div>
             </div>
             <div className="pb-6 index_card1_text font-bold mx-10">
               Great &#38; Affordable <br /> Shifting Services
             </div>
             <div className="index_card1_text-2 mx-10 pb-6">
-              rexeive fixed-price, individualized plan and reserve your move without having to worry about hidden fees.
+              rexeive fixed-price, individualized plan and reserve your move
+              without having to worry about hidden fees.
             </div>
             <div className="mx-10 pb-7">Read More</div>
           </div>
           <div className="index_card1  " style={contentStyle}>
             <div className="mb-20 mt-7">
-              <img className="ml-auto mr-auto index-Worldwide-delivery-1" src="/images/index_image/Worldwide-delivery-1.png" itemProp="image"
-                alt="Worldwide delivery " />
+              <img
+                className="ml-auto mr-auto index-Worldwide-delivery-1"
+                src="/images/index_image/Worldwide-delivery-1.png"
+                itemProp="image"
+                alt="Worldwide delivery "
+              />
             </div>
             <div className="flex flex-row mx-10 pb-10">
-              <div className="my-auto"><img className="index-globe" src="/images/index_image/globe.svg" itemProp="image"
-                alt="GLOBE" /></div>
-              <div className=" index-international_Relocation-text pl-3.5">International<br />Relocation</div>
+              <div className="my-auto">
+                <img
+                  className="index-globe"
+                  src="/images/index_image/globe.svg"
+                  itemProp="image"
+                  alt="GLOBE"
+                />
+              </div>
+              <div className=" index-international_Relocation-text pl-3.5">
+                International
+                <br />
+                Relocation
+              </div>
             </div>
             <div className="pb-6 index_card1_text font-bold mx-10">
               Great &#38; Affordable <br /> Shifting Services
             </div>
             <div className="index_card1_text-2 mx-10 pb-6">
-              rexeive fixed-price, individualized plan and reserve your move without having to worry about hidden fees.
+              rexeive fixed-price, individualized plan and reserve your move
+              without having to worry about hidden fees.
             </div>
             <div className="mx-10 pb-7">Read More</div>
           </div>
         </Carousel>
         <div className="Index_background4 mx-5 p-7">
-          <div className="Index-WhatDoYou-text pb-3">what do you want<br />to ship?</div>
-          <div className="Index-WhatDoYou-text-2 font-small py-4 mb-5">Get local advice for your request.<br />Our team is always there for you</div>
+          <div className="Index-WhatDoYou-text pb-3">
+            what do you want
+            <br />
+            to ship?
+          </div>
+          <div className="Index-WhatDoYou-text-2 font-small py-4 mb-5">
+            Get local advice for your request.
+            <br />
+            Our team is always there for you
+          </div>
           <button type="button" className="BlackButton px-5 py-4 text-lg">
             Lets talk
-            <img className="arrow-png pl-3" src="/images/index_image/arrow_blue.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="arrow-png pl-3"
+              src="/images/index_image/arrow_blue.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
           </button>
         </div>
         <div className="p-5">image of packeditem</div>
 
         <div className="index_card_of_details_parient bg-white p-5">
           <div className="index_card_of_details">
-            <img className="arrow-png pl-3" src="/images/index_image/pin_drop.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="arrow-png pl-3"
+              src="/images/index_image/pin_drop.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
             <div className="index_card_of_details-text">Number of Location</div>
             <div className="index_card_of_details-text-2">359</div>
           </div>
           <div className="index_card_of_details">
-            <img className="arrow-png pl-3" src="/images/index_image/local_shipping.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="arrow-png pl-3"
+              src="/images/index_image/local_shipping.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
             <div className="index_card_of_details-text">Delivered Packages</div>
             <div className="index_card_of_details-text-2">500+</div>
           </div>
           <div className="index_card_of_details">
-            <img className="arrow-png pl-3" src="/images/index_image/speed.png" itemProp="image"
-              alt="main BannerImage" />
-            <div className="index_card_of_details-text">Kilometer Per Month</div>
+            <img
+              className="arrow-png pl-3"
+              src="/images/index_image/speed.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
+            <div className="index_card_of_details-text">
+              Kilometer Per Month
+            </div>
             <div className="index_card_of_details-text-2">500+</div>
           </div>
           <div className="index_card_of_details">
-            <img className="arrow-png pl-3" src="/images/index_image/package.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="arrow-png pl-3"
+              src="/images/index_image/package.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
             <div className="index_card_of_details-text">Tons</div>
             <div className="index_card_of_details-text-2">500+</div>
           </div>
           <div className="index_card_of_details">
-            <img className="arrow-png pl-3" src="/images/index_image/sentiment_satisfied.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="arrow-png pl-3"
+              src="/images/index_image/sentiment_satisfied.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
             <div className="index_card_of_details-text">Satisfied Clients</div>
             <div className="index_card_of_details-text-2">150+</div>
           </div>
         </div>
         <div className="Index_city_card-background py-14">
-          <div className=" text-center Index_city_card-text">Our Top Cities</div>
-          <div className=" text-center Index_city_card-text-2">Find Movers Near You</div>
+          <div className=" text-center Index_city_card-text">
+            Our Top Cities
+          </div>
+          <div className=" text-center Index_city_card-text-2">
+            Find Movers Near You
+          </div>
         </div>
         <Carousel autoplay>
           <div>
-            <div className="Index_city_card p-6" style={contentStyle} >
-              <img className="mx-auto" src="/images/index_image/Group_57.png" itemProp="image"
-                alt="main BannerImage" />
-              <div className=" text-center Index_city_card-text-3 pt-6">Delhi</div>
+            <div className="Index_city_card p-6" style={contentStyle}>
+              <img
+                className="mx-auto"
+                src="/images/index_image/Group_57.png"
+                itemProp="image"
+                alt="main BannerImage"
+              />
+              <div className=" text-center Index_city_card-text-3 pt-6">
+                Delhi
+              </div>
             </div>
           </div>
           <div>
             <div className="Index_city_card2 p-6" style={contentStyle}>
-              <img className="mx-auto" src="/images/index_image/Group_57_1.png" itemProp="image"
-                alt="main BannerImage" />
-              <div className=" text-center Index_city_card-text-4  pt-6">Gurugram</div>
+              <img
+                className="mx-auto"
+                src="/images/index_image/Group_57_1.png"
+                itemProp="image"
+                alt="main BannerImage"
+              />
+              <div className=" text-center Index_city_card-text-4  pt-6">
+                Gurugram
+              </div>
             </div>
           </div>
           <div>
             <div className="Index_city_card p-6" style={contentStyle}>
-              <img className="mx-auto" src="/images/index_image/Group_57.png" itemProp="image"
-                alt="main BannerImage" />
-              <div className=" text-center Index_city_card-text-3 pt-6">Delhi</div>
+              <img
+                className="mx-auto"
+                src="/images/index_image/Group_57.png"
+                itemProp="image"
+                alt="main BannerImage"
+              />
+              <div className=" text-center Index_city_card-text-3 pt-6">
+                Delhi
+              </div>
             </div>
           </div>
           <div>
             <div className="Index_city_card2 p-6" style={contentStyle}>
-              <img className="mx-auto" src="/images/index_image/Group_57_1.png" itemProp="image"
-                alt="main BannerImage" />
-              <div className=" text-center Index_city_card-text-4  pt-6">Gurugram</div>
+              <img
+                className="mx-auto"
+                src="/images/index_image/Group_57_1.png"
+                itemProp="image"
+                alt="main BannerImage"
+              />
+              <div className=" text-center Index_city_card-text-4  pt-6">
+                Gurugram
+              </div>
             </div>
           </div>
         </Carousel>
-        <div className="Index_city_card-background py-14" >
-          <button type="button" className="WhiteButton w-56 mx-auto py-4 text-lg">
+        <div className="Index_city_card-background py-14">
+          <button
+            type="button"
+            className="WhiteButton w-56 mx-auto py-4 text-lg"
+          >
             Explore All Cities
-            <img className="arrow-png pl-3" src="/images/index_image/arrow_blue.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="arrow-png pl-3"
+              src="/images/index_image/arrow_blue.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
           </button>
         </div>
         <div className="bg-white px-5 py-8 flex flex-col justify-center">
-          <div className="Index_fAQ_text px-12 text-center font-bold">FAQ about Packers and Movers</div>
+          <div className="Index_fAQ_text px-12 text-center font-bold">
+            FAQ about Packers and Movers
+          </div>
           <div>
-            <Collapse bordered={false} defaultActiveKey={['1']}>
+            <Collapse defaultActiveKey={["1"]}>
               <Panel header="This is panel header 1" key="1">
                 {text}
               </Panel>
@@ -391,68 +555,104 @@ const handleEntery = () => {
               </Panel>
             </Collapse>
           </div>
-          <button type="button" className="WhiteButton px-7 mx-auto py-4 text-lg">
+          <button
+            type="button"
+            className="WhiteButton px-7 mx-auto py-4 text-lg"
+          >
             View All FAQs
-            <img className="arrow-png pl-3" src="/images/index_image/arrow_blue.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="arrow-png pl-3"
+              src="/images/index_image/arrow_blue.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
           </button>
         </div>
         <div className="Index_background5 p-4">
           <div className="index_card_experience_text">
-            Our <span className="index_card_experience_text-2">Best experience</span> in Excellent Logistics Fulfillment
+            Our{" "}
+            <span className="index_card_experience_text-2">
+              Best experience
+            </span>{" "}
+            in Excellent Logistics Fulfillment
           </div>
-          <div className="index_card_experience p-5 " >
+          <div className="index_card_experience p-5 ">
             <div className="index_card_experience_text-3  pb-5">01</div>
-            <img className="pb-4" src="/images/index_image/sticky_note_2.png" itemProp="image"
-              alt="main BannerImage" />
-            <div className="index_card_experience_text-4 pb-3">Convenient Booking</div>
-            <div className="index_card_experience_text-5">Book on your schedule and get estimates instantly with the help of our dedicated customer service agents.
+            <img
+              className="pb-4"
+              src="/images/index_image/sticky_note_2.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
+            <div className="index_card_experience_text-4 pb-3">
+              Convenient Booking
+            </div>
+            <div className="index_card_experience_text-5">
+              Book on your schedule and get estimates instantly with the help of
+              our dedicated customer service agents.
             </div>
           </div>
         </div>
         <div className="bg-white p-5">
-          <div className=" text-center Index_blog-text-3 py-7">Our Latest blog</div>
+          <div className=" text-center Index_blog-text-3 py-7">
+            Our Latest blog
+          </div>
           <div>
-            <img className="pb-4" src="/images/index_image/Rectangle_9.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="pb-4"
+              src="/images/index_image/Rectangle_9.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
           </div>
           <div className=" py-4">
-            <button type="button" className="GreyButton px-7 mx-auto py-3 text-lg">
+            <button
+              type="button"
+              className="GreyButton px-7 mx-auto py-3 text-lg"
+            >
               Agriculture
             </button>
-            <span className="Index_blog-text m-auto pl-8">
-              27 Aug, 2022
-            </span>
+            <span className="Index_blog-text m-auto pl-8">27 Aug, 2022</span>
           </div>
           <div className="Index_blog-text-2 pb-8">
             Griha Pravesh Muhurat 2021: Auspicious Dates for Home Shifting
           </div>
           <div>
-            <img className="pb-4" src="/images/index_image/Rectangle_10.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="pb-4"
+              src="/images/index_image/Rectangle_10.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
           </div>
           <div className=" py-4">
-            <button type="button" className="GreyButton px-7 mx-auto py-3 text-lg">
+            <button
+              type="button"
+              className="GreyButton px-7 mx-auto py-3 text-lg"
+            >
               LifeStyle
             </button>
-            <span className="Index_blog-text m-auto pl-8">
-              06 May, 2022
-            </span>
+            <span className="Index_blog-text m-auto pl-8">06 May, 2022</span>
           </div>
           <div className="Index_blog-text-2 pb-8">
             How to Find the Right House in Bangalore?
           </div>
           <div>
-            <img className="pb-4" src="/images/index_image/Rectangle_8.png" itemProp="image"
-              alt="main BannerImage" />
+            <img
+              className="pb-4"
+              src="/images/index_image/Rectangle_8.png"
+              itemProp="image"
+              alt="main BannerImage"
+            />
           </div>
           <div className=" py-4">
-            <button type="button" className="GreyButton px-7 mx-auto py-3 text-lg">
+            <button
+              type="button"
+              className="GreyButton px-7 mx-auto py-3 text-lg"
+            >
               LifeStyle
             </button>
-            <span className="Index_blog-text m-auto pl-8">
-              27 Aug, 2022
-            </span>
+            <span className="Index_blog-text m-auto pl-8">27 Aug, 2022</span>
           </div>
           <div className="Index_blog-text-2 pb-8">
             A Comprehensive Guide for Moving into a New Home
@@ -460,8 +660,12 @@ const handleEntery = () => {
           <div className=" flex justify-center">
             <button type="button" className="WhiteButton px-7    py-4 text-lg">
               View all Blogs
-              <img className="arrow-png pl-5" src="/images/index_image/arrow_blue.png" itemProp="image"
-                alt="main BannerImage" />
+              <img
+                className="arrow-png pl-5"
+                src="/images/index_image/arrow_blue.png"
+                itemProp="image"
+                alt="main BannerImage"
+              />
             </button>
           </div>
         </div>
@@ -472,27 +676,40 @@ const handleEntery = () => {
           <div className="Index_Clint_card p-6">
             <div className="Index_Clint_card-item pb-7">
               <div>
-                <img className="pb-4" src="/images/index_image/Rectangle_11.png" itemProp="image"
-                  alt="main BannerImage" />
+                <img
+                  className="pb-4"
+                  src="/images/index_image/Rectangle_11.png"
+                  itemProp="image"
+                  alt="main BannerImage"
+                />
               </div>
               <div>
-                <div className="Index_Clint_card-item-text pb-5">Mainak Chakraborty</div>
-                <div className="Index_Clint_card-item-text-2 pb-4">Co-founder &amp; CEO, GPS Renewables</div>
-                <div className="Index_Clint_card-item-text-3">Relocated from Bangalore to Hyderabad</div>
+                <div className="Index_Clint_card-item-text pb-5">
+                  Mainak Chakraborty
+                </div>
+                <div className="Index_Clint_card-item-text-2 pb-4">
+                  Co-founder &amp; CEO, GPS Renewables
+                </div>
+                <div className="Index_Clint_card-item-text-3">
+                  Relocated from Bangalore to Hyderabad
+                </div>
               </div>
             </div>
             <div className="Index_Clint_card-text">
-              I moved from Whitefield, Bangalore to Hyderabad with Pikkol recently. I had been in Bangalore for many years, so, had considerable number of items. My Whitefield house was a duplex villa (without a lift) with many of these items in the first floor.
+              I moved from Whitefield, Bangalore to Hyderabad with Pikkol
+              recently. I had been in Bangalore for many years, so, had
+              considerable number of items. My Whitefield house was a duplex
+              villa (without a lift) with many of these items in the first
+              floor.
             </div>
           </div>
-          <div className="Index-Clint_trust-Heading py-12 ">150+ Clients Trust White Glove</div>
+          <div className="Index-Clint_trust-Heading py-12 ">
+            150+ Clients Trust White Glove
+          </div>
         </div>
       </div>
     </>
     // <div className="index_font_color">
-
-
-
 
     //   <div className="Index_background1 relative">
     //     <div>
@@ -543,7 +760,6 @@ const handleEntery = () => {
     //     </div>
     //   </div>
 
-
     //   <Carousel autoplay className="mb-5">
     //     <div className="index_card1 " style={contentStyle}>
     //       <div className="mb-20 mt-7">
@@ -564,7 +780,6 @@ const handleEntery = () => {
     //       <div className="mx-10 pb-7">Read More</div>
     //     </div>
 
-
     //     <div className="index_card1  " style={contentStyle}>
     //       <div className="mb-20 mt-7">
     //         <img className="ml-auto mr-auto index-Worldwide-delivery-1" src="/images/index_image/Worldwide-delivery-1.png" itemProp="image"
@@ -584,8 +799,6 @@ const handleEntery = () => {
     //       <div className="mx-10 pb-7">Read More</div>
     //     </div>
     //   </Carousel>
-
-
 
     //   <div className="Index_background4 mx-5 p-7">
     //     <div className="Index-WhatDoYou-text pb-3">what do you want<br />to ship?</div>
@@ -633,8 +846,6 @@ const handleEntery = () => {
     //       <div className="index_card_of_details-text-2">150+</div>
     //     </div>
     //   </div>
-
-
 
     //   <div className="Index_city_card-background py-14">
     //     <div className=" text-center Index_city_card-text">Our Top Cities</div>
@@ -701,12 +912,10 @@ const handleEntery = () => {
     //     </button>
     //   </div>
 
-
     //   <div className="Index_background5 p-4">
     //     <div className="index_card_experience_text">
     //       Our <span className="index_card_experience_text-2">Best experience</span> in Excellent Logistics Fulfillment
     //     </div>
-
 
     //     <div className="index_card_experience p-5 " >
     //       <div className="index_card_experience_text-3  pb-5">01</div>
@@ -717,7 +926,6 @@ const handleEntery = () => {
     //       </div>
     //     </div>
     //   </div>
-
 
     //   <div className="bg-white p-5">
     //     <div className=" text-center Index_blog-text-3 py-7">Our Latest blog</div>
@@ -737,7 +945,6 @@ const handleEntery = () => {
     //       Griha Pravesh Muhurat 2021: Auspicious Dates for Home Shifting
     //     </div>
 
-
     //     <div>
     //       <img className="pb-4" src="/images/index_image/Rectangle_10.png" itemProp="image"
     //         alt="main BannerImage" />
@@ -753,7 +960,6 @@ const handleEntery = () => {
     //     <div className="Index_blog-text-2 pb-8">
     //       How to Find the Right House in Bangalore?
     //     </div>
-
 
     //     <div>
     //       <img className="pb-4" src="/images/index_image/Rectangle_8.png" itemProp="image"
@@ -801,11 +1007,6 @@ const handleEntery = () => {
     //     </div>
     //     <div className="Index-Clint_trust-Heading py-12 ">150+ Clients Trust White Glove</div>
     //   </div>
-
-
-
-
-
 
     // </div>
     // <div className="grid grid-cols-1 md:grid-cols-5  lg:grid-cols-5 gap-2 mb-16">
