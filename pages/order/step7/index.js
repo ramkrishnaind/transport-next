@@ -46,13 +46,13 @@ const Step7 = () => {
   const [moveManager] = useState("Not Assigned");
 
   useEffect(() => {
-    debugger;
+   // debugger;
     const getData = async () => {
       let results;
       try {
         results = await getBookingItem(step2State?.bookingId);
-
-        debugger;
+        console.log("results------>", results)
+       // debugger;
         if (results?.data?.customerData) {
           const arr = [];
           results?.data?.customerData.forEach((item) => {
@@ -71,11 +71,12 @@ const Step7 = () => {
               step5: transformedStep5,
               step4Items: item?.step4 || [],
               step5State: item?.step5 || {},
-              bookingId: item.bookingId,
+              bookingId: item.booking_id,
               ...getStep1AndStep2(item),
             });
           });
           setAllRecords(arr);
+          console.log(arr)
         }
       } catch (error) { }
     };
@@ -181,7 +182,7 @@ const Step7 = () => {
       10: "November",
       11: "December",
     };
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     const d = new Date(shiftingOn);
     const year = d.getFullYear();
@@ -319,8 +320,9 @@ const Step7 = () => {
       </div> */}
 
       <div className="fontColor_4E4E4E">
-
-
+      {allRecords?.map((record, index) => {
+        return (
+          <div key={index}>
         <div>
           <div className="flex flex-col m-5 p-4 rounded-lg gap-4 bg-white step7SummarylBox1  ">
             <div className="thankyou_step7"><img
@@ -329,7 +331,7 @@ const Step7 = () => {
               itemProp="image"
               alt="Image"
             />
-              Thank you Rishi Lohan!
+              Thank you {record.name}!
             </div>
             <div className="thankyou2_step7">The information you provided has been sent to our top secret super wise quote calculating monks. We will get you perfect tailor made quote in a day.</div>
           </div>
@@ -349,9 +351,9 @@ const Step7 = () => {
                     </div>
                   </div>
                   <div className="step7_container2 my-5 py-2 rounded-lg gap-1 bg-white ">
-                    <div className=" font-bold">Rishi Lohan</div>
-                    <div>rlohan318@gmail.com</div>
-                    <div>9728652655</div>
+                    <div className=" font-bold">{record.name}</div>
+                    <div>{record.emailId}</div>
+                    <div>{record.mobileNo}</div>
                   </div>
                 </div>
               </div>
@@ -370,6 +372,7 @@ const Step7 = () => {
                   </div>
                 </div>
               </div>
+
               <div className="step7SummarylBox2 m-5 rounded-lg bg-white ">
 
 
@@ -378,11 +381,11 @@ const Step7 = () => {
                   <div className="step7_grid2 justify-start">
 
                       <div className="step7_grid2item1 px-2" >
-                        19
+                      {record.day}
                       </div>
                       <div className="flex flex-col my-auto px-2 pr-2">
-                        <div className=" font-bold">Thrusday</div>
-                        <div>September, 2022</div>
+                        <div className=" font-bold">{record.dayName}</div>
+                        <div>{record.month}</div>
                       </div>
 
                   </div>
@@ -390,7 +393,7 @@ const Step7 = () => {
                   
                   <div className="flex flex-col gap-3 text-md">
                     <div className=" font-semibold">Order Id</div>
-                    <div className="OrderID_text_step7 font-semibold">#BLL288945</div>
+                    <div className="OrderID_text_step7 font-semibold">{record.bookingId}</div>
                   </div>
 
                 </div>
@@ -401,11 +404,11 @@ const Step7 = () => {
                   <div className="flex flex-row justify-between p-3">
                     <div className="step7Summarybox_item1">
                       <div>from</div>
-                      <div className="font-semibold">Delhi, India</div>
+                      <div className="font-semibold">{record.fromAddress}</div>
                     </div>
                     <div>
                       <div>to</div>
-                      <div className="font-semibold">Noida, Uttar Pradesh, India</div>
+                      <div className="font-semibold">{record.toAddress}</div>
                     </div>
                   </div>
                   <div className="flex flex-row justify-between p-3">
@@ -454,11 +457,11 @@ const Step7 = () => {
               <div className="flex flex-row justify-between p-3">
                 <div>
                   <div className="font-bold">Order Id</div>
-                  <div className="OrderID_text_step7 font-bold">#BLL288945</div>
+                  <div className="OrderID_text_step7 font-bold">{record.bookingId}</div>
                 </div>
                 <div>
                   <div>Date & Time slot</div>
-                  <div className=" font-semibold">11 August 2022</div>
+                  <div className=" font-semibold">{record.dayName}{' '}{record.day}{' '}{record.month}</div>
                 </div>
               </div>
               <hr className="mx-auto step7SummarylBox2_hr" />
@@ -469,13 +472,13 @@ const Step7 = () => {
                 <Timeline>
                   <Timeline.Item>
                     <div className="py-1">From</div>
-                    <div className="py-1 font-semibold">Delhi Cantt Railway Station, jail Road, Nagal village, Delhi Cantonment, New Delhi</div>
-                    <div className="py-1 greencolor">Lift Avilabe</div>
+                    <div className="py-1 font-semibold">{record.fromAddress}</div>
+                    <div className="py-1 greencolor">{record.isLiftAvailableOnCurrentFloor ? "Lift Available" : "Not Available"}</div>
                   </Timeline.Item>
                   <Timeline.Item>
                     <div className="py-1">To</div>
-                    <div className="py-1 font-semibold">Sonipat, Haryana, India</div>
-                    <div className="py-1 greencolor">Lift Avilabe</div>
+                    <div className="py-1 font-semibold">{record.toAddress}</div>
+                    <div className="py-1 greencolor">{record.isLiftAvailableOnMovingFloor ? "Lift Available" : "Lift Not Available"}</div>
                   </Timeline.Item>
                 </Timeline>
               </div>
@@ -485,7 +488,7 @@ const Step7 = () => {
               <div className="flex flex-row justify-between p-4 mt-6">
                 <div>
                   <div>What to move</div>
-                  <div className="font-semibold">3BHK</div>
+                  <div className="font-semibold">{record.moveType}</div>
                 </div>
                 <div>
                   <div>Preferred Choice</div>
@@ -495,7 +498,40 @@ const Step7 = () => {
               <div className="m-2 font-semibold p-2 text-xl ">
                 Your selected items
               </div>
-              <div className=" rounded-lg border m-2">
+              <div className="w-5/6">
+                <form className="max-w-xl m-auto py-10 px-5">
+                  <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
+                    {record.step3?.map((st, ind1) => {
+                      console.log("item", st);
+                      return (
+                        <Card
+                          image={st.image}
+                          key={ind1}
+                          item={st.title}
+                          itemCount={st.count}
+                          onDecrement={decrementHandler.bind(null, "", st)}
+                          onClick={clickHandler.bind(null, "", st)}
+                        />
+                      );
+                    })}
+                    {record.step5 &&
+                      record.step5?.map((st, ind2) => {
+                        console.log("item", st);
+                        return (
+                          <Card
+                            image={st.image}
+                            key={ind2}
+                            item={st.title}
+                            itemCount={st.count}
+                            onDecrement={decrementHandler.bind(null, "", st)}
+                            onClick={clickHandler.bind(null, "", st)}
+                          />
+                        );
+                      })}
+                  </div>
+                </form>
+              </div>
+              {/* <div className=" rounded-lg border m-2">
                 <Collapse defaultActiveKey={['1']} ghost>
                   <Panel header="Furniture " key="1">
                     <div className="m-2">
@@ -548,12 +584,15 @@ const Step7 = () => {
                     </div>
                   </Panel>
                 </Collapse>
-              </div>
+              </div> */}
             </div>
 
 
           </div>
         </div>
+        </div>
+        );
+      })}
       </div>
 
 

@@ -44,6 +44,27 @@ const Step6 = () => {
     setFromAddress(step1State["shiftingFrom"]);
     setToAddress(step1State["shiftingTo"]);
     setMoveType(step1State["shiftingFor"]);
+
+
+    if (!step2State) return;
+    setOrderId(step2State["bookingId"]);
+    setCurrentFloor(step2State["currentFloor"]);
+    console.log("step2s", step2State)
+    console.log("isLiftAvailableOnCurrentFloor - ", isLiftAvailableOnCurrentFloor)
+    console.log("isLiftAvailableOnMovingFloor - ", isLiftAvailableOnMovingFloor)
+    setFromLift(step2State["isLiftAvailableOnCurrentFloor"]) 
+    // if (fromLift) {
+    //   setFromLift(step2State["currentFloor"] + " , " + "Lift is available");
+    // } else {
+    //   setFromLift(step2State["currentFloor"] + " , " + "Lift is not available");
+    // }
+    setToLift(step2State["isLiftAvailableOnMovingFloor"])
+    // if (toLift) {
+    //   setToLift(step2State["movingOnFloor"] + " , " + "Lift is available");
+    // } else {
+    //   setToLift(step2State["movingOnFloor"] + " , " + "Lift is not available");
+    // }
+    setmovingOnFloor(step2State["movingOnFloor"]);
     const months = {
       0: "January",
       1: "February",
@@ -60,20 +81,7 @@ const Step6 = () => {
     };
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    if (!step2State) return;
-    setOrderId(step2State["bookingId"]);
-    setCurrentFloor(step2State["currentFloor"]);
-    if (step2State["isLiftAvailableOnCurrentFloor"]) {
-      setFromLift(step2State["currentFloor"] + " , " + "Lift is available");
-    } else {
-      setFromLift(step2State["currentFloor"] + " , " + "Lift is not available");
-    }
-    if (step2State["isLiftAvailableOnMovingFloor"]) {
-      setToLift(step2State["movingOnFloor"] + " , " + "Lift is available");
-    } else {
-      setToLift(step2State["movingOnFloor"] + " , " + "Lift is not available");
-    }
-    setmovingOnFloor(step2State["movingOnFloor"]);
+   
     const d = step1State["shiftingOn"];
     const year = d.getFullYear();
     const date = d.getDate();
@@ -257,8 +265,8 @@ const Step6 = () => {
           </div>
 
           <div className="flex ml-10 mr-10 mt-1 space-x-2">
-            <div className="flex- 1 w-1/2">{fromLift}</div>
-            <div className="flex- 1 w-1/2  ">{toLift}</div>
+            <div className="flex- 1 w-1/2">{currentFloor}</div>
+            <div className="flex- 1 w-1/2  ">{movingOnFloor}</div>
             <div className="flex- 1 w-1/2  ">{}</div>
           </div>
         </form>

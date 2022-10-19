@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import data1 from "../../../data/bikeList.json";
-// import Select from "react-select";
+import Select from "react-select";
 import TransportContext from "../../../context";
-import { Select, Button } from "antd";
+import { Button } from "antd";
 import { useRouter } from "next/router";
 import { liftAvailability } from "../../../services/customer-api-service";
 const { Option } = Select;
@@ -37,10 +37,10 @@ const Step2 = () => {
   const context = useContext(TransportContext);
   const { booking, setBooking } = context;
   const { step1State, setStep1State } = context;
-  const [fromFloorType, setFromFloorType] = useState(null);
-  const [toFloorType, setToFloorType] = useState(null);
-  const [fromLift, setFromLift] = useState(null);
-  const [toLift, setToLift] = useState(null);
+  const [fromFloorType, setFromFloorType] = useState();
+  const [toFloorType, setToFloorType] = useState();
+  const [fromLift, setFromLift] = useState(true);
+  const [toLift, setToLift] = useState(true);
   const [bookingData, setBookingData] = useState({});
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -50,45 +50,57 @@ const Step2 = () => {
   }, [booking, step1State]);
 
   const handleSubmit = async (event) => {
-    console.log("fromFloorType is ", fromFloorType)
-    console.log("fromLift is ", fromLift)
-    console.log("toFloorType is ", toFloorType)
-    console.log("toLift is ", toLift)
-    setLoading(true)
     event.preventDefault(); // Prevent default submission
+    console.log("fromFloorType is -", fromFloorType);
+    console.log("fromLift is -", fromLift);
+    console.log("toFloorType is -", toFloorType);
+    console.log("toLift is -", toLift);
+
     let result = await callApi();
-    debugger;
     if (result.data.status) {
-      console.log("liftAvailability result is", result);
+      console.log(" result is", result);
       setBooking(result.data);
       const formData = {
         bookingId: booking?.bookingId,
         currentFloor: fromFloorType,
         isLiftAvailableOnCurrentFloor: fromLift,
         movingOnFloor: toFloorType,
-        isLiftAvailableOnMovingFloor: toLift.value,
+        isLiftAvailableOnMovingFloor: toLift,
       };
       context.setStep2State(formData);
       console.log(formData);
       router.push("/order/step3");
-      setLoading(false)
     }
     console.log("step 2 result is", result);
   };
   const callApi = async () => {
+    console.log("fromFloorType is -", fromFloorType);
     return await liftAvailability({
-      bookingId: booking?.bookingId ? booking?.bookingId : bookingInfo.bookingId,
+      bookingId: booking?.bookingId,
       currentFloor: fromFloorType,
       isLiftAvailableOnCurrentFloor: fromLift,
       movingOnFloor: toFloorType,
-      isLiftAvailableOnMovingFloor: toLift
-      ,
+      isLiftAvailableOnMovingFloor: toLift,
     });
   };
-  debugger;
+
+  const fromFloorChangeHandler = (event) => {
+    setFromFloorType(event.target.value);
+  };
+
+  const toFloorChangeHandler = (event) => {
+    setToFloorType(event.target.value);
+  };
+
+  const fromLiftChangeHandler = (event) => {
+    setFromLift(event.target.value);
+  };
+  const toLiftChangeHandler = (event) => {
+    setToLift(event.target.value);
+  };
+
   const disabled = !(fromFloorType && fromLift && toFloorType && toLift);
   return (
-
     <>
       {/* completeBAR */}
       <div>
@@ -108,7 +120,9 @@ const Step2 = () => {
           </div>
         </div>
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
-          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 20% complete</div>
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">
+            Set up 20% complete
+          </div>
           <div className="not-italic ">
             <span className=" font-semibold">4 Step left •</span>
             <span> About 7 min</span>
@@ -116,10 +130,7 @@ const Step2 = () => {
         </div>
       </div>
 
-
       {/* FORM */}
-
-
 
       <div className="bg-white r1_Detail ">
         <div className=" bg-white rounded-2xl mt-9 md:mt-4 sm:mt-4 lg:mt-4 xl:mt-4 mx-4 lg:p-9 ">
@@ -139,7 +150,12 @@ const Step2 = () => {
                     I currently live in
                   </div>
                   <div className=" text-left  text-gray-600 md:mt-0 lg:mt-0 xl:mt-0 ">
-
+                    {/* <Select
+                      className="houseTypeOptions-select py-2 font-semibold"
+                      defaultValue={fromFloorType}
+                      onChange={setFromFloorType}
+                      options={floorOptions}
+                    /> */}
 
                     {/* <Select
                       className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect"
@@ -150,8 +166,11 @@ const Step2 = () => {
                       options={floorOptions}
                     /> */}
 
-                    <select className="houseTypeOptions-select py-2 font-semibold" required>
-                      <option value="" disabled selected hidden className="step1_select_hidden_option">1 BHK</option>
+                    <select
+                      className="houseTypeOptions-select py-2 font-semibold"
+                      required
+                      onChange={fromFloorChangeHandler}
+                    >
                       <option value="1st">1st</option>
                       <option value="2nd">2nd</option>
                       <option value="3rd">3rd</option>
@@ -165,18 +184,24 @@ const Step2 = () => {
                       <option value="11th">11th</option>
                       <option value="12th">12th</option>
                     </select>
-
-
                   </div>
                   <div className=" mt-5 md:mt-0 lg:mt-0 xl:mt-0 text-gray-600 detailquestions ">
                     floor with service lift
                   </div>
                   <div className=" text-left  text-gray-600 ">
-
-                    <select className="houseTypeOptions-select py-2 font-semibold" required>
-                      <option value="" disabled selected hidden className="step1_select_hidden_option">Available</option>
-                      <option value="1st">Available</option>
-                      <option value="2nd">Not-Available</option>
+                    {/* <Select
+                      className="block appearance-none w-60 bg-white  border-gray-400 hover:border-gray-500 px-4 py-2 focus:outline-none focus:shadow-outline"
+                      defaultValue={fromLift}
+                      onChange={setFromLift}
+                      options={liftOptions}
+                    /> */}
+                    <select
+                      className="liftOptions-select py-2 font-semibold"
+                      required
+                      onChange={fromLiftChangeHandler}
+                    >
+                      <option value="true">Available</option>
+                      <option value="false">Not Available</option>
                     </select>
 
                     {/* <Select
@@ -193,10 +218,17 @@ const Step2 = () => {
                     for shifting. I&apos;m moving to
                   </div>
                   <div className=" text-left  text-gray-600 ">
-
-
-                    <select className="houseTypeOptions-select py-2 font-semibold" required>
-                      <option value="" disabled selected hidden className="step1_select_hidden_option">1 BHK</option>
+                    {/* <Select
+                      className="block appearance w-40 bg-white  border-gray-400 hover:border-gray-500 px-4 py-2 focus:outline-none focus:shadow-outline"
+                      defaultValue={toFloorType}
+                      onChange={setToFloorType}
+                      options={floorOptions}
+                    /> */}
+                    <select
+                      className="houseTypeOptions-select py-2 font-semibold"
+                      required
+                      onChange={toFloorChangeHandler}
+                    >
                       <option value="1st">1st</option>
                       <option value="2nd">2nd</option>
                       <option value="3rd">3rd</option>
@@ -210,7 +242,6 @@ const Step2 = () => {
                       <option value="11th">11th</option>
                       <option value="12th">12th</option>
                     </select>
-
 
                     {/* <Select
                       className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect "
@@ -234,10 +265,19 @@ const Step2 = () => {
                 </div>
                 <div className="grid3_step2">
                   <div className=" text-left  text-gray-600 ">
-                    <select className="houseTypeOptions-select py-2 font-semibold" required>
-                      <option value="" disabled selected hidden className="step1_select_hidden_option">Available</option>
-                      <option value="1st">Available</option>
-                      <option value="2nd">Not-Available</option>
+                    {/* <Select
+                      className="block appearance-none w-60 bg-white  border-gray-400 hover:border-gray-500 px-4 py-2 focus:outline-none focus:shadow-outline"
+                      defaultValue={toLift}
+                      onChange={setToLift}
+                      options={liftOptions}
+                    /> */}
+                    <select
+                      className="liftOptions-select py-2 font-semibold"
+                      required
+                      onChange={toLiftChangeHandler}
+                    >
+                      <option value="true">Available</option>
+                      <option value="false">Not Available</option>
                     </select>
 
                     {/* <Select
@@ -255,27 +295,29 @@ const Step2 = () => {
                 </div>
               </div>
               <div className=" mt-5 mb-5 flex flex-row gap-2">
-                <Button className=" px-5 py-4  buttonMobile_grey rounded-m "
+                <Button
+                  className=" px-5 py-4  buttonMobile_grey rounded-m "
+                  type="submit"
+                  onClick={() => router.push("/order/step1")}
+                  loading={loading}
+                  //disabled={disabled}
+                >
+                  back
+                </Button>
+                <Button
+                  className=" px-5 py-4  buttonMobile2 rounded-m "
                   type="submit"
                   onClick={handleSubmit}
                   loading={loading}
-                //disabled={disabled}
-                >back</Button>
-                <Button className=" px-5 py-4  buttonMobile2 rounded-m "
-                  type="submit"
-                  onClick={handleSubmit}
-                  loading={loading}
-                // disabled={disabled}
-                >Next</Button>
+                  // disabled={disabled}
+                >
+                  Next
+                </Button>
               </div>
             </form>
           </div>
         </div>
       </div>
-
-
-
-
     </>
     // <div className="b1">
 
@@ -298,11 +340,9 @@ const Step2 = () => {
     //     <form>
     //       <div className="grid step2grid1 bg-white form_content wrapper">
 
-
     //         <div className="bg-white w-20 mr-2 text-right font-bold text-gray-600 detailquestions whitespace-nowrap">
     //           I currently live on
     //         </div>
-
 
     //         <div className="step2_container1">
     //           <Select
@@ -325,7 +365,6 @@ const Step2 = () => {
     //             options={liftOptions}
     //           />
     //         </div>
-
 
     //       </div>
 
@@ -363,7 +402,6 @@ const Step2 = () => {
     //         </div>
     //       </div>
 
-
     //       {/* button */}
 
     //       <div className="bg-white ">
@@ -378,9 +416,6 @@ const Step2 = () => {
     //     </form>
     //   </div>
     // </div>
-
-
-
 
     // <form className="max-w-screen-xl m-auto py-10 mt-10 px-5 border">
     //   <div className="flex items-center mb-5 justify-center">
@@ -441,7 +476,6 @@ const Step2 = () => {
     //     </button>
     //   </div>
     // </form>
-
   );
 };
 

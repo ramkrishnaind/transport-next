@@ -959,6 +959,12 @@
   .step7buttonBox1 {
     width: 26rem;
   }
+
+  .liftOptions-select {
+    border-bottom: 2px solid #dddddd;
+    background-color: transparent;
+    width: 8vw;
+  }
   
   .houseTypeOptions-select {
     border-bottom: 2px solid #dddddd;

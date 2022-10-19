@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
-// import DatePicker from "react-datepicker";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-// import Select from "react-select";
+//import Select from "react-select";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
 import { collectBasicInfo } from "../../../services/customer-api-service";
-import { Button, Space } from "antd";
-// const { Option } = Select;
+import { Select, Button, Space } from "antd";
+const Option = Select.Option;
 
 import useAuth from "../../../hooks/useAuth";
 
@@ -36,7 +36,7 @@ const Step1 = () => {
   const context = useContext(TransportContext);
   const { customerDetails, setBooking } = context;
   const { localCustomer, setLocalCustomer } = useState();
-  const [houseType, setHouseType] = useState("Select");
+  const [houseType, setHouseType] = useState();
   const [fromState, setFromState] = useState();
   const [toState, setToState] = useState();
   const [startDate, setStartDate] = useState(new Date());
@@ -59,6 +59,7 @@ const Step1 = () => {
 
   const handleSubmit = async (event) => {
     console.log("houseType is ", houseType)
+    console.log("startdate is ", startDate)
     setLoading(true);
     event.preventDefault(); // Prevent default submission
     let result = await callApi();
@@ -68,28 +69,42 @@ const Step1 = () => {
       saveBooking({ bookingId: result.data.bookingId })
       const formData = {
         shiftingFor: houseType,
-        shiftingFrom: fromState.value,
-        shiftingTo: toState.value,
+        shiftingFrom: fromState,
+        shiftingTo: toState,
         shiftingOn: startDate,
       };
+
+      console.log("bookingId is ", result.data.bookingId)
+      console.log("houseType is ", houseType)
+      console.log("fromState is ", fromState)
+      console.log("toState is ", toState)
+      console.log("startDate  ", startDate)
+
       context.setStep1State(formData);
       console.log(formData);
+    
       router.push("/order/step2");
       setLoading(false);
     }
     console.log("step 1 result is", result);
   };
-  // const callApi = async () => {
-  //   return await collectBasicInfo({
-  //     customerId: customerData?._id ? customerData?._id : customer._id,
-  //     shiftingFor: houseType,
-  //     shiftingFrom: fromState,
-  //     shiftingTo: toState,
-  //     shiftingOn: startDate,
-  //   });
-  // };
+
+  const callApi = async () => {
+    return await collectBasicInfo({
+      customerId: customerData?._id ? customerData?._id : customer._id,
+      shiftingFor: houseType,
+      shiftingFrom: fromState,
+      shiftingTo: toState,
+      shiftingOn: startDate,
+    });
+  };
+
   const disabled = !houseType || !fromState || !toState;
 
+  const houseHandler = (event) =>{
+    setHouseType(event.target.value)
+    console.log("house type", event.target.value)
+  }
   const fromStateInputChangeHandler = (event) => {
     setFromState(event.target.value);
   };
@@ -155,19 +170,15 @@ const Step1 = () => {
 
 
                   <div className=" text-left   md:mt-0 lg:mt-0 xl:mt-0 ">
-                    {/* <Select placeholder="1 BHK"
-                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlectStep1"
+                  {/* <select
+                  className="houseTypeOptions-select py-2 font-semibold"
+                  defaultValue={houseType}
+                  onChange={setHouseType}
+                  options={houseTypeOptions}
+                  onBlur={() => setHouseTypeBlur(true)}
+                /> */}
 
-                      bordered={false}
-                      onChange={setHouseType}
-                      options={houseTypeOptions}
-                      onBlur={() => setHouseTypeBlur(true)}
-                    /> */}
-
-
-
-                <select className="houseTypeOptions-select py-2 font-semibold" required>
-                  <option value="" disabled selected hidden className="step1_select_hidden_option">1 BHK</option>
+                <select className="houseTypeOptions-select py-2 font-semibold" required onChange={houseHandler}>
                   <option value="1 BHK">1 BHK</option>
                   <option value="2 BHK">2 BHK</option>
                   <option value="3 BHK">3 BHK</option>
@@ -186,9 +197,9 @@ const Step1 = () => {
                     from
                   </div>
                   <div className=" text-left  text-gray-600 ">
-                    {/* 
-                    <Input placeholder="Apartment Name/Locality" bordered={false}
-                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none widthSlect2Step1 widthSlect border-b-2 "
+                  
+                    <input placeholder="Apartment Name/Locality" bordered={false}
+                      className="Locality-inputText py-2 font-semibold"
                       type="text"
                       autoFocus
                       required
@@ -196,10 +207,10 @@ const Step1 = () => {
                       defaultValue={fromState}
                       onBlur={() => setFromBlur(true)}
 
-                    /> */}
+                    /> 
 
 
-                    <input type="text" className="Locality-inputText py-2 font-semibold" placeholder="Apartment Name/Locality" />
+                  {/* <input type="text" className="Locality-inputText py-2 font-semibold" placeholder="Apartment Name/Locality" /> */}
 
                   </div>
                 </div>
@@ -212,16 +223,18 @@ const Step1 = () => {
 
                   <div className=" text-left  text-gray-600 ">
 
-                    {/* <Input placeholder="Apartment Name/Locality" bordered={false}
-                      className="border-0 focuspt text-green-600 placeholder-green-600 outline-none widthSlect2Step1 widthSlect border-b-2 "
+                    <input placeholder="Apartment Name/Locality" bordered={false}
+                      className="Locality-inputText py-2 font-semibold"
                       type="text"
                       autoFocus
                       required
                       onChange={toStateInputChangeHandler}
-                      defaultValue={fromState}
+                      defaultValue={toState}
                       onBlur={() => setFromBlur(true)}
-                    /> */}
-                    <input type="text" className="Locality-inputText py-2 font-semibold" placeholder="Apartment Name/Locality" />
+                    />
+                   
+                   {/* <input type="text" className="Locality-inputText py-2 font-semibold" placeholder="Apartment Name/Locality" /> */}
+                    
                     {/* <Select
                       className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect"
                       bordered={false}
@@ -235,17 +248,18 @@ const Step1 = () => {
                   </div>
                   <div className=" text-left  text-gray-600 ">
 
-                    {/* <DatePicker
+                    <DatePicker
                       selected={startDate}
                       bordered={false}
-                      className="bg-white  border-b-2  border-gray-400 focuspt text-gray-600 placeholder-gray-400 outline-none detailfill text-left w-330" s
-                      // className="border-2 p-2 bg-white"
+                      //className="bg-white  border-b-2  border-gray-400 focuspt text-gray-600 placeholder-gray-400 outline-none detailfill text-left w-330" s
+                      className="Datepicker_Step1   py-2 font-semibold" placeholder="DD/MM/YYYY" 
                       onChange={(date) => setStartDate(date)}
-                    /> */}
-                    <input type="text" className="Datepicker_Step1   py-2 font-semibold" placeholder="DD/MM/YYYY" onChange={(e) => console.log(e.target.value)}
+                    />
+                    {/* <input type="text" className="Datepicker_Step1   py-2 font-semibold" placeholder="DD/MM/YYYY" 
+                     onChange={(date) => setStartDate(date)}
                       onFocus={(e) => (e.target.type = "date")}
                       onBlur={(e) => (e.target.type = "text")}
-                    />
+                    /> */}
 
                   </div>
                 </div>
@@ -254,9 +268,9 @@ const Step1 = () => {
               <div className=" mt-5 mb-5">
                 <Button className=" px-10 py-4 button_1 buttonMobile rounded-m "
                   type="submit"
-                  // onClick={handleSubmit}
+                  onClick={handleSubmit}
                   loading={loading}
-                // disabled={disabled}
+                  disabled={disabled}
                 >Next</Button>
               </div>
             </form>
