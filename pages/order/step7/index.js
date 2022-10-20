@@ -173,6 +173,7 @@ const Step7 = () => {
       isLiftAvailableOnCurrentFloor,
       isLiftAvailableOnMovingFloor,
       movingOnFloor,
+      cft,
     } = record;
     const fromAddress = shiftingFrom;
     const toAddress = shiftingTo;
@@ -227,6 +228,7 @@ const Step7 = () => {
     data.emailId = record?.customerId?.email;
     data.name = record?.customerId?.fullName;
     data.mobileNo = record?.customerId?.mobile;
+    data.cft = cft;
     return data;
   };
   // useEffect(() => {
@@ -490,6 +492,9 @@ const Step7 = () => {
                     <hr className="mx-auto step7SummarylBox2_hr" />
                     <div className="p-3">
                       Your order is being evaluated by us
+                    </div>
+                    <div className="p-3">
+                      CFT  {record.cft}
                     </div>
                     {/* {cft > 0 ? <div className="p-3">CFT  {cft}</div> : ""} */}
                     <div className="p-3">

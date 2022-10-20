@@ -12,7 +12,9 @@ export const collectBasicInfo = async (params) => {
 export const liftAvailability = async (params) => {
   return axios.put("/api/customer/liftAvailability", params);
 };
-
+export const cft = async (params) => {
+  return axios.put("/api/customer/cft", params);
+};
 export const bookingItem = async (params) => {
   return axios.put("/api/customer/bookingItem", params);
 };

@@ -7,7 +7,7 @@ import itemList from "../../../data/itemList.json";
 import bikeList from "../../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
 import Image from "next/image";
-import { bookingItem, step4Item } from "../../../services/customer-api-service";
+import { bookingItem, step4Item, cft } from "../../../services/customer-api-service";
 import { useRouter } from "next/router";
 import { faPersonWalkingDashedLineArrowRight } from "@fortawesome/free-solid-svg-icons";
 let objToAppend = [];
@@ -210,7 +210,7 @@ const Step4 = (props) => {
   const [cftTotal, setCftTotal] = useState(0);
   const getStateData = () => {
     const result = [];
-    const sumOfCFT = cftTotal;
+    const sumOfCFT = 0;
     const filteredItems = items.filter((i) => i.completed);
     filteredItems.forEach((i) => {
       const obj = {};
@@ -981,6 +981,10 @@ const Step4 = (props) => {
     ctx.setStep4State(cftData);
    // console.log("setStep4State - ", ctx.step4State["cft"])
     console.log("context.step4State -- ", step4State);
+    await cft({
+      bookingId: step2State?.bookingId,
+      cft: cftTotal,
+    });
     await bookingItem({
       bookingId: step2State?.bookingId,
       ...objCreated,

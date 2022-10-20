@@ -3,7 +3,7 @@ import Card from "../../Card";
 import itemList from "../../../data/otherItemList.json";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
-import { misItem, step5Item } from "../../../services/customer-api-service";
+import { misItem, step5Item,cft } from "../../../services/customer-api-service";
 import { Collapse } from 'antd';
 const { Panel } = Collapse;
 import { Button, Modal, Space } from 'antd';
@@ -160,6 +160,10 @@ const Step5 = () => {
     const cftData = {cft : sum};
     console.log("cftData - ", cftData);
     setStep4State(cftData);
+    await cft({
+      bookingId: step2State?.bookingId,
+      cft: sum,
+    });
     console.log("step5State - 5", ctx.step5State);
     router.push("/order/step6");
   };
