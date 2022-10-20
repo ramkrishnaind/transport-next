@@ -205,6 +205,7 @@ const Step4 = (props) => {
   const itemToSet = {};
   const ctx = useContext(TransportContext);
   const { step3State, step2State } = ctx;
+  const { step4State, setStep4State } = ctx;
   console.log("ctx.step3State - ", ctx.step3State);
   const [cftTotal, setCftTotal] = useState(0);
   const getStateData = () => {
@@ -975,6 +976,11 @@ const Step4 = (props) => {
     debugger;
     console.log("stateData", stateData);
     console.log("items", items);
+    console.log("cfttotal- ", cftTotal);
+    const cftData = {cft: cftTotal,};
+    ctx.setStep4State(cftData);
+   // console.log("setStep4State - ", ctx.step4State["cft"])
+    console.log("context.step4State -- ", step4State);
     await bookingItem({
       bookingId: step2State?.bookingId,
       ...objCreated,
@@ -993,10 +999,10 @@ const Step4 = (props) => {
         <div className="hidden md:block lg:block xl:block">
           <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3   rounded-lg h-12">
             <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0  completing_bar_text">
-              Set up 0% complete
+              Set up 60% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0  completing_bar_text">
-              5 Step left • About 8 min • CFT {cftTotal}
+              2 Step left • About 4 min • CFT {cftTotal}
             </div>
           </div>
         </div>

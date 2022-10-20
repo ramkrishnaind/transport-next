@@ -16,7 +16,7 @@ const Step5 = () => {
   const { step1State } = ctx;
   const { step2State } = ctx;
   const { step3State } = ctx;
-  const { step4State } = ctx;
+  const { step4State, setStep4State } = ctx;
   const { step5State } = ctx;
   console.log("customerDetails -- ", customerDetails);
   console.log("context.booking -- ", booking);
@@ -156,6 +156,10 @@ const Step5 = () => {
     }
     console.log("objectState", objectState);
     ctx.setStep5State(objectState);
+    const sum = cftTotal + step4State["cft"];
+    const cftData = {cft : sum};
+    console.log("cftData - ", cftData);
+    setStep4State(cftData);
     console.log("step5State - 5", ctx.step5State);
     router.push("/order/step6");
   };
@@ -383,10 +387,10 @@ const Step5 = () => {
           <div>
           <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-12">
             <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              Set up 0% complete
+              Set up 80% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              3 Step left • About 6 min • CFT {cftTotal}
+              1 Step left • About 1 min • CFT {cftTotal}
             </div>
           </div>
           <div  className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">

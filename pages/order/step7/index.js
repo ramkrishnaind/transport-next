@@ -3,7 +3,7 @@ import Card from "../../Card";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
 import { getBookingItem } from "../../../services/customer-api-service";
-import { Timeline, Collapse } from 'antd';
+import { Timeline, Collapse } from "antd";
 const { Panel } = Collapse;
 const Step7 = () => {
   const router = useRouter();
@@ -25,11 +25,14 @@ const Step7 = () => {
   const { step1State } = context;
   const { step2State } = context;
   const { step3State } = context;
+  const { step4State } = context;
   const { step5State } = context;
   console.log("context.step1State", step1State);
   console.log("context.step2State", step2State);
   console.log("context.step3State", step3State);
+  console.log("context.step4State", step4State);
   console.log("context.step5State", step5State);
+  const [cft, setCft]=useState();
   // const { customerDetails } = context;
   // const [customerData, setCustomerData] = useState({});
   // const [state, setState] = useState([]);
@@ -46,13 +49,13 @@ const Step7 = () => {
   const [moveManager] = useState("Not Assigned");
 
   useEffect(() => {
-   // debugger;
+    // debugger;
     const getData = async () => {
       let results;
       try {
         results = await getBookingItem(step2State?.bookingId);
-        console.log("results------>", results)
-       // debugger;
+        console.log("results------>", results);
+        // debugger;
         if (results?.data?.customerData) {
           const arr = [];
           results?.data?.customerData.forEach((item) => {
@@ -76,12 +79,19 @@ const Step7 = () => {
             });
           });
           setAllRecords(arr);
-          console.log(arr)
+          console.log(arr);
         }
-      } catch (error) { }
+      } catch (error) {}
     };
     getData();
   }, []);
+
+  useEffect(() => {
+    if (!step4State) return;
+    setCft(step4State["cft"]);
+    console.log("cftdata7 - ", cft);
+  }, [step4State]);
+
   const transformStep3Object = (step3Object) => {
     if (!step3Object) return;
     const keys = Object.keys(step3Object);
@@ -182,7 +192,15 @@ const Step7 = () => {
       10: "November",
       11: "December",
     };
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
 
     const d = new Date(shiftingOn);
     const year = d.getFullYear();
@@ -289,8 +307,8 @@ const Step7 = () => {
   // console.log("items------", items);
   // console.log("state------", state);
 
-  const clickHandler = (key, item) => { };
-  const decrementHandler = (key, item) => { };
+  const clickHandler = (key, item) => {};
+  const decrementHandler = (key, item) => {};
 
   const handleNewOrder = async (event) => {
     event.preventDefault();
@@ -320,218 +338,244 @@ const Step7 = () => {
       </div> */}
 
       <div className="fontColor_4E4E4E">
-      {allRecords?.map((record, index) => {
-        return (
-          <div key={index}>
-        <div>
-          <div className="flex flex-col m-5 p-4 rounded-lg gap-4 bg-white step7SummarylBox1  ">
-            <div className="thankyou_step7"><img
-              className="inline w-8 pr-2"
-              src="/images/sentiment_satisfied.png"
-              itemProp="image"
-              alt="Image"
-            />
-              Thank you {record.name}!
-            </div>
-            <div className="thankyou2_step7">The information you provided has been sent to our top secret super wise quote calculating monks. We will get you perfect tailor made quote in a day.</div>
-          </div>
-        </div>
-
-        <div className="step7RespoMain">
-          <div className="step7RespoContainer1">
-
-
-            <div className="step7RespoItem">
-
-
-              <div className="flex flex-col m-5 p-2 top-2 rounded-lg gap-4 bg-white step7ProfileBox1">
-                <div className="step7_grid1 ">
-                  <div className="step7_container1 p-3 my-auto">
-                    <div className="ellipse_step7">
-                    </div>
+        {allRecords?.map((record, index) => {
+          return (
+            <div key={index}>
+              <div>
+                <div className="flex flex-col m-5 p-4 rounded-lg gap-4 bg-white step7SummarylBox1  ">
+                  <div className="thankyou_step7">
+                    <img
+                      className="inline w-8 pr-2"
+                      src="/images/sentiment_satisfied.png"
+                      itemProp="image"
+                      alt="Image"
+                    />
+                    Thank you {record.name}!
                   </div>
-                  <div className="step7_container2 my-5 py-2 rounded-lg gap-1 bg-white ">
-                    <div className=" font-bold">{record.name}</div>
-                    <div>{record.emailId}</div>
-                    <div>{record.mobileNo}</div>
+                  <div className="thankyou2_step7">
+                    The information you provided has been sent to our top secret
+                    super wise quote calculating monks. We will get you perfect
+                    tailor made quote in a day.
                   </div>
                 </div>
               </div>
 
-              <div className="step7buttonBox1 step7_buttonbox pl-5">
-                <div className="flex justify-between ">
-                  <div className="current font-semibold 
-                  py-3 text-xl">Current Order</div>
-                  <div>
-                    <button
-                      className=" new_order_step7 py-3 px-10 text-sm rounded"
-                      type="submit"
-                      onClick={handleNewOrder}>
-                      + NEW ORDER
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="step7SummarylBox2 m-5 rounded-lg bg-white ">
-
-
-                <div className="flex flex-row justify-between p-4 rounded-xl">
-
-                  <div className="step7_grid2 justify-start">
-
-                      <div className="step7_grid2item1 px-2" >
-                      {record.day}
+              <div className="step7RespoMain">
+                <div className="step7RespoContainer1">
+                  <div className="step7RespoItem">
+                    <div className="flex flex-col m-5 p-2 top-2 rounded-lg gap-4 bg-white step7ProfileBox1">
+                      <div className="step7_grid1 ">
+                        <div className="step7_container1 p-3 my-auto">
+                          <div className="ellipse_step7"></div>
+                        </div>
+                        <div className="step7_container2 my-5 py-2 rounded-lg gap-1 bg-white ">
+                          <div className=" font-bold">{record.name}</div>
+                          <div>{record.emailId}</div>
+                          <div>{record.mobileNo}</div>
+                        </div>
                       </div>
-                      <div className="flex flex-col my-auto px-2 pr-2">
-                        <div className=" font-bold">{record.dayName}</div>
-                        <div>{record.month}</div>
+                    </div>
+
+                    <div className="step7buttonBox1 step7_buttonbox pl-5">
+                      <div className="flex justify-between ">
+                        <div
+                          className="current font-semibold 
+                  py-3 text-xl"
+                        >
+                          Current Order
+                        </div>
+                        <div>
+                          <button
+                            className=" new_order_step7 py-3 px-10 text-sm rounded"
+                            type="submit"
+                            onClick={handleNewOrder}
+                          >
+                            + NEW ORDER
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="step7SummarylBox2 m-5 rounded-lg bg-white ">
+                      <div className="flex flex-row justify-between p-4 rounded-xl">
+                        <div className="step7_grid2 justify-start">
+                          <div className="step7_grid2item1 px-2">
+                            {record.day}
+                          </div>
+                          <div className="flex flex-col my-auto px-2 pr-2">
+                            <div className=" font-bold">{record.dayName}</div>
+                            <div>{record.month}</div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col gap-3 text-md">
+                          <div className=" font-semibold">Order Id</div>
+                          <div className="OrderID_text_step7 font-semibold">
+                            {record.bookingId}
+                          </div>
+                        </div>
                       </div>
 
-                  </div>
-                  
-                  
-                  <div className="flex flex-col gap-3 text-md">
-                    <div className=" font-semibold">Order Id</div>
-                    <div className="OrderID_text_step7 font-semibold">{record.bookingId}</div>
-                  </div>
-
-                </div>
-
-
-                <hr className="mx-auto step7SummarylBox2_hr"/>
-                <div>
-                  <div className="flex flex-row justify-between p-3">
-                    <div className="step7Summarybox_item1">
-                      <div>from</div>
-                      <div className="font-semibold">{record.fromAddress}</div>
-                    </div>
-                    <div>
-                      <div>to</div>
-                      <div className="font-semibold">{record.toAddress}</div>
-                    </div>
-                  </div>
-                  <div className="flex flex-row justify-between p-3">
-                    <div>
-                      <div>mover Planner:</div>
-                      <div className="font-semibold">Not Assigned</div>
-                    </div>
-                    <div className="step7Summarybox_item2">
-                      <div>Mover Manager:</div>
-                      <div className="font-semibold">Not Assigned</div>
-                    </div>
-                  </div>
-                  <hr className="mx-auto step7SummarylBox2_hr" />
-                  <div className="flex flex-row p-3 justify-between">
-                    <div>
-                      <button
-                        className=" greyOwn hover:bg-green-100 rounded-md  py-3 px-5 font-semibold text-sm"
-                        type="submit"
-                      >
-                        VIEW DETAILS
-                      </button>
-                    </div>
-                    <div>
-                      <button
-                        className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
-                        type="submit"
-                        onClick={(e) => handleEditInventory(e, record)}
-                      >
-                        <img
-                          className="inline px-4"
-                          src="/images/edit_blue.svg"
-                          itemProp="image"
-                          alt="Image"
-                        />
-                        Edit Inventory
-                      </button>
+                      <hr className="mx-auto step7SummarylBox2_hr" />
+                      <div>
+                        <div className="flex flex-row justify-between p-3">
+                          <div className="step7Summarybox_item1">
+                            <div>from</div>
+                            <div className="font-semibold">
+                              {record.fromAddress}
+                            </div>
+                          </div>
+                          <div>
+                            <div>to</div>
+                            <div className="font-semibold">
+                              {record.toAddress}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-row justify-between p-3">
+                          <div>
+                            <div>mover Planner:</div>
+                            <div className="font-semibold">Not Assigned</div>
+                          </div>
+                          <div className="step7Summarybox_item2">
+                            <div>Mover Manager:</div>
+                            <div className="font-semibold">Not Assigned</div>
+                          </div>
+                        </div>
+                        <hr className="mx-auto step7SummarylBox2_hr" />
+                        <div className="flex flex-row p-3 justify-between">
+                          <div>
+                            <button
+                              className=" greyOwn hover:bg-green-100 rounded-md  py-3 px-5 font-semibold text-sm"
+                              type="submit"
+                            >
+                              VIEW DETAILS
+                            </button>
+                          </div>
+                          <div>
+                            <button
+                              className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
+                              type="submit"
+                              onClick={(e) => handleEditInventory(e, record)}
+                            >
+                              <img
+                                className="inline px-4"
+                                src="/images/edit_blue.svg"
+                                itemProp="image"
+                                alt="Image"
+                              />
+                              Edit Inventory
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
 
-
-
-            <div className="step7ProfileBox1 m-5 rounded-lg bg-white pb-1 step7_2container">
-              <div className="flex flex-row justify-between p-3">
-                <div>
-                  <div className="font-bold">Order Id</div>
-                  <div className="OrderID_text_step7 font-bold">{record.bookingId}</div>
-                </div>
-                <div>
-                  <div>Date & Time slot</div>
-                  <div className=" font-semibold">{record.dayName}{' '}{record.day}{' '}{record.month}</div>
-                </div>
-              </div>
-              <hr className="mx-auto step7SummarylBox2_hr" />
-              <div className="p-3">
-                Your order is being evaluated by us
-              </div>
-              <div className="p-3">
-                <Timeline>
-                  <Timeline.Item>
-                    <div className="py-1">From</div>
-                    <div className="py-1 font-semibold">{record.fromAddress}</div>
-                    <div className="py-1 greencolor">{record.isLiftAvailableOnCurrentFloor ? "Lift Available" : "Not Available"}</div>
-                  </Timeline.Item>
-                  <Timeline.Item>
-                    <div className="py-1">To</div>
-                    <div className="py-1 font-semibold">{record.toAddress}</div>
-                    <div className="py-1 greencolor">{record.isLiftAvailableOnMovingFloor ? "Lift Available" : "Lift Not Available"}</div>
-                  </Timeline.Item>
-                </Timeline>
-              </div>
-              <div className="px-5">
-                <hr className="mx-auto step7SummarylBox2_hr" />
-              </div>
-              <div className="flex flex-row justify-between p-4 mt-6">
-                <div>
-                  <div>What to move</div>
-                  <div className="font-semibold">{record.moveType}</div>
-                </div>
-                <div>
-                  <div>Preferred Choice</div>
-                  <div className="font-semibold">-</div>
-                </div>
-              </div>
-              <div className="m-2 font-semibold p-2 text-xl ">
-                Your selected items
-              </div>
-              <div className="w-5/6">
-                <form className="max-w-xl m-auto py-10 px-5">
-                  <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
-                    {record.step3?.map((st, ind1) => {
-                      console.log("item", st);
-                      return (
-                        <Card
-                          image={st.image}
-                          key={ind1}
-                          item={st.title}
-                          itemCount={st.count}
-                          onDecrement={decrementHandler.bind(null, "", st)}
-                          onClick={clickHandler.bind(null, "", st)}
-                        />
-                      );
-                    })}
-                    {record.step5 &&
-                      record.step5?.map((st, ind2) => {
-                        console.log("item", st);
-                        return (
-                          <Card
-                            image={st.image}
-                            key={ind2}
-                            item={st.title}
-                            itemCount={st.count}
-                            onDecrement={decrementHandler.bind(null, "", st)}
-                            onClick={clickHandler.bind(null, "", st)}
-                          />
-                        );
-                      })}
-                  </div>
-                </form>
-              </div>
-              {/* <div className=" rounded-lg border m-2">
+                  <div className="step7ProfileBox1 m-5 rounded-lg bg-white pb-1 step7_2container">
+                    <div className="flex flex-row justify-between p-3">
+                      <div>
+                        <div className="font-bold">Order Id</div>
+                        <div className="OrderID_text_step7 font-bold">
+                          {record.bookingId}
+                        </div>
+                      </div>
+                      <div>
+                        <div>Date & Time slot</div>
+                        <div className=" font-semibold">
+                          {record.dayName} {record.day} {record.month}
+                        </div>
+                      </div>
+                    </div>
+                    <hr className="mx-auto step7SummarylBox2_hr" />
+                    <div className="p-3">
+                      Your order is being evaluated by us
+                    </div>
+                    {/* {cft > 0 ? <div className="p-3">CFT  {cft}</div> : ""} */}
+                    <div className="p-3">
+                      <Timeline>
+                        <Timeline.Item>
+                          <div className="py-1">From</div>
+                          <div className="py-1 font-semibold">
+                            {record.fromAddress}
+                          </div>
+                          <div className="py-1 greencolor">
+                            {record.isLiftAvailableOnCurrentFloor
+                              ? "Lift Available"
+                              : "Not Available"}
+                          </div>
+                        </Timeline.Item>
+                        <Timeline.Item>
+                          <div className="py-1">To</div>
+                          <div className="py-1 font-semibold">
+                            {record.toAddress}
+                          </div>
+                          <div className="py-1 greencolor">
+                            {record.isLiftAvailableOnMovingFloor
+                              ? "Lift Available"
+                              : "Lift Not Available"}
+                          </div>
+                        </Timeline.Item>
+                      </Timeline>
+                    </div>
+                    <div className="px-5">
+                      <hr className="mx-auto step7SummarylBox2_hr" />
+                    </div>
+                    <div className="flex flex-row justify-between p-4 mt-6">
+                      <div>
+                        <div>What to move</div>
+                        <div className="font-semibold">{record.moveType}</div>
+                      </div>
+                      <div>
+                        <div>Preferred Choice</div>
+                        <div className="font-semibold">-</div>
+                      </div>
+                    </div>
+                    <div className="m-2 font-semibold p-2 text-xl ">
+                      Your selected items
+                    </div>
+                    <div className="w-5/6">
+                      <form className="max-w-xl m-auto py-10 px-5">
+                        <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
+                          {record.step3?.map((st, ind1) => {
+                            console.log("item", st);
+                            return (
+                              <Card
+                                image={st.image}
+                                key={ind1}
+                                item={st.title}
+                                itemCount={st.count}
+                                onDecrement={decrementHandler.bind(
+                                  null,
+                                  "",
+                                  st
+                                )}
+                                onClick={clickHandler.bind(null, "", st)}
+                              />
+                            );
+                          })}
+                          {record.step5 &&
+                            record.step5?.map((st, ind2) => {
+                              console.log("item", st);
+                              return (
+                                <Card
+                                  image={st.image}
+                                  key={ind2}
+                                  item={st.title}
+                                  itemCount={st.count}
+                                  onDecrement={decrementHandler.bind(
+                                    null,
+                                    "",
+                                    st
+                                  )}
+                                  onClick={clickHandler.bind(null, "", st)}
+                                />
+                              );
+                            })}
+                        </div>
+                      </form>
+                    </div>
+                    {/* <div className=" rounded-lg border m-2">
                 <Collapse defaultActiveKey={['1']} ghost>
                   <Panel header="Furniture " key="1">
                     <div className="m-2">
@@ -585,32 +629,13 @@ const Step7 = () => {
                   </Panel>
                 </Collapse>
               </div> */}
+                  </div>
+                </div>
+              </div>
             </div>
-
-
-          </div>
-        </div>
-        </div>
-        );
-      })}
+          );
+        })}
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       {/*       
       <div>
@@ -774,7 +799,6 @@ const Step7 = () => {
           );
         })}
       </div> */}
-
     </>
   );
   // <div>

@@ -306,7 +306,7 @@ const Step2 = () => {
                   loading={loading}
                   //disabled={disabled}
                 >
-                  back
+                  Back
                 </Button>
                 <Button
                   className=" px-5 py-4  buttonMobile2 rounded-m "
