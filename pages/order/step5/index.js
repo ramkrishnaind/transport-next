@@ -25,6 +25,7 @@ const Step5 = () => {
   console.log("context.step3State -- ", step3State);
   console.log("context.step4State -- ", step4State);
   console.log("context.step5State -- ", step5State);
+  const [cftTotal, setCftTotal] = useState(0);
   const bookingId = booking?.bookingId;
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
@@ -41,7 +42,7 @@ const Step5 = () => {
     const keyExist = item?.Category && keys.includes(item?.Category);
     if (!keyExist && item?.Category) {
       items[item?.Category] = [
-        { title: item["Item"], image: `/images/${item.Image}` },
+        { title: item["Item"], image: `/images/${item.Image}`,cft: item["CFT"] },
       ];
     } else if (item?.Category) {
       const itemIndex = items[item?.Category].findIndex(
@@ -52,6 +53,7 @@ const Step5 = () => {
         items[item?.Category].push({
           title: item["Item"],
           image: `/images/${item.Image}`,
+          cft: item["CFT"]
         });
       }
     }
@@ -63,6 +65,8 @@ const Step5 = () => {
       ...items,
     }
   );
+  console.log("items - ", items);
+  console.log("objectState - ", objectState);
 
   useEffect(() => {
     setObjectState((prev) => {
@@ -98,33 +102,40 @@ const Step5 = () => {
   const clickHandler = (key, item) => {
     const newState = { ...objectState };
     const newArray = [];
+    const sumOfCFT = cftTotal;
     // debugger;
     const arr = [...newState[key]];
     arr?.forEach((i) => {
       if (i.title === item.title) {
         i.count = i.count + 1;
+        console.log("item - ", item)
+        sumOfCFT += item?.cft || 0;
       }
       newArray.push(i);
     });
     console.log("called");
     newState[key] = newArray;
+    setCftTotal(sumOfCFT);
     setObjectState(newState);
     // ctx.setStep5State(newState);
   };
   const decrementHandler = (key, item) => {
     const newState = { ...objectState };
     const newArray = [];
+    const sumOfCFT = cftTotal;
     // debugger;
     const arr = [...newState[key]];
     arr?.forEach((i) => {
       if (i.title === item.title && i.count !== 0) {
         i.count = i.count - 1;
+        sumOfCFT -= item?.cft || 0;
       }
       newArray.push(i);
     });
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
+    setCftTotal(sumOfCFT);
     //ctx.setStep5State(newState);
   };
   const handleSubmit = async (event) => {
@@ -242,8 +253,8 @@ const Step5 = () => {
               <form className="max-w-screen-xl m-auto px-4">
                 <div className="mt-5">
                   <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {objectState.Utility.map((item, index) => {
-                      console.log("item", item);
+                    {items.Utility.map((item, index) => {
+                      console.log("utility item -", item);
                       return (
                         <Card
                           image={item.image}
@@ -266,7 +277,7 @@ const Step5 = () => {
               <form className="max-w-screen-xl m-auto px-4">
                 <div className="mt-5">
                   <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {objectState.HomeAppliances.map((item, index) => (
+                    {items.HomeAppliances.map((item, index) => (
                       <Card
                         image={item.image}
                         key={index}
@@ -292,7 +303,7 @@ const Step5 = () => {
               <form className="max-w-screen-xl m-auto px-4">
                 <div className="mt-5">
                   <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {objectState.CareItems.map((item, index) => (
+                    {items.CareItems.map((item, index) => (
                       <Card
                         image={item.image}
                         key={index}
@@ -314,7 +325,7 @@ const Step5 = () => {
               <form className="max-w-screen-xl m-auto px-4">
                 <div className="mt-5">
                   <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {objectState.Fitness.map((item, index) => (
+                    {items.Fitness.map((item, index) => (
                       <Card
                         image={item.image}
                         key={index}
@@ -375,7 +386,7 @@ const Step5 = () => {
               Set up 0% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              3 Step left • About 6 min
+              3 Step left • About 6 min • CFT {cftTotal}
             </div>
           </div>
           <div  className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">

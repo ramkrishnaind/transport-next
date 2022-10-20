@@ -206,9 +206,10 @@ const Step4 = (props) => {
   const ctx = useContext(TransportContext);
   const { step3State, step2State } = ctx;
   console.log("ctx.step3State - ", ctx.step3State);
+  const [cftTotal, setCftTotal] = useState(0);
   const getStateData = () => {
     const result = [];
-
+    const sumOfCFT = cftTotal;
     const filteredItems = items.filter((i) => i.completed);
     filteredItems.forEach((i) => {
       const obj = {};
@@ -257,8 +258,10 @@ const Step4 = (props) => {
           (!obj.Action4 || it?.["Action 4"] === obj.Action4)
       );
       obj.CFT = itemData?.CFT || 0;
+      sumOfCFT += obj.CFT;
       result.push({ ...obj });
     });
+    setCftTotal(sumOfCFT);
     setStateData(result);
   };
   console.log("stateDate", stateData);
@@ -993,7 +996,7 @@ const Step4 = (props) => {
               Set up 0% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0  completing_bar_text">
-              5 Step left • About 8 min
+              5 Step left • About 8 min • CFT {cftTotal}
             </div>
           </div>
         </div>
