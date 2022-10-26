@@ -1,4 +1,4 @@
-const cartoonModel = {
+export const cartoonModel = {
     "1 BHK" : 12,
     "2 BHK" : 25,
     "3 BHK" : 40,
