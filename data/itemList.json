@@ -250,7 +250,7 @@
     "Category": "Furniture",
     "Action 1": "Steel Almirah",
     "Action 2": "Height <=5ft",
-    "Action 3": null,
+    "Action 3": "Width <=5ft",
     "Action 4": null,
     "CFT": 40,
     "Article Name": "Small Steel Almirah"
@@ -265,7 +265,7 @@
     "Category": "Furniture",
     "Action 1": "Steel Almirah",
     "Action 2": "Height >5 ft",
-    "Action 3": null,
+    "Action 3": "Width >5 ft",
     "Action 4": null,
     "CFT": 60,
     "Article Name": "Big Steel Almirah"
