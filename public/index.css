@@ -1,0 +1,34 @@
+@media (min-width: 767px) and (max-width: 1023px) {
+}
+
+@media (min-width: 1023px) {
+  .Index_movers-Burnaby_1 {
+    width: 50rem;
+    left: 72px;
+    bottom: 9rem;
+  }
+
+  .Shifting_happines-box {
+    background-color: transparent;
+    bottom: 13rem;
+    left: 63rem;
+bottom: 18rem;
+  }
+  .Shifting_happines-box-child {
+    width: 19.5rem;
+  }
+  .Index_background1 {
+    height: 575px;
+    background-size: 99vw;
+  }
+  .calculating_pricing-button-text{
+    font-size: 0.9rem;
+font-weight: 600;
+  }
+  .index_Calculate_price_Box-text-1{
+    font-size: 1rem;
+  }
+  .TrackYourOrderBox{
+    
+  }
+}

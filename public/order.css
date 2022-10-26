@@ -1066,4 +1066,41 @@
   .CFT_box-text1_step5{
     color: #439FD9;
   }
+  .step3-line {
+    border: 3px solid green;
+    border-radius: 2px;
+    width: 434px;
+    transition-property: width;
+    transition-duration: 2s;
+  }
+  
+  .step2-line {
+    border: 3px solid green;
+    border-radius: 2px;
+    width: 217px;
+    transition-property: width;
+    transition-duration: 2s;
+  }
+  
+  .step3-line {
+    border: 3px solid green;
+    border-radius: 2px;
+    width: 651px;
+    transition-property: width;
+    transition-duration: 2s;
+  }
+  .step4-line {
+    border: 3px solid green;
+    border-radius: 2px;
+    width: 868px;
+    transition-property: width;
+    transition-duration: 2s;
+  }
+  .step5-line {
+    border: 3px solid green;
+    border-radius: 2px;
+    width: 1084px;
+    transition-property: width;
+    transition-duration: 2s;
+  }
   

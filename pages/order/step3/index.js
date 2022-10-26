@@ -281,7 +281,7 @@ const Step3 = (props) => {
         </div>
         <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
           <div>
-            <hr className="step2_line hidden md:block lg:block xl:block" />
+            <hr className="step3-line"/>
           </div>
         </div>
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">

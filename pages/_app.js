@@ -7,6 +7,8 @@ import OrderLayout from "../components/UI/OrderLayout";
 import "antd/dist/antd.css";
 import "../public/overRide.css";
 import "../public/order.css";
+import "../public/header.css";
+import "../public/index.css";
 import Script from "next/script";
 import { AppProvider } from "../context";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS

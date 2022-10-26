@@ -999,18 +999,26 @@ const Step4 = (props) => {
   return (<>
     <div>
       {/* completeBAR */}
-      <div>
-        <div className="hidden md:block lg:block xl:block">
-          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3   rounded-lg h-12">
-            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0  completing_bar_text">
-              Set up 60% complete
+
+      <div className="hidden md:block lg:block xl:block">
+          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
+            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              Set up 40% complete
             </div>
-            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0  completing_bar_text">
-              2 Step left • About 4 min • CFT {cftTotal}
+            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              3 Step left • About 6 min<span className="CFT_box_step5 px-2 py-1 ml-1"><span className="CFT_box-text1_step5">CFT </span><span className="CFT_box-text1_step5 font-bold">{cftTotal}</span></span>
             </div>
           </div>
         </div>
+        <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
+          <div>
+            <hr className="step4-line"/>
+          </div>
+        </div>
 
+
+
+      <div>
         <div className=" flex flex-col items-center  gap-2.5 py-5 MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
           <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 60% complete</div>
           <div className="not-italic ">

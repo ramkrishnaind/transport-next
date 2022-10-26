@@ -3,7 +3,7 @@ import Card from "../../Card";
 import itemList from "../../../data/otherItemList.json";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
-import { misItem, step5Item,cft } from "../../../services/customer-api-service";
+import { misItem, step5Item, cft } from "../../../services/customer-api-service";
 import { Collapse } from 'antd';
 const { Panel } = Collapse;
 import { Button, Modal, Space } from 'antd';
@@ -42,7 +42,7 @@ const Step5 = () => {
     const keyExist = item?.Category && keys.includes(item?.Category);
     if (!keyExist && item?.Category) {
       items[item?.Category] = [
-        { title: item["Item"], image: `/images/${item.Image}`,cft: item["CFT"] },
+        { title: item["Item"], image: `/images/${item.Image}`, cft: item["CFT"] },
       ];
     } else if (item?.Category) {
       const itemIndex = items[item?.Category].findIndex(
@@ -157,7 +157,7 @@ const Step5 = () => {
     console.log("objectState", objectState);
     ctx.setStep5State(objectState);
     const sum = cftTotal + step4State["cft"];
-    const cftData = {cft : sum};
+    const cftData = { cft: sum };
     console.log("cftData - ", cftData);
     setStep4State(cftData);
     await cft({
@@ -246,9 +246,9 @@ const Step5 = () => {
 
 
     <>
-     {/* completeBAR */}
-     <div>
-        
+      {/* completeBAR */}
+      <div>
+
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
           <div className="completepersentage  font-semibold text-3xl completing_bar_text">
             Set up 80% complete
@@ -407,21 +407,21 @@ const Step5 = () => {
       <div className=" hidden ResponsiveLatop ResponsiveTab">
         <div className="b1">
           <div>
-          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-12">
-            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              Set up 80% complete
+            <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-12">
+              <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+                Set up 80% complete
+              </div>
+              <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+                1 Step left • About 1 min <span className="CFT_box_step5 px-2 py-1 ml-1"><span className="CFT_box-text1_step5">CFT </span><span className="CFT_box-text1_step5 font-bold">{cftTotal}</span>
+
+                </span>
+              </div>
             </div>
-            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              1 Step left • About 1 min <span className="CFT_box_step5 px-2 py-1 ml-1"><span className="CFT_box-text1_step5">CFT </span><span className="CFT_box-text1_step5 font-bold">{cftTotal}</span>
-          
-              </span>
+            <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
+              <div>
+                <hr className="step5-line" />
+              </div>
             </div>
-          </div>
-          <div  className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
-            <div>
-          <hr className="step5_line"/>
-            </div>
-          </div>
           </div>
 
 
@@ -519,7 +519,7 @@ const Step5 = () => {
                 <button
                   className="button_2_skip rounded-m px-10 py-2"
                   type="button"
-                 
+
                 >
                   SKIP
                 </button>
@@ -544,7 +544,7 @@ const Step5 = () => {
           </div>
         </div>
       </div>
-      
+
     </>
 
     // <div
