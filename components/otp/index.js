@@ -98,18 +98,22 @@ const Otp = () => {
                         PROCEED
                     </button>
                 </div> */}
-        <div className="grid grid-flow-col grid-cols-2 mb-16">
-          <Button
-            className="w-44 seconderyButton"
-            onClick={resendOTP}
-            size="large"
-            loading={resendloading}
-          >
-            Re-Send
-          </Button>
-          <Button className="w-44" onClick={handleSubmit} size="large" loading={loading}>
-            Submit
-          </Button>
+        <div className="grid grid-flow-col grid-cols-2 mb-16 gap-4">
+          <div className="grid">
+            <Button
+              className="seconderyButton"
+              onClick={resendOTP}
+              size="large"
+              loading={resendloading}
+            >
+              Re-Send
+            </Button>
+          </div>
+          <div className="grid">
+            <Button onClick={handleSubmit} size="large" loading={loading}>
+              Submit
+            </Button>
+          </div>
         </div>
       </form>
     </div>

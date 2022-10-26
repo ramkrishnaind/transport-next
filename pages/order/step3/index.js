@@ -466,10 +466,10 @@ const Step3 = (props) => {
             </button>
           </div>
         </div>
-        <div className="flex justify-between mx-5  mb-5 text-sm ">
+        {/* <div className="flex justify-between mx-5  mb-5 text-sm ">
           <span className="step3_skip-text">Skip for now</span>
           <span className="step3_save_draft-text">Save Deaft</span>
-        </div>
+        </div> */}
       </div>
 
 

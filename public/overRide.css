@@ -856,7 +856,7 @@ font-size: 1.944rem;
 .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
   font-size: 1.3rem;
 }
-.a,
+/* .a,
 area,
 button,
 [role="button"],
@@ -866,7 +866,7 @@ select,
 summary,
 textarea {
   padding-left: 0.8rem;
-}
+} */
 .border-gray-input {
   --tw-border-opacity: 1;
   border-color: #dddddd;

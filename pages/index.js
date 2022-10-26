@@ -13,6 +13,7 @@ import {
   notification,
   Alert,
   Modal,
+  Spin 
 } from "antd";
 import HomeForm from "../components/Home";
 import Image from "next/image";
@@ -105,7 +106,10 @@ const HomePage = () => {
     setEmailBlur(true);
     setPhoneNumberBlur(true);
 
-    if (!enteredName || !enteredEmail || !enteredPhoneNumber) return;
+    if (!enteredName || !enteredEmail || !enteredPhoneNumber){
+      setLoading(false);
+      return
+    };
     try {
       let saveResponse = await saveFormData();
       console.log("saveRes", saveResponse);
@@ -179,7 +183,7 @@ const HomePage = () => {
             <div className="index_Calculate_price_Box-text-2 font-bold px-20 text-center py-4">
               We make your Moving Easy
             </div>
-            <form className="max-w-xl m-auto mt-4 w-96">
+            <form className="max-w-xl m-auto mt-4 w-72">
               <div className="mb-10">
                 <label className="text-gray-600 font-medium text-lg">
                   Full Name
@@ -235,8 +239,9 @@ const HomePage = () => {
                   </p>
                 )}
               </div>
-              <div className="pb-4">
+              {loading ? (<><div className="flex justify-center items-center"><Spin /></div></>) : (<><div className="pb-4">
                 <button
+                  loading={loading}
                   type="button"
                   className="yellowButton px-5 py-3.5 text-lg"
                   onClick={handleSubmit}
@@ -249,7 +254,8 @@ const HomePage = () => {
                     alt="main BannerImage"
                   />
                 </button>
-              </div>
+              </div></>)}
+              
               {/* <Button className="w-96" onClick={handleSubmit} size="large"
       loading={loading}>
           Calculate Your Moving Cost
