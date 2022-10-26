@@ -1013,7 +1013,9 @@
   }
   
   @media screen and (max-width: 767px){
-  
+    .liftOptions-select{
+      width: 75vw;
+    }
     
   }
   @media screen and (min-width: 767px) and (max-width: 1023px){
