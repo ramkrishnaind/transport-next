@@ -39,7 +39,7 @@ const AppHeader = () => {
                 />
                 </span>
                 <span className="text-gray-900 font-medium hidden md:block lg:block xl:block phonenumber-text">
-                  180012097225
+                  1800 1209 7225
                 </span>
               </div>
             </div>

@@ -253,7 +253,9 @@ const Step1 = () => {
                         //className="bg-white  border-b-2  border-gray-400 focuspt text-gray-600 placeholder-gray-400 outline-none detailfill text-left w-330" s
                         className="Datepicker_Step1   py-2 font-semibold"
                         placeholder="DD/MM/YYYY"
+                        minDate={new Date()}
                         onChange={(date) => setStartDate(date)}
+                        min="2022-10-20"
                       />
                       {/* <input type="text" className="Datepicker_Step1   py-2 font-semibold" placeholder="DD/MM/YYYY" 
                      onChange={(date) => setStartDate(date)}
