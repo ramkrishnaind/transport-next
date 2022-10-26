@@ -1012,10 +1012,10 @@ const Step4 = (props) => {
         </div>
 
         <div className=" flex flex-col items-center  gap-2.5 py-5 MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
-          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 0% complete</div>
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 60% complete</div>
           <div className="not-italic ">
-            <span className=" font-semibold">5 Step left •</span>
-            <span> About 8 min</span>
+            <span className=" font-semibold">2 Step left •</span>
+            <span> About 4 min</span>
           </div>
         </div>
       </div>
