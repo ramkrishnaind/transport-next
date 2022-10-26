@@ -72,7 +72,7 @@ const Otp = () => {
       <form className="xl:w-96 m-auto py-4 mt-10 px-2">
         <p className="mt-2 text-gray-400 text-center">
           Please validate the Login OTP sent to your mobile number (
-          {customerData.mobile})
+          {customerData.mobile}) or check your email ({customerData.email})
         </p>
 
         <input
@@ -86,8 +86,7 @@ const Otp = () => {
         />
 
         <p className="text-gray-400 font-small text-sm text-center mt-10">
-          If you do not receive the T-PIN in the next 12 seconds, you will
-          automatically receive a IVR call to convey the PIN.
+          If you do not receive the OTP in the next 12 seconds, Please try Re-Send.
         </p>
         {/* <div className="flex justify-center items-center">
                     <button
