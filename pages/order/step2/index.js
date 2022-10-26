@@ -32,7 +32,7 @@ const liftOptions = [
 ];
 
 const Step2 = () => {
-  const { bookingInfo, saveBooking } = useAuth();
+  const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
   const context = useContext(TransportContext);
   const { booking, setBooking } = context;
@@ -46,8 +46,9 @@ const Step2 = () => {
   useEffect(() => {
     console.log("booking in step 2 is", booking);
     console.log("step1State is ", step1State);
+    console.log("booking from local storage in step 2 is",customer, bookingInfo);
     setBookingData(booking);
-  }, [booking, step1State]);
+  }, [booking, step1State, bookingInfo, customer]);
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default submission

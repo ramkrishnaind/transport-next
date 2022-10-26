@@ -45,7 +45,7 @@ const HomePage = () => {
     gitTokenLogin,
     getUserRole,
     routerProtectorLogic,
-  } = useAuth();
+  } = useAuth(); 
   const context = useContext(TransportContext);
   const router = useRouter();
   const [enteredName, setEnteredName] = useState("");

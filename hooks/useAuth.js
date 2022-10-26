@@ -38,7 +38,7 @@ const useAuth = () => {
   };
   const saveBooking = (bookingInfo) => {
     setBookingInfo(bookingInfo);
-    localStorage.setItem("booking", JSON.stringify(bookingInfo));
+    localStorage.setItem("bookingInfo", JSON.stringify(bookingInfo));
   };
 
   const removeToken = () => {
@@ -80,6 +80,10 @@ const useAuth = () => {
     const customer = localStorage.getItem("customer");
     if (customer) {
       setCustomer(JSON.parse(customer));
+    }
+    const booking = localStorage.getItem("bookingInfo");
+    if (booking) {
+      setBookingInfo(JSON.parse(booking));
     }
 
     const localToken = localStorage.getItem("jwtToken");

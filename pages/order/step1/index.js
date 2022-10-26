@@ -19,7 +19,6 @@ const houseTypeOptions = [
   { value: "duplex", label: "Duplex" },
   { value: "villa", label: "Villa" },
   { value: "vehicle", label: "Vehicle" },
-  { value: "few items", label: "Few items" },
 ];
 
 const cityOptions = [
@@ -65,13 +64,16 @@ const Step1 = () => {
     if (result.data.status) {
       console.log("CollectBasicInfo result is", result.data);
       setBooking({ bookingId: result.data.bookingId });
-      saveBooking({ bookingId: result.data.bookingId });
+      
       const formData = {
         shiftingFor: houseType,
         shiftingFrom: fromState,
         shiftingTo: toState,
         shiftingOn: startDate,
       };
+      saveBooking({ bookingId: result.data.bookingId,
+        step1:formData
+      });
 
       console.log("bookingId is ", result.data.bookingId);
       console.log("houseType is ", houseType);
