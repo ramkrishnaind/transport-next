@@ -246,6 +246,24 @@ const Step5 = () => {
 
 
     <>
+     {/* completeBAR */}
+     <div>
+        
+        <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">
+            Set up 80% complete
+          </div>
+          <div className="not-italic ">
+            <span className=" font-semibold">1 Step left •</span>
+            <span> About 1 min</span>
+          </div>
+          <div className="CFT_box_step5 px-3 py-1">
+            <span className="CFT_box-text1_step5">CFT </span>
+            <span className="CFT_box-text1_step5 font-bold">{cftTotal}</span>
+          </div>
+        </div>
+      </div>
+
       {/* mobile responsive  */}
 
       <div className="hidden ResponsiveMobile">
@@ -394,7 +412,9 @@ const Step5 = () => {
               Set up 80% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              1 Step left • About 1 min • CFT {cftTotal}
+              1 Step left • About 1 min <span className="CFT_box_step5 px-2 py-1 ml-1"><span className="CFT_box-text1_step5">CFT </span><span className="CFT_box-text1_step5 font-bold">{cftTotal}</span>
+          
+              </span>
             </div>
           </div>
           <div  className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">

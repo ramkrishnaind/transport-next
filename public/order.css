@@ -1058,3 +1058,12 @@
     border: none !important;
     width: 64vw;
   }
+
+  .CFT_box_step5{
+    border: #439FD9 solid 2px ;
+    border-radius: 10px;
+  }
+  .CFT_box-text1_step5{
+    color: #439FD9;
+  }
+  
