@@ -304,6 +304,7 @@ const Step7 = () => {
         context.step5State = { ...record.step5State };
         router.push("/order/step3");
     };
+    
 
     return (
         <>
@@ -317,14 +318,14 @@ const Step7 = () => {
                             itemProp="image"
                             alt="Image"
                         />
-                            Thank you Rishi Lohan!
+                            Thank you Rishi Lohan! 
                         </div>
                         <div className="thankyou2_step7">The information you provided has been sent to our top secret super wise quote calculating monks. We will get you perfect tailor made quote in a day.</div>
                     </div>
                 </div>
 
 
-                <div className="orderHistoryMainBox md:flex xl:flex lg:flex md:flex-row xl:flex-row lg:flex-row md:justify-between xl:justify-between lg:justify-between flex-row-reverse gap-4 ">
+                <div className="orderHistoryMainBox md:flex xl:flex lg:flex md:flex-row xl:flex-row lg:flex-row flex-row-reverse gap-4 ">
 
 
                     <div className="">
@@ -351,7 +352,7 @@ const Step7 = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="flex flex-row justify-between p-3">
+                                    <div className="flex flex-row justify-between gap-2 p-3">
                                         <div className="step7Summarybox_item1">
                                             <div>From</div>
                                             <div className="font-semibold">Delhi, India</div>
@@ -418,7 +419,7 @@ const Step7 = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="flex flex-row justify-between p-3">
+                                    <div className="flex flex-row justify-between gap-2 p-3">
                                         <div className="step7Summarybox_item1">
                                             <div>From</div>
                                             <div className="font-semibold">Delhi, India</div>
