@@ -324,7 +324,7 @@ const Step7 = () => {
                 </div>
 
 
-                <div className="orderHistoryMainBox flex flex-row-reverse gap-4 ">
+                <div className="orderHistoryMainBox md:flex xl:flex lg:flex md:flex-row xl:flex-row lg:flex-row md:justify-between xl:justify-between lg:justify-between flex-row-reverse gap-4 ">
 
 
                     <div className="">
