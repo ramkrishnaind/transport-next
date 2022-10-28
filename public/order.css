@@ -1131,3 +1131,18 @@ select:invalid {
 .diparture_text-OrderHistory{
   border-right: 1px solid ;
 }
+
+.step4_heading {
+  font-size: 21px;
+}
+.step4_heading2 {
+  font-size: 21px;
+}
+@media (max-width: 767px) {
+  .step4_heading {
+    font-size: 1.9rem;
+  }
+  .step4_heading2 {
+    font-size: 1.1rem;
+  }
+}
