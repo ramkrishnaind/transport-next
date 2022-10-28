@@ -55,7 +55,7 @@ const HomePage = () => {
   const [nameBlur, setNameBlur] = useState(false);
   const [emailBlur, setEmailBlur] = useState(false);
   const [phoneNumberBlur, setPhoneNumberBlur] = useState(false);
-
+  const [phoneNumberError, setPhoneNumberError] = useState(false);
   const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(true);
   const [visibleOtpModal, setVisibleOtpModal] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
@@ -72,13 +72,27 @@ const HomePage = () => {
   };
 
   const phoneNumberInputChangeHandler = (event) => {
-    setEnteredPhoneNumber(event.target.value);
+    if (!event.target.value.match(/[0-9]/)) {
+      event.target.value = event.target.value.replace(/[^0-9]/g, '');
+    }
+  setEnteredPhoneNumber(event.target.value);
+    if(enteredPhoneNumber){
+      if (event.target.value.length > 10 || event.target.value.length < 10) {
+        setPhoneNumberError(true);
+      }
+    }else{
+      setPhoneNumberError(false);
+    }
+    if (event.target.value.length == 10) {
+      setPhoneNumberError(false);
+    }
   };
   const disableSubmit =
     !enteredName ||
     !enteredPhoneNumber ||
     !enteredEmail ||
-    !enteredEmail.includes("@");
+    !enteredEmail.includes("@") ||
+    phoneNumberError;
   function validateEmail(email) {
     setEnteredEmailIsValid(false);
     const pattern =
@@ -226,7 +240,7 @@ const HomePage = () => {
                 </label>
                 <input
                   className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700"
-                  type="text"
+                  type="tel"
                   required
                   placeholder=""
                   onChange={phoneNumberInputChangeHandler}
@@ -238,10 +252,16 @@ const HomePage = () => {
                     Phone Number must not be empty.
                   </p>
                 )}
+                {phoneNumberBlur && phoneNumberError && (
+                  <p className="text-red-400">
+                    Phone Number must be 10 digits.
+                  </p>
+                )}
               </div>
               {loading ? (<><div className="flex justify-center items-center"><Spin /></div></>) : (<><div className="pb-4">
                 <button
                   loading={loading}
+                  disabled={disableSubmit}
                   type="button"
                   className="yellowButton px-5 py-3.5 text-lg"
                   onClick={handleSubmit}
