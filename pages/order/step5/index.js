@@ -26,6 +26,7 @@ const Step5 = () => {
   console.log("context.step4State -- ", step4State);
   console.log("context.step5State -- ", step5State);
   const [cftTotal, setCftTotal] = useState(0);
+  const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
   const bookingId = booking?.bookingId;
   let categories = [...itemList.map((item) => item?.Category)];
   let uniqueCategories = [],
@@ -149,7 +150,8 @@ const Step5 = () => {
     // await step5Item({ ...objectState });
     let result = await callApi();
     if (result.data.status) {
-      bookingConformation()
+      // bookingConformation()
+      setIsBookingConfirmed(true);
 
       console.log("Booking result is", result);
       //  setBooking(result.data);
@@ -165,7 +167,7 @@ const Step5 = () => {
       cft: sum,
     });
     console.log("step5State - 5", ctx.step5State);
-    router.push("/order/step6");
+    // router.push("/order/step6"); 
   };
 
   const callApi = async () => {
@@ -218,6 +220,10 @@ const Step5 = () => {
       ...objCreated,
     });
   };
+  const handleOk = () => {
+    setIsBookingConfirmed(false);
+    router.push("/order/step7"); 
+  };
   const bookingConformation = () => {
     Modal.success({
       content: (<div
@@ -235,7 +241,7 @@ const Step5 = () => {
 
         <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">Set up 100% complete</div>
 
-        <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div>
+        {/* <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div> */}
 
       </div>),
     });
@@ -248,7 +254,29 @@ const Step5 = () => {
     <>
       {/* completeBAR */}
       <div>
+      <Modal open={isBookingConfirmed} onOk={handleOk}
+      footer={null}
+       >
+        <div
+          className="flex items-center justify-center flex-col  ">
+          <div >
+            <img
+              className=""
+              src="/images/check_circle.jpg"
+              itemProp="image"
+              alt="Image"
+            />
+          </div>
 
+          <div className=" greencolor text-3xl text-center mt-12 font-bold ">Well done</div>
+
+          <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">Set up 100% complete</div>
+          <br />
+          <Button onClick={handleOk}>Ok, i got it</Button>
+          {/* <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div> */}
+
+        </div>
+      </Modal>
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
           <div className="completepersentage  font-semibold text-3xl completing_bar_text">
             Set up 80% complete

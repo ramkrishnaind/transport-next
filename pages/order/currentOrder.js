@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import Card from "../../Card";
-import TransportContext from "../../../context";
+import moment from 'moment';
+import TransportContext from "../../context";
 import { useRouter } from "next/router";
-import { getBookingItem } from "../../../services/customer-api-service";
+import { getBookingItem } from "../../services/customer-api-service";
 import { Timeline, Collapse } from 'antd';
+import useAuth from "../../hooks/useAuth";
 const { Panel } = Collapse;
-const Step7 = () => {
+const currentOrder = () => {
+  const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
   // const [name, setName] = useState("Test");
   // const [orderId, setOrderId] = useState("");
@@ -26,6 +28,7 @@ const Step7 = () => {
   const { step2State } = context;
   const { step3State } = context;
   const { step5State } = context;
+  const [currentBooking, setCurrentBooking] = useState({});
   console.log("context.step1State", step1State);
   console.log("context.step2State", step2State);
   console.log("context.step3State", step3State);
@@ -46,13 +49,17 @@ const Step7 = () => {
   const [moveManager] = useState("Not Assigned");
 
   useEffect(() => {
-    debugger;
+    console.log("bookingInfo iN current order ", bookingInfo)
+    console.log("customer iN current order ", customer)
     const getData = async () => {
       let results;
       try {
-        results = await getBookingItem(step2State?.bookingId);
+        results = await getBookingItem(bookingInfo?.bookingId);
 
-        debugger;
+        console.log("booking details is ", results?.data)
+        if(results?.data?.data){
+          setCurrentBooking(results?.data?.data)
+        }
         if (results?.data?.customerData) {
           const arr = [];
           results?.data?.customerData.forEach((item) => {
@@ -63,7 +70,7 @@ const Step7 = () => {
               ? transformStep5Object(item?.step5)
               : null;
             if (item?.step3) {
-              debugger;
+              //debugger;
             }
             arr.push({
               step3: transformedStep3,
@@ -80,7 +87,7 @@ const Step7 = () => {
       } catch (error) { }
     };
     getData();
-  }, []);
+  }, [bookingInfo]);
   const transformStep3Object = (step3Object) => {
     if (!step3Object) return;
     const keys = Object.keys(step3Object);
@@ -151,7 +158,7 @@ const Step7 = () => {
     return arr;
   };
   const getStep1AndStep2 = (record) => {
-    debugger;
+    //debugger;
     const {
       shiftingFrom,
       shiftingTo,
@@ -329,7 +336,7 @@ const Step7 = () => {
               itemProp="image"
               alt="Image"
             />
-              Thank you Rishi Lohan!
+              Thank you {customer?.customerName}!
             </div>
             <div className="thankyou2_step7">The information you provided has been sent to our top secret super wise quote calculating monks. We will get you perfect tailor made quote in a day.</div>
           </div>
@@ -349,9 +356,9 @@ const Step7 = () => {
                     </div>
                   </div>
                   <div className="step7_container2 my-5 py-2 rounded-lg gap-1 bg-white ">
-                    <div className=" font-bold">Rishi Lohan</div>
-                    <div>rlohan318@gmail.com</div>
-                    <div>9728652655</div>
+                    <div className=" font-bold">{customer?.customerName}</div>
+                    <div>{customer?.email}</div>
+                    <div>{customer?.mobile}</div>
                   </div>
                 </div>
               </div>
@@ -390,7 +397,7 @@ const Step7 = () => {
                   
                   <div className="flex flex-col gap-3 text-md">
                     <div className=" font-semibold">Order Id</div>
-                    <div className="OrderID_text_step7 font-semibold">#BLL288945</div>
+                    <div className="OrderID_text_step7 font-semibold">{currentBooking.booking_id}</div>
                   </div>
 
                 </div>
@@ -401,21 +408,21 @@ const Step7 = () => {
                   <div className="flex flex-row justify-between p-3">
                     <div className="step7Summarybox_item1">
                       <div>from</div>
-                      <div className="font-semibold">Delhi, India</div>
+                      <div className="font-semibold">{currentBooking.shiftingFrom}</div>
                     </div>
                     <div>
                       <div>to</div>
-                      <div className="font-semibold">Noida, Uttar Pradesh, India</div>
+                      <div className="font-semibold">{currentBooking.shiftingFrom}</div>
                     </div>
                   </div>
                   <div className="flex flex-row justify-between p-3">
                     <div>
-                      <div>mover Planner:</div>
-                      <div className="font-semibold">Not Assigned</div>
+                      <div>Mover Planner:</div>
+                      <div className="font-semibold">{currentBooking.moverPlanner ? currentBooking.moverPlanner : "Not Assigned"}</div>
                     </div>
                     <div className="step7Summarybox_item2">
                       <div>Mover Manager:</div>
-                      <div className="font-semibold">Not Assigned</div>
+                      <div className="font-semibold">{currentBooking.moverManager ? currentBooking.moverManager : "Not Assigned"}</div>
                     </div>
                   </div>
                   <hr className="mx-auto step7SummarylBox2_hr" />
@@ -425,7 +432,7 @@ const Step7 = () => {
                         className=" greyOwn hover:bg-green-100 rounded-md  py-3 px-5 font-semibold text-sm"
                         type="submit"
                       >
-                        VIEW DETAILS
+                        Book Now
                       </button>
                     </div>
                     <div>
@@ -454,11 +461,11 @@ const Step7 = () => {
               <div className="flex flex-row justify-between p-3">
                 <div>
                   <div className="font-bold">Order Id</div>
-                  <div className="OrderID_text_step7 font-bold">#BLL288945</div>
+                  <div className="OrderID_text_step7 font-bold">{currentBooking.booking_id}</div>
                 </div>
                 <div>
                   <div>Date & Time slot</div>
-                  <div className=" font-semibold">11 August 2022</div>
+                  <div className=" font-semibold">{ moment(currentBooking.shiftingOn).format("Do MMMM YYYY")}</div>
                 </div>
               </div>
               <hr className="mx-auto step7SummarylBox2_hr" />
@@ -469,13 +476,13 @@ const Step7 = () => {
                 <Timeline>
                   <Timeline.Item>
                     <div className="py-1">From</div>
-                    <div className="py-1 font-semibold">Delhi Cantt Railway Station, jail Road, Nagal village, Delhi Cantonment, New Delhi</div>
-                    <div className="py-1 greencolor">Lift Avilabe</div>
+                    <div className="py-1 font-semibold">{currentBooking.shiftingFrom}</div>
+                    <div className="py-1 font-semibold">{currentBooking.currentFloor} Floor</div> <div className="py-1 greencolor">{currentBooking.isLiftAvailableOnCurrentFloor ? "Lift Avilabe" : "Lift Not Avilabe" } </div>
                   </Timeline.Item>
                   <Timeline.Item>
                     <div className="py-1">To</div>
-                    <div className="py-1 font-semibold">Sonipat, Haryana, India</div>
-                    <div className="py-1 greencolor">Lift Avilabe</div>
+                    <div className="py-1 font-semibold">{currentBooking.shiftingTo}</div>
+                    <div className="py-1 font-semibold">{currentBooking.movingOnFloor} Floor</div> <div className="py-1 greencolor">{currentBooking.isLiftAvailableOnMovingFloor ? "Lift Avilabe" : "Lift Not Avilabe" }</div>
                   </Timeline.Item>
                 </Timeline>
               </div>
@@ -485,7 +492,7 @@ const Step7 = () => {
               <div className="flex flex-row justify-between p-4 mt-6">
                 <div>
                   <div>What to move</div>
-                  <div className="font-semibold">3BHK</div>
+                  <div className="font-semibold">{currentBooking.shiftingFor}</div>
                 </div>
                 <div>
                   <div>Preferred Choice</div>
@@ -910,4 +917,4 @@ const Step7 = () => {
   // </div>
 };
 
-export default Step7;
+export default currentOrder;
