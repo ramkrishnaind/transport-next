@@ -57,7 +57,7 @@ const currentOrder = () => {
         results = await getBookingItem(bookingInfo?.bookingId);
 
         console.log("booking details is ", results?.data)
-        if(results?.data?.data){
+        if (results?.data?.data) {
           setCurrentBooking(results?.data?.data)
         }
         if (results?.data?.customerData) {
@@ -384,16 +384,15 @@ const currentOrder = () => {
 
                   <div className="step7_grid2 justify-start">
 
-                      <div className="step7_grid2item1 px-2" >
-                        19
-                      </div>
-                      <div className="flex flex-col my-auto px-2 pr-2">
-                        <div className=" font-bold">Thrusday</div>
-                        <div>September, 2022</div>
-                      </div>
+                    <div className="step7_grid2item1 px-2" >
+                      19
+                    </div>
+                    <div className="flex flex-col my-auto px-2 pr-2">
+                      <div className=" font-bold">Thrusday</div>
+                      <div>September, 2022</div>
+                    </div>
 
                   </div>
-                  
                   
                   <div className="flex flex-col gap-3 text-md">
                     <div className=" font-semibold">Order Id</div>
@@ -403,7 +402,7 @@ const currentOrder = () => {
                 </div>
 
 
-                <hr className="mx-auto step7SummarylBox2_hr"/>
+                <hr className="mx-auto step7SummarylBox2_hr" />
                 <div>
                   <div className="flex flex-row justify-between p-3">
                     <div className="step7Summarybox_item1">
@@ -465,7 +464,7 @@ const currentOrder = () => {
                 </div>
                 <div>
                   <div>Date & Time slot</div>
-                  <div className=" font-semibold">{ moment(currentBooking.shiftingOn).format("Do MMMM YYYY")}</div>
+                  <div className=" font-semibold">{moment(currentBooking.shiftingOn).format("Do MMMM YYYY")}</div>
                 </div>
               </div>
               <hr className="mx-auto step7SummarylBox2_hr" />
@@ -477,12 +476,12 @@ const currentOrder = () => {
                   <Timeline.Item>
                     <div className="py-1">From</div>
                     <div className="py-1 font-semibold">{currentBooking.shiftingFrom}</div>
-                    <div className="py-1 font-semibold">{currentBooking.currentFloor} Floor</div> <div className="py-1 greencolor">{currentBooking.isLiftAvailableOnCurrentFloor ? "Lift Avilabe" : "Lift Not Avilabe" } </div>
+                    <div className="py-1 font-semibold">{currentBooking.currentFloor} Floor</div> <div className="py-1 greencolor">{currentBooking.isLiftAvailableOnCurrentFloor ? "Lift Avilabe" : "Lift Not Avilabe"} </div>
                   </Timeline.Item>
                   <Timeline.Item>
                     <div className="py-1">To</div>
                     <div className="py-1 font-semibold">{currentBooking.shiftingTo}</div>
-                    <div className="py-1 font-semibold">{currentBooking.movingOnFloor} Floor</div> <div className="py-1 greencolor">{currentBooking.isLiftAvailableOnMovingFloor ? "Lift Avilabe" : "Lift Not Avilabe" }</div>
+                    <div className="py-1 font-semibold">{currentBooking.movingOnFloor} Floor</div> <div className="py-1 greencolor">{currentBooking.isLiftAvailableOnMovingFloor ? "Lift Avilabe" : "Lift Not Avilabe"}</div>
                   </Timeline.Item>
                 </Timeline>
               </div>
@@ -502,59 +501,67 @@ const currentOrder = () => {
               <div className="m-2 font-semibold p-2 text-xl ">
                 Your selected items
               </div>
-              <div className=" rounded-lg border m-2">
-                <Collapse defaultActiveKey={['1']} ghost>
-                  <Panel header="Furniture " key="1">
-                    <div className="m-2">
-                      <div className="p-3">
-                        <div className=" font-semibold">2X Sofa set</div>
-                        <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
-                        <div className="pl-5">• 1 x 1 sofa set with storage</div>
-                      </div>
-                      <div className="p-3">
-                        <div className=" font-semibold">3x Table</div>
-                        <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
-                        <div className="pl-5">• 1 x Dismantlable dressing table</div>
-                      </div>
-                    </div>
-                  </Panel>
-                </Collapse>
-              </div>
-              <div className=" rounded-lg border m-2">
-                <Collapse defaultActiveKey={['1']} ghost>
-                  <Panel header="Furniture " key="1">
-                    <div className="m-2">
-                      <div className="p-3">
-                        <div className=" font-semibold">2X Sofa set</div>
-                        <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
-                        <div className="pl-5">• 1 x 1 sofa set with storage</div>
-                      </div>
-                      <div className="p-3">
-                        <div className=" font-semibold">3x Table</div>
-                        <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
-                        <div className="pl-5">• 1 x Dismantlable dressing table</div>
-                      </div>
-                    </div>
-                  </Panel>
-                </Collapse>
-              </div>
-              <div className=" rounded-lg border m-2">
-                <Collapse defaultActiveKey={['1']} ghost>
-                  <Panel header="Furniture " key="1">
-                    <div className="m-2">
-                      <div className="p-3">
-                        <div className=" font-semibold">2X Sofa set</div>
-                        <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
-                        <div className="pl-5">• 1 x 1 sofa set with storage</div>
-                      </div>
-                      <div className="p-3">
-                        <div className=" font-semibold">3x Table</div>
-                        <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
-                        <div className="pl-5">• 1 x Dismantlable dressing table</div>
-                      </div>
-                    </div>
-                  </Panel>
-                </Collapse>
+              <div className="collapse_grid_currentOrder">
+                <div>
+                  <div className=" rounded-lg border m-2">
+                    <Collapse defaultActiveKey={['1']} ghost>
+                      <Panel header="Furniture " key="1">
+                        <div className="m-2">
+                          <div className="p-3">
+                            <div className=" font-semibold">2X Sofa set</div>
+                            <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
+                            <div className="pl-5">• 1 x 1 sofa set with storage</div>
+                          </div>
+                          <div className="p-3">
+                            <div className=" font-semibold">3x Table</div>
+                            <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
+                            <div className="pl-5">• 1 x Dismantlable dressing table</div>
+                          </div>
+                        </div>
+                      </Panel>
+                    </Collapse>
+                  </div>
+                </div>
+                <div>
+                  <div className=" rounded-lg border m-2">
+                    <Collapse defaultActiveKey={['1']} ghost>
+                      <Panel header="Furniture " key="1">
+                        <div className="m-2">
+                          <div className="p-3">
+                            <div className=" font-semibold">2X Sofa set</div>
+                            <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
+                            <div className="pl-5">• 1 x 1 sofa set with storage</div>
+                          </div>
+                          <div className="p-3">
+                            <div className=" font-semibold">3x Table</div>
+                            <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
+                            <div className="pl-5">• 1 x Dismantlable dressing table</div>
+                          </div>
+                        </div>
+                      </Panel>
+                    </Collapse>
+                  </div>
+                </div>
+                <div>
+                  <div className=" rounded-lg border m-2">
+                    <Collapse defaultActiveKey={['1']} ghost>
+                      <Panel header="Furniture " key="1">
+                        <div className="m-2">
+                          <div className="p-3">
+                            <div className=" font-semibold">2X Sofa set</div>
+                            <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
+                            <div className="pl-5">• 1 x 1 sofa set with storage</div>
+                          </div>
+                          <div className="p-3">
+                            <div className=" font-semibold">3x Table</div>
+                            <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
+                            <div className="pl-5">• 1 x Dismantlable dressing table</div>
+                          </div>
+                        </div>
+                      </Panel>
+                    </Collapse>
+                  </div>
+                </div>
               </div>
             </div>
 
