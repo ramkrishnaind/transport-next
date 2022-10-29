@@ -130,7 +130,9 @@ const HomePage = () => {
       if (saveResponse.data.status) {
         saveCustomer({
           customerID: saveResponse.data.customerData._id,
-          customerName: saveResponse.data.customerData.fullName,
+          customerName : saveResponse.data.customerData.fullName,
+          email : saveResponse.data.customerData.email,
+          mobile : saveResponse.data.customerData.mobile
         });
         //router.push("/otp")
         // setEnteredName("");

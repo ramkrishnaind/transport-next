@@ -10,6 +10,7 @@ import {
   step3Item,
   getBookingItem,
 } from "../../../services/customer-api-service";
+import useAuth from "../../../hooks/useAuth";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faSearch,
@@ -21,6 +22,7 @@ import { Collapse } from 'antd';
 const { Panel } = Collapse;
 
 const Step3 = (props) => {
+  const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
   const ctx = useContext(TransportContext);
   const { booking } = ctx;
@@ -79,6 +81,7 @@ const Step3 = (props) => {
   // }
 
   useEffect(() => {
+    console.log("bookingInfo in step3 is ", bookingInfo, )
     setObjectState((prev) => {
       const newState = { ...prev };
       const keys = Object.keys(newState);
@@ -90,7 +93,7 @@ const Step3 = (props) => {
       });
       return newState;
     });
-  }, []);
+  }, [bookingInfo]);
   useEffect(() => {
     // debugger;
     if (!step3State) return;
@@ -160,6 +163,9 @@ const Step3 = (props) => {
     //--------------------------
     ctx.setStep3State(objectState);
     console.log("objectState", objectState);
+    saveBooking({ ...bookingInfo,
+      step3:objectState
+    });
     router.push("/order/step4");
   };
   const handleSkip = () => {

@@ -10,6 +10,7 @@ import Image from "next/image";
 import { bookingItem, step4Item, cft } from "../../../services/customer-api-service";
 import { useRouter } from "next/router";
 import { faPersonWalkingDashedLineArrowRight } from "@fortawesome/free-solid-svg-icons";
+import useAuth from "../../../hooks/useAuth";
 let objToAppend = [];
 const bikeTransformed = [];
 bikeList.forEach((bikeItem) => {
@@ -195,6 +196,7 @@ bikeTransformed.forEach((item) => {
   }
 });
 const Step4 = (props) => {
+  const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
@@ -313,7 +315,7 @@ const Step4 = (props) => {
     }
   };
   useEffect(() => {
-    //debugger;
+    console.log("bookingInfo in step4 is ", bookingInfo, )
     if (!step3State) return;
     const keys = Object.keys(step3State);
     const arr = [];
@@ -346,7 +348,7 @@ const Step4 = (props) => {
     });
     if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
     setState(arr);
-  }, [step3State, getCopiedObject]);
+  }, [step3State, getCopiedObject, bookingInfo]);
   //useEffect(() => {}, []);
   // console.log("currentHeader", currentHeader);
 
@@ -992,6 +994,12 @@ const Step4 = (props) => {
     await step4Item({
       bookingId: step2State?.bookingId,
       step4: [...items],
+    });
+    saveBooking({ ...bookingInfo,
+      step4: [...items],
+      step4Object:objCreated,
+      cftTotal
+
     });
     router.push("/order/step5");
   };

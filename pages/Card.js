@@ -5,20 +5,16 @@ import Image from "next/image";
 import {cartoonModel} from "../constants/cartoons"
 const Card = ({ image, item, itemCount, onClick, onDecrement }) => {
   const { bookingInfo, saveBooking, customer } = useAuth();
-  console.log("itemCount", itemCount);
-  console.log("item in card is", item);
   const [isCartonboxes, setIsCartonboxes] = useState(false)
   const [shiftingFor, setShiftingFor] = useState("")
   
   useEffect(() => {
-    console.log("booking from local storage in card is", bookingInfo);
     setShiftingFor(bookingInfo?.step1?.shiftingFor)
     if((item === "Cartonboxes") && !isCartonboxes){
       console.log("item in if condition is", item);
       setIsCartonboxes(true)
     }
   }, [bookingInfo, customer]);
-  console.log(" shiftingFor is ", shiftingFor, cartoonModel[shiftingFor])
   const toolTipMsg = (
     
       <b> For a {shiftingFor}, we are offering {cartoonModel[shiftingFor]} cartoon boxes as complimentary which are required for packing of clothes, kitchen items and other miscellaneous items.</b>
