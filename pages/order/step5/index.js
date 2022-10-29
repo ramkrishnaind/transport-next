@@ -7,8 +7,9 @@ import { misItem, step5Item, cft } from "../../../services/customer-api-service"
 import { Collapse } from 'antd';
 const { Panel } = Collapse;
 import { Button, Modal, Space } from 'antd';
-
+import useAuth from "../../../hooks/useAuth";
 const Step5 = () => {
+  const { bookingInfo, saveBooking, customer } = useAuth();
   const ctx = useContext(TransportContext);
   const router = useRouter();
   const { customerDetails } = ctx;
@@ -25,7 +26,7 @@ const Step5 = () => {
   console.log("context.step3State -- ", step3State);
   console.log("context.step4State -- ", step4State);
   console.log("context.step5State -- ", step5State);
-  const [cftTotal, setCftTotal] = useState(0);
+  const [cftTotal, setCftTotal] = useState(Number(booking.cftTotal));
   const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
   const bookingId = booking?.bookingId;
   let categories = [...itemList.map((item) => item?.Category)];
@@ -81,7 +82,9 @@ const Step5 = () => {
       });
       return newState;
     });
-  }, []);
+    console.log("bookingInfo in step5 is ", bookingInfo)
+    setCftTotal(Number(booking.cftTotal))
+  }, [bookingInfo]);
   useEffect(() => {
     //debugger;
     if (!step5State) return;
@@ -168,6 +171,10 @@ const Step5 = () => {
     });
     console.log("step5State - 5", ctx.step5State);
     // router.push("/order/step6"); 
+    saveBooking({ ...bookingInfo,
+      step5: objectState
+
+    });
   };
 
   const callApi = async () => {
@@ -222,7 +229,7 @@ const Step5 = () => {
   };
   const handleOk = () => {
     setIsBookingConfirmed(false);
-    router.push("/order/step7"); 
+    router.push("/order/currentOrder"); 
   };
   const bookingConformation = () => {
     Modal.success({

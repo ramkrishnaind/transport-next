@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { getBookingItem } from "../../services/customer-api-service";
 import { Timeline, Collapse } from 'antd';
 import useAuth from "../../hooks/useAuth";
+import _ from "lodash";
 const { Panel } = Collapse;
 const currentOrder = () => {
   const { bookingInfo, saveBooking, customer } = useAuth();
@@ -51,6 +52,23 @@ const currentOrder = () => {
   useEffect(() => {
     console.log("bookingInfo iN current order ", bookingInfo)
     console.log("customer iN current order ", customer)
+    if(bookingInfo){
+      let itemList = [];
+      Object.keys(bookingInfo.step4Object).forEach(function(key, index) {
+        itemList.push(...bookingInfo.step4Object[key] );
+      });
+      console.log("itemList is ", itemList)
+      // itemList.map((item)=>{
+      //   if(item.category == "Electronic"){
+
+      //   }
+      // })
+      const groupedItems = _.groupBy(itemList, item => item.category);
+      console.log("groupedItems is ", groupedItems)
+      Object.keys(groupedItems).forEach(function(key, index) {
+        console.log("key in groupedIterms is", key)
+      });
+    }
     const getData = async () => {
       let results;
       try {
@@ -87,7 +105,7 @@ const currentOrder = () => {
       } catch (error) { }
     };
     getData();
-  }, [bookingInfo]);
+  }, [bookingInfo, customer]);
   const transformStep3Object = (step3Object) => {
     if (!step3Object) return;
     const keys = Object.keys(step3Object);
@@ -385,11 +403,11 @@ const currentOrder = () => {
                   <div className="step7_grid2 justify-start">
 
                     <div className="step7_grid2item1 px-2" >
-                      19
+                      {moment(currentBooking.shiftingOn).format('DD')}
                     </div>
                     <div className="flex flex-col my-auto px-2 pr-2">
-                      <div className=" font-bold">Thrusday</div>
-                      <div>September, 2022</div>
+                      <div className=" font-bold">{moment(currentBooking.shiftingOn).format('dddd')}</div>
+                      <div>{moment(currentBooking.shiftingOn).format('MMMM')}, {moment(currentBooking.shiftingOn).format('YYYY')}</div>
                     </div>
 
                   </div>
@@ -406,12 +424,12 @@ const currentOrder = () => {
                 <div>
                   <div className="flex flex-row justify-between p-3">
                     <div className="step7Summarybox_item1">
-                      <div>from</div>
+                      <div>From</div>
                       <div className="font-semibold">{currentBooking.shiftingFrom}</div>
                     </div>
                     <div>
-                      <div>to</div>
-                      <div className="font-semibold">{currentBooking.shiftingFrom}</div>
+                      <div>To</div>
+                      <div className="font-semibold">{currentBooking.shiftingTo}</div>
                     </div>
                   </div>
                   <div className="flex flex-row justify-between p-3">
@@ -492,10 +510,6 @@ const currentOrder = () => {
                 <div>
                   <div>What to move</div>
                   <div className="font-semibold">{currentBooking.shiftingFor}</div>
-                </div>
-                <div>
-                  <div>Preferred Choice</div>
-                  <div className="font-semibold">-</div>
                 </div>
               </div>
               <div className="m-2 font-semibold p-2 text-xl ">

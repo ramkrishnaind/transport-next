@@ -70,6 +70,9 @@ const Step2 = () => {
       };
       context.setStep2State(formData);
       console.log(formData);
+      saveBooking({ ...bookingInfo,
+        step2:formData
+      });
       router.push("/order/step3");
     }
     console.log("step 2 result is", result);
