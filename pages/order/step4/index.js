@@ -1028,7 +1028,139 @@ const Step4 = (props) => {
         </div>
       </div>
     </div>
-
+    <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg ">
+      <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
+        <div className="step4_heading font-medium px-2 text-center md:text-left lg:text-left xl:text-left  ">
+          Please describe the items, so that we can understand them better
+        </div>
+        <div className="step4_heading2 px-2 text-center md:text-left lg:text-left xl:text-left  ">
+          We would be able to provide you a more accurate quote once you provide us this.
+        </div>
+      </div>
+      <div className="p-3">
+        <div className="flex overflow-x-auto accent-emerald-500/25  space-x-4  py-2  px-5">
+          <div className="flex flex-row space-x-3">
+            {state.map((element, index) => (
+              <div
+                key={index}
+                className=" px-2 cursor-pointer "
+                title={element.title}
+                onClick={(e) => handleCarouselClick(e, element)}
+              >
+                <div className="flex justify-center p-3" style={{ height: 60 }}>
+                  <img src={element.image} alt="" />
+                </div>
+                {/* <div className="text-center text-sm">{element.title}</div> */}
+                <div className="px-5 mt-2 hover:bg-blue-100">
+                  <button
+                    className="text-gray-500 text-center m-auto"
+                  // onClick={changeState}
+                  >
+                    {getCompletedCount(element.title)}/{element.count}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* Action List Starts from Here */}
+      <div className="mainHeaderCardBox-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between">
+        <div className="HeaderCard_CurrentOrder px-3 py-4">
+          <div className="">
+            <div>1.<img className="arrow-png pl-3 pr-2" src="/images/trail-img/table_restaurant.png" itemProp="image" alt="main BannerImage" />Table
+            </div>
+          </div>
+          <div className="">
+            <div className="red-text_currentOrder xl:hidden lg:hidden">Clear</div>
+          </div>
+        </div>
+        <hr className=" lg:hidden xl:hidden" />
+        <div className="grid_Select_currentOrder   px-3 py-4 ">
+          <div>
+            <select
+              className=" bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Coffee / center
+              </option>
+              <option value="Coffee / center">Coffee / center</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Grass Top
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+        </div>
+        <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4">Clear</div>
+      </div>
+      {/* Action List Ends Here */}
+    </div>
 
     <div className="  ">
         <div className="relative flex-1">

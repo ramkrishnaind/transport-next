@@ -1144,10 +1144,44 @@ select:invalid {
     font-size: 1.1rem;
   }
 }
-
+.mainHeaderCardBox-Current_history {
+  border: 1.5px solid #439fd9;
+  border-radius: 5px;
+}
+.mainHeaderCardBox2-Current_history {
+  border-radius: 5px;
+}
 @media (min-width: 1023px) {
   .collapse_grid_currentOrder {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .grid_Select_currentOrder{
+    width: 42rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}
+.red-text_currentOrder {
+  color: #df5f5f;
+}
+@media (max-width: 767px) {
+  .grid_Select_currentOrder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .HeaderCard_CurrentOrder {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 767px) and (max-width: 1023px) {
+  .grid_Select_currentOrder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .HeaderCard_CurrentOrder {
+    display: flex;
+    justify-content: space-between;
   }
 }

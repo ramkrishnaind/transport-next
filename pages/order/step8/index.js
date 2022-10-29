@@ -997,9 +997,8 @@ const Step4 = (props) => {
   };
 
   return (<>
+    {/* completeBAR */}
     <div>
-      {/* completeBAR */}
-
       <div className="hidden md:block lg:block xl:block">
         <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
           <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
@@ -1036,8 +1035,9 @@ const Step4 = (props) => {
           We would be able to provide you a more accurate quote once you provide us this.
         </div>
       </div>
+
       <div className="p-3">
-        <div className="flex overflow-x-auto accent-emerald-500/25  space-x-4  py-2  px-5.">
+        <div className="flex overflow-x-auto accent-emerald-500/25  space-x-4  py-2  px-5">
           <div className="flex flex-row space-x-3">
             {state.map((element, index) => (
               <div
@@ -1063,6 +1063,291 @@ const Step4 = (props) => {
           </div>
         </div>
       </div>
+
+
+      <div className="mainHeaderCardBox-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between">
+        <div className="HeaderCard_CurrentOrder px-3 py-4">
+          <div className="">
+            <div>1.<img className="arrow-png pl-3 pr-2" src="/images/trail-img/table_restaurant.png" itemProp="image" alt="main BannerImage" />Table
+            </div>
+          </div>
+          <div className="">
+            <div className="red-text_currentOrder xl:hidden lg:hidden">Clear</div>
+          </div>
+        </div>
+        <hr className=" lg:hidden xl:hidden" />
+        <div className="grid_Select_currentOrder   px-3 py-4 ">
+          <div>
+            <select
+              className=" bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Coffee / center
+              </option>
+              <option value="Coffee / center">Coffee / center</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Grass Top
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+        </div>
+        <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4">Clear</div>
+      </div>
+      <div className="mainHeaderCardBox-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between">
+        <div className="HeaderCard_CurrentOrder px-3 py-4">
+          <div className="">
+            <div>1.<img className="arrow-png pl-3 pr-2" src="/images/trail-img/table_restaurant.png" itemProp="image" alt="main BannerImage" />Table
+            </div>
+          </div>
+          <div className="">
+            <div className="red-text_currentOrder xl:hidden lg:hidden">Clear</div>
+          </div>
+        </div>
+        <hr className=" lg:hidden xl:hidden" />
+        <div className="grid_Select_currentOrder   px-3 py-4 ">
+          <div>
+            <select
+              className=" bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Coffee / center
+              </option>
+              <option value="Coffee / center">Coffee / center</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Grass Top
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+        </div>
+        <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4">Clear</div>
+      </div>
+      <div className="mainHeaderCardBox2-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between">
+        <div className="HeaderCard_CurrentOrder px-3 py-4">
+          <div className="">
+            <div>1.<img className="arrow-png pl-3 pr-2" src="/images/trail-img/table_restaurant.png" itemProp="image" alt="main BannerImage" />Table
+            </div>
+          </div>
+          <div className="">
+            <div className="red-text_currentOrder xl:hidden lg:hidden">Clear</div>
+          </div>
+        </div>
+        <hr className=" lg:hidden xl:hidden" />
+        <div className="grid_Select_currentOrder   px-3 py-4 ">
+          <div>
+            <select
+              className=" bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Coffee / center
+              </option>
+              <option value="Coffee / center">Coffee / center</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Grass Top
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+        </div>
+        <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4">Clear</div>
+      </div>
+      
       <div className="mt-6 ">
         <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
           <button
