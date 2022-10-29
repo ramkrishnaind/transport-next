@@ -7,7 +7,7 @@ import { Timeline, Collapse } from 'antd';
 import useAuth from "../../hooks/useAuth";
 import _ from "lodash";
 const { Panel } = Collapse;
-const currentOrder = () => {
+const CurrentOrder = () => {
   const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
   // const [name, setName] = useState("Test");
@@ -938,4 +938,4 @@ const currentOrder = () => {
   // </div>
 };
 
-export default currentOrder;
+export default CurrentOrder;
