@@ -26,7 +26,7 @@ const Step5 = () => {
   console.log("context.step3State -- ", step3State);
   console.log("context.step4State -- ", step4State);
   console.log("context.step5State -- ", step5State);
-  const [cftTotal, setCftTotal] = useState(Number(booking.cftTotal));
+  const [cftTotal, setCftTotal] = useState(Number(bookingInfo?.cftTotal));
   const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
   const bookingId = booking?.bookingId;
   let categories = [...itemList.map((item) => item?.Category)];
