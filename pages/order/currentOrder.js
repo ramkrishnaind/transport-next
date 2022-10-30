@@ -224,7 +224,7 @@ const CurrentOrder = () => {
     return (
       <>
       {Object.keys(groupedItems).map((key, i) => (
-          <div className="collapse_grid_currentOrder">
+          <div className="collapse_grid_currentOrder" key={i}>
           <div>
             <div className=" rounded-lg border m-2">
               <Collapse defaultActiveKey={[{i}]} ghost>
