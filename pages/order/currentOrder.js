@@ -287,7 +287,7 @@ const CurrentOrder = () => {
   return (
     <>
       {isLoading ? (<>
-        <div className="flex justify-center items-center"><Spin size="large" /></div>
+        <div className="lodingScreen"><Spin size="large" /></div>
       </>) : (<>
         <div className="fontColor_4E4E4E">
 
