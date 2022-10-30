@@ -29,8 +29,21 @@ const CurrentOrder = () => {
       try {
         results = await getBookingItem(bookingInfo?.bookingId);
       if (results?.data?.data) {
-          setCurrentBooking(results?.data?.data)
-          setIsLoading(false)
+        setIsLoading(false)
+        console.log("api response is ", results)
+          let currentBooking = results?.data?.data;
+          currentBooking.step3 = currentBooking?.step3
+          ? transformStep3Object(item?.step3)
+          : null;
+          currentBooking.step3 = currentBooking?.step5
+          ? transformStep5Object(item?.step5)
+          : null;
+          currentBooking.step3State = currentBooking?.step3 || {},
+          currentBooking.step4Items = currentBooking?.step4 || [],
+          currentBooking.step5State = currentBooking?.step5 || {},
+          currentBooking.bookingId = currentBooking.bookingId,
+
+          setCurrentBooking({currentBooking, ...getStep1AndStep2(currentBooking)})
         }
         if (results?.data?.customerData) {
           const arr = [];
@@ -223,13 +236,13 @@ const CurrentOrder = () => {
     }
     return (
       <>
+      <div className="collapse_grid_currentOrder">
       {Object.keys(groupedItems).map((key, i) => (
-          <div className="collapse_grid_currentOrder" key={i}>
+          
           <div>
             <div className=" rounded-lg border m-2">
-              <Collapse defaultActiveKey={[{i}]} ghost>
+              <Collapse defaultActiveKey={['0','1', '2']} ghost>
                 <Panel header={key} key={i}>
-                  {console.log("Hello in collapse ", groupedItems[key])}
                   <div className="m-2">
                   {
                     itemInfoFun(groupedItems[key])
@@ -239,8 +252,9 @@ const CurrentOrder = () => {
               </Collapse>
             </div>
           </div>
-        </div>
       ))}
+        </div>
+
       </>
     )
   }
@@ -388,7 +402,7 @@ const CurrentOrder = () => {
                       <button
                         className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
                         type="submit"
-                        onClick={(e) => handleEditInventory(e, record)}
+                        onClick={(e) => handleEditInventory(e, currentBooking)}
                       >
                         <img
                           className="inline px-4"
