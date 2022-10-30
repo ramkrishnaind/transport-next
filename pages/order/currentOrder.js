@@ -3,80 +3,34 @@ import moment from 'moment';
 import TransportContext from "../../context";
 import { useRouter } from "next/router";
 import { getBookingItem } from "../../services/customer-api-service";
-import { Timeline, Collapse } from 'antd';
+import { Timeline, Collapse, Spin  } from 'antd';
 import useAuth from "../../hooks/useAuth";
 import _ from "lodash";
 const { Panel } = Collapse;
 const CurrentOrder = () => {
   const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
-  // const [name, setName] = useState("Test");
-  // const [orderId, setOrderId] = useState("");
-  // const [moveType, setMoveType] = useState("");
-  // const [mobileNo, setMobileNo] = useState("");
-  // const [emailId, setEmailId] = useState("");
-  // const [orderCreated, setOrderCreated] = useState("₹ 0/CREATED");
-  // const [formAddress, setFromAddress] = useState("");
   const [allRecords, setAllRecords] = useState();
-  // const [toAddress, setToAddress] = useState("");
-  // const [date, setDate] = useState("");
-  // const [fromLift, setFromLift] = useState("");
-  // const [toLift, setToLift] = useState("");
-  // const [currentFloor, setCurrentFloor] = useState("");
-  // const [movingOnFloor, setmovingOnFloor] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const context = useContext(TransportContext);
   const { step1State } = context;
   const { step2State } = context;
   const { step3State } = context;
   const { step5State } = context;
   const [currentBooking, setCurrentBooking] = useState({});
-  console.log("context.step1State", step1State);
-  console.log("context.step2State", step2State);
-  console.log("context.step3State", step3State);
-  console.log("context.step5State", step5State);
-  // const { customerDetails } = context;
-  // const [customerData, setCustomerData] = useState({});
-  // const [state, setState] = useState([]);
-  // const [items, setItems] = useState([]);
-  // const [state5, setState5] = useState([]);
   let objToAppend = [];
-  // const [dayName, setDayName] = useState("");
-  // const [day, setDay] = useState("");
-  // const [month, setMonth] = useState("");
-
-  // todo - mover planner and manager name comes from where
   const [moverPlanner] = useState("Charmee Kothari");
   const [moverPlannerNo] = useState("08047094008");
   const [moveManager] = useState("Not Assigned");
 
   useEffect(() => {
-    console.log("bookingInfo iN current order ", bookingInfo)
-    console.log("customer iN current order ", customer)
-    if(bookingInfo){
-      let itemList = [];
-      Object.keys(bookingInfo.step4Object).forEach(function(key, index) {
-        itemList.push(...bookingInfo.step4Object[key] );
-      });
-      console.log("itemList is ", itemList)
-      // itemList.map((item)=>{
-      //   if(item.category == "Electronic"){
-
-      //   }
-      // })
-      const groupedItems = _.groupBy(itemList, item => item.category);
-      console.log("groupedItems is ", groupedItems)
-      Object.keys(groupedItems).forEach(function(key, index) {
-        console.log("key in groupedIterms is", key)
-      });
-    }
     const getData = async () => {
       let results;
       try {
         results = await getBookingItem(bookingInfo?.bookingId);
-
-        console.log("booking details is ", results?.data)
-        if (results?.data?.data) {
+      if (results?.data?.data) {
           setCurrentBooking(results?.data?.data)
+          setIsLoading(false)
         }
         if (results?.data?.customerData) {
           const arr = [];
@@ -119,9 +73,6 @@ const CurrentOrder = () => {
         const arryStateCount = [...Array(i.count).keys()];
         arryStateCount.forEach((it) => {
           let objFound = objToAppend.find((itemToFind) => {
-            // if (itemToFind.key === "TVS") {
-            //
-            // }
             return itemToFind.key === i.title;
           });
           objFound = getCopiedObject(objFound);
@@ -153,9 +104,6 @@ const CurrentOrder = () => {
         const arryStateCount = [...Array(i.count).keys()];
         arryStateCount.forEach((it) => {
           let objFound = objToAppend.find((itemToFind) => {
-            // if (itemToFind.key === "TVS") {
-            //
-            // }
             return itemToFind.key === i.title;
           });
           objFound = getCopiedObject(objFound);
@@ -171,8 +119,6 @@ const CurrentOrder = () => {
         });
       });
     });
-    // if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
-    // setState5(arr);
     return arr;
   };
   const getStep1AndStep2 = (record) => {
@@ -235,52 +181,6 @@ const CurrentOrder = () => {
     data.mobileNo = record?.customerId?.mobile;
     return data;
   };
-  // useEffect(() => {
-  //   if (!step1State) return;
-  //   setFromAddress(step1State["shiftingFrom"]);
-  //   setToAddress(step1State["shiftingTo"]);
-  //   setMoveType(step1State["shiftingFor"]);
-  //   //setDate(step1State["shiftingOn"])
-  //   const months = {
-  //     0: "January",
-  //     1: "February",
-  //     2: "March",
-  //     3: "April",
-  //     4: "May",
-  //     5: "June",
-  //     6: "July",
-  //     7: "August",
-  //     8: "September",
-  //     9: "October",
-  //     10: "November",
-  //     11: "December",
-  //   };
-  //   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  //   const d = step1State["shiftingOn"];
-  //   const year = d.getFullYear();
-  //   const date = d.getDate();
-  //   const monthName = months[d.getMonth()];
-  //   const dayName = days[d.getDay()];
-  //   const formattedDate = `${dayName}, ${date} ${monthName} ${year}`;
-  //   setDate(formattedDate);
-  //   setDay(date);
-  //   setDayName(dayName);
-  //   setMonth(monthName + " " + year);
-
-  //   if (!step2State) return;
-  //   setOrderId(step2State["bookingId"]);
-  //   setCurrentFloor(step2State["currentFloor"]);
-  //   setFromLift(step2State["isLiftAvailableOnCurrentFloor"]);
-  //   setToLift(step2State["isLiftAvailableOnMovingFloor"]);
-  //   setmovingOnFloor(step2State["movingOnFloor"]);
-
-  //   if (!customerDetails) return;
-  //   setEmailId(customerDetails["email"]);
-  //   setName(customerDetails["fullName"]);
-  //   setMobileNo(customerDetails["mobile"]);
-  // }, [step1State, step2State, customerDetails]);
-
   const getCopiedObject = useCallback((objFound) => {
     //
     const objValues = [];
@@ -294,24 +194,6 @@ const CurrentOrder = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   //debugger;
-  //   setState(transformStep3Object(step3State));
-  // }, [step3State]);
-
-  // useEffect(() => {
-  //   //debugger;
-
-  // }, [step5State, getCopiedObject]);
-  // state.forEach((s) => {
-  //   console.log("state = " + s.title);
-  //   console.log("state = " + s.image);
-  //   console.log("state = " + s.count);
-  //   console.log("state = " + s.category);
-  // });
-
-  // console.log("items------", items);
-  // console.log("state------", state);
 
   const clickHandler = (key, item) => { };
   const decrementHandler = (key, item) => { };
@@ -329,21 +211,71 @@ const CurrentOrder = () => {
     context.step5State = { ...record.step5State };
     router.push("/order/step3");
   };
-
+  const bookingSelectedItems = (details) => {
+    let result;
+    let groupedItems;
+    if(details){
+      let itemList = [];
+      Object.keys(details.step4Object).forEach(function(key, index) {
+        itemList.push(...details.step4Object[key] );
+      });
+      groupedItems = _.groupBy(itemList, item => item.category);
+    }
+    return (
+      <>
+      {Object.keys(groupedItems).map((key, i) => (
+          <div className="collapse_grid_currentOrder">
+          <div>
+            <div className=" rounded-lg border m-2">
+              <Collapse defaultActiveKey={[{i}]} ghost>
+                <Panel header={key} key={i}>
+                  {console.log("Hello in collapse ", groupedItems[key])}
+                  <div className="m-2">
+                  {
+                    itemInfoFun(groupedItems[key])
+                  }
+                  </div>
+                </Panel>
+              </Collapse>
+            </div>
+          </div>
+        </div>
+      ))}
+      </>
+    )
+  }
+  const itemInfoFun = (itemList) => {
+    let groupedDetailsItems = _.groupBy(itemList, item => item.item);
+        return (
+          <>
+            {Object.keys(groupedDetailsItems).map((keyName, index) => (
+              <>
+                <div className="p-3">
+                  <div className=" font-semibold">{keyName}</div>
+                  
+                  {groupedDetailsItems[keyName]?.map((item, index) => {
+                    return (
+                      <>
+                        <div className="pl-5">• {item.Action1 ? item.Action1 + " " : ""} 
+                        {item.Action2 ? item.Action2 + " " : ""}
+                        {item.Action3 ? item.Action3 + " " : ""}
+                        {item.Action4 ? item.Action4 + " " : ""}
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              </>
+            ))}
+          </>
+        )
+  }
   return (
     <>
-      {/* completeBAR */}
-      {/* 
-      <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
-        <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-          Set up 0% complete
-        </div>
-        <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-          5 Step left • About 8 min
-        </div>
-      </div> */}
-
-      <div className="fontColor_4E4E4E">
+      {isLoading ? (<>
+        <div className="flex justify-center items-center"><Spin size="large" /></div>
+      </>) : (<>
+        <div className="fontColor_4E4E4E">
 
 
         <div>
@@ -515,427 +447,16 @@ const CurrentOrder = () => {
               <div className="m-2 font-semibold p-2 text-xl ">
                 Your selected items
               </div>
-              <div className="collapse_grid_currentOrder">
-                <div>
-                  <div className=" rounded-lg border m-2">
-                    <Collapse defaultActiveKey={['1']} ghost>
-                      <Panel header="Furniture " key="1">
-                        <div className="m-2">
-                          <div className="p-3">
-                            <div className=" font-semibold">2X Sofa set</div>
-                            <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
-                            <div className="pl-5">• 1 x 1 sofa set with storage</div>
-                          </div>
-                          <div className="p-3">
-                            <div className=" font-semibold">3x Table</div>
-                            <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
-                            <div className="pl-5">• 1 x Dismantlable dressing table</div>
-                          </div>
-                        </div>
-                      </Panel>
-                    </Collapse>
-                  </div>
-                </div>
-                <div>
-                  <div className=" rounded-lg border m-2">
-                    <Collapse defaultActiveKey={['1']} ghost>
-                      <Panel header="Furniture " key="1">
-                        <div className="m-2">
-                          <div className="p-3">
-                            <div className=" font-semibold">2X Sofa set</div>
-                            <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
-                            <div className="pl-5">• 1 x 1 sofa set with storage</div>
-                          </div>
-                          <div className="p-3">
-                            <div className=" font-semibold">3x Table</div>
-                            <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
-                            <div className="pl-5">• 1 x Dismantlable dressing table</div>
-                          </div>
-                        </div>
-                      </Panel>
-                    </Collapse>
-                  </div>
-                </div>
-                <div>
-                  <div className=" rounded-lg border m-2">
-                    <Collapse defaultActiveKey={['1']} ghost>
-                      <Panel header="Furniture " key="1">
-                        <div className="m-2">
-                          <div className="p-3">
-                            <div className=" font-semibold">2X Sofa set</div>
-                            <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
-                            <div className="pl-5">• 1 x 1 sofa set with storage</div>
-                          </div>
-                          <div className="p-3">
-                            <div className=" font-semibold">3x Table</div>
-                            <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
-                            <div className="pl-5">• 1 x Dismantlable dressing table</div>
-                          </div>
-                        </div>
-                      </Panel>
-                    </Collapse>
-                  </div>
-                </div>
-              </div>
+              {bookingSelectedItems(bookingInfo)}
             </div>
 
 
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/*       
-      <div>
-        {allRecords?.map((record, index) => {
-          return (
-            <div className="flex m-10 space-x-5" key={index}>
-              <div className="h-80 w-2/5 rounded shadow-lg">
-                <div className="flex ">
-                  <div className="w-1/3 h-80">
-                    <div className="h-32 border-t-2 border-l-2 border-b-2 bg-gray-100 rounded shadow-lg">
-                      <div className="flex mt-10 justify-center space-x-2">
-                        <div className=" text-xl font-bold justify-center">
-                          {record.bookingId}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="h-48 w-full  bg-blue-400 ">
-                      <div className="flex  justify-center ">
-                        <div className="font-bold text-xl text-gray-100 mt-7">
-                          {record.day}
-                        </div>
-                      </div>
-                      <div className="flex mt-5 justify-center">
-                        <div className="font-bold text-xl text-gray-100">
-                          {record.dayName}
-                        </div>
-                      </div>
-
-                      <div className="flex mt-5 justify-center ">
-                        <div className="font-bold text-xl text-gray-100">
-                          {record.month}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-2/3 h-80 border-2 rounded shadow-lg text-sm">
-                    <div className="flex ml-3 mr-10 mt-1 space-x-2 font-medium text-sm">
-                      <div className="flex- 1 w-1/2">From</div>
-                    </div>
-                    <div className="flex ml-3 mr-10 space-x-2 text-sm">
-                      <div className="flex- 1 w-3/5">{record.fromAddress}</div>
-                    </div>
-
-                    <div className="flex ml-3 mr-10 mt-3 space-x-2 font-medium text-sm">
-                      <div className="flex- 1 w-1/2">To</div>
-                    </div>
-                    <div className="flex ml-3 mr-10 space-x-2">
-                      <div className="flex- 1 w-3/5">{record.toAddress}</div>
-                    </div>
-                    <div className="flex ml-3 mr-10 mt-5 space-x-2 font-medium text-sm">
-                      <div className="flex- 1 w-1/2">Mover Planner</div>
-                      <div className="flex- 1 w-1/2 ">Mover Manager</div>
-                    </div>
-                    <div className="flex ml-3 mr-10 space-x-2 text-sm">
-                      <div className="flex- 1 w-1/2">{moverPlanner}</div>
-                      <div className="flex- 1 w-1/2  ">{moveManager}</div>
-                    </div>
-                    <div className="flex ml-3 mr-10 space-x-2">
-                      <div className="flex- 1 w-1/2">{moverPlannerNo}</div>
-                    </div>
-                    <div className="flex mr-5 mt-10 justify-end text-sm">
-                      Your order is being evaluated by us
-                    </div>
-
-                    <div className="flex justify-end mr-5 mt-5 space-x-5">
-                      <button
-                        className="bg-gray-400 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
-                        type="submit"
-                      >
-                        VIEW DETAILS
-                      </button>
-                      <button
-                        className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
-                        type="submit"
-                        onClick={(e) => handleEditInventory(e, record)}
-                      >
-                        EDIT INVENTORY
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg overflow-y-auto">
-                <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-                  <div className="flex- 1 w-1/2">Order Id</div>
-                  <div className="flex- 1 w-1/2 ">Date Timeslot</div>
-                </div>
-                <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                  <div className="flex- 1 w-1/2">{record.orderId}</div>
-                  <div className="flex- 1 w-1/2  ">{record.date}</div>
-                </div>
-                <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-                  <div className="flex- 1 w-1/2">From Address</div>
-                  <div className="flex- 1 w-1/2 ">To Address</div>
-                </div>
-                <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                  <div className="flex- 1 w-1/2">{record.fromAddress}</div>
-                  <div className="flex- 1 w-1/2  ">{record.toAddress}</div>
-                </div>
-
-                <div className="flex ml-10 mr-10 mt-10 space-x-2 font-medium text-md">
-                  <div className="flex- 1 w-1/2">Floor</div>
-                  <div className="flex- 1 w-1/2 ">Floor</div>
-                </div>
-                <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                  <div className="flex- 1 w-1/2">{record.currentFloor}</div>
-                  <div className="flex- 1 w-1/2  ">{record.movingOnFloor}</div>
-                </div>
-                <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                  <div className="flex- 1 w-1/2">
-                    {record.isLiftAvailableOnCurrentFloor}
-                  </div>
-                  <div className="flex- 1 w-1/2  ">
-                    {record.isLiftAvailableOnMovingFloor}
-                  </div>
-                </div>
-                <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-                  <div className="flex- 1 w-1/2">Preferred Choice</div>
-                  <div className="flex- 1 w-1/2 ">What to Move</div>
-                </div>
-                <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                  <div className="flex- 1 w-1/2">{ }</div>
-                  <div className="flex- 1 w-1/2  ">{record.moveType}</div>
-                </div>
-
-                <div className="w-5/6">
-                  <form className="max-w-xl m-auto py-10 px-5">
-                    <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
-                      {record.step3?.map((st, ind1) => {
-                        console.log("item", st);
-                        return (
-                          <Card
-                            image={st.image}
-                            key={ind1}
-                            item={st.title}
-                            itemCount={st.count}
-                            onDecrement={decrementHandler.bind(null, "", st)}
-                            onClick={clickHandler.bind(null, "", st)}
-                          />
-                        );
-                      })}
-                      {record.step5 &&
-                        record.step5?.map((st, ind2) => {
-                          console.log("item", st);
-                          return (
-                            <Card
-                              image={st.image}
-                              key={ind2}
-                              item={st.title}
-                              itemCount={st.count}
-                              onDecrement={decrementHandler.bind(null, "", st)}
-                              onClick={clickHandler.bind(null, "", st)}
-                            />
-                          );
-                        })}
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div> */}
-
-    </>
+      </>) }
+      </>
   );
-  // <div>
-  //   <div className="flex justify-end">
-  //     <button
-  //       className="m-5 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-10 text-sm rounded shadow-lg"
-  //       type="submit"
-  //       onClick={handleNewOrder}
-  //     >
-  //       + NEW ORDER
-  //     </button>
-  //   </div>
-  //   {allRecords?.map((record, index) => {
-  //     return (
-  //       <div className="flex m-10 space-x-5" key={index}>
-  //         <div className="h-80 w-2/5 rounded shadow-lg">
-  //           <div className="flex ">
-  //             <div className="w-1/3 h-80">
-  //               <div className="h-32 border-t-2 border-l-2 border-b-2 bg-gray-100 rounded shadow-lg">
-  //                 <div className="flex mt-10 justify-center space-x-2">
-  //                   <div className=" text-xl font-bold justify-center">
-  //                     {record.bookingId}
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //               <div className="h-48 w-full  bg-blue-400 ">
-  //                 <div className="flex  justify-center ">
-  //                   <div className="font-bold text-xl text-gray-100 mt-7">
-  //                     {record.day}
-  //                   </div>
-  //                 </div>
-  //                 <div className="flex mt-5 justify-center">
-  //                   <div className="font-bold text-xl text-gray-100">
-  //                     {record.dayName}
-  //                   </div>
-  //                 </div>
-
-  //                 <div className="flex mt-5 justify-center ">
-  //                   <div className="font-bold text-xl text-gray-100">
-  //                     {record.month}
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //             <div className="w-2/3 h-80 border-2 rounded shadow-lg text-sm">
-  //               <div className="flex ml-3 mr-10 mt-1 space-x-2 font-medium text-sm">
-  //                 <div className="flex- 1 w-1/2">From</div>
-  //               </div>
-  //               <div className="flex ml-3 mr-10 space-x-2 text-sm">
-  //                 <div className="flex- 1 w-3/5">{record.fromAddress}</div>
-  //               </div>
-
-  //               <div className="flex ml-3 mr-10 mt-3 space-x-2 font-medium text-sm">
-  //                 <div className="flex- 1 w-1/2">To</div>
-  //               </div>
-  //               <div className="flex ml-3 mr-10 space-x-2">
-  //                 <div className="flex- 1 w-3/5">{record.toAddress}</div>
-  //               </div>
-  //               <div className="flex ml-3 mr-10 mt-5 space-x-2 font-medium text-sm">
-  //                 <div className="flex- 1 w-1/2">Mover Planner</div>
-  //                 <div className="flex- 1 w-1/2 ">Mover Manager</div>
-  //               </div>
-  //               <div className="flex ml-3 mr-10 space-x-2 text-sm">
-  //                 <div className="flex- 1 w-1/2">{moverPlanner}</div>
-  //                 <div className="flex- 1 w-1/2  ">{moveManager}</div>
-  //               </div>
-  //               <div className="flex ml-3 mr-10 space-x-2">
-  //                 <div className="flex- 1 w-1/2">{moverPlannerNo}</div>
-  //               </div>
-  //               <div className="flex mr-5 mt-10 justify-end text-sm">
-  //                 Your order is being evaluated by us
-  //               </div>
-
-  //               <div className="flex justify-end mr-5 mt-5 space-x-5">
-  // <button
-  //   className="bg-gray-400 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
-  //   type="submit"
-  // >
-  //   VIEW DETAILS
-  // </button>
-  // <button
-  //   className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
-  //   type="submit"
-  //   onClick={(e) => handleEditInventory(e, record)}
-  // >
-  //   EDIT INVENTORY
-  // </button>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //         <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg overflow-y-auto">
-  //           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-  //             <div className="flex- 1 w-1/2">Order Id</div>
-  //             <div className="flex- 1 w-1/2 ">Date Timeslot</div>
-  //           </div>
-  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
-  //             <div className="flex- 1 w-1/2">{record.orderId}</div>
-  //             <div className="flex- 1 w-1/2  ">{record.date}</div>
-  //           </div>
-  //           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-  //             <div className="flex- 1 w-1/2">From Address</div>
-  //             <div className="flex- 1 w-1/2 ">To Address</div>
-  //           </div>
-  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
-  //             <div className="flex- 1 w-1/2">{record.fromAddress}</div>
-  //             <div className="flex- 1 w-1/2  ">{record.toAddress}</div>
-  //           </div>
-
-  //           <div className="flex ml-10 mr-10 mt-10 space-x-2 font-medium text-md">
-  //             <div className="flex- 1 w-1/2">Floor</div>
-  //             <div className="flex- 1 w-1/2 ">Floor</div>
-  //           </div>
-  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
-  //             <div className="flex- 1 w-1/2">{record.currentFloor}</div>
-  //             <div className="flex- 1 w-1/2  ">{record.movingOnFloor}</div>
-  //           </div>
-  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
-  //             <div className="flex- 1 w-1/2">
-  //               {record.isLiftAvailableOnCurrentFloor}
-  //             </div>
-  //             <div className="flex- 1 w-1/2  ">
-  //               {record.isLiftAvailableOnMovingFloor}
-  //             </div>
-  //           </div>
-  //           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-  //             <div className="flex- 1 w-1/2">Preferred Choice</div>
-  //             <div className="flex- 1 w-1/2 ">What to Move</div>
-  //           </div>
-  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
-  //             <div className="flex- 1 w-1/2">{}</div>
-  //             <div className="flex- 1 w-1/2  ">{record.moveType}</div>
-  //           </div>
-
-  // <div className="w-5/6">
-  //   <form className="max-w-xl m-auto py-10 px-5">
-  //     <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
-  //       {record.step3?.map((st, ind1) => {
-  //         console.log("item", st);
-  //         return (
-  //           <Card
-  //             image={st.image}
-  //             key={ind1}
-  //             item={st.title}
-  //             itemCount={st.count}
-  //             onDecrement={decrementHandler.bind(null, "", st)}
-  //             onClick={clickHandler.bind(null, "", st)}
-  //           />
-  //         );
-  //       })}
-  //       {record.step5 &&
-  //         record.step5?.map((st, ind2) => {
-  //           console.log("item", st);
-  //           return (
-  //             <Card
-  //               image={st.image}
-  //               key={ind2}
-  //               item={st.title}
-  //               itemCount={st.count}
-  //               onDecrement={decrementHandler.bind(null, "", st)}
-  //               onClick={clickHandler.bind(null, "", st)}
-  //             />
-  //           );
-  //         })}
-  //     </div>
-  //   </form>
-  // </div>
-  //         </div>
-  //       </div>
-  //     );
-  //   })}
-  // </div>
 };
 
 export default CurrentOrder;
