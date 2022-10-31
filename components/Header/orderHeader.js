@@ -77,7 +77,7 @@ const AppHeader = () => {
         </div>
       </nav>
       <Drawer
-        title={logo}
+        title={customer?.customerName}
         placement="right"
         size={size}
         onClose={onClose}
