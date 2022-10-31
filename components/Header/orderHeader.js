@@ -1,11 +1,26 @@
-import React from "react";
-import { Divider } from "antd";
+import React, { useState } from "react";
+import { Divider, Drawer } from "antd";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useAuth from "../../hooks/useAuth";
+import Hamburger from "./orderHamburgur";
 const AppHeader = () => {
   const { customer, authenticated } = useAuth();
+  const [open, setOpen] = useState(false);
+  const [size, setSize] = useState();
+  const showDefaultDrawer = () => {
+    setSize("default");
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
+  const logo = () => (
+      <>
+        White Gloves
+      </>
+    );
 
   console.log("customer in header is ", customer)
   return (
@@ -23,6 +38,7 @@ const AppHeader = () => {
                     itemProp="image"
                     alt="Image"
                   />
+
                 </span>
                 <span className=" md:hidden lg:hidden xl:hidden"><a href="tel:180012097225"><img
                   className=" pt-5"
@@ -44,12 +60,41 @@ const AppHeader = () => {
               </div>
             </div>
 
-            <div className="flex space-x-4 text-gray-900 font-medium">
+            <div className="flex items-center justify-center space-x-4 text-gray-900 font-medium">
+
               {customer?.customerName}
+              <div onClick={showDefaultDrawer}>
+                <img
+                  className="p-3"
+                  src="/images/icons8-menu.png"
+                  itemProp="image"
+                  alt="Image"
+                />
+              </div>
             </div>
+
           </div>
         </div>
       </nav>
+      <Drawer
+        title={logo}
+        placement="right"
+        size={size}
+        onClose={onClose}
+        open={open}>
+        <div className="flex flex-col gap-y-3 text">
+          <p onClick={onClose} className=" font-semibold">My Profile</p>
+          <hr />
+          <p onClick={onClose} className=" font-semibold">Move Now</p>
+          <p onClick={onClose} className=" font-semibold">My Order</p>
+          <hr />
+          <div>
+            <button>
+              Logout
+            </button>
+          </div>
+        </div>
+      </Drawer>
     </>
     // <>
     // <div>
