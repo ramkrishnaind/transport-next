@@ -1192,3 +1192,32 @@ select:invalid {
   align-items: center;
   height: 100vh;    
 }
+.Step4_add_button{
+  background-color: transparent;
+  color: #4E4E4E;
+  border: 1px solid #4E4E4E;
+  border-radius: 5px;
+
+}
+
+h-100vh{
+  height: 100vh !important;
+}
+
+@media (min-width: 1023px) {
+  .Step4_add_button{
+   width: 10rem;
+  
+  } 
+}
+@media (max-width: 767px) {
+  .Step4_add_button{
+    width: 91vw;
+   } 
+}
+
+@media (min-width: 767px) and (max-width: 1023px) {
+  .Step4_add_button{
+    width: 91vw;
+   } 
+}

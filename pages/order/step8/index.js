@@ -1026,7 +1026,7 @@ const Step4 = (props) => {
     </div>
 
 
-    <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg ">
+    <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg h-100vh">
       <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
         <div className="step4_heading font-medium px-2 text-center md:text-left lg:text-left xl:text-left  ">
           Please describe the items, so that we can understand them better
@@ -1347,8 +1347,13 @@ const Step4 = (props) => {
         </div>
         <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4">Clear</div>
       </div>
-      
-      <div className="mt-6 ">
+      <div className=" flex justify-center items-center lg:justify-start xl:justify-start my-3 b1">
+        <button className="Step4_add_button  py-3 px-2 text-center m-2">
+          +  Add more tables
+        </button>
+      </div>
+     
+      <div className="mt-6 b1 ">
         <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
           <button
             className="button_2_skip rounded-m px-10 py-2"

@@ -80,6 +80,7 @@ const AppHeader = () => {
         title={customer?.customerName}
         placement="right"
         size={size}
+        width={248}
         onClose={onClose}
         open={open}>
         <div className="flex flex-col gap-y-3 text">
