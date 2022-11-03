@@ -183,7 +183,7 @@ const BookingList = () => {
       <Row>
         <Col span={19}>
           <div className="grid">
-            <h3 page="page-title">Booking Management</h3>
+            <h3 title="page-title">Booking Management</h3>
             <small>manage booking here</small>
           </div>
         </Col>
