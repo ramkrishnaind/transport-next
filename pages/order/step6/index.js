@@ -19,17 +19,20 @@ const Step6 = () => {
   const [toLift, setToLift] = useState("");
   const [currentFloor, setCurrentFloor] = useState("");
   const [movingOnFloor, setmovingOnFloor] = useState("");
+  const [cft, setCft] = useState();
 
   const context = useContext(TransportContext);
   const { step1State } = context;
   const { step2State } = context;
   const { step3State } = context;
+  const { step4State } = context;
   const { step5State } = context;
   const { step6State, setStep6State } = context;
 
   console.log("context.step1State", step1State);
   console.log("context.step2State", step2State);
   console.log("context.step3State", step3State);
+  console.log("context.step4State", step4State);
   console.log("context.step5State", step5State);
   const { customerDetails } = context;
   const [customerData, setCustomerData] = useState({});
@@ -63,16 +66,16 @@ const Step6 = () => {
     if (!step2State) return;
     setOrderId(step2State["bookingId"]);
     setCurrentFloor(step2State["currentFloor"]);
-    if (step2State["isLiftAvailableOnCurrentFloor"]) {
-      setFromLift(step2State["currentFloor"] + " , " + "Lift is available");
-    } else {
-      setFromLift(step2State["currentFloor"] + " , " + "Lift is not available");
-    }
-    if (step2State["isLiftAvailableOnMovingFloor"]) {
-      setToLift(step2State["movingOnFloor"] + " , " + "Lift is available");
-    } else {
-      setToLift(step2State["movingOnFloor"] + " , " + "Lift is not available");
-    }
+    // if (step2State["isLiftAvailableOnCurrentFloor"]) {
+    //   setFromLift(step2State["currentFloor"] + " , " + "Lift is available");
+    // } else {
+    //   setFromLift(step2State["currentFloor"] + " , " + "Lift is not available");
+    // }
+    // if (step2State["isLiftAvailableOnMovingFloor"]) {
+    //   setToLift(step2State["movingOnFloor"] + " , " + "Lift is available");
+    // } else {
+    //   setToLift(step2State["movingOnFloor"] + " , " + "Lift is not available");
+    // }
     setmovingOnFloor(step2State["movingOnFloor"]);
     const d = step1State["shiftingOn"];
     const year = d.getFullYear();
@@ -86,7 +89,11 @@ const Step6 = () => {
     setEmailId(customerDetails["email"]);
     setName(customerDetails["fullName"]);
     setMobileNo(customerDetails["mobile"]);
-  }, [step1State, step2State, customerDetails]);
+
+    if (!step4State) return;
+    setCft(step4State["cft"]);
+    console.log("cftdata - ", cft);
+  }, [step1State, step2State, customerDetails, step4State]);
 
   const getCopiedObject = useCallback((objFound) => {
     //
@@ -257,9 +264,9 @@ const Step6 = () => {
           </div>
 
           <div className="flex ml-10 mr-10 mt-1 space-x-2">
-            <div className="flex- 1 w-1/2">{fromLift}</div>
-            <div className="flex- 1 w-1/2  ">{toLift}</div>
-            <div className="flex- 1 w-1/2  ">{}</div>
+            <div className="flex- 1 w-1/2">{currentFloor} floor</div>
+            <div className="flex- 1 w-1/2  ">{movingOnFloor} floor</div>
+            {cft > 0 ? <div className="flex- 1 w-1/2  ">CFT  {cft}</div> : ""}
           </div>
         </form>
       </div>
@@ -285,19 +292,20 @@ const Step6 = () => {
                 />
               );
             })}
-            { state5 && state5.map((st, index) => {
-              console.log("item", st);
-              return (
-                <Card
-                  image={st.image}
-                  key={index}
-                  item={st.title}
-                  itemCount={st.count}
-                  onDecrement={decrementHandler.bind(null, "", st)}
-                  onClick={clickHandler.bind(null, "", st)}
-                />
-              );
-            })}
+            {state5 &&
+              state5.map((st, index) => {
+                console.log("item", st);
+                return (
+                  <Card
+                    image={st.image}
+                    key={index}
+                    item={st.title}
+                    itemCount={st.count}
+                    onDecrement={decrementHandler.bind(null, "", st)}
+                    onClick={clickHandler.bind(null, "", st)}
+                  />
+                );
+              })}
           </div>
         </form>
       </div>

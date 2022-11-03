@@ -3,6 +3,8 @@ import Card from "../../Card";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
 import { getBookingItem } from "../../../services/customer-api-service";
+import { Timeline, Collapse } from "antd";
+const { Panel } = Collapse;
 const Step7 = () => {
   const router = useRouter();
   // const [name, setName] = useState("Test");
@@ -23,11 +25,14 @@ const Step7 = () => {
   const { step1State } = context;
   const { step2State } = context;
   const { step3State } = context;
+  const { step4State } = context;
   const { step5State } = context;
   console.log("context.step1State", step1State);
   console.log("context.step2State", step2State);
   console.log("context.step3State", step3State);
+  console.log("context.step4State", step4State);
   console.log("context.step5State", step5State);
+  const [cft, setCft]=useState();
   // const { customerDetails } = context;
   // const [customerData, setCustomerData] = useState({});
   // const [state, setState] = useState([]);
@@ -44,13 +49,13 @@ const Step7 = () => {
   const [moveManager] = useState("Not Assigned");
 
   useEffect(() => {
-    debugger;
+    // debugger;
     const getData = async () => {
       let results;
       try {
         results = await getBookingItem(step2State?.bookingId);
-
-        debugger;
+        console.log("results------>", results);
+        // debugger;
         if (results?.data?.customerData) {
           const arr = [];
           results?.data?.customerData.forEach((item) => {
@@ -69,16 +74,24 @@ const Step7 = () => {
               step5: transformedStep5,
               step4Items: item?.step4 || [],
               step5State: item?.step5 || {},
-              bookingId: item.bookingId,
+              bookingId: item.booking_id,
               ...getStep1AndStep2(item),
             });
           });
           setAllRecords(arr);
+          console.log(arr);
         }
       } catch (error) {}
     };
     getData();
   }, []);
+
+  useEffect(() => {
+    if (!step4State) return;
+    setCft(step4State["cft"]);
+    console.log("cftdata7 - ", cft);
+  }, [step4State]);
+
   const transformStep3Object = (step3Object) => {
     if (!step3Object) return;
     const keys = Object.keys(step3Object);
@@ -160,6 +173,7 @@ const Step7 = () => {
       isLiftAvailableOnCurrentFloor,
       isLiftAvailableOnMovingFloor,
       movingOnFloor,
+      cft,
     } = record;
     const fromAddress = shiftingFrom;
     const toAddress = shiftingTo;
@@ -179,7 +193,15 @@ const Step7 = () => {
       10: "November",
       11: "December",
     };
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
 
     const d = new Date(shiftingOn);
     const year = d.getFullYear();
@@ -206,6 +228,7 @@ const Step7 = () => {
     data.emailId = record?.customerId?.email;
     data.name = record?.customerId?.fullName;
     data.mobileNo = record?.customerId?.mobile;
+    data.cft = cft;
     return data;
   };
   // useEffect(() => {
@@ -304,161 +327,454 @@ const Step7 = () => {
   };
 
   return (
-    <div>
-      <div className="flex justify-end">
-        <button
-          className="m-5 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-10 text-sm rounded shadow-lg"
-          type="submit"
-          onClick={handleNewOrder}
-        >
-          + NEW ORDER
-        </button>
-      </div>
-      {allRecords?.map((record, index) => {
-        return (
-          <div className="flex m-10 space-x-5" key={index}>
-            <div className="h-80 w-2/5 rounded shadow-lg">
-              <div className="flex ">
-                <div className="w-1/3 h-80">
-                  <div className="h-32 border-t-2 border-l-2 border-b-2 bg-gray-100 rounded shadow-lg">
-                    <div className="flex mt-10 justify-center space-x-2">
-                      <div className=" text-xl font-bold justify-center">
-                        {record.bookingId}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="h-48 w-full  bg-blue-400 ">
-                    <div className="flex  justify-center ">
-                      <div className="font-bold text-xl text-gray-100 mt-7">
-                        {record.day}
-                      </div>
-                    </div>
-                    <div className="flex mt-5 justify-center">
-                      <div className="font-bold text-xl text-gray-100">
-                        {record.dayName}
-                      </div>
-                    </div>
+    <>
+      {/* completeBAR */}
+      {/* 
+      <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
+        <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+          Set up 0% complete
+        </div>
+        <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+          5 Step left • About 8 min
+        </div>
+      </div> */}
 
-                    <div className="flex mt-5 justify-center ">
-                      <div className="font-bold text-xl text-gray-100">
-                        {record.month}
-                      </div>
-                    </div>
+      <div className="fontColor_4E4E4E">
+        {allRecords?.map((record, index) => {
+          return (
+            <div key={index}>
+              <div>
+                <div className="flex flex-col m-5 p-4 rounded-lg gap-4 bg-white step7SummarylBox1  ">
+                  <div className="thankyou_step7">
+                    <img
+                      className="inline w-8 pr-2"
+                      src="/images/sentiment_satisfied.png"
+                      itemProp="image"
+                      alt="Image"
+                    />
+                    Thank you {record.name}!
+                  </div>
+                  <div className="thankyou2_step7">
+                    The information you provided has been sent to our top secret
+                    super wise quote calculating monks. We will get you perfect
+                    tailor made quote in a day.
                   </div>
                 </div>
-                <div className="w-2/3 h-80 border-2 rounded shadow-lg text-sm">
-                  <div className="flex ml-3 mr-10 mt-1 space-x-2 font-medium text-sm">
-                    <div className="flex- 1 w-1/2">From</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 space-x-2 text-sm">
-                    <div className="flex- 1 w-3/5">{record.fromAddress}</div>
+              </div>
+
+              <div className="step7RespoMain">
+                <div className="step7RespoContainer1">
+                  <div className="step7RespoItem">
+                    <div className="flex flex-col m-5 p-2 top-2 rounded-lg gap-4 bg-white step7ProfileBox1">
+                      <div className="step7_grid1 ">
+                        <div className="step7_container1 p-3 my-auto">
+                          <div className="ellipse_step7"></div>
+                        </div>
+                        <div className="step7_container2 my-5 py-2 rounded-lg gap-1 bg-white ">
+                          <div className=" font-bold">{record.name}</div>
+                          <div>{record.emailId}</div>
+                          <div>{record.mobileNo}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="step7buttonBox1 step7_buttonbox pl-5">
+                      <div className="flex justify-between ">
+                        <div
+                          className="current font-semibold 
+                  py-3 text-xl"
+                        >
+                          Current Order
+                        </div>
+                        <div>
+                          <button
+                            className=" new_order_step7 py-3 px-10 text-sm rounded"
+                            type="submit"
+                            onClick={handleNewOrder}
+                          >
+                            + NEW ORDER
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="step7SummarylBox2 m-5 rounded-lg bg-white ">
+                      <div className="flex flex-row justify-between p-4 rounded-xl">
+                        <div className="step7_grid2 justify-start">
+                          <div className="step7_grid2item1 px-2">
+                            {record.day}
+                          </div>
+                          <div className="flex flex-col my-auto px-2 pr-2">
+                            <div className=" font-bold">{record.dayName}</div>
+                            <div>{record.month}</div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col gap-3 text-md">
+                          <div className=" font-semibold">Order Id</div>
+                          <div className="OrderID_text_step7 font-semibold">
+                            {record.bookingId}
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr className="mx-auto step7SummarylBox2_hr" />
+                      <div>
+                        <div className="flex flex-row justify-between p-3">
+                          <div className="step7Summarybox_item1">
+                            <div>from</div>
+                            <div className="font-semibold">
+                              {record.fromAddress}
+                            </div>
+                          </div>
+                          <div>
+                            <div>to</div>
+                            <div className="font-semibold">
+                              {record.toAddress}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-row justify-between p-3">
+                          <div>
+                            <div>mover Planner:</div>
+                            <div className="font-semibold">Not Assigned</div>
+                          </div>
+                          <div className="step7Summarybox_item2">
+                            <div>Mover Manager:</div>
+                            <div className="font-semibold">Not Assigned</div>
+                          </div>
+                        </div>
+                        <hr className="mx-auto step7SummarylBox2_hr" />
+                        <div className="flex flex-row p-3 justify-between">
+                          <div>
+                            <button
+                              className=" greyOwn hover:bg-green-100 rounded-md  py-3 px-5 font-semibold text-sm"
+                              type="submit"
+                            >
+                              VIEW DETAILS
+                            </button>
+                          </div>
+                          <div>
+                            <button
+                              className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
+                              type="submit"
+                              onClick={(e) => handleEditInventory(e, record)}
+                            >
+                              <img
+                                className="inline px-4"
+                                src="/images/edit_blue.svg"
+                                itemProp="image"
+                                alt="Image"
+                              />
+                              Edit Inventory
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="flex ml-3 mr-10 mt-3 space-x-2 font-medium text-sm">
-                    <div className="flex- 1 w-1/2">To</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 space-x-2">
-                    <div className="flex- 1 w-3/5">{record.toAddress}</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 mt-5 space-x-2 font-medium text-sm">
-                    <div className="flex- 1 w-1/2">Mover Planner</div>
-                    <div className="flex- 1 w-1/2 ">Mover Manager</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 space-x-2 text-sm">
-                    <div className="flex- 1 w-1/2">{moverPlanner}</div>
-                    <div className="flex- 1 w-1/2  ">{moveManager}</div>
-                  </div>
-                  <div className="flex ml-3 mr-10 space-x-2">
-                    <div className="flex- 1 w-1/2">{moverPlannerNo}</div>
-                  </div>
-                  <div className="flex mr-5 mt-10 justify-end text-sm">
-                    Your order is being evaluated by us
-                  </div>
-
-                  <div className="flex justify-end mr-5 mt-5 space-x-5">
-                    <button
-                      className="bg-gray-400 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
-                      type="submit"
-                    >
-                      VIEW DETAILS
-                    </button>
-                    <button
-                      className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
-                      type="submit"
-                      onClick={(e) => handleEditInventory(e, record)}
-                    >
-                      EDIT INVENTORY
-                    </button>
+                  <div className="step7ProfileBox1 m-5 rounded-lg bg-white pb-1 step7_2container">
+                    <div className="flex flex-row justify-between p-3">
+                      <div>
+                        <div className="font-bold">Order Id</div>
+                        <div className="OrderID_text_step7 font-bold">
+                          {record.bookingId}
+                        </div>
+                      </div>
+                      <div>
+                        <div>Date & Time slot</div>
+                        <div className=" font-semibold">
+                          {record.dayName} {record.day} {record.month}
+                        </div>
+                      </div>
+                    </div>
+                    <hr className="mx-auto step7SummarylBox2_hr" />
+                    <div className="p-3">
+                      Your order is being evaluated by us
+                    </div>
+                    <div className="p-3">
+                      CFT  {record.cft}
+                    </div>
+                    {/* {cft > 0 ? <div className="p-3">CFT  {cft}</div> : ""} */}
+                    <div className="p-3">
+                      <Timeline>
+                        <Timeline.Item>
+                          <div className="py-1">From</div>
+                          <div className="py-1 font-semibold">
+                            {record.fromAddress}
+                          </div>
+                          <div className="py-1 greencolor">
+                            {record.isLiftAvailableOnCurrentFloor
+                              ? "Lift Available"
+                              : "Not Available"}
+                          </div>
+                        </Timeline.Item>
+                        <Timeline.Item>
+                          <div className="py-1">To</div>
+                          <div className="py-1 font-semibold">
+                            {record.toAddress}
+                          </div>
+                          <div className="py-1 greencolor">
+                            {record.isLiftAvailableOnMovingFloor
+                              ? "Lift Available"
+                              : "Lift Not Available"}
+                          </div>
+                        </Timeline.Item>
+                      </Timeline>
+                    </div>
+                    <div className="px-5">
+                      <hr className="mx-auto step7SummarylBox2_hr" />
+                    </div>
+                    <div className="flex flex-row justify-between p-4 mt-6">
+                      <div>
+                        <div>What to move</div>
+                        <div className="font-semibold">{record.moveType}</div>
+                      </div>
+                      <div>
+                        <div>Preferred Choice</div>
+                        <div className="font-semibold">-</div>
+                      </div>
+                    </div>
+                    <div className="m-2 font-semibold p-2 text-xl ">
+                      Your selected items
+                    </div>
+                    <div className="w-5/6">
+                      <form className="max-w-xl m-auto py-10 px-5">
+                        <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
+                          {record.step3?.map((st, ind1) => {
+                            console.log("item", st);
+                            return (
+                              <Card
+                                image={st.image}
+                                key={ind1}
+                                item={st.title}
+                                itemCount={st.count}
+                                onDecrement={decrementHandler.bind(
+                                  null,
+                                  "",
+                                  st
+                                )}
+                                onClick={clickHandler.bind(null, "", st)}
+                              />
+                            );
+                          })}
+                          {record.step5 &&
+                            record.step5?.map((st, ind2) => {
+                              console.log("item", st);
+                              return (
+                                <Card
+                                  image={st.image}
+                                  key={ind2}
+                                  item={st.title}
+                                  itemCount={st.count}
+                                  onDecrement={decrementHandler.bind(
+                                    null,
+                                    "",
+                                    st
+                                  )}
+                                  onClick={clickHandler.bind(null, "", st)}
+                                />
+                              );
+                            })}
+                        </div>
+                      </form>
+                    </div>
+                    {/* <div className=" rounded-lg border m-2">
+                <Collapse defaultActiveKey={['1']} ghost>
+                  <Panel header="Furniture " key="1">
+                    <div className="m-2">
+                      <div className="p-3">
+                        <div className=" font-semibold">2X Sofa set</div>
+                        <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
+                        <div className="pl-5">• 1 x 1 sofa set with storage</div>
+                      </div>
+                      <div className="p-3">
+                        <div className=" font-semibold">3x Table</div>
+                        <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
+                        <div className="pl-5">• 1 x Dismantlable dressing table</div>
+                      </div>
+                    </div>
+                  </Panel>
+                </Collapse>
+              </div>
+              <div className=" rounded-lg border m-2">
+                <Collapse defaultActiveKey={['1']} ghost>
+                  <Panel header="Furniture " key="1">
+                    <div className="m-2">
+                      <div className="p-3">
+                        <div className=" font-semibold">2X Sofa set</div>
+                        <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
+                        <div className="pl-5">• 1 x 1 sofa set with storage</div>
+                      </div>
+                      <div className="p-3">
+                        <div className=" font-semibold">3x Table</div>
+                        <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
+                        <div className="pl-5">• 1 x Dismantlable dressing table</div>
+                      </div>
+                    </div>
+                  </Panel>
+                </Collapse>
+              </div>
+              <div className=" rounded-lg border m-2">
+                <Collapse defaultActiveKey={['1']} ghost>
+                  <Panel header="Furniture " key="1">
+                    <div className="m-2">
+                      <div className="p-3">
+                        <div className=" font-semibold">2X Sofa set</div>
+                        <div className="pl-5">• 1 X 1 seater leather leciner sofa set</div>
+                        <div className="pl-5">• 1 x 1 sofa set with storage</div>
+                      </div>
+                      <div className="p-3">
+                        <div className=" font-semibold">3x Table</div>
+                        <div className="pl-5">• 1 x 3 seater foldable metal top dining table</div>
+                        <div className="pl-5">• 1 x Dismantlable dressing table</div>
+                      </div>
+                    </div>
+                  </Panel>
+                </Collapse>
+              </div> */}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg overflow-y-auto">
-              <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-                <div className="flex- 1 w-1/2">Order Id</div>
-                <div className="flex- 1 w-1/2 ">Date Timeslot</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">{record.orderId}</div>
-                <div className="flex- 1 w-1/2  ">{record.date}</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-                <div className="flex- 1 w-1/2">From Address</div>
-                <div className="flex- 1 w-1/2 ">To Address</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">{record.fromAddress}</div>
-                <div className="flex- 1 w-1/2  ">{record.toAddress}</div>
-              </div>
+          );
+        })}
+      </div>
 
-              <div className="flex ml-10 mr-10 mt-10 space-x-2 font-medium text-md">
-                <div className="flex- 1 w-1/2">Floor</div>
-                <div className="flex- 1 w-1/2 ">Floor</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">{record.currentFloor}</div>
-                <div className="flex- 1 w-1/2  ">{record.movingOnFloor}</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">
-                  {record.isLiftAvailableOnCurrentFloor}
-                </div>
-                <div className="flex- 1 w-1/2  ">
-                  {record.isLiftAvailableOnMovingFloor}
-                </div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-                <div className="flex- 1 w-1/2">Preferred Choice</div>
-                <div className="flex- 1 w-1/2 ">What to Move</div>
-              </div>
-              <div className="flex ml-10 mr-10 mt-1 space-x-2">
-                <div className="flex- 1 w-1/2">{}</div>
-                <div className="flex- 1 w-1/2  ">{record.moveType}</div>
-              </div>
+      {/*       
+      <div>
+        {allRecords?.map((record, index) => {
+          return (
+            <div className="flex m-10 space-x-5" key={index}>
+              <div className="h-80 w-2/5 rounded shadow-lg">
+                <div className="flex ">
+                  <div className="w-1/3 h-80">
+                    <div className="h-32 border-t-2 border-l-2 border-b-2 bg-gray-100 rounded shadow-lg">
+                      <div className="flex mt-10 justify-center space-x-2">
+                        <div className=" text-xl font-bold justify-center">
+                          {record.bookingId}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="h-48 w-full  bg-blue-400 ">
+                      <div className="flex  justify-center ">
+                        <div className="font-bold text-xl text-gray-100 mt-7">
+                          {record.day}
+                        </div>
+                      </div>
+                      <div className="flex mt-5 justify-center">
+                        <div className="font-bold text-xl text-gray-100">
+                          {record.dayName}
+                        </div>
+                      </div>
 
-              <div className="w-5/6">
-                <form className="max-w-xl m-auto py-10 px-5">
-                  <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
-                    {record.step3?.map((st, ind1) => {
-                      console.log("item", st);
-                      return (
-                        <Card
-                          image={st.image}
-                          key={ind1}
-                          item={st.title}
-                          itemCount={st.count}
-                          onDecrement={decrementHandler.bind(null, "", st)}
-                          onClick={clickHandler.bind(null, "", st)}
-                        />
-                      );
-                    })}
-                    {record.step5 &&
-                      record.step5?.map((st, ind2) => {
+                      <div className="flex mt-5 justify-center ">
+                        <div className="font-bold text-xl text-gray-100">
+                          {record.month}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-2/3 h-80 border-2 rounded shadow-lg text-sm">
+                    <div className="flex ml-3 mr-10 mt-1 space-x-2 font-medium text-sm">
+                      <div className="flex- 1 w-1/2">From</div>
+                    </div>
+                    <div className="flex ml-3 mr-10 space-x-2 text-sm">
+                      <div className="flex- 1 w-3/5">{record.fromAddress}</div>
+                    </div>
+
+                    <div className="flex ml-3 mr-10 mt-3 space-x-2 font-medium text-sm">
+                      <div className="flex- 1 w-1/2">To</div>
+                    </div>
+                    <div className="flex ml-3 mr-10 space-x-2">
+                      <div className="flex- 1 w-3/5">{record.toAddress}</div>
+                    </div>
+                    <div className="flex ml-3 mr-10 mt-5 space-x-2 font-medium text-sm">
+                      <div className="flex- 1 w-1/2">Mover Planner</div>
+                      <div className="flex- 1 w-1/2 ">Mover Manager</div>
+                    </div>
+                    <div className="flex ml-3 mr-10 space-x-2 text-sm">
+                      <div className="flex- 1 w-1/2">{moverPlanner}</div>
+                      <div className="flex- 1 w-1/2  ">{moveManager}</div>
+                    </div>
+                    <div className="flex ml-3 mr-10 space-x-2">
+                      <div className="flex- 1 w-1/2">{moverPlannerNo}</div>
+                    </div>
+                    <div className="flex mr-5 mt-10 justify-end text-sm">
+                      Your order is being evaluated by us
+                    </div>
+
+                    <div className="flex justify-end mr-5 mt-5 space-x-5">
+                      <button
+                        className="bg-gray-400 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
+                        type="submit"
+                      >
+                        VIEW DETAILS
+                      </button>
+                      <button
+                        className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
+                        type="submit"
+                        onClick={(e) => handleEditInventory(e, record)}
+                      >
+                        EDIT INVENTORY
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg overflow-y-auto">
+                <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
+                  <div className="flex- 1 w-1/2">Order Id</div>
+                  <div className="flex- 1 w-1/2 ">Date Timeslot</div>
+                </div>
+                <div className="flex ml-10 mr-10 mt-1 space-x-2">
+                  <div className="flex- 1 w-1/2">{record.orderId}</div>
+                  <div className="flex- 1 w-1/2  ">{record.date}</div>
+                </div>
+                <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
+                  <div className="flex- 1 w-1/2">From Address</div>
+                  <div className="flex- 1 w-1/2 ">To Address</div>
+                </div>
+                <div className="flex ml-10 mr-10 mt-1 space-x-2">
+                  <div className="flex- 1 w-1/2">{record.fromAddress}</div>
+                  <div className="flex- 1 w-1/2  ">{record.toAddress}</div>
+                </div>
+
+                <div className="flex ml-10 mr-10 mt-10 space-x-2 font-medium text-md">
+                  <div className="flex- 1 w-1/2">Floor</div>
+                  <div className="flex- 1 w-1/2 ">Floor</div>
+                </div>
+                <div className="flex ml-10 mr-10 mt-1 space-x-2">
+                  <div className="flex- 1 w-1/2">{record.currentFloor}</div>
+                  <div className="flex- 1 w-1/2  ">{record.movingOnFloor}</div>
+                </div>
+                <div className="flex ml-10 mr-10 mt-1 space-x-2">
+                  <div className="flex- 1 w-1/2">
+                    {record.isLiftAvailableOnCurrentFloor}
+                  </div>
+                  <div className="flex- 1 w-1/2  ">
+                    {record.isLiftAvailableOnMovingFloor}
+                  </div>
+                </div>
+                <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
+                  <div className="flex- 1 w-1/2">Preferred Choice</div>
+                  <div className="flex- 1 w-1/2 ">What to Move</div>
+                </div>
+                <div className="flex ml-10 mr-10 mt-1 space-x-2">
+                  <div className="flex- 1 w-1/2">{ }</div>
+                  <div className="flex- 1 w-1/2  ">{record.moveType}</div>
+                </div>
+
+                <div className="w-5/6">
+                  <form className="max-w-xl m-auto py-10 px-5">
+                    <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
+                      {record.step3?.map((st, ind1) => {
                         console.log("item", st);
                         return (
                           <Card
                             image={st.image}
-                            key={ind2}
+                            key={ind1}
                             item={st.title}
                             itemCount={st.count}
                             onDecrement={decrementHandler.bind(null, "", st)}
@@ -466,15 +782,200 @@ const Step7 = () => {
                           />
                         );
                       })}
-                  </div>
-                </form>
+                      {record.step5 &&
+                        record.step5?.map((st, ind2) => {
+                          console.log("item", st);
+                          return (
+                            <Card
+                              image={st.image}
+                              key={ind2}
+                              item={st.title}
+                              itemCount={st.count}
+                              onDecrement={decrementHandler.bind(null, "", st)}
+                              onClick={clickHandler.bind(null, "", st)}
+                            />
+                          );
+                        })}
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div> */}
+    </>
   );
+  // <div>
+  //   <div className="flex justify-end">
+  //     <button
+  //       className="m-5 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-10 text-sm rounded shadow-lg"
+  //       type="submit"
+  //       onClick={handleNewOrder}
+  //     >
+  //       + NEW ORDER
+  //     </button>
+  //   </div>
+  //   {allRecords?.map((record, index) => {
+  //     return (
+  //       <div className="flex m-10 space-x-5" key={index}>
+  //         <div className="h-80 w-2/5 rounded shadow-lg">
+  //           <div className="flex ">
+  //             <div className="w-1/3 h-80">
+  //               <div className="h-32 border-t-2 border-l-2 border-b-2 bg-gray-100 rounded shadow-lg">
+  //                 <div className="flex mt-10 justify-center space-x-2">
+  //                   <div className=" text-xl font-bold justify-center">
+  //                     {record.bookingId}
+  //                   </div>
+  //                 </div>
+  //               </div>
+  //               <div className="h-48 w-full  bg-blue-400 ">
+  //                 <div className="flex  justify-center ">
+  //                   <div className="font-bold text-xl text-gray-100 mt-7">
+  //                     {record.day}
+  //                   </div>
+  //                 </div>
+  //                 <div className="flex mt-5 justify-center">
+  //                   <div className="font-bold text-xl text-gray-100">
+  //                     {record.dayName}
+  //                   </div>
+  //                 </div>
+
+  //                 <div className="flex mt-5 justify-center ">
+  //                   <div className="font-bold text-xl text-gray-100">
+  //                     {record.month}
+  //                   </div>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //             <div className="w-2/3 h-80 border-2 rounded shadow-lg text-sm">
+  //               <div className="flex ml-3 mr-10 mt-1 space-x-2 font-medium text-sm">
+  //                 <div className="flex- 1 w-1/2">From</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 space-x-2 text-sm">
+  //                 <div className="flex- 1 w-3/5">{record.fromAddress}</div>
+  //               </div>
+
+  //               <div className="flex ml-3 mr-10 mt-3 space-x-2 font-medium text-sm">
+  //                 <div className="flex- 1 w-1/2">To</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 space-x-2">
+  //                 <div className="flex- 1 w-3/5">{record.toAddress}</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 mt-5 space-x-2 font-medium text-sm">
+  //                 <div className="flex- 1 w-1/2">Mover Planner</div>
+  //                 <div className="flex- 1 w-1/2 ">Mover Manager</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 space-x-2 text-sm">
+  //                 <div className="flex- 1 w-1/2">{moverPlanner}</div>
+  //                 <div className="flex- 1 w-1/2  ">{moveManager}</div>
+  //               </div>
+  //               <div className="flex ml-3 mr-10 space-x-2">
+  //                 <div className="flex- 1 w-1/2">{moverPlannerNo}</div>
+  //               </div>
+  //               <div className="flex mr-5 mt-10 justify-end text-sm">
+  //                 Your order is being evaluated by us
+  //               </div>
+
+  //               <div className="flex justify-end mr-5 mt-5 space-x-5">
+  // <button
+  //   className="bg-gray-400 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
+  //   type="submit"
+  // >
+  //   VIEW DETAILS
+  // </button>
+  // <button
+  //   className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-sm rounded shadow-lg"
+  //   type="submit"
+  //   onClick={(e) => handleEditInventory(e, record)}
+  // >
+  //   EDIT INVENTORY
+  // </button>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //         <div className="h-screen w-2/5 text-gray-500 border-2 rounded shadow-lg overflow-y-auto">
+  //           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
+  //             <div className="flex- 1 w-1/2">Order Id</div>
+  //             <div className="flex- 1 w-1/2 ">Date Timeslot</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">{record.orderId}</div>
+  //             <div className="flex- 1 w-1/2  ">{record.date}</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
+  //             <div className="flex- 1 w-1/2">From Address</div>
+  //             <div className="flex- 1 w-1/2 ">To Address</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">{record.fromAddress}</div>
+  //             <div className="flex- 1 w-1/2  ">{record.toAddress}</div>
+  //           </div>
+
+  //           <div className="flex ml-10 mr-10 mt-10 space-x-2 font-medium text-md">
+  //             <div className="flex- 1 w-1/2">Floor</div>
+  //             <div className="flex- 1 w-1/2 ">Floor</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">{record.currentFloor}</div>
+  //             <div className="flex- 1 w-1/2  ">{record.movingOnFloor}</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">
+  //               {record.isLiftAvailableOnCurrentFloor}
+  //             </div>
+  //             <div className="flex- 1 w-1/2  ">
+  //               {record.isLiftAvailableOnMovingFloor}
+  //             </div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
+  //             <div className="flex- 1 w-1/2">Preferred Choice</div>
+  //             <div className="flex- 1 w-1/2 ">What to Move</div>
+  //           </div>
+  //           <div className="flex ml-10 mr-10 mt-1 space-x-2">
+  //             <div className="flex- 1 w-1/2">{}</div>
+  //             <div className="flex- 1 w-1/2  ">{record.moveType}</div>
+  //           </div>
+
+  // <div className="w-5/6">
+  //   <form className="max-w-xl m-auto py-10 px-5">
+  //     <div className="flex flex-col gap-8 md:grid-cols-3 mt-5">
+  //       {record.step3?.map((st, ind1) => {
+  //         console.log("item", st);
+  //         return (
+  //           <Card
+  //             image={st.image}
+  //             key={ind1}
+  //             item={st.title}
+  //             itemCount={st.count}
+  //             onDecrement={decrementHandler.bind(null, "", st)}
+  //             onClick={clickHandler.bind(null, "", st)}
+  //           />
+  //         );
+  //       })}
+  //       {record.step5 &&
+  //         record.step5?.map((st, ind2) => {
+  //           console.log("item", st);
+  //           return (
+  //             <Card
+  //               image={st.image}
+  //               key={ind2}
+  //               item={st.title}
+  //               itemCount={st.count}
+  //               onDecrement={decrementHandler.bind(null, "", st)}
+  //               onClick={clickHandler.bind(null, "", st)}
+  //             />
+  //           );
+  //         })}
+  //     </div>
+  //   </form>
+  // </div>
+  //         </div>
+  //       </div>
+  //     );
+  //   })}
+  // </div>
 };
 
 export default Step7;

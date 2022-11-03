@@ -2,7 +2,9 @@ import React, { useEffect, useState, useContext } from "react";
 import { verifyOtp } from "../../services/customer-api-service";
 import TransportContext from "../../context";
 import { useRouter } from "next/router";
+import useAuth from "../../hooks/useAuth";
 const Otp = () => {
+  const {token, customer, saveCustomer} = useAuth();
   const router = useRouter();
   const context = useContext(TransportContext);
   const { customerDetails, setCustomerDetails } = context;
@@ -36,8 +38,10 @@ const Otp = () => {
     let result = await submitOTP(tpin);
     console.log("result is", result);
     if (result.data.status) {
-      router.push("/order/step1");
+      saveCustomer(result.data.customerData)
       setCustomerDetails(result.data.customerData);
+      router.push("/order/step1");
+      
     }
   };
 

@@ -10,6 +10,7 @@ import {
   step3Item,
   getBookingItem,
 } from "../../../services/customer-api-service";
+import useAuth from "../../../hooks/useAuth";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faSearch,
@@ -17,8 +18,11 @@ import {
 //   faAnchor,
 // } from "@fortawesome/free-solid-svg-icons";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
+import { Collapse } from 'antd';
+const { Panel } = Collapse;
 
 const Step3 = (props) => {
+  const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
   const ctx = useContext(TransportContext);
   const { booking } = ctx;
@@ -77,6 +81,7 @@ const Step3 = (props) => {
   // }
 
   useEffect(() => {
+    console.log("bookingInfo in step3 is ", bookingInfo, )
     setObjectState((prev) => {
       const newState = { ...prev };
       const keys = Object.keys(newState);
@@ -88,9 +93,9 @@ const Step3 = (props) => {
       });
       return newState;
     });
-  }, []);
+  }, [bookingInfo]);
   useEffect(() => {
-    debugger;
+    // debugger;
     if (!step3State) return;
     setObjectState((prev) => {
       const newState = { ...prev };
@@ -158,12 +163,71 @@ const Step3 = (props) => {
     //--------------------------
     ctx.setStep3State(objectState);
     console.log("objectState", objectState);
+    saveBooking({ ...bookingInfo,
+      step3:objectState
+    });
     router.push("/order/step4");
   };
   const handleSkip = () => {
-    router.push("/order/step5");
+   // router.push("/order/step5");
   };
-
+  const form1 = () => {
+    return (<form className="max-w-screen-xl m-auto px-4">
+      <div className="mt-5">
+        <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+          {objectState.Furniture.map((item, index) => {
+            console.log("item", item);
+            return (
+              <Card
+                image={item.image}
+                key={index}
+                item={item.title}
+                itemCount={item.count}
+                onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                onClick={clickHandler.bind(null, "Furniture", item)}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </form>)
+  }
+  const form2 = () => {
+    return (<form className="max-w-screen-xl m-auto px-4">
+      <div className="mt-5">
+        <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+          {objectState.Electronic.map((item, index) => (
+            <Card
+              image={item.image}
+              key={index}
+              item={item.title}
+              itemCount={item.count}
+              onDecrement={decrementHandler.bind(null, "Electronic", item)}
+              onClick={clickHandler.bind(null, "Electronic", item)}
+            />
+          ))}
+        </div>
+      </div>
+    </form>)
+  }
+  const form3 = () => {
+    return (<form className="max-w-screen-xl m-auto px-4">
+      <div className="mt-5">
+        <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+          {objectState.Vehicle.map((item, index) => (
+            <Card
+              image={item.image}
+              key={index}
+              item={item.title}
+              itemCount={item.count}
+              onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+              onClick={clickHandler.bind(null, "Vehicle", item)}
+            />
+          ))}
+        </div>
+      </div>
+    </form>)
+  }
   // const callApi = async () => {
   //   let arr = objectState?.Furniture ? [...objectState.Furniture] : [];
   //   arr = objectState?.Electronic
@@ -208,85 +272,428 @@ const Step3 = (props) => {
   // };
 
   return (
-    <div>
-      <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
-        <button
-          className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="button"
-          onClick={handleSkip}
-        >
-          SKIP
-        </button>
-        <button
-          className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="button"
-          onClick={handleSubmit}
-        >
-          NEXT
-        </button>
-      </div>
-      <div className="flex justify-end mr-5  mb-5 text-sm ">
-        {/* <FontAwesomeIcon
-          icon={fa["faSearch"]}
-          style={{ fontSize: 20, color: "blue" }}
-        /> */}
-        <p>Do you know you can save this progress</p>
+    <>
+      {/* completeBAR */}
+      <div>
+        <div className="hidden md:block lg:block xl:block">
+          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
+            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              Set up 40% complete
+            </div>
+            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              3 Step left • About 6 min
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
+          <div>
+            <hr className="step3-line"/>
+          </div>
+        </div>
+        <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 40% complete</div>
+          <div className="not-italic ">
+            <span className=" font-semibold">3 Step left •</span>
+            <span> About 6 min•</span>
+          </div>
+        </div>
       </div>
 
-      <form className="max-w-screen-xl m-auto py-10 px-5">
-        <div className="grid gap-8 lg:grid-cols-3">
-          {uniqueCategories.map((item, i) => {
-            return (
-              <div className="px-4 py-4" key={i}>
-                <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+
+
+      <div className="r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3">
+        <div className=" flex flex-col justify-between items-left p-0 gap-1.5  top-36 r4 mt-3 p-2 md:pl-0 lg:pl-0 xl:pl-0 md:mt-5 lg:mt-5 xl:mt-5  ">
+          <div className="step3_heading font-medium text-center md:text-left xl:text-left lg:text-left">
+            What are the major item you want to move?
+          </div>
+          <div className=" text-center md:text-left xl:text-left lg:text-left padding_Heading_step2 ">
+            to save you the trouble, we have pre-selected this list.
+          </div>
+        </div>
+
+
+        {/* Tab Responsive */}
+        <div className="hidden ResponsiveTab">
+
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Furniture" key="1" >
+              {form1()}
+            </Panel>
+          </Collapse>
+
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Electronic" key="1" >
+              {form2()}
+            </Panel>
+          </Collapse>
+
+          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+            <Panel header="Vehicle" key="1" >
+              {form3()}
+            </Panel>
+          </Collapse>
+
+          <div className="mt-6 ">
+            <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+              <button
+                className="button_2_skip rounded-m px-10 py-2"
+                type="button"
+               // onClick={handleSkip}
+              >
+                SKIP
+              </button>
+              <button
+                className="button_3 rounded-m px-10 py-2 "
+                type="button"
+                onClick={handleSubmit}
+              >
+                NEXT
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+        {/* Laptop */}
+        <div className="hidden ResponsiveLatop">
+          <form className="max-w-screen-xl m-auto">
+            <div className="grid gap-8 lg:grid-cols-3 mt-4 ">
+              {uniqueCategories.map((item, i) => {
+                return (
+                  <div key={i}>
+                    <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="grid gap-3 md:grid-cols-3 px-4">
+              <div className="flex flex-col gap-3 md:grid-cols-1">
+                {objectState.Furniture.map((item, index) => {
+                  console.log("item", item);
+                  return (
+                    <Card
+                      image={item.image}
+                      key={index}
+                      item={item.title}
+                      itemCount={item.count}
+                      onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                      onClick={clickHandler.bind(null, "Furniture", item)}
+                    />
+                  );
+                })}
               </div>
-            );
-          })}
-        </div>
+              <div className="flex flex-col gap-3 md:grid-cols-1">
+                {objectState.Electronic.map((item, index) => (
+                  <Card
+                    image={item.image}
+                    key={index}
+                    item={item.title}
+                    itemCount={item.count}
+                    onDecrement={decrementHandler.bind(null, "Electronic", item)}
+                    onClick={clickHandler.bind(null, "Electronic", item)}
+                  />
+                ))}
+              </div>
+              <div className="flex flex-col gap-3 md:grid-cols-1">
+                {objectState.Vehicle.map((item, index) => (
+                  <Card
+                    image={item.image}
+                    key={index}
+                    item={item.title}
+                    itemCount={item.count}
+                    onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+                    onClick={clickHandler.bind(null, "Vehicle", item)}
+                  />
+                ))}
+              </div>
+            </div>
+          </form>
+          <div className="mt-6 ">
 
-        <div className="grid gap-8 md:grid-cols-3 mt-5">
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.Furniture.map((item, index) => {
-              console.log("item", item);
-              return (
-                <Card
-                  image={item.image}
-                  key={index}
-                  item={item.title}
-                  itemCount={item.count}
-                  onDecrement={decrementHandler.bind(null, "Furniture", item)}
-                  onClick={clickHandler.bind(null, "Furniture", item)}
-                />
-              );
-            })}
-          </div>
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.Electronic.map((item, index) => (
-              <Card
-                image={item.image}
-                key={index}
-                item={item.title}
-                itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "Electronic", item)}
-                onClick={clickHandler.bind(null, "Electronic", item)}
-              />
-            ))}
-          </div>
-          <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
-            {objectState.Vehicle.map((item, index) => (
-              <Card
-                image={item.image}
-                key={index}
-                item={item.title}
-                itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "Vehicle", item)}
-                onClick={clickHandler.bind(null, "Vehicle", item)}
-              />
-            ))}
+            <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+              <button
+                className="button_2_skip rounded-m px-10 py-2"
+                type="button"
+                onClick={handleSkip}
+              >
+                SKIP
+              </button>
+              <button
+                className="button_3 rounded-m px-10 py-2 "
+                type="button"
+                onClick={handleSubmit}
+              >
+                NEXT
+              </button>
+            </div>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+
+
+      {/* MOBILE Responsive */}
+
+
+      <div className="block md:hidden lg:hidden xl:hidden">
+        <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+          <Panel header="Furniture" key="1" >
+            {form1()}
+          </Panel>
+        </Collapse>
+
+        <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+          <Panel header="Electronic" key="1" >
+            {form2()}
+          </Panel>
+        </Collapse>
+
+        <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
+          <Panel header="Vehicle" key="1" >
+            {form3()}
+          </Panel>
+        </Collapse>
+
+        <div className="mt-6 ">
+          <div className="mt-5 mb-5 flex flex-row mx-5 justify-between">
+            <button
+              className="px-5 py-4  buttonMobile_white rounded-m "
+              type="button"
+              onClick={handleSkip}>
+              SKIP
+            </button>
+            <button
+              className="px-5 py-4  buttonMobile2 rounded-m  "
+              type="button"
+              onClick={handleSubmit}>
+              NEXT
+            </button>
+          </div>
+        </div>
+        {/* <div className="flex justify-between mx-5  mb-5 text-sm ">
+          <span className="step3_skip-text">Skip for now</span>
+          <span className="step3_save_draft-text">Save Deaft</span>
+        </div> */}
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </>
+
+
+
+    // <div>
+
+    //   <div className="b1">
+    //     <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-14">
+    //       <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+    //         Set up 0% complete
+    //       </div>
+    //       <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+    //         3 Step left • About 6 min
+    //       </div>
+    //     </div>
+    //     <hr className="step3_line" />
+
+
+
+
+    //     {/* details */}
+
+
+    //     <div className="  r1 r4 mt-2 bg-white step3_container  rounded-lg ">
+
+
+
+
+
+    // <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
+    //   <div className="step3_heading font-medium pl-2">
+    //     What are the major item you want to move?
+    //   </div>
+    //   <div className=" pl-2">
+    //     to save you the trouble, we have pre-selected this list.
+    //   </div>
+    // </div>
+
+
+
+    // <form className="max-w-screen-xl m-auto">
+    //   <div className="grid gap-8 lg:grid-cols-3 mt-4 ">
+    //     {uniqueCategories.map((item, i) => {
+    //       return (
+    //         <div key={i}>
+    //           <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+    //         </div>
+    //       );
+    //     })}
+    //   </div>
+    //   <div className="grid gap-3 md:grid-cols-3 px-4">
+    //     <div className="flex flex-col gap-3 md:grid-cols-1">
+    //       {objectState.Furniture.map((item, index) => {
+    //         console.log("item", item);
+    //         return (
+    //           <Card
+    //             image={item.image}
+    //             key={index}
+    //             item={item.title}
+    //             itemCount={item.count}
+    //             onDecrement={decrementHandler.bind(null, "Furniture", item)}
+    //             onClick={clickHandler.bind(null, "Furniture", item)}
+    //           />
+    //         );
+    //       })}
+    //     </div>
+    //     <div className="flex flex-col gap-3 md:grid-cols-1">
+    //       {objectState.Electronic.map((item, index) => (
+    //         <Card
+    //           image={item.image}
+    //           key={index}
+    //           item={item.title}
+    //           itemCount={item.count}
+    //           onDecrement={decrementHandler.bind(null, "Electronic", item)}
+    //           onClick={clickHandler.bind(null, "Electronic", item)}
+    //         />
+    //       ))}
+    //     </div>
+    //     <div className="flex flex-col gap-3 md:grid-cols-1">
+    //       {objectState.Vehicle.map((item, index) => (
+    //         <Card
+    //           image={item.image}
+    //           key={index}
+    //           item={item.title}
+    //           itemCount={item.count}
+    //           onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+    //           onClick={clickHandler.bind(null, "Vehicle", item)}
+    //         />
+    //       ))}
+    //     </div>
+    //   </div>
+    // </form>
+    // <div className="mt-6 ">
+
+    //   <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+    //     <button
+    //       className="button_2_skip rounded-m px-10 py-2"
+    //       type="button"
+    //       onClick={handleSkip}
+    //     >
+    //       SKIP
+    //     </button>
+    //     <button
+    //       className="button_3 rounded-m px-10 py-2 "
+    //       type="button"
+    //       onClick={handleSubmit}
+    //     >
+    //       NEXT
+    //     </button>
+    //   </div>
+    //         <div className="flex justify-start mr-5 pl-5 mb-5 text-sm ">
+    //           {/* <FontAwesomeIcon
+    //           icon={fa["faSearch"]}
+    //           style={{ fontSize: 20, color: "blue" }}
+    //         /> */}
+    //           <p>Do you know you can save this progress</p>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+
+
+
+
+
+
+    // <div>
+    // <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
+    //   <button
+    //     className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+    //     type="button"
+    //     onClick={handleSkip}
+    //   >
+    //     SKIP
+    //   </button>
+    //   <button
+    //     className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+    //     type="button"
+    //     onClick={handleSubmit}
+    //   >
+    //     NEXT
+    //   </button>
+    // </div>
+    // <div className="flex justify-end mr-5  mb-5 text-sm ">
+    //   {/* <FontAwesomeIcon
+    //     icon={fa["faSearch"]}
+    //     style={{ fontSize: 20, color: "blue" }}
+    //   /> */}
+    //   <p>Do you know you can save this progress</p>
+    // </div>
+
+    //   <form className="max-w-screen-xl m-auto py-10 px-5">
+    //     <div className="grid gap-8 lg:grid-cols-3">
+    //       {uniqueCategories.map((item, i) => {
+    //         return (
+    //           <div className="px-4 py-4" key={i}>
+    //             <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+    //           </div>
+    //         );
+    //       })}
+    //     </div>
+
+    //     <div className="grid gap-8 md:grid-cols-3 mt-5">
+    //       <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    //         {objectState.Furniture.map((item, index) => {
+    //           console.log("item", item);
+    //           return (
+    //             <Card
+    //               image={item.image}
+    //               key={index}
+    //               item={item.title}
+    //               itemCount={item.count}
+    //               onDecrement={decrementHandler.bind(null, "Furniture", item)}
+    //               onClick={clickHandler.bind(null, "Furniture", item)}
+    //             />
+    //           );
+    //         })}
+    //       </div>
+    //       <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    //         {objectState.Electronic.map((item, index) => (
+    //           <Card
+    //             image={item.image}
+    //             key={index}
+    //             item={item.title}
+    //             itemCount={item.count}
+    //             onDecrement={decrementHandler.bind(null, "Electronic", item)}
+    //             onClick={clickHandler.bind(null, "Electronic", item)}
+    //           />
+    //         ))}
+    //       </div>
+    //       <div className="flex flex-col gap-8 md:grid-cols-1 mt-5">
+    //         {objectState.Vehicle.map((item, index) => (
+    //           <Card
+    //             image={item.image}
+    //             key={index}
+    //             item={item.title}
+    //             itemCount={item.count}
+    //             onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+    //             onClick={clickHandler.bind(null, "Vehicle", item)}
+    //           />
+    //         ))}
+    //       </div>
+    //     </div>
+    //   </form>
+    // </div>
+
   );
 };
 

@@ -1,29 +1,101 @@
-import React from "react";
-import { Divider } from "antd";
+import React, { useState } from "react";
+import { Divider, Drawer } from "antd";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useAuth from "../../hooks/useAuth";
+import Hamburger from "./orderHamburgur";
 const AppHeader = () => {
+  const { customer, authenticated } = useAuth();
+  const [open, setOpen] = useState(false);
+  const [size, setSize] = useState();
+  const showDefaultDrawer = () => {
+    setSize("default");
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
+  const logo = () => (
+      <>
+        White Gloves
+      </>
+    );
+
+  console.log("customer in header is ", customer)
   return (
     <>
-    <nav className="sticky top-0 z-10 bg-white bg-opacity-30 border-b border-gray-200 firefox:bg-opacity-90">
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <div>
-            <span className="text-2x font-semibold">
-              logo  
-            </span>
-            <span>
-            <FontAwesomeIcon icon="fa-solid fa-phone" />
-            </span>
-          </div>
-          
-            <div className="flex space-x-4 text-gray-900">
-            ds
+      <nav className="sticky top-0 z-10 bg-white   firefox:bg-opacity-90">
+        <div className="w-full mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="whitespace-nowrap">
+              <div className="grid gap-5 grid-flow-col">
+
+                <span className="text-2x font-semibold">
+                  <img
+                    className=" w-24"
+                    src="/images/white_glove_logo.png"
+                    itemProp="image"
+                    alt="Image"
+                  />
+
+                </span>
+                <span className=" md:hidden lg:hidden xl:hidden"><a href="tel:180012097225"><img
+                  className=" pt-5"
+                  src="/images/call.png"
+                  itemProp="image"
+                  alt="Image"
+                /></a>
+                </span>
+                <span className="text-gray-900 font-medium hidden md:block lg:block xl:block"><img
+                  className=" pt-5"
+                  src="/images/call.png"
+                  itemProp="image"
+                  alt="Image"
+                />
+                </span>
+                <span className="text-gray-900 font-medium hidden md:block lg:block xl:block phonenumber-text">
+                  1800 1209 7225
+                </span>
+              </div>
             </div>
+
+            <div className="flex items-center justify-center space-x-4 text-gray-900 font-medium">
+
+              {customer?.customerName}
+              <div onClick={showDefaultDrawer}>
+                <img
+                  className="p-3"
+                  src="/images/icons8-menu.png"
+                  itemProp="image"
+                  alt="Image"
+                />
+              </div>
+            </div>
+
+          </div>
         </div>
-      </div>
-    </nav>  
+      </nav>
+      <Drawer
+        title={customer?.customerName}
+        placement="right"
+        size={size}
+        width={248}
+        onClose={onClose}
+        open={open}>
+        <div className="flex flex-col gap-y-3 text">
+          <p onClick={onClose} className=" font-semibold">My Profile</p>
+          <hr />
+          <p onClick={onClose} className=" font-semibold">Move Now</p>
+          <p onClick={onClose} className=" font-semibold">My Order</p>
+          <hr />
+          <div>
+            <button>
+              Logout
+            </button>
+          </div>
+        </div>
+      </Drawer>
     </>
     // <>
     // <div>

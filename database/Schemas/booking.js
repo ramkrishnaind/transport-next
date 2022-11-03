@@ -44,6 +44,10 @@ const bookingSchema = new Schema(
     isLiftAvailableOnMovingFloor: {
       type: Boolean,
     },
+    cft: {
+      type: Number,
+      required: false,
+    },
     sofaSets: {
       type: Array,
     },

@@ -24,6 +24,9 @@ export const createbooking = async (params) => {
   return axios.post("/api/customer/createbooking", params);
 };
 
+export const cft = async (params) => {
+  return axios.put("/api/customer/cft", params);
+};
 export const bookingItem = async (params) => {
   return axios.put("/api/customer/bookingItem", params);
 };

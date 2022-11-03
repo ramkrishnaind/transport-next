@@ -7,9 +7,10 @@ import itemList from "../../../data/itemList.json";
 import bikeList from "../../../data/bikeList.json";
 import { customAlphabet } from "nanoid";
 import Image from "next/image";
-import { bookingItem, step4Item } from "../../../services/customer-api-service";
+import { bookingItem, step4Item, cft } from "../../../services/customer-api-service";
 import { useRouter } from "next/router";
 import { faPersonWalkingDashedLineArrowRight } from "@fortawesome/free-solid-svg-icons";
+import useAuth from "../../../hooks/useAuth";
 let objToAppend = [];
 const bikeTransformed = [];
 bikeList.forEach((bikeItem) => {
@@ -195,20 +196,23 @@ bikeTransformed.forEach((item) => {
   }
 });
 const Step4 = (props) => {
+  const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   const [stateData, setStateData] = useState([]);
-  const checkKeyExist = (object, key) => {};
+  const checkKeyExist = (object, key) => { };
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
   const ctx = useContext(TransportContext);
   const { step3State, step2State } = ctx;
+  const { step4State, setStep4State } = ctx;
   console.log("ctx.step3State - ", ctx.step3State);
+  const [cftTotal, setCftTotal] = useState(0);
   const getStateData = () => {
     const result = [];
-
+    const sumOfCFT = 0;
     const filteredItems = items.filter((i) => i.completed);
     filteredItems.forEach((i) => {
       const obj = {};
@@ -257,8 +261,10 @@ const Step4 = (props) => {
           (!obj.Action4 || it?.["Action 4"] === obj.Action4)
       );
       obj.CFT = itemData?.CFT || 0;
+      sumOfCFT += obj.CFT;
       result.push({ ...obj });
     });
+    setCftTotal(sumOfCFT);
     setStateData(result);
   };
   console.log("stateDate", stateData);
@@ -309,7 +315,7 @@ const Step4 = (props) => {
     }
   };
   useEffect(() => {
-    //debugger;
+    console.log("bookingInfo in step4 is ", bookingInfo, )
     if (!step3State) return;
     const keys = Object.keys(step3State);
     const arr = [];
@@ -342,7 +348,7 @@ const Step4 = (props) => {
     });
     if (arrayItems && arrayItems.length > 0) setItems(arrayItems);
     setState(arr);
-  }, [step3State, getCopiedObject]);
+  }, [step3State, getCopiedObject, bookingInfo]);
   //useEffect(() => {}, []);
   // console.log("currentHeader", currentHeader);
 
@@ -616,8 +622,8 @@ const Step4 = (props) => {
                 backgroundColor: item?.completed
                   ? "lightgreen"
                   : item?.index === item?.currentIndex
-                  ? "lightpink"
-                  : "white",
+                    ? "lightpink"
+                    : "white",
               }}
               onClick={(e) => {
                 if (!item?.completed) handleFirstLevelItemClick(e, index, item);
@@ -972,6 +978,15 @@ const Step4 = (props) => {
     debugger;
     console.log("stateData", stateData);
     console.log("items", items);
+    console.log("cfttotal- ", cftTotal);
+    const cftData = {cft: cftTotal,};
+    ctx.setStep4State(cftData);
+   // console.log("setStep4State - ", ctx.step4State["cft"])
+    console.log("context.step4State -- ", step4State);
+    await cft({
+      bookingId: step2State?.bookingId,
+      cft: cftTotal,
+    });
     await bookingItem({
       bookingId: step2State?.bookingId,
       ...objCreated,
@@ -980,54 +995,226 @@ const Step4 = (props) => {
       bookingId: step2State?.bookingId,
       step4: [...items],
     });
+    saveBooking({ ...bookingInfo,
+      step4: [...items],
+      step4Object:objCreated,
+      cftTotal
+
+    });
     router.push("/order/step5");
   };
 
-  return (
-    <div className="relative flex-1">
-      <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
-        <button
-          className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="submit"
-        >
-          SKIP
-        </button>
-        <button
-          className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-          type="button"
-          onClick={handleSubmit}
-        >
-          PROCEED
-        </button>
-      </div>
-      <div className="flex justify-end mr-5  mb-5 text-sm ">
-        <p>Do you know you can save this progress</p>
-      </div>
-      <div className="flex overflow-x-auto accent-emerald-500/25 absolute top-0 left-80 space-x-4 w-1/2 m-auto py-2  px-5 border mx-auto">
-        <div className="flex flex-row space-x-4">
-          {state.map((element, index) => (
-            <div
-              key={index}
-              className="border px-2 cursor-pointer "
-              title={element.title}
-              onClick={(e) => handleCarouselClick(e, element)}
-            >
-              <div className="flex justify-center py-2" style={{ height: 60 }}>
-                <img src={element.image} alt="" />
-              </div>
-              {/* <div className="text-center text-sm">{element.title}</div> */}
-              <div className="px-5 mt-2 hover:bg-blue-100">
-                <button
-                  className="text-gray-500 text-center m-auto"
-                  // onClick={changeState}
-                >
-                  {getCompletedCount(element.title)}/{element.count}
-                </button>
-              </div>
-            </div>
-          ))}
+  return (<>
+    <div>
+      {/* completeBAR */}
 
-          {/* <div className="flex flex-row space-x-4">
+      <div className="hidden md:block lg:block xl:block">
+          <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
+            <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              Set up 40% complete
+            </div>
+            <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+              3 Step left • About 6 min<span className="CFT_box_step5 px-2 py-1 ml-1"><span className="CFT_box-text1_step5">CFT </span><span className="CFT_box-text1_step5 font-bold">{cftTotal}</span></span>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
+          <div>
+            <hr className="step4-line"/>
+          </div>
+        </div>
+
+
+
+      <div>
+        <div className=" flex flex-col items-center  gap-2.5 py-5 MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 60% complete</div>
+          <div className="not-italic ">
+            <span className=" font-semibold">2 Step left •</span>
+            <span> About 4 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg ">
+      <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
+        <div className="step4_heading font-medium px-2 text-center md:text-left lg:text-left xl:text-left  ">
+          Please describe the items, so that we can understand them better
+        </div>
+        <div className="step4_heading2 px-2 text-center md:text-left lg:text-left xl:text-left  ">
+          We would be able to provide you a more accurate quote once you provide us this.
+        </div>
+      </div>
+      <div className="p-3">
+        <div className="flex overflow-x-auto accent-emerald-500/25  space-x-4  py-2  px-5">
+          <div className="flex flex-row space-x-3">
+            {state.map((element, index) => (
+              <div
+                key={index}
+                className=" px-2 cursor-pointer "
+                title={element.title}
+                onClick={(e) => handleCarouselClick(e, element)}
+              >
+                <div className="flex justify-center p-3" style={{ height: 60 }}>
+                  <img src={element.image} alt="" />
+                </div>
+                {/* <div className="text-center text-sm">{element.title}</div> */}
+                <div className="px-5 mt-2 hover:bg-blue-100">
+                  <button
+                    className="text-gray-500 text-center m-auto"
+                  // onClick={changeState}
+                  >
+                    {getCompletedCount(element.title)}/{element.count}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* Action List Starts from Here */}
+      <div className="mainHeaderCardBox-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between">
+        <div className="HeaderCard_CurrentOrder px-3 py-4">
+          <div className="">
+            <div>1.<img className="arrow-png pl-3 pr-2" src="/images/trail-img/table_restaurant.png" itemProp="image" alt="main BannerImage" />Table
+            </div>
+          </div>
+          <div className="">
+            <div className="red-text_currentOrder xl:hidden lg:hidden">Clear</div>
+          </div>
+        </div>
+        <hr className=" lg:hidden xl:hidden" />
+        <div className="grid_Select_currentOrder   px-3 py-4 ">
+          <div>
+            <select
+              className=" bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Coffee / center
+              </option>
+              <option value="Coffee / center">Coffee / center</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                3 seater
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+          <div>
+            <select
+              className="bg-transparent  font-semibold"
+              required>
+              <option
+                value=""
+                disabled
+                selected
+                hidden
+                className="step1_select_hidden_option"
+              >
+                Grass Top
+              </option>
+              <option value="Coffee / center">
+                <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+              <option value="Cocktail Table">Cocktail Table</option>
+              <option value="End Table">End Table</option>
+              <option value="Wood Table">Wood Table</option>
+            </select>
+          </div>
+        </div>
+        <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4">Clear</div>
+      </div>
+      {/* Action List Ends Here */}
+    </div>
+
+    <div className="  ">
+        <div className="relative flex-1">
+          <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
+            <button
+              className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+              type="submit"
+            >
+              SKIP 1
+            </button>
+            <button
+              className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+              type="button"
+              onClick={handleSubmit}
+            >
+              PROCEED
+            </button>
+          </div>
+          <div className="flex justify-end mr-5  mb-5 text-sm ">
+            <p>Do you know you can save this progress</p>
+          </div>
+          <div className="flex overflow-x-auto accent-emerald-500/25 absolute top-0 left-80 space-x-4 w-1/2 m-auto py-2  px-5 border mx-auto">
+            <div className="flex flex-row space-x-4">
+              {state.map((element, index) => (
+                <div
+                  key={index}
+                  className="border px-2 cursor-pointer "
+                  title={element.title}
+                  onClick={(e) => handleCarouselClick(e, element)}
+                >
+                  <div className="flex justify-center py-2" style={{ height: 60 }}>
+                    <img src={element.image} alt="" />
+                  </div>
+                  {/* <div className="text-center text-sm">{element.title}</div> */}
+                  <div className="px-5 mt-2 hover:bg-blue-100">
+                    <button
+                      className="text-gray-500 text-center m-auto"
+                    // onClick={changeState}
+                    >
+                      {getCompletedCount(element.title)}/{element.count}
+                    </button>
+                  </div>
+                </div>
+              ))}
+
+              {/* <div className="flex flex-row space-x-4">
           {items.map((element) => (
             <ItemCard
               image={element.img}
@@ -1037,31 +1224,115 @@ const Step4 = (props) => {
           ))}
         </div> */}
 
-          {/* <div className="flex flex-row space-x-4">
+              {/* <div className="flex flex-row space-x-4">
           {items.map(element => (
          <ItemCard image={element.img} itemCount={"0/1"} name={element.name} />
         ))}
         </div> */}
+            </div>
+          </div>
+          <div className="flex flex-1 justify-center">
+            <div className="mr-10 first">
+              {currentHeader && displayFirstLevel()}
+            </div>
+            {items.find((i) => i.index === i.currentIndex && !i.completed) && (
+              <div className="mr-8 second">{displaySecondLevel()}</div>
+            )}
+            {checkToShowThirdLevel() && (
+              <div className="mr-8 third">{displayThirdLevel()}</div>
+            )}
+            {checkToShowFourthLevel() && (
+              <div className="mr-8 fourth">{displayFourthLevel()}</div>
+            )}
+            {checkToShowFifthLevel() && (
+              <div className="mr-8 fourth">{displayFifthLevel()}</div>
+            )}
+          </div>
         </div>
       </div>
-      <div className="flex flex-1 justify-center">
-        <div className="mr-10 first">
-          {currentHeader && displayFirstLevel()}
-        </div>
-        {items.find((i) => i.index === i.currentIndex && !i.completed) && (
-          <div className="mr-8 second">{displaySecondLevel()}</div>
-        )}
-        {checkToShowThirdLevel() && (
-          <div className="mr-8 third">{displayThirdLevel()}</div>
-        )}
-        {checkToShowFourthLevel() && (
-          <div className="mr-8 fourth">{displayFourthLevel()}</div>
-        )}
-        {checkToShowFifthLevel() && (
-          <div className="mr-8 fourth">{displayFifthLevel()}</div>
-        )}
-      </div>
-    </div>
+    
+
+
+
+  </>
+    // <div className="relative flex-1">
+    //   <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
+    //     <button
+    //       className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+    //       type="submit"
+    //     >
+    //       SKIP
+    //     </button>
+    //     <button
+    //       className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
+    //       type="button"
+    //       onClick={handleSubmit}
+    //     >
+    //       PROCEED
+    //     </button>
+    //   </div>
+    //   <div className="flex justify-end mr-5  mb-5 text-sm ">
+    //     <p>Do you know you can save this progress</p>
+    //   </div>
+    //   <div className="flex overflow-x-auto accent-emerald-500/25 absolute top-0 left-80 space-x-4 w-1/2 m-auto py-2  px-5 border mx-auto">
+    //     <div className="flex flex-row space-x-4">
+    //       {state.map((element, index) => (
+    //         <div
+    //           key={index}
+    //           className="border px-2 cursor-pointer "
+    //           title={element.title}
+    //           onClick={(e) => handleCarouselClick(e, element)}
+    //         >
+    //           <div className="flex justify-center py-2" style={{ height: 60 }}>
+    //             <img src={element.image} alt="" />
+    //           </div>
+    //           {/* <div className="text-center text-sm">{element.title}</div> */}
+    //           <div className="px-5 mt-2 hover:bg-blue-100">
+    //             <button
+    //               className="text-gray-500 text-center m-auto"
+    //               // onClick={changeState}
+    //             >
+    //               {getCompletedCount(element.title)}/{element.count}
+    //             </button>
+    //           </div>
+    //         </div>
+    //       ))}
+
+    //       {/* <div className="flex flex-row space-x-4">
+    //       {items.map((element) => (
+    //         <ItemCard
+    //           image={element.img}
+    //           itemCount={"0/1"}
+    //           name={element.name}
+    //         />
+    //       ))}
+    //     </div> */}
+
+    //       {/* <div className="flex flex-row space-x-4">
+    //       {items.map(element => (
+    //      <ItemCard image={element.img} itemCount={"0/1"} name={element.name} />
+    //     ))}
+    //     </div> */}
+    //     </div>
+    //   </div>
+    //   <div className="flex flex-1 justify-center">
+    //     <div className="mr-10 first">
+    //       {currentHeader && displayFirstLevel()}
+    //     </div>
+    //     {items.find((i) => i.index === i.currentIndex && !i.completed) && (
+    //       <div className="mr-8 second">{displaySecondLevel()}</div>
+    //     )}
+    //     {checkToShowThirdLevel() && (
+    //       <div className="mr-8 third">{displayThirdLevel()}</div>
+    //     )}
+    //     {checkToShowFourthLevel() && (
+    //       <div className="mr-8 fourth">{displayFourthLevel()}</div>
+    //     )}
+    //     {checkToShowFifthLevel() && (
+    //       <div className="mr-8 fourth">{displayFifthLevel()}</div>
+    //     )}
+    //   </div>
+    // </div>
   );
 };
 
