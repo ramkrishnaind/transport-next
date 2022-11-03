@@ -2,7 +2,6 @@
 import dbConnect from "../../../database/lib/dbConnect";
 import CustomerDB from "../../../database/Schemas/customer";
 import withProtect from "../../../middlewares/withProtect";
-import JsonFind from "json-find";
 const _ = require("lodash");
 
 /**
