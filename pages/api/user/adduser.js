@@ -61,19 +61,19 @@ async function createUserHandler(req, res) {
       "email",
       "roleValue",
     ]);
-
-    let findData = await UserDB.findOne({
-      $or: [{ mobile: userData.mobile }, { email: userData.email }],
-    });
-
-    if (findData) {
-      return res.json({
-        status: false,
-        error: true,
-        message: "Email or Mobile Already Exits",
+    if (!userData.uid) {
+      let findData = await UserDB.findOne({
+        $or: [{ mobile: userData.mobile }, { email: userData.email }],
       });
-    }
 
+      if (findData) {
+        return res.json({
+          status: false,
+          error: true,
+          message: "Email or Mobile Already Exits",
+        });
+      }
+    }
     let setData = {
       firstName: userData.firstName,
       lastName: userData.lastName,
@@ -113,7 +113,9 @@ async function createUserHandler(req, res) {
         "White Glove New User Details",
         "Hello, " +
           userData.firstName +
-          " This is your Login Password => " +
+          " This is your Login User Name = " +
+          userData.userName +
+          "  And Password = " +
           userData.password +
           " Please use this Password to Login."
       );

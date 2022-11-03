@@ -25,6 +25,8 @@ const initContext = {
   setStep4Items: () => {},
   step5State: {},
   setStep5State: () => {},
+  quotation: {},
+  setQuotation: () => {},
 };
 const TransportContext = createContext(initContext);
 
@@ -37,6 +39,7 @@ export const AppProvider = ({ children }) => {
   const [step4State, setStep4State] = useState();
   const [step4Items, setStep4Items] = useState();
   const [step5State, setStep5State] = useState();
+  const [quotation, setQuotation] = useState();
   const [isAuth, setIsAuth] = useState(false);
   const [customerDetails, setCustomerDetails] = useState();
   const [booking, setBooking] = useState();
@@ -65,6 +68,8 @@ export const AppProvider = ({ children }) => {
         setStep4Items,
         step5State,
         setStep5State,
+        quotation,
+        setQuotation,
       }}
     >
       {children}

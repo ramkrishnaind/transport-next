@@ -67,15 +67,14 @@ const App = () => {
         permission: finres[0].permission,
       });
     }
-      const res = await listMenuData();
-      categories = res.data.data;
-      setCategory(
-        categories.map((row) => ({
-          label: row.name,
-          value: row.name,
-        }))
-      );
-   
+    const res = await listMenuData();
+    categories = res.data.data;
+    setCategory(
+      categories.map((row) => ({
+        label: row.name,
+        value: row.name,
+      }))
+    );
   };
   useEffect(() => {
     if (router.isReady) {
@@ -90,11 +89,11 @@ const App = () => {
       roleValue: values.roleValue,
       permission: values.permission,
     };
-    console.log(formData);
 
     let res = await addUserrole(formData);
     if (res.data.status == true) {
       alert("role added succesfully");
+      router.push("./");
     }
   };
 
@@ -123,19 +122,7 @@ const App = () => {
         >
           <Input />
         </Form.Item>
-        <Form.Item
-          name={["roleValue"]}
-          label="Role Value"
-          rules={[
-            {
-              type: Number,
-              required: true,
-            },
-          ]}
-        >
-          <Input />
 
-        </Form.Item>
         <Form.Item name={["permission"]} label="Permission">
           <Checkbox.Group options={category} />
         </Form.Item>

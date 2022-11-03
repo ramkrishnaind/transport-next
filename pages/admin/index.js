@@ -36,6 +36,10 @@ const AdminLoginPage = () => {
         localStorage.setItem("userName", result.data.logindata.userName);
         localStorage.setItem("Password", result.data.logindata.password);
         localStorage.setItem("permission", result.data.roledata.permission);
+        localStorage.setItem("firstName", result.data.logindata.firstName);
+        localStorage.setItem("lastName", result.data.logindata.lastName);
+        localStorage.setItem("email", result.data.logindata.email);
+        localStorage.setItem("mobile", result.data.logindata.mobile);
         router.push("./../app/dashboard");
       }
     } catch (e) {

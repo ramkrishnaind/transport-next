@@ -1,14 +1,15 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
-import RoleDB from "../../../database/Schemas/userRole";
+import CustomerDB from "../../../database/Schemas/customer";
 import withProtect from "../../../middlewares/withProtect";
+import JsonFind from "json-find";
 const _ = require("lodash");
 
 /**
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
  */
-async function delroleHandler(req, res) {
+async function createCustomerHandler(req, res) {
   await dbConnect();
   try {
     if (req.method != "POST") {
@@ -20,13 +21,18 @@ async function delroleHandler(req, res) {
     }
 
     // pick data from req.body
-    let roleData = _.pick(req.body, ["roleId"]);
-    let findData = 0;
-    if (roleData.roleId) {
-      findData = await RoleDB.find({ _id: roleData.roleId });
-    } else {
-      findData = await RoleDB.find();
-    }
+    let findData = await CustomerDB.aggregate([
+      {
+        $lookup: {
+          from: "bookings",
+          localField: "_id",
+          foreignField: "customerId",
+          as: "listbooking",
+        },
+      },
+    ]);
+
+    console.log(findData.lostbooking);
     if (findData) {
       return res.json({
         status: true,
@@ -37,7 +43,8 @@ async function delroleHandler(req, res) {
       return res.json({
         status: false,
         error: true,
-        message: "No Data found",
+        message: "Your account has been disabled. Please contact admin",
+        adminDisable: true,
         statusCode: 401,
       });
     }
@@ -46,4 +53,4 @@ async function delroleHandler(req, res) {
     res.json({ error });
   }
 }
-export default withProtect(delroleHandler);
+export default withProtect(createCustomerHandler);

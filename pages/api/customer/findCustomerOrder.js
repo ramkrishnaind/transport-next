@@ -8,8 +8,7 @@ const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 
 const booking_itemSchema = Joi.object({
-    bookingId: Joi.objectId().required(),
-    customerId: Joi.objectId().required(),
+  customerId: Joi.objectId().required(),
 });
 
 /**
@@ -17,7 +16,7 @@ const booking_itemSchema = Joi.object({
  * @param {import('next').NextApiResponse} res
  */
 
-async function billnumfunc(req, res) {
+async function findCustomerOrder(req, res) {
   await dbConnect();
   try {
     if (req.method != "POST") {
@@ -37,21 +36,32 @@ async function billnumfunc(req, res) {
     }
 
     // pick data from req.body
-    let booking_itemData = _.pick(req.body, ['bookingId','customerId']);
-  
-    let findData1 = await BookingDB.findOne({ customerId: booking_itemData.customerId });
+    let booking_itemData = _.pick(req.body, ["customerId"]);
 
-    let findData = await UtilityItemDB.findOne({customerId : booking_itemData.customerId });
-    
-    if ((findData) || (findData1)) {
-      return res.json({ status: true, error: false, message: "Data." + findData+findData1 })
-    }
-    else{
-      return res.json({ status: false, error: false, message: "Data not found." }) 
+    let findData1 = await BookingDB.findOne({
+      customerId: booking_itemData.customerId,
+    });
+
+    let findData = await UtilityItemDB.findOne({
+      customerId: booking_itemData.customerId,
+    });
+
+    if (findData || findData1) {
+      return res.json({
+        status: true,
+        error: false,
+        message: "Data." + findData + findData1,
+      });
+    } else {
+      return res.json({
+        status: false,
+        error: false,
+        message: "Data not found.",
+      });
     }
   } catch (error) {
     console.log(error);
     return res.json({ status: false, error: true, errorMessage: error });
   }
 }
-export default withProtect(billnumfunc);
+export default withProtect(findCustomerOrder);

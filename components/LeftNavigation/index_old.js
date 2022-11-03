@@ -21,7 +21,7 @@ import {
   LogoutOutlined,
   DashboardOutlined,
   UserOutlined,
-  LaptopOutlined
+  LaptopOutlined,
 } from "@ant-design/icons";
 // import withPrivate from "./auth/_router-protector";
 
@@ -80,7 +80,6 @@ function Sidebar() {
       rel: "noopener noreferrer",
     },
   ];
-  
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -104,13 +103,13 @@ function Sidebar() {
   }, [router.pathname]);
   return (
     <>
-      <div className='sideBar'>
+      <div className="sideBar">
         <Menu
           defaultSelectedKeys={[selectedMenu]}
           selectedKeys={[selectedMenu]}
-          mode='inline'
+          mode="inline"
           inlineCollapsed={collapsed}
-          theme='light'
+          theme="light"
         >
           <br />
           <br />

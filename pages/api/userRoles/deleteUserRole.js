@@ -1,6 +1,7 @@
 // import connectMongo from "../../../database/connection";
 import dbConnect from "../../../database/lib/dbConnect";
 import RoleDB from "../../../database/Schemas/userRole";
+import UserDB from "../../../database/Schemas/user";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 
@@ -21,21 +22,30 @@ async function delroleHandler(req, res) {
 
     // pick data from req.body
     let roleData = _.pick(req.body, ["roleid"]);
+    let findroleValue = await UserDB.findOne({ roleValue: roleData.roleid });
 
-    let findData = await RoleDB.deleteOne({ _id: roleData.roleid });
-    console.log(findData);
-    if (findData) {
-      return res.json({
-        status: true,
-        error: false,
-        message: findData,
-      });
+    if (!findroleValue) {
+      let findData = await RoleDB.deleteOne({ roleName: roleData.roleid });
+      if (findData) {
+        return res.json({
+          status: true,
+          error: false,
+          message: "User Deleted Successfully!",
+        });
+      } else {
+        return res.json({
+          status: false,
+          error: true,
+          message: "Your account has been disabled. Please contact admin",
+          adminDisable: true,
+          statusCode: 401,
+        });
+      }
     } else {
-      //const customer = await UserDB.create(userData);
       return res.json({
         status: false,
         error: true,
-        message: "Your account has been disabled. Please contact admin",
+        message: "Role value assigned to user.",
         adminDisable: true,
         statusCode: 401,
       });
