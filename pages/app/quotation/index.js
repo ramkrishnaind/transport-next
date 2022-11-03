@@ -35,7 +35,6 @@ const App = () => {
   const { step2State } = context;
   const { step3State } = context;
   const { customerDetails } = context;
-  console.log('car is-',step3State.Vehicle[1].count);
 
   let addedTotalCharge = 0;
   let percentage = 0;
