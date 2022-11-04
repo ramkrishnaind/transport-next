@@ -1,18 +1,11 @@
 // import connectMongo from "../../../database/connection";
+import { stringify } from "postcss";
 import dbConnect from "../../../database/lib/dbConnect";
 import RoleDB from "../../../database/Schemas/userRole";
 import withProtect from "../../../middlewares/withProtect";
 const _ = require("lodash");
 const Joi = require("joi");
-Joi.objectId = require('joi-objectid')(Joi);
-
-const userRoleSchema = Joi.object({
-  roleId:Joi.objectId(),
-  roleName: Joi.string().trim().required(),
-  roleValue: Joi.number().required(),
-  permission: Joi.array(),
-
-});
+Joi.objectId = require("joi-objectid")(Joi);
 
 /**
  * @param {import('next').NextApiRequest} req
@@ -29,32 +22,24 @@ async function createRoleHandler(req, res) {
       });
     }
 
-    let validateData = userRoleSchema.validate(req.body);
-    if (validateData.error) {
-      return res.json({
-        status: false,
-        error: validateData,
-        message: "Invalid data",
-      });
-    }
-
-    // pick data from req.body
-    let roleData = _.pick(req.body, ["roleId","roleName", "roleValue","permission"]);
-    console.log("role for update",roleData);
-    let addData=0 ;
-    
-    if(roleData.roleId)
-    {
+    let roleData = _.pick(req.body, ["roleId", "roleName", "permission"]);
+    let addData = 0;
+    console.log(roleData);
+    if (roleData.roleId) {
       let setData = {
-        roleName:roleData.roleName,
-        roleValue:roleData.roleValue,
-        permission:roleData.permission,
+        roleName: roleData.roleName,
+        permission: roleData.permission,
       };
-      addData= await RoleDB.findOneAndUpdate({_id:roleData.roleId}, { $set: setData });
-    }
-    else
-    {
-    addData= await RoleDB.create(roleData);
+      addData = await RoleDB.findOneAndUpdate(
+        { _id: roleData.roleId },
+        { $set: setData }
+      );
+    } else {
+      const addroleData = {
+        roleName: roleData.roleName,
+        permission: roleData.permission,
+      };
+      addData = await RoleDB.create(addroleData);
     }
 
     if (addData) {

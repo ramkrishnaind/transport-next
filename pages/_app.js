@@ -6,6 +6,7 @@ import AdminLayout from "../components/UI/AdminLayout";
 import OrderLayout from "../components/UI/OrderLayout";
 import "antd/dist/antd.css";
 import "../public/overRide.css";
+import '../public/quotationPDF.css';
 import "../public/order.css";
 import "../public/header.css";
 import "../public/index.css";

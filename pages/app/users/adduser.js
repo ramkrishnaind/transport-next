@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import "antd/dist/antd.css";
 import {
   addUser,
-  userByID,
+  getUserByID,
   userRoleList,
 } from "../../../services/admin-api-service";
 import {
@@ -19,6 +19,7 @@ import {
 import PageHeader from "../../../components/helper/pageTitle";
 import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
+let finalvalue;
 
 const { Option } = Select;
 
@@ -75,7 +76,7 @@ const App = () => {
 
   const getAllRoles = async (param) => {
     let userRoleRes = await userRoleList(param);
-    let roleOptions = userRoleRes.data.data.map((item) => {
+    let roleOptions = userRoleRes.data.message.map((item) => {
       return { value: item.roleName, label: item.roleName };
     });
     setRoleList(roleOptions);
@@ -120,7 +121,7 @@ const App = () => {
 
   const getData = async (UserId) => {
     if (UserId) {
-      let res = await saveFormData();
+      let res = await saveFormData(UserId);
       finalvalue = res.data.data;
       form.setFieldsValue({
         uid: UserId,
@@ -130,17 +131,17 @@ const App = () => {
         password: finalvalue.password,
         email: finalvalue.email,
         mobile: finalvalue.mobile,
-        user_role: categories.roleValue,
+        user_role: finalvalue.roleValue,
       });
     }
   };
 
-  const saveFormData = async () => {
+  const saveFormData = async (UserId) => {
     try {
       const formTOData = {
         userId: UserId,
       };
-      return await listoneUser(formTOData);
+      return await getUserByID(formTOData);
     } catch (err) {
       throw err;
       console.log(err);
@@ -175,6 +176,9 @@ const App = () => {
           <div className="mt-8 ml-8">
             <div className="flex flex-row ">
               <div className="basis-1/2">
+                <Form.Item name="uid" hidden={true}>
+                  <Input />
+                </Form.Item>
                 <Form.Item
                   name="firstName"
                   label="First Name"
@@ -254,12 +258,7 @@ const App = () => {
                     },
                   ]}
                 >
-                  <Select
-                    placeholder="Select Role"
-                    options={roleList}
-                    // defaultValue={roleList.roleName}
-                    //value={roleList[0].roleName}
-                  ></Select>
+                  <Select placeholder="Select Role" options={roleList}></Select>
                 </Form.Item>
               </div>
             </div>

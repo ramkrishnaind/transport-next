@@ -2,7 +2,11 @@ import "antd/dist/antd.css";
 import { useRouter } from "next/router";
 
 import { Table, Space, Button, Spin } from "antd";
-import { getAllUsers, deleteUser, getRoleByType } from "../../../services/admin-api-service";
+import {
+  getAllUsers,
+  deleteUser,
+  getRoleByType,
+} from "../../../services/admin-api-service";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import PageHeader from "../../../components/helper/pageTitle";
@@ -73,7 +77,6 @@ const Users = () => {
     getData();
   }, []);
   const deleteUserRecord = async (value) => {
-  
     const formTOData = {
       userid: value,
     };
@@ -84,51 +87,54 @@ const Users = () => {
   const getData = async () => {
     setIsLoading(true);
     const res = await getAllUsers();
-    if(res.status){
-        setIsLoading(false);
-        setData(
-            res.data.data.map((row) => ({
-                id: row._id,
-                first_name: row.firstName,
-                user_name: row.userName,
-                last_name: row.lastName,
-                mobile: row.mobile,
-                email: row.email,
-                user_role: row.roleValue,
-            }))
-        );
+    if (res.status) {
+      setIsLoading(false);
+      setData(
+        res.data.data.map((row) => ({
+          id: row._id,
+          first_name: row.firstName,
+          user_name: row.userName,
+          last_name: row.lastName,
+          mobile: row.mobile,
+          email: row.email,
+          user_role: row.roleValue,
+        }))
+      );
     }
   };
 
   return (
     <>
-        <PageHeader
-            mainTitle="Users Management"
-            subTitle="create and manage user here"
-            currentPage="Users List"
-        />
-        <div className="flex flex-row">
-            <div className="basis-11/12 ml-1 mt-4 tableTitle">Users List</div>
-            <div className="basis-1/12 mb-2">
-            <Button className="adminprimary"
-                size="large"  shape="round"
-                icon={<UserAddOutlined />}
-                onClick={() => router.push("users/adduser")}
-            >
-                Add User
-            </Button>
-            </div>
+      <PageHeader
+        mainTitle="Users Management"
+        subTitle="create and manage user here"
+        currentPage="Users List"
+      />
+      <div className="flex flex-row">
+        <div className="basis-11/12 ml-1 mt-4 tableTitle">Users List</div>
+        <div className="basis-1/12 mb-2">
+          <Button
+            className="adminprimary"
+            size="large"
+            shape="round"
+            icon={<UserAddOutlined />}
+            onClick={() => router.push("users/adduser")}
+          >
+            Add User
+          </Button>
         </div>
-        {isLoading ? 
-            <>
-                <div className="centerSpiner">
-                    <Spin size="large" />
-                </div>
-            </> :
-            <>
-                <Table columns={columns} dataSource={data} />
-            </>
-        }
+      </div>
+      {isLoading ? (
+        <>
+          <div className="centerSpiner">
+            <Spin size="large" />
+          </div>
+        </>
+      ) : (
+        <>
+          <Table columns={columns} dataSource={data} />
+        </>
+      )}
     </>
   );
 };

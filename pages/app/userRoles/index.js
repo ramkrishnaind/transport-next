@@ -33,9 +33,9 @@ const UserRoles = () => {
       render: (text) => <a>{text}</a>,
     },
     {
-      title: "Role Value",
-      dataIndex: "role_value",
-      key: "role_value",
+      title: "Role Permission",
+      dataIndex: "role_permission",
+      key: "role_permission",
     },
     {
       title: "Action",
@@ -43,14 +43,17 @@ const UserRoles = () => {
       render: (_, record) => (
         <Space size="middle">
           <Link
-            href={{ pathname: "userRoles/addUserRole", query: { roleId: record.id } }}
+            href={{
+              pathname: "userRoles/addUserRole",
+              query: { roleId: record.id },
+            }}
           >
             <a>
               <EditOutlined />
             </a>
           </Link>
           <a>
-            <DeleteOutlined onClick={() => clickdelHandler(record.id)} />
+            <DeleteOutlined onClick={() => clickdelHandler(record.role_name)} />
           </a>
         </Space>
       ),
@@ -68,7 +71,9 @@ const UserRoles = () => {
     const formTOData = {
       roleid: value,
     };
+
     const res = await deleteUserrole(formTOData);
+    alert(res.data.message);
     getData();
   };
 
@@ -80,14 +85,11 @@ const UserRoles = () => {
   const getData = async () => {
     const value = 1;
     const res = await saveFormData(value);
-    console.log("ashwani", res.data.message);
-
     setdata(
-      res.data.data.map((row) => ({
-
+      res.data.message.map((row) => ({
         id: row._id,
         role_name: row.roleName,
-        role_value: row.roleValue,
+        role_permission: row.permission,
       }))
     );
   };
@@ -95,22 +97,23 @@ const UserRoles = () => {
   return (
     <>
       <PageHeader
-          mainTitle="User Roles Management"
-          subTitle="Manage User Roles Here"
-          currentPage="User Roles"
+        mainTitle="User Roles Management"
+        subTitle="Manage User Roles Here"
+        currentPage="User Roles"
       />
       <div className="flex flex-row">
-          <div className="basis-11/12 ml-1 mt-4 tableTitle">All Role</div>
-          <div className="basis-1/12 mb-2">
-          <Button className="adminprimary"
-              size="large"
-              shape="round"
-              icon={<UserAddOutlined />}
-              onClick={() => router.push("userRoles/addUserRole")}
+        <div className="basis-11/12 ml-1 mt-4 tableTitle">All Role</div>
+        <div className="basis-1/12 mb-2">
+          <Button
+            className="adminprimary"
+            size="large"
+            shape="round"
+            icon={<UserAddOutlined />}
+            onClick={() => router.push("userRoles/addUserRole")}
           >
-              Add Role
+            Add Role
           </Button>
-          </div>
+        </div>
       </div>
       <Table columns={columns} dataSource={data} />
     </>

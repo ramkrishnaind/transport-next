@@ -26,7 +26,7 @@ async function getAllUsers(req, res) {
         status: true,
         error: false,
         data: findData,
-        message: "Users List"
+        message: "Users List",
       });
     } else {
       //const customer = await UserDB.create(userData);

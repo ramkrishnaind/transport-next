@@ -48,14 +48,14 @@ async function createUserHandler(req, res) {
         return res.json({
           status: false,
           error: true,
-          message: "Your account has been disabled. Please contact admin",
+          message: "Your account has been di=sabled. Please contact admin",
           adminDisable: true,
           statusCode: 401,
         });
       }
       // console.log(findData);
       let findroleData = await UserRoleDB.findOne({
-        roleValue: findData.roleValue,
+        roleName: findData.roleValue,
       });
       return res.json({
         status: true,
