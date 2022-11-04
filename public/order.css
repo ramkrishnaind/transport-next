@@ -831,17 +831,17 @@ a {
   .grid1_step2 {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 170px 131px 213px 1fr;
+    grid-template-columns: 170px 99px 213px 1fr;
   }
   .grid2_step2 {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 258px 131px 1fr;
+    grid-template-columns: 258px 104px 1fr;
   }
   .grid3_step2 {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 178px 1fr;
+    grid-template-columns: 151px 1fr;
   }
 
   .widthSlect {
@@ -1220,4 +1220,15 @@ h-100vh{
   .Step4_add_button{
     width: 91vw;
    } 
+}
+.valueSelect{
+  color: blue;
+  background-color: transparent;
+}
+.rishiLohan31888{
+  background-origin: auto;
+  flex-direction: column;
+  resize: both;
+  border: 1px solid #000;
+  grid-row-start: auto;
 }
