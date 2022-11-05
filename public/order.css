@@ -1232,3 +1232,9 @@ h-100vh{
   border: 1px solid #000;
   grid-row-start: auto;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+  font-family: 'Open Sans', sans-serif;
+}
