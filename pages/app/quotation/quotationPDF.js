@@ -9,7 +9,7 @@ const QuotationPDF = () => {
   const ctx = useContext(TransportContext);
   const { quotation } = ctx;
 
-  console.log('quotation is here',quotation);
+  // console.log('quotation is here',quotation);
 
   const SavePdfButton = () => {
    return window.print();
