@@ -169,7 +169,7 @@ const Step3 = (props) => {
     router.push("/order/step4");
   };
   const handleSkip = () => {
-   // router.push("/order/step5");
+   router.push("/order/step7");
   };
   const form1 = () => {
     return (<form className="max-w-screen-xl m-auto px-4">

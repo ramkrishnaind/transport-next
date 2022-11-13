@@ -26,7 +26,9 @@ const Step5 = () => {
   console.log("context.step3State -- ", step3State);
   console.log("context.step4State -- ", step4State);
   console.log("context.step5State -- ", step5State);
-  const [cftTotal, setCftTotal] = useState(Number(bookingInfo?.cftTotal));
+ // const [cftTotal, setCftTotal] = useState(Number(bookingInfo?.cft));
+ const [cftTotal, setCftTotal] = useState(0);
+ console.log("cft -", step4State?.cft)
   const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
   const bookingId = booking?.bookingId;
   let categories = [...itemList.map((item) => item?.Category)];
@@ -71,6 +73,12 @@ const Step5 = () => {
   console.log("objectState - ", objectState);
 
   useEffect(() => {
+    if (!step4State) return;
+    setCftTotal(step4State["cft"]);
+    console.log("cftdata5 - ", cftTotal);
+  }, [step4State]);
+
+  useEffect(() => {
     setObjectState((prev) => {
       const newState = { ...prev };
       const keys = Object.keys(newState);
@@ -83,7 +91,7 @@ const Step5 = () => {
       return newState;
     });
     console.log("bookingInfo in step5 is ", bookingInfo)
-    setCftTotal(Number(booking.cftTotal))
+    //setCftTotal(Number(booking?.cft))
   }, [bookingInfo]);
   useEffect(() => {
     //debugger;
@@ -142,6 +150,11 @@ const Step5 = () => {
     setCftTotal(sumOfCFT);
     //ctx.setStep5State(newState);
   };
+
+  const handleSkip = () => {
+    router.push("/order/step7");
+   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     // ----------------------
@@ -229,7 +242,8 @@ const Step5 = () => {
   };
   const handleOk = () => {
     setIsBookingConfirmed(false);
-    router.push("/order/currentOrder"); 
+   // router.push("/order/currentOrder"); 
+    router.push("/order/step7"); 
   };
   const bookingConformation = () => {
     Modal.success({
@@ -554,7 +568,7 @@ const Step5 = () => {
                 <button
                   className="button_2_skip rounded-m px-10 py-2"
                   type="button"
-
+                  onClick={handleSkip}
                 >
                   SKIP
                 </button>

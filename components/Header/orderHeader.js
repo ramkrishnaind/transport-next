@@ -4,17 +4,22 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useAuth from "../../hooks/useAuth";
-import Hamburger from "./orderHamburgur";
+import { useRouter } from "next/router";
+//import Hamburger from "./orderHamburgur";
 const AppHeader = () => {
   const { customer, authenticated } = useAuth();
   const [open, setOpen] = useState(false);
   const [size, setSize] = useState();
+  const router = useRouter();
   const showDefaultDrawer = () => {
     setSize("default");
     setOpen(true);
   };
   const onClose = () => {
     setOpen(false);
+  };
+  const handleMyOrder = () => {
+    router.push("/order/step7"); 
   };
   const logo = () => (
       <>
@@ -47,13 +52,16 @@ const AppHeader = () => {
                   alt="Image"
                 /></a>
                 </span>
+                <a href="tel:180012097225">
                 <span className="text-gray-900 font-medium hidden md:block lg:block xl:block"><img
                   className=" pt-5"
                   src="/images/call.png"
                   itemProp="image"
                   alt="Image"
+                
                 />
                 </span>
+                </a>
                 <span className="text-gray-900 font-medium hidden md:block lg:block xl:block phonenumber-text">
                   1800 1209 7225
                 </span>
@@ -84,12 +92,24 @@ const AppHeader = () => {
         onClose={onClose}
         open={open}>
         <div className="flex flex-col gap-y-3 text">
-          <p onClick={onClose} className=" font-semibold">My Profile</p>
-          <hr />
-          <p onClick={onClose} className=" font-semibold">Move Now</p>
+          {/* <p onClick={onClose} className=" font-semibold">My Profile</p> */}
+          {/* <hr />
+          <p onClick={onClose} className=" font-semibold">Move Now</p> 
           <p onClick={onClose} className=" font-semibold">My Order</p>
-          <hr />
-          <div>
+          <hr /> */}
+          <div className=" font-semibold">
+            <button onClick={onClose}>
+            My Profile
+            </button>
+          </div>
+          <hr></hr>
+          <div className=" font-semibold">
+            <button onClick={handleMyOrder}>
+            My Order
+            </button>
+          </div>
+          <hr></hr>
+          <div className=" font-semibold">
             <button>
               Logout
             </button>
