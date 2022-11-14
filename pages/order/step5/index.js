@@ -328,7 +328,7 @@ const Step5 = () => {
               <form className="max-w-screen-xl m-auto px-4">
                 <div className="mt-5">
                   <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {items.Utility.map((item, index) => {
+                    {objectState.Utility.map((item, index) => {
                       console.log("utility item -", item);
                       return (
                         <Card
@@ -352,7 +352,7 @@ const Step5 = () => {
               <form className="max-w-screen-xl m-auto px-4">
                 <div className="mt-5">
                   <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {items.HomeAppliances.map((item, index) => (
+                    {objectState.HomeAppliances.map((item, index) => (
                       <Card
                         image={item.image}
                         key={index}
@@ -378,7 +378,7 @@ const Step5 = () => {
               <form className="max-w-screen-xl m-auto px-4">
                 <div className="mt-5">
                   <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {items.CareItems.map((item, index) => (
+                    {objectState.CareItems.map((item, index) => (
                       <Card
                         image={item.image}
                         key={index}
@@ -400,7 +400,7 @@ const Step5 = () => {
               <form className="max-w-screen-xl m-auto px-4">
                 <div className="mt-5">
                   <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-                    {items.Fitness.map((item, index) => (
+                    {objectState.Fitness.map((item, index) => (
                       <Card
                         image={item.image}
                         key={index}
