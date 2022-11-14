@@ -21,6 +21,10 @@ const AppHeader = () => {
   const handleMyOrder = () => {
     router.push("/order/step7"); 
   };
+  const handleLogout = () =>{
+    localStorage.clear()
+    router.push("/")
+  }
   const logo = () => (
       <>
         White Gloves
@@ -110,7 +114,7 @@ const AppHeader = () => {
           </div>
           <hr></hr>
           <div className=" font-semibold">
-            <button>
+            <button onClick={handleLogout}>
               Logout
             </button>
           </div>

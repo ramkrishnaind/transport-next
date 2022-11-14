@@ -96,19 +96,39 @@ const Step3 = (props) => {
   }, [bookingInfo]);
   useEffect(() => {
     // debugger;
-    if (!step3State) return;
+    if (!step3State) { 
+      let stp3State= JSON.parse(localStorage.getItem("step3State"))
+      console.log("local storage - ",stp3State )
+      if(!stp3State) {return;}
+      else{
+      setObjectState((prev) => {
+        const newState = { ...prev };
+        const keys = Object.keys(stp3State);
+        keys.forEach((k) => {
+          stp3State[k] = stp3State[k]?.map((i) => {
+            console.log("new title - ", i.title);
+            console.log("new title - ", i.count);
+            return i;
+          });
+        });
+        return stp3State;
+      });
+    }
+    }
+    else{
     setObjectState((prev) => {
       const newState = { ...prev };
       const keys = Object.keys(step3State);
       keys.forEach((k) => {
         newState[k] = newState[k]?.map((i) => {
-          console.log(" title - ", i.title);
-          console.log(" title - ", i.count);
+          //console.log(" title - ", i.title);
+          //console.log(" title - ", i.count);
           return i;
         });
       });
       return newState;
     });
+  }
   }, []);
 
   const clickHandler = (key, item) => {
@@ -166,6 +186,8 @@ const Step3 = (props) => {
     saveBooking({ ...bookingInfo,
       step3:objectState
     });
+    localStorage.setItem("step3State", JSON.stringify(objectState));  
+    console.log("local storage save- ",JSON.stringify(objectState) )
     router.push("/order/step4");
   };
   const handleSkip = () => {

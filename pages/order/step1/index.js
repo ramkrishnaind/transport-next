@@ -85,7 +85,7 @@ const Step1 = () => {
 
       context.setStep1State(formData);
       console.log(formData);
-
+      localStorage.setItem("step1State", JSON.stringify(formData));
       router.push("/order/step2");
       setLoading(false);
     }
