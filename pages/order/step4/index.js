@@ -537,48 +537,44 @@ const Step4 = (props) => {
       return newVal;
     });
     setTimeout(() => {
-      setItemsLevel1((prev) => {
-        debugger;
-        const newVal = [...prev];
-        newVal[index] = levelOneItems;
-        return newVal;
+      const prev = [...itemsLevel1];
+      prev[index] = [...levelOneItems];
+      setItemsLevel1(prev);
+      setItemsLevel2((old) => {
+        // debugger;
+        let current = [...old];
+        current[index] = getLevelTwo(
+          categoryResults[index].category,
+          categoryResults[index].Item,
+          null
+          // value && JSON.parse(value)["Action 1"]
+        );
+        // setCategoryResults((prev) => {
+        //   let curr = [...prev];
+        //   curr[parentIndex].level1 = item;
+        //   curr[parentIndex].level2 = null;
+        //   curr[parentIndex].level3 = null;
+        //   curr[parentIndex].level4 = null;
+        //   return curr;
+        // });
+        return current;
       });
-    }, 100);
-
-    setItemsLevel2((old) => {
-      // debugger;
-      let current = [...old];
-      current[index] = getLevelTwo(
-        categoryResults[index].category,
-        categoryResults[index].Item,
-        null
-        // value && JSON.parse(value)["Action 1"]
-      );
-      // setCategoryResults((prev) => {
-      //   let curr = [...prev];
-      //   curr[parentIndex].level1 = item;
-      //   curr[parentIndex].level2 = null;
-      //   curr[parentIndex].level3 = null;
-      //   curr[parentIndex].level4 = null;
-      //   return curr;
-      // });
-      return current;
-    });
-    setItemsLevel3((old) => {
-      let current = [...old];
-      current[index] = [];
-      return current;
-    });
-    setItemsLevel4((old) => {
-      let current = [...old];
-      current[index] = [];
-      return current;
-    });
-    setItemsLevel5((old) => {
-      let current = [...old];
-      current[index] = [];
-      return current;
-    });
+      setItemsLevel3((old) => {
+        let current = [...old];
+        current[index] = [];
+        return current;
+      });
+      setItemsLevel4((old) => {
+        let current = [...old];
+        current[index] = [];
+        return current;
+      });
+      setItemsLevel5((old) => {
+        let current = [...old];
+        current[index] = [];
+        return current;
+      });
+    }, 10);
   };
   useEffect(() => {
     console.log("bookingInfo in step4 is ", bookingInfo);
@@ -1351,11 +1347,11 @@ const Step4 = (props) => {
                         {`${index + 1}. `}
                         <img
                           className="arrow-png pl-3 pr-2"
-                          src={`/images/${iterator[0].Image}`}
+                          src={`/images/${iterator[0]?.Image}`}
                           itemProp="image"
                           alt="main BannerImage"
                         />
-                        {iterator[0].Item}
+                        {iterator[0]?.Item}
                       </div>
                     </div>
                   </div>
