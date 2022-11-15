@@ -4,6 +4,7 @@ import React, {
   useContext,
   useCallback,
   createRef,
+  useRef,
 } from "react";
 import TransportContext from "../../../context";
 
@@ -388,11 +389,17 @@ const Step4 = (props) => {
   const [itemsLevel2, setItemsLevel2] = useState([]);
   const [itemsLevel3, setItemsLevel3] = useState([]);
   const [itemsLevel4, setItemsLevel4] = useState([]);
-  const level1Ref = useRef([]);
-  let myLevel1Refs, myLevel2Refs, myLevel3Refs, myLevel4Refs;
-  const level2Ref = useRef([]);
-  const level3Ref = useRef([]);
-  const level4Ref = useRef([]);
+  const [itemsLevel5, setItemsLevel5] = useState([]);
+  // const level1Ref = useRef([]);
+  const [myLevel1Refs, setMyLevel1Refs] = useState();
+  const [myLevel2Refs, setMyLevel2Refs] = useState();
+  const [myLevel3Refs, setMyLevel3Refs] = useState();
+  const [myLevel4Refs, setMyLevel4Refs] = useState();
+  const [myLevel5Refs, setMyLevel5Refs] = useState();
+  // let myLevel1Refs, myLevel2Refs, myLevel3Refs, myLevel4Refs;
+  // const level2Ref = useRef([]);
+  // const level3Ref = useRef([]);
+  // const level4Ref = useRef([]);
   const [categoryResults, setCategoryResults] = useState([]);
   const [stepResults, setStepResults] = useState();
   const { bookingInfo, saveBooking, customer } = useAuth();
@@ -487,46 +494,88 @@ const Step4 = (props) => {
       });
     }
   };
-  useEffect(() => {
-    if (itemsLevel1.length > 0) {
-      myLevel1Refs = itemsLevel1.map(() => createRef());
-      itemsLevel1.forEach((index) => {
-        myLevel1Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel1?.category][index].level1
-        );
-      });
-    }
-  }, itemsLevel1);
+  // useEffect(() => {
+  //   if (itemsLevel1.length > 0) {
+  //     setMyLevel1Refs(itemsLevel1.map(() => createRef()));
+  //     setTimeout(() => {
+  //       itemsLevel1.map((n, index) => {
+  //         if (
+  //           myLevel1Refs &&
+  //           stepResults[itemsLevel1?.[index]?.Category]?.[index]
+  //         )
+  //           myLevel1Refs[index].current.value = JSON.stringify(
+  //             stepResults[itemsLevel1[index]?.Category]?.[index]?.Item
+  //           );
+  //       });
+  //     }, 100);
+  //   }
+  // }, itemsLevel1);
   useEffect(() => {
     if (itemsLevel2.length > 0) {
-      myLevel2Refs = itemsLevel2.map(() => createRef());
-      itemsLevel2.forEach((index) => {
-        myLevel2Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel2?.category][index].level2
-        );
-      });
+      setMyLevel2Refs(itemsLevel2.map(() => createRef()));
+      setTimeout(() => {
+        itemsLevel2.map((n, index) => {
+          if (
+            myLevel2Refs &&
+            stepResults[itemsLevel2?.[index]?.Category]?.[index]
+          )
+            myLevel2Refs[index].current.value = JSON.stringify(
+              stepResults[itemsLevel2[index]?.Category]?.[index]?.level1
+            );
+        });
+      }, 100);
     }
   }, itemsLevel2);
   useEffect(() => {
     if (itemsLevel3.length > 0) {
-      myLevel3Refs = itemsLevel3.map(() => createRef());
-      itemsLevel3.forEach((index) => {
-        myLevel3Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel3?.category][index].level3
-        );
-      });
+      setMyLevel3Refs(itemsLevel3.map(() => createRef()));
+      setTimeout(() => {
+        itemsLevel3.map((n, index) => {
+          if (
+            myLevel3Refs &&
+            stepResults[itemsLevel3?.[index]?.Category]?.[index]
+          )
+            myLevel3Refs[index].current.value = JSON.stringify(
+              stepResults[itemsLevel3[index]?.Category]?.[index]?.level2
+            );
+        });
+      }, 10);
     }
   }, itemsLevel3);
   useEffect(() => {
     if (itemsLevel4.length > 0) {
-      myLevel4Refs = itemsLevel4.map(() => createRef());
-      itemsLevel4.forEach((index) => {
-        myLevel4Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel4?.category][index].level4
-        );
-      });
+      setMyLevel4Refs(itemsLevel4.map(() => createRef()));
+      setTimeout(() => {
+        itemsLevel4.forEach((n, index) => {
+          debugger;
+          if (
+            myLevel4Refs &&
+            stepResults[itemsLevel4?.[index]?.Category]?.[index]
+          )
+            myLevel4Refs[index].current.value = JSON.stringify(
+              stepResults[itemsLevel4[index]?.Category]?.[index]?.level3
+            );
+        });
+      }, 100);
     }
   }, itemsLevel4);
+  useEffect(() => {
+    if (itemsLevel5.length > 0) {
+      setMyLevel4Refs(itemsLevel5.map(() => createRef()));
+      setTimeout(() => {
+        itemsLevel5.forEach((n, index) => {
+          debugger;
+          if (
+            myLevel4Refs &&
+            stepResults[itemsLevel5?.[index]?.Category]?.[index]
+          )
+            myLevel4Refs[index].current.value = JSON.stringify(
+              stepResults[itemsLevel5[index]?.Category]?.[index]?.level4
+            );
+        });
+      }, 100);
+    }
+  }, itemsLevel5);
   useEffect(() => {
     myLevel4Refs = itemsLevel4.map(() => createRef());
   }, itemsLevel4);
@@ -705,9 +754,9 @@ const Step4 = (props) => {
       setItemsLevel2((old) => {
         // debugger;
         let current = [...old];
-        current[i] = getLevelTwo(
+        current[index] = getLevelTwo(
           currItems[index]?.category,
-          currItems[index]?.title,
+          currItems[index]?.Item,
           null
           // value && JSON.parse(value)["Action 1"]
         );
@@ -722,10 +771,11 @@ const Step4 = (props) => {
         return current;
       });
       setItemsLevel3((old) => {
+        debugger;
         let current = [...old];
         current[index] = getLevelThree(
           currItems[index]?.category,
-          currItems[index]?.title,
+          currItems[index]?.Item,
           currItems[index]?.level1["Action 1"]
         );
 
@@ -735,9 +785,9 @@ const Step4 = (props) => {
         let current = [...old];
         current[index] = getLevelFour(
           currItems[index]?.category,
-          currItems[index]?.title,
+          currItems[index]?.Item,
           currItems[index]?.level1["Action 1"],
-          currItems[index]?.level1["Action 2"]
+          currItems[index]?.level2["Action 2"]
         );
 
         return current;
@@ -748,11 +798,11 @@ const Step4 = (props) => {
           currItems[index]?.category,
           currItems[index]?.title,
           currItems[index]?.level1["Action 1"],
-          currItems[index]?.level1["Action 2"],
-          currItems[index]?.level1["Action 3"]
+          currItems[index]?.level2["Action 2"],
+          currItems[index]?.level3["Action 3"]
         );
 
-        return current;
+        //   return current;
       });
     });
   };
@@ -762,7 +812,7 @@ const Step4 = (props) => {
     // console.log("event", event);
     // console.log("element", element);
     const level1 = [];
-    const catResults = stepResults[element.category] || [];
+    const catResults = stepResults?.[element.category] || [];
     const filteredList = [...itemList, ...bikeTransformed].filter(
       (i) => i && i?.Category === element.category && i.Item === element.title
 
@@ -775,8 +825,8 @@ const Step4 = (props) => {
     for (const i = 0; i < element.count; i++) {
       level1.push(levelOneItems);
       if (
-        stepResults[element.category] &&
-        stepResults[element.category].length > 0
+        stepResults?.[element.category] &&
+        stepResults?.[element.category].length > 0
       ) {
         populateFromStepResults(element.category);
       } else {
@@ -914,7 +964,7 @@ const Step4 = (props) => {
         <div>
           <select
             className=" bg-transparent  font-semibold"
-            ref={myLevel1Refs[headerIndex] || null}
+            ref={myLevel1Refs?.[headerIndex] || null}
             onChange={(e) => {
               // debugger;
               if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
@@ -1030,7 +1080,7 @@ const Step4 = (props) => {
         <div>
           <select
             className=" bg-transparent  font-semibold"
-            ref={myLevel2Refs[headerIndex] || null}
+            ref={myLevel2Refs?.[headerIndex] || null}
             onChange={(e) => {
               debugger;
               if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
@@ -1132,7 +1182,7 @@ const Step4 = (props) => {
         <div>
           <select
             className=" bg-transparent  font-semibold"
-            ref={myLevel3Refs[headerIndex] || null}
+            ref={myLevel3Refs?.[headerIndex] || null}
             onChange={(e) => {
               debugger;
               if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
@@ -1218,13 +1268,13 @@ const Step4 = (props) => {
     });
   };
   const displayFifthLevelNew = (headerIndex) => {
-    console.log("itemsLevel5", itemsLevel5);
+    // console.log("itemsLevel5", itemsLevel5);
     return (
       <div className="px-3 py-4 ">
         <div>
           <select
             className=" bg-transparent  font-semibold"
-            ref={myLevel3Refs[headerIndex] || null}
+            ref={myLevel5Refs?.[headerIndex] || null}
             onChange={(e) => {
               if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
                 handleFifthLevelClick(
@@ -1291,36 +1341,36 @@ const Step4 = (props) => {
     });
     event.stopPropagation();
 
-    // if (!level4) {
-    //   setItemsLevel5((old) => {
-    //     let current = [...old];
-    //     current[parentIndex] = [];
-    //     return current;
-    //   });
-    // }
-    // setItemsLevel5((old) => {
-    //   let current = [...old];
-    //   current[parentIndex] = getLevelSix(
-    //     category,
-    //     type,
-    //     level1,
-    //     level2,
-    //     level3,
-    //     level4["Action 4"]
-    //   );
-    //   return current;
-    // });
-    // return current;
+    if (!level4) {
+      setItemsLevel5((old) => {
+        let current = [...old];
+        current[parentIndex] = [];
+        return current;
+      });
+    }
+    setItemsLevel5((old) => {
+      let current = [...old];
+      current[parentIndex] = getLevelSix(
+        category,
+        type,
+        level1,
+        level2,
+        level3,
+        level4["Action 4"]
+      );
+      return current;
+    });
+    return current;
   };
   console.log("stepresults", stepResults);
   const checkToShowThirdLevel = (headerIndex) => {
-    return itemsLevel3[headerIndex] && itemsLevel3[headerIndex].length > 0;
+    return itemsLevel3?.[headerIndex] && itemsLevel3?.[headerIndex].length > 0;
   };
   const checkToShowFourthLevel = (headerIndex) => {
-    return itemsLevel4[headerIndex] && itemsLevel4[headerIndex].length > 0;
+    return itemsLevel4?.[headerIndex] && itemsLevel4?.[headerIndex].length > 0;
   };
   const checkToShowFifthLevel = (headerIndex) => {
-    return itemsLevel5[headerIndex] && itemsLevel5[headerIndex].length > 0;
+    return itemsLevel5?.[headerIndex] && itemsLevel5?.[headerIndex].length > 0;
   };
 
   const handleSubmit = async () => {
