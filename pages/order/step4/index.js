@@ -10,6 +10,7 @@ import {
 } from "../../../services/customer-api-service";
 import { useRouter } from "next/router";
 import useAuth from "../../../hooks/useAuth";
+import { includes } from "lodash";
 itemList = itemList.filter((i) => !!i);
 // console.log("itemList", itemList);
 let objToAppend = [];
@@ -175,10 +176,10 @@ const getLevelFive = (category, type, level1, level2, level3) => {
       if (!checkValueInList(item, arrResult, ["Action 4"]))
         arrResult.push({
           ...item,
-          cft: !item["Action 4"] ? item.CFT || 0 : 0,
-          isLast: !item["Action 4"],
-          // cft: item.CFT || 0,
-          // isLast: true,
+          // cft: !item["Action 4"] ? item.CFT || 0 : 0,
+          // isLast: !item["Action 4"],
+          cft: item.CFT || 0,
+          isLast: true,
         });
     });
   return arrResult;
@@ -490,19 +491,94 @@ const Step4 = (props) => {
     }
   }, []);
   const editHandler = (category, index) => {
-    const newItems = [...items];
-    newItems.forEach((i) => {
-      if ((i.Category = category)) {
-        if (i.index == index) {
-          i.completed = false;
-          resetState(i);
-        }
-      }
+    // catResults.push({
+    //   category: category,
+    //   Item: categoryResults[index].Item,
+    //   level1: null,
+    //   level2: null,
+    //   level3: null,
+    //   level4: null,
+    // });
+    setCategoryResults((prev) => {
+      const newVal = [...prev];
+      newVal[index] = {
+        category: categoryResults[index].Category,
+        Item: categoryResults[index].Item,
+        level1: null,
+        level2: null,
+        level3: null,
+        level4: null,
+      };
+      return newVal;
     });
-    if (newItems && newItems.length > 0) {
-      ctx.setStep4Items([...newItems]);
-      setItems([...newItems]);
-    }
+    // setItemsLevel2((old) => {
+    //   // debugger;
+    //   let current = [...old];
+    //   current[index] = [];
+    //   // setCategoryResults((prev) => {
+    //   //   let curr = [...prev];
+    //   //   curr[parentIndex].level1 = item;
+    //   //   curr[parentIndex].level2 = null;
+    //   //   curr[parentIndex].level3 = null;
+    //   //   curr[parentIndex].level4 = null;
+    //   //   return curr;
+    //   // });
+    //   return current;
+    // });
+    // setTimeout(() => {
+    const levelOneItems = getLevelOne(
+      categoryResults[index].category,
+      categoryResults[index].Item
+    );
+    setItemsLevel1((prev) => {
+      debugger;
+      const newVal = [...prev];
+      newVal[index] = null;
+      return newVal;
+    });
+    setTimeout(() => {
+      setItemsLevel1((prev) => {
+        debugger;
+        const newVal = [...prev];
+        newVal[index] = levelOneItems;
+        return newVal;
+      });
+    }, 100);
+
+    setItemsLevel2((old) => {
+      // debugger;
+      let current = [...old];
+      current[index] = getLevelTwo(
+        categoryResults[index].category,
+        categoryResults[index].Item,
+        null
+        // value && JSON.parse(value)["Action 1"]
+      );
+      // setCategoryResults((prev) => {
+      //   let curr = [...prev];
+      //   curr[parentIndex].level1 = item;
+      //   curr[parentIndex].level2 = null;
+      //   curr[parentIndex].level3 = null;
+      //   curr[parentIndex].level4 = null;
+      //   return curr;
+      // });
+      return current;
+    });
+    setItemsLevel3((old) => {
+      let current = [...old];
+      current[index] = [];
+      return current;
+    });
+    setItemsLevel4((old) => {
+      let current = [...old];
+      current[index] = [];
+      return current;
+    });
+    setItemsLevel5((old) => {
+      let current = [...old];
+      current[index] = [];
+      return current;
+    });
   };
   useEffect(() => {
     console.log("bookingInfo in step4 is ", bookingInfo);
@@ -1235,7 +1311,7 @@ const Step4 = (props) => {
                     </div>
                     <div className="px-5 mt-2 hover:bg-blue-100">
                       <button
-                        className="text-gray-500 text-center m-auto"
+                        className="text-gray-500 text-center m-auto cursor-pointer"
                         // onClick={changeState}
                       >
                         {getCompletedCount(element.title)}/{element.count}
@@ -1257,35 +1333,39 @@ const Step4 = (props) => {
             console.log("iterator", iterator);
             return (
               <div className="flex flex-row">
-                <div className="px-3 py-4">
-                  <div
-                    className=""
-                    onClick={(e) => {
-                      // if (!item?.completed)
-                      // handleFirstLevelItemClick(
-                      //   e,
-                      //   index,
-                      //   iterator.Category,
-                      //   iterator
-                      // );
-                    }}
-                  >
-                    <div>
-                      {`${index + 1}. `}
-                      <img
-                        className="arrow-png pl-3 pr-2"
-                        src={`/images/${iterator[0].Image}`}
-                        itemProp="image"
-                        alt="main BannerImage"
-                      />
-                      {iterator[0].Item}
+                {itemsLevel1[index] && (
+                  <div className="px-3 py-4">
+                    <div
+                      className=""
+                      onClick={(e) => {
+                        // if (!item?.completed)
+                        // handleFirstLevelItemClick(
+                        //   e,
+                        //   index,
+                        //   iterator.Category,
+                        //   iterator
+                        // );
+                      }}
+                    >
+                      <div>
+                        {`${index + 1}. `}
+                        <img
+                          className="arrow-png pl-3 pr-2"
+                          src={`/images/${iterator[0].Image}`}
+                          itemProp="image"
+                          alt="main BannerImage"
+                        />
+                        {iterator[0].Item}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
 
                 <hr className=" lg:hidden xl:hidden" />
+                {itemsLevel1[index] && (
+                  <div className="second">{displaySecondLevelNew(index)}</div>
+                )}
 
-                <div className="second">{displaySecondLevelNew(index)}</div>
                 {checkToShowThirdLevel(index) && (
                   <div className="third">{displayThirdLevelNew(index)}</div>
                 )}
@@ -1296,16 +1376,16 @@ const Step4 = (props) => {
                   <div className="fifth">{displayFifthLevelNew(index)}</div>
                 )}
 
-                {/* {item.completed && ( */}
-                <div
-                  className="red-text_currentOrder hidden xl:block lg:block px-3 py-4"
-                  onClick={() => {
-                    editHandler(item.category, index);
-                  }}
-                >
-                  Clear
-                </div>
-                {/* )} */}
+                {categoryResults[index].isLast && (
+                  <div
+                    className="red-text_currentOrder hidden xl:block lg:block px-3 py-4 cursor-pointer"
+                    onClick={() => {
+                      editHandler(iterator.Category, index);
+                    }}
+                  >
+                    Clear
+                  </div>
+                )}
               </div>
             );
           })}
