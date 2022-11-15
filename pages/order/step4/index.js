@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useContext, useCallback } from "react";
+import React, {
+  useEffect,
+  useState,
+  useContext,
+  useCallback,
+  createRef,
+} from "react";
 import TransportContext from "../../../context";
 
 import itemList from "../../../data/itemList.json";
@@ -382,8 +388,13 @@ const Step4 = (props) => {
   const [itemsLevel2, setItemsLevel2] = useState([]);
   const [itemsLevel3, setItemsLevel3] = useState([]);
   const [itemsLevel4, setItemsLevel4] = useState([]);
-  const [itemsLevel5, setItemsLevel5] = useState([]);
+  const level1Ref = useRef([]);
+  let myLevel1Refs, myLevel2Refs, myLevel3Refs, myLevel4Refs;
+  const level2Ref = useRef([]);
+  const level3Ref = useRef([]);
+  const level4Ref = useRef([]);
   const [categoryResults, setCategoryResults] = useState([]);
+  const [stepResults, setStepResults] = useState();
   const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
   const [state, setState] = useState([]);
@@ -457,6 +468,16 @@ const Step4 = (props) => {
   };
   // console.log("stateDate", stateData);
   useEffect(getStateData, [items]);
+  useEffect(() => {
+    debugger;
+    if (categoryResults && categoryResults.length > 0)
+      setStepResults((prev) => {
+        const newVal = { ...prev };
+        debugger;
+        newVal[categoryResults[0]?.category] = categoryResults;
+        return { ...newVal };
+      });
+  }, [categoryResults]);
   const resetState = (i) => {
     // i.currentIndex = -1;
     i.checked = false;
@@ -466,11 +487,55 @@ const Step4 = (props) => {
       });
     }
   };
+  useEffect(() => {
+    if (itemsLevel1.length > 0) {
+      myLevel1Refs = itemsLevel1.map(() => createRef());
+      itemsLevel1.forEach((index) => {
+        myLevel1Refs[index].current.value = JSON.stringify(
+          stepResults[itemsLevel1?.category][index].level1
+        );
+      });
+    }
+  }, itemsLevel1);
+  useEffect(() => {
+    if (itemsLevel2.length > 0) {
+      myLevel2Refs = itemsLevel2.map(() => createRef());
+      itemsLevel2.forEach((index) => {
+        myLevel2Refs[index].current.value = JSON.stringify(
+          stepResults[itemsLevel2?.category][index].level2
+        );
+      });
+    }
+  }, itemsLevel2);
+  useEffect(() => {
+    if (itemsLevel3.length > 0) {
+      myLevel3Refs = itemsLevel3.map(() => createRef());
+      itemsLevel3.forEach((index) => {
+        myLevel3Refs[index].current.value = JSON.stringify(
+          stepResults[itemsLevel3?.category][index].level3
+        );
+      });
+    }
+  }, itemsLevel3);
+  useEffect(() => {
+    if (itemsLevel4.length > 0) {
+      myLevel4Refs = itemsLevel4.map(() => createRef());
+      itemsLevel4.forEach((index) => {
+        myLevel4Refs[index].current.value = JSON.stringify(
+          stepResults[itemsLevel4?.category][index].level4
+        );
+      });
+    }
+  }, itemsLevel4);
+  useEffect(() => {
+    myLevel4Refs = itemsLevel4.map(() => createRef());
+  }, itemsLevel4);
   // console.log("objToAppend", objToAppend);
-  const getCompletedCount = (key) => {
-    // debugger;
-    const itemsCompleted = categoryResults.filter(
-      (i) => i.Item && i.Item == key && i.isLast
+  const getCompletedCount = (cat, item) => {
+    debugger;
+    if (!stepResults || !stepResults[cat]) return 0;
+    const itemsCompleted = stepResults[cat].filter(
+      (i) => i.Item && i.Item == item && i.isLast
     );
     //
     return itemsCompleted.reduce((prevValue, currValue) => {
@@ -634,37 +699,18 @@ const Step4 = (props) => {
     if (ctx?.step4Items && ctx?.step4Items?.length > 0)
       setItems([...(ctx.step4Items || [])]);
   }, [ctx.step4Items]);
-  const handleCarouselClick = (event, element) => {
-    // debugger;
-    // event.stopPropagation();
-    // console.log("event", event);
-    // console.log("element", element);
-    const level1 = [];
-    const catResults = [];
-    const arrSelected = items.filter(
-      (it) => it.key === element.title && it.category === element.category
-    );
-    arrSelected = arrSelected.map((i) => {
-      i.image = element.image;
-      return i;
-    });
-
-    setCurrentHeader(arrSelected);
-    const levelOneItems = getLevelOne(element.category, element.title);
-    for (const i = 0; i < element.count; i++) {
-      level1.push(levelOneItems);
-      catResults.push({
-        category: element.category,
-        Item: element.title,
-        level1: null,
-        level2: null,
-        level3: null,
-        level4: null,
-      });
+  const populateFromStepResults = (category) => {
+    const currItems = stepResults[category];
+    currItems.forEach((item, index) => {
       setItemsLevel2((old) => {
         // debugger;
         let current = [...old];
-        current[i] = [];
+        current[i] = getLevelTwo(
+          currItems[index]?.category,
+          currItems[index]?.title,
+          null
+          // value && JSON.parse(value)["Action 1"]
+        );
         // setCategoryResults((prev) => {
         //   let curr = [...prev];
         //   curr[parentIndex].level1 = item;
@@ -675,16 +721,77 @@ const Step4 = (props) => {
         // });
         return current;
       });
-      setTimeout(() => {
+      setItemsLevel3((old) => {
+        let current = [...old];
+        current[index] = getLevelThree(
+          currItems[index]?.category,
+          currItems[index]?.title,
+          currItems[index]?.level1["Action 1"]
+        );
+
+        return current;
+      });
+      setItemsLevel4((old) => {
+        let current = [...old];
+        current[index] = getLevelFour(
+          currItems[index]?.category,
+          currItems[index]?.title,
+          currItems[index]?.level1["Action 1"],
+          currItems[index]?.level1["Action 2"]
+        );
+
+        return current;
+      });
+      setItemsLevel5((old) => {
+        let current = [...old];
+        current[index] = getLevelFive(
+          currItems[index]?.category,
+          currItems[index]?.title,
+          currItems[index]?.level1["Action 1"],
+          currItems[index]?.level1["Action 2"],
+          currItems[index]?.level1["Action 3"]
+        );
+
+        return current;
+      });
+    });
+  };
+  const handleCarouselClick = (event, element) => {
+    // debugger;
+    // event.stopPropagation();
+    // console.log("event", event);
+    // console.log("element", element);
+    const level1 = [];
+    const catResults = stepResults[element.category] || [];
+    const filteredList = [...itemList, ...bikeTransformed].filter(
+      (i) => i && i?.Category === element.category && i.Item === element.title
+
+      // &&
+      // i["Action 1"] === level1
+    );
+
+    setCurrentHeader(filteredList);
+    const levelOneItems = getLevelOne(element.category, element.title);
+    for (const i = 0; i < element.count; i++) {
+      level1.push(levelOneItems);
+      if (
+        stepResults[element.category] &&
+        stepResults[element.category].length > 0
+      ) {
+        populateFromStepResults(element.category);
+      } else {
+        catResults.push({
+          category: element.category,
+          Item: element.title,
+          level1: null,
+          level2: null,
+          level3: null,
+          level4: null,
+        });
         setItemsLevel2((old) => {
           // debugger;
           let current = [...old];
-          current[i] = getLevelTwo(
-            element.category,
-            element.title,
-            null
-            // value && JSON.parse(value)["Action 1"]
-          );
+          current[i] = [];
           // setCategoryResults((prev) => {
           //   let curr = [...prev];
           //   curr[parentIndex].level1 = item;
@@ -695,22 +802,44 @@ const Step4 = (props) => {
           // });
           return current;
         });
-        setItemsLevel3((old) => {
-          let current = [...old];
-          current[i] = [];
-          return current;
-        });
-        setItemsLevel4((old) => {
-          let current = [...old];
-          current[i] = [];
-          return current;
-        });
-        setItemsLevel5((old) => {
-          let current = [...old];
-          current[i] = [];
-          return current;
-        });
-      }, 100);
+        setTimeout(() => {
+          setItemsLevel2((old) => {
+            // debugger;
+            let current = [...old];
+            current[i] = getLevelTwo(
+              element.category,
+              element.title,
+              null
+              // value && JSON.parse(value)["Action 1"]
+            );
+            // setCategoryResults((prev) => {
+            //   let curr = [...prev];
+            //   curr[parentIndex].level1 = item;
+            //   curr[parentIndex].level2 = null;
+            //   curr[parentIndex].level3 = null;
+            //   curr[parentIndex].level4 = null;
+            //   return curr;
+            // });
+            return current;
+          });
+          setItemsLevel3((old) => {
+            let current = [...old];
+            current[i] = [];
+            return current;
+          });
+          setItemsLevel4((old) => {
+            let current = [...old];
+            current[i] = [];
+            return current;
+          });
+          setItemsLevel5((old) => {
+            let current = [...old];
+            current[i] = [];
+            return current;
+          });
+        }, 100);
+      }
+
       // setItemsLevel2((old) => {
       //   let current = [...old];
       //   current[i] = [];
@@ -785,6 +914,7 @@ const Step4 = (props) => {
         <div>
           <select
             className=" bg-transparent  font-semibold"
+            ref={myLevel1Refs[headerIndex] || null}
             onChange={(e) => {
               // debugger;
               if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
@@ -900,6 +1030,7 @@ const Step4 = (props) => {
         <div>
           <select
             className=" bg-transparent  font-semibold"
+            ref={myLevel2Refs[headerIndex] || null}
             onChange={(e) => {
               debugger;
               if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
@@ -1001,6 +1132,7 @@ const Step4 = (props) => {
         <div>
           <select
             className=" bg-transparent  font-semibold"
+            ref={myLevel3Refs[headerIndex] || null}
             onChange={(e) => {
               debugger;
               if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
@@ -1092,6 +1224,7 @@ const Step4 = (props) => {
         <div>
           <select
             className=" bg-transparent  font-semibold"
+            ref={myLevel3Refs[headerIndex] || null}
             onChange={(e) => {
               if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
                 handleFifthLevelClick(
@@ -1179,7 +1312,7 @@ const Step4 = (props) => {
     // });
     // return current;
   };
-
+  console.log("stepresults", stepResults);
   const checkToShowThirdLevel = (headerIndex) => {
     return itemsLevel3[headerIndex] && itemsLevel3[headerIndex].length > 0;
   };
@@ -1210,7 +1343,7 @@ const Step4 = (props) => {
       }
     });
     console.log("stateData", stateData);
-    console.log("items", items);
+
     console.log("cfttotal- ", cftTotal);
     const cftData = { cft: cftTotal };
     ctx.setStep4State(cftData);
@@ -1290,7 +1423,7 @@ const Step4 = (props) => {
           >
             <div className="flex flex-row space-x-3">
               {state.map((element, index) => {
-                // debugger;
+                debugger;
                 console.log("aaa");
                 return (
                   <div
@@ -1310,7 +1443,8 @@ const Step4 = (props) => {
                         className="text-gray-500 text-center m-auto cursor-pointer"
                         // onClick={changeState}
                       >
-                        {getCompletedCount(element.title)}/{element.count}
+                        {getCompletedCount(element.category, element.title)}/
+                        {element.count}
                       </button>
                     </div>
                   </div>
