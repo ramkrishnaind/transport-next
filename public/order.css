@@ -1156,7 +1156,7 @@ select:invalid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  .grid_Select_currentOrder{
+  .grid_Select_currentOrder {
     width: 42rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -1166,7 +1166,7 @@ select:invalid {
   color: #df5f5f;
 }
 @media (max-width: 767px) {
-  .grid_Select_currentOrder {
+  . {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
@@ -1176,7 +1176,7 @@ select:invalid {
   }
 }
 @media (min-width: 767px) and (max-width: 1023px) {
-  .grid_Select_currentOrder {
+  . {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
@@ -1186,46 +1186,44 @@ select:invalid {
   }
 }
 
-.lodingScreen{
+.lodingScreen {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;    
+  height: 100vh;
 }
-.Step4_add_button{
+.Step4_add_button {
   background-color: transparent;
-  color: #4E4E4E;
-  border: 1px solid #4E4E4E;
+  color: #4e4e4e;
+  border: 1px solid #4e4e4e;
   border-radius: 5px;
-
 }
 
-h-100vh{
+h-100vh {
   height: 100vh !important;
 }
 
 @media (min-width: 1023px) {
-  .Step4_add_button{
-   width: 10rem;
-  
-  } 
+  .Step4_add_button {
+    width: 10rem;
+  }
 }
 @media (max-width: 767px) {
-  .Step4_add_button{
+  .Step4_add_button {
     width: 91vw;
-   } 
+  }
 }
 
 @media (min-width: 767px) and (max-width: 1023px) {
-  .Step4_add_button{
+  .Step4_add_button {
     width: 91vw;
-   } 
+  }
 }
-.valueSelect{
+.valueSelect {
   color: blue;
   background-color: transparent;
 }
-.rishiLohan31888{
+.rishiLohan31888 {
   background-origin: auto;
   flex-direction: column;
   resize: both;
@@ -1233,8 +1231,8 @@ h-100vh{
   grid-row-start: auto;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
-*{
-  font-family: 'Open Sans', sans-serif;
+* {
+  font-family: "Open Sans", sans-serif;
 }
