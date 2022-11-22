@@ -1,5 +1,5 @@
 import "../public/globals.css";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import NormalLayout from "../components/UI/NormalLayout";
