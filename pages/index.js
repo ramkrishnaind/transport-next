@@ -134,6 +134,7 @@ const HomePage = () => {
           email : saveResponse.data.customerData.email,
           mobile : saveResponse.data.customerData.mobile
         });
+        localStorage.clear();
         //router.push("/otp")
         // setEnteredName("");
         // setEnteredEmail("");

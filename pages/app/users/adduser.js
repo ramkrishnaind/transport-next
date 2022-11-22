@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import {
   addUser,
   getUserByID,

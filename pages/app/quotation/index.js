@@ -1,7 +1,7 @@
 import { React, useEffect, useState, useContext } from "react";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import { addQuotation } from "../../../services/admin-api-service";
 import { Button, Form, Input, Select, Card, Divider, message } from "antd";
 import PageHeader from "../../../components/helper/pageTitle";

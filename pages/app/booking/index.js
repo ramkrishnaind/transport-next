@@ -1,4 +1,4 @@
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import {
   listBooking,
   bookingByUserId,
@@ -12,7 +12,7 @@ import {
   EditOutlined,
   UserAddOutlined,
 } from "@ant-design/icons";
-import moment from 'moment';
+import moment from "moment";
 import Card from "../../Card";
 import TransportContext from "../../../context";
 import CustomerOrderDetail from "./customerOrderDetail";
@@ -159,7 +159,7 @@ const BookingList = () => {
     const res = await saveFormData(value);
     setdata(
       res.data.message.map((row) => ({
-        move_date: moment(row.listbooking.shiftingOn).format('DD MMM, YY'),
+        move_date: moment(row.listbooking.shiftingOn).format("DD MMM, YY"),
         move_type: row.listbooking.shiftingFor,
         est_volume: row.listbooking.movingOnFloor,
         booking_id: row.listbooking.booking_id,
@@ -173,7 +173,7 @@ const BookingList = () => {
           </a>
         ),
         lead_source: row.email,
-        date_recieved: moment(row.createdAt).format('DD MMM, YY'),
+        date_recieved: moment(row.createdAt).format("DD MMM, YY"),
       }))
     );
   };
