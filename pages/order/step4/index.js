@@ -1075,7 +1075,7 @@ const Step4 = (props) => {
             {obj.map((item, index) => {
               // debugger;
               return (
-                <option value={JSON.stringify(item)}>
+                <option value={JSON.stringify(item)} key={index}>
                   {/* <div className="flex justify-center py-2 max-h-20 w-20">
                   <img src={`/images/${item?.image}`} alt="" />
                 </div> */}
@@ -1190,7 +1190,7 @@ const Step4 = (props) => {
             </option>
             {itemsLevel3[headerIndex].map((iterator, index) => {
               return (
-                <option value={JSON.stringify(iterator)}>
+                <option value={JSON.stringify(iterator)} key={index}>
                   <div className="flex justify-center py-2 max-h-20 w-20">
                     <img src={`/images/${iterator?.image}`} alt="" />
                   </div>
@@ -1291,7 +1291,7 @@ const Step4 = (props) => {
             </option>
             {itemsLevel4[headerIndex].map((iterator, index) => {
               return (
-                <option value={JSON.stringify(iterator)}>
+                <option value={JSON.stringify(iterator)} key={index}>
                   <div className="flex justify-center py-2 max-h-20 w-20">
                     <img src={`/images/${iterator?.image}`} alt="" />
                   </div>
@@ -1382,7 +1382,7 @@ const Step4 = (props) => {
             </option>
             {itemsLevel5[headerIndex].map((iterator, index) => {
               return (
-                <option value={JSON.stringify(iterator)}>
+                <option value={JSON.stringify(iterator)} key={index}>
                   <div className="flex justify-center py-2 max-h-20 w-20">
                     <img src={`/images/${iterator?.image}`} alt="" />
                   </div>
@@ -1591,7 +1591,7 @@ const Step4 = (props) => {
             // debugger;
             console.log("iterator", iterator);
             return (
-              <div className="flex flex-row">
+              <div className="flex flex-row" key={index}>
                 {itemsLevel1[index] && (
                   <div className="px-3 py-4">
                     <div
