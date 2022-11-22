@@ -43,6 +43,23 @@ const Step2 = () => {
   const [toLift, setToLift] = useState(true);
   const [bookingData, setBookingData] = useState({});
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if(context.booking === undefined){
+      const booking = JSON.parse(localStorage.getItem('booking'))
+      if(booking){
+        setBooking(booking)
+      }
+    }
+    if(context.step1State === undefined){
+      const step1State = JSON.parse(localStorage.getItem('step1State'))
+      if(step1State){
+        setStep1State(step1State)
+      }
+    }
+    console.log("step1State is ", step1State);
+  }, []);
+
   useEffect(() => {
     console.log("booking in step 2 is", booking);
     console.log("step1State is ", step1State);
@@ -73,6 +90,7 @@ const Step2 = () => {
       saveBooking({ ...bookingInfo,
         step2:formData
       });
+      localStorage.setItem("step2State", JSON.stringify(formData));
       router.push("/order/step3");
     }
     console.log("step 2 result is", result);
