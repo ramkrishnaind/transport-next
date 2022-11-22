@@ -1,19 +1,19 @@
 import { userquotation } from "../../../services/admin-api-service";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import { useRouter } from "next/router";
 import React, { useState, useEffect, useContext } from "react";
 import TransportContext from "../../../context";
-import moment from 'moment';
+import moment from "moment";
 
 const QuotationPDF = () => {
   const ctx = useContext(TransportContext);
   const { quotation } = ctx;
 
-  console.log('quotation is here',quotation);
+  console.log("quotation is here", quotation);
 
   const SavePdfButton = () => {
-   return window.print();
-  }; 
+    return window.print();
+  };
 
   const [customerName, setcustomerName] = useState("");
   const [customerEmail, setcustomerEmail] = useState("");
@@ -39,9 +39,7 @@ const QuotationPDF = () => {
 
   const [afterMarginTotalCharges, setAfterMarginTotalCharges] = useState("");
   const [estimatedDeliveryTime, setEstimatedDeliveryTime] = useState("");
-  
 
-  
   const saveFormData = async (v) => {
     try {
       const formData = {
@@ -343,7 +341,7 @@ const QuotationPDF = () => {
                 Date &amp; Time Slot:{" "}
               </div>
               <div className="t m0 x3 h5 y2c ff2 fs3 fc1 sc0 ls2 ws2">
-                {moment(customerShiftingOn).format('DD MMMM, YYYY')}
+                {moment(customerShiftingOn).format("DD MMMM, YYYY")}
                 <span className="_ _5"></span>
                 {/* August 29<span className="_ _5"></span>, 2022 */}
               </div>
@@ -447,11 +445,9 @@ const QuotationPDF = () => {
                 <span className="_ _5"></span>OAD
                 <span className="_ _5"></span>)<span className="_ _6"> </span>
                 <span className="v1">
-                <span className="_ _4"></span>
-                  {afterMarginTotalCharges}{" "}{" "}
-                  <span className="_ _5"></span>
-                  <span className="_ _5"></span>
-                  ({estimatedDeliveryTime} days)
+                  <span className="_ _4"></span>
+                  {afterMarginTotalCharges} <span className="_ _5"></span>
+                  <span className="_ _5"></span>({estimatedDeliveryTime} days)
                   {/* 67<span className="_ _4"></span>,500 (12- */}
                   {/* <span className="_ _5"></span>15 days */}
                   {/* <span className="_ _5"></span>)  */}

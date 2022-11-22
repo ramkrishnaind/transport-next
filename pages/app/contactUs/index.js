@@ -1,4 +1,4 @@
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import { useRouter } from "next/router";
 import { getAllContactUs } from "../../../services/admin-api-service";
 import Link from "next/link";
@@ -81,13 +81,15 @@ const GetAllContactUsList = () => {
   return (
     <>
       <PageHeader
-            mainTitle="Contact Us Management"
-            subTitle="manage Contact Us here"
-            currentPage="Contact Us Management"
-        />
-        <div className="flex flex-row">
-            <div className="basis-11/12 ml-1 mt-4 tableTitle">All Contact Us Inquiry</div>
+        mainTitle="Contact Us Management"
+        subTitle="manage Contact Us here"
+        currentPage="Contact Us Management"
+      />
+      <div className="flex flex-row">
+        <div className="basis-11/12 ml-1 mt-4 tableTitle">
+          All Contact Us Inquiry
         </div>
+      </div>
       <Table
         columns={columns}
         dataSource={data}

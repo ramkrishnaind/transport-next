@@ -1,4 +1,4 @@
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import { useRouter } from "next/router";
 
 import { Table, Space, Button, Spin } from "antd";
