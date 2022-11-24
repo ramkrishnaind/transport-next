@@ -18,7 +18,7 @@ import useAuth from "../../../hooks/useAuth";
 //   faAnchor,
 // } from "@fortawesome/free-solid-svg-icons";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
-import { Collapse } from 'antd';
+import { Collapse } from "antd";
 const { Panel } = Collapse;
 
 const Step3 = (props) => {
@@ -81,7 +81,7 @@ const Step3 = (props) => {
   // }
 
   useEffect(() => {
-    console.log("bookingInfo in step3 is ", bookingInfo, )
+    console.log("bookingInfo in step3 is ", bookingInfo);
     setObjectState((prev) => {
       const newState = { ...prev };
       const keys = Object.keys(newState);
@@ -96,39 +96,39 @@ const Step3 = (props) => {
   }, [bookingInfo]);
   useEffect(() => {
     // debugger;
-    if (!step3State) { 
-      let stp3State= JSON.parse(localStorage.getItem("step3State"))
-      console.log("local storage - ",stp3State )
-      if(!stp3State) {return;}
-      else{
+    if (!step3State) {
+      let stp3State = JSON.parse(localStorage.getItem("step3State"));
+      console.log("local storage - ", stp3State);
+      if (!stp3State) {
+        return;
+      } else {
+        setObjectState((prev) => {
+          const newState = { ...prev };
+          const keys = Object.keys(stp3State);
+          keys.forEach((k) => {
+            stp3State[k] = stp3State[k]?.map((i) => {
+              console.log("new title - ", i.title);
+              console.log("new title - ", i.count);
+              return i;
+            });
+          });
+          return stp3State;
+        });
+      }
+    } else {
       setObjectState((prev) => {
         const newState = { ...prev };
-        const keys = Object.keys(stp3State);
+        const keys = Object.keys(step3State);
         keys.forEach((k) => {
-          stp3State[k] = stp3State[k]?.map((i) => {
-            console.log("new title - ", i.title);
-            console.log("new title - ", i.count);
+          newState[k] = newState[k]?.map((i) => {
+            //console.log(" title - ", i.title);
+            //console.log(" title - ", i.count);
             return i;
           });
         });
-        return stp3State;
+        return newState;
       });
     }
-    }
-    else{
-    setObjectState((prev) => {
-      const newState = { ...prev };
-      const keys = Object.keys(step3State);
-      keys.forEach((k) => {
-        newState[k] = newState[k]?.map((i) => {
-          //console.log(" title - ", i.title);
-          //console.log(" title - ", i.count);
-          return i;
-        });
-      });
-      return newState;
-    });
-  }
   }, []);
 
   const clickHandler = (key, item) => {
@@ -145,7 +145,10 @@ const Step3 = (props) => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
-    ctx.setStep4Items([]);
+    const newStep4 = ctx.step4State;
+    if (newStep4) {
+    }
+    // ctx.setStep4Items([]);
     // ctx.setStep3State(newState);
   };
   const decrementHandler = (key, item) => {
@@ -162,7 +165,14 @@ const Step3 = (props) => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
-    ctx.setStep4Items([]);
+    const newStep4 = ctx.step4State;
+    debugger;
+    if (newStep4) {
+      delete newStep4[item.category];
+      ctx.setStep4Items({ ...newStep4 });
+      localStorage.setItem("step4State", JSON.stringify(newStep4));
+    }
+
     // ctx.setStep3State(newState);
   };
   const handleSubmit = async (event) => {
@@ -183,73 +193,77 @@ const Step3 = (props) => {
     //--------------------------
     ctx.setStep3State(objectState);
     console.log("objectState", objectState);
-    saveBooking({ ...bookingInfo,
-      step3:objectState
-    });
-    localStorage.setItem("step3State", JSON.stringify(objectState));  
-    console.log("local storage save- ",JSON.stringify(objectState) )
+    saveBooking({ ...bookingInfo, step3: objectState });
+    localStorage.setItem("step3State", JSON.stringify(objectState));
+    console.log("local storage save- ", JSON.stringify(objectState));
     router.push("/order/step4");
   };
   const handleSkip = () => {
-   router.push("/order/step7");
+    router.push("/order/step7");
   };
   const form1 = () => {
-    return (<form className="max-w-screen-xl m-auto px-4">
-      <div className="mt-5">
-        <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-          {objectState.Furniture.map((item, index) => {
-            console.log("item", item);
-            return (
+    return (
+      <form className="max-w-screen-xl m-auto px-4">
+        <div className="mt-5">
+          <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+            {objectState.Furniture.map((item, index) => {
+              console.log("item", item);
+              return (
+                <Card
+                  image={item.image}
+                  key={index}
+                  item={item.title}
+                  itemCount={item.count}
+                  onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                  onClick={clickHandler.bind(null, "Furniture", item)}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </form>
+    );
+  };
+  const form2 = () => {
+    return (
+      <form className="max-w-screen-xl m-auto px-4">
+        <div className="mt-5">
+          <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+            {objectState.Electronic.map((item, index) => (
               <Card
                 image={item.image}
                 key={index}
                 item={item.title}
                 itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "Furniture", item)}
-                onClick={clickHandler.bind(null, "Furniture", item)}
+                onDecrement={decrementHandler.bind(null, "Electronic", item)}
+                onClick={clickHandler.bind(null, "Electronic", item)}
               />
-            );
-          })}
+            ))}
+          </div>
         </div>
-      </div>
-    </form>)
-  }
-  const form2 = () => {
-    return (<form className="max-w-screen-xl m-auto px-4">
-      <div className="mt-5">
-        <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-          {objectState.Electronic.map((item, index) => (
-            <Card
-              image={item.image}
-              key={index}
-              item={item.title}
-              itemCount={item.count}
-              onDecrement={decrementHandler.bind(null, "Electronic", item)}
-              onClick={clickHandler.bind(null, "Electronic", item)}
-            />
-          ))}
-        </div>
-      </div>
-    </form>)
-  }
+      </form>
+    );
+  };
   const form3 = () => {
-    return (<form className="max-w-screen-xl m-auto px-4">
-      <div className="mt-5">
-        <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-          {objectState.Vehicle.map((item, index) => (
-            <Card
-              image={item.image}
-              key={index}
-              item={item.title}
-              itemCount={item.count}
-              onDecrement={decrementHandler.bind(null, "Vehicle", item)}
-              onClick={clickHandler.bind(null, "Vehicle", item)}
-            />
-          ))}
+    return (
+      <form className="max-w-screen-xl m-auto px-4">
+        <div className="mt-5">
+          <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+            {objectState.Vehicle.map((item, index) => (
+              <Card
+                image={item.image}
+                key={index}
+                item={item.title}
+                itemCount={item.count}
+                onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+                onClick={clickHandler.bind(null, "Vehicle", item)}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </form>)
-  }
+      </form>
+    );
+  };
   // const callApi = async () => {
   //   let arr = objectState?.Furniture ? [...objectState.Furniture] : [];
   //   arr = objectState?.Electronic
@@ -309,19 +323,19 @@ const Step3 = (props) => {
         </div>
         <div className="flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4  bg-white rounded-lg ">
           <div>
-            <hr className="step3-line"/>
+            <hr className="step3-line" />
           </div>
         </div>
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
-          <div className="completepersentage  font-semibold text-3xl completing_bar_text">Set up 40% complete</div>
+          <div className="completepersentage  font-semibold text-3xl completing_bar_text">
+            Set up 40% complete
+          </div>
           <div className="not-italic ">
             <span className=" font-semibold">3 Step left •</span>
             <span> About 6 min•</span>
           </div>
         </div>
       </div>
-
-
 
       <div className="r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3">
         <div className=" flex flex-col justify-between items-left p-0 gap-1.5  top-36 r4 mt-3 p-2 md:pl-0 lg:pl-0 xl:pl-0 md:mt-5 lg:mt-5 xl:mt-5  ">
@@ -333,24 +347,34 @@ const Step3 = (props) => {
           </div>
         </div>
 
-
         {/* Tab Responsive */}
         <div className="hidden ResponsiveTab">
-
-          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-            <Panel header="Furniture" key="1" >
+          <Collapse
+            defaultActiveKey={["1"]}
+            ghost
+            className="pl-4 text-2xl steps_text_color"
+          >
+            <Panel header="Furniture" key="1">
               {form1()}
             </Panel>
           </Collapse>
 
-          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-            <Panel header="Electronic" key="1" >
+          <Collapse
+            defaultActiveKey={["1"]}
+            ghost
+            className="pl-4 text-2xl steps_text_color"
+          >
+            <Panel header="Electronic" key="1">
               {form2()}
             </Panel>
           </Collapse>
 
-          <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-            <Panel header="Vehicle" key="1" >
+          <Collapse
+            defaultActiveKey={["1"]}
+            ghost
+            className="pl-4 text-2xl steps_text_color"
+          >
+            <Panel header="Vehicle" key="1">
               {form3()}
             </Panel>
           </Collapse>
@@ -360,7 +384,7 @@ const Step3 = (props) => {
               <button
                 className="button_2_skip rounded-m px-10 py-2"
                 type="button"
-               // onClick={handleSkip}
+                // onClick={handleSkip}
               >
                 SKIP
               </button>
@@ -373,11 +397,7 @@ const Step3 = (props) => {
               </button>
             </div>
           </div>
-
         </div>
-
-
-
 
         {/* Laptop */}
         <div className="hidden ResponsiveLatop">
@@ -386,7 +406,9 @@ const Step3 = (props) => {
               {uniqueCategories.map((item, i) => {
                 return (
                   <div key={i}>
-                    <h3 className="text-2xl text-center text-gray-600">{item}</h3>
+                    <h3 className="text-2xl text-center text-gray-600">
+                      {item}
+                    </h3>
                   </div>
                 );
               })}
@@ -401,7 +423,11 @@ const Step3 = (props) => {
                       key={index}
                       item={item.title}
                       itemCount={item.count}
-                      onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                      onDecrement={decrementHandler.bind(
+                        null,
+                        "Furniture",
+                        item
+                      )}
                       onClick={clickHandler.bind(null, "Furniture", item)}
                     />
                   );
@@ -414,7 +440,11 @@ const Step3 = (props) => {
                     key={index}
                     item={item.title}
                     itemCount={item.count}
-                    onDecrement={decrementHandler.bind(null, "Electronic", item)}
+                    onDecrement={decrementHandler.bind(
+                      null,
+                      "Electronic",
+                      item
+                    )}
                     onClick={clickHandler.bind(null, "Electronic", item)}
                   />
                 ))}
@@ -434,7 +464,6 @@ const Step3 = (props) => {
             </div>
           </form>
           <div className="mt-6 ">
-
             <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
               <button
                 className="button_2_skip rounded-m px-10 py-2"
@@ -455,25 +484,35 @@ const Step3 = (props) => {
         </div>
       </div>
 
-
       {/* MOBILE Responsive */}
 
-
       <div className="block md:hidden lg:hidden xl:hidden">
-        <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-          <Panel header="Furniture" key="1" >
+        <Collapse
+          defaultActiveKey={["1"]}
+          ghost
+          className="pl-4 text-2xl steps_text_color"
+        >
+          <Panel header="Furniture" key="1">
             {form1()}
           </Panel>
         </Collapse>
 
-        <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-          <Panel header="Electronic" key="1" >
+        <Collapse
+          defaultActiveKey={["1"]}
+          ghost
+          className="pl-4 text-2xl steps_text_color"
+        >
+          <Panel header="Electronic" key="1">
             {form2()}
           </Panel>
         </Collapse>
 
-        <Collapse defaultActiveKey={['1']} ghost className="pl-4 text-2xl steps_text_color">
-          <Panel header="Vehicle" key="1" >
+        <Collapse
+          defaultActiveKey={["1"]}
+          ghost
+          className="pl-4 text-2xl steps_text_color"
+        >
+          <Panel header="Vehicle" key="1">
             {form3()}
           </Panel>
         </Collapse>
@@ -483,13 +522,15 @@ const Step3 = (props) => {
             <button
               className="px-5 py-4  buttonMobile_white rounded-m "
               type="button"
-              onClick={handleSkip}>
+              onClick={handleSkip}
+            >
               SKIP
             </button>
             <button
               className="px-5 py-4  buttonMobile2 rounded-m  "
               type="button"
-              onClick={handleSubmit}>
+              onClick={handleSubmit}
+            >
               NEXT
             </button>
           </div>
@@ -499,19 +540,7 @@ const Step3 = (props) => {
           <span className="step3_save_draft-text">Save Deaft</span>
         </div> */}
       </div>
-
-
-
-
-
-
-
-
-
-
     </>
-
-
 
     // <div>
 
@@ -526,17 +555,9 @@ const Step3 = (props) => {
     //     </div>
     //     <hr className="step3_line" />
 
-
-
-
     //     {/* details */}
 
-
     //     <div className="  r1 r4 mt-2 bg-white step3_container  rounded-lg ">
-
-
-
-
 
     // <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
     //   <div className="step3_heading font-medium pl-2">
@@ -546,8 +567,6 @@ const Step3 = (props) => {
     //     to save you the trouble, we have pre-selected this list.
     //   </div>
     // </div>
-
-
 
     // <form className="max-w-screen-xl m-auto">
     //   <div className="grid gap-8 lg:grid-cols-3 mt-4 ">
@@ -631,11 +650,6 @@ const Step3 = (props) => {
     //   </div>
     // </div>
 
-
-
-
-
-
     // <div>
     // <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
     //   <button
@@ -715,7 +729,6 @@ const Step3 = (props) => {
     //     </div>
     //   </form>
     // </div>
-
   );
 };
 

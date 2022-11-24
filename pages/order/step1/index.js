@@ -47,7 +47,7 @@ const Step1 = () => {
   const fromInputRef = useRef();
   const toInputRef = useRef();
   let googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-  console.log("googleKey - ", googleApiKey)
+  console.log("googleKey - ", googleApiKey);
 
   useEffect(() => {
     console.log("customerDetails in step 1 is", customerDetails);
@@ -134,10 +134,7 @@ const Step1 = () => {
 
   return (
     <>
-      <LoadScript
-        googleMapsApiKey={googleApiKey}
-        libraries={["places"]}
-      >
+      <LoadScript googleMapsApiKey={googleApiKey} libraries={["places"]}>
         <div className="orderBackground h-full">
           {/* <div className="p-5">.
         <Space direction="vertical" size={12}>
@@ -252,7 +249,7 @@ const Step1 = () => {
                       </div>
 
                       <div className=" text-left  text-gray-600 ">
-                      <StandaloneSearchBox
+                        <StandaloneSearchBox
                           onLoad={(ref) => (toInputRef.current = ref)}
                           onPlacesChanged={toStateInputChangeHandler}
                         >
@@ -300,7 +297,7 @@ const Step1 = () => {
                   </div>
                   <div className=" mt-5 mb-5">
                     <Button
-                      className=" px-10 py-4 button_1 buttonMobile rounded-m "
+                      className="py-4 button_1 buttonMobile rounded-m "
                       type="submit"
                       onClick={handleSubmit}
                       loading={loading}
