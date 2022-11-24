@@ -154,7 +154,7 @@ const getLevelFour = (category, type, level1, level2) => {
     .forEach((item) => {
       if (!item["Action 3"]) return;
       // debugger;
-      if (!checkValueInList(item, arrResult, ["Action 3"]))
+      if (!checkValueInList(item, arrResult, ["Action 2", "Action 3"]))
         arrResult.push({
           ...item,
           cft: !item["Action 4"] ? item.CFT || 0 : 0,
@@ -476,14 +476,16 @@ const Step4 = (props) => {
   // console.log("stateDate", stateData);
   useEffect(getStateData, [items]);
   useEffect(() => {
-    // debugger;
+    debugger;
     if (categoryResults && categoryResults.length > 0)
-      setStepResults((prev) => {
-        const newVal = { ...prev };
-        // debugger;
-        newVal[categoryResults[0]?.category] = categoryResults;
-        return { ...newVal };
-      });
+      if (categoryResults[0]?.category) {
+        setStepResults((prev) => {
+          const newVal = { ...prev };
+          // debugger;
+          newVal[categoryResults[0]?.category] = categoryResults;
+          return { ...newVal };
+        });
+      }
   }, [categoryResults]);
   const resetState = (i) => {
     // i.currentIndex = -1;
@@ -532,17 +534,21 @@ const Step4 = (props) => {
     });
   }, [myLevel1Refs]);
   useEffect(() => {
+    // debugger;
     console.log("itemLevels2----", myLevel2Refs);
-    itemsLevel3.map((n, index) => {
-      if (
-        myLevel2Refs &&
-        myLevel2Refs[index].current &&
-        stepResults[itemsLevel3?.[index]?.Category]?.[index]
-      )
-        myLevel2Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel3[index]?.Category]?.[index]?.level1
-        );
-    });
+
+    setTimeout(() => {
+      itemsLevel3.map((n, index) => {
+        if (
+          myLevel2Refs &&
+          myLevel2Refs[index].current &&
+          stepResults[itemsLevel3?.[index]?.[index]?.Category]?.[index]
+        )
+          myLevel2Refs[index].current.value = JSON.stringify(
+            stepResults[itemsLevel3[index]?.[index]?.Category]?.[index]?.level1
+          );
+      });
+    }, 10);
   }, [myLevel2Refs]);
   useEffect(() => {
     setMyLevel1Refs(null);
@@ -556,10 +562,10 @@ const Step4 = (props) => {
       if (
         myLevel3Refs &&
         myLevel3Refs[index].current &&
-        stepResults[itemsLevel4?.[index]?.Category]?.[index]
+        stepResults[itemsLevel4?.[index]?.[index]?.Category]?.[index]
       )
         myLevel3Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel4[index]?.Category]?.[index]?.level2
+          stepResults[itemsLevel4[index]?.[index]?.Category]?.[index]?.level2
         );
     });
   }, [myLevel3Refs]);
@@ -569,10 +575,10 @@ const Step4 = (props) => {
       if (
         myLevel4Refs &&
         myLevel4Refs[index].current &&
-        stepResults[itemsLevel5?.[index]?.Category]?.[index]
+        stepResults[itemsLevel5?.[index]?.[index]?.Category]?.[index]
       )
         myLevel4Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel5[index]?.Category]?.[index]?.level3
+          stepResults[itemsLevel5[index]?.[index]?.Category]?.[index]?.level3
         );
     });
   }, [myLevel4Refs]);
@@ -693,7 +699,7 @@ const Step4 = (props) => {
     setCategoryResults((prev) => {
       const newVal = [...prev];
       newVal[index] = {
-        category: categoryResults[index].Category,
+        category: categoryResults[index].category,
         Item: categoryResults[index].Item,
         level1: null,
         level2: null,
@@ -831,6 +837,7 @@ const Step4 = (props) => {
     // event.stopPropagation();
     // console.log("event", event);
     // console.log("element", element);
+    debugger;
     setCurrentCategory((prev) => {
       if (prev?.category !== element?.category)
         return { category: element?.category, count: element?.count };
@@ -855,6 +862,7 @@ const Step4 = (props) => {
       ) {
         // populateFromStepResults(element.category);
         // debugger;
+        let isLast = false;
         setItemsLevel2((old) => {
           // debugger;
           let current = [...old];
@@ -874,40 +882,54 @@ const Step4 = (props) => {
           // });
           return current;
         });
-        setItemsLevel3((old) => {
-          let current = [...old];
-          current[i] = getLevelThree(
-            element.category,
-            element.title,
-            stepResults?.[element.category]?.[i].level1?.["Action 1"]
-            // stepResults?.[element.category]?.[i].level2?.["Action 2"]
-          );
-          // current[i] = [];
-          return current;
-        });
-        setItemsLevel4((old) => {
-          let current = [...old];
-          current[i] = getLevelThree(
-            element.category,
-            element.title,
-            stepResults?.[element.category]?.[i].level1?.["Action 1"],
-            stepResults?.[element.category]?.[i].level2?.["Action 2"]
-            // stepResults?.[element.category]?.[i].level3?.["Action 3"]
-          );
-          return current;
-        });
-        setItemsLevel5((old) => {
-          let current = [...old];
-          current[i] = getLevelThree(
-            element.category,
-            element.title,
-            stepResults?.[element.category]?.[i].level1?.["Action 1"],
-            stepResults?.[element.category]?.[i].level2?.["Action 2"],
-            stepResults?.[element.category]?.[i].level3?.["Action 3"]
-            // stepResults?.[element.category]?.[i].level4?.["Action 4"]
-          );
-          return current;
-        });
+        if (
+          !stepResults?.[element.category][i].level1?.isLast &&
+          stepResults?.[element.category][i].level1
+        )
+          setItemsLevel3((old) => {
+            // debugger;
+            let current = [...old];
+            current[i] = getLevelThree(
+              element.category,
+              element.title,
+              stepResults?.[element.category]?.[i].level1?.["Action 1"]
+              // stepResults?.[element.category]?.[i].level2?.["Action 2"]
+            );
+            // current[i] = [];
+            return current;
+          });
+        if (
+          !stepResults?.[element.category][i].level2?.isLast &&
+          stepResults?.[element.category][i].level3
+        )
+          setItemsLevel4((old) => {
+            let current = [...old];
+            current[i] = getLevelThree(
+              element.category,
+              element.title,
+              stepResults?.[element.category]?.[i].level1?.["Action 1"],
+              stepResults?.[element.category]?.[i].level2?.["Action 2"]
+              // stepResults?.[element.category]?.[i].level3?.["Action 3"]
+            );
+            return current;
+          });
+        if (
+          !stepResults?.[element.category][i].level3?.isLast &&
+          stepResults?.[element.category][i].level4
+        )
+          setItemsLevel5((old) => {
+            // debugger;
+            let current = [...old];
+            current[i] = getLevelThree(
+              element.category,
+              element.title,
+              stepResults?.[element.category]?.[i].level1?.["Action 1"],
+              stepResults?.[element.category]?.[i].level2?.["Action 2"],
+              stepResults?.[element.category]?.[i].level3?.["Action 3"]
+              // stepResults?.[element.category]?.[i].level4?.["Action 4"]
+            );
+            return current;
+          });
       } else {
         catResults.push({
           category: element.category,
