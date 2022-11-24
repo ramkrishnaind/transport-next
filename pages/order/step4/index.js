@@ -640,6 +640,7 @@ const Step4 = (props) => {
     const itemCurrent = newStep3State[category].find((i) => i.title === item);
     if (itemCurrent) itemCurrent.count -= 1;
     setStep3State(newStep3State);
+    localStorage.setItem("step3State", JSON.stringify(newStep3State));
     if (state.find((i) => i.title === item).count === 0) {
       setStepResults((prev) => {
         delete prev[category];
@@ -1238,6 +1239,72 @@ const Step4 = (props) => {
       return current;
     });
     return current;
+  };
+  const displaySecondLevelNew = (headerIndex) => {
+    // debugger;
+    // const parentIndex = headerIndex;
+    // const contentSelected = items?.[headerIndex]?.value || [];
+    const obj = itemsLevel2[headerIndex];
+    // itemsLevel2[headerIndex] = getLevelTwo(category, obj.item);
+
+    return (
+      // <div
+      //   className="flex-col flex h-full items-center justify-start flex-wrap px-2 overflow-auto py-8"
+      //   title={contentSelected?.[0]?.key}
+      //   style={{ minHeight: "77.5vh" }}
+      // >
+      <div className="  px-3 py-4 ">
+        <div>
+          <select
+            className=" bg-transparent  font-semibold"
+            ref={myLevel1Refs?.[headerIndex] || null}
+            onChange={(e) => {
+              // debugger;
+              if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
+                handleSecondLevelClick(
+                  e,
+                  headerIndex,
+                  e.target.value && JSON.parse(e.target.value)?.Category,
+                  e.target.value && JSON.parse(e.target.value)?.Item,
+                  e.target.value
+                );
+              else {
+                setCategoryResults((prev) => {
+                  let curr = [...prev];
+                  curr[headerIndex].level1 =
+                    e.target.value && JSON.parse(e.target.value);
+                  curr[headerIndex].level2 = null;
+                  curr[headerIndex].level3 = null;
+                  curr[headerIndex].level4 = null;
+                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                  curr[headerIndex].isLast = true;
+                  return curr;
+                });
+              }
+            }}
+          >
+            <option value={""} selected>
+              <div className="text-center text-sm">Select...</div>
+            </option>
+            {obj.map((item, index) => {
+              // debugger;
+              return (
+                <option value={JSON.stringify(item)} key={index}>
+                  {/* <div className="flex justify-center py-2 max-h-20 w-20">
+                  <img src={`/images/${item?.image}`} alt="" />
+                </div> */}
+                  <span className="text-center text-sm p-1">
+                    {item["Action 1"]}
+                  </span>
+                </option>
+              );
+            })}
+          </select>
+        </div>
+      </div>
+    );
+
+    // );
   };
   console.log("stepresults", stepResults);
   const checkToShowThirdLevel = (headerIndex) => {
