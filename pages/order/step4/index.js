@@ -545,6 +545,37 @@ const Step4 = (props) => {
     }
   }, [itemsLevel2]);
   useEffect(() => {
+    setStep4State(stepResults);
+    if (stepResults)
+      localStorage.setItem("step4State", JSON.stringify(stepResults));
+  }, [stepResults]);
+  useEffect(() => {
+    // debugger;
+    if (!step4State) {
+      const step4StateLS = localStorage.getItem("step4State");
+      // console.log("local storage - ", stp3State);
+      if (!step4StateLS || step4StateLS === "undefined") {
+        return;
+      } else {
+        debugger;
+        setStepResults(JSON.parse(step4StateLS));
+        setStep4State(JSON.parse(step4StateLS));
+      }
+    } else {
+      setStepResults(step4State);
+    }
+    if (!step3State) {
+      const step3StateLS = localStorage.getItem("step3State");
+      // console.log("local storage - ", stp3State);
+      if (!step3StateLS || step3StateLS === "undefined") {
+        return;
+      } else {
+        debugger;
+        setStep3State(JSON.parse(step3StateLS));
+      }
+    }
+  }, []);
+  useEffect(() => {
     if (itemsLevel3?.length > 0) {
       setMyLevel2Refs(itemsLevel3?.map(() => createRef()));
     }
@@ -878,7 +909,7 @@ const Step4 = (props) => {
 
     setCategoryResults(catResults);
   };
-
+  useEffect(() => {}, [stepResults]);
   const handleFirstLevelItemClick = (event, parentIndex, category, item) => {
     event.stopPropagation();
 
@@ -1356,6 +1387,18 @@ const Step4 = (props) => {
   };
 
   const handleSubmit = async () => {
+    debugger;
+
+    let cftTot = 0;
+    for (const i = 0; i < Object.keys(stepResults).length; i++) {
+      const catResults = stepResults[Object.keys(stepResults)[i]];
+      debugger;
+      cftTot += catResults.reduce((sum, val) => {
+        debugger;
+
+        return sum + val?.cft;
+      }, 0);
+    }
     const objCreated = {};
     stateData?.forEach((item) => {
       const key = item?.item.replace("/", " ");
@@ -1376,13 +1419,13 @@ const Step4 = (props) => {
     });
     console.log("stateData", stateData);
 
-    console.log("cfttotal- ", cftTotal);
-    const cftData = { cft: cftTotal };
-    ctx.setStep4State(cftData);
-    console.log("context.step4State -- ", step4State);
+    console.log("cfttotal- ", cft);
+    // const cftData = { cft: cftTotal };
+    // ctx.setStep4State(cftData);
+    // console.log("context.step4State -- ", step4State);
     await cft({
       bookingId: step2State?.bookingId,
-      cft: cftTotal,
+      cft: cftTot,
     });
     await bookingItem({
       bookingId: step2State?.bookingId,
@@ -1390,13 +1433,13 @@ const Step4 = (props) => {
     });
     await step4Item({
       bookingId: step2State?.bookingId,
-      step4: [...items],
+      step4: stepResults,
     });
     saveBooking({
       ...bookingInfo,
-      step4: [...items],
+      step4: stepResults,
       step4Object: objCreated,
-      cftTotal,
+      cftTotal: cftTot,
     });
     router.push("/order/step5");
   };
