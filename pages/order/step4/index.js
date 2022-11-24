@@ -1579,10 +1579,10 @@ const Step4 = (props) => {
                 {checkToShowFifthLevel(index) && myLevel4Refs?.[index] && (
                   <div className="fifth">{displayFifthLevelNew(index)}</div>
                 )}
-                <div className="flex flex-col">
+                <div className="flex">
                   {categoryResults[index]?.isLast && (
                     <div
-                      className="red-text_currentOrder hidden xl:block lg:block px-3 py-1 cursor-pointer mb-1"
+                      className="orange-text_currentOrder hidden xl:block lg:block px-3 py-3 cursor-pointer mb-1"
                       onClick={() => {
                         editHandler(iterator[0].Category, index);
                       }}
@@ -1610,9 +1610,9 @@ const Step4 = (props) => {
         </div>
         {itemsLevel1?.[0]?.[0] && (
           <div className="mt-3 ">
-            <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+            <div className="flex  justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
               <button
-                className="button_2_skip rounded-m px-10 py-2"
+                className="button_2_skip order_4border rounded-m px-10 py-2"
                 type="button"
                 onClick={() =>
                   addHandler(

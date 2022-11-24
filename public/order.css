@@ -1163,10 +1163,16 @@ select:invalid {
   }
 }
 .red-text_currentOrder {
-  color: #df5f5f;
+  color: #da2929;
+}
+.orange-text_currentOrder {
+  color: #ea7b04;
+}
+.order_4border {
+  border: 1.5px solid #439fd9;
 }
 @media (max-width: 767px) {
-  . {
+  .grid_Select_currentOrder {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
@@ -1176,7 +1182,7 @@ select:invalid {
   }
 }
 @media (min-width: 767px) and (max-width: 1023px) {
-  . {
+  .grid_Select_currentOrder {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
