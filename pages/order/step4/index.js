@@ -635,7 +635,7 @@ const Step4 = (props) => {
   };
   const deleteHandler = (category, item, index) => {
     if (!step3State) return;
-    const keys = Object.keys(step3State);
+
     const newStep3State = { ...step3State };
     const itemCurrent = newStep3State[category].find((i) => i.title === item);
     if (itemCurrent) itemCurrent.count -= 1;
@@ -673,6 +673,44 @@ const Step4 = (props) => {
     const newItemsLevel5 = [...itemsLevel5];
     newItemsLevel5.splice(index, 1);
     setItemsLevel5(newItemsLevel5);
+    debugger;
+    const arr = [];
+    state.forEach((element, index) => {
+      arr.push(getCompletedCount(element.category, element.title));
+    });
+    setCompletedCount(arr);
+  };
+  const addHandler = (category, item, index) => {
+    debugger;
+    if (!step3State) return;
+
+    const newStep3State = { ...step3State };
+    const itemCurrent = newStep3State[category].find((i) => i.title === item);
+    if (itemCurrent) itemCurrent.count += 1;
+    setStep3State(newStep3State);
+    localStorage.setItem("step3State", JSON.stringify(newStep3State));
+    setItemsLevel1((old) => {
+      let current = [...old, getLevelTwo(category, item, null)];
+      return current;
+    });
+    setItemsLevel2((old) => {
+      let current = [...old, getLevelTwo(category, item, null)];
+      return current;
+    });
+    // setItemsLevel1(newItemsLevel1);
+
+    setItemsLevel3((prev) => {
+      prev[prev.length] = null;
+      return prev;
+    });
+    setItemsLevel4((prev) => {
+      prev[prev.length] = null;
+      return prev;
+    });
+    setItemsLevel5((prev) => {
+      prev[prev.length] = null;
+      return prev;
+    });
     debugger;
     const arr = [];
     state.forEach((element, index) => {
@@ -1499,7 +1537,7 @@ const Step4 = (props) => {
                   <div className="fifth">{displayFifthLevelNew(index)}</div>
                 )}
                 <div className="flex flex-col">
-                  {categoryResults[index].isLast && (
+                  {categoryResults[index]?.isLast && (
                     <div
                       className="red-text_currentOrder hidden xl:block lg:block px-3 py-1 cursor-pointer mb-1"
                       onClick={() => {
@@ -1527,6 +1565,24 @@ const Step4 = (props) => {
             );
           })}
         </div>
+        {itemsLevel1?.[0]?.[0] && (
+          <div className="mt-3 ">
+            <div className="flex justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
+              <button
+                className="button_2_skip rounded-m px-10 py-2"
+                type="button"
+                onClick={() =>
+                  addHandler(
+                    itemsLevel1?.[0]?.[0].Category,
+                    itemsLevel1?.[0]?.[0].Item
+                  )
+                }
+              >
+                ADD
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="  ">
