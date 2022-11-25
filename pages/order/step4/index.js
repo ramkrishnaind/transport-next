@@ -18,8 +18,8 @@ import {
 import { useRouter } from "next/router";
 import useAuth from "../../../hooks/useAuth";
 import { includes, lastIndexOf } from "lodash";
-itemList = itemList.filter((i) => !!i);
-// console.log("itemList", itemList);
+let itemLists = itemList.filter((i) => !!i);
+// console.log("itemLists", itemLists);
 let objToAppend = [];
 const bikeTransformed = [];
 bikeList.forEach((bikeItem) => {
@@ -70,7 +70,7 @@ const checkValueInList = (item, arr, keysItem) => {
   return exist;
 };
 
-const itemCategroies = itemList
+const itemCategroies = itemLists
   .filter((i) => !!i)
   .map((i) => {
     // if (!i) {
@@ -83,9 +83,9 @@ console.log("categories", categories);
 const getLevelOne = (category, type) => {
   // debugger;
   const arrResult = [];
-  console.log("itemList", itemList);
+  console.log("itemLists", itemLists);
   console.log("bikeTransformed", bikeTransformed);
-  const filteredList = [...itemList, ...bikeTransformed].filter(
+  const filteredList = [...itemLists, ...bikeTransformed].filter(
     (i) => i && i?.Category === category && i.Item === type
 
     // &&
@@ -100,7 +100,7 @@ const getLevelOne = (category, type) => {
 };
 const getLevelTwo = (category, type) => {
   const arrResult = [];
-  [...itemList, ...bikeTransformed]
+  [...itemLists, ...bikeTransformed]
     .filter((i) => i && i.Category === category && i.Item === type)
     .forEach((item) => {
       if (!checkValueInList(item, arrResult, ["Action 1"]))
@@ -114,7 +114,7 @@ const getLevelTwo = (category, type) => {
 };
 const getLevelThree = (category, type, level1) => {
   const arrResult = [];
-  [...itemList, ...bikeTransformed]
+  [...itemLists, ...bikeTransformed]
     .filter(
       (i) =>
         i &&
@@ -135,7 +135,7 @@ const getLevelThree = (category, type, level1) => {
 };
 const getLevelFour = (category, type, level1, level2) => {
   const arrResult = [];
-  [...itemList, ...bikeTransformed]
+  [...itemLists, ...bikeTransformed]
     .filter(
       (i) =>
         i &&
@@ -157,7 +157,7 @@ const getLevelFour = (category, type, level1, level2) => {
 };
 const getLevelFive = (category, type, level1, level2, level3) => {
   const arrResult = [];
-  [...itemList, ...bikeTransformed]
+  [...itemLists, ...bikeTransformed]
     .filter(
       (i) =>
         i &&
@@ -180,7 +180,7 @@ const getLevelFive = (category, type, level1, level2, level3) => {
 };
 const getLevelSix = (category, type, level1, level2, level3, level4) => {
   const arrResult = [];
-  [...itemList, ...bikeTransformed]
+  [...itemLists, ...bikeTransformed]
     .filter(
       (i) =>
         i &&
@@ -202,7 +202,7 @@ const getLevelSix = (category, type, level1, level2, level3, level4) => {
     });
   return arrResult;
 };
-itemList
+itemLists
   .filter((i) => !!i)
   .forEach((item) => {
     let objItem = objToAppend.find((i) => i.key === item?.Item);
@@ -383,7 +383,7 @@ const Step4 = (props) => {
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   const [stateData, setStateData] = useState([]);
-  const checkKeyExist = (object, key) => {};
+  const checkKeyExist = (object, key) => { };
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
@@ -433,7 +433,7 @@ const Step4 = (props) => {
           }
         }
       });
-      const itemData = itemList.find(
+      const itemData = itemLists.find(
         (it) =>
           it?.Category === obj.category &&
           it?.Item === obj.item &&
@@ -794,7 +794,7 @@ const Step4 = (props) => {
     });
     const level1 = [];
     const catResults = stepResults?.[element.category] || [];
-    const filteredList = [...itemList, ...bikeTransformed].filter(
+    const filteredList = [...itemLists, ...bikeTransformed].filter(
       (i) => i && i?.Category === element.category && i.Item === element.title
     );
 
@@ -909,7 +909,7 @@ const Step4 = (props) => {
 
     setCategoryResults(catResults);
   };
-  useEffect(() => {}, [stepResults]);
+  useEffect(() => { }, [stepResults]);
   const handleFirstLevelItemClick = (event, parentIndex, category, item) => {
     event.stopPropagation();
 
@@ -1516,7 +1516,7 @@ const Step4 = (props) => {
                     <div className="px-5 mt-2 hover:bg-blue-100">
                       <button
                         className="text-gray-500 text-center m-auto cursor-pointer"
-                        // onClick={changeState}
+                      // onClick={changeState}
                       >
                         {completedCount[index]}/{element.count}
                       </button>
