@@ -392,6 +392,7 @@ const Step4 = (props) => {
   const { step4State, setStep4State } = ctx;
   console.log("ctx.step3State - ", ctx.step3State);
   const [cftTotal, setCftTotal] = useState(0);
+  const [cftTot, setCftTot] = useState(0);
   const getStateData = () => {
     const result = [];
     const sumOfCFT = 0;
@@ -459,6 +460,19 @@ const Step4 = (props) => {
           return { ...newVal };
         });
       }
+    if (stepResults) {
+      let cftTot = 0;
+      for (const i = 0; i < Object.keys(stepResults).length; i++) {
+        const catResults = stepResults[Object.keys(stepResults)[i]];
+        debugger;
+        cftTot += catResults.reduce((sum, val) => {
+          debugger;
+
+          return sum + val?.cft;
+        }, 0);
+      }
+      setCftTot(cftTot);
+    }
   }, [categoryResults]);
   const resetState = (i) => {
     i.checked = false;
@@ -1456,9 +1470,7 @@ const Step4 = (props) => {
               3 Step left • About 6 min
               <span className="CFT_box_step5 px-2 py-1 ml-1">
                 <span className="CFT_box-text1_step5">CFT </span>
-                <span className="CFT_box-text1_step5 font-bold">
-                  {cftTotal}
-                </span>
+                <span className="CFT_box-text1_step5 font-bold">{cftTot}</span>
               </span>
             </div>
           </div>
@@ -1481,9 +1493,9 @@ const Step4 = (props) => {
           </div>
         </div>
       </div>
-      <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg ">
-        <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
-          <div className="step4_heading font-medium px-2 text-center md:text-left lg:text-left xl:text-left  ">
+      <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg w-full">
+        <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 w-full">
+          <div className="step4_heading font-medium px-2 text-center md:text-left lg:text-left xl:text-left overflow-x-auto ">
             Please describe the items, so that we can understand them better
           </div>
           <div className="step4_heading2 px-2 text-center md:text-left lg:text-left xl:text-left  ">
@@ -1491,7 +1503,7 @@ const Step4 = (props) => {
             provide us this.
           </div>
         </div>
-        <div className="p-3">
+        <div className="p-3 w-full overflow-x-auto">
           <div
             className="flex overflow-x-auto accent-emerald-500/25  space-x-4  py-2  px-5"
             style={{ width: "max-content" }}
