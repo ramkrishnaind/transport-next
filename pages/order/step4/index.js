@@ -460,19 +460,6 @@ const Step4 = (props) => {
           return { ...newVal };
         });
       }
-    if (stepResults) {
-      let cftTot = 0;
-      for (const i = 0; i < Object.keys(stepResults).length; i++) {
-        const catResults = stepResults[Object.keys(stepResults)[i]];
-        debugger;
-        cftTot += catResults.reduce((sum, val) => {
-          debugger;
-
-          return sum + val?.cft || 0;
-        }, 0);
-      }
-      setCftTot(cftTot);
-    }
   }, [categoryResults]);
   const resetState = (i) => {
     i.checked = false;
@@ -562,6 +549,19 @@ const Step4 = (props) => {
     setStep4State(stepResults);
     if (stepResults)
       localStorage.setItem("step4State", JSON.stringify(stepResults));
+    if (stepResults) {
+      let cftTot = 0;
+      for (const i = 0; i < Object.keys(stepResults).length; i++) {
+        const catResults = stepResults[Object.keys(stepResults)[i]];
+        debugger;
+        cftTot += catResults.reduce((sum, val) => {
+          debugger;
+
+          return sum + val?.cft || 0;
+        }, 0);
+      }
+      setCftTot(cftTot);
+    }
   }, [stepResults]);
   useEffect(() => {
     // debugger;
