@@ -258,8 +258,8 @@ const Step5 = () => {
   };
   const handleOk = () => {
     setIsBookingConfirmed(false);
-    // router.push("/order/currentOrder");
-    router.push("/order/step7");
+    router.push("/order/currentOrder");
+    //router.push("/order/step7");
   };
   const bookingConformation = () => {
     Modal.success({
