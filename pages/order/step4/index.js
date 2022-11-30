@@ -743,7 +743,18 @@ const Step4 = (props) => {
       return current;
     });
     // setItemsLevel1(newItemsLevel1);
-
+    setCategoryResults((prev) => {
+      const newVal = [...prev];
+      newVal.push({
+        category: category,
+        Item: item,
+        level1: null,
+        level2: null,
+        level3: null,
+        level4: null,
+      });
+      return newVal;
+    });
     setItemsLevel3((prev) => {
       prev[prev.length] = null;
       return prev;
