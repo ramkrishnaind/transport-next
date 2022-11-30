@@ -14,6 +14,7 @@ import { Button, Modal, Space } from "antd";
 import useAuth from "../../../hooks/useAuth";
 const Step5 = () => {
   const { bookingInfo, saveBooking, customer } = useAuth();
+  const [step4CFT, setStep4CFT] = useState(0);
   const ctx = useContext(TransportContext);
   const router = useRouter();
   const { customerDetails } = ctx;
@@ -87,12 +88,15 @@ const Step5 = () => {
     for (const i = 0; i < Object.keys(step4State).length; i++) {
       const catResults = step4State[Object.keys(step4State)[i]];
       debugger;
-      cftTot += catResults.reduce((sum, val) => {
-        debugger;
+      if (catResults?.length) {
+        cftTot += catResults.reduce((sum, val) => {
+          debugger;
 
-        return sum + val?.cft || 0;
-      }, 0);
+          return sum + val?.cft || 0;
+        }, 0);
+      }
     }
+    setStep4CFT(cftTot);
     setCftTotal(cftTot);
     console.log("cftdata5 - ", cftTotal);
   }, [step4State]);
@@ -193,7 +197,7 @@ const Step5 = () => {
     }
     console.log("objectState", objectState);
     ctx.setStep5State(objectState);
-    const sum = cftTotal + step4State["cft"];
+    const sum = cftTotal + step4CFT;
     const cftData = { cft: sum };
     console.log("cftData - ", cftData);
     setStep4State(cftData);

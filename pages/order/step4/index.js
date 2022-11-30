@@ -554,11 +554,12 @@ const Step4 = (props) => {
       for (const i = 0; i < Object.keys(stepResults).length; i++) {
         const catResults = stepResults[Object.keys(stepResults)[i]];
         debugger;
-        cftTot += catResults.reduce((sum, val) => {
-          debugger;
-
-          return sum + val?.cft || 0;
-        }, 0);
+        if (catResults?.length) {
+          cftTot += catResults.reduce((sum, val) => {
+            debugger;
+            return sum + (val?.cft || 0);
+          }, 0);
+        }
       }
       setCftTot(cftTot);
     }
@@ -701,7 +702,7 @@ const Step4 = (props) => {
     }
     setStepResults((prev) => {
       prev[category].splice(index, 1);
-      return prev;
+      return { ...prev };
     });
     const newItemsLevel1 = [...itemsLevel1];
     newItemsLevel1.splice(index, 1);
@@ -832,7 +833,17 @@ const Step4 = (props) => {
       stepResults?.[element.category] &&
       stepResults?.[element.category].length > 0
     ) {
-      let isLast = false;
+      while (catResults.length < element.count) {
+        catResults.push({
+          category: element.category,
+          Item: element.title,
+          level1: null,
+          level2: null,
+          level3: null,
+          level4: null,
+        });
+      }
+      debugger;
       setItemsLevel2(() => {
         let current = [];
         for (const i = 0; i < element.count; i++) {
@@ -1435,11 +1446,13 @@ const Step4 = (props) => {
     for (const i = 0; i < Object.keys(stepResults).length; i++) {
       const catResults = stepResults[Object.keys(stepResults)[i]];
       debugger;
-      cftTot += catResults.reduce((sum, val) => {
-        debugger;
+      if (catResults?.length) {
+        cftTot += catResults.reduce((sum, val) => {
+          debugger;
 
-        return sum + val?.cft;
-      }, 0);
+          return sum + (val?.cft || 0);
+        }, 0);
+      }
     }
     const objCreated = {};
     stateData?.forEach((item) => {
