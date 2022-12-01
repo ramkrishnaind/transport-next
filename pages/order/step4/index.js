@@ -383,7 +383,7 @@ const Step4 = (props) => {
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   const [stateData, setStateData] = useState([]);
-  const checkKeyExist = (object, key) => { };
+  const checkKeyExist = (object, key) => {};
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
@@ -392,6 +392,7 @@ const Step4 = (props) => {
   const { step4State, setStep4State } = ctx;
   console.log("ctx.step3State - ", ctx.step3State);
   const [cftTotal, setCftTotal] = useState(0);
+  const [cftTot, setCftTot] = useState(0);
   const getStateData = () => {
     const result = [];
     const sumOfCFT = 0;
@@ -548,6 +549,20 @@ const Step4 = (props) => {
     setStep4State(stepResults);
     if (stepResults)
       localStorage.setItem("step4State", JSON.stringify(stepResults));
+    if (stepResults) {
+      let cftTot = 0;
+      for (const i = 0; i < Object.keys(stepResults).length; i++) {
+        const catResults = stepResults[Object.keys(stepResults)[i]];
+        debugger;
+        if (catResults?.length) {
+          cftTot += catResults.reduce((sum, val) => {
+            debugger;
+            return sum + (val?.cft || 0);
+          }, 0);
+        }
+      }
+      setCftTot(cftTot);
+    }
   }, [stepResults]);
   useEffect(() => {
     // debugger;
@@ -687,7 +702,7 @@ const Step4 = (props) => {
     }
     setStepResults((prev) => {
       prev[category].splice(index, 1);
-      return prev;
+      return { ...prev };
     });
     const newItemsLevel1 = [...itemsLevel1];
     newItemsLevel1.splice(index, 1);
@@ -729,7 +744,18 @@ const Step4 = (props) => {
       return current;
     });
     // setItemsLevel1(newItemsLevel1);
-
+    setCategoryResults((prev) => {
+      const newVal = [...prev];
+      newVal.push({
+        category: category,
+        Item: item,
+        level1: null,
+        level2: null,
+        level3: null,
+        level4: null,
+      });
+      return newVal;
+    });
     setItemsLevel3((prev) => {
       prev[prev.length] = null;
       return prev;
@@ -807,7 +833,17 @@ const Step4 = (props) => {
       stepResults?.[element.category] &&
       stepResults?.[element.category].length > 0
     ) {
-      let isLast = false;
+      while (catResults.length < element.count) {
+        catResults.push({
+          category: element.category,
+          Item: element.title,
+          level1: null,
+          level2: null,
+          level3: null,
+          level4: null,
+        });
+      }
+      debugger;
       setItemsLevel2(() => {
         let current = [];
         for (const i = 0; i < element.count; i++) {
@@ -825,7 +861,7 @@ const Step4 = (props) => {
             current[i] = getLevelThree(
               element.category,
               element.title,
-              stepResults?.[element.category]?.[i].level1?.["Action 1"]
+              stepResults?.[element.category]?.[i]?.level1?.["Action 1"]
             );
           }
           return current;
@@ -840,8 +876,8 @@ const Step4 = (props) => {
             current[i] = getLevelFour(
               element.category,
               element.title,
-              stepResults?.[element.category]?.[i].level1?.["Action 1"],
-              stepResults?.[element.category]?.[i].level2?.["Action 2"]
+              stepResults?.[element.category]?.[i]?.level1?.["Action 1"],
+              stepResults?.[element.category]?.[i]?.level2?.["Action 2"]
             );
           }
           return current;
@@ -856,9 +892,9 @@ const Step4 = (props) => {
             current[i] = getLevelFive(
               element.category,
               element.title,
-              stepResults?.[element.category]?.[i].level1?.["Action 1"],
-              stepResults?.[element.category]?.[i].level2?.["Action 2"],
-              stepResults?.[element.category]?.[i].level3?.["Action 3"]
+              stepResults?.[element.category]?.[i]?.level1?.["Action 1"],
+              stepResults?.[element.category]?.[i]?.level2?.["Action 2"],
+              stepResults?.[element.category]?.[i]?.level3?.["Action 3"]
             );
           }
           return current;
@@ -909,7 +945,7 @@ const Step4 = (props) => {
 
     setCategoryResults(catResults);
   };
-  useEffect(() => { }, [stepResults]);
+  useEffect(() => {}, [stepResults]);
   const handleFirstLevelItemClick = (event, parentIndex, category, item) => {
     event.stopPropagation();
 
@@ -934,19 +970,21 @@ const Step4 = (props) => {
               else {
                 setCategoryResults((prev) => {
                   let curr = [...prev];
-                  curr[headerIndex].level1 =
-                    e.target.value && JSON.parse(e.target.value);
-                  curr[headerIndex].level2 = null;
-                  curr[headerIndex].level3 = null;
-                  curr[headerIndex].level4 = null;
-                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
-                  curr[headerIndex].isLast = true;
+                  if (curr[headerIndex]) {
+                    curr[headerIndex].level1 =
+                      e.target.value && JSON.parse(e.target.value);
+                    curr[headerIndex].level2 = null;
+                    curr[headerIndex].level3 = null;
+                    curr[headerIndex].level4 = null;
+                    curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                    curr[headerIndex].isLast = true;
+                  }
                   return curr;
                 });
               }
             }}
           >
-            <option value={""} selected>
+            <option value={""}>
               <div className="text-center text-sm">Select...</div>
             </option>
             {obj.map((item, index) => {
@@ -975,10 +1013,12 @@ const Step4 = (props) => {
     event.stopPropagation();
     setCategoryResults((prev) => {
       let curr = [...prev];
-      curr[parentIndex].level1 = value && JSON.parse(value);
-      curr[parentIndex].level2 = null;
-      curr[parentIndex].level3 = null;
-      curr[parentIndex].level4 = null;
+      if (curr[parentIndex]) {
+        curr[parentIndex].level1 = value && JSON.parse(value);
+        curr[parentIndex].level2 = null;
+        curr[parentIndex].level3 = null;
+        curr[parentIndex].level4 = null;
+      }
       return curr;
     });
     if (!value) {
@@ -1043,17 +1083,19 @@ const Step4 = (props) => {
               else {
                 setCategoryResults((prev) => {
                   let curr = [...prev];
-                  curr[headerIndex].level2 = JSON.parse(e.target.value);
-                  curr[headerIndex].level3 = null;
-                  curr[headerIndex].level4 = null;
-                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
-                  curr[headerIndex].isLast = true;
+                  if (curr[headerIndex]) {
+                    curr[headerIndex].level2 = JSON.parse(e.target.value);
+                    curr[headerIndex].level3 = null;
+                    curr[headerIndex].level4 = null;
+                    curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                    curr[headerIndex].isLast = true;
+                  }
                   return curr;
                 });
               }
             }}
           >
-            <option value={""} selected>
+            <option value={""}>
               <div className="text-center text-sm">Select</div>
             </option>
             {itemsLevel3[headerIndex].map((iterator, index) => {
@@ -1087,9 +1129,11 @@ const Step4 = (props) => {
     event.stopPropagation();
     setCategoryResults((prev) => {
       let curr = [...prev];
-      curr[parentIndex].level2 = level2;
-      curr[parentIndex].level3 = null;
-      curr[parentIndex].level4 = null;
+      if (curr[parentIndex]) {
+        curr[parentIndex].level2 = level2;
+        curr[parentIndex].level3 = null;
+        curr[parentIndex].level4 = null;
+      }
       return curr;
     });
     if (!level2) {
@@ -1144,17 +1188,20 @@ const Step4 = (props) => {
                 );
               else {
                 setCategoryResults((prev) => {
+                  debugger;
                   let curr = [...prev];
-                  curr[headerIndex].level3 = JSON.parse(e.target.value);
-                  curr[headerIndex].level4 = null;
-                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
-                  curr[headerIndex].isLast = true;
+                  if (curr[headerIndex]) {
+                    curr[headerIndex].level3 = JSON.parse(e.target.value);
+                    curr[headerIndex].level4 = null;
+                    curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                    curr[headerIndex].isLast = true;
+                  }
                   return curr;
                 });
               }
             }}
           >
-            <option value={""} selected>
+            <option value={""}>
               <div className="text-center text-sm">Select</div>
             </option>
             {itemsLevel4[headerIndex].map((iterator, index) => {
@@ -1185,12 +1232,14 @@ const Step4 = (props) => {
     level2,
     level3
   ) => {
-    // debugger;
+    debugger;
     event.stopPropagation();
     setCategoryResults((prev) => {
       let curr = [...prev];
-      curr[parentIndex].level3 = level3;
-      curr[parentIndex].level4 = null;
+      if (curr[parentIndex]) {
+        curr[parentIndex].level3 = level3;
+        curr[parentIndex].level4 = null;
+      }
       return curr;
     });
     if (!level3) {
@@ -1237,15 +1286,17 @@ const Step4 = (props) => {
               else {
                 setCategoryResults((prev) => {
                   let curr = [...prev];
-                  curr[headerIndex].level4 = JSON.parse(e.target.value);
-                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
-                  curr[headerIndex].isLast = true;
+                  if (curr[headerIndex]) {
+                    curr[headerIndex].level4 = JSON.parse(e.target.value);
+                    curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                    curr[headerIndex].isLast = true;
+                  }
                   return curr;
                 });
               }
             }}
           >
-            <option value={""} selected>
+            <option value={""}>
               <div className="text-center text-sm">Select</div>
             </option>
             {itemsLevel5[headerIndex].map((iterator, index) => {
@@ -1283,7 +1334,7 @@ const Step4 = (props) => {
 
     setCategoryResults((prev) => {
       let curr = [...prev];
-      curr[parentIndex].level4 = level4;
+      if (curr[parentIndex]) curr[parentIndex].level4 = level4;
       return curr;
     });
     event.stopPropagation();
@@ -1340,19 +1391,21 @@ const Step4 = (props) => {
               else {
                 setCategoryResults((prev) => {
                   let curr = [...prev];
-                  curr[headerIndex].level1 =
-                    e.target.value && JSON.parse(e.target.value);
-                  curr[headerIndex].level2 = null;
-                  curr[headerIndex].level3 = null;
-                  curr[headerIndex].level4 = null;
-                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
-                  curr[headerIndex].isLast = true;
+                  if (curr[headerIndex]) {
+                    curr[headerIndex].level1 =
+                      e.target.value && JSON.parse(e.target.value);
+                    curr[headerIndex].level2 = null;
+                    curr[headerIndex].level3 = null;
+                    curr[headerIndex].level4 = null;
+                    curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                    curr[headerIndex].isLast = true;
+                  }
                   return curr;
                 });
               }
             }}
           >
-            <option value={""} selected>
+            <option value={""}>
               <div className="text-center text-sm">Select...</div>
             </option>
             {obj.map((item, index) => {
@@ -1393,11 +1446,13 @@ const Step4 = (props) => {
     for (const i = 0; i < Object.keys(stepResults).length; i++) {
       const catResults = stepResults[Object.keys(stepResults)[i]];
       debugger;
-      cftTot += catResults.reduce((sum, val) => {
-        debugger;
+      if (catResults?.length) {
+        cftTot += catResults.reduce((sum, val) => {
+          debugger;
 
-        return sum + val?.cft;
-      }, 0);
+          return sum + (val?.cft || 0);
+        }, 0);
+      }
     }
     const objCreated = {};
     stateData?.forEach((item) => {
@@ -1456,9 +1511,7 @@ const Step4 = (props) => {
               3 Step left • About 6 min
               <span className="CFT_box_step5 px-2 py-1 ml-1">
                 <span className="CFT_box-text1_step5">CFT </span>
-                <span className="CFT_box-text1_step5 font-bold">
-                  {cftTotal}
-                </span>
+                <span className="CFT_box-text1_step5 font-bold">{cftTot}</span>
               </span>
             </div>
           </div>
@@ -1481,9 +1534,9 @@ const Step4 = (props) => {
           </div>
         </div>
       </div>
-      <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg ">
-        <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 ">
-          <div className="step4_heading font-medium px-2 text-center md:text-left lg:text-left xl:text-left  ">
+      <div className=" b1 r1 r4 mt-2 bg-white step5_container  rounded-lg w-full">
+        <div className=" flex flex-col justify-between items-left p-0 gap-2.5  top-36 r4 mt-3 pl-2 w-full">
+          <div className="step4_heading font-medium px-2 text-center md:text-left lg:text-left xl:text-left overflow-x-auto ">
             Please describe the items, so that we can understand them better
           </div>
           <div className="step4_heading2 px-2 text-center md:text-left lg:text-left xl:text-left  ">
@@ -1491,7 +1544,7 @@ const Step4 = (props) => {
             provide us this.
           </div>
         </div>
-        <div className="p-3">
+        <div className="p-3 w-full overflow-x-auto">
           <div
             className="flex overflow-x-auto accent-emerald-500/25  space-x-4  py-2  px-5"
             style={{ width: "max-content" }}
@@ -1516,7 +1569,7 @@ const Step4 = (props) => {
                     <div className="px-5 mt-2 hover:bg-blue-100">
                       <button
                         className="text-gray-500 text-center m-auto cursor-pointer"
-                      // onClick={changeState}
+                        // onClick={changeState}
                       >
                         {completedCount[index]}/{element.count}
                       </button>
