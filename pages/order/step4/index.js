@@ -370,6 +370,7 @@ const Step4 = (props) => {
   const [itemsLevel3, setItemsLevel3] = useState([]);
   const [itemsLevel4, setItemsLevel4] = useState([]);
   const [itemsLevel5, setItemsLevel5] = useState([]);
+  const [itemsLevel6, setItemsLevel6] = useState([]);
   const [myLevel1Refs, setMyLevel1Refs] = useState();
   const [myLevel2Refs, setMyLevel2Refs] = useState();
   const [myLevel3Refs, setMyLevel3Refs] = useState();
@@ -457,7 +458,9 @@ const Step4 = (props) => {
       if (categoryResults[0]?.category) {
         setStepResults((prev) => {
           const newVal = { ...prev };
-          newVal[categoryResults[0]?.category] = categoryResults;
+          newVal[
+            `${categoryResults[0]?.category}-${categoryResults[0]?.Item}`
+          ] = categoryResults;
           return { ...newVal };
         });
       }
@@ -472,14 +475,19 @@ const Step4 = (props) => {
   };
   useEffect(() => {
     console.log("itemLevels1----", myLevel1Refs);
+    debugger;
     itemsLevel2.map((n, index) => {
       if (
         myLevel1Refs &&
         myLevel1Refs[index].current &&
-        stepResults[itemsLevel2?.[index]?.[index]?.Category]
+        stepResults[
+          `${itemsLevel2?.[index]?.[index]?.Category}-${itemsLevel2?.[index]?.[index]?.Item}`
+        ]
       )
         myLevel1Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel2[index]?.[index]?.Category]?.[index]?.level1
+          stepResults[
+            `${itemsLevel2?.[index]?.[index]?.Category}-${itemsLevel2?.[index]?.[index]?.Item}`
+          ]?.[index]?.level1
         );
     });
   }, [myLevel1Refs]);
@@ -498,10 +506,14 @@ const Step4 = (props) => {
         if (
           myLevel2Refs &&
           myLevel2Refs[index].current &&
-          stepResults[itemsLevel3?.[index]?.[index]?.Category]?.[index]
+          stepResults[
+            `${itemsLevel3?.[index]?.[index]?.Category}-${itemsLevel3?.[index]?.[index]?.Item}`
+          ]?.[index]
         )
           myLevel2Refs[index].current.value = JSON.stringify(
-            stepResults[itemsLevel3[index]?.[index]?.Category]?.[index]?.level2
+            stepResults[
+              `${itemsLevel3?.[index]?.[index]?.Category}-${itemsLevel3?.[index]?.[index]?.Item}`
+            ]?.[index]?.level2
           );
       });
     }, 10);
@@ -521,10 +533,14 @@ const Step4 = (props) => {
       if (
         myLevel3Refs &&
         myLevel3Refs[index].current &&
-        stepResults[itemsLevel4?.[index]?.[index]?.Category]?.[index]
+        stepResults[
+          `${itemsLevel4?.[index]?.[index]?.Category}-${itemsLevel4?.[index]?.[index]?.Item}`
+        ]?.[index]
       )
         myLevel3Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel4[index]?.[index]?.Category]?.[index]?.level3
+          stepResults[
+            `${itemsLevel4?.[index]?.[index]?.Category}-${itemsLevel4?.[index]?.[index]?.Item}`
+          ]?.[index]?.level3
         );
     });
   }, [myLevel3Refs]);
@@ -535,10 +551,14 @@ const Step4 = (props) => {
       if (
         myLevel4Refs &&
         myLevel4Refs[index].current &&
-        stepResults[itemsLevel5?.[index]?.[index]?.Category]?.[index]
+        stepResults[
+          `${itemsLevel5?.[index]?.[index]?.Category}-${itemsLevel5?.[index]?.[index]?.Item}`
+        ]?.[index]
       )
         myLevel4Refs[index].current.value = JSON.stringify(
-          stepResults[itemsLevel5[index]?.[index]?.Category]?.[index]?.level4
+          stepResults[
+            `${itemsLevel5?.[index]?.[index]?.Category}-${itemsLevel5?.[index]?.[index]?.Item}`
+          ]?.[index]?.level4
         );
     });
   }, [myLevel4Refs]);
@@ -623,8 +643,8 @@ const Step4 = (props) => {
   }, [itemsLevel5]);
   const getCompletedCount = (cat, item) => {
     debugger;
-    if (!stepResults || !stepResults[cat]) return 0;
-    const itemsCompleted = stepResults[cat].filter(
+    if (!stepResults || !stepResults[`${cat}-${item}`]) return 0;
+    const itemsCompleted = stepResults[`${cat}-${item}`].filter(
       (i) => i.Item && i.Item == item && i.isLast
     );
     //
@@ -705,7 +725,7 @@ const Step4 = (props) => {
     localStorage.setItem("step3State", JSON.stringify(newStep3State));
     if (state.find((i) => i.title === item).count === 0) {
       setStepResults((prev) => {
-        delete prev[category];
+        delete prev[`${category}-${item}`];
         return prev;
       });
       setState(state.filter((i) => i.title !== item));
@@ -717,7 +737,7 @@ const Step4 = (props) => {
       return;
     }
     setStepResults((prev) => {
-      prev[category].splice(index, 1);
+      prev[`${category}-${item}`].splice(index, 1);
       return { ...prev };
     });
     const newItemsLevel1 = [...itemsLevel1];
@@ -836,7 +856,8 @@ const Step4 = (props) => {
       return { category: element?.category, count: element?.count };
     });
     const level1 = [];
-    const catResults = stepResults?.[element.category] || [];
+    const catResults =
+      stepResults?.[`${element.category}-${element.title}`] || [];
     const filteredList = [...itemLists, ...bikeTransformed].filter(
       (i) => i && i?.Category === element.category && i.Item === element.title
     );
@@ -847,8 +868,8 @@ const Step4 = (props) => {
       level1.push(levelOneItems);
     }
     if (
-      stepResults?.[element.category] &&
-      stepResults?.[element.category].length > 0
+      stepResults?.[`${element.category}-${element.title}`] &&
+      stepResults?.[`${element.category}-${element.title}`].length > 0
     ) {
       while (catResults.length < element.count) {
         catResults.push({
@@ -868,72 +889,94 @@ const Step4 = (props) => {
         }
         return current;
       });
-      if (
-        !stepResults?.[element.category][0].level1?.isLast &&
-        stepResults?.[element.category][0].level1
-      )
-        setItemsLevel3(() => {
-          let current = [];
-          for (const i = 0; i < element.count; i++) {
+
+      setItemsLevel3(() => {
+        let current = [];
+        for (const i = 0; i < element.count; i++) {
+          if (
+            !stepResults?.[`${element.category}-${element.title}`][i].level1
+              ?.isLast &&
+            stepResults?.[`${element.category}-${element.title}`][i].level1
+          )
             current[i] = getLevelThree(
               element.category,
               element.title,
-              stepResults?.[element.category]?.[i]?.level1?.["Action 1"]
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level1?.["Action 1"]
             );
-          }
-          return current;
-        });
-      if (
-        !stepResults?.[element.category][0].level2?.isLast &&
-        stepResults?.[element.category][0].level2
-      )
-        setItemsLevel4(() => {
-          let current = [];
-          for (const i = 0; i < element.count; i++) {
+          else current[i] = [];
+        }
+        return current;
+      });
+
+      setItemsLevel4(() => {
+        let current = [];
+        for (const i = 0; i < element.count; i++) {
+          if (
+            !stepResults?.[`${element.category}-${element.title}`][i].level2
+              ?.isLast &&
+            stepResults?.[`${element.category}-${element.title}`][i].level2
+          )
             current[i] = getLevelFour(
               element.category,
               element.title,
-              stepResults?.[element.category]?.[i]?.level1?.["Action 1"],
-              stepResults?.[element.category]?.[i]?.level2?.["Action 2"]
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level1?.["Action 1"],
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level2?.["Action 2"]
             );
-          }
-          return current;
-        });
-      if (
-        !stepResults?.[element.category][0].level3?.isLast &&
-        stepResults?.[element.category][0].level3
-      )
-        setItemsLevel5(() => {
-          let current = [];
-          for (const i = 0; i < element.count; i++) {
+          else current[i] = [];
+        }
+        return current;
+      });
+
+      setItemsLevel5(() => {
+        let current = [];
+        for (const i = 0; i < element.count; i++) {
+          if (
+            !stepResults?.[`${element.category}-${element.title}`][i].level3
+              ?.isLast &&
+            stepResults?.[`${element.category}-${element.title}`][i].level3
+          )
             current[i] = getLevelFive(
               element.category,
               element.title,
-              stepResults?.[element.category]?.[i]?.level1?.["Action 1"],
-              stepResults?.[element.category]?.[i]?.level2?.["Action 2"],
-              stepResults?.[element.category]?.[i]?.level3?.["Action 3"]
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level1?.["Action 1"],
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level2?.["Action 2"],
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level3?.["Action 3"]
             );
-          }
-          return current;
-        });
-      if (
-        !stepResults?.[element.category][0].level4?.isLast &&
-        stepResults?.[element.category][0].level4
-      )
-        setItemsLevel6(() => {
-          let current = [];
-          for (const i = 0; i < element.count; i++) {
+          else current[i] = [];
+        }
+        return current;
+      });
+
+      setItemsLevel6(() => {
+        let current = [];
+        for (const i = 0; i < element.count; i++) {
+          if (
+            !stepResults?.[`${element.category}-${element.title}`][i].level4
+              ?.isLast &&
+            stepResults?.[`${element.category}-${element.title}`][i].level4
+          )
             current[i] = getLevelSix(
               element.category,
               element.title,
-              stepResults?.[element.category]?.[i]?.level1?.["Action 1"],
-              stepResults?.[element.category]?.[i]?.level2?.["Action 2"],
-              stepResults?.[element.category]?.[i]?.level3?.["Action 3"],
-              stepResults?.[element.category]?.[i]?.level3?.["Action 4"]
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level1?.["Action 1"],
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level2?.["Action 2"],
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level3?.["Action 3"],
+              stepResults?.[`${element.category}-${element.title}`]?.[i]
+                ?.level3?.["Action 4"]
             );
-          }
-          return current;
-        });
+          else current[i] = [];
+        }
+        return current;
+      });
     } else {
       for (const i = 0; i < element.count; i++) {
         catResults.push({
