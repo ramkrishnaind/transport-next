@@ -374,6 +374,7 @@ const Step4 = (props) => {
   const [myLevel2Refs, setMyLevel2Refs] = useState();
   const [myLevel3Refs, setMyLevel3Refs] = useState();
   const [myLevel4Refs, setMyLevel4Refs] = useState();
+  const [myLevel5Refs, setMyLevel5Refs] = useState();
   const [completedCount, setCompletedCount] = useState([]);
   const [currentCategory, setCurrentCategory] = useState();
   const [categoryResults, setCategoryResults] = useState([]);
@@ -511,6 +512,7 @@ const Step4 = (props) => {
     setMyLevel2Refs(null);
     setMyLevel3Refs(null);
     setMyLevel4Refs(null);
+    setMyLevel5Refs(null);
   }, [currentCategory]);
   useEffect(() => {
     debugger;
@@ -540,6 +542,20 @@ const Step4 = (props) => {
         );
     });
   }, [myLevel4Refs]);
+  // useEffect(() => {
+  //   debugger;
+  //   console.log("itemLevels4----", myLevel5Refs);
+  //   itemsLevel6.map((n, index) => {
+  //     if (
+  //       myLevel5Refs &&
+  //       myLevel5Refs[index].current &&
+  //       stepResults[itemsLevel6?.[index]?.[index]?.Category]?.[index]
+  //     )
+  //       myLevel5Refs[index].current.value = JSON.stringify(
+  //         stepResults[itemsLevel6[index]?.[index]?.Category]?.[index]?.level5
+  //       );
+  //   });
+  // }, [myLevel5Refs]);
   useEffect(() => {
     if (itemsLevel2.length > 0) {
       setMyLevel1Refs(itemsLevel2.map(() => createRef()));
@@ -815,6 +831,7 @@ const Step4 = (props) => {
   }, [ctx.step4Items]);
 
   const handleCarouselClick = (event, element) => {
+    debugger;
     setCurrentCategory((prev) => {
       return { category: element?.category, count: element?.count };
     });
@@ -868,7 +885,7 @@ const Step4 = (props) => {
         });
       if (
         !stepResults?.[element.category][0].level2?.isLast &&
-        stepResults?.[element.category][0].level3
+        stepResults?.[element.category][0].level2
       )
         setItemsLevel4(() => {
           let current = [];
@@ -884,7 +901,7 @@ const Step4 = (props) => {
         });
       if (
         !stepResults?.[element.category][0].level3?.isLast &&
-        stepResults?.[element.category][0].level4
+        stepResults?.[element.category][0].level3
       )
         setItemsLevel5(() => {
           let current = [];
@@ -895,6 +912,24 @@ const Step4 = (props) => {
               stepResults?.[element.category]?.[i]?.level1?.["Action 1"],
               stepResults?.[element.category]?.[i]?.level2?.["Action 2"],
               stepResults?.[element.category]?.[i]?.level3?.["Action 3"]
+            );
+          }
+          return current;
+        });
+      if (
+        !stepResults?.[element.category][0].level4?.isLast &&
+        stepResults?.[element.category][0].level4
+      )
+        setItemsLevel6(() => {
+          let current = [];
+          for (const i = 0; i < element.count; i++) {
+            current[i] = getLevelSix(
+              element.category,
+              element.title,
+              stepResults?.[element.category]?.[i]?.level1?.["Action 1"],
+              stepResults?.[element.category]?.[i]?.level2?.["Action 2"],
+              stepResults?.[element.category]?.[i]?.level3?.["Action 3"],
+              stepResults?.[element.category]?.[i]?.level3?.["Action 4"]
             );
           }
           return current;
@@ -1085,13 +1120,25 @@ const Step4 = (props) => {
                   let curr = [...prev];
                   if (curr[headerIndex]) {
                     curr[headerIndex].level2 = JSON.parse(e.target.value);
-                    curr[headerIndex].level3 = null;
+                    curr[headerIndex].level3 = JSON.parse(e.target.value);
                     curr[headerIndex].level4 = null;
                     curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
                     curr[headerIndex].isLast = true;
                   }
                   return curr;
                 });
+                // setItemsLevel4((old) => {
+                //   // debugger;
+                //   let current = [...old];
+                //   current[headerIndex] = getLevelFour(
+                //     e.target.value && JSON.parse(e.target.value)?.Category,
+                //     e.target.value && JSON.parse(e.target.value)?.Item,
+                //     e.target.value && JSON.parse(e.target.value)?.["Action 1"],
+                //     e.target.value && JSON.parse(e.target.value)["Action 2"]
+                //   );
+
+                //   return current;
+                // });
               }
             }}
           >
@@ -1198,6 +1245,18 @@ const Step4 = (props) => {
                   }
                   return curr;
                 });
+                // setItemsLevel5((old) => {
+                //   // debugger;
+                //   let current = [...old];
+                //   current[headerIndex] = getLevelFive(
+                //     e.target.value && JSON.parse(e.target.value)?.Category,
+                //     e.target.value && JSON.parse(e.target.value)?.Item,
+                //     e.target.value && JSON.parse(e.target.value)?.["Action 1"],
+                //     e.target.value && JSON.parse(e.target.value)?.["Action 2"],
+                //     e.target.value && JSON.parse(e.target.value)["Action 3"]
+                //   );
+                //   return current;
+                // });
               }
             }}
           >
@@ -1346,7 +1405,7 @@ const Step4 = (props) => {
         return current;
       });
     }
-    setItemsLevel5((old) => {
+    setItemsLevel6((old) => {
       let current = [...old];
       current[parentIndex] = getLevelSix(
         category,
