@@ -725,8 +725,9 @@ const Step4 = (props) => {
     localStorage.setItem("step3State", JSON.stringify(newStep3State));
     if (state.find((i) => i.title === item).count === 0) {
       setStepResults((prev) => {
-        delete prev[`${category}-${item}`];
-        return prev;
+        const newObj = { ...prev };
+        delete newObj[`${category}-${item}`];
+        return { ...newObj };
       });
       setState(state.filter((i) => i.title !== item));
       setItemsLevel1([]);
@@ -735,11 +736,13 @@ const Step4 = (props) => {
       setItemsLevel4([]);
       setItemsLevel5([]);
       return;
+    } else {
+      setStepResults((prev) => {
+        const newObj = { ...prev };
+        newObj[`${category}-${item}`].splice(index, 1);
+        return { ...newObj };
+      });
     }
-    setStepResults((prev) => {
-      prev[`${category}-${item}`].splice(index, 1);
-      return { ...prev };
-    });
     const newItemsLevel1 = [...itemsLevel1];
     newItemsLevel1.splice(index, 1);
     setItemsLevel1(newItemsLevel1);
