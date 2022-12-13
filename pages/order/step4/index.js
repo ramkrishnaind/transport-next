@@ -590,14 +590,14 @@ const Step4 = (props) => {
     } else {
       setMyLevel1Refs([]);
     }
-    debugger;
-    setTimeout(() => {
-      const arr = [];
-      state.forEach((element, index) => {
-        arr.push(getCompletedCount(element.category, element.title));
-      });
-      setCompletedCount(arr);
-    }, 1000);
+    // debugger;
+    // setTimeout(() => {
+    //   const arr = [];
+    //   state.forEach((element, index) => {
+    //     arr.push(getCompletedCount(element.category, element.title));
+    //   });
+    //   setCompletedCount(arr);
+    // }, 1000);
   }, [itemsLevel2]);
   useEffect(() => {
     setStep4State(stepResults);
@@ -848,6 +848,21 @@ const Step4 = (props) => {
       prev[prev.length] = null;
       return prev;
     });
+    setTimeout(() => {
+      setStepResults((prev) => {
+        const newObj = { ...prev };
+        newObj[`${category}-${item}`][newObj[`${category}-${item}`].length] = {
+          category: category,
+          Item: item,
+          level1: null,
+          level2: null,
+          level3: null,
+          level4: null,
+        };
+        return { ...newObj };
+      });
+    }, 500);
+
     // debugger;
     const arr = [];
     state.forEach((element, index) => {
