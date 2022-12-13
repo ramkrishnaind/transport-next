@@ -464,6 +464,14 @@ const Step4 = (props) => {
           return { ...newVal };
         });
       }
+    // setTimeout(() => {
+    //   const arr = [];
+    //   state.forEach((element, i) => {
+    //     // debugger;
+    //     arr.push(getCompletedCount(element?.category, element?.title));
+    //   });
+    //   setCompletedCount(arr);
+    // }, 100);
   }, [categoryResults]);
   const resetState = (i) => {
     i.checked = false;
@@ -475,7 +483,7 @@ const Step4 = (props) => {
   };
   useEffect(() => {
     console.log("itemLevels1----", myLevel1Refs);
-    debugger;
+    // debugger;
     itemsLevel2.map((n, index) => {
       if (
         myLevel1Refs &&
@@ -519,7 +527,7 @@ const Step4 = (props) => {
     }, 10);
   }, [myLevel2Refs]);
   useEffect(() => {
-    debugger;
+    // debugger;
     setMyLevel1Refs(null);
     setMyLevel2Refs(null);
     setMyLevel3Refs(null);
@@ -527,12 +535,12 @@ const Step4 = (props) => {
     setMyLevel5Refs(null);
   }, [currentCategory]);
   useEffect(() => {
-    debugger;
+    // debugger;
     console.log("itemLevels3----", myLevel3Refs);
     itemsLevel4.map((n, index) => {
       if (
         myLevel3Refs &&
-        myLevel3Refs[index].current &&
+        myLevel3Refs[index]?.current &&
         stepResults[
           `${itemsLevel4?.[index]?.[index]?.Category}-${itemsLevel4?.[index]?.[index]?.Item}`
         ]?.[index]
@@ -545,7 +553,7 @@ const Step4 = (props) => {
     });
   }, [myLevel3Refs]);
   useEffect(() => {
-    debugger;
+    // debugger;
     console.log("itemLevels4----", myLevel4Refs);
     itemsLevel5.map((n, index) => {
       if (
@@ -582,6 +590,14 @@ const Step4 = (props) => {
     } else {
       setMyLevel1Refs([]);
     }
+    debugger;
+    setTimeout(() => {
+      const arr = [];
+      state.forEach((element, index) => {
+        arr.push(getCompletedCount(element.category, element.title));
+      });
+      setCompletedCount(arr);
+    }, 1000);
   }, [itemsLevel2]);
   useEffect(() => {
     setStep4State(stepResults);
@@ -591,10 +607,10 @@ const Step4 = (props) => {
       let cftTot = 0;
       for (const i = 0; i < Object.keys(stepResults).length; i++) {
         const catResults = stepResults[Object.keys(stepResults)[i]];
-        debugger;
+        // debugger;
         if (catResults?.length) {
           cftTot += catResults.reduce((sum, val) => {
-            debugger;
+            // debugger;
             return sum + (val?.cft || 0);
           }, 0);
         }
@@ -610,7 +626,7 @@ const Step4 = (props) => {
       if (!step4StateLS || step4StateLS === "undefined") {
         return;
       } else {
-        debugger;
+        // debugger;
         setStepResults(JSON.parse(step4StateLS));
         setStep4State(JSON.parse(step4StateLS));
       }
@@ -623,7 +639,7 @@ const Step4 = (props) => {
       if (!step3StateLS || step3StateLS === "undefined") {
         return;
       } else {
-        debugger;
+        // debugger;
         setStep3State(JSON.parse(step3StateLS));
       }
     }
@@ -650,10 +666,10 @@ const Step4 = (props) => {
     }
   }, [itemsLevel5]);
   const getCompletedCount = (cat, item) => {
-    debugger;
+    // debugger;
     if (!stepResults || !stepResults[`${cat}-${item}`]) return 0;
     const itemsCompleted = stepResults[`${cat}-${item}`].filter(
-      (i) => i.Item && i.Item == item && i.isLast
+      (i) => i.Item && i.category == cat && i.Item == item && i.isLast
     );
     //
     return itemsCompleted.reduce((prevValue, currValue) => {
@@ -683,7 +699,21 @@ const Step4 = (props) => {
         level3: null,
         level4: null,
       };
-      return newVal;
+      return [...newVal];
+    });
+    setStepResults((prev) => {
+      const newObj = { ...prev };
+      newObj[
+        `${categoryResults[index].category}-${categoryResults[index].Item}`
+      ][index] = {
+        category: categoryResults[index].category,
+        Item: categoryResults[index].Item,
+        level1: null,
+        level2: null,
+        level3: null,
+        level4: null,
+      };
+      return { ...newObj };
     });
     const levelOneItems = getLevelOne(
       categoryResults[index].category,
@@ -704,23 +734,25 @@ const Step4 = (props) => {
         categoryResults[index].Item,
         null
       );
-      return current;
+      return [...current];
     });
     setItemsLevel3((old) => {
       let current = [...old];
       current[index] = [];
-      return current;
+      return [...current];
     });
     setItemsLevel4((old) => {
       let current = [...old];
       current[index] = [];
-      return current;
+      return [...current];
     });
     setItemsLevel5((old) => {
       let current = [...old];
       current[index] = [];
-      return current;
+      return [...current];
     });
+    // setState(state.filter((i) => i.title !== categoryResults[index].Item));
+
     // }, 10);
   };
   const deleteHandler = (category, item, index) => {
@@ -766,7 +798,7 @@ const Step4 = (props) => {
     const newItemsLevel5 = [...itemsLevel5];
     newItemsLevel5.splice(index, 1);
     setItemsLevel5(newItemsLevel5);
-    debugger;
+    // debugger;
     const arr = [];
     state.forEach((element, index) => {
       arr.push(getCompletedCount(element.category, element.title));
@@ -774,7 +806,7 @@ const Step4 = (props) => {
     setCompletedCount(arr);
   };
   const addHandler = (category, item, index) => {
-    debugger;
+    // debugger;
     if (!step3State) return;
 
     const newStep3State = { ...step3State };
@@ -816,7 +848,7 @@ const Step4 = (props) => {
       prev[prev.length] = null;
       return prev;
     });
-    debugger;
+    // debugger;
     const arr = [];
     state.forEach((element, index) => {
       arr.push(getCompletedCount(element.category, element.title));
@@ -863,7 +895,7 @@ const Step4 = (props) => {
   }, [ctx.step4Items]);
 
   const handleCarouselClick = (event, element) => {
-    debugger;
+    // debugger;
     setCurrentCategory((prev) => {
       return { category: element?.category, count: element?.count };
     });
@@ -893,7 +925,7 @@ const Step4 = (props) => {
           level4: null,
         });
       }
-      debugger;
+      // debugger;
       setItemsLevel2(() => {
         let current = [];
         for (const i = 0; i < element.count; i++) {
@@ -1290,7 +1322,7 @@ const Step4 = (props) => {
                 );
               else {
                 setCategoryResults((prev) => {
-                  debugger;
+                  // debugger;
                   let curr = [...prev];
                   if (curr[headerIndex]) {
                     curr[headerIndex].level3 = JSON.parse(e.target.value);
@@ -1346,7 +1378,7 @@ const Step4 = (props) => {
     level2,
     level3
   ) => {
-    debugger;
+    // debugger;
     event.stopPropagation();
     setCategoryResults((prev) => {
       let curr = [...prev];
@@ -1554,15 +1586,15 @@ const Step4 = (props) => {
   };
 
   const handleSubmit = async () => {
-    debugger;
+    // debugger;
 
     let cftTot = 0;
     for (const i = 0; i < Object.keys(stepResults).length; i++) {
       const catResults = stepResults[Object.keys(stepResults)[i]];
-      debugger;
+      // debugger;
       if (catResults?.length) {
         cftTot += catResults.reduce((sum, val) => {
-          debugger;
+          // debugger;
 
           return sum + (val?.cft || 0);
         }, 0);
@@ -1700,7 +1732,7 @@ const Step4 = (props) => {
           style={{ width: "max-content" }}
         >
           {itemsLevel1.map((iterator, index) => {
-            debugger;
+            // debugger;
             console.log("iterator", iterator);
             return (
               <div className="flex flex-row" key={index}>
