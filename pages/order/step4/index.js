@@ -579,6 +579,8 @@ const Step4 = (props) => {
   useEffect(() => {
     if (itemsLevel2.length > 0) {
       setMyLevel1Refs(itemsLevel2.map(() => createRef()));
+    } else {
+      setMyLevel1Refs([]);
     }
   }, [itemsLevel2]);
   useEffect(() => {
@@ -629,16 +631,22 @@ const Step4 = (props) => {
   useEffect(() => {
     if (itemsLevel3?.length > 0) {
       setMyLevel2Refs(itemsLevel3?.map(() => createRef()));
+    } else {
+      setMyLevel2Refs([]);
     }
   }, [itemsLevel3]);
   useEffect(() => {
     if (itemsLevel4?.length > 0) {
       setMyLevel3Refs(itemsLevel4?.map(() => createRef()));
+    } else {
+      setMyLevel3Refs([]);
     }
   }, [itemsLevel4]);
   useEffect(() => {
     if (itemsLevel5?.length > 0) {
       setMyLevel4Refs(itemsLevel5?.map(() => createRef()));
+    } else {
+      setMyLevel4Refs([]);
     }
   }, [itemsLevel5]);
   const getCompletedCount = (cat, item) => {
@@ -774,14 +782,7 @@ const Step4 = (props) => {
     if (itemCurrent) itemCurrent.count += 1;
     setStep3State(newStep3State);
     localStorage.setItem("step3State", JSON.stringify(newStep3State));
-    setItemsLevel1((old) => {
-      let current = [...old, getLevelTwo(category, item, null)];
-      return current;
-    });
-    setItemsLevel2((old) => {
-      let current = [...old, getLevelTwo(category, item, null)];
-      return current;
-    });
+
     // setItemsLevel1(newItemsLevel1);
     setCategoryResults((prev) => {
       const newVal = [...prev];
@@ -794,6 +795,14 @@ const Step4 = (props) => {
         level4: null,
       });
       return newVal;
+    });
+    setItemsLevel1((old) => {
+      let current = [...old, getLevelTwo(category, item, null)];
+      return current;
+    });
+    setItemsLevel2((old) => {
+      let current = [...old, getLevelTwo(category, item, null)];
+      return current;
     });
     setItemsLevel3((prev) => {
       prev[prev.length] = null;
