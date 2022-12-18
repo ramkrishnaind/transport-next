@@ -13,7 +13,7 @@ import {
   notification,
   Alert,
   Modal,
-  Spin 
+  Spin
 } from "antd";
 import HomeForm from "../components/Home";
 import Image from "next/image";
@@ -45,7 +45,7 @@ const HomePage = () => {
     gitTokenLogin,
     getUserRole,
     routerProtectorLogic,
-  } = useAuth(); 
+  } = useAuth();
   const context = useContext(TransportContext);
   const router = useRouter();
   const [enteredName, setEnteredName] = useState("");
@@ -75,12 +75,12 @@ const HomePage = () => {
     if (!event.target.value.match(/[0-9]/)) {
       event.target.value = event.target.value.replace(/[^0-9]/g, '');
     }
-  setEnteredPhoneNumber(event.target.value);
-    if(enteredPhoneNumber){
+    setEnteredPhoneNumber(event.target.value);
+    if (enteredPhoneNumber) {
       if (event.target.value.length > 10 || event.target.value.length < 10) {
         setPhoneNumberError(true);
       }
-    }else{
+    } else {
       setPhoneNumberError(false);
     }
     if (event.target.value.length == 10) {
@@ -120,7 +120,7 @@ const HomePage = () => {
     setEmailBlur(true);
     setPhoneNumberBlur(true);
 
-    if (!enteredName || !enteredEmail || !enteredPhoneNumber){
+    if (!enteredName || !enteredEmail || !enteredPhoneNumber) {
       setLoading(false);
       return
     };
@@ -130,11 +130,11 @@ const HomePage = () => {
       if (saveResponse.data.status) {
         saveCustomer({
           customerID: saveResponse.data.customerData._id,
-          customerName : saveResponse.data.customerData.fullName,
-          email : saveResponse.data.customerData.email,
-          mobile : saveResponse.data.customerData.mobile
+          customerName: saveResponse.data.customerData.fullName,
+          email: saveResponse.data.customerData.email,
+          mobile: saveResponse.data.customerData.mobile
         });
-        localStorage.clear();
+        //localStorage.clear();
         //router.push("/otp")
         // setEnteredName("");
         // setEnteredEmail("");
@@ -278,7 +278,7 @@ const HomePage = () => {
                   />
                 </button>
               </div></>)}
-              
+
               {/* <Button className="w-96" onClick={handleSubmit} size="large"
       loading={loading}>
           Calculate Your Moving Cost
