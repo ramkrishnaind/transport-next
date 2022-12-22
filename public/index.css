@@ -32,3 +32,129 @@ font-weight: 600;
     
   }
 }
+
+@media (min-width: 1023px) {
+  .indexForm_calcuation{
+    width: 23rem;
+    position: absolute;
+    top: 76px;
+    right: 67px;
+    height: 33rem;
+  }
+  .bannerText2{
+    width: 293px;
+    margin-left: 13rem;
+    margin-top: 7rem;
+    /* margin-bottom: 5rem; */
+  }
+  .packagesImages{
+    width: 24.5rem;
+    margin-top: -6rem;
+    margin-left: 32rem;
+  }
+  .index_card_of_details_parient {
+    display: flex;
+    /* grid-template-columns: auto auto; */
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10rem;
+    align-items: center;
+  }
+}
+
+.fedraFont{
+  font-family: 'fedra_sans_stdbook';
+}
+@media (min-width: 1023px) {
+  .Index_background3-2{
+    background-image: url("/images/index_image/arrow_background3.svg"),
+    url("/images/index_image/Group_99.png"), url("/images/index_image/background_banner.png") ;
+    background-position: -4rem 29rem, 5rem 63px, center;
+      background-size: 301px, 113px, 100vw;
+    /* background-position:  center; */
+    background-repeat: no-repeat;
+    height: 40.1rem;
+    background-color: #010101;
+    color: white;
+  }
+  .Index-MovingMadeModern_text_2 {
+    color: #ffffff;
+    font-size: 14.5px;
+  }
+  .Index-MovingMadeModern_text {
+    color: #ffffff;
+    font-size: 2.1rem;
+    font-weight: 700;
+  }
+  .Index_background4 {
+    background: #f7c600;
+    border-radius: 20px;
+    background-image: url("/images/index_image/frame_squareDOT.svg"),
+      url("/images/index_image/Index_background4_2.svg"),
+      url("/images/index_image/Index_background4_1.svg");
+    background-repeat: no-repeat;
+    background-position: 79vw 11rem, 56.2rem 45vh, 26vw top;
+    background-size: 132px, 276px, 677px;
+    height: 32.3rem;
+  }
+  .Index-WhatDoYou-text {
+    font-size: 1.8rem;
+    font-weight: bolder;
+  }
+  .Index-WhatDoYou-text-2 {
+    /* font-size: 1rem; */
+    font-size: 1.36rem;
+  }
+  .index_card_of_details {
+    background: #f5fafd;
+    border-radius: 20px;
+    width: 160px;
+    height: 193px;
+    padding: 20px 25px;
+  }
+  .index_card_of_details-text-2 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  .index_card_of_details-text {
+    font-size: 1rem;
+  }
+  .cityNameCards_index{
+    border: 2px solid #000C24;
+    border-radius: 10px;
+    height: 184px;
+width: 9rem;
+  }
+  .Index_city_card-text-3 {
+    font-weight: 500;
+  }
+  .cityIcon_index{
+    width: 77px;
+  }
+  .index_card_experience_respo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+  }
+  .index_FAQsPannels{
+    width: 59vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .IndexBlogs{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .Index_BlogCards{
+    width: 25rem;
+  }
+}
+.Index_background3-2{
+  background-color: #020103;
+}
