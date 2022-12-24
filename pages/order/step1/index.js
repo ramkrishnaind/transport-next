@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import { StandaloneSearchBox, LoadScript } from "@react-google-maps/api";
 //import Select from "react-select";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
@@ -44,6 +44,10 @@ const Step1 = () => {
   const [customerData, setCustomerData] = useState({});
   const [loading, setLoading] = useState(false);
   console.log("customer in step 1  is ", customer);
+  const fromInputRef = useRef();
+  const toInputRef = useRef();
+  let googleApiKey = "AIzaSyDzeV4dKXO35SIORicrxc-YtCg6s19q5P8";
+  console.log("googleKey - ", googleApiKey);
 
   useEffect(() => {
     console.log("customerDetails in step 1 is", customerDetails);
@@ -64,16 +68,14 @@ const Step1 = () => {
     if (result.data.status) {
       console.log("CollectBasicInfo result is", result.data);
       setBooking({ bookingId: result.data.bookingId });
-      
+
       const formData = {
         shiftingFor: houseType,
         shiftingFrom: fromState,
         shiftingTo: toState,
         shiftingOn: startDate,
       };
-      saveBooking({ bookingId: result.data.bookingId,
-        step1:formData
-      });
+      saveBooking({ bookingId: result.data.bookingId, step1: formData });
 
       console.log("bookingId is ", result.data.bookingId);
       console.log("houseType is ", houseType);
@@ -83,7 +85,7 @@ const Step1 = () => {
 
       context.setStep1State(formData);
       console.log(formData);
-
+      localStorage.setItem("step1State", JSON.stringify(formData));
       router.push("/order/step2");
       setLoading(false);
     }
@@ -106,67 +108,86 @@ const Step1 = () => {
     setHouseType(event.target.value);
     console.log("house type", event.target.value);
   };
-  const fromStateInputChangeHandler = (event) => {
-    setFromState(event.target.value);
+
+  // const fromStateInputChangeHandler = (event) => {
+  //     setFromState(event.target.value);
+  // };
+
+  const fromStateInputChangeHandler = () => {
+    const [place] = fromInputRef.current.getPlaces();
+    if (place) {
+      console.log(place.formatted_address);
+      setFromState(place.formatted_address);
+    }
   };
-  const toStateInputChangeHandler = (event) => {
-    setToState(event.target.value);
+  // const toStateInputChangeHandler = (event) => {
+  //   setToState(event.target.value);
+  // };
+
+  const toStateInputChangeHandler = () => {
+    const [place] = toInputRef.current.getPlaces();
+    if (place) {
+      console.log(place.formatted_address);
+      setToState(place.formatted_address);
+    }
   };
+
   return (
     <>
-      <div className="orderBackground h-full">
-        {/* <div className="p-5">.
+      <LoadScript googleMapsApiKey={googleApiKey} libraries={["places"]}>
+        <div className="orderBackground h-full">
+          {/* <div className="p-5">.
         <Space direction="vertical" size={12}>
           <DatePicker bordered={false} />
         </Space>
       </div> */}
 
-        <div>
-          {/* completeBAR */}
           <div>
-            <div className="hidden md:block lg:block xl:block">
-              <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-5 lg:mt-5 xl:mt-5  bg-white rounded-lg  h-14">
-                <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+            {/* completeBAR */}
+            <div>
+              <div className="hidden md:block lg:block xl:block">
+                <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-5 lg:mt-5 xl:mt-5  bg-white rounded-lg  h-14">
+                  <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+                    Set up 0% complete
+                  </div>
+                  <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
+                    5 Step left • About 8 min
+                  </div>
+                </div>
+              </div>
+
+              <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
+                <div className="completepersentage  font-semibold text-3xl completing_bar_text">
                   Set up 0% complete
                 </div>
-                <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-                  5 Step left • About 8 min
+                <div className="not-italic ">
+                  <span className=" font-semibold">5 Step left •</span>
+                  <span> About 8 min</span>
                 </div>
-              </div>
-            </div>
-
-            <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
-              <div className="completepersentage  font-semibold text-3xl completing_bar_text">
-                Set up 0% complete
-              </div>
-              <div className="not-italic ">
-                <span className=" font-semibold">5 Step left •</span>
-                <span> About 8 min</span>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="bg-white r1_Detail ">
-          <div className=" bg-white rounded-2xl mt-9 md:mt-4 sm:mt-4 lg:mt-4 xl:mt-4 mx-4 lg:p-9 ">
-            <div className=" pt-10 pb-5 md:pt-0 sm:pt-0 lg:pt-0 xl:pt-0">
-              <img
-                className="pl-8"
-                src="/images/movingthings.png"
-                itemProp="image"
-                alt="Image"
-              />
-            </div>
-            <div className="grid gap-7  h-full">
-              <form className="px-5">
-                <div className="flex flex-col  ">
-                  <div className="grid1_step1">
-                    <div className=" text-gray-600 detailquestions  shifting_text">
-                      I am shifting my
-                    </div>
+          <div className="bg-white r1_Detail ">
+            <div className=" bg-white rounded-2xl mt-9 md:mt-4 sm:mt-4 lg:mt-4 xl:mt-4 mx-4 lg:p-9 ">
+              <div className=" pt-10 pb-5 md:pt-0 sm:pt-0 lg:pt-0 xl:pt-0">
+                <img
+                  className="pl-8"
+                  src="/images/movingthings.png"
+                  itemProp="image"
+                  alt="Image"
+                />
+              </div>
+              <div className="grid gap-7  h-full">
+                <form className="px-5">
+                  <div className="flex flex-col  ">
+                    <div className="grid1_step1">
+                      <div className=" text-gray-600 detailquestions  shifting_text">
+                        I am shifting my
+                      </div>
 
-                    <div className=" text-left   md:mt-0 lg:mt-0 xl:mt-0 ">
-                      {/* <select
+                      <div className=" text-left   md:mt-0 lg:mt-0 xl:mt-0 ">
+                        {/* <select
                   className="houseTypeOptions-select py-2 font-semibold"
                   defaultValue={houseType}
                   onChange={setHouseType}
@@ -174,116 +195,123 @@ const Step1 = () => {
                   onBlur={() => setHouseTypeBlur(true)}
                 /> */}
 
-                      <select
-                        className="houseTypeOptions-select py-2 font-semibold"
-                        required
-                        onChange={houseHandler}
-                      >
-                        <option
-                          value=""
-                          disabled
-                          selected
-                          hidden
-                          className="step1_select_hidden_option"
+                        <select
+                          className="houseTypeOptions-select py-2 font-semibold"
+                          required
+                          onChange={houseHandler}
                         >
-                          1 BHK
-                        </option>
-                        <option value="1 BHK">1 BHK</option>
-                        <option value="2 BHK">2 BHK</option>
-                        <option value="3 BHK">3 BHK</option>
-                        <option value="4 BHK">4 BHK</option>
-                        <option value="duplex">Duplex</option>
-                        <option value="villa">Villa</option>
-                        <option value="vehicle">Vehicle</option>
-                        <option value="few items">Few items</option>
-                      </select>
+                          <option
+                            value=""
+                            disabled
+                            selected
+                            hidden
+                            className="step1_select_hidden_option"
+                          >
+                            1 BHK
+                          </option>
+                          <option value="1 BHK">1 BHK</option>
+                          <option value="2 BHK">2 BHK</option>
+                          <option value="3 BHK">3 BHK</option>
+                          <option value="4 BHK">4 BHK</option>
+                          <option value="duplex">Duplex</option>
+                          <option value="villa">Villa</option>
+                          <option value="vehicle">Vehicle</option>
+                          <option value="few items">Few items</option>
+                        </select>
+                      </div>
+
+                      <div className=" mt-5 md:mt-0 lg:mt-0 xl:mt-0 text-gray-600 detailquestions ">
+                        from
+                      </div>
+                      <div className=" text-left  text-gray-600 ">
+                        <StandaloneSearchBox
+                          onLoad={(ref) => (fromInputRef.current = ref)}
+                          onPlacesChanged={fromStateInputChangeHandler}
+                        >
+                          <input
+                            placeholder="Apartment Name/Locality"
+                            className="Locality-inputText py-2 font-semibold"
+                            type="text"
+                            autoFocus
+                            required
+                            defaultValue={fromState}
+                            onBlur={() => setFromBlur(true)}
+                          />
+                        </StandaloneSearchBox>
+
+                        {/* <input type="text" className="Locality-inputText py-2 font-semibold" placeholder="Apartment Name/Locality" /> */}
+                      </div>
                     </div>
 
-                    <div className=" mt-5 md:mt-0 lg:mt-0 xl:mt-0 text-gray-600 detailquestions ">
-                      from
-                    </div>
-                    <div className=" text-left  text-gray-600 ">
-                      <input
-                        placeholder="Apartment Name/Locality"
-                        className="Locality-inputText py-2 font-semibold"
-                        type="text"
-                        autoFocus
-                        required
-                        onChange={fromStateInputChangeHandler}
-                        defaultValue={fromState}
-                        onBlur={() => setFromBlur(true)}
-                      />
+                    <div className="grid2_step1">
+                      <div className=" mt-5 md:mt-0 lg:mt-0 xl:mt-0 text-gray-600 detailquestions ">
+                        to
+                      </div>
 
-                      {/* <input type="text" className="Locality-inputText py-2 font-semibold" placeholder="Apartment Name/Locality" /> */}
-                    </div>
-                  </div>
+                      <div className=" text-left  text-gray-600 ">
+                        <StandaloneSearchBox
+                          onLoad={(ref) => (toInputRef.current = ref)}
+                          onPlacesChanged={toStateInputChangeHandler}
+                        >
+                          <input
+                            placeholder="Apartment Name/Locality"
+                            className="Locality-inputText py-2 font-semibold"
+                            type="text"
+                            autoFocus
+                            required
+                            defaultValue={toState}
+                            onBlur={() => setToBlur(true)}
+                          />
+                        </StandaloneSearchBox>
+                        {/* <input type="text" className="Locality-inputText py-2 font-semibold" placeholder="Apartment Name/Locality" /> */}
 
-                  <div className="grid2_step1">
-                    <div className=" mt-5 md:mt-0 lg:mt-0 xl:mt-0 text-gray-600 detailquestions ">
-                      to
-                    </div>
-
-                    <div className=" text-left  text-gray-600 ">
-                      <input
-                        placeholder="Apartment Name/Locality"
-                        className="Locality-inputText py-2 font-semibold"
-                        type="text"
-                        autoFocus
-                        required
-                        onChange={toStateInputChangeHandler}
-                        defaultValue={toState}
-                        onBlur={() => setFromBlur(true)}
-                      />
-
-                      {/* <input type="text" className="Locality-inputText py-2 font-semibold" placeholder="Apartment Name/Locality" /> */}
-
-                      {/* <Select
+                        {/* <Select
                       className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect"
                       bordered={false}
                       defaultValue={fromFloorType}
                       onChange={setFromFloorType}
                       options={floorOptions}
                     /> */}
-                    </div>
-                    <div className=" text-gray-600 mt-5 md:mt-0 lg:mt-0 xl:mt-0 detailquestions  ">
-                      on
-                    </div>
-                    <div className=" text-left  text-gray-600 ">
-                      <DatePicker
-                        selected={startDate}
-                        // bordered={false}
-                        //className="bg-white  border-b-2  border-gray-400 focuspt text-gray-600 placeholder-gray-400 outline-none detailfill text-left w-330" s
-                        className="Datepicker_Step1   py-2 font-semibold"
-                        placeholder="DD/MM/YYYY"
-                        dateFormat="dd/MM/yyyy"
-                        minDate={new Date()}
-                        onChange={(date) => setStartDate(date)}
-                      />
-                      {/* <input type="text" className="Datepicker_Step1   py-2 font-semibold" placeholder="DD/MM/YYYY" 
+                      </div>
+                      <div className=" text-gray-600 mt-5 md:mt-0 lg:mt-0 xl:mt-0 detailquestions  ">
+                        on
+                      </div>
+                      <div className=" text-left  text-gray-600 ">
+                        <DatePicker
+                          selected={startDate}
+                          // bordered={false}
+                          //className="bg-white  border-b-2  border-gray-400 focuspt text-gray-600 placeholder-gray-400 outline-none detailfill text-left w-330" s
+                          className="Datepicker_Step1   py-2 font-semibold"
+                          placeholder="DD/MM/YYYY"
+                          dateFormat="dd/MM/yyyy"
+                          minDate={new Date()}
+                          onChange={(date) => setStartDate(date)}
+                        />
+                        {/* <input type="text" className="Datepicker_Step1   py-2 font-semibold" placeholder="DD/MM/YYYY" 
                      onChange={(date) => setStartDate(date)}
                       onFocus={(e) => (e.target.type = "date")}
                       onBlur={(e) => (e.target.type = "text")}
                     /> */}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className=" mt-5 mb-5">
-                  <Button
-                    className=" px-10 py-4 button_1 buttonMobile rounded-m "
-                    type="submit"
-                    onClick={handleSubmit}
-                    loading={loading}
-                    disabled={disabled}
-                  >
-                    Next
-                  </Button>
-                </div>
-              </form>
+                  <div className=" mt-5 mb-5">
+                    <Button
+                      className="py-4 button_1 buttonMobile rounded-m "
+                      type="submit"
+                      onClick={handleSubmit}
+                      loading={loading}
+                      disabled={disabled}
+                    >
+                      Next
+                    </Button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* 
+          {/* 
       <div className="ResponsiveMobile hidden">
 
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage">
@@ -382,7 +410,7 @@ const Step1 = () => {
 
       </div> */}
 
-        {/* 
+          {/* 
 
 
       <div className="b1 hidden ResponsiveTab ResponsiveLatop">
@@ -498,8 +526,8 @@ const Step1 = () => {
         </div>
       </div> */}
 
-        {/* completeBAR */}
-        {/* <div>
+          {/* completeBAR */}
+          {/* <div>
         <div className="hidden md:block lg:block xl:block">
           <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
             <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
@@ -524,9 +552,9 @@ const Step1 = () => {
         </div>
       </div> */}
 
-        {/* FORM */}
+          {/* FORM */}
 
-        {/* 
+          {/* 
       <div className="bg-white r1_Detail ">
         <div className=" bg-white rounded-2xl mt-9 md:mt-4 sm:mt-4 lg:mt-4 xl:mt-4 mx-4 lg:p-9 ">
           <div className=" pt-10 pb-5 md:pt-0 sm:pt-0 lg:pt-0 xl:pt-0">
@@ -580,14 +608,14 @@ const Step1 = () => {
                       onChange={setToFloorType}
                       options={floorOptions}
                     /> */}
-        {/* <Select
+          {/* <Select
                       className="border-0 focuspt text-green-600 placeholder-green-600 outline-none  border-b-2 widthSlect"
                       bordered={false}
                       defaultValue={fromFloorType}
                       onChange={setFromFloorType}
                       options={floorOptions}
                     /> */}
-        {/* </div>
+          {/* </div>
                   <div className=" text-gray-600 mt-5 md:mt-0 lg:mt-0 xl:mt-0 detailquestions ">
                     floor with service lift
                   </div>
@@ -620,7 +648,8 @@ const Step1 = () => {
           </div>
         </div>
       </div> */}
-      </div>
+        </div>
+      </LoadScript>
     </>
   );
 };

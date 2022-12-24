@@ -17,33 +17,37 @@ const CurrentOrder = () => {
   const { step2State } = context;
   const { step3State } = context;
   const { step5State } = context;
-  const [currentBooking, setCurrentBooking] = useState({});
+  const [currentBookingDetail, setCurrentBookingDetail] = useState({});
   let objToAppend = [];
   const [moverPlanner] = useState("Charmee Kothari");
   const [moverPlannerNo] = useState("08047094008");
   const [moveManager] = useState("Not Assigned");
 
   useEffect(() => {
+    console.log("customer from auth is ", customer)
     const getData = async () => {
       let results;
+      console.log("bookingInfo?.bookingId is ", bookingInfo?.bookingId)
       try {
         results = await getBookingItem(bookingInfo?.bookingId);
         if (results?.data?.data) {
           setIsLoading(false)
           console.log("api response is ", results)
           let currentBooking = results?.data?.data;
+          console.log("current booking is ", currentBooking)
           currentBooking.step3 = currentBooking?.step3
-            ? transformStep3Object(item?.step3)
-            : null;
+          // ? transformStep3Object(item?.step3)
+          // : null;
           currentBooking.step3 = currentBooking?.step5
-            ? transformStep5Object(item?.step5)
-            : null;
+          // ? transformStep5Object(item?.step5)
+          // : null;
           currentBooking.step3State = currentBooking?.step3 || {},
             currentBooking.step4Items = currentBooking?.step4 || [],
             currentBooking.step5State = currentBooking?.step5 || {},
             currentBooking.bookingId = currentBooking.bookingId,
 
-            setCurrentBooking({ currentBooking, ...getStep1AndStep2(currentBooking) })
+            // setCurrentBookingDetail({ currentBooking, ...getStep1AndStep2(currentBooking) })
+            setCurrentBookingDetail(currentBooking)
         }
         if (results?.data?.customerData) {
           const arr = [];
@@ -69,7 +73,7 @@ const CurrentOrder = () => {
           });
           setAllRecords(arr);
         }
-      } catch (error) { }
+      } catch (error) { console.log('Error is', error) }
     };
     getData();
   }, [bookingInfo, customer]);
@@ -228,9 +232,10 @@ const CurrentOrder = () => {
     let result;
     let groupedItems;
     if (details) {
+      console.log("bookingSelectedItems details", details);
       let itemList = [];
-      Object.keys(details.step4Object).forEach(function (key, index) {
-        itemList.push(...details.step4Object[key]);
+      Object.keys(details.step4).forEach(function (key, index) {
+        itemList.push(...details.step4[key]);
       });
       groupedItems = _.groupBy(itemList, item => item.category);
     }
@@ -259,21 +264,23 @@ const CurrentOrder = () => {
     )
   }
   const itemInfoFun = (itemList) => {
-    let groupedDetailsItems = _.groupBy(itemList, item => item.item);
+    console.log("itemList is: ", itemList)
+    let groupedDetailsItems = _.groupBy(itemList, item => item.Item);
+    console.log("groupedDetailsItems is: ", groupedDetailsItems)
     return (
       <>
         {Object.keys(groupedDetailsItems).map((keyName, index) => (
           <>
             <div className="p-3">
               <div className=" font-semibold">{keyName}</div>
-
+              {console.log("groupedDetailsItems[keyName] is", groupedDetailsItems[keyName])}
               {groupedDetailsItems[keyName]?.map((item, index) => {
                 return (
                   <>
-                    <div className="pl-5">• {item.Action1 ? item.Action1 + " " : ""}
-                      {item.Action2 ? item.Action2 + " " : ""}
-                      {item.Action3 ? item.Action3 + " " : ""}
-                      {item.Action4 ? item.Action4 + " " : ""}
+                    <div className="pl-5">• 1 X {item?.level1?.["Action 1"] ? item?.level1?.["Action 1"] + " " : ""}
+                      {item?.level1?.["Action 2"] ? item?.level1?.["Action 2"] + " " : ""}
+                      {item?.level1?.["Action 3"] ? item?.level1?.["Action 3"] + " " : ""}
+                      {item?.level1?.["Action 4"] ? item?.level1?.["Action 4"] + " " : ""}
                     </div>
                   </>
                 );
@@ -286,6 +293,7 @@ const CurrentOrder = () => {
   }
   return (
     <>
+      {console.log("currentBookingDetail is " + currentBookingDetail, " customer is " + customer)}
       {isLoading ? (<>
         <div className="lodingScreen"><Spin size="large" /></div>
       </>) : (<>
@@ -349,18 +357,18 @@ const CurrentOrder = () => {
                     <div className="step7_grid2 justify-start">
 
                       <div className="step7_grid2item1 px-2" >
-                        {moment(currentBooking.shiftingOn).format('DD')}
+                        {moment(currentBookingDetail.shiftingOn).format('DD')}
                       </div>
                       <div className="flex flex-col my-auto px-2 pr-2">
-                        <div className=" font-bold">{moment(currentBooking.shiftingOn).format('dddd')}</div>
-                        <div>{moment(currentBooking.shiftingOn).format('MMMM')}, {moment(currentBooking.shiftingOn).format('YYYY')}</div>
+                        <div className=" font-bold">{moment(currentBookingDetail.shiftingOn).format('dddd')}</div>
+                        <div>{moment(currentBookingDetail.shiftingOn).format('MMMM')}, {moment(currentBookingDetail.shiftingOn).format('YYYY')}</div>
                       </div>
 
                     </div>
 
                     <div className="flex flex-col gap-3 text-md">
                       <div className=" font-semibold">Order Id</div>
-                      <div className="OrderID_text_step7 font-semibold">{currentBooking.booking_id}</div>
+                      <div className="OrderID_text_step7 font-semibold">{currentBookingDetail.booking_id}</div>
                     </div>
 
                   </div>
@@ -371,21 +379,21 @@ const CurrentOrder = () => {
                     <div className="flex flex-row justify-between p-3">
                       <div className="step7Summarybox_item1">
                         <div>From</div>
-                        <div className="font-semibold">{currentBooking.shiftingFrom}</div>
+                        <div className="font-semibold">{currentBookingDetail.shiftingFrom}</div>
                       </div>
                       <div>
                         <div>To</div>
-                        <div className="font-semibold">{currentBooking.shiftingTo}</div>
+                        <div className="font-semibold">{currentBookingDetail.shiftingTo}</div>
                       </div>
                     </div>
                     <div className="flex flex-row justify-between p-3">
                       <div>
                         <div>Mover Planner:</div>
-                        <div className="font-semibold">{currentBooking.moverPlanner ? currentBooking.moverPlanner : "Not Assigned"}</div>
+                        <div className="font-semibold">{currentBookingDetail.moverPlanner ? currentBookingDetail.moverPlanner : "Not Assigned"}</div>
                       </div>
                       <div className="step7Summarybox_item2">
                         <div>Mover Manager:</div>
-                        <div className="font-semibold">{currentBooking.moverManager ? currentBooking.moverManager : "Not Assigned"}</div>
+                        <div className="font-semibold">{currentBookingDetail.moverManager ? currentBookingDetail.moverManager : "Not Assigned"}</div>
                       </div>
                     </div>
                     <hr className="mx-auto step7SummarylBox2_hr" />
@@ -402,7 +410,7 @@ const CurrentOrder = () => {
                         <button
                           className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
                           type="submit"
-                          onClick={(e) => handleEditInventory(e, currentBooking)}
+                          onClick={(e) => handleEditInventory(e, currentBookingDetail)}
                         >
                           <img
                             className="inline px-4"
@@ -424,11 +432,11 @@ const CurrentOrder = () => {
                 <div className="flex flex-row justify-between p-3">
                   <div>
                     <div className="font-bold">Order Id</div>
-                    <div className="OrderID_text_step7 font-bold">{currentBooking.booking_id}</div>
+                    <div className="OrderID_text_step7 font-bold">{currentBookingDetail.booking_id}</div>
                   </div>
                   <div>
                     <div>Date & Time slot</div>
-                    <div className=" font-semibold">{moment(currentBooking.shiftingOn).format("Do MMMM YYYY")}</div>
+                    <div className=" font-semibold">{moment(currentBookingDetail.shiftingOn).format("Do MMMM YYYY")}</div>
                   </div>
                 </div>
                 <hr className="mx-auto step7SummarylBox2_hr" />
@@ -439,13 +447,13 @@ const CurrentOrder = () => {
                   <Timeline>
                     <Timeline.Item>
                       <div className="py-1">From</div>
-                      <div className="py-1 font-semibold">{currentBooking.shiftingFrom}</div>
-                      <div className="py-1 font-semibold">{currentBooking.currentFloor} Floor</div> <div className="py-1 greencolor">{currentBooking.isLiftAvailableOnCurrentFloor ? "Lift Avilabe" : "Lift Not Avilabe"} </div>
+                      <div className="py-1 font-semibold">{currentBookingDetail.shiftingFrom}</div>
+                      <div className="py-1 font-semibold">{currentBookingDetail.currentFloor} Floor</div> <div className="py-1 greencolor">{currentBookingDetail.isLiftAvailableOnCurrentFloor ? "Lift Avilabe" : "Lift Not Avilabe"} </div>
                     </Timeline.Item>
                     <Timeline.Item>
                       <div className="py-1">To</div>
-                      <div className="py-1 font-semibold">{currentBooking.shiftingTo}</div>
-                      <div className="py-1 font-semibold">{currentBooking.movingOnFloor} Floor</div> <div className="py-1 greencolor">{currentBooking.isLiftAvailableOnMovingFloor ? "Lift Avilabe" : "Lift Not Avilabe"}</div>
+                      <div className="py-1 font-semibold">{currentBookingDetail.shiftingTo}</div>
+                      <div className="py-1 font-semibold">{currentBookingDetail.movingOnFloor} Floor</div> <div className="py-1 greencolor">{currentBookingDetail.isLiftAvailableOnMovingFloor ? "Lift Avilabe" : "Lift Not Avilabe"}</div>
                     </Timeline.Item>
                   </Timeline>
                 </div>
@@ -455,7 +463,7 @@ const CurrentOrder = () => {
                 <div className="flex flex-row justify-between p-4 mt-6">
                   <div>
                     <div>What to move</div>
-                    <div className="font-semibold">{currentBooking.shiftingFor}</div>
+                    <div className="font-semibold">{currentBookingDetail.shiftingFor}</div>
                   </div>
                 </div>
                 <div className="m-2 font-semibold p-2 text-xl ">
