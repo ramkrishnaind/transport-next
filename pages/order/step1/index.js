@@ -46,7 +46,7 @@ const Step1 = () => {
   console.log("customer in step 1  is ", customer);
   const fromInputRef = useRef();
   const toInputRef = useRef();
-  let googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  let googleApiKey = "AIzaSyDzeV4dKXO35SIORicrxc-YtCg6s19q5P8";
   console.log("googleKey - ", googleApiKey);
 
   useEffect(() => {

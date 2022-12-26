@@ -18,7 +18,7 @@ import {
 } from "antd";
 import PageHeader from "../../../components/helper/pageTitle";
 import { Upload } from "antd";
-import ImgCrop from "antd-img-crop";
+//import ImgCrop from "antd-img-crop";
 let finalvalue;
 
 const { Option } = Select;
@@ -112,8 +112,8 @@ const App = () => {
       errorFunction(
         res.data.error.error
           ? res.data.error.error.details[0].message
-              .replace('"', "")
-              .replace('"', "")
+            .replace('"', "")
+            .replace('"', "")
           : res.data.message
       );
     }
@@ -264,7 +264,7 @@ const App = () => {
             </div>
           </div>
           <Card size="small" title="Upload Image">
-            <ImgCrop rotate>
+            {/* <ImgCrop rotate>
               <Upload
                 action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                 listType="picture-card"
@@ -274,7 +274,7 @@ const App = () => {
               >
                 {fileList.length < 5 && "+ Upload"}
               </Upload>
-            </ImgCrop>
+            </ImgCrop> */}
           </Card>
           <div className="mt-8 p-0 ml-16">
             <Form.Item>

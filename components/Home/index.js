@@ -70,12 +70,14 @@ const HomePage = () => {
     if (!enteredName || !enteredEmail || !enteredPhoneNumber) return;
     try {
       let saveResponse = await saveFormData();
-      console.log("saveRes", saveResponse.data);
+      console.log("saveRes is", saveResponse.data, saveResponse.data.status);
       if (saveResponse.data.status) {
-        saveCustomer({customerID : saveResponse.data.customerData._id,
-          customerName : saveResponse.data.customerData.fullName,
-          email : saveResponse.data.customerData.email,
-          mobile : saveResponse.data.customerData.mobile
+        console.log('i am here ', saveResponse.data.customerData)
+        saveCustomer({
+          customerID: saveResponse.data.customerData._id,
+          customerName: saveResponse.data.customerData.fullName,
+          email: saveResponse.data.customerData.email,
+          mobile: saveResponse.data.customerData.mobile
         })
         //router.push("/otp")
         // setEnteredName("");
@@ -171,7 +173,7 @@ const HomePage = () => {
           )}
         </div>
         <Button className="w-96" onClick={handleSubmit} size="large"
-        loading={loading}>
+          loading={loading}>
           Calculate Your Moving Cost
         </Button>
         {/* <button
