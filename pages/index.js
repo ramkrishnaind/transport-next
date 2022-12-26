@@ -209,7 +209,7 @@ const HomePage = () => {
                   
                 </label> */}
                 <input
-                  className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 "
+                  className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 bluecolor"
                   type="text"
                   placeholder="Full Name"
                   autoFocus
@@ -227,7 +227,7 @@ const HomePage = () => {
                   
                 </label> */}
                 <input
-                  className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700"
+                  className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 bluecolor"
                   type="email"
                   placeholder="Email Address"
                   required
@@ -245,7 +245,7 @@ const HomePage = () => {
                   
                 </label> */}
                 <input
-                  className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700"
+                  className="border-solid border-gray-200 border py-2 px-4 w-full rounded text-gray-700 bluecolor"
                   type="tel"
                   required
                   placeholder="Phone Number"

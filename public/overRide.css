@@ -315,7 +315,7 @@ body {
 .ant-btn {
   background-color: #f7c602;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   height: 100%;
 }
@@ -830,8 +830,7 @@ textarea {
   grid-template: 1fr 1fr;
   background-color: #f9f9f9;
 }
-.step7_grid2item1 {
-}
+
 .greyOwn {
   background: #f9f9f9;
 }
@@ -1684,11 +1683,6 @@ padding-right: 8.6rem;
   border: 1px solid #22567f;
   border-radius: 5px;
 }
-
-
-
-
-
 
 .mainFont{
   font-family: 'Open Sans';

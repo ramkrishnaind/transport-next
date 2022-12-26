@@ -37,7 +37,7 @@ const Step1 = () => {
   const [houseType, setHouseType] = useState();
   const [fromState, setFromState] = useState();
   const [toState, setToState] = useState();
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date(new Date().setDate(new Date().getDate()+3)));
   const [houseTypeBlur, setHouseTypeBlur] = useState(false);
   const [fromBlur, setFromBlur] = useState(false);
   const [toBlur, setToBlur] = useState(false);
@@ -134,7 +134,7 @@ const Step1 = () => {
 
   return (
     <>
-      <LoadScript googleMapsApiKey={googleApiKey} libraries={["places"]}>
+      <LoadScript googleMapsApiKey={googleApiKey} libraries={["places"]} region={["IN"]}>
         <div className="orderBackground h-full">
           {/* <div className="p-5">.
         <Space direction="vertical" size={12}>
@@ -284,7 +284,7 @@ const Step1 = () => {
                           className="Datepicker_Step1   py-2 font-semibold"
                           placeholder="DD/MM/YYYY"
                           dateFormat="dd/MM/yyyy"
-                          minDate={new Date()}
+                          minDate={new Date(new Date().setDate(new Date().getDate()+1))}
                           onChange={(date) => setStartDate(date)}
                         />
                         {/* <input type="text" className="Datepicker_Step1   py-2 font-semibold" placeholder="DD/MM/YYYY" 

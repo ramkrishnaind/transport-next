@@ -76,13 +76,12 @@ const Otp = () => {
         </p>
 
         <input
-          className="mt-10 ml-20 border-gray-200 border-b py-2 px-4 w-xl rounded text-gray-700 "
+          className="mt-10 ml-20 border-gray-200 border-b py-2 px-4 w-xl rounded text-gray-700 bluecolor"
           type="text"
           placeholder="OTP"
           autoFocus
           required
           onChange={pinInputChangeHandler}
-          value={tpin}
         />
 
         <p className="text-gray-400 font-small text-sm text-center mt-10">

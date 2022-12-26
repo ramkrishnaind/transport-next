@@ -1092,7 +1092,7 @@ const Step4 = (props) => {
       <div className="  px-3 py-4 ">
         <div>
           <select
-            className=" bg-transparent  font-semibold"
+            className=" bg-transparent  font-semibold selectBorder"
             ref={myLevel1Refs?.[headerIndex] || null}
             onChange={(e) => {
               // debugger;
@@ -1203,7 +1203,7 @@ const Step4 = (props) => {
       <div className="px-3 py-4 ">
         <div>
           <select
-            className=" bg-transparent  font-semibold"
+            className=" bg-transparent  font-semibold selectBorder"
             ref={myLevel2Refs?.[headerIndex] || null}
             onChange={(e) => {
               // debugger;
@@ -1321,7 +1321,7 @@ const Step4 = (props) => {
       <div className="px-3 py-4 ">
         <div>
           <select
-            className=" bg-transparent  font-semibold"
+            className=" bg-transparent  font-semibold selectBorder"
             ref={myLevel3Refs?.[headerIndex] || null}
             onChange={(e) => {
               // debugger;
@@ -1430,7 +1430,7 @@ const Step4 = (props) => {
       <div className="px-3 py-4 ">
         <div>
           <select
-            className=" bg-transparent  font-semibold"
+            className=" bg-transparent  font-semibold selectBorder"
             ref={myLevel4Refs?.[headerIndex] || null}
             onChange={(e) => {
               if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
@@ -1537,7 +1537,7 @@ const Step4 = (props) => {
       <div className="  px-3 py-4 ">
         <div>
           <select
-            className=" bg-transparent  font-semibold"
+            className=" bg-transparent  font-semibold selectBorder"
             ref={myLevel1Refs?.[headerIndex] || null}
             onChange={(e) => {
               // debugger;
@@ -1598,6 +1598,10 @@ const Step4 = (props) => {
   };
   const checkToShowFifthLevel = (headerIndex) => {
     return itemsLevel5?.[headerIndex] && itemsLevel5?.[headerIndex].length > 0;
+  };
+
+  const handleSkip = () => {
+    router.push("/order/step7");
   };
 
   const handleSubmit = async () => {
@@ -1666,10 +1670,10 @@ const Step4 = (props) => {
         <div className="hidden md:block lg:block xl:block">
           <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
             <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              Set up 40% complete
+            Set up 60% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              3 Step left • About 6 min
+              2 Step left • About 4 min
               <span className="CFT_box_step5 px-2 py-1 ml-1">
                 <span className="CFT_box-text1_step5">CFT </span>
                 <span className="CFT_box-text1_step5 font-bold">{cftTot}</span>
@@ -1743,14 +1747,14 @@ const Step4 = (props) => {
         </div>
 
         <div
-          className="mainHeaderCardBox-Current_history flex-col lg:flex xl:flex bg-white xl:justify-between lg:justify-between"
+          className="flex-col lg:flex xl:flex bg-white xl:justify-between lg:justify-between"
           style={{ width: "max-content" }}
         >
           {itemsLevel1.map((iterator, index) => {
             // debugger;
             console.log("iterator", iterator);
             return (
-              <div className="flex flex-row" key={index}>
+              <div className="flex flex-row mainHeaderCardBox-Current_history" key={index}>
                 {itemsLevel1[index] && (
                   <div className="px-3 py-4">
                     <div
@@ -1796,7 +1800,7 @@ const Step4 = (props) => {
                 <div className="flex">
                   {categoryResults[index]?.isLast && (
                     <div
-                      className="orange-text_currentOrder hidden xl:block lg:block px-3 py-3 cursor-pointer mb-1"
+                      className="orange-text_currentOrder sm:block md:block xl:block lg:block px-3 py-3 cursor-pointer mb-1"
                       onClick={() => {
                         editHandler(iterator[0].Category, index);
                       }}
@@ -1806,7 +1810,7 @@ const Step4 = (props) => {
                   )}
 
                   <div
-                    className="red-text_currentOrder hidden xl:block lg:block px-3 py-3 cursor-pointer"
+                    className="red-text_currentOrder sm:block md:block xl:block lg:block px-3 py-3 cursor-pointer"
                     onClick={() => {
                       deleteHandler(
                         iterator[0].Category,
@@ -1835,34 +1839,31 @@ const Step4 = (props) => {
                   )
                 }
               >
-                ADD
+                Add More
               </button>
             </div>
           </div>
         )}
-      </div>
 
-      <div className="  ">
-        <div className="relative flex-1">
-          <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
-            <button
-              className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-              type="submit"
-            >
-              SKIP 1
-            </button>
-            <button
-              className="bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
-              type="button"
-              onClick={handleSubmit}
-            >
-              PROCEED
-            </button>
+
+          <div className="Button-style">
+            <div className="flex justify-start mr-5 mt-96 mb-2 space-x-5 pl-5">
+              <button
+                className="button_2_skip rounded-m px-10 py-2"
+                type="button"
+                onClick={handleSkip}
+              >
+                SKIP
+              </button>
+              <button
+                className="button_3 rounded-m px-10 py-2 "
+                type="button"
+                onClick={handleSubmit}
+              >
+                NEXT
+              </button>
+              </div>
           </div>
-          <div className="flex justify-end mr-5  mb-5 text-sm ">
-            <p>Do you know you can save this progress</p>
-          </div>
-        </div>
       </div>
     </>
   );
