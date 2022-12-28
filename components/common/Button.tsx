@@ -4,22 +4,32 @@ interface Props {
   children: React.ReactNode;
   size?: string;
   type?: string;
+  style?: any;
 }
 
 export const ButtonPrimary = ({
   children,
   size = "lg",
   type = "button",
+  ...props
 }: Props) => {
   return (
-    <ButtonPriWrapper size={size} type={type}>
+    <ButtonPriWrapper size={size} type={type} {...props}>
       {children}
     </ButtonPriWrapper>
   );
 };
 
-export const ButtonSecondary = ({ children, type = "button" }: Props) => {
-  return <ButtonSecWrapper type={type}>{children}</ButtonSecWrapper>;
+export const ButtonSecondary = ({
+  children,
+  type = "button",
+  ...props
+}: Props) => {
+  return (
+    <ButtonSecWrapper type={type} {...props}>
+      {children}
+    </ButtonSecWrapper>
+  );
 };
 
 const ButtonPriWrapper = styled.div`
@@ -32,6 +42,7 @@ const ButtonPriWrapper = styled.div`
   padding: 0 1em;
   cursor: pointer;
   font-size: 16px;
+  justify-content: center;
 `;
 
 const ButtonSecWrapper = styled.div`
