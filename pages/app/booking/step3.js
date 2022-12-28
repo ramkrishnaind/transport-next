@@ -15,144 +15,144 @@ import { bookingItem } from "../../../services/customer-api-service";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
 
 const Step3 = (props) => {
-  const router = useRouter();
-  const ctx = useContext(TransportContext);
-  const { booking } = ctx;
-  const { step1State } = ctx;
-  const { step2State } = ctx;
-  const { step3State, setStep3State } = ctx;
-  console.log("context.booking -- ", booking);
-  console.log("context.step1State -- ", step1State);
-  console.log("context.step2State -- ", step2State);
-  console.log("context.step3State -- ", step3State);
+  // const router = useRouter();
+  // const ctx = useContext(TransportContext);
+  // const { booking } = ctx;
+  // const { step1State } = ctx;
+  // const { step2State } = ctx;
+  // const { step3State, setStep3State } = ctx;
+  // console.log("context.booking -- ", booking);
+  // console.log("context.step1State -- ", step1State);
+  // console.log("context.step2State -- ", step2State);
+  // console.log("context.step3State -- ", step3State);
 
-  let categories = [...itemList.map((item) => item?.Category)];
-  let uniqueCategories = [],
-    items = {};
-  const Vehicles = [
-    { title: "Bikes", image: "/images/bike-24.png" },
-    { title: "Cars", image: "/images/car.png" },
-    { title: "Cycles", image: "/images/cycle-24.png" },
-  ];
-  categories.forEach((c) => {
-    if (c && !uniqueCategories.includes(c) && c !== "Cycles") {
-      uniqueCategories.push(c);
-    }
-  });
+  // let categories = [...itemList.map((item) => item?.Category)];
+  // let uniqueCategories = [],
+  //   items = {};
+  // const Vehicles = [
+  //   { title: "Bikes", image: "/images/bike-24.png" },
+  //   { title: "Cars", image: "/images/car.png" },
+  //   { title: "Cycles", image: "/images/cycle-24.png" },
+  // ];
+  // categories.forEach((c) => {
+  //   if (c && !uniqueCategories.includes(c) && c !== "Cycles") {
+  //     uniqueCategories.push(c);
+  //   }
+  // });
 
-  //uniqueCategories.push("Vehicle");
-  itemList.map((item) => {
-    const keys = Object.keys(items);
-    const keyExist = item?.Category && keys.includes(item?.Category);
-    if (!keyExist && item?.Category) {
-      items[item?.Category] = [
-        { title: item["Item"], image: `/images/${item.Image}` },
-      ];
-    } else if (item?.Category) {
-      const itemIndex = items[item?.Category].findIndex(
-        (i) => i.title === item["Item"]
-      );
-      // debugger;
-      if (itemIndex === -1) {
-        items[item?.Category].push({
-          title: item["Item"],
-          image: `/images/${item.Image}`,
-        });
-      }
-    }
-  });
-  // debugger;
-  const [objectState, setObjectState] = useState(
-    step3State || {
-      ...items,
-      Vehicle: Vehicles,
-    }
-  );
-  // if (props.location !== prevProps.location) {
-  //   console.log("ss");
-  // }
+  // //uniqueCategories.push("Vehicle");
+  // itemList.map((item) => {
+  //   const keys = Object.keys(items);
+  //   const keyExist = item?.Category && keys.includes(item?.Category);
+  //   if (!keyExist && item?.Category) {
+  //     items[item?.Category] = [
+  //       { title: item["Item"], image: `/images/${item.Image}` },
+  //     ];
+  //   } else if (item?.Category) {
+  //     const itemIndex = items[item?.Category].findIndex(
+  //       (i) => i.title === item["Item"]
+  //     );
+  //     // debugger;
+  //     if (itemIndex === -1) {
+  //       items[item?.Category].push({
+  //         title: item["Item"],
+  //         image: `/images/${item.Image}`,
+  //       });
+  //     }
+  //   }
+  // });
+  // // debugger;
+  // const [objectState, setObjectState] = useState(
+  //   step3State || {
+  //     ...items,
+  //     Vehicle: Vehicles,
+  //   }
+  // );
+  // // if (props.location !== prevProps.location) {
+  // //   console.log("ss");
+  // // }
 
-  useEffect(() => {
-    setObjectState((prev) => {
-      const newState = { ...prev };
-      const keys = Object.keys(newState);
-      keys.forEach((k) => {
-        newState[k] = newState[k]?.map((i) => {
-          if (i?.count === undefined) i.count = 0;
-          return i;
-        });
-      });
-      return newState;
-    });
-  }, []);
-  useEffect(() => {
-    debugger;
-    if (!step3State) return;
-    setObjectState((prev) => {
-      const newState = { ...prev };
-      const keys = Object.keys(step3State);
-      keys.forEach((k) => {
-        newState[k] = newState[k]?.map((i) => {
-          console.log(" title - ", i.title);
-          console.log(" title - ", i.count);
-          return i;
-        });
-      });
-      return newState;
-    });
-  }, []);
+  // useEffect(() => {
+  //   setObjectState((prev) => {
+  //     const newState = { ...prev };
+  //     const keys = Object.keys(newState);
+  //     keys.forEach((k) => {
+  //       newState[k] = newState[k]?.map((i) => {
+  //         if (i?.count === undefined) i.count = 0;
+  //         return i;
+  //       });
+  //     });
+  //     return newState;
+  //   });
+  // }, []);
+  // useEffect(() => {
+  //   debugger;
+  //   if (!step3State) return;
+  //   setObjectState((prev) => {
+  //     const newState = { ...prev };
+  //     const keys = Object.keys(step3State);
+  //     keys.forEach((k) => {
+  //       newState[k] = newState[k]?.map((i) => {
+  //         console.log(" title - ", i.title);
+  //         console.log(" title - ", i.count);
+  //         return i;
+  //       });
+  //     });
+  //     return newState;
+  //   });
+  // }, []);
 
-  const clickHandler = (key, item) => {
-    const newState = { ...objectState };
-    const newArray = [];
-    // debugger;
-    const arr = [...newState[key]];
-    arr?.forEach((i) => {
-      if (i.title === item.title) {
-        i.count = i.count + 1;
-      }
-      newArray.push(i);
-    });
-    console.log("called");
-    newState[key] = newArray;
-    setObjectState(newState);
-    ctx.setStep4Items([]);
-    // ctx.setStep3State(newState);
-  };
-  const decrementHandler = (key, item) => {
-    const newState = { ...objectState };
-    const newArray = [];
-    // debugger;
-    const arr = [...newState[key]];
-    arr?.forEach((i) => {
-      if (i.title === item.title && i.count !== 0) {
-        i.count = i.count - 1;
-      }
-      newArray.push(i);
-    });
-    console.log("called");
-    newState[key] = newArray;
-    setObjectState(newState);
-    ctx.setStep4Items([]);
-    // ctx.setStep3State(newState);
-  };
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    // ----------------------
-    // let result = await callApi();
-    // debugger;
-    // if (result.data.status) {
-    //   console.log("Booking result is", result);
-    //   //  setBooking(result.data);
-    // }
-    //--------------------------
-    ctx.setStep3State(objectState);
-    console.log("objectState", objectState);
-    router.push("step4");
-  };
-  const handleSkip = () => {
-    router.push("step5");
-  };
+  // const clickHandler = (key, item) => {
+  //   const newState = { ...objectState };
+  //   const newArray = [];
+  //   // debugger;
+  //   const arr = [...newState[key]];
+  //   arr?.forEach((i) => {
+  //     if (i.title === item.title) {
+  //       i.count = i.count + 1;
+  //     }
+  //     newArray.push(i);
+  //   });
+  //   console.log("called");
+  //   newState[key] = newArray;
+  //   setObjectState(newState);
+  //   ctx.setStep4Items([]);
+  //   // ctx.setStep3State(newState);
+  // };
+  // const decrementHandler = (key, item) => {
+  //   const newState = { ...objectState };
+  //   const newArray = [];
+  //   // debugger;
+  //   const arr = [...newState[key]];
+  //   arr?.forEach((i) => {
+  //     if (i.title === item.title && i.count !== 0) {
+  //       i.count = i.count - 1;
+  //     }
+  //     newArray.push(i);
+  //   });
+  //   console.log("called");
+  //   newState[key] = newArray;
+  //   setObjectState(newState);
+  //   ctx.setStep4Items([]);
+  //   // ctx.setStep3State(newState);
+  // };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   // ----------------------
+  //   // let result = await callApi();
+  //   // debugger;
+  //   // if (result.data.status) {
+  //   //   console.log("Booking result is", result);
+  //   //   //  setBooking(result.data);
+  //   // }
+  //   //--------------------------
+  //   ctx.setStep3State(objectState);
+  //   console.log("objectState", objectState);
+  //   router.push("step4");
+  // };
+  // const handleSkip = () => {
+  //   router.push("step5");
+  // };
 
   // const callApi = async () => {
   //   let arr = objectState?.Furniture ? [...objectState.Furniture] : [];
@@ -199,7 +199,7 @@ const Step3 = (props) => {
 
   return (
     <div>
-      <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
+      {/* <div className="flex justify-end mr-5 mt-5 mb-2 space-x-5">
         <button
           className="bg-gray-100 hover:bg-blue-400 text-white-100 border py-2 px-8 font-semibold text-sm rounded shadow-lg"
           type="button"
@@ -214,8 +214,8 @@ const Step3 = (props) => {
         >
           NEXT
         </button>
-      </div>
-      <div className="flex justify-end mr-5  mb-5 text-sm ">
+      </div> */}
+      <div className='flex justify-end mr-5  mb-5 text-sm '>
         {/* <FontAwesomeIcon
           icon={fa["faSearch"]}
           style={{ fontSize: 20, color: "blue" }}
@@ -223,7 +223,7 @@ const Step3 = (props) => {
         <p>Do you know you can save this progress</p>
       </div>
 
-      <form className="max-w-screen-xl m-auto py-10 px-5">
+      {/* <form className="max-w-screen-xl m-auto py-10 px-5">
         <div className="grid gap-8 lg:grid-cols-3">
           {uniqueCategories.map((item, i) => {
             return (
@@ -275,7 +275,7 @@ const Step3 = (props) => {
             ))}
           </div>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };

@@ -22,248 +22,248 @@ import { Collapse } from "antd";
 const { Panel } = Collapse;
 
 const Step3 = (props) => {
-  const { bookingInfo, saveBooking, customer } = useAuth();
-  const router = useRouter();
-  const ctx = useContext(TransportContext);
-  const { booking } = ctx;
-  const { step1State } = ctx;
-  const { step2State } = ctx;
-  const { step3State, setStep3State } = ctx;
-  console.log("context.booking -- ", booking);
-  console.log("context.step1State -- ", step1State);
-  console.log("context.step2State -- ", step2State);
-  console.log("context.step3State -- ", step3State);
+  // const { bookingInfo, saveBooking, customer } = useAuth();
+  // const router = useRouter();
+  // const ctx = useContext(TransportContext);
+  // const { booking } = ctx;
+  // const { step1State } = ctx;
+  // const { step2State } = ctx;
+  // const { step3State, setStep3State } = ctx;
+  // console.log("context.booking -- ", booking);
+  // console.log("context.step1State -- ", step1State);
+  // console.log("context.step2State -- ", step2State);
+  // console.log("context.step3State -- ", step3State);
 
-  let categories = [...itemList.map((item) => item?.Category)];
-  let uniqueCategories = [],
-    items = {};
-  const Vehicles = [
-    { title: "Bikes", image: "/images/bike-24.png" },
-    { title: "Cars", image: "/images/car.png" },
-    { title: "Cycles", image: "/images/cycle-24.png" },
-  ];
-  categories.forEach((c) => {
-    if (c && !uniqueCategories.includes(c) && c !== "Cycles") {
-      uniqueCategories.push(c);
-    }
-  });
+  // let categories = [...itemList.map((item) => item?.Category)];
+  // let uniqueCategories = [],
+  //   items = {};
+  // const Vehicles = [
+  //   { title: "Bikes", image: "/images/bike-24.png" },
+  //   { title: "Cars", image: "/images/car.png" },
+  //   { title: "Cycles", image: "/images/cycle-24.png" },
+  // ];
+  // categories.forEach((c) => {
+  //   if (c && !uniqueCategories.includes(c) && c !== "Cycles") {
+  //     uniqueCategories.push(c);
+  //   }
+  // });
 
-  //uniqueCategories.push("Vehicle");
-  itemList.map((item) => {
-    const keys = Object.keys(items);
-    const keyExist = item?.Category && keys.includes(item?.Category);
-    if (!keyExist && item?.Category) {
-      items[item?.Category] = [
-        { title: item["Item"], image: `/images/${item.Image}` },
-      ];
-    } else if (item?.Category) {
-      const itemIndex = items[item?.Category].findIndex(
-        (i) => i.title === item["Item"]
-      );
-      // debugger;
-      if (itemIndex === -1) {
-        items[item?.Category].push({
-          title: item["Item"],
-          image: `/images/${item.Image}`,
-        });
-      }
-    }
-  });
-  // debugger;
-  const [objectState, setObjectState] = useState(
-    step3State || {
-      ...items,
-      Vehicle: Vehicles,
-    }
-  );
-  // if (props.location !== prevProps.location) {
-  //   console.log("ss");
-  // }
+  // //uniqueCategories.push("Vehicle");
+  // itemList.map((item) => {
+  //   const keys = Object.keys(items);
+  //   const keyExist = item?.Category && keys.includes(item?.Category);
+  //   if (!keyExist && item?.Category) {
+  //     items[item?.Category] = [
+  //       { title: item["Item"], image: `/images/${item.Image}` },
+  //     ];
+  //   } else if (item?.Category) {
+  //     const itemIndex = items[item?.Category].findIndex(
+  //       (i) => i.title === item["Item"]
+  //     );
+  //     // debugger;
+  //     if (itemIndex === -1) {
+  //       items[item?.Category].push({
+  //         title: item["Item"],
+  //         image: `/images/${item.Image}`,
+  //       });
+  //     }
+  //   }
+  // });
+  // // debugger;
+  // const [objectState, setObjectState] = useState(
+  //   step3State || {
+  //     ...items,
+  //     Vehicle: Vehicles,
+  //   }
+  // );
+  // // if (props.location !== prevProps.location) {
+  // //   console.log("ss");
+  // // }
 
-  useEffect(() => {
-    console.log("bookingInfo in step3 is ", bookingInfo);
-    setObjectState((prev) => {
-      const newState = { ...prev };
-      const keys = Object.keys(newState);
-      keys.forEach((k) => {
-        newState[k] = newState[k]?.map((i) => {
-          if (i?.count === undefined) i.count = 0;
-          return i;
-        });
-      });
-      return newState;
-    });
-  }, [bookingInfo]);
-  useEffect(() => {
-    // debugger;
-    if (!step3State) {
-      let stp3State = JSON.parse(localStorage.getItem("step3State"));
-      console.log("local storage - ", stp3State);
-      if (!stp3State) {
-        return;
-      } else {
-        setObjectState((prev) => {
-          const newState = { ...prev };
-          const keys = Object.keys(stp3State);
-          keys.forEach((k) => {
-            stp3State[k] = stp3State[k]?.map((i) => {
-              console.log("new title - ", i.title);
-              console.log("new title - ", i.count);
-              return i;
-            });
-          });
-          return stp3State;
-        });
-      }
-    } else {
-      setObjectState((prev) => {
-        const newState = { ...prev };
-        const keys = Object.keys(step3State);
-        keys.forEach((k) => {
-          newState[k] = newState[k]?.map((i) => {
-            //console.log(" title - ", i.title);
-            //console.log(" title - ", i.count);
-            return i;
-          });
-        });
-        return newState;
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   console.log("bookingInfo in step3 is ", bookingInfo);
+  //   setObjectState((prev) => {
+  //     const newState = { ...prev };
+  //     const keys = Object.keys(newState);
+  //     keys.forEach((k) => {
+  //       newState[k] = newState[k]?.map((i) => {
+  //         if (i?.count === undefined) i.count = 0;
+  //         return i;
+  //       });
+  //     });
+  //     return newState;
+  //   });
+  // }, [bookingInfo]);
+  // useEffect(() => {
+  //   // debugger;
+  //   if (!step3State) {
+  //     let stp3State = JSON.parse(localStorage.getItem("step3State"));
+  //     console.log("local storage - ", stp3State);
+  //     if (!stp3State) {
+  //       return;
+  //     } else {
+  //       setObjectState((prev) => {
+  //         const newState = { ...prev };
+  //         const keys = Object.keys(stp3State);
+  //         keys.forEach((k) => {
+  //           stp3State[k] = stp3State[k]?.map((i) => {
+  //             console.log("new title - ", i.title);
+  //             console.log("new title - ", i.count);
+  //             return i;
+  //           });
+  //         });
+  //         return stp3State;
+  //       });
+  //     }
+  //   } else {
+  //     setObjectState((prev) => {
+  //       const newState = { ...prev };
+  //       const keys = Object.keys(step3State);
+  //       keys.forEach((k) => {
+  //         newState[k] = newState[k]?.map((i) => {
+  //           //console.log(" title - ", i.title);
+  //           //console.log(" title - ", i.count);
+  //           return i;
+  //         });
+  //       });
+  //       return newState;
+  //     });
+  //   }
+  // }, []);
 
-  const clickHandler = (key, item) => {
-    const newState = { ...objectState };
-    const newArray = [];
-    // debugger;
-    const arr = [...newState[key]];
-    arr?.forEach((i) => {
-      if (i.title === item.title) {
-        i.count = i.count + 1;
-      }
-      newArray.push(i);
-    });
-    console.log("called");
-    newState[key] = newArray;
-    setObjectState(newState);
-    const newStep4 = ctx.step4State;
-    if (newStep4) {
-    }
-    // ctx.setStep4Items([]);
-    // ctx.setStep3State(newState);
-  };
-  const decrementHandler = (key, item) => {
-    const newState = { ...objectState };
-    const newArray = [];
-    // debugger;
-    const arr = [...newState[key]];
-    arr?.forEach((i) => {
-      if (i.title === item.title && i.count !== 0) {
-        i.count = i.count - 1;
-      }
-      newArray.push(i);
-    });
-    console.log("called");
-    newState[key] = newArray;
-    setObjectState(newState);
-    const newStep4 = ctx.step4State;
-    debugger;
-    if (newStep4) {
-      delete newStep4[item.category];
-      ctx.setStep4Items({ ...newStep4 });
-      localStorage.setItem("step4State", JSON.stringify(newStep4));
-    }
+  // const clickHandler = (key, item) => {
+  //   const newState = { ...objectState };
+  //   const newArray = [];
+  //   // debugger;
+  //   const arr = [...newState[key]];
+  //   arr?.forEach((i) => {
+  //     if (i.title === item.title) {
+  //       i.count = i.count + 1;
+  //     }
+  //     newArray.push(i);
+  //   });
+  //   console.log("called");
+  //   newState[key] = newArray;
+  //   setObjectState(newState);
+  //   const newStep4 = ctx.step4State;
+  //   if (newStep4) {
+  //   }
+  //   // ctx.setStep4Items([]);
+  //   // ctx.setStep3State(newState);
+  // };
+  // const decrementHandler = (key, item) => {
+  //   const newState = { ...objectState };
+  //   const newArray = [];
+  //   // debugger;
+  //   const arr = [...newState[key]];
+  //   arr?.forEach((i) => {
+  //     if (i.title === item.title && i.count !== 0) {
+  //       i.count = i.count - 1;
+  //     }
+  //     newArray.push(i);
+  //   });
+  //   console.log("called");
+  //   newState[key] = newArray;
+  //   setObjectState(newState);
+  //   const newStep4 = ctx.step4State;
+  //   debugger;
+  //   if (newStep4) {
+  //     delete newStep4[item.category];
+  //     ctx.setStep4Items({ ...newStep4 });
+  //     localStorage.setItem("step4State", JSON.stringify(newStep4));
+  //   }
 
-    // ctx.setStep3State(newState);
-  };
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    debugger;
-    await step3Item({
-      bookingId: step2State?.bookingId,
-      step3: { ...objectState },
-    });
-    //await step3Item({ ...items });
-    // ----------------------
-    // let result = await callApi();
-    // debugger;
-    // if (result.data.status) {
-    //   console.log("Booking result is", result);
-    //   //  setBooking(result.data);
-    // }
-    //--------------------------
-    ctx.setStep3State(objectState);
-    console.log("objectState", objectState);
-    saveBooking({ ...bookingInfo, step3: objectState });
-    localStorage.setItem("step3State", JSON.stringify(objectState));
-    console.log("local storage save- ", JSON.stringify(objectState));
-    router.push("/order/step4");
-  };
-  const handleSkip = () => {
-    router.push("/order/step7");
-  };
-  const form1 = () => {
-    return (
-      <form className="max-w-screen-xl m-auto px-4">
-        <div className="mt-5">
-          <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-            {objectState.Furniture.map((item, index) => {
-              console.log("item", item);
-              return (
-                <Card
-                  image={item.image}
-                  key={index}
-                  item={item.title}
-                  itemCount={item.count}
-                  onDecrement={decrementHandler.bind(null, "Furniture", item)}
-                  onClick={clickHandler.bind(null, "Furniture", item)}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </form>
-    );
-  };
-  const form2 = () => {
-    return (
-      <form className="max-w-screen-xl m-auto px-4">
-        <div className="mt-5">
-          <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-            {objectState.Electronic.map((item, index) => (
-              <Card
-                image={item.image}
-                key={index}
-                item={item.title}
-                itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "Electronic", item)}
-                onClick={clickHandler.bind(null, "Electronic", item)}
-              />
-            ))}
-          </div>
-        </div>
-      </form>
-    );
-  };
-  const form3 = () => {
-    return (
-      <form className="max-w-screen-xl m-auto px-4">
-        <div className="mt-5">
-          <div className="flex flex-col gap-2 grid-cols-1 mt-5">
-            {objectState.Vehicle.map((item, index) => (
-              <Card
-                image={item.image}
-                key={index}
-                item={item.title}
-                itemCount={item.count}
-                onDecrement={decrementHandler.bind(null, "Vehicle", item)}
-                onClick={clickHandler.bind(null, "Vehicle", item)}
-              />
-            ))}
-          </div>
-        </div>
-      </form>
-    );
-  };
+  //   // ctx.setStep3State(newState);
+  // };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   debugger;
+  //   await step3Item({
+  //     bookingId: step2State?.bookingId,
+  //     step3: { ...objectState },
+  //   });
+  //   //await step3Item({ ...items });
+  //   // ----------------------
+  //   // let result = await callApi();
+  //   // debugger;
+  //   // if (result.data.status) {
+  //   //   console.log("Booking result is", result);
+  //   //   //  setBooking(result.data);
+  //   // }
+  //   //--------------------------
+  //   ctx.setStep3State(objectState);
+  //   console.log("objectState", objectState);
+  //   saveBooking({ ...bookingInfo, step3: objectState });
+  //   localStorage.setItem("step3State", JSON.stringify(objectState));
+  //   console.log("local storage save- ", JSON.stringify(objectState));
+  //   router.push("/order/step4");
+  // };
+  // const handleSkip = () => {
+  //   router.push("/order/step7");
+  // };
+  // const form1 = () => {
+  //   return (
+  //     <form className="max-w-screen-xl m-auto px-4">
+  //       <div className="mt-5">
+  //         <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+  //           {objectState.Furniture.map((item, index) => {
+  //             console.log("item", item);
+  //             return (
+  //               <Card
+  //                 image={item.image}
+  //                 key={index}
+  //                 item={item.title}
+  //                 itemCount={item.count}
+  //                 onDecrement={decrementHandler.bind(null, "Furniture", item)}
+  //                 onClick={clickHandler.bind(null, "Furniture", item)}
+  //               />
+  //             );
+  //           })}
+  //         </div>
+  //       </div>
+  //     </form>
+  //   );
+  // };
+  // const form2 = () => {
+  //   return (
+  //     <form className="max-w-screen-xl m-auto px-4">
+  //       <div className="mt-5">
+  //         <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+  //           {objectState.Electronic.map((item, index) => (
+  //             <Card
+  //               image={item.image}
+  //               key={index}
+  //               item={item.title}
+  //               itemCount={item.count}
+  //               onDecrement={decrementHandler.bind(null, "Electronic", item)}
+  //               onClick={clickHandler.bind(null, "Electronic", item)}
+  //             />
+  //           ))}
+  //         </div>
+  //       </div>
+  //     </form>
+  //   );
+  // };
+  // const form3 = () => {
+  //   return (
+  //     <form className="max-w-screen-xl m-auto px-4">
+  //       <div className="mt-5">
+  //         <div className="flex flex-col gap-2 grid-cols-1 mt-5">
+  //           {objectState.Vehicle.map((item, index) => (
+  //             <Card
+  //               image={item.image}
+  //               key={index}
+  //               item={item.title}
+  //               itemCount={item.count}
+  //               onDecrement={decrementHandler.bind(null, "Vehicle", item)}
+  //               onClick={clickHandler.bind(null, "Vehicle", item)}
+  //             />
+  //           ))}
+  //         </div>
+  //       </div>
+  //     </form>
+  //   );
+  // };
   // const callApi = async () => {
   //   let arr = objectState?.Furniture ? [...objectState.Furniture] : [];
   //   arr = objectState?.Electronic
@@ -310,7 +310,7 @@ const Step3 = (props) => {
   return (
     <>
       {/* completeBAR */}
-      <div>
+      {/* <div>
         <div className="hidden md:block lg:block xl:block">
           <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
             <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
@@ -335,20 +335,20 @@ const Step3 = (props) => {
             <span> About 6 min•</span>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3">
-        <div className=" flex flex-col justify-between items-left p-0 gap-1.5  top-36 r4 mt-3 p-2 md:pl-0 lg:pl-0 xl:pl-0 md:mt-5 lg:mt-5 xl:mt-5  ">
+      <div className='r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3'>
+        {/* <div className=" flex flex-col justify-between items-left p-0 gap-1.5  top-36 r4 mt-3 p-2 md:pl-0 lg:pl-0 xl:pl-0 md:mt-5 lg:mt-5 xl:mt-5  ">
           <div className="step3_heading font-medium text-center md:text-left xl:text-left lg:text-left">
             What are the major item you want to move?
           </div>
           <div className=" text-center md:text-left xl:text-left lg:text-left padding_Heading_step2 ">
             to save you the trouble, we have pre-selected this list.
           </div>
-        </div>
+        </div> */}
 
         {/* Tab Responsive */}
-        <div className="hidden ResponsiveTab">
+        {/* <div className="hidden ResponsiveTab">
           <Collapse
             defaultActiveKey={["1"]}
             ghost
@@ -397,10 +397,10 @@ const Step3 = (props) => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Laptop */}
-        <div className="hidden ResponsiveLatop">
+        {/* <div className="hidden ResponsiveLatop">
           <form className="max-w-screen-xl m-auto">
             <div className="grid gap-8 lg:grid-cols-3 mt-4 ">
               {uniqueCategories.map((item, i) => {
@@ -481,13 +481,13 @@ const Step3 = (props) => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* MOBILE Responsive */}
 
-      <div className="block md:hidden lg:hidden xl:hidden">
-        <Collapse
+      <div className='block md:hidden lg:hidden xl:hidden'>
+        {/* <Collapse
           defaultActiveKey={["1"]}
           ghost
           className="pl-4 text-2xl steps_text_color"
@@ -515,9 +515,9 @@ const Step3 = (props) => {
           <Panel header="Vehicle" key="1">
             {form3()}
           </Panel>
-        </Collapse>
+        </Collapse> */}
 
-        <div className="mt-6 ">
+        {/* <div className="mt-6 ">
           <div className="mt-5 mb-5 flex flex-row mx-5 justify-between">
             <button
               className="px-5 py-4  buttonMobile_white rounded-m "
@@ -534,7 +534,7 @@ const Step3 = (props) => {
               NEXT
             </button>
           </div>
-        </div>
+        </div> */}
         {/* <div className="flex justify-between mx-5  mb-5 text-sm ">
           <span className="step3_skip-text">Skip for now</span>
           <span className="step3_save_draft-text">Save Deaft</span>
