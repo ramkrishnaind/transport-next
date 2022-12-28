@@ -3,14 +3,23 @@ import styled from "styled-components";
 interface Props {
   children: React.ReactNode;
   size?: string;
+  type?: string;
 }
 
-export const ButtonPrimary = ({ children, size = "lg" }: Props) => {
-  return <ButtonPriWrapper size={size}>{children}</ButtonPriWrapper>;
+export const ButtonPrimary = ({
+  children,
+  size = "lg",
+  type = "button",
+}: Props) => {
+  return (
+    <ButtonPriWrapper size={size} type={type}>
+      {children}
+    </ButtonPriWrapper>
+  );
 };
 
-export const ButtonSecondary = ({ children }: Props) => {
-  return <ButtonSecWrapper>{children}</ButtonSecWrapper>;
+export const ButtonSecondary = ({ children, type = "button" }: Props) => {
+  return <ButtonSecWrapper type={type}>{children}</ButtonSecWrapper>;
 };
 
 const ButtonPriWrapper = styled.div`

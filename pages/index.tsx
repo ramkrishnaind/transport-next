@@ -1,5 +1,5 @@
 import Layout from "components/common/Layout";
-import Banner from "components/home/Banner";
+import Banner from "components/page/home/Banner";
 
 const IndexPage = () => (
   <Layout>
