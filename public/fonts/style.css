@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "FedraSansStd";
+  font-weight: 600;
+  src: local("FedraSansStd"), url("./FedraSansStdBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "FedraSansStd";
+  font-weight: 500;
+  src: local("FedraSansStd"), url("./FedraSansStdMedium.otf") format("opentype");
+}
+@font-face {
+  font-family: "FedraSansStd";
+  font-weight: 400;
+  src: local("FedraSansStd"), url("./FedraSansStdNormal.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FedraSansStd";
+  font-weight: 300;
+  src: local("FedraSansStd"), url("./FedraSansStdBook.otf") format("opentype");
+}
+@font-face {
+  font-family: "FedraSansStd";
+  font-weight: 200;
+  src: local("FedraSansStd"), url("./FedraSansStdLight.otf") format("OpenType");
+}
