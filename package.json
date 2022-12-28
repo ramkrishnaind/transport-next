@@ -43,6 +43,7 @@
     "redux": "^4.2.0",
     "shrinkwrap": "^0.4.0",
     "store": "^2.0.12",
+    "styled-components": "^5.3.6",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
