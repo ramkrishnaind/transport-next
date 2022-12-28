@@ -7,12 +7,44 @@ export const NavList = [
   {
     name: "Company",
     link: "/",
-    dropdown: [],
+    dropdown: [
+      {
+        key: "1",
+        label: `dropdown1`,
+        link: "/",
+      },
+      {
+        key: "2",
+        label: "dropdown2",
+        link: "/",
+      },
+      {
+        key: "3",
+        label: "dropdown3",
+        link: "/",
+      },
+    ],
   },
   {
     name: "Services",
     link: "/",
-    dropdown: [],
+    dropdown: [
+      {
+        key: "1",
+        label: "dropdown1",
+        link: "/",
+      },
+      {
+        key: "2",
+        label: "dropdown2",
+        link: "/",
+      },
+      {
+        key: "3",
+        label: "dropdown3",
+        link: "/",
+      },
+    ],
   },
   {
     name: "Careers",
@@ -22,6 +54,22 @@ export const NavList = [
   {
     name: "Contact",
     link: "/",
-    dropdown: [],
+    dropdown: [
+      {
+        key: "1",
+        label: "dropdown1",
+        link: "/",
+      },
+      {
+        key: "2",
+        label: "dropdown2",
+        link: "/",
+      },
+      {
+        key: "3",
+        label: "dropdown3",
+        link: "/",
+      },
+    ],
   },
 ];

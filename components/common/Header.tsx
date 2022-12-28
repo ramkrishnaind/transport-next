@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 // styles
 import { Container } from "styled/Common.styled";
 // data
@@ -10,7 +11,14 @@ import { ButtonSecondary } from "./Button";
 import HamburgerIcon from "assets/icons/HamburgerIcon";
 import LogoIcon from "assets/icons/LogoIcon";
 import LocationIcon from "assets/icons/LocationIcon";
+import DropDownIcon from "assets/icons/DropDownIcon";
+
+// design compo
+import { Dropdown } from "antd";
+
 const Header = () => {
+  const router = useRouter();
+
   return (
     <HeaderSection>
       <Container>
@@ -23,17 +31,38 @@ const Header = () => {
             </Link>
           </Logo>
           <Ul>
-            {NavList.map((list, index) =>
-              list.dropdown.length > 0 ? (
-                <NavLink key={list.name + "_" + index}>
-                  <Link href={list.link}>{list.name}</Link>
-                </NavLink>
+            {NavList.map((list, index) => {
+              let item = list.dropdown;
+              return item.length > 0 ? (
+                <Dropdown
+                  key={list.name + "_" + index}
+                  menu={{
+                    items: item,
+                    style: { width: "150px" },
+                    onClick: ({ item }: { item: any }) => {
+                      router.push(item?.props?.link);
+                    },
+                  }}
+                >
+                  <NavLink>
+                    <Link href={list.link}>
+                      <a>
+                        <span>{list.name}</span>
+                        <DropDownIconWrapper>
+                          <DropDownIcon />
+                        </DropDownIconWrapper>
+                      </a>
+                    </Link>
+                  </NavLink>
+                </Dropdown>
               ) : (
                 <NavLink key={list.name + "_" + index}>
-                  <Link href={list.link}>{list.name}</Link>
+                  <Link href={list.link}>
+                    <a>{list.name}</a>
+                  </Link>
                 </NavLink>
-              )
-            )}
+              );
+            })}
             <RightSide>
               <ButtonSecondary>
                 <LocationIcon />
@@ -83,3 +112,7 @@ const RightSide = styled.div`
 `;
 
 const SideBarTrigger = styled.div``;
+
+const DropDownIconWrapper = styled.span`
+  margin-left: 9px;
+`;
