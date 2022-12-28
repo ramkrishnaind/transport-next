@@ -91,6 +91,7 @@ const Wrapper = styled.div`
   align-items: center;
   margin: 0 auto;
   border-radius: 20px;
+  position: relative;
 `;
 
 const LeftAside = styled.aside`

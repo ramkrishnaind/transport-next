@@ -15,6 +15,14 @@ export const Title32 = styled.h2`
   margin: 0;
 `;
 
+export const Title40 = styled.h2`
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.3;
+  margin: 0;
+  margin-bottom: 30px;
+`;
+
 export const TextActive = styled.span`
   color: var(--primary);
 `;
