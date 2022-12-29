@@ -385,7 +385,7 @@ const Step4 = (props) => {
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   const [stateData, setStateData] = useState([]);
-  const checkKeyExist = (object, key) => {};
+  const checkKeyExist = (object, key) => { };
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
@@ -489,7 +489,7 @@ const Step4 = (props) => {
         myLevel1Refs &&
         myLevel1Refs[index].current &&
         stepResults[
-          `${itemsLevel2?.[index]?.[index]?.Category}-${itemsLevel2?.[index]?.[index]?.Item}`
+        `${itemsLevel2?.[index]?.[index]?.Category}-${itemsLevel2?.[index]?.[index]?.Item}`
         ]
       )
         myLevel1Refs[index].current.value = JSON.stringify(
@@ -515,7 +515,7 @@ const Step4 = (props) => {
           myLevel2Refs &&
           myLevel2Refs[index].current &&
           stepResults[
-            `${itemsLevel3?.[index]?.[index]?.Category}-${itemsLevel3?.[index]?.[index]?.Item}`
+          `${itemsLevel3?.[index]?.[index]?.Category}-${itemsLevel3?.[index]?.[index]?.Item}`
           ]?.[index]
         )
           myLevel2Refs[index].current.value = JSON.stringify(
@@ -542,7 +542,7 @@ const Step4 = (props) => {
         myLevel3Refs &&
         myLevel3Refs[index]?.current &&
         stepResults[
-          `${itemsLevel4?.[index]?.[index]?.Category}-${itemsLevel4?.[index]?.[index]?.Item}`
+        `${itemsLevel4?.[index]?.[index]?.Category}-${itemsLevel4?.[index]?.[index]?.Item}`
         ]?.[index]
       )
         myLevel3Refs[index].current.value = JSON.stringify(
@@ -560,7 +560,7 @@ const Step4 = (props) => {
         myLevel4Refs &&
         myLevel4Refs[index].current &&
         stepResults[
-          `${itemsLevel5?.[index]?.[index]?.Category}-${itemsLevel5?.[index]?.[index]?.Item}`
+        `${itemsLevel5?.[index]?.[index]?.Category}-${itemsLevel5?.[index]?.[index]?.Item}`
         ]?.[index]
       )
         myLevel4Refs[index].current.value = JSON.stringify(
@@ -1082,7 +1082,7 @@ const Step4 = (props) => {
 
     setCategoryResults(catResults);
   };
-  useEffect(() => {}, [stepResults]);
+  useEffect(() => { }, [stepResults]);
   const handleFirstLevelItemClick = (event, parentIndex, category, item) => {
     event.stopPropagation();
 
@@ -1670,7 +1670,7 @@ const Step4 = (props) => {
         <div className="hidden md:block lg:block xl:block">
           <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
             <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-            Set up 60% complete
+              Set up 60% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
               2 Step left • About 4 min
@@ -1734,7 +1734,7 @@ const Step4 = (props) => {
                     <div className="px-5 mt-2 hover:bg-blue-100">
                       <button
                         className="text-gray-500 text-center m-auto cursor-pointer"
-                        // onClick={changeState}
+                      // onClick={changeState}
                       >
                         {completedCount[index]}/{element.count}
                       </button>
@@ -1754,75 +1754,171 @@ const Step4 = (props) => {
             // debugger;
             console.log("iterator", iterator);
             return (
-              <div className="flex flex-row mainHeaderCardBox-Current_history" key={index}>
-                {itemsLevel1[index] && (
-                  <div className="px-3 py-4">
-                    <div
-                      className=""
-                      onClick={(e) => {
-                        // if (!item?.completed)
-                        // handleFirstLevelItemClick(
-                        //   e,
-                        //   index,
-                        //   iterator.Category,
-                        //   iterator
-                        // );
-                      }}
-                    >
-                      <div>
-                        {`${index + 1}. `}
-                        <img
-                          className="arrow-png pl-3 pr-2 max-h-6 max-w-11"
-                          src={`/images/${iterator[0]?.Image}`}
-                          itemProp="image"
-                          alt="main BannerImage"
-                        />
-                        {iterator[0]?.Item}
-                      </div>
+              <><div className="mainHeaderCardBox-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between" key={index}>
+                <div className="HeaderCard_CurrentOrder px-3 py-4">
+                  <div className="">
+                    <div>1.<img className="arrow-png pl-3 pr-2" src="/images/trail-img/table_restaurant.png" itemProp="image" alt="main BannerImage" />Table
                     </div>
                   </div>
-                )}
-
-                <hr className=" lg:hidden xl:hidden" />
-                {itemsLevel1[index] && myLevel1Refs?.[index] && (
-                  <div className="second">{displaySecondLevelNew(index)}</div>
-                )}
-
-                {checkToShowThirdLevel(index) && myLevel2Refs?.[index] && (
-                  <div className="third">{displayThirdLevelNew(index)}</div>
-                )}
-                {checkToShowFourthLevel(index) && myLevel3Refs?.[index] && (
-                  <div className="fourth">{displayFourthLevelNew(index)}</div>
-                )}
-                {checkToShowFifthLevel(index) && myLevel4Refs?.[index] && (
-                  <div className="fifth">{displayFifthLevelNew(index)}</div>
-                )}
-                <div className="flex">
-                  {categoryResults[index]?.isLast && (
-                    <div
-                      className="orange-text_currentOrder sm:block md:block xl:block lg:block px-3 py-3 cursor-pointer mb-1"
-                      onClick={() => {
-                        editHandler(iterator[0].Category, index);
-                      }}
-                    >
-                      Clear
-                    </div>
-                  )}
-
-                  <div
-                    className="red-text_currentOrder sm:block md:block xl:block lg:block px-3 py-3 cursor-pointer"
-                    onClick={() => {
-                      deleteHandler(
-                        iterator[0].Category,
-                        iterator[0].Item,
-                        index
-                      );
-                    }}
-                  >
-                    Delete
+                  <div className="">
+                    <div className="red-text_currentOrder xl:hidden lg:hidden">Clear</div>
                   </div>
                 </div>
+                <hr className=" lg:hidden xl:hidden" />
+                <div className="grid_Select_currentOrder   px-3 py-4 ">
+                  <div>
+                    <select
+                      className=" bg-transparent  font-semibold"
+                      required>
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        hidden
+                        className="step1_select_hidden_option"
+                      >
+                        Coffee / center
+                      </option>
+                      <option value="Coffee / center">Coffee / center</option>
+                      <option value="Cocktail Table">Cocktail Table</option>
+                      <option value="End Table">End Table</option>
+                      <option value="Wood Table">Wood Table</option>
+                    </select>
+                  </div>
+                  <div>
+                    <select
+                      className="bg-transparent  font-semibold"
+                      required>
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        hidden
+                        className="step1_select_hidden_option"
+                      >
+                        3 seater
+                      </option>
+                      <option value="Coffee / center">
+                        <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+                      <option value="Cocktail Table">Cocktail Table</option>
+                      <option value="End Table">End Table</option>
+                      <option value="Wood Table">Wood Table</option>
+                    </select>
+                  </div>
+                  <div>
+                    <select
+                      className="bg-transparent  font-semibold"
+                      required>
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        hidden
+                        className="step1_select_hidden_option"
+                      >
+                        3 seater
+                      </option>
+                      <option value="Coffee / center">
+                        <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+                      <option value="Cocktail Table">Cocktail Table</option>
+                      <option value="End Table">End Table</option>
+                      <option value="Wood Table">Wood Table</option>
+                    </select>
+                  </div>
+                  <div>
+                    <select
+                      className="bg-transparent  font-semibold"
+                      required>
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        hidden
+                        className="step1_select_hidden_option"
+                      >
+                        Grass Top
+                      </option>
+                      <option value="Coffee / center">
+                        <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
+                      <option value="Cocktail Table">Cocktail Table</option>
+                      <option value="End Table">End Table</option>
+                      <option value="Wood Table">Wood Table</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4">Clear</div>
               </div>
+                <div className="flex flex-row mainHeaderCardBox-Current_history" key={index}>
+                  {itemsLevel1[index] && (
+                    <div className="px-3 py-4">
+                      <div
+                        className=""
+                        onClick={(e) => {
+                          // if (!item?.completed)
+                          // handleFirstLevelItemClick(
+                          //   e,
+                          //   index,
+                          //   iterator.Category,
+                          //   iterator
+                          // );
+                        }}
+                      >
+                        <div>
+                          {`${index + 1}. `}
+                          <img
+                            className="arrow-png pl-3 pr-2 max-h-6 max-w-11"
+                            src={`/images/${iterator[0]?.Image}`}
+                            itemProp="image"
+                            alt="main BannerImage"
+                          />
+                          {iterator[0]?.Item}
+                        </div>
+                      </div>
+                    </div>
+
+                  )}
+
+                  <hr className=" lg:hidden xl:hidden" />
+                  {itemsLevel1[index] && myLevel1Refs?.[index] && (
+                    <div className="second">{displaySecondLevelNew(index)}</div>
+                  )}
+
+                  {checkToShowThirdLevel(index) && myLevel2Refs?.[index] && (
+                    <div className="third">{displayThirdLevelNew(index)}</div>
+                  )}
+                  {checkToShowFourthLevel(index) && myLevel3Refs?.[index] && (
+                    <div className="fourth">{displayFourthLevelNew(index)}</div>
+                  )}
+                  {checkToShowFifthLevel(index) && myLevel4Refs?.[index] && (
+                    <div className="fifth">{displayFifthLevelNew(index)}</div>
+                  )}
+                  <div className="flex">
+                    {categoryResults[index]?.isLast && (
+                      <div
+                        className="orange-text_currentOrder sm:block md:block xl:block lg:block px-3 py-3 cursor-pointer mb-1"
+                        onClick={() => {
+                          editHandler(iterator[0].Category, index);
+                        }}
+                      >
+                        Clear
+                      </div>
+                    )}
+
+                    <div
+                      className="red-text_currentOrder sm:block md:block xl:block lg:block px-3 py-3 cursor-pointer"
+                      onClick={() => {
+                        deleteHandler(
+                          iterator[0].Category,
+                          iterator[0].Item,
+                          index
+                        );
+                      }}
+                    >
+                      Delete
+                    </div>
+                  </div>
+                </div>
+              </>
             );
           })}
         </div>
@@ -1846,24 +1942,24 @@ const Step4 = (props) => {
         )}
 
 
-          <div className="Button-style">
-            <div className="flex justify-start mr-5 mt-96 mb-2 space-x-5 pl-5">
-              <button
-                className="button_2_skip rounded-m px-10 py-2"
-                type="button"
-                onClick={handleSkip}
-              >
-                SKIP
-              </button>
-              <button
-                className="button_3 rounded-m px-10 py-2 "
-                type="button"
-                onClick={handleSubmit}
-              >
-                NEXT
-              </button>
-              </div>
+        <div className="Button-style">
+          <div className="flex justify-start mr-5 mt-96 mb-2 space-x-5 pl-5">
+            <button
+              className="button_2_skip rounded-m px-10 py-2"
+              type="button"
+              onClick={handleSkip}
+            >
+              SKIP
+            </button>
+            <button
+              className="button_3 rounded-m px-10 py-2 "
+              type="button"
+              onClick={handleSubmit}
+            >
+              NEXT
+            </button>
           </div>
+        </div>
       </div>
     </>
   );
