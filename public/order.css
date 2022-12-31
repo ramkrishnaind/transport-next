@@ -312,7 +312,7 @@ body {
   font-family: "Open Sans";
   border-radius: 7px;
   margin: 0%;
-  width: 8vw;
+  width: 8.4rem;
   height: 3.7rem;
   margin-top: 3px;
 }
@@ -499,6 +499,7 @@ a {
   background-color: #fff;
   font-family: "Open Sans";
   border-radius: 7px;
+  /* width: 30vw; */
 }
 .container {
   height: 508px;
@@ -735,9 +736,6 @@ a {
     width: 27vw;
     height: 6vh !important;
   }
-  .button_2_skip {
-    width: 30vw;
-  }
   .button_3 {
     width: 57vw;
   }
@@ -805,9 +803,6 @@ a {
     background-color: #ffffff;
     padding-top: 0.65rem;
     padding-bottom: 0.55rem;
-  }
-  .button_2_skip {
-    background-color: #ffffff;
   }
   .r1_Detail {
     margin-right: auto;
@@ -1253,4 +1248,15 @@ input, select, textarea {
 .selectBorder {
   border: 1px solid #439FD9;
   border-radius: 4px;
+}
+.cardMinusButtom{
+  margin-top: 7px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.addMoreButton{
+  background-color: #fff;
+  font-family: "Open Sans";
+  border-radius: 7px;
 }

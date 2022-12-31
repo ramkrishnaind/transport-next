@@ -2955,12 +2955,12 @@
     "Action3Image": "table-24.png",
     "Action4Image": "table-24.png",
     "Category": "Furniture",
-    "Action 1": "Computer/Office table",
+    "Action 1": "Computer table",
     "Action 2": "With storage",
     "Action 3": null,
     "Action 4": null,
     "CFT": 30,
-    "Article Name": "Computer/Office table with storage"
+    "Article Name": "Computer table with storage"
   },
   {
     "Item": "Table",
@@ -2970,12 +2970,12 @@
     "Action3Image": "table-24.png",
     "Action4Image": "table-24.png",
     "Category": "Furniture",
-    "Action 1": "Computer/Office table",
+    "Action 1": "Computer table",
     "Action 2": "without storage",
     "Action 3": null,
     "Action 4": null,
     "CFT": 25,
-    "Article Name": "Computer/Office table without storage"
+    "Article Name": "Computer table without storage"
   },
   {
     "Item": "Table",

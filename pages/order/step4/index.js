@@ -1696,6 +1696,12 @@ const Step4 = (props) => {
               <span className=" font-semibold">2 Step left •</span>
               <span> About 4 min</span>
             </div>
+            <div>
+            <span className="CFT_box_step5 px-2 py-1 ml-1">
+                <span className="CFT_box-text1_step5">CFT </span>
+                <span className="CFT_box-text1_step5 font-bold">{cftTot}</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1756,7 +1762,7 @@ const Step4 = (props) => {
                 {itemsLevel1[index] && (
 
                   <div className="HeaderCard_CurrentOrder px-3 py-4">
-                    <div className="w-36">
+                    <div className="w-52">
                       <div>{`${index + 1}. `}<img className="arrow-png pl-3 pr-2" src={`/images/${iterator[0]?.Image}`} itemProp="image" alt="main BannerImage" />{iterator[0]?.Item}
                       </div>
                     </div>
@@ -1786,7 +1792,7 @@ const Step4 = (props) => {
                 )}
 
                 <hr className="lg:hidden xl:hidden" />
-                <div className="grid_Select_currentOrder   px-3 py-4 ">
+                <div className="grid_Select_currentOrder gap-2 px-3 py-4 ">
                   {itemsLevel1[index] && myLevel1Refs?.[index] && (
                     <div className="lg:mr-8 xl:mr-8">{displaySecondLevelNew(index)}</div>
                   )}
@@ -1824,7 +1830,7 @@ const Step4 = (props) => {
           <div className="mt-3 ">
             <div className="flex  justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
               <button
-                className="button_2_skip order_4border rounded-m px-10 py-2"
+                className="addMoreButton order_4border rounded-m px-10 py-2"
                 type="button"
                 onClick={() =>
                   addHandler(
@@ -1840,8 +1846,8 @@ const Step4 = (props) => {
         )}
 
 
-        <div className="Button-style">
-          <div className="flex justify-start mr-5 mt-96 mb-2 space-x-5 pl-5">
+        <div className="Button-style b1">
+          <div className="flex justify-start mt-16 mr-5 xl:mt-36 lg:mt-36 mb-2 space-x-5 pl-5">
             <button
               className="button_2_skip rounded-m px-10 py-2"
               type="button"

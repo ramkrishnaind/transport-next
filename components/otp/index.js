@@ -13,7 +13,7 @@ const Otp = () => {
   const router = useRouter();
   const context = useContext(TransportContext);
   const { customerDetails, setCustomerDetails } = context;
-  
+
   const [tpin, setTpin] = useState(context.OTP);
   resendloading
   const [loading, setLoading] = useState(false);
@@ -32,12 +32,12 @@ const Otp = () => {
     setCustomerData(customerDetails);
   }, [customerDetails]);
   const resendOTP = async () => {
-    
+
     setResendloading(true);
     const results = await registerCustomer(context.customerDetails);
 
     if (results.data.status) {
-      
+
       context.setOTP(results.data.OTP);
       setResendloading(false);
     }
@@ -69,50 +69,45 @@ const Otp = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <form className="xl:w-96 m-auto py-4 mt-10 px-2">
-        <p className="mt-2 text-gray-400 text-center">
-          Please validate the Login OTP sent to your mobile number (
-          {customerData.mobile}) or check your email ({customerData.email})
+      <form className="xl:w-96 m-auto  mt-10 px-2">
+        <p className=" text-gray-400 text-center">
+          Please Validate the Login PIN sent to your Mobile Number (
+          {customerData.mobile}) or check your Email ({customerData.email})
         </p>
-
-        <input
-          className="mt-10 ml-20 border-gray-200 border-b py-2 px-4 w-xl rounded text-gray-700 bluecolor"
-          type="text"
-          placeholder="OTP"
-          autoFocus
-          required
-          onChange={pinInputChangeHandler}
-        />
-
-        <p className="text-gray-400 font-small text-sm text-center mt-10">
-          If you do not receive the OTP in the next 12 seconds, Please try Re-Send.
-        </p>
-        {/* <div className="flex justify-center items-center">
-                    <button
-                        className="m-10 bg-blue-500 hover:bg-blue-400 text-green-100 border py-2 px-4 font-semibold text-lg rounded shadow-lg"
-                        type="submit"
-                        onClick={handleSubmit}
-                    >
-                        PROCEED
-                    </button>
-                </div> */}
-        <div className="grid grid-flow-col grid-cols-2 mb-16 gap-4">
-          <div className="grid">
-            <Button
-              className="seconderyButton"
-              onClick={resendOTP}
-              size="large"
-              loading={resendloading}
-            >
-              Re-Send
-            </Button>
-          </div>
-          <div className="grid">
-            <Button onClick={handleSubmit} size="large" loading={loading}>
-              Submit
-            </Button>
+        <div className="flex justify-center items-center ">
+          <div>
+            WG - <input
+              className="mt-10 ml-1 border-gray-200 border-b py-2 px-4 w-xl rounded text-gray-700 bluecolor"
+              type="text"
+              placeholder="PIN"
+              autoFocus
+              required
+              onChange={pinInputChangeHandler}
+          />
           </div>
         </div>
+        <p className="text-gray-400 font-small text-sm text-center mt-10">
+          If you do not receive the PIN in the next 12 seconds, Please try Re-Send.
+        </p>
+
+        <div className="flex  gap-4 justify-center items-center pt-5 pb-4">
+
+          <Button
+            className="seconderyButton"
+            onClick={resendOTP}
+            size="large"
+            loading={resendloading}
+          >
+            Re-Send
+          </Button>
+          <Button onClick={handleSubmit} size="large" loading={loading}>
+            Submit
+          </Button>
+
+        </div>
+        <p className="text-gray-400 font-small text-sm text-center mt-10">
+          Please check your email and spam folder before resend.
+        </p>
       </form>
     </div>
   );

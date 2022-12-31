@@ -66,12 +66,12 @@
   "Vehicle": [
     {
       "title": "Bikes",
-      "image": "/images/bike50.png",
+      "image": "/images/bike-24.png",
       "count": 3
     },
     {
       "title": "Cars",
-      "image": "/images/cars50.png",
+      "image": "/images/car.png",
       "count": 1
     },
     {

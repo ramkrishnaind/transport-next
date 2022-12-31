@@ -260,6 +260,27 @@ const CurrentOrder = () => {
           ))}
         </div>
 
+
+        
+          
+            <div >
+              <div className=" rounded-lg border m-2">
+                <Collapse defaultActiveKey={['0']} ghost>
+                  <Panel header="Mislanious Items"  >
+                    <div className="m-2 flex justify-between flex-wrap">
+                      
+                      <div className="p-4">Battries X 5</div>
+                      <div className="p-4">PET X 1</div>
+                      <div className="p-4">POT X 5</div>
+
+                    </div>
+                  </Panel>
+                </Collapse>
+              </div>
+            </div>
+        
+
+
       </>
     )
   }
@@ -389,7 +410,9 @@ const CurrentOrder = () => {
                     <div className="flex flex-row justify-between p-3">
                       <div>
                         <div>Mover Planner:</div>
-                        <div className="font-semibold">{currentBookingDetail.moverPlanner ? currentBookingDetail.moverPlanner : "Not Assigned"}</div>
+                        <div className="font-semibold">{currentBookingDetail.moverPlanner ? currentBookingDetail.moverPlanner : "SUMIT"}</div>
+                        <div className=" text-sm">{currentBookingDetail.moverPlanner ? currentBookingDetail.moverPlanner : "09289911353"}</div>
+                        {/* <div className="font-semibold">{currentBookingDetail.moverPlanner ? currentBookingDetail.moverPlanner : "Not Assigned"}</div> */}
                       </div>
                       <div className="step7Summarybox_item2">
                         <div>Mover Manager:</div>
@@ -397,17 +420,17 @@ const CurrentOrder = () => {
                       </div>
                     </div>
                     <hr className="mx-auto step7SummarylBox2_hr" />
-                    <div className="flex flex-row p-3 justify-between">
+                    <div className="flex flex-row p-3 justify-center">
                       <div>
                         <button
-                          className=" greyOwn hover:bg-green-100 rounded-md  py-3 px-5 font-semibold text-sm"
+                          className=" greyOwn new_order_step7 py-3 px-10 text-sm rounded hover:bg-green-100 font-semibold "
                           type="submit"
                         >
                           Book Now
                         </button>
                       </div>
                       <div>
-                        <button
+                        {/* <button
                           className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
                           type="submit"
                           onClick={(e) => handleEditInventory(e, currentBookingDetail)}
@@ -419,7 +442,7 @@ const CurrentOrder = () => {
                             alt="Image"
                           />
                           Edit Inventory
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                   </div>
