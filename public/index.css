@@ -18,7 +18,7 @@ bottom: 18rem;
     width: 19.5rem;
   }
   .Index_background1 {
-    height: 575px;
+    height: 775px;
     background-size: 99vw;
   }
   .calculating_pricing-button-text{
@@ -27,9 +27,6 @@ font-weight: 600;
   }
   .index_Calculate_price_Box-text-1{
     font-size: 1rem;
-  }
-  .TrackYourOrderBox{
-    
   }
 }
 

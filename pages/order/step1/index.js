@@ -148,7 +148,7 @@ const Step1 = () => {
               <div className="hidden md:block lg:block xl:block">
                 <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-5 lg:mt-5 xl:mt-5  bg-white rounded-lg  h-14">
                   <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-                    Set up 0% complete
+                    Virtual Survey 0% complete
                   </div>
                   <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
                     5 Step left • About 8 min
@@ -158,7 +158,7 @@ const Step1 = () => {
 
               <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
                 <div className="completepersentage  font-semibold text-3xl completing_bar_text">
-                  Set up 0% complete
+                  Virtual Survey 0% complete
                 </div>
                 <div className="not-italic ">
                   <span className=" font-semibold">5 Step left •</span>

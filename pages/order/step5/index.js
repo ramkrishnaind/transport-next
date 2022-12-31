@@ -262,8 +262,8 @@ const Step5 = () => {
   };
   const handleOk = () => {
     setIsBookingConfirmed(false);
-    router.push("/order/currentOrder");
-    //router.push("/order/step7");
+    // router.push("/order/currentOrder");
+    router.push("/order/step7");
   };
   const bookingConformation = () => {
     Modal.success({
@@ -283,7 +283,7 @@ const Step5 = () => {
           </div>
 
           <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">
-            Set up 100% complete
+            Virtual Survey 100% complete
           </div>
 
           {/* <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div> */}
@@ -312,7 +312,7 @@ const Step5 = () => {
             </div>
 
             <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">
-              Set up 100% complete
+              Virtual Survey 100% complete
             </div>
             <br />
             <Button onClick={handleOk}>Ok, i got it</Button>
@@ -321,7 +321,7 @@ const Step5 = () => {
         </Modal>
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
           <div className="completepersentage  font-semibold text-3xl completing_bar_text">
-            Set up 80% complete
+            Virtual Survey 80% complete
           </div>
           <div className="not-italic ">
             <span className=" font-semibold">1 Step left •</span>
@@ -486,7 +486,7 @@ const Step5 = () => {
           <div>
             <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 mt-3 bg-white rounded-lg h-12">
               <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-                Set up 80% complete
+                Virtual Survey 80% complete
               </div>
               <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
                 1 Step left • About 1 min{" "}

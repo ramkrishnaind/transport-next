@@ -129,7 +129,7 @@ const Step2 = () => {
         <div className="hidden md:block lg:block xl:block">
           <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
             <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              Set up 20% complete
+              Virtual Survey 20% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
               4 Step left • About 7 min
@@ -143,7 +143,7 @@ const Step2 = () => {
         </div>
         <div className=" flex flex-col items-center  gap-2.5 py-5  bg-white MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
           <div className="completepersentage  font-semibold text-3xl completing_bar_text">
-            Set up 20% complete
+            Virtual Survey 20% complete
           </div>
           <div className="not-italic ">
             <span className=" font-semibold">4 Step left •</span>
@@ -321,7 +321,7 @@ const Step2 = () => {
                 </div>
               </div>
               <div className=" mt-5 mb-5 flex flex-row gap-2">
-                <Button
+                {/* <Button
                   className=" px-5 py-4  buttonMobile_grey rounded-m "
                   type="submit"
                   onClick={() => router.push("/order/step1")}
@@ -329,7 +329,7 @@ const Step2 = () => {
                   //disabled={disabled}
                 >
                   Back
-                </Button>
+                </Button> */}
                 <Button
                   className=" px-5 py-4  buttonMobile2 rounded-m "
                   type="submit"

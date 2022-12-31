@@ -3,7 +3,7 @@ import Card from "../../Card";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
 import { getBookingItem } from "../../../services/customer-api-service";
-import { Timeline, Collapse } from "antd";
+import { Timeline, Collapse, Modal } from "antd";
 const { Panel } = Collapse;
 const Step7 = () => {
   const router = useRouter();
@@ -33,6 +33,18 @@ const Step7 = () => {
   console.log("context.step4State", step4State);
   console.log("context.step5State", step5State);
   const [cft, setCft]=useState();
+
+  const [isModalOpenBook, setIsModalOpenBook] = useState(false);
+  const showModalBook = () => {
+    setIsModalOpenBook(true);
+  };
+  const handleOkBook = () => {
+    setIsModalOpenBook(false);
+  };
+  const handleCancelBook = () => {
+    setIsModalOpenBook(false);
+  };
+
   // const { customerDetails } = context;
   // const [customerData, setCustomerData] = useState({});
   // const [state, setState] = useState([]);
@@ -436,11 +448,12 @@ const Step7 = () => {
                         </div>
                         <div className="flex flex-row justify-between p-3">
                           <div>
-                            <div>mover Planner:</div>
-                            <div className="font-semibold">Not Assigned</div>
+                            <div>Move Planner:</div>
+                            <div className="font-semibold">Sumit</div>
+                            <div className="font-semibold">09289911353</div>
                           </div>
                           <div className="step7Summarybox_item2">
-                            <div>Mover Manager:</div>
+                            <div>Move Manager:</div>
                             <div className="font-semibold">Not Assigned</div>
                           </div>
                         </div>
@@ -449,13 +462,20 @@ const Step7 = () => {
                           <div>
                             <button
                               className=" greyOwn hover:bg-green-100 rounded-md  py-3 px-5 font-semibold text-sm"
-                              type="submit"
+                              type="submit" onClick={showModalBook}
                             >
-                              VIEW DETAILS
+                              Book Now
                             </button>
                           </div>
+
+                          <Modal title="Thank you for showing interest in our Services" open={isModalOpenBook} onOk={handleOkBook} onCancel={handleCancelBook}>
+                              <p>Please contact customer care for booking and schedule your move</p>
+                              <a href="tel:180012097225"><p>Line-1 180012097225</p></a>
+                              <a href="tel:180012006683"><p>Linw-2 180012006683</p></a>
+                          </Modal>
+
                           <div>
-                            <button
+                            {/* <button
                               className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
                               type="submit"
                               onClick={(e) => handleEditInventory(e, record)}
@@ -467,7 +487,7 @@ const Step7 = () => {
                                 alt="Image"
                               />
                               Edit Inventory
-                            </button>
+                            </button> */}
                           </div>
                         </div>
                       </div>

@@ -1670,7 +1670,7 @@ const Step4 = (props) => {
         <div className="hidden md:block lg:block xl:block">
           <div className=" flex flex-row justify-between items-center p-0 gap-2.5 r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3  bg-white rounded-lg h-12">
             <div className="pl-7 completepersentage not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
-              Set up 60% complete
+              Virtual Survey 60% complete
             </div>
             <div className="pr-7 not-italic font-semibold text-base flex-none order-none flex-grow-0 bg-white completing_bar_text">
               2 Step left • About 4 min
@@ -1690,7 +1690,7 @@ const Step4 = (props) => {
         <div>
           <div className=" flex flex-col items-center  gap-2.5 py-5 MoblieCompletePersentage md:hidden lg:hidden xl:hidden">
             <div className="completepersentage  font-semibold text-3xl completing_bar_text">
-              Set up 60% complete
+              Virtual Survey 60% complete
             </div>
             <div className="not-italic ">
               <span className=" font-semibold">2 Step left •</span>
