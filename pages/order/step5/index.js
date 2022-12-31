@@ -24,7 +24,7 @@ const Step5 = () => {
   const { step3State } = ctx;
   const { step4State, setStep4State } = ctx;
   const { step5State } = ctx;
-  // console.log("customerDetails -- ", customerDetails);
+  console.log("customerDetails -- ", customerDetails);
   // console.log("context.booking -- ", booking);
   // console.log("context.step1State -- ", step1State);
   // console.log("context.step2State -- ", step2State);

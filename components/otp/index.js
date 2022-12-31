@@ -9,7 +9,7 @@ import useAuth from "../../hooks/useAuth";
 import TransportContext from "../../context";
 import { useRouter } from "next/router";
 const Otp = () => {
-  const { customer, authenticated, saveUserId, gitTokenLogin, getUserRole, routerProtectorLogic } = useAuth();
+  const { customer, authenticated, saveUserId, gitTokenLogin, getUserRole, routerProtectorLogic, saveCustomer } = useAuth();
   const router = useRouter();
   const context = useContext(TransportContext);
   const { customerDetails, setCustomerDetails } = context;
@@ -30,6 +30,7 @@ const Otp = () => {
   useEffect(() => {
     console.log("customerDetails is", customerDetails);
     setCustomerData(customerDetails);
+    saveCustomer(customerDetails)
   }, [customerDetails]);
   const resendOTP = async () => {
 
@@ -61,9 +62,11 @@ const Otp = () => {
     let result = await submitOTP(tpin);
     console.log("result is", result);
     if (result.data.status) {
-      router.push("/order/step1");
+
       setCustomerDetails(result.data.customerData);
+      saveCustomer(result.data.customerData)
       setLoading(false);
+      router.push("/order/step1");
     }
   };
 
@@ -83,7 +86,7 @@ const Otp = () => {
               autoFocus
               required
               onChange={pinInputChangeHandler}
-          />
+            />
           </div>
         </div>
         <p className="text-gray-400 font-small text-sm text-center mt-10">

@@ -9,6 +9,7 @@ const data = data1;
 //debugger;
 console.log(data[0]["Item Name"]);
 const floorOptions = [
+  { value: "Ground", label: "ground" },
   { value: "1st", label: "1st" },
   { value: "2nd", label: "2nd" },
   { value: "3rd", label: "3rd" },

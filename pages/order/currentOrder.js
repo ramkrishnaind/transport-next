@@ -261,24 +261,24 @@ const CurrentOrder = () => {
         </div>
 
 
-        
-          
-            <div >
-              <div className=" rounded-lg border m-2">
-                <Collapse defaultActiveKey={['0']} ghost>
-                  <Panel header="Mislanious Items"  >
-                    <div className="m-2 flex justify-between flex-wrap">
-                      
-                      <div className="p-4">Battries X 5</div>
-                      <div className="p-4">PET X 1</div>
-                      <div className="p-4">POT X 5</div>
 
-                    </div>
-                  </Panel>
-                </Collapse>
-              </div>
-            </div>
-        
+
+        <div >
+          <div className=" rounded-lg border m-2">
+            <Collapse defaultActiveKey={['0']} ghost>
+              <Panel header="Mislanious Items"  >
+                <div className="m-2 flex justify-between flex-wrap">
+
+                  <div className="p-4">Battries X 5</div>
+                  <div className="p-4">PET X 1</div>
+                  <div className="p-4">POT X 5</div>
+
+                </div>
+              </Panel>
+            </Collapse>
+          </div>
+        </div>
+
 
 
       </>
@@ -329,7 +329,7 @@ const CurrentOrder = () => {
                 itemProp="image"
                 alt="Image"
               />
-                Thank you {customer?.customerName}!
+                Thank you {customer?.fullName}!
               </div>
               <div className="thankyou2_step7">The information you provided has been sent to our top secret super wise quote calculating monks. We will get you perfect tailor made quote in a day.</div>
             </div>
@@ -349,7 +349,7 @@ const CurrentOrder = () => {
                       </div>
                     </div>
                     <div className="step7_container2 my-5 py-2 rounded-lg gap-1 bg-white ">
-                      <div className=" font-bold">{customer?.customerName}</div>
+                      <div className=" font-bold">{customer?.fullName}</div>
                       <div>{customer?.email}</div>
                       <div>{customer?.mobile}</div>
                     </div>

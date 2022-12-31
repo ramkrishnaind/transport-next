@@ -33,6 +33,7 @@ const useAuth = () => {
   };
 
   const saveCustomer = (customer) => {
+    console.log("customer is", customer);
     setCustomer(customer);
     localStorage.setItem("customer", JSON.stringify(customer));
   };
@@ -102,7 +103,7 @@ const useAuth = () => {
   }, []);
 
 
-  
+
   const getUserRole = (jwtToken) => {
     return new Promise(async (resolve) => {
       const { data } = await getRole(jwtToken);

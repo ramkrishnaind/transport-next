@@ -29,7 +29,7 @@ const cityOptions = [
 ];
 
 const Step1 = () => {
-  const { customer, authenticated, bookingInfo, saveBooking } = useAuth();
+  const { customer, authenticated, bookingInfo, saveBooking, saveCustomer } = useAuth();
   const router = useRouter();
   const context = useContext(TransportContext);
   const { customerDetails, setBooking } = context;
@@ -37,7 +37,7 @@ const Step1 = () => {
   const [houseType, setHouseType] = useState();
   const [fromState, setFromState] = useState();
   const [toState, setToState] = useState();
-  const [startDate, setStartDate] = useState(new Date(new Date().setDate(new Date().getDate()+3)));
+  const [startDate, setStartDate] = useState(new Date(new Date().setDate(new Date().getDate() + 3)));
   const [houseTypeBlur, setHouseTypeBlur] = useState(false);
   const [fromBlur, setFromBlur] = useState(false);
   const [toBlur, setToBlur] = useState(false);
@@ -56,6 +56,9 @@ const Step1 = () => {
     //   console.log("expire session")
     //   router.push("/")
     // }
+    if (customerDetails) {
+      saveCustomer(customerDetails)
+    }
     setCustomerData(customerDetails);
   }, [customerDetails, customer]);
 
@@ -284,7 +287,7 @@ const Step1 = () => {
                           className="Datepicker_Step1   py-2 font-semibold"
                           placeholder="DD/MM/YYYY"
                           dateFormat="dd/MM/yyyy"
-                          minDate={new Date(new Date().setDate(new Date().getDate()+1))}
+                          minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
                           onChange={(date) => setStartDate(date)}
                         />
                         {/* <input type="text" className="Datepicker_Step1   py-2 font-semibold" placeholder="DD/MM/YYYY" 
