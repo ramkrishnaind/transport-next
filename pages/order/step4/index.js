@@ -1200,68 +1200,68 @@ const Step4 = (props) => {
   };
   const displayThirdLevelNew = (headerIndex) => {
     return (
-      <div className="px-3 py-4 ">
-        <div>
-          <select
-            className=" bg-transparent  font-semibold selectBorder"
-            ref={myLevel2Refs?.[headerIndex] || null}
-            onChange={(e) => {
-              // debugger;
-              if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
-                handleThirdLevelClick(
-                  e,
-                  headerIndex,
-                  e.target.value && JSON.parse(e.target.value)?.Category,
-                  e.target.value && JSON.parse(e.target.value)?.Item,
-                  e.target.value && JSON.parse(e.target.value)?.["Action 1"],
-                  // categoryResults[headerIndex].level2.Item,
-                  e.target.value && JSON.parse(e.target.value)
-                );
-              else {
-                setCategoryResults((prev) => {
-                  let curr = [...prev];
-                  if (curr[headerIndex]) {
-                    curr[headerIndex].level2 = JSON.parse(e.target.value);
-                    curr[headerIndex].level3 = JSON.parse(e.target.value);
-                    curr[headerIndex].level4 = null;
-                    curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
-                    curr[headerIndex].isLast = true;
-                  }
-                  return curr;
-                });
-                // setItemsLevel4((old) => {
-                //   // debugger;
-                //   let current = [...old];
-                //   current[headerIndex] = getLevelFour(
-                //     e.target.value && JSON.parse(e.target.value)?.Category,
-                //     e.target.value && JSON.parse(e.target.value)?.Item,
-                //     e.target.value && JSON.parse(e.target.value)?.["Action 1"],
-                //     e.target.value && JSON.parse(e.target.value)["Action 2"]
-                //   );
-
-                //   return current;
-                // });
-              }
-            }}
-          >
-            <option value={""}>
-              <div className="text-center text-sm">Select</div>
-            </option>
-            {itemsLevel3[headerIndex].map((iterator, index) => {
-              return (
-                <option value={JSON.stringify(iterator)} key={index}>
-                  <div className="flex justify-center py-2 max-h-20 w-20">
-                    <img src={`/images/${iterator?.image}`} alt="" />
-                  </div>
-                  <div className="text-center text-sm">
-                    {iterator?.["Action 2"]}
-                  </div>
-                </option>
+      <>
+        <select
+          className=" bg-transparent  font-semibold selectBorder"
+          required
+          ref={myLevel2Refs?.[headerIndex] || null}
+          onChange={(e) => {
+            // debugger;
+            if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
+              handleThirdLevelClick(
+                e,
+                headerIndex,
+                e.target.value && JSON.parse(e.target.value)?.Category,
+                e.target.value && JSON.parse(e.target.value)?.Item,
+                e.target.value && JSON.parse(e.target.value)?.["Action 1"],
+                // categoryResults[headerIndex].level2.Item,
+                e.target.value && JSON.parse(e.target.value)
               );
-            })}
-          </select>
-        </div>
-      </div>
+            else {
+              setCategoryResults((prev) => {
+                let curr = [...prev];
+                if (curr[headerIndex]) {
+                  curr[headerIndex].level2 = JSON.parse(e.target.value);
+                  curr[headerIndex].level3 = JSON.parse(e.target.value);
+                  curr[headerIndex].level4 = null;
+                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                  curr[headerIndex].isLast = true;
+                }
+                return curr;
+              });
+              // setItemsLevel4((old) => {
+              //   // debugger;
+              //   let current = [...old];
+              //   current[headerIndex] = getLevelFour(
+              //     e.target.value && JSON.parse(e.target.value)?.Category,
+              //     e.target.value && JSON.parse(e.target.value)?.Item,
+              //     e.target.value && JSON.parse(e.target.value)?.["Action 1"],
+              //     e.target.value && JSON.parse(e.target.value)["Action 2"]
+              //   );
+
+              //   return current;
+              // });
+            }
+          }}
+        >
+          <option value=""
+            disabled
+            selected
+            hidden
+            className="step1_select_hidden_option">
+            Select
+          </option>
+          {itemsLevel3[headerIndex].map((iterator, index) => {
+            return (
+              <option value={JSON.stringify(iterator)} key={index}>
+
+                {iterator?.["Action 2"]}
+
+              </option>
+            );
+          })}
+        </select>
+      </>
     );
 
     // );
@@ -1318,68 +1318,68 @@ const Step4 = (props) => {
   };
   const displayFourthLevelNew = (headerIndex) => {
     return (
-      <div className="px-3 py-4 ">
-        <div>
-          <select
-            className=" bg-transparent  font-semibold selectBorder"
-            ref={myLevel3Refs?.[headerIndex] || null}
-            onChange={(e) => {
-              // debugger;
-              if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
-                handleFourthLevelClick(
-                  e,
-                  headerIndex,
-                  e.target.value && JSON.parse(e.target.value)?.Category,
-                  e.target.value && JSON.parse(e.target.value)?.Item,
-                  e.target.value && JSON.parse(e.target.value)?.["Action 1"],
-                  e.target.value && JSON.parse(e.target.value)?.["Action 2"],
-                  e.target.value && JSON.parse(e.target.value)
-                );
-              else {
-                setCategoryResults((prev) => {
-                  // debugger;
-                  let curr = [...prev];
-                  if (curr[headerIndex]) {
-                    curr[headerIndex].level3 = JSON.parse(e.target.value);
-                    curr[headerIndex].level4 = null;
-                    curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
-                    curr[headerIndex].isLast = true;
-                  }
-                  return curr;
-                });
-                // setItemsLevel5((old) => {
-                //   // debugger;
-                //   let current = [...old];
-                //   current[headerIndex] = getLevelFive(
-                //     e.target.value && JSON.parse(e.target.value)?.Category,
-                //     e.target.value && JSON.parse(e.target.value)?.Item,
-                //     e.target.value && JSON.parse(e.target.value)?.["Action 1"],
-                //     e.target.value && JSON.parse(e.target.value)?.["Action 2"],
-                //     e.target.value && JSON.parse(e.target.value)["Action 3"]
-                //   );
-                //   return current;
-                // });
-              }
-            }}
-          >
-            <option value={""}>
-              <div className="text-center text-sm">Select</div>
-            </option>
-            {itemsLevel4[headerIndex].map((iterator, index) => {
-              return (
-                <option value={JSON.stringify(iterator)} key={index}>
-                  <div className="flex justify-center py-2 max-h-20 w-20">
-                    <img src={`/images/${iterator?.image}`} alt="" />
-                  </div>
-                  <div className="text-center text-sm">
-                    {iterator?.["Action 3"]}
-                  </div>
-                </option>
+      <>
+        <select
+          className=" bg-transparent  font-semibold selectBorder"
+          ref={myLevel3Refs?.[headerIndex] || null}
+          required
+          onChange={(e) => {
+            // debugger;
+            if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
+              handleFourthLevelClick(
+                e,
+                headerIndex,
+                e.target.value && JSON.parse(e.target.value)?.Category,
+                e.target.value && JSON.parse(e.target.value)?.Item,
+                e.target.value && JSON.parse(e.target.value)?.["Action 1"],
+                e.target.value && JSON.parse(e.target.value)?.["Action 2"],
+                e.target.value && JSON.parse(e.target.value)
               );
-            })}
-          </select>
-        </div>
-      </div>
+            else {
+              setCategoryResults((prev) => {
+                // debugger;
+                let curr = [...prev];
+                if (curr[headerIndex]) {
+                  curr[headerIndex].level3 = JSON.parse(e.target.value);
+                  curr[headerIndex].level4 = null;
+                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                  curr[headerIndex].isLast = true;
+                }
+                return curr;
+              });
+              // setItemsLevel5((old) => {
+              //   // debugger;
+              //   let current = [...old];
+              //   current[headerIndex] = getLevelFive(
+              //     e.target.value && JSON.parse(e.target.value)?.Category,
+              //     e.target.value && JSON.parse(e.target.value)?.Item,
+              //     e.target.value && JSON.parse(e.target.value)?.["Action 1"],
+              //     e.target.value && JSON.parse(e.target.value)?.["Action 2"],
+              //     e.target.value && JSON.parse(e.target.value)["Action 3"]
+              //   );
+              //   return current;
+              // });
+            }
+          }}
+        >
+          <option value="Select"
+            disabled
+            selected
+            hidden
+            className="step1_select_hidden_option">
+            Select
+          </option>
+          {itemsLevel4[headerIndex].map((iterator, index) => {
+            return (
+              <option value={JSON.stringify(iterator)} key={index}>
+
+                {iterator?.["Action 3"]}
+
+              </option>
+            );
+          })}
+        </select>
+      </>
     );
 
     // );
@@ -1427,54 +1427,52 @@ const Step4 = (props) => {
   const displayFifthLevelNew = (headerIndex) => {
     // console.log("itemsLevel5", itemsLevel5);
     return (
-      <div className="px-3 py-4 ">
-        <div>
-          <select
-            className=" bg-transparent  font-semibold selectBorder"
-            ref={myLevel4Refs?.[headerIndex] || null}
-            onChange={(e) => {
-              if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
-                handleFifthLevelClick(
-                  e,
-                  headerIndex,
-                  e.target.value && JSON.parse(e.target.value)?.Category,
-                  e.target.value && JSON.parse(e.target.value)?.Item,
-                  e.target.value && JSON.parse(e.target.value)?.["Action 1"],
-                  e.target.value && JSON.parse(e.target.value)?.["Action 2"],
-                  e.target.value && JSON.parse(e.target.value)?.["Action 3"],
-                  e.target.value && JSON.parse(e.target.value)
-                );
-              else {
-                setCategoryResults((prev) => {
-                  let curr = [...prev];
-                  if (curr[headerIndex]) {
-                    curr[headerIndex].level4 = JSON.parse(e.target.value);
-                    curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
-                    curr[headerIndex].isLast = true;
-                  }
-                  return curr;
-                });
-              }
-            }}
-          >
-            <option value={""}>
-              <div className="text-center text-sm">Select</div>
-            </option>
-            {itemsLevel5[headerIndex].map((iterator, index) => {
-              return (
-                <option value={JSON.stringify(iterator)} key={index}>
-                  <div className="flex justify-center py-2 max-h-20 w-20">
-                    <img src={`/images/${iterator?.image}`} alt="" />
-                  </div>
-                  <div className="text-center text-sm">
-                    {iterator?.["Action 4"]}
-                  </div>
-                </option>
+      <>
+        <select
+          className=" bg-transparent  font-semibold selectBorder"
+          required
+          ref={myLevel4Refs?.[headerIndex] || null}
+          onChange={(e) => {
+            if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
+              handleFifthLevelClick(
+                e,
+                headerIndex,
+                e.target.value && JSON.parse(e.target.value)?.Category,
+                e.target.value && JSON.parse(e.target.value)?.Item,
+                e.target.value && JSON.parse(e.target.value)?.["Action 1"],
+                e.target.value && JSON.parse(e.target.value)?.["Action 2"],
+                e.target.value && JSON.parse(e.target.value)?.["Action 3"],
+                e.target.value && JSON.parse(e.target.value)
               );
-            })}
-          </select>
-        </div>
-      </div>
+            else {
+              setCategoryResults((prev) => {
+                let curr = [...prev];
+                if (curr[headerIndex]) {
+                  curr[headerIndex].level4 = JSON.parse(e.target.value);
+                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                  curr[headerIndex].isLast = true;
+                }
+                return curr;
+              });
+            }
+          }}
+        >
+          <option value=""
+            disabled
+            selected
+            hidden
+            className="step1_select_hidden_option">
+            Select
+          </option>
+          {itemsLevel5[headerIndex].map((iterator, index) => {
+            return (
+              <option value={JSON.stringify(iterator)} key={index}>
+                {iterator?.["Action 4"]}
+              </option>
+            );
+          })}
+        </select>
+      </>
     );
 
     // );
@@ -1534,57 +1532,59 @@ const Step4 = (props) => {
       //   title={contentSelected?.[0]?.key}
       //   style={{ minHeight: "77.5vh" }}
       // >
-      <div className="  px-3 py-4 ">
-        <div>
-          <select
-            className=" bg-transparent  font-semibold selectBorder"
-            ref={myLevel1Refs?.[headerIndex] || null}
-            onChange={(e) => {
-              // debugger;
-              if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
-                handleSecondLevelClick(
-                  e,
-                  headerIndex,
-                  e.target.value && JSON.parse(e.target.value)?.Category,
-                  e.target.value && JSON.parse(e.target.value)?.Item,
-                  e.target.value
-                );
-              else {
-                setCategoryResults((prev) => {
-                  let curr = [...prev];
-                  if (curr[headerIndex]) {
-                    curr[headerIndex].level1 =
-                      e.target.value && JSON.parse(e.target.value);
-                    curr[headerIndex].level2 = null;
-                    curr[headerIndex].level3 = null;
-                    curr[headerIndex].level4 = null;
-                    curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
-                    curr[headerIndex].isLast = true;
-                  }
-                  return curr;
-                });
-              }
-            }}
-          >
-            <option value={""}>
-              <div className="text-center text-sm">Select...</div>
-            </option>
-            {obj.map((item, index) => {
-              // debugger;
-              return (
-                <option value={JSON.stringify(item)} key={index}>
-                  {/* <div className="flex justify-center py-2 max-h-20 w-20">
+      <>
+        <select
+          className=" bg-transparent  font-semibold selectBorder"
+          ref={myLevel1Refs?.[headerIndex] || null}
+          required
+          onChange={(e) => {
+            // debugger;
+            if (!(e.target.value && JSON.parse(e.target.value)?.isLast))
+              handleSecondLevelClick(
+                e,
+                headerIndex,
+                e.target.value && JSON.parse(e.target.value)?.Category,
+                e.target.value && JSON.parse(e.target.value)?.Item,
+                e.target.value
+              );
+            else {
+              setCategoryResults((prev) => {
+                let curr = [...prev];
+                if (curr[headerIndex]) {
+                  curr[headerIndex].level1 =
+                    e.target.value && JSON.parse(e.target.value);
+                  curr[headerIndex].level2 = null;
+                  curr[headerIndex].level3 = null;
+                  curr[headerIndex].level4 = null;
+                  curr[headerIndex].cft = JSON.parse(e.target.value)?.cft;
+                  curr[headerIndex].isLast = true;
+                }
+                return curr;
+              });
+            }
+          }}
+        >
+          <option value={"Select"}
+            selected
+            hidden
+            disabled
+            className="step1_select_hidden_option">
+            Select
+          </option>
+          {obj.map((item, index) => {
+            // debugger;
+            return (
+              <option value={JSON.stringify(item)} key={index}>
+                {/* <div className="flex justify-center py-2 max-h-20 w-20">
                   <img src={`/images/${item?.image}`} alt="" />
                 </div> */}
-                  <span className="text-center text-sm p-1">
-                    {item["Action 1"]}
-                  </span>
-                </option>
-              );
-            })}
-          </select>
-        </div>
-      </div>
+                {item["Action 1"]}
+              </option>
+            );
+          })}
+        </select>
+      </>
+
     );
 
     // );
@@ -1746,182 +1746,80 @@ const Step4 = (props) => {
           </div>
         </div>
 
-        <div
-          className="flex-col lg:flex xl:flex bg-white xl:justify-between lg:justify-between"
-          style={{ width: "max-content" }}
-        >
-          {itemsLevel1.map((iterator, index) => {
-            // debugger;
-            console.log("iterator", iterator);
-            return (
-              <><div className="mainHeaderCardBox-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between" key={index}>
-                <div className="HeaderCard_CurrentOrder px-3 py-4">
-                  <div className="">
-                    <div>1.<img className="arrow-png pl-3 pr-2" src="/images/trail-img/table_restaurant.png" itemProp="image" alt="main BannerImage" />Table
-                    </div>
-                  </div>
-                  <div className="">
-                    <div className="red-text_currentOrder xl:hidden lg:hidden">Clear</div>
-                  </div>
-                </div>
-                <hr className=" lg:hidden xl:hidden" />
-                <div className="grid_Select_currentOrder   px-3 py-4 ">
-                  <div>
-                    <select
-                      className=" bg-transparent  font-semibold"
-                      required>
-                      <option
-                        value=""
-                        disabled
-                        selected
-                        hidden
-                        className="step1_select_hidden_option"
-                      >
-                        Coffee / center
-                      </option>
-                      <option value="Coffee / center">Coffee / center</option>
-                      <option value="Cocktail Table">Cocktail Table</option>
-                      <option value="End Table">End Table</option>
-                      <option value="Wood Table">Wood Table</option>
-                    </select>
-                  </div>
-                  <div>
-                    <select
-                      className="bg-transparent  font-semibold"
-                      required>
-                      <option
-                        value=""
-                        disabled
-                        selected
-                        hidden
-                        className="step1_select_hidden_option"
-                      >
-                        3 seater
-                      </option>
-                      <option value="Coffee / center">
-                        <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
-                      <option value="Cocktail Table">Cocktail Table</option>
-                      <option value="End Table">End Table</option>
-                      <option value="Wood Table">Wood Table</option>
-                    </select>
-                  </div>
-                  <div>
-                    <select
-                      className="bg-transparent  font-semibold"
-                      required>
-                      <option
-                        value=""
-                        disabled
-                        selected
-                        hidden
-                        className="step1_select_hidden_option"
-                      >
-                        3 seater
-                      </option>
-                      <option value="Coffee / center">
-                        <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
-                      <option value="Cocktail Table">Cocktail Table</option>
-                      <option value="End Table">End Table</option>
-                      <option value="Wood Table">Wood Table</option>
-                    </select>
-                  </div>
-                  <div>
-                    <select
-                      className="bg-transparent  font-semibold"
-                      required>
-                      <option
-                        value=""
-                        disabled
-                        selected
-                        hidden
-                        className="step1_select_hidden_option"
-                      >
-                        Grass Top
-                      </option>
-                      <option value="Coffee / center">
-                        <img className="inline " src="/images/trail-img/ellipse_grassTop.png" itemProp="image" alt="main BannerImage" />Grass Top</option>
-                      <option value="Cocktail Table">Cocktail Table</option>
-                      <option value="End Table">End Table</option>
-                      <option value="Wood Table">Wood Table</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4">Clear</div>
-              </div>
-                <div className="flex flex-row mainHeaderCardBox-Current_history" key={index}>
-                  {itemsLevel1[index] && (
-                    <div className="px-3 py-4">
-                      <div
-                        className=""
-                        onClick={(e) => {
-                          // if (!item?.completed)
-                          // handleFirstLevelItemClick(
-                          //   e,
-                          //   index,
-                          //   iterator.Category,
-                          //   iterator
-                          // );
-                        }}
-                      >
-                        <div>
-                          {`${index + 1}. `}
-                          <img
-                            className="arrow-png pl-3 pr-2 max-h-6 max-w-11"
-                            src={`/images/${iterator[0]?.Image}`}
-                            itemProp="image"
-                            alt="main BannerImage"
-                          />
-                          {iterator[0]?.Item}
-                        </div>
+
+        {itemsLevel1.map((iterator, index) => {
+          // debugger;
+          console.log("iterator", iterator);
+          return (
+            <>
+              <div className="mainHeaderCardBox-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between" key={index}>
+                {itemsLevel1[index] && (
+
+                  <div className="HeaderCard_CurrentOrder px-3 py-4">
+                    <div className="w-36">
+                      <div>{`${index + 1}. `}<img className="arrow-png pl-3 pr-2" src={`/images/${iterator[0]?.Image}`} itemProp="image" alt="main BannerImage" />{iterator[0]?.Item}
                       </div>
                     </div>
-
-                  )}
-
-                  <hr className=" lg:hidden xl:hidden" />
-                  {itemsLevel1[index] && myLevel1Refs?.[index] && (
-                    <div className="second">{displaySecondLevelNew(index)}</div>
-                  )}
-
-                  {checkToShowThirdLevel(index) && myLevel2Refs?.[index] && (
-                    <div className="third">{displayThirdLevelNew(index)}</div>
-                  )}
-                  {checkToShowFourthLevel(index) && myLevel3Refs?.[index] && (
-                    <div className="fourth">{displayFourthLevelNew(index)}</div>
-                  )}
-                  {checkToShowFifthLevel(index) && myLevel4Refs?.[index] && (
-                    <div className="fifth">{displayFifthLevelNew(index)}</div>
-                  )}
-                  <div className="flex">
-                    {categoryResults[index]?.isLast && (
-                      <div
-                        className="orange-text_currentOrder sm:block md:block xl:block lg:block px-3 py-3 cursor-pointer mb-1"
+                    <div className="">
+                      <div className="orange-text_currentOrder xl:hidden lg:hidden"
                         onClick={() => {
                           editHandler(iterator[0].Category, index);
                         }}
-                      >
-                        Clear
-                      </div>
-                    )}
-
-                    <div
-                      className="red-text_currentOrder sm:block md:block xl:block lg:block px-3 py-3 cursor-pointer"
-                      onClick={() => {
-                        deleteHandler(
-                          iterator[0].Category,
-                          iterator[0].Item,
-                          index
-                        );
-                      }}
-                    >
-                      Delete
+                      >Clear</div>
                     </div>
+                    <div className="">
+                      <div className="red-text_currentOrder xl:hidden lg:hidden"
+                        onClick={() => {
+                          deleteHandler(
+                            iterator[0].Category,
+                            iterator[0].Item,
+                            index
+                          );
+                        }}
+                      >Delete</div>
+                    </div>
+
                   </div>
+
+
+
+                )}
+
+                <hr className="lg:hidden xl:hidden" />
+                <div className="grid_Select_currentOrder   px-3 py-4 ">
+                  {itemsLevel1[index] && myLevel1Refs?.[index] && (
+                    <div className="lg:mr-8 xl:mr-8">{displaySecondLevelNew(index)}</div>
+                  )}
+
+                  {checkToShowThirdLevel(index) && myLevel2Refs?.[index] && (
+                    <div className="lg:ml-8 xl:ml-8">{displayThirdLevelNew(index)}</div>
+                  )}
+                  {checkToShowFourthLevel(index) && myLevel3Refs?.[index] && (
+                    <div className="lg:ml-8 xl:ml-8">{displayFourthLevelNew(index)}</div>
+                  )}
+                  {checkToShowFifthLevel(index) && myLevel4Refs?.[index] && (
+                    <div className="lg:ml-8 xl:ml-8">{displayFifthLevelNew(index)}</div>
+                  )}
                 </div>
-              </>
-            );
-          })}
-        </div>
+                <div className="orange-text_currentOrder hidden xl:block lg:block px-3 py-4"
+                  onClick={() => {
+                    editHandler(iterator[0].Category, index);
+                  }}
+                >Clear</div>
+                <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4"
+                  onClick={() => {
+                    deleteHandler(
+                      iterator[0].Category,
+                      iterator[0].Item,
+                      index
+                    );
+                  }}
+                >Delete</div>
+              </div>
+            </>
+          );
+        })}
+
         {itemsLevel1?.[0]?.[0] && (
           <div className="mt-3 ">
             <div className="flex  justify-start mr-5 mt-5 mb-2 space-x-5 pl-5">
