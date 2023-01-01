@@ -3,7 +3,7 @@ import moment from 'moment';
 import TransportContext from "../../context";
 import { useRouter } from "next/router";
 import { getBookingItem } from "../../services/customer-api-service";
-import { Timeline, Collapse, Spin } from 'antd';
+import { Timeline, Collapse, Spin, Modal, Avatar } from 'antd';
 import useAuth from "../../hooks/useAuth";
 import _ from "lodash";
 const { Panel } = Collapse;
@@ -38,7 +38,7 @@ const CurrentOrder = () => {
           currentBooking.step3 = currentBooking?.step3
           // ? transformStep3Object(item?.step3)
           // : null;
-          currentBooking.step3 = currentBooking?.step5
+          currentBooking.step5 = currentBooking?.step5
           // ? transformStep5Object(item?.step5)
           // : null;
           currentBooking.step3State = currentBooking?.step3 || {},
@@ -228,9 +228,22 @@ const CurrentOrder = () => {
     context.step5State = { ...record.step5State };
     router.push("/order/step3");
   };
+
+  const [isModalOpenBook, setIsModalOpenBook] = useState(false);
+  const showModalBook = () => {
+    setIsModalOpenBook(true);
+  };
+  const handleOkBook = () => {
+    setIsModalOpenBook(false);
+  };
+  const handleCancelBook = () => {
+    setIsModalOpenBook(false);
+  };
+
   const bookingSelectedItems = (details) => {
     let result;
     let groupedItems;
+    let res5List = [];
     if (details) {
       console.log("bookingSelectedItems details", details);
       let itemList = [];
@@ -238,6 +251,22 @@ const CurrentOrder = () => {
         itemList.push(...details.step4[key]);
       });
       groupedItems = _.groupBy(itemList, item => item.category);
+      let step5data = details.step5;
+      console.log("step5data is ", step5data)
+      let item5List = [];
+      Object.keys(details.step5).forEach(function (key, index) {
+        //itemList.push(...details.step4[key]);
+        item5List = [...item5List, ...details.step5[key]]
+
+      });
+      console.log("item5List is ", item5List)
+
+      item5List.forEach((item) => {
+        if (item.count > 0) {
+          res5List.push(item);
+        }
+      });
+      console.log("res5List is ", res5List)
     }
     return (
       <>
@@ -268,11 +297,9 @@ const CurrentOrder = () => {
             <Collapse defaultActiveKey={['0']} ghost>
               <Panel header="Mislanious Items"  >
                 <div className="m-2 flex justify-between flex-wrap">
-
-                  <div className="p-4">Battries X 5</div>
-                  <div className="p-4">PET X 1</div>
-                  <div className="p-4">POT X 5</div>
-
+                  {res5List.map((item, index) => (
+                    <div className="p-4" key={index}>{item.title} X {item.count}</div>
+                  ))}
                 </div>
               </Panel>
             </Collapse>
@@ -346,6 +373,7 @@ const CurrentOrder = () => {
                   <div className="step7_grid1 ">
                     <div className="step7_container1 p-3 my-auto">
                       <div className="ellipse_step7">
+                        <Avatar size={98}>{customer?.fullName}</Avatar>
                       </div>
                     </div>
                     <div className="step7_container2 my-5 py-2 rounded-lg gap-1 bg-white ">
@@ -424,7 +452,7 @@ const CurrentOrder = () => {
                       <div>
                         <button
                           className=" greyOwn new_order_step7 py-3 px-10 text-sm rounded hover:bg-green-100 font-semibold "
-                          type="submit"
+                          type="submit" onClick={showModalBook}
                         >
                           Book Now
                         </button>
@@ -443,6 +471,11 @@ const CurrentOrder = () => {
                           />
                           Edit Inventory
                         </button> */}
+                        <Modal title="Thank you for showing interest in our Services" open={isModalOpenBook} onOk={handleOkBook} onCancel={handleCancelBook}>
+                          <p>Please contact customer care for booking and schedule your move</p>
+                          <a href="tel:180012097225"><p>Line-1 180012097225</p></a>
+                          <a href="tel:180012006683"><p>Linw-2 180012006683</p></a>
+                        </Modal>
                       </div>
                     </div>
                   </div>
