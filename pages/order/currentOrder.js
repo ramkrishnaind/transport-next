@@ -248,7 +248,11 @@ const CurrentOrder = () => {
       console.log("bookingSelectedItems details", details);
       let itemList = [];
       Object.keys(details.step4).forEach(function (key, index) {
-        itemList.push(...details.step4[key]);
+        try{
+          itemList.push(...details.step4[key]);
+        }catch{
+          
+        }
       });
       groupedItems = _.groupBy(itemList, item => item.category);
       let step5data = details.step5;
