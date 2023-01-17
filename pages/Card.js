@@ -22,7 +22,7 @@ const Card = ({ image, item, itemCount, onClick, onDecrement }) => {
   return (
     <>
       {isCartonboxes ? (
-        <Tooltip placement="left" title={toolTipMsg}>
+        <Tooltip placement="left" title={toolTipMsg} defaultOpen={true}>
           <div
             onClick={onClick}
             className="flex relative justify-start align-top px-2 py-3  rounded  bg-slate-100 hover:shadow-md card"
@@ -40,7 +40,7 @@ const Card = ({ image, item, itemCount, onClick, onDecrement }) => {
             >
               -
             </div>
-            <div className="text-gray-500 ml-auto mr-9">{itemCount}</div>
+            <div className="text-gray-500 ml-auto mr-9">{cartoonModel[shiftingFor] + itemCount}</div>
           </div>
         </Tooltip>
       ) : (<div

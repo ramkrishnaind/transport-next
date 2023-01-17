@@ -6,7 +6,7 @@ import { StandaloneSearchBox, LoadScript } from "@react-google-maps/api";
 import TransportContext from "../../../context";
 import { useRouter } from "next/router";
 import { collectBasicInfo } from "../../../services/customer-api-service";
-import { Select, Button, Space } from "antd";
+import { Select, Button, Tooltip } from "antd";
 const Option = Select.Option;
 
 import useAuth from "../../../hooks/useAuth";
@@ -222,7 +222,6 @@ const Step1 = () => {
                           <option value="few items">Few items</option>
                         </select>
                       </div>
-
                       <div className=" mt-5 md:mt-0 lg:mt-0 xl:mt-0 text-gray-600 detailquestions ">
                         from
                       </div>
@@ -231,15 +230,17 @@ const Step1 = () => {
                           onLoad={(ref) => (fromInputRef.current = ref)}
                           onPlacesChanged={fromStateInputChangeHandler}
                         >
-                          <input
-                            placeholder="Apartment Name/Locality"
-                            className="Locality-inputText py-2 font-semibold"
-                            type="text"
-                            autoFocus
-                            required
-                            defaultValue={fromState}
-                            onBlur={() => setFromBlur(true)}
-                          />
+                          <Tooltip placement="top" title={"Specify current location for best offers & promotions"} defaultOpen={true}>
+                            <input
+                              placeholder="Apartment Name/Locality"
+                              className="Locality-inputText py-2 font-semibold"
+                              type="text"
+                              autoFocus
+                              required
+                              defaultValue={fromState}
+                              onBlur={() => setFromBlur(true)}
+                            />
+                          </Tooltip>
                         </StandaloneSearchBox>
 
                         {/* <input type="text" className="Locality-inputText py-2 font-semibold" placeholder="Apartment Name/Locality" /> */}
