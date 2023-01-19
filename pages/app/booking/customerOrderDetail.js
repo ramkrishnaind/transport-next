@@ -36,8 +36,8 @@ const CustomerOrderDetail = () => {
   const [month, setMonth] = useState("");
 
   // todo - mover planner and manager name comes from where
-  const [moverPlanner, setMoverPlanner] = useState("Charmee Kothari");
-  const [moverPlannerNo, setMoverPlannerNo] = useState("08047094008");
+  const [moverPlanner, setMoverPlanner] = useState("Sumit Sagwan");
+  const [moverPlannerNo, setMoverPlannerNo] = useState("98 73 107 276");
   const [moveManager, setMoveManager] = useState("Not Assigned");
 
   useEffect(() => {
