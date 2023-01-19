@@ -10,6 +10,7 @@ import TransportContext from "../../../context";
 
 import itemList from "../../../data/itemList.json";
 import bikeList from "../../../data/bikeList.json";
+import { Tooltip } from "antd";
 import {
   bookingItem,
   step4Item,
@@ -1697,7 +1698,7 @@ const Step4 = (props) => {
               <span> About 4 min</span>
             </div>
             <div>
-            <span className="CFT_box_step5 px-2 py-1 ml-1">
+              <span className="CFT_box_step5 px-2 py-1 ml-1">
                 <span className="CFT_box-text1_step5">CFT </span>
                 <span className="CFT_box-text1_step5 font-bold">{cftTot}</span>
               </span>
@@ -1720,35 +1721,37 @@ const Step4 = (props) => {
             className="flex overflow-x-auto accent-emerald-500/25  space-x-4  py-2  px-5"
             style={{ width: "max-content" }}
           >
-            <div className="flex flex-row space-x-3">
-              {state.map((element, index) => {
-                // debugger;
-                // console.log("aaa");
-                return (
-                  <div
-                    key={index}
-                    className=" px-2 cursor-pointer "
-                    title={element.title}
-                    onClick={(e) => handleCarouselClick(e, element)}
-                  >
+            <Tooltip placement="left" title={"Click here to set details for this item type."} defaultOpen={true}>
+              <div className="flex flex-row space-x-3">
+                {state.map((element, index) => {
+                  // debugger;
+                  // console.log("aaa");
+                  return (
                     <div
-                      className="flex justify-center p-3"
-                      style={{ height: 60 }}
+                      key={index}
+                      className=" px-2 cursor-pointer "
+                      title={element.title}
+                      onClick={(e) => handleCarouselClick(e, element)}
                     >
-                      <img src={element.image} alt="" />
-                    </div>
-                    <div className="px-5 mt-2 hover:bg-blue-100">
-                      <button
-                        className="text-gray-500 text-center m-auto cursor-pointer"
-                      // onClick={changeState}
+                      <div
+                        className="flex justify-center p-3"
+                        style={{ height: 60 }}
                       >
-                        {completedCount[index]}/{element.count}
-                      </button>
+                        <img src={element.image} alt="" />
+                      </div>
+                      <div className="px-5 mt-2 hover:bg-blue-100">
+                        <button
+                          className="text-gray-500 text-center m-auto cursor-pointer"
+                        // onClick={changeState}
+                        >
+                          {completedCount[index]}/{element.count}
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            </Tooltip>
           </div>
         </div>
 

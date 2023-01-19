@@ -3,6 +3,7 @@ import dbConnect from "../../../database/lib/dbConnect";
 import CustomerDB from "../../../database/Schemas/customer";
 import withProtect from "../../../middlewares/withProtect";
 import SendEmail from "../../../helperFunction/nodeMail/sendEmail";
+import sendOTP from "../../../helperFunction/sendSMS";
 const _ = require("lodash");
 const Joi = require("joi");
 import { customAlphabet } from "nanoid";
@@ -66,10 +67,15 @@ async function createCustomer(req, res) {
       );
       SendEmail(
         customerData.email,
-        "Customer Login OTP",
-        customerData.otp +
-          " is the TPIN for your White Glove transaction Please use this pin to complete your transaction"
+        "New Customer Login OTP",
+        "WG-" + customerData.otp +
+        " is the OTP to login into White Glove Virtual Survey Engine. Please use this OTP to proceed."
       );
+      console.log("New Customer Login OTP");
+      sendOTP(
+        customerData.mobile,
+        customerData.otp
+      )
       return res.json({
         status: true,
         error: false,
@@ -83,9 +89,14 @@ async function createCustomer(req, res) {
       SendEmail(
         customerData.email,
         "New Customer Login OTP",
-        customerData.otp +
-          " is the TPIN for your White Glove transaction. Please use this PIN to complete your transaction."
+        "WG-" + customerData.otp +
+        " is the OTP to login into White Glove Virtual Survey Engine. Please use this OTP to proceed."
       );
+      console.log("New Customer Login OTP");
+      sendOTP(
+        customerData.mobile,
+        customerData.otp
+      )
       return res.json({
         status: true,
         error: false,

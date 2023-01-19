@@ -18,7 +18,7 @@ import useAuth from "../../../hooks/useAuth";
 //   faAnchor,
 // } from "@fortawesome/free-solid-svg-icons";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
-import { Collapse } from "antd";
+import { Collapse, Tooltip } from "antd";
 const { Panel } = Collapse;
 
 const Step3 = (props) => {
@@ -207,16 +207,32 @@ const Step3 = (props) => {
         <div className="mt-5">
           <div className="flex flex-col gap-2 grid-cols-1 mt-5">
             {objectState.Furniture.map((item, index) => {
-              console.log("item", item);
+              console.log("item in step 3", item);
               return (
-                <Card
-                  image={item.image}
-                  key={index}
-                  item={item.title}
-                  itemCount={item.count}
-                  onDecrement={decrementHandler.bind(null, "Furniture", item)}
-                  onClick={clickHandler.bind(null, "Furniture", item)}
-                />
+                <>
+                  {item.title === "Cupboard" ? (
+
+                    <Tooltip placement="left" title={"Click on a card to add an item of that type"} defaultOpen={true}>
+                      <Card
+                        image={item.image}
+                        key={index}
+                        item={item.title}
+                        itemCount={item.count}
+                        onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                        onClick={clickHandler.bind(null, "Furniture", item)}
+                      />
+                    </Tooltip>
+                  ) : (
+                    <Card
+                      image={item.image}
+                      key={index}
+                      item={item.title}
+                      itemCount={item.count}
+                      onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                      onClick={clickHandler.bind(null, "Furniture", item)}
+                    />
+                  )}
+                </>
               );
             })}
           </div>
@@ -384,7 +400,7 @@ const Step3 = (props) => {
               <button
                 className="button_2_skip rounded-m px-10 py-2"
                 type="button"
-                // onClick={handleSkip}
+              // onClick={handleSkip}
               >
                 SKIP
               </button>
@@ -418,18 +434,41 @@ const Step3 = (props) => {
                 {objectState.Furniture.map((item, index) => {
                   console.log("item", item);
                   return (
-                    <Card
-                      image={item.image}
-                      key={index}
-                      item={item.title}
-                      itemCount={item.count}
-                      onDecrement={decrementHandler.bind(
-                        null,
-                        "Furniture",
-                        item
+                    <>
+                      {item.title === "Cupboard" ? (
+
+                        <Tooltip placement="left" title={"Click on a card to add an item of that type"} defaultOpen={true}>
+                          <Card
+                            image={item.image}
+                            key={index}
+                            item={item.title}
+                            itemCount={item.count}
+                            onDecrement={decrementHandler.bind(
+                              null,
+                              "Furniture",
+                              item
+                            )}
+                            onClick={clickHandler.bind(null, "Furniture", item)}
+                          />
+                        </Tooltip>
+                      ) : (
+                        <Card
+                          image={item.image}
+                          key={index}
+                          item={item.title}
+                          itemCount={item.count}
+                          onDecrement={decrementHandler.bind(
+                            null,
+                            "Furniture",
+                            item
+                          )}
+                          onClick={clickHandler.bind(null, "Furniture", item)}
+                        />
                       )}
-                      onClick={clickHandler.bind(null, "Furniture", item)}
-                    />
+                    </>
+
+
+
                   );
                 })}
               </div>
