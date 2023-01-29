@@ -226,7 +226,24 @@ const CurrentOrder = () => {
     context.step3State = { ...record.step3State };
     context.step4State = { ...record.step4State };
     context.step5State = { ...record.step5State };
+    getData(record.bookingId);
     router.push("/order/step3");
+  };
+
+  const getData = async (bookingId) => {
+    let results;
+    console.log("bookingInfo?.bookingId is ", bookingId)
+    try {
+      results = await getBookingItem(bookingId);
+      if (results?.data?.data) {
+        console.log("api response is ", results)
+        let currentBooking = results?.data?.data;
+        console.log("current booking is ", currentBooking)
+        context.step3State = currentBooking?.step3 || {};
+        context.step4State = currentBooking?.step4 || [];
+        context.step5State = currentBooking?.step5 || {};
+      }
+    } catch (error) { console.log('Error is', error) }
   };
 
   const [isModalOpenBook, setIsModalOpenBook] = useState(false);
@@ -299,7 +316,7 @@ const CurrentOrder = () => {
         <div >
           <div className=" rounded-lg border m-2">
             <Collapse defaultActiveKey={['0']} ghost>
-              <Panel header="Mislanious Items"  >
+              <Panel header="Miscellaneous Items"  >
                 <div className="m-2 flex justify-between flex-wrap">
                   {res5List.map((item, index) => (
                     <div className="p-4" key={index}>{item.title} X {item.count}</div>
@@ -462,7 +479,7 @@ const CurrentOrder = () => {
                         </button>
                       </div>
                       <div>
-                        {/* <button
+                         <button
                           className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
                           type="submit"
                           onClick={(e) => handleEditInventory(e, currentBookingDetail)}
@@ -474,7 +491,7 @@ const CurrentOrder = () => {
                             alt="Image"
                           />
                           Edit Inventory
-                        </button> */}
+                        </button> 
                         <Modal title="Thank you for showing interest in our Services" open={isModalOpenBook} onOk={handleOkBook} onCancel={handleCancelBook}>
                           <p>Please contact customer care for booking and schedule your move</p>
                           <a href="tel:180012097225"><p>Line-1 180012097225</p></a>
@@ -508,12 +525,12 @@ const CurrentOrder = () => {
                     <Timeline.Item>
                       <div className="py-1">From</div>
                       <div className="py-1 font-semibold">{currentBookingDetail.shiftingFrom}</div>
-                      <div className="py-1 font-semibold">{currentBookingDetail.currentFloor} Floor</div> <div className="py-1 greencolor">{currentBookingDetail.isLiftAvailableOnCurrentFloor ? "Lift Avilabe" : "Lift Not Avilabe"} </div>
+                      <div className="py-1 font-semibold">{currentBookingDetail.currentFloor} Floor</div> <div className="py-1 greencolor">{currentBookingDetail.isLiftAvailableOnCurrentFloor ? "Lift Available" : "Lift Not Available"} </div>
                     </Timeline.Item>
                     <Timeline.Item>
                       <div className="py-1">To</div>
                       <div className="py-1 font-semibold">{currentBookingDetail.shiftingTo}</div>
-                      <div className="py-1 font-semibold">{currentBookingDetail.movingOnFloor} Floor</div> <div className="py-1 greencolor">{currentBookingDetail.isLiftAvailableOnMovingFloor ? "Lift Avilabe" : "Lift Not Avilabe"}</div>
+                      <div className="py-1 font-semibold">{currentBookingDetail.movingOnFloor} Floor</div> <div className="py-1 greencolor">{currentBookingDetail.isLiftAvailableOnMovingFloor ? "Lift Available" : "Lift Not Available"}</div>
                     </Timeline.Item>
                   </Timeline>
                 </div>

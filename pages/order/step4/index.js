@@ -455,6 +455,7 @@ const Step4 = (props) => {
   };
   useEffect(getStateData, [items]);
   useEffect(() => {
+    debugger
     if (categoryResults && categoryResults.length > 0)
       if (categoryResults[0]?.category) {
         setStepResults((prev) => {
@@ -484,7 +485,7 @@ const Step4 = (props) => {
   };
   useEffect(() => {
     console.log("itemLevels1----", myLevel1Refs);
-    // debugger;
+     // debugger;
     itemsLevel2.map((n, index) => {
       if (
         myLevel1Refs &&
@@ -501,6 +502,7 @@ const Step4 = (props) => {
     });
   }, [myLevel1Refs]);
   useEffect(() => {
+       //  debugger;
     const arr = [];
     state.forEach((element, index) => {
       arr.push(getCompletedCount(element.category, element.title));
@@ -509,7 +511,7 @@ const Step4 = (props) => {
   }, [state, categoryResults]);
   useEffect(() => {
     console.log("itemLevels2----", myLevel2Refs);
-
+    // debugger;
     setTimeout(() => {
       itemsLevel3.map((n, index) => {
         if (
@@ -536,7 +538,7 @@ const Step4 = (props) => {
     setMyLevel5Refs(null);
   }, [currentCategory]);
   useEffect(() => {
-    // debugger;
+     // debugger;
     console.log("itemLevels3----", myLevel3Refs);
     itemsLevel4.map((n, index) => {
       if (
@@ -586,6 +588,7 @@ const Step4 = (props) => {
   //   });
   // }, [myLevel5Refs]);
   useEffect(() => {
+    // debugger;
     if (itemsLevel2.length > 0) {
       setMyLevel1Refs(itemsLevel2.map(() => createRef()));
     } else {
@@ -601,7 +604,8 @@ const Step4 = (props) => {
     // }, 1000);
   }, [itemsLevel2]);
   useEffect(() => {
-    setStep4State(stepResults);
+     debugger;
+   // setStep4State(stepResults);
     if (stepResults)
       localStorage.setItem("step4State", JSON.stringify(stepResults));
     if (stepResults) {
@@ -620,7 +624,7 @@ const Step4 = (props) => {
     }
   }, [stepResults]);
   useEffect(() => {
-    // debugger;
+    debugger;
     if (!step4State) {
       const step4StateLS = localStorage.getItem("step4State");
       // console.log("local storage - ", stp3State);
@@ -646,6 +650,7 @@ const Step4 = (props) => {
     }
   }, []);
   useEffect(() => {
+    // debugger;
     if (itemsLevel3?.length > 0) {
       setMyLevel2Refs(itemsLevel3?.map(() => createRef()));
     } else {
@@ -653,6 +658,7 @@ const Step4 = (props) => {
     }
   }, [itemsLevel3]);
   useEffect(() => {
+    // debugger;
     if (itemsLevel4?.length > 0) {
       setMyLevel3Refs(itemsLevel4?.map(() => createRef()));
     } else {
@@ -660,6 +666,7 @@ const Step4 = (props) => {
     }
   }, [itemsLevel4]);
   useEffect(() => {
+   // debugger;
     if (itemsLevel5?.length > 0) {
       setMyLevel4Refs(itemsLevel5?.map(() => createRef()));
     } else {
@@ -667,7 +674,7 @@ const Step4 = (props) => {
     }
   }, [itemsLevel5]);
   const getCompletedCount = (cat, item) => {
-    // debugger;
+   debugger;
     if (!stepResults || !stepResults[`${cat}-${item}`]) return 0;
     const itemsCompleted = stepResults[`${cat}-${item}`].filter(
       (i) => i.Item && i.category == cat && i.Item == item && i.isLast
@@ -679,6 +686,7 @@ const Step4 = (props) => {
   };
 
   const getCopiedObject = useCallback((objFound) => {
+    //debugger;
     const objValues = [];
     if (objFound?.value?.length > 0) {
       objFound?.value.forEach((i) => {
@@ -906,8 +914,9 @@ const Step4 = (props) => {
     setState("Sofasets");
   };
   useEffect(() => {
+    // debugger
     if (ctx?.step4Items && ctx?.step4Items?.length > 0)
-      setItems([...(ctx.step4Items || [])]);
+      setItems([...(ctx.step4Items)]);
   }, [ctx.step4Items]);
 
   const handleCarouselClick = (event, element) => {
@@ -1606,7 +1615,7 @@ const Step4 = (props) => {
   };
 
   const handleSubmit = async () => {
-    // debugger;
+    debugger;
 
     let cftTot = 0;
     for (const i = 0; i < Object.keys(stepResults).length; i++) {
@@ -1724,7 +1733,7 @@ const Step4 = (props) => {
             <Tooltip placement="left" title={"Click here to set details for this item type."} defaultOpen={true}>
               <div className="flex flex-row space-x-3">
                 {state.map((element, index) => {
-                  // debugger;
+                  debugger;
                   // console.log("aaa");
                   return (
                     <div
