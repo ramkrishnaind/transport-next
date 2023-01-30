@@ -380,7 +380,7 @@ const Step4 = (props) => {
   const [completedCount, setCompletedCount] = useState([]);
   const [currentCategory, setCurrentCategory] = useState();
   const [categoryResults, setCategoryResults] = useState([]);
-  const [stepResults, setStepResults] = useState();
+  const [stepResults, setStepResults] = useState([]);
   const { bookingInfo, saveBooking, customer } = useAuth();
   const router = useRouter();
   const [state, setState] = useState([]);
@@ -605,7 +605,7 @@ const Step4 = (props) => {
   }, [itemsLevel2]);
   useEffect(() => {
      debugger;
-   // setStep4State(stepResults);
+   setStep4State(stepResults);
     if (stepResults)
       localStorage.setItem("step4State", JSON.stringify(stepResults));
     if (stepResults) {
@@ -1654,15 +1654,20 @@ const Step4 = (props) => {
     // ctx.setStep4State(cftData);
     // console.log("context.step4State -- ", step4State);
     await cft({
-      bookingId: step2State?.bookingId,
+      bookingId: bookingInfo.bookingId,
       cft: cftTot,
     });
     await bookingItem({
-      bookingId: step2State?.bookingId,
+      bookingId: bookingInfo.bookingId,
       ...objCreated,
     });
+    console.log("objCreated - ", objCreated)
+    console.log("stepResults - ", stepResults)
+    console.log("bookingInfo - ", bookingInfo)
+    console.log("bookingInfo, id - ", bookingInfo.bookingId)
+    debugger;
     await step4Item({
-      bookingId: step2State?.bookingId,
+      bookingId: bookingInfo.bookingId,
       step4: stepResults,
     });
     saveBooking({

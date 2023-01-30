@@ -222,29 +222,34 @@ const CurrentOrder = () => {
 
   const handleEditInventory = async (event, record) => {
     event.preventDefault();
+    debugger;
     context.step2State = { ...context.step2State, bookingId: record.bookingId };
     context.step3State = { ...record.step3State };
     context.step4State = { ...record.step4State };
     context.step5State = { ...record.step5State };
-    getData(record.bookingId);
-    router.push("/order/step3");
-  };
-
-  const getData = async (bookingId) => {
+    debugger;
     let results;
-    console.log("bookingInfo?.bookingId is ", bookingId)
+    //console.log("bookingInfo?.bookingId is ", bookingId)
     try {
-      results = await getBookingItem(bookingId);
+      results = await getBookingItem(bookingInfo.bookingId);
+      console.log("results - ", results)
       if (results?.data?.data) {
+        debugger
         console.log("api response is ", results)
         let currentBooking = results?.data?.data;
         console.log("current booking is ", currentBooking)
         context.step3State = currentBooking?.step3 || {};
         context.step4State = currentBooking?.step4 || [];
+        context.step4Items = currentBooking?.step4 || [];
         context.step5State = currentBooking?.step5 || {};
       }
     } catch (error) { console.log('Error is', error) }
+    router.push("/order/step3");
   };
+
+  // const getData = async (bookingId) => {
+   
+  // };
 
   const [isModalOpenBook, setIsModalOpenBook] = useState(false);
   const showModalBook = () => {
