@@ -37,8 +37,9 @@ export const AppProvider = ({ children }) => {
   const [step2State, setStep2State] = useState();
   const [step3State, setStep3State] = useState();
   const [step4State, setStep4State] = useState();
-  const [step4Items, setStep4Items] = useState();
   const [step5State, setStep5State] = useState();
+  const [step4StepResults, setStep4StepResults] = useState();
+  const [step4Items, setStep4Items] = useState();
   const [quotation, setQuotation] = useState();
   const [isAuth, setIsAuth] = useState(false);
   const [customerDetails, setCustomerDetails] = useState();
@@ -66,6 +67,8 @@ export const AppProvider = ({ children }) => {
         setStep4State,
         step4Items,
         setStep4Items,
+        step4StepResults,
+        setStep4StepResults,
         step5State,
         setStep5State,
         quotation,

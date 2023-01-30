@@ -168,9 +168,10 @@ const Step3 = (props) => {
     const newStep4 = ctx.step4State;
     debugger;
     if (newStep4) {
-      delete newStep4[item.category];
+      delete newStep4[key + "-" + item.title];
       ctx.setStep4Items({ ...newStep4 });
       localStorage.setItem("step4State", JSON.stringify(newStep4));
+      localStorage.setItem("step4StepResults", JSON.stringify(newStep4));
     }
 
     // ctx.setStep3State(newState);
@@ -211,14 +212,21 @@ const Step3 = (props) => {
               return (
                 <>
                   {item.title === "Cupboard" ? (
-
-                    <Tooltip placement="left" title={"Click on a card to add an item of that type"} defaultOpen={true}>
+                    <Tooltip
+                      placement="left"
+                      title={"Click on a card to add an item of that type"}
+                      defaultOpen={true}
+                    >
                       <Card
                         image={item.image}
                         key={index}
                         item={item.title}
                         itemCount={item.count}
-                        onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                        onDecrement={decrementHandler.bind(
+                          null,
+                          "Furniture",
+                          item
+                        )}
                         onClick={clickHandler.bind(null, "Furniture", item)}
                       />
                     </Tooltip>
@@ -228,7 +236,11 @@ const Step3 = (props) => {
                       key={index}
                       item={item.title}
                       itemCount={item.count}
-                      onDecrement={decrementHandler.bind(null, "Furniture", item)}
+                      onDecrement={decrementHandler.bind(
+                        null,
+                        "Furniture",
+                        item
+                      )}
                       onClick={clickHandler.bind(null, "Furniture", item)}
                     />
                   )}
@@ -400,7 +412,7 @@ const Step3 = (props) => {
               <button
                 className="button_2_skip rounded-m px-10 py-2"
                 type="button"
-              // onClick={handleSkip}
+                // onClick={handleSkip}
               >
                 SKIP
               </button>
@@ -436,8 +448,11 @@ const Step3 = (props) => {
                   return (
                     <>
                       {item.title === "Cupboard" ? (
-
-                        <Tooltip placement="left" title={"Click on a card to add an item of that type"} defaultOpen={true}>
+                        <Tooltip
+                          placement="left"
+                          title={"Click on a card to add an item of that type"}
+                          defaultOpen={true}
+                        >
                           <Card
                             image={item.image}
                             key={index}
@@ -466,9 +481,6 @@ const Step3 = (props) => {
                         />
                       )}
                     </>
-
-
-
                   );
                 })}
               </div>

@@ -81,6 +81,7 @@ const itemCategroies = itemLists
   });
 const categories = new Set([...itemCategroies, "Vehicle"]);
 console.log("categories", categories);
+
 const getLevelOne = (category, type) => {
   // debugger;
   const arrResult = [];
@@ -386,7 +387,7 @@ const Step4 = (props) => {
   const [state, setState] = useState([]);
   const [items, setItems] = useState([]);
   const [stateData, setStateData] = useState([]);
-  const checkKeyExist = (object, key) => { };
+  const checkKeyExist = (object, key) => {};
   const [currentHeader, setCurrentHeader] = useState();
   const [currentItem, setCurrentItem] = useState();
   const itemToSet = {};
@@ -396,6 +397,8 @@ const Step4 = (props) => {
   console.log("ctx.step3State - ", ctx.step3State);
   const [cftTotal, setCftTotal] = useState(0);
   const [cftTot, setCftTot] = useState(0);
+  console.log("categoryresults", categoryResults);
+  // console.log("stateData", state);
   const getStateData = () => {
     const result = [];
     const sumOfCFT = 0;
@@ -455,7 +458,7 @@ const Step4 = (props) => {
   };
   useEffect(getStateData, [items]);
   useEffect(() => {
-    debugger
+    // debugger;
     if (categoryResults && categoryResults.length > 0)
       if (categoryResults[0]?.category) {
         setStepResults((prev) => {
@@ -485,13 +488,13 @@ const Step4 = (props) => {
   };
   useEffect(() => {
     console.log("itemLevels1----", myLevel1Refs);
-     // debugger;
+    // debugger;
     itemsLevel2.map((n, index) => {
       if (
         myLevel1Refs &&
         myLevel1Refs[index].current &&
         stepResults[
-        `${itemsLevel2?.[index]?.[index]?.Category}-${itemsLevel2?.[index]?.[index]?.Item}`
+          `${itemsLevel2?.[index]?.[index]?.Category}-${itemsLevel2?.[index]?.[index]?.Item}`
         ]
       )
         myLevel1Refs[index].current.value = JSON.stringify(
@@ -502,7 +505,7 @@ const Step4 = (props) => {
     });
   }, [myLevel1Refs]);
   useEffect(() => {
-       //  debugger;
+    //  debugger;
     const arr = [];
     state.forEach((element, index) => {
       arr.push(getCompletedCount(element.category, element.title));
@@ -518,7 +521,7 @@ const Step4 = (props) => {
           myLevel2Refs &&
           myLevel2Refs[index].current &&
           stepResults[
-          `${itemsLevel3?.[index]?.[index]?.Category}-${itemsLevel3?.[index]?.[index]?.Item}`
+            `${itemsLevel3?.[index]?.[index]?.Category}-${itemsLevel3?.[index]?.[index]?.Item}`
           ]?.[index]
         )
           myLevel2Refs[index].current.value = JSON.stringify(
@@ -538,14 +541,14 @@ const Step4 = (props) => {
     setMyLevel5Refs(null);
   }, [currentCategory]);
   useEffect(() => {
-     // debugger;
+    // debugger;
     console.log("itemLevels3----", myLevel3Refs);
     itemsLevel4.map((n, index) => {
       if (
         myLevel3Refs &&
         myLevel3Refs[index]?.current &&
         stepResults[
-        `${itemsLevel4?.[index]?.[index]?.Category}-${itemsLevel4?.[index]?.[index]?.Item}`
+          `${itemsLevel4?.[index]?.[index]?.Category}-${itemsLevel4?.[index]?.[index]?.Item}`
         ]?.[index]
       )
         myLevel3Refs[index].current.value = JSON.stringify(
@@ -563,7 +566,7 @@ const Step4 = (props) => {
         myLevel4Refs &&
         myLevel4Refs[index].current &&
         stepResults[
-        `${itemsLevel5?.[index]?.[index]?.Category}-${itemsLevel5?.[index]?.[index]?.Item}`
+          `${itemsLevel5?.[index]?.[index]?.Category}-${itemsLevel5?.[index]?.[index]?.Item}`
         ]?.[index]
       )
         myLevel4Refs[index].current.value = JSON.stringify(
@@ -604,8 +607,8 @@ const Step4 = (props) => {
     // }, 1000);
   }, [itemsLevel2]);
   useEffect(() => {
-     debugger;
-   setStep4State(stepResults);
+    // debugger;
+    setStep4State(stepResults);
     if (stepResults)
       localStorage.setItem("step4State", JSON.stringify(stepResults));
     if (stepResults) {
@@ -666,17 +669,18 @@ const Step4 = (props) => {
     }
   }, [itemsLevel4]);
   useEffect(() => {
-   // debugger;
+    // debugger;
     if (itemsLevel5?.length > 0) {
       setMyLevel4Refs(itemsLevel5?.map(() => createRef()));
     } else {
       setMyLevel4Refs([]);
     }
   }, [itemsLevel5]);
-  const getCompletedCount = (cat, item) => {
-   debugger;
-    if (!stepResults || !stepResults[`${cat}-${item}`]) return 0;
-    const itemsCompleted = stepResults[`${cat}-${item}`].filter(
+  const getCompletedCount = (cat, item, stepResultsNew) => {
+    const stepRes = stepResultsNew || stepResults;
+    // debugger;
+    if (!stepRes || !stepRes[`${cat}-${item}`]) return 0;
+    const itemsCompleted = stepRes[`${cat}-${item}`].filter(
       (i) => i.Item && i.category == cat && i.Item == item && i.isLast
     );
     //
@@ -913,12 +917,35 @@ const Step4 = (props) => {
   const changeState = () => {
     setState("Sofasets");
   };
+  // useEffect(() => {
+  //   // debugger
+  //   if (ctx?.step4Items && ctx?.step4Items?.length > 0)
+  //     setItems([...ctx.step4Items]);
+  // }, [ctx.step4Items]);
   useEffect(() => {
-    // debugger
-    if (ctx?.step4Items && ctx?.step4Items?.length > 0)
-      setItems([...(ctx.step4Items)]);
-  }, [ctx.step4Items]);
-
+    debugger;
+    const step4StateLS = localStorage.getItem("step4StepResults");
+    if (step4StateLS) {
+      debugger;
+      setStepResults(JSON.parse(step4StateLS));
+      // setTimeout(() => {
+      // debugger
+      // debugger
+      const arr = [];
+      state.forEach((element, index) => {
+        arr.push(
+          getCompletedCount(
+            element.category,
+            element.title,
+            ctx.step4StepResults
+          )
+        );
+      });
+      debugger;
+      setCompletedCount(arr);
+      // }, 1000);
+    }
+  }, []);
   const handleCarouselClick = (event, element) => {
     // debugger;
     setCurrentCategory((prev) => {
@@ -1092,7 +1119,7 @@ const Step4 = (props) => {
 
     setCategoryResults(catResults);
   };
-  useEffect(() => { }, [stepResults]);
+  useEffect(() => {}, [stepResults]);
   const handleFirstLevelItemClick = (event, parentIndex, category, item) => {
     event.stopPropagation();
 
@@ -1254,19 +1281,19 @@ const Step4 = (props) => {
             }
           }}
         >
-          <option value=""
+          <option
+            value=""
             disabled
             selected
             hidden
-            className="step1_select_hidden_option">
+            className="step1_select_hidden_option"
+          >
             Select
           </option>
           {itemsLevel3[headerIndex].map((iterator, index) => {
             return (
               <option value={JSON.stringify(iterator)} key={index}>
-
                 {iterator?.["Action 2"]}
-
               </option>
             );
           })}
@@ -1372,19 +1399,19 @@ const Step4 = (props) => {
             }
           }}
         >
-          <option value="Select"
+          <option
+            value="Select"
             disabled
             selected
             hidden
-            className="step1_select_hidden_option">
+            className="step1_select_hidden_option"
+          >
             Select
           </option>
           {itemsLevel4[headerIndex].map((iterator, index) => {
             return (
               <option value={JSON.stringify(iterator)} key={index}>
-
                 {iterator?.["Action 3"]}
-
               </option>
             );
           })}
@@ -1467,11 +1494,13 @@ const Step4 = (props) => {
             }
           }}
         >
-          <option value=""
+          <option
+            value=""
             disabled
             selected
             hidden
-            className="step1_select_hidden_option">
+            className="step1_select_hidden_option"
+          >
             Select
           </option>
           {itemsLevel5[headerIndex].map((iterator, index) => {
@@ -1574,11 +1603,13 @@ const Step4 = (props) => {
             }
           }}
         >
-          <option value={"Select"}
+          <option
+            value={"Select"}
             selected
             hidden
             disabled
-            className="step1_select_hidden_option">
+            className="step1_select_hidden_option"
+          >
             Select
           </option>
           {obj.map((item, index) => {
@@ -1594,7 +1625,6 @@ const Step4 = (props) => {
           })}
         </select>
       </>
-
     );
 
     // );
@@ -1630,6 +1660,7 @@ const Step4 = (props) => {
       }
     }
     const objCreated = {};
+
     stateData?.forEach((item) => {
       const key = item?.item.replace("/", " ");
       const items = key.split(" ");
@@ -1661,10 +1692,10 @@ const Step4 = (props) => {
       bookingId: bookingInfo.bookingId,
       ...objCreated,
     });
-    console.log("objCreated - ", objCreated)
-    console.log("stepResults - ", stepResults)
-    console.log("bookingInfo - ", bookingInfo)
-    console.log("bookingInfo, id - ", bookingInfo.bookingId)
+    console.log("objCreated - ", objCreated);
+    console.log("stepResults - ", stepResults);
+    console.log("bookingInfo - ", bookingInfo);
+    console.log("bookingInfo, id - ", bookingInfo.bookingId);
     debugger;
     await step4Item({
       bookingId: bookingInfo.bookingId,
@@ -1735,10 +1766,14 @@ const Step4 = (props) => {
             className="flex overflow-x-auto accent-emerald-500/25  space-x-4  py-2  px-5"
             style={{ width: "max-content" }}
           >
-            <Tooltip placement="left" title={"Click here to set details for this item type."} defaultOpen={true}>
+            <Tooltip
+              placement="left"
+              title={"Click here to set details for this item type."}
+              defaultOpen={true}
+            >
               <div className="flex flex-row space-x-3">
                 {state.map((element, index) => {
-                  debugger;
+                  // debugger;
                   // console.log("aaa");
                   return (
                     <div
@@ -1756,7 +1791,7 @@ const Step4 = (props) => {
                       <div className="px-5 mt-2 hover:bg-blue-100">
                         <button
                           className="text-gray-500 text-center m-auto cursor-pointer"
-                        // onClick={changeState}
+                          // onClick={changeState}
                         >
                           {completedCount[index]}/{element.count}
                         </button>
@@ -1769,29 +1804,42 @@ const Step4 = (props) => {
           </div>
         </div>
 
-
         {itemsLevel1.map((iterator, index) => {
           // debugger;
           console.log("iterator", iterator);
           return (
             <>
-              <div className="mainHeaderCardBox-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between" key={index}>
+              <div
+                className="mainHeaderCardBox-Current_history lg:flex xl:flex m-3 bg-white xl:justify-between lg:justify-between"
+                key={index}
+              >
                 {itemsLevel1[index] && (
-
                   <div className="HeaderCard_CurrentOrder px-3 py-4">
                     <div className="w-52">
-                      <div>{`${index + 1}. `}<img className="arrow-png pl-3 pr-2" src={`/images/${iterator[0]?.Image}`} itemProp="image" alt="main BannerImage" />{iterator[0]?.Item}
+                      <div>
+                        {`${index + 1}. `}
+                        <img
+                          className="arrow-png pl-3 pr-2"
+                          src={`/images/${iterator[0]?.Image}`}
+                          itemProp="image"
+                          alt="main BannerImage"
+                        />
+                        {iterator[0]?.Item}
                       </div>
                     </div>
                     <div className="">
-                      <div className="orange-text_currentOrder xl:hidden lg:hidden"
+                      <div
+                        className="orange-text_currentOrder xl:hidden lg:hidden"
                         onClick={() => {
                           editHandler(iterator[0].Category, index);
                         }}
-                      >Clear</div>
+                      >
+                        Clear
+                      </div>
                     </div>
                     <div className="">
-                      <div className="red-text_currentOrder xl:hidden lg:hidden"
+                      <div
+                        className="red-text_currentOrder xl:hidden lg:hidden"
                         onClick={() => {
                           deleteHandler(
                             iterator[0].Category,
@@ -1799,37 +1847,47 @@ const Step4 = (props) => {
                             index
                           );
                         }}
-                      >Delete</div>
+                      >
+                        Delete
+                      </div>
                     </div>
-
                   </div>
-
-
-
                 )}
 
                 <hr className="lg:hidden xl:hidden" />
                 <div className="grid_Select_currentOrder gap-2 px-3 py-4 ">
                   {itemsLevel1[index] && myLevel1Refs?.[index] && (
-                    <div className="lg:mr-8 xl:mr-8">{displaySecondLevelNew(index)}</div>
+                    <div className="lg:mr-8 xl:mr-8">
+                      {displaySecondLevelNew(index)}
+                    </div>
                   )}
 
                   {checkToShowThirdLevel(index) && myLevel2Refs?.[index] && (
-                    <div className="lg:ml-8 xl:ml-8">{displayThirdLevelNew(index)}</div>
+                    <div className="lg:ml-8 xl:ml-8">
+                      {displayThirdLevelNew(index)}
+                    </div>
                   )}
                   {checkToShowFourthLevel(index) && myLevel3Refs?.[index] && (
-                    <div className="lg:ml-8 xl:ml-8">{displayFourthLevelNew(index)}</div>
+                    <div className="lg:ml-8 xl:ml-8">
+                      {displayFourthLevelNew(index)}
+                    </div>
                   )}
                   {checkToShowFifthLevel(index) && myLevel4Refs?.[index] && (
-                    <div className="lg:ml-8 xl:ml-8">{displayFifthLevelNew(index)}</div>
+                    <div className="lg:ml-8 xl:ml-8">
+                      {displayFifthLevelNew(index)}
+                    </div>
                   )}
                 </div>
-                <div className="orange-text_currentOrder hidden xl:block lg:block px-3 py-4"
+                <div
+                  className="orange-text_currentOrder hidden xl:block lg:block px-3 py-4"
                   onClick={() => {
                     editHandler(iterator[0].Category, index);
                   }}
-                >Clear</div>
-                <div className="red-text_currentOrder hidden xl:block lg:block px-3 py-4"
+                >
+                  Clear
+                </div>
+                <div
+                  className="red-text_currentOrder hidden xl:block lg:block px-3 py-4"
                   onClick={() => {
                     deleteHandler(
                       iterator[0].Category,
@@ -1837,7 +1895,9 @@ const Step4 = (props) => {
                       index
                     );
                   }}
-                >Delete</div>
+                >
+                  Delete
+                </div>
               </div>
             </>
           );
@@ -1861,7 +1921,6 @@ const Step4 = (props) => {
             </div>
           </div>
         )}
-
 
         <div className="Button-style b1">
           <div className="flex justify-start mt-16 mr-5 xl:mt-36 lg:mt-36 mb-2 space-x-5 pl-5">
