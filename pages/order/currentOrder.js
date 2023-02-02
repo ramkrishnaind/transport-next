@@ -527,7 +527,7 @@ const CurrentOrder = () => {
                           </button>
                         </div>
                         <div>
-                          <button
+                          {/* <button
                             className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
                             type="submit"
                             onClick={(e) =>
@@ -541,7 +541,7 @@ const CurrentOrder = () => {
                               alt="Image"
                             />
                             Edit Inventory
-                          </button>
+                          </button> */}
                           <Modal
                             title="Thank you for showing interest in our Services"
                             open={isModalOpenBook}
