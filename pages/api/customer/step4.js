@@ -8,7 +8,7 @@ Joi.objectId = require("joi-objectid")(Joi);
 
 const step4_itemSchema = Joi.object({
   bookingId: Joi.objectId().required(),
-  step4: Joi.array().required(),
+  step4: Joi.object().required(),
 });
 /**
  * @param {import('next').NextApiRequest} req

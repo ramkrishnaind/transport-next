@@ -18,7 +18,7 @@ import useAuth from "../../../hooks/useAuth";
 //   faAnchor,
 // } from "@fortawesome/free-solid-svg-icons";
 // import * as fa from "@fortawesome/free-solid-svg-icons";
-import { Collapse } from "antd";
+import { Collapse, Tooltip } from "antd";
 const { Panel } = Collapse;
 
 const Step3 = (props) => {
@@ -168,9 +168,10 @@ const Step3 = (props) => {
     const newStep4 = ctx.step4State;
     debugger;
     if (newStep4) {
-      delete newStep4[item.category];
+      delete newStep4[key + "-" + item.title];
       ctx.setStep4Items({ ...newStep4 });
       localStorage.setItem("step4State", JSON.stringify(newStep4));
+      localStorage.setItem("step4StepResults", JSON.stringify(newStep4));
     }
 
     // ctx.setStep3State(newState);
@@ -207,16 +208,43 @@ const Step3 = (props) => {
         <div className="mt-5">
           <div className="flex flex-col gap-2 grid-cols-1 mt-5">
             {objectState.Furniture.map((item, index) => {
-              console.log("item", item);
+              console.log("item in step 3", item);
               return (
-                <Card
-                  image={item.image}
-                  key={index}
-                  item={item.title}
-                  itemCount={item.count}
-                  onDecrement={decrementHandler.bind(null, "Furniture", item)}
-                  onClick={clickHandler.bind(null, "Furniture", item)}
-                />
+                <>
+                  {item.title === "Cupboard" ? (
+                    <Tooltip
+                      placement="left"
+                      title={"Click on a card to add an item of that type"}
+                      defaultOpen={true}
+                    >
+                      <Card
+                        image={item.image}
+                        key={index}
+                        item={item.title}
+                        itemCount={item.count}
+                        onDecrement={decrementHandler.bind(
+                          null,
+                          "Furniture",
+                          item
+                        )}
+                        onClick={clickHandler.bind(null, "Furniture", item)}
+                      />
+                    </Tooltip>
+                  ) : (
+                    <Card
+                      image={item.image}
+                      key={index}
+                      item={item.title}
+                      itemCount={item.count}
+                      onDecrement={decrementHandler.bind(
+                        null,
+                        "Furniture",
+                        item
+                      )}
+                      onClick={clickHandler.bind(null, "Furniture", item)}
+                    />
+                  )}
+                </>
               );
             })}
           </div>
@@ -332,14 +360,14 @@ const Step3 = (props) => {
           </div>
           <div className="not-italic ">
             <span className=" font-semibold">3 Step left •</span>
-            <span> About 6 min•</span>
+            <span> About 6 min</span>
           </div>
         </div>
       </div>
 
       <div className="r1 top-36 r4 md:mt-3 lg:mt-3 xl:mt-3">
         <div className=" flex flex-col justify-between items-left p-0 gap-1.5  top-36 r4 mt-3 p-2 md:pl-0 lg:pl-0 xl:pl-0 md:mt-5 lg:mt-5 xl:mt-5  ">
-          <div className="step3_heading font-medium text-center md:text-left xl:text-left lg:text-left">
+          <div className="step3_heading font-medium text-center md:text-left xl:text-left lg:text-left p-1.5 lg:p-0 xl:p-0">
             What are the major item you want to move?
           </div>
           <div className=" text-center md:text-left xl:text-left lg:text-left padding_Heading_step2 ">
@@ -352,7 +380,7 @@ const Step3 = (props) => {
           <Collapse
             defaultActiveKey={["1"]}
             ghost
-            className="pl-4 text-2xl steps_text_color"
+            className=" text-2xl steps_text_color"
           >
             <Panel header="Furniture" key="1">
               {form1()}
@@ -362,7 +390,7 @@ const Step3 = (props) => {
           <Collapse
             defaultActiveKey={["1"]}
             ghost
-            className="pl-4 text-2xl steps_text_color"
+            className=" first:text-2xl steps_text_color"
           >
             <Panel header="Electronic" key="1">
               {form2()}
@@ -372,7 +400,7 @@ const Step3 = (props) => {
           <Collapse
             defaultActiveKey={["1"]}
             ghost
-            className="pl-4 text-2xl steps_text_color"
+            className=" text-2xl steps_text_color"
           >
             <Panel header="Vehicle" key="1">
               {form3()}
@@ -418,18 +446,41 @@ const Step3 = (props) => {
                 {objectState.Furniture.map((item, index) => {
                   console.log("item", item);
                   return (
-                    <Card
-                      image={item.image}
-                      key={index}
-                      item={item.title}
-                      itemCount={item.count}
-                      onDecrement={decrementHandler.bind(
-                        null,
-                        "Furniture",
-                        item
+                    <>
+                      {item.title === "Cupboard" ? (
+                        <Tooltip
+                          placement="left"
+                          title={"Click on a card to add an item of that type"}
+                          defaultOpen={true}
+                        >
+                          <Card
+                            image={item.image}
+                            key={index}
+                            item={item.title}
+                            itemCount={item.count}
+                            onDecrement={decrementHandler.bind(
+                              null,
+                              "Furniture",
+                              item
+                            )}
+                            onClick={clickHandler.bind(null, "Furniture", item)}
+                          />
+                        </Tooltip>
+                      ) : (
+                        <Card
+                          image={item.image}
+                          key={index}
+                          item={item.title}
+                          itemCount={item.count}
+                          onDecrement={decrementHandler.bind(
+                            null,
+                            "Furniture",
+                            item
+                          )}
+                          onClick={clickHandler.bind(null, "Furniture", item)}
+                        />
                       )}
-                      onClick={clickHandler.bind(null, "Furniture", item)}
-                    />
+                    </>
                   );
                 })}
               </div>
@@ -490,7 +541,7 @@ const Step3 = (props) => {
         <Collapse
           defaultActiveKey={["1"]}
           ghost
-          className="pl-4 text-2xl steps_text_color"
+          className=" text-2xl steps_text_color"
         >
           <Panel header="Furniture" key="1">
             {form1()}
@@ -500,7 +551,7 @@ const Step3 = (props) => {
         <Collapse
           defaultActiveKey={["1"]}
           ghost
-          className="pl-4 text-2xl steps_text_color"
+          className="  text-2xl steps_text_color"
         >
           <Panel header="Electronic" key="1">
             {form2()}
@@ -510,7 +561,7 @@ const Step3 = (props) => {
         <Collapse
           defaultActiveKey={["1"]}
           ghost
-          className="pl-4 text-2xl steps_text_color"
+          className=" text-2xl steps_text_color"
         >
           <Panel header="Vehicle" key="1">
             {form3()}

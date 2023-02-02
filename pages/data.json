@@ -1216,235 +1216,173 @@
                  {
                     "Maruti Suzuki":[
                        {
-                          "model":[
-                             "Alto",
-                             "Wagon R",
-                             "Celerio",
-                             "Ritz",
-                             "Swift",
-                             "Swift Drize",
-                             "Ertiga",
-                             "Ciaz",
-                             "S-Cross",
-                             "Omni",
-                             "800",
-                             "Baleno",
-                             "A-Star",
-                             "Zen estilo",
-                             "Esteem",
-                             "Eeco",
-                             "Versa",
-                             "Gypsy"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Hyundai":[
                        {
-                          "model":[
-                             "Eon",
-                             "i10",
-                             "Grand i10",
-                             "Xcent",
-                             "i20",
-                             "Verna",
-                             "Creta",
-                             "Elantra",
-                             "Santro",
-                             "Sonata",
-                             "Tucson",
-                             "Accent"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Honda siel":[
                        {
                           "model":[
-                             "Brio",
-                             "Amaze",
-                             "Jazz",
-                             "Mobilio",
-                             "City",
-                             "CR-V",
-                             "Accord",
-                             "Civic"
+                             "Hatchback",
+                             "Sedan",
+                             "SUV"
                           ]
                        }
                     ],
                     "Mahindra":[
                        {
-                          "model":[
-                             "Thar",
-                             "XUV500",
-                             "Xylo",
-                             "Scorpio",
-                             "e2o",
-                             "Verito Vibe",
-                             "Bolero",
-                             "Quanto",
-                             "Verito",
-                             "TUV300"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Tata Motors":[
                        {
-                          "model":[
-                             "Nano",
-                             "Indica",
-                             "Bolt",
-                             "Zest",
-                             "Indigo eCS",
-                             "Manza",
-                             "Sumo",
-                             "Safari",
-                             "XenonXT",
-                             "Aria"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Toyota":[
                        {
-                          "model":[
-                             "Etios Liva",
-                             "Etios",
-                             "Qualis",
-                             "Innova",
-                             "Corolla Altis"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Volkswagen":[
                        {
-                          "model":[
-                             "Polo",
-                             "Vento",
-                             "Jetta",
-                             "Beetle"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Ford":[
                        {
-                          "model":[
-                             "Figo",
-                             "Figo Aspire",
-                             "Classic",
-                             "EcoSport",
-                             "Fiesta"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Datsun":[
                        {
-                          "model":[
-                             "Go"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Chevrolet":[
                        {
-                          "model":[
-                             "Spark",
-                             "Beat",
-                             "Sail Hatchback",
-                             "Sail",
-                             "Enjoy",
-                             "Tavera",
-                             "Cruze",
-                             "Captiva",
-                             "Trailblazer"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Renault":[
                        {
-                          "model":[
-                             "Kwid",
-                             "Pulse",
-                             "Scala",
-                             "Lodgy",
-                             "Duster",
-                             "Fluence",
-                             "Koleos"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Audi":[
                        {
-                          "model":[
-                             "Audi A3"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Mercedes-Benz":[
                        {
-                          "model":[
-                             "A-class",
-                             "B-class",
-                             "CLA-class",
-                             "GLA-class"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Nissan":[
                        {
-                          "model":[
-                             "Micra",
-                             "Sunny",
-                             "Evalia",
-                             "Teana",
-                             "Terrano"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "BMW":[
                        {
-                          "model":[
-                             "1 Series",
-                             "3 Series",
-                             "X1"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Skoda":[
                        {
-                          "model":[
-                             "Rapid",
-                             "Octavia",
-                             "Fabia",
-                             "Yeti",
-                             "Superb"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Fait":[
                        {
-                          "model":[
-                             "Punto",
-                             "Linea",
-                             "Avventura"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
                     "Ssangyong":[
                        {
-                          "model":[
-                             "Rexton"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "Sedan",
+                           "SUV"
+                        ]
                        }
                     ],
-                    "Eicher":[
-                       {
-                          "model":[
-                             "Polaris Multix"
-                          ]
-                       }
-                    ],
+                  
                     "Isuzu":[
                        {
-                          "model":[
-                             "MU7"
-                          ]
+                        "model":[
+                           "Hatchback",
+                           "SUV"
+                        ]
                        }
                     ]
                  }

@@ -32,7 +32,7 @@ const Step7 = () => {
   console.log("context.step3State", step3State);
   console.log("context.step4State", step4State);
   console.log("context.step5State", step5State);
-  const [cft, setCft]=useState();
+  const [cft, setCft] = useState();
 
   const [isModalOpenBook, setIsModalOpenBook] = useState(false);
   const showModalBook = () => {
@@ -335,7 +335,24 @@ const Step7 = () => {
     context.step3State = { ...record.step3State };
     context.step4State = { ...record.step4State };
     context.step5State = { ...record.step5State };
+    getData(record.bookingId);
     router.push("/order/step3");
+  };
+
+  const getData = async (bookingId) => {
+    let results;
+    console.log("bookingInfo?.bookingId is ", bookingId)
+    try {
+      results = await getBookingItem(bookingId);
+      if (results?.data?.data) {
+        console.log("api response is ", results)
+        let currentBooking = results?.data?.data;
+        console.log("current booking is ", currentBooking)
+        context.step3State = currentBooking?.step3 || {};
+        context.step4State = currentBooking?.step4 || [];
+        context.step5State = currentBooking?.step5 || {};
+      }
+    } catch (error) { console.log('Error is', error) }
   };
 
   return (
@@ -462,20 +479,33 @@ const Step7 = () => {
                           <div>
                             <button
                               className=" greyOwn hover:bg-green-100 rounded-md  py-3 px-5 font-semibold text-sm"
-                              type="submit" onClick={showModalBook}
+                              type="submit"
+                              onClick={showModalBook}
                             >
                               Book Now
                             </button>
                           </div>
 
-                          <Modal title="Thank you for showing interest in our Services" open={isModalOpenBook} onOk={handleOkBook} onCancel={handleCancelBook}>
-                              <p>Please contact customer care for booking and schedule your move</p>
-                              <a href="tel:180012097225"><p>Line-1 180012097225</p></a>
-                              <a href="tel:180012006683"><p>Linw-2 180012006683</p></a>
-                          </Modal>
+                          <Modal
+                            title="Thank you for showing interest in our Services"
+                            open={isModalOpenBook}
+                            onOk={handleOkBook}
+                            onCancel={handleCancelBook}
+                          >
+                            <p>
+                              Please contact customer care for booking and
+                              schedule your move
+                            </p>
+                            <a href="tel:180012097225">
+                              <p>Line-1 180012097225</p>
+                            </a>
+                            <a href="tel:180012006683">
+                              <p>Linw-2 180012006683</p>
+                            </a>
+                          </Modal>  
 
                           <div>
-                            {/* <button
+                             <button
                               className="text-blue-500 py-2 px-4 font-semibold text-base rounded "
                               type="submit"
                               onClick={(e) => handleEditInventory(e, record)}
@@ -487,7 +517,7 @@ const Step7 = () => {
                                 alt="Image"
                               />
                               Edit Inventory
-                            </button> */}
+                            </button> 
                           </div>
                         </div>
                       </div>
@@ -513,9 +543,7 @@ const Step7 = () => {
                     <div className="p-3">
                       Your order is being evaluated by us
                     </div>
-                    <div className="p-3">
-                      CFT  {record.cft}
-                    </div>
+                    <div className="p-3">CFT {record.cft}</div>
                     {/* {cft > 0 ? <div className="p-3">CFT  {cft}</div> : ""} */}
                     <div className="p-3">
                       <Timeline>

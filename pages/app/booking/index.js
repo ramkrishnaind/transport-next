@@ -30,9 +30,9 @@ const BookingList = () => {
       key: "move_type",
     },
     {
-      title: "Est. Volume",
-      dataIndex: "est_volume",
-      key: "est_volume",
+      title: "Est. CFT",
+      dataIndex: "est_CFT",
+      key: "est_CFT",
     },
     {
       title: "Booking Id",
@@ -68,6 +68,8 @@ const BookingList = () => {
       title: "Date Recieved",
       dataIndex: "date_recieved",
       key: "date_recieved",
+      sorter: (a,b)=> moment(a.date_recieved).unix() - moment(b.date_recieved).unix(),
+      defaultSortOrder: 'descend',
     },
   ];
 
@@ -82,8 +84,8 @@ const BookingList = () => {
   const { Title } = Typography;
 
   // todo - mover planner and manager name comes from where
-  const [moverPlanner] = useState("Charmee Kothari");
-  const [moverPlannerNo] = useState("08047094008");
+  const [moverPlanner] = useState("Sumit Sagwan");
+  const [moverPlannerNo] = useState("98 73 107 276");
   const [moveManager] = useState("Not Assigned");
 
   const cancel = (e) => {
@@ -161,19 +163,19 @@ const BookingList = () => {
       res.data.message.map((row) => ({
         move_date: moment(row.listbooking.shiftingOn).format("DD MMM, YY"),
         move_type: row.listbooking.shiftingFor,
-        est_volume: row.listbooking.movingOnFloor,
-        booking_id: row.listbooking.booking_id,
+        est_CFT: row.listbooking.cft + " CFT",
+        booking_id: (
+          <a href="#" onClick={() => showDrawer(row)}>
+            {" "}
+            {row.listbooking.booking_id}
+          </a>
+        ),
         cust_name: row.fullName,
         move_from: row.listbooking.shiftingFrom,
         move_to: row.listbooking.shiftingTo,
-        mobile: (
-          <a href="#" onClick={() => showDrawer(row)}>
-            {" "}
-            {row.mobile}
-          </a>
-        ),
+        mobile: row.mobile,
         lead_source: row.email,
-        date_recieved: moment(row.createdAt).format("DD MMM, YY"),
+        date_recieved: moment(row.listbooking.createdAt).format("DD MMM, YY H:m:s"),
       }))
     );
   };
@@ -181,19 +183,19 @@ const BookingList = () => {
   return (
     <>
       <Row>
-        <Col span={19}>
+        <Col span={21}>
           <div className="grid">
             <h3 title="page-title">Booking Management</h3>
             <small>manage booking here</small>
           </div>
         </Col>
-        <Col span={5}>
+        <Col span={3}>
           <Button
             size="large"
             shape="round"
             onClick={() => router.push("booking/createbooking")}
           >
-            <UserAddOutlined /> Create Booking
+            <UserAddOutlined /> Create New
           </Button>
         </Col>
       </Row>
@@ -202,7 +204,7 @@ const BookingList = () => {
         columns={columns}
         dataSource={data}
         pagination={{ pageSize: 10 }}
-        scroll={{ x: 1100, y: 400 }}
+        scroll={{ x: 1090, y: 400 }}
       />
 
       <Drawer
@@ -211,7 +213,7 @@ const BookingList = () => {
         closable={true}
         width="1300"
         onClose={onClose}
-        visible={open}
+        open={open}
       >
         <CustomerOrderDetail />
       </Drawer>

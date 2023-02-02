@@ -331,7 +331,7 @@ const Step2 = () => {
                   Back
                 </Button> */}
                 <Button
-                  className=" px-5 py-4  buttonMobile2 rounded-m "
+                  className=" py-4 button_1 buttonMobile rounded-m"
                   type="submit"
                   onClick={handleSubmit}
                   loading={loading}

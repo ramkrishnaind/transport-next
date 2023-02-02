@@ -23,7 +23,7 @@ const storageType = ["With storage", "Without storage"];
 
 //2. Tables
 const table = ["Tables"];
-const tableModel = ["Coffee/Centre", "Dinning Table", "Side Table", "Plastic Table", "Computer/Office Table", "Dressing Table", "Iron Board"];
+const tableModel = ["Coffee/Centre", "Dinning Table", "Side Table", "Plastic Table", "Computer Table", "Dressing Table", "Office Table", "Iron Board"];
 const coffeeTableType = ["Glass top", "wododen top"];
 const dinningTableType =["2 seaters", "3 seaters", "4 seaters", "5 seaters", "6 seaters", "7 or more seaters"];
 const dinningTableTopType =["Wooden top", "Metal top", "Glass top"];
@@ -354,7 +354,7 @@ const fiat = [
 
 const skoda = [
   "Rapid",
-  "Octavia",
+  "car",
   "Fabia",
   "Yeti",
   "Superb"

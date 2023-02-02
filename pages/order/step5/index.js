@@ -24,7 +24,7 @@ const Step5 = () => {
   const { step3State } = ctx;
   const { step4State, setStep4State } = ctx;
   const { step5State } = ctx;
-  // console.log("customerDetails -- ", customerDetails);
+  console.log("customerDetails -- ", customerDetails);
   // console.log("context.booking -- ", booking);
   // console.log("context.step1State -- ", step1State);
   // console.log("context.step2State -- ", step2State);
@@ -152,7 +152,7 @@ const Step5 = () => {
     newState[key] = newArray;
     setCftTotal(sumOfCFT);
     setObjectState(newState);
-    // ctx.setStep5State(newState);
+    ctx.setStep5State(newState);
   };
   const decrementHandler = (key, item) => {
     const newState = { ...objectState };
@@ -262,34 +262,8 @@ const Step5 = () => {
   };
   const handleOk = () => {
     setIsBookingConfirmed(false);
-    // router.push("/order/currentOrder");
-    router.push("/order/step7");
-  };
-  const bookingConformation = () => {
-    Modal.success({
-      content: (
-        <div className="flex items-center justify-center flex-col  ">
-          <div>
-            <img
-              className=""
-              src="/images/check_circle.jpg"
-              itemProp="image"
-              alt="Image"
-            />
-          </div>
-
-          <div className=" greencolor text-3xl text-center mt-12 font-bold ">
-            Well done
-          </div>
-
-          <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">
-            Virtual Survey 100% complete
-          </div>
-
-          {/* <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div> */}
-        </div>
-      ),
-    });
+    router.push("/order/currentOrder");
+    // router.push("/order/step7");
   };
 
   return (
@@ -307,15 +281,16 @@ const Step5 = () => {
               />
             </div>
 
-            <div className=" greencolor text-3xl text-center mt-12 font-bold ">
+            <div className=" greencolor text-3xl text-center mt-4 font-bold ">
               Well done
             </div>
 
-            <div className="steps_detail_text_color text-center text-base mt-2 font-semibold">
+            <div className="steps_detail_text_color text-center text-base mt-2 pb-8 font-semibold">
               Virtual Survey 100% complete
             </div>
-            <br />
-            <Button onClick={handleOk}>Ok, i got it</Button>
+
+            <Button onClick={handleOk} className="">Ok, i got it</Button>
+
             {/* <div className="text-center steps_detail_text_color mt-6">for a 2 BHK, we are offering 25 cartoon boxes as complimentary which are required for packing of clothes, kitchen item and other miscellaneous items.</div> */}
           </div>
         </Modal>

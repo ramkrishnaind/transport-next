@@ -3,5 +3,8 @@ export const cartoonModel = {
     "2 BHK" : 25,
     "3 BHK" : 40,
     "4 BHK" : 60,
-    "Penta House/Villa" : 85
+    "Duplex" : 75,
+    "Villa" : 85,
+    "Vehicle" : 0,
+    "Few Items" : 0
 };

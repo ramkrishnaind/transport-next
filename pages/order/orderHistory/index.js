@@ -305,6 +305,21 @@ const Step7 = () => {
         router.push("/order/step3");
     };
     
+    const getData = async (bookingId) => {
+        let results;
+        console.log("bookingInfo?.bookingId is ", bookingId)
+        try {
+          results = await getBookingItem(bookingId);
+          if (results?.data?.data) {
+            console.log("api response is ", results)
+            let currentBooking = results?.data?.data;
+            console.log("current booking is ", currentBooking)
+            context.step3State = currentBooking?.step3 || {};
+            context.step4State = currentBooking?.step4 || [];
+            context.step5State = currentBooking?.step5 || {};
+          }
+        } catch (error) { console.log('Error is', error) }
+      };
 
     return (
         <>
@@ -497,12 +512,12 @@ const Step7 = () => {
                                 <Timeline.Item>
                                     <div className="py-1">From</div>
                                     <div className="py-1 font-semibold">Delhi Cantt Railway Station, jail Road, Nagal village, Delhi Cantonment, New Delhi</div>
-                                    <div className="py-1 greencolor">Lift Avilabe</div>
+                                    <div className="py-1 greencolor">Lift Available</div>
                                 </Timeline.Item>
                                 <Timeline.Item>
                                     <div className="py-1">To</div>
                                     <div className="py-1 font-semibold">Sonipat, Haryana, India</div>
-                                    <div className="py-1 greencolor">Lift Avilabe</div>
+                                    <div className="py-1 greencolor">Lift Available</div>
                                 </Timeline.Item>
                             </Timeline>
                         </div>
