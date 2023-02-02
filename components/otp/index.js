@@ -48,6 +48,7 @@ const Otp = () => {
       email: customerData.email,
       mobile: Number(customerData.mobile),
       otp: Number(tpin),
+      fullName:customerData.fullName,
     });
   };
 

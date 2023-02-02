@@ -67,8 +67,7 @@ async function createCustomer(req, res) {
       SendEmail(
         customerData.email,
         "Customer Login OTP",
-        customerData.otp +
-          " is the TPIN for your White Glove transaction Please use this pin to complete your transaction"
+        "WG-"+customerData.otp +" is the OTP to login into White Glove Virtual Survey Engine. Please use this OTP to proceed."
       );
       return res.json({
         status: true,
@@ -83,8 +82,7 @@ async function createCustomer(req, res) {
       SendEmail(
         customerData.email,
         "New Customer Login OTP",
-        customerData.otp +
-          " is the TPIN for your White Glove transaction. Please use this PIN to complete your transaction."
+        "WG-"+customerData.otp +" is the OTP to login into White Glove Virtual Survey Engine. Please use this OTP to proceed."
       );
       return res.json({
         status: true,
