@@ -40,8 +40,8 @@ const QuotationPDF = () => {
   const [afterMarginTotalCharges, setAfterMarginTotalCharges] = useState("");
   const [estimatedDeliveryTime, setEstimatedDeliveryTime] = useState("");
   const [customerCarCharge, setCustomerCarCharge] = useState(0);
-  const [customerCFT, setCustomerCFT] = useState(0);
-  const [typeOTransport, setTypeOTransport] = useState(0);
+  const [customerCFT, setCustomerCFT] = useState("");
+  const [typeOTransport, setTypeOTransport] = useState("");
 
   const saveFormData = async (v) => {
     try {
@@ -87,7 +87,7 @@ const QuotationPDF = () => {
     setAfterMarginTotalCharges(quotation.afterMarginTotalCharges);
     setEstimatedDeliveryTime(quotation.estimatedDeliveryTime);
     setCustomerCarCharge(quotation.customerCarCharge);
-    setCustomerCFT(quotation.customerCFT);
+    setCustomerCFT(quotation.customerCFT); 
     setTypeOTransport(quotation.typeOTransport);
   };
 
@@ -476,14 +476,14 @@ const QuotationPDF = () => {
                   4-6 days<span className="_ _5"></span>)
                 </span>
               </div> */}
-               {customerCarCharge ? (
+               {customerCarCharge > 0 ? (
                 <div className="t m0 xa h5 y41 ff2 fs3 fc5 sc0 ls2 ws2">
                   Door to Door Deliv<span className="_ _3"></span>ery Cost for
                   used car<span className="_ _8"> </span>{((parseInt(customerCarCharge) * 30) / 100) + parseInt(customerCarCharge)}
                   <span className="_ _5"></span> ({estimatedDeliveryTime} day
                   <span className="_ _3"></span>s<span className="_ _3"></span>)
                 </div>
-              ) : customerCarCharge = 0
+              ) : null
               }
               {/* <div className="t m0 xa h5 y42 ff2 fs3 fc5 sc0 ls2 ws2">
                 Additional Specialist service<span className="_ _6"> </span>Not

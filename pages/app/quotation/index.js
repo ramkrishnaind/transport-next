@@ -36,6 +36,9 @@ const App = () => {
   const { step3State } = context;
   const { customerDetails } = context;
 
+  const [customerCFT, setCustomerCFT] = useState(0);
+  const [customerVehicle, setCustomerVehicle] = useState("");
+
   let addedTotalCharge = 0;
   let percentage = 0;
   let percentageFinal = 0;
@@ -113,6 +116,8 @@ const App = () => {
   }, []);
 
   const getData = async () => {
+    setCustomerCFT(customerDetails.cft);
+    setCustomerVehicle(context.step3State.Vehicle[1].count);
     let userName = localStorage.getItem("userName");
     form.setFieldsValue({
       quotationUserId: userName,
@@ -131,6 +136,10 @@ const App = () => {
     }
     if (values.anyOtherCharges === "no") {
       values.anyOtherCharges_yes = "00";
+    }
+
+    if (values.customerCarCharge === undefined) {
+      values.customerCarCharge = "00";
     }
 
     const formData = {
@@ -165,7 +174,7 @@ const App = () => {
       customerMobileNo: values.customerMobileNo,
       customerEmailId: values.customerEmailId,
       customerCarCharge: values.customerCarCharge,
-      customerCFT:customerDetails.cft,
+      customerCFT: customerDetails.cft,
       customerId: values.customer_id,
       typeOTransport: values.typeOfTrans,
       totalTConveyance: values.totalTransConveyance,
@@ -230,7 +239,7 @@ const App = () => {
           <h1>Customer Information</h1>
           <center>
             <h1>
-              <b>Customer Approximate {customerDetails.cft} CFT</b>
+              <b>Customer Approximate {customerCFT} CFT</b>
             </h1>
           </center>
           <Divider />
@@ -249,7 +258,7 @@ const App = () => {
                   </Form.Item>
                 </div>
 
-                {context.step3State.Vehicle[1].count ? (
+                {customerVehicle ? (
                   <div className="basis-1/2">
                      <Form.Item name="customerCarCharge" label="Customer Car Charge"
                       rules={[
