@@ -39,6 +39,9 @@ const QuotationPDF = () => {
 
   const [afterMarginTotalCharges, setAfterMarginTotalCharges] = useState("");
   const [estimatedDeliveryTime, setEstimatedDeliveryTime] = useState("");
+  const [customerCarCharge, setCustomerCarCharge] = useState(0);
+  const [customerCFT, setCustomerCFT] = useState(0);
+  const [typeOTransport, setTypeOTransport] = useState(0);
 
   const saveFormData = async (v) => {
     try {
@@ -83,6 +86,9 @@ const QuotationPDF = () => {
 
     setAfterMarginTotalCharges(quotation.afterMarginTotalCharges);
     setEstimatedDeliveryTime(quotation.estimatedDeliveryTime);
+    setCustomerCarCharge(quotation.customerCarCharge);
+    setCustomerCFT(quotation.customerCFT);
+    setTypeOTransport(quotation.typeOTransport);
   };
 
   return (
@@ -322,13 +328,13 @@ const QuotationPDF = () => {
                 <span className="_ _5"></span>:
               </div>
               <div className="t m0 x5 h9 y29 ff2 fs7 fc2 sc0 ls2 ws6">
-                827<span className="_ _4"></span>.5
+                {customerCFT}<span className="_ _4"></span>
               </div>
               <div className="t m0 x6 h8 y28 ff4 fs6 fc3 sc0 ls2 ws2">
                 Estimated deliv<span className="_ _3"></span>ery time:
               </div>
               <div className="t m0 x6 h9 y29 ff2 fs7 fc2 sc0 ls2 ws2">
-                As mentioned below days
+                {estimatedDeliveryTime} days
               </div>
               <div className="t m0 x4 hb y2a ff4 fs3 fc3 sc0 ls2 ws2">
                 Order ID:{" "}
@@ -440,10 +446,12 @@ const QuotationPDF = () => {
                 used household{" "}
               </div>
               <div className="t m0 xa hf y3e ff2 fs3 fc5 sc0 ls2 ws2">
-                goods and bik<span className="_ _3"></span>e (P
+                goods and bik<span className="_ _3"></span>e ({typeOTransport})
+                {/* (P
                 <span className="_ _4"></span>ART L
                 <span className="_ _5"></span>OAD
-                <span className="_ _5"></span>)<span className="_ _6"> </span>
+                <span className="_ _5"></span>) */}
+                <span className="_ _6"> </span>
                 <span className="v1">
                   <span className="_ _4"></span>
                   {afterMarginTotalCharges} <span className="_ _5"></span>
@@ -468,12 +476,15 @@ const QuotationPDF = () => {
                   4-6 days<span className="_ _5"></span>)
                 </span>
               </div> */}
-              <div className="t m0 xa h5 y41 ff2 fs3 fc5 sc0 ls2 ws2">
-                Door to Door Deliv<span className="_ _3"></span>ery Cost for
-                used car<span className="_ _8"> </span>29
-                <span className="_ _5"></span>,500 ( 13-14 day
-                <span className="_ _3"></span>s<span className="_ _3"></span>)
-              </div>
+               {customerCarCharge ? (
+                <div className="t m0 xa h5 y41 ff2 fs3 fc5 sc0 ls2 ws2">
+                  Door to Door Deliv<span className="_ _3"></span>ery Cost for
+                  used car<span className="_ _8"> </span>{((parseInt(customerCarCharge) * 30) / 100) + parseInt(customerCarCharge)}
+                  <span className="_ _5"></span> ({estimatedDeliveryTime} day
+                  <span className="_ _3"></span>s<span className="_ _3"></span>)
+                </div>
+              ) : customerCarCharge = 0
+              }
               {/* <div className="t m0 xa h5 y42 ff2 fs3 fc5 sc0 ls2 ws2">
                 Additional Specialist service<span className="_ _6"> </span>Not
                 included
@@ -517,8 +528,8 @@ const QuotationPDF = () => {
                 <span className="_ _5"></span>-to
                 <span className="_ _1"></span>-Ex<span className="_ _5"></span>
                 ceed
-                <span className="_ _c"> </span>29<span className="_ _5"></span>,
-                <span className="_ _1"></span>400.<span className="_ _5"></span>
+                <span className="_ _c"> </span>{parseInt(afterMarginTotalCharges) +((parseInt(customerCarCharge) * 30) / 100) + parseInt(customerCarCharge)}<span className="_ _5"></span>
+                <span className="_ _1"></span>.<span className="_ _5"></span>
                 00
               </div>
             </div>

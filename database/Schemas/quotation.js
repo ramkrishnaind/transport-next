@@ -16,6 +16,9 @@ const quotationSchema = new Schema(
     customerEmailId: {
       type: String,
     },
+    customerCarCharge: {
+      type: String,
+    },
     typeOTransport: {
       type: String,
     },

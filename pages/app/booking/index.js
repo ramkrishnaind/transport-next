@@ -150,6 +150,7 @@ const BookingList = () => {
       fullName: bookingDet.data.customerdata.fullName,
       email: bookingDet.data.customerdata.email,
       mobile: bookingDet.data.customerdata.mobile,
+      cft:bookingDet.data.bookingdata.cft,
     };
     context.setCustomerDetails(customerData);
     context.setStep3State(bookingDet.data.bookingdata.step3);

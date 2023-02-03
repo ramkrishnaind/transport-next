@@ -138,6 +138,7 @@ const App = () => {
       customerMobileNo: values.customerMobileNo,
       customerEmailId: values.customerEmailId,
       customerId: values.customer_id,
+      customerCarCharge: values.customerCarCharge,
       typeOTransport: values.typeOfTrans,
       totalTConveyance: values.totalTransConveyance,
       estimatedDeliveryTime: values.estimatedDeliveryTime,
@@ -163,6 +164,8 @@ const App = () => {
       customerfullName: values.customerfullName,
       customerMobileNo: values.customerMobileNo,
       customerEmailId: values.customerEmailId,
+      customerCarCharge: values.customerCarCharge,
+      customerCFT:customerDetails.cft,
       customerId: values.customer_id,
       typeOTransport: values.typeOfTrans,
       totalTConveyance: values.totalTransConveyance,
@@ -227,7 +230,7 @@ const App = () => {
           <h1>Customer Information</h1>
           <center>
             <h1>
-              <b>Customer Total 400 CFT</b>
+              <b>Customer Approximate {customerDetails.cft} CFT</b>
             </h1>
           </center>
           <Divider />
@@ -245,6 +248,21 @@ const App = () => {
                     <Input readOnly={true} />
                   </Form.Item>
                 </div>
+
+                {context.step3State.Vehicle[1].count ? (
+                  <div className="basis-1/2">
+                     <Form.Item name="customerCarCharge" label="Customer Car Charge"
+                      rules={[
+                        {
+                          required: true,
+                        },
+                      ]}>
+                      <Input/>
+                      </Form.Item>
+                      </div>
+                  ) : null
+                }
+                
               </div>
               <div className="flex flex-row">
                 <div className="basis-1/2">
@@ -275,9 +293,9 @@ const App = () => {
                     ]}
                   >
                     <Select placeholder="Select Transport Type">
-                      <Option value="dedicated">Dedicated</Option>
-                      <Option value="sharing">Sharing</Option>
-                      <Option value="international">International</Option>
+                      <Option value="Dedicated">Dedicated</Option>
+                      <Option value="Sharing">Sharing</Option>
+                      <Option value="International">International</Option>
                     </Select>
                   </Form.Item>
                 </div>

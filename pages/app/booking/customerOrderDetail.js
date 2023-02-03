@@ -18,6 +18,7 @@ const CustomerOrderDetail = () => {
   const [toLift, setToLift] = useState("");
   const [currentFloor, setCurrentFloor] = useState("");
   const [movingOnFloor, setmovingOnFloor] = useState("");
+  const [CFT, setCFT] = useState("");
   const context = useContext(TransportContext);
   const { step1State } = context;
   const { step2State } = context;
@@ -83,6 +84,7 @@ const CustomerOrderDetail = () => {
     setName(customerDetails["fullName"]);
     setMobileNo(customerDetails["mobile"]);
     setEmailId(customerDetails["email"]);
+    setCFT(customerDetails["cft"])
   }, [step1State, step2State, customerDetails]);
 
   const getCopiedObject = useCallback((objFound) => {
@@ -259,11 +261,11 @@ const CustomerOrderDetail = () => {
             <div className="flex- 1 w-1/2  ">{toLift}</div>
           </div>
           <div className="flex ml-10 mr-10 mt-5 space-x-2 font-medium text-md">
-            <div className="flex- 1 w-1/2">Preferred Choice</div>
+            <div className="flex- 1 w-1/2">Approximate CFT</div>
             <div className="flex- 1 w-1/2 ">What to Move</div>
           </div>
           <div className="flex ml-10 mr-10 mt-1 space-x-2">
-            <div className="flex- 1 w-1/2">{}</div>
+            <div className="flex- 1 w-1/2">{CFT}</div>
             <div className="flex- 1 w-1/2  ">{moveType}</div>
           </div>
 
