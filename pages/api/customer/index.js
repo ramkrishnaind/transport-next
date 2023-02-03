@@ -67,9 +67,8 @@ async function createCustomer(req, res) {
       );
       SendEmail(
         customerData.email,
-        "New Customer Login OTP",
-        "WG-" + customerData.otp +
-        " is the OTP to login into White Glove Virtual Survey Engine. Please use this OTP to proceed."
+        "Customer Login OTP",
+        "WG-"+customerData.otp +" is the OTP to login into White Glove Virtual Survey Engine. Please use this OTP to proceed."
       );
       console.log("New Customer Login OTP");
       sendOTP(
@@ -89,8 +88,7 @@ async function createCustomer(req, res) {
       SendEmail(
         customerData.email,
         "New Customer Login OTP",
-        "WG-" + customerData.otp +
-        " is the OTP to login into White Glove Virtual Survey Engine. Please use this OTP to proceed."
+        "WG-"+customerData.otp +" is the OTP to login into White Glove Virtual Survey Engine. Please use this OTP to proceed."
       );
       console.log("New Customer Login OTP");
       sendOTP(

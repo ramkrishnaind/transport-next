@@ -3,6 +3,7 @@ import dbConnect from "../../../database/lib/dbConnect";
 import CustomerDB from "../../../database/Schemas/customer";
 import withProtect from "../../../middlewares/withProtect";
 import createToken from "../../../helperFunction/JSON_WebToken/authverification";
+import SendEmail from "../../../helperFunction/nodeMail/sendEmail";
 const _ = require("lodash");
 const Joi = require("joi");
 
@@ -10,6 +11,7 @@ const customersignUpSchema = Joi.object({
   otp: Joi.number().required(),
   email: Joi.string(),
   mobile: Joi.number().required(),
+  fullName:Joi.string(),
 });
 
 /**
@@ -36,7 +38,7 @@ async function verifyOtp(req, res) {
     }
 
     // pick data from req.body
-    let customerData = _.pick(req.body, ["otp", "email", "mobile"]);
+    let customerData = _.pick(req.body, ["otp", "email", "mobile","fullName"]);
 
     let findData = await CustomerDB.findOne({
       $or: [{ mobile: customerData.mobile }, { email: customerData.email }],
@@ -56,6 +58,36 @@ async function verifyOtp(req, res) {
             { $set: verifyData }
           );
         }
+
+        SendEmail(
+          "leads.whiteglove@gmail.com",
+          "Customer Lead",
+          "<table width='50%' style='font-variant-numeric:inherit;font-variant-east-asian:inherit;font-stretch:inherit;font-size:14px;line-height:inherit;font-family:Roboto,sans-serif;border-collapse:collapse;color:rgb(44,54,58)'>"+
+          "<tbody style='box-sizing:border-box'>"+
+          "<tr style='box-sizing:border-box'>"+
+          "<td width='30%' style='box-sizing:border-box'>"+
+          "<span style='box-sizing:border-box;font-weight:bolder'>Name:</span>"+
+          "</td>"+
+          "<td style='box-sizing:border-box'>"+(customerData.fullName)+"</td>"+
+          "</tr>"+
+          "<tr style='box-sizing:border-box'>"+
+          "<td style='box-sizing:border-box'>"+
+          "<span style='box-sizing:border-box;font-weight:bolder'>Mobile Number:</span>"+
+          "</td>"+
+          "<td style='box-sizing:border-box'>"+(customerData.mobile)+"</td>"+
+          "</tr>"+
+          "<tr style='box-sizing:border-box'>"+
+          "<td style='box-sizing:border-box'>"+
+          "<span style='box-sizing:border-box;font-weight:bolder'>Email:</span>"+
+          "</td>"+
+          "<td style='box-sizing:border-box'>"+
+          "<a href='mailto:pkmishra.pkm@gmail.com' target='_blank'>"+(customerData.email)+"</a>"+
+          "</td>"+
+          "</tr>"+
+          "</tbody>"+
+          "</table>"
+        );
+
         createToken(findData._id);
         return res.status(200).send({
           status: true,

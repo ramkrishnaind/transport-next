@@ -152,7 +152,7 @@ const Step5 = () => {
     newState[key] = newArray;
     setCftTotal(sumOfCFT);
     setObjectState(newState);
-    // ctx.setStep5State(newState);
+    ctx.setStep5State(newState);
   };
   const decrementHandler = (key, item) => {
     const newState = { ...objectState };

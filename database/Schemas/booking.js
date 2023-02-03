@@ -97,7 +97,7 @@ const bookingSchema = new Schema(
       type: Object,
     },
     step4: {
-      type: Array,
+      type: Object,
     },
     step5: {
       type: Object,
