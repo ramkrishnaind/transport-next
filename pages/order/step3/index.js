@@ -152,6 +152,8 @@ const Step3 = (props) => {
     // ctx.setStep3State(newState);
   };
   const decrementHandler = (key, item) => {
+    debugger;
+    let step4Results = localStorage.getItem("step4StepResults");
     const newState = { ...objectState };
     const newArray = [];
     // debugger;
@@ -165,7 +167,9 @@ const Step3 = (props) => {
     console.log("called");
     newState[key] = newArray;
     setObjectState(newState);
-    const newStep4 = ctx.step4State;
+    if (!step4Results) return;
+
+    const newStep4 = JSON.parse(step4Results);
     debugger;
     if (newStep4) {
       delete newStep4[key + "-" + item.title];
